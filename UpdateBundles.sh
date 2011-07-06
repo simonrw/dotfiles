@@ -1,6 +1,5 @@
 #!/bin/bash
 
-cd ${HOME}/.vim
 
 # first get the most up to date version of this repo
 git pull
