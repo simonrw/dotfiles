@@ -10,6 +10,3 @@
 [submodule "bundle/pydoc"]
 	path = bundle/pydoc
 	url = http://github.com/fs111/pydoc.vim.git
-[submodule "nerdcommenter"]
-	path = nerdcommenter
-	url = http://github.com/scrooloose/nerdcommenter.git
