@@ -13,3 +13,6 @@
 [submodule "bundle/supertab"]
 	path = bundle/supertab
 	url = http://github.com/ervandew/supertab.git
+[submodule "nerdcommenter"]
+	path = nerdcommenter
+	url = http://github.com/scrooloose/nerdcommenter.git
