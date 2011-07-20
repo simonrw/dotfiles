@@ -19,6 +19,3 @@
 [submodule "bundle/omnicppcomplete"]
 	path = bundle/omnicppcomplete
 	url = https://github.com/vim-scripts/OmniCppComplete.git
-[submodule "bundle/vim-latex"]
-	path = bundle/vim-latex
-	url = phrfbf@callahan.astro.warwick.ac.uk:gitrepos/vim-latex.git
