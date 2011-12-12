@@ -75,3 +75,6 @@ set mouse=a
 "set grepprg=grep\ -nH\ $*
 "let g:Tex_CompileRule_dvi='latex -interaction=nonstopmode --src-specials $*'
 "let g:tex_flavor='latex'
+
+" Auto-clean fugitive buffers
+autocmd BufReadPost fugitive://* set bufhidden=delete
