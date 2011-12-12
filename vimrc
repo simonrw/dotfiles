@@ -82,3 +82,8 @@ autocmd BufReadPost fugitive://* set bufhidden=delete
 " Set status line
 set statusline=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P
 
+" Remap the move-window keys
+map <C-h> <C-w>h
+map <C-j> <C-w>j
+map <C-k> <C-w>k
+map <C-l> <C-w>l
