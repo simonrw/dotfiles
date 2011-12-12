@@ -7,9 +7,6 @@
 [submodule "bundle/a.vim"]
 	path = bundle/a.vim
 	url = git://github.com/vim-scripts/a.vim.git
-[submodule "bundle/snipmate"]
-	path = bundle/snipmate
-	url = https://github.com/msanders/snipmate.vim.git
 [submodule "bundle/fugitive"]
 	path = bundle/fugitive
 	url = https://github.com/tpope/vim-fugitive.git
