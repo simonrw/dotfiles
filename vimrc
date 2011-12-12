@@ -46,9 +46,6 @@ set number
 " always have status line on
 set laststatus=2
 
-" turn off unneeded gui crap
-set guioptions-=T
-set guioptions-=m
 
 " Set colour scheme
 if &t_Co >= 256 || has("gui_running")
@@ -65,7 +62,7 @@ endif
 set backspace=indent,eol,start
 
 " pyclewn port
-let g:pyclewn_connection="localhost:80801:changeme"
+"let g:pyclewn_connection="localhost:80801:changeme"
 
 " if mac use the monaco font
 if has("macunix")
@@ -75,6 +72,6 @@ endif
 set mouse=a
 
 " Vim latex commands
-set grepprg=grep\ -nH\ $*
-let g:Tex_CompileRule_dvi='latex -interaction=nonstopmode --src-specials $*'
-let g:tex_flavor='latex'
+"set grepprg=grep\ -nH\ $*
+"let g:Tex_CompileRule_dvi='latex -interaction=nonstopmode --src-specials $*'
+"let g:tex_flavor='latex'
