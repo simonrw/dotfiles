@@ -25,3 +25,6 @@
 [submodule "bundle/unimpaired"]
 	path = bundle/unimpaired
 	url = https://github.com/tpope/vim-unimpaired.git
+[submodule "bundle/tslime"]
+	path = bundle/tslime
+	url = https://github.com/jgdavey/tslime.vim.git
