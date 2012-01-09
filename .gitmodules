@@ -9,16 +9,16 @@
 	url = git://github.com/vim-scripts/a.vim.git
 [submodule "bundle/fugitive"]
 	path = bundle/fugitive
-	url = https://github.com/tpope/vim-fugitive.git
+	url = git://github.com/tpope/vim-fugitive.git
 [submodule "bundle/addon-mw-utils"]
 	path = bundle/addon-mw-utils
-	url = https://github.com/MarcWeber/vim-addon-mw-utils.git
+	url = git://github.com/MarcWeber/vim-addon-mw-utils.git
 [submodule "bundle/tlib"]
 	path = bundle/tlib
-	url = https://github.com/tomtom/tlib_vim.git
+	url = git://github.com/tomtom/tlib_vim.git
 [submodule "bundle/snipmate"]
 	path = bundle/snipmate
-	url = https://github.com/garbas/vim-snipmate.git
+	url = git://github.com/garbas/vim-snipmate.git
 [submodule "bundle/snippets"]
 	path = bundle/snippets
 	url = git@github.com:mindriot101/snipmate-snippets.git
