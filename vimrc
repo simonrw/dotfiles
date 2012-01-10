@@ -7,8 +7,8 @@ call pathogen#helptags()
 set nocompatible
 
 " set up some nice tab defaults
-set tabstop=2
-set shiftwidth=2
+set tabstop=4
+set shiftwidth=4
 set smarttab
 set expandtab
 
