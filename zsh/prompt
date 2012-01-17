@@ -1,0 +1,13 @@
+# colours
+autoload -U colors
+colors
+setopt prompt_subst
+
+# print smiley for last command status
+local smiley="%(?,%{$fg[green]%}☺%{$reset_color%},%{$fg[red]%}☹%{$reset_color%})"
+
+# Control promt
+PROMPT='
+%~
+${smiley}  %{$reset_color%}'
+

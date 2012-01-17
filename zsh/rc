@@ -1,0 +1,3 @@
+. ~/.zsh/prompt
+. ~/.zsh/aliases
+. ~/.zsh/env

@@ -1,0 +1,1 @@
+export PATH=${HOME}/build/bin:${HOME}/scripts:${PATH}
