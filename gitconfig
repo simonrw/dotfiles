@@ -1,3 +1,25 @@
 [user]
-	name = Simon Walker
-	email = s.r.walker101@googlemail.com
+    name = Simon Walker
+    email = s.r.walker101@googlemail.com
+[alias]
+    st = status -sb
+    unstage = reset HEAD
+    update = commit -am
+    co = checkout
+    oneline = log --pretty=oneline
+[color]
+    ui = auto
+[core]
+    pager = less -FXRS
+    excludesfile = ~/.global_ignore
+    autocrlf = false
+    safecrlf = true
+    whitespace = fix
+    editor = vim
+    mergeoptions = --no-ff
+[branch "master"]
+    merge = master
+    remote = origin
+[github]
+    user = mindriot101
+    token = 7e549ed4dddc6ecc0bab22bcac87adac
