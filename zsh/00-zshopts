@@ -1,0 +1,8 @@
+typeset -ga preexec_functions
+typeset -ga precmd_functions
+typeset -ga chpwd_functions
+setopt prompt_subst
+
+# Set up autocompletion
+autoload -U compinit
+compinit

@@ -11,3 +11,8 @@ PROMPT='
 %~
 ${smiley}  %{$reset_color%}'
 
+
+# Get the git branch info 
+RPROMPT='%{$fg[red]%}$(get_git_prompt_info)%{$reset_color%}'
+
+

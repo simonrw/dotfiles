@@ -2,7 +2,7 @@
     name = Simon Walker
     email = s.r.walker101@googlemail.com
 [alias]
-    st = status -sb
+    st = status -s
     unstage = reset HEAD
     update = commit -am
     co = checkout
