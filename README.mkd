@@ -1,0 +1,8 @@
+# Simon's dotfiles
+
+This repository contains the dot files for my projects.
+
+Included are:
+
+* zsh configurations
+...
