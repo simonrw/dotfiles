@@ -1,0 +1,4 @@
+if [[ `uname` == "Darwin" ]]; then
+    LD_LIBRARY_PATH=/opt/local/lib:${LD_LIBRARY_PATH}
+    export PATH=/sw/bin:/opt/local/bin:${PATH}
+fi
