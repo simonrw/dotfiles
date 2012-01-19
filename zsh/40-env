@@ -1,2 +1,3 @@
 export LD_LIBRARY_PATH=${HOME}/build/lib
 export PATH=${HOME}/build/bin:${HOME}/scripts:${PATH}
+export PYTHONPATH=${HOME}/build/Python/SRW:${HOME}/build/Python/modules:$PYTHONPATH

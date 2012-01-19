@@ -1,8 +1,17 @@
+# Lines configured by zsh-newuser-install
+HISTFILE=~/.histfile
+HISTSIZE=1000
+SAVEHIST=1000
+setopt appendhistory
+unsetopt autocd beep
+bindkey -v
+
+
 typeset -ga preexec_functions
 typeset -ga precmd_functions
 typeset -ga chpwd_functions
 setopt prompt_subst
 
 # Set up autocompletion
-autoload -U compinit
+autoload -Uz compinit
 compinit

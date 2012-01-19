@@ -1,4 +1,5 @@
 if [[ `uname` == "Linux" ]]; then
     LD_PRELOAD=
     LD_LIBRARY_PATH=${HOME}/build/gcc/lib:${LD_LIBRARY_PATH}
+    PATH=${HOME}/build/gcc/bin:${HOME}/build/clang/bin:${PATH}
 fi
