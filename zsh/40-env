@@ -1,3 +1,2 @@
-export LD_PRELOAD=
-export LD_LIBRARY_PATH=${HOME}/build/gcc/lib64:${HOME}/build/lib
-export PATH=${HOME}/build/bin:${HOME}/scripts:/opt/local/bin:${PATH}
+export LD_LIBRARY_PATH=${HOME}/build/lib
+export PATH=${HOME}/build/bin:${HOME}/scripts:${PATH}
