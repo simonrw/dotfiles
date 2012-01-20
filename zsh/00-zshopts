@@ -15,3 +15,5 @@ setopt prompt_subst
 # Set up autocompletion
 autoload -Uz compinit
 compinit
+
+bindkey -M vicmd '?' history-incremental-search-backward
