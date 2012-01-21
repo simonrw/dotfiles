@@ -4,7 +4,7 @@
 #SAVEHIST=1000
 #setopt appendhistory
 unsetopt autocd beep
-bindkey -v
+bindkey -e
 
 
 typeset -ga preexec_functions
