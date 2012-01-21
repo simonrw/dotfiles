@@ -1,7 +1,7 @@
 export LD_LIBRARY_PATH=${HOME}/build/lib
 export PATH=${HOME}/build/bin:${HOME}/scripts:${PATH}
 export PYTHONPATH=${HOME}/build/Python/SRW:${HOME}/build/Python/modules:$PYTHONPATH
-#export PGPLOT_BACKGROUND=white
-#export PGPLOT_FOREGROUND=black
-export PGPLOT_BACKGROUND=black
-export PGPLOT_FOREGROUND=white
+export PGPLOT_BACKGROUND=white
+export PGPLOT_FOREGROUND=black
+#export PGPLOT_BACKGROUND=black
+#export PGPLOT_FOREGROUND=white
