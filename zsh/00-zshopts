@@ -1,8 +1,8 @@
 # Lines configured by zsh-newuser-install
-#HISTFILE=~/.histfile
-#HISTSIZE=1000
-#SAVEHIST=1000
-#setopt appendhistory
+HISTFILE=~/.histfile
+HISTSIZE=1000
+SAVEHIST=1000
+setopt appendhistory
 unsetopt autocd beep
 bindkey -e
 
@@ -16,4 +16,4 @@ setopt prompt_subst
 autoload -Uz compinit
 compinit
 
-bindkey -M vicmd '?' history-incremental-search-backward
+# bindkey -M vicmd '?' history-incremental-search-backward
