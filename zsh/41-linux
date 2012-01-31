@@ -6,5 +6,6 @@ if [[ `uname` == "Linux" ]]; then
     export PGPLOT_FONT=/home/astro/phrfbf/build/pgplot/grfont.dat
     export TERM=screen-256color
     export PYTHONPATH=/home/astro/phrebf/Python/JG:$PYTHONPATH
+    export HEADAS=$HOME/build/heasoft/x86_64-unknown-linux-gnu-libc2.11.2
     export LS_OPTIONS=
 fi
