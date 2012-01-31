@@ -1,4 +1,5 @@
 if [[ `uname` == "Linux" ]]; then
     alias cls='ls --color=auto'
     alias open="xdg-open"
+    alias heainit="source $HEADAS/headas-init.sh"
 fi
