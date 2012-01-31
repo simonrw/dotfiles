@@ -1,5 +1,3 @@
-alias ls='ls -G'
-alias cls='ls --color=auto'
 alias py="ipython -pylab"
 alias cgrep="grep --color=auto"
 alias tmux="tmux -2"
