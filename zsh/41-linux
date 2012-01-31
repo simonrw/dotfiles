@@ -1,7 +1,9 @@
 if [[ `uname` == "Linux" ]]; then
     export LD_PRELOAD=
     export PGPLOT_DIR=${HOME}/build/pgplot
-    export LD_LIBRARY_PATH=${HOME}/build/clang/lib64:${HOME}/build/gcc/lib64:${PGPLOT_DIR}:${LD_LIBRARY_PATH}
-    export PATH=${HOME}/build/Python/bin:${HOME}/build/gcc/bin:${HOME}/build/clang/bin:${PATH}
+    export LD_LIBRARY_PATH=${HOME}/build/clang/lib:${HOME}/build/gcc/lib64:${PGPLOT_DIR}:${LD_LIBRARY_PATH}
+    export PATH=${HOME}/WASPPrograms/bin:${HOME}/build/Python/bin:${HOME}/build/gcc/bin:${HOME}/build/clang/bin:${PATH}
     export PGPLOT_FONT=/home/astro/phrfbf/build/pgplot/grfont.dat
+    export TERM=screen-256color
+    export PYTHONPATH=/home/astro/phrebf/Python/JG:$PYTHONPATH
 fi
