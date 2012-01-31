@@ -2,3 +2,5 @@ alias ls='ls -G'
 alias cls='ls --color=auto'
 alias py="ipython -pylab"
 alias cgrep="grep --color=auto"
+alias tmux="tmux -2"
+alias valgrind="valgrind --log-file=valgrind.log --leak-check=full"
