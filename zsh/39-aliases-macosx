@@ -1,4 +1,5 @@
-if [[ `uname` == "Darwin" ]]; then
+if [[ $OSTYPE == "darwin11.0" ]]; then
     alias ls='ls -G'
+    alias py='ipython --pylab'
 fi
 

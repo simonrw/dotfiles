@@ -1,4 +1,4 @@
-if [[ `uname` == "Linux" ]]; then
+if [[ $OSTYPE == "linux" ]]; then
     export LD_PRELOAD=
     export PGPLOT_DIR=${HOME}/build/pgplot
     export LD_LIBRARY_PATH=${HOME}/build/clang/lib:${HOME}/build/gcc/lib64:${PGPLOT_DIR}:${LD_LIBRARY_PATH}
