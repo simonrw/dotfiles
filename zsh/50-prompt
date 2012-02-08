@@ -12,7 +12,7 @@ local blue="%{$fg[blue]%}"
 local green="%{$fg[green]%}"
 local red="%{$fg[red]%}"
 local lgrey="%{$fg[grey]%}"
-PROMPT='${blue}╭─ [%{$fg[magenta]%}%M%{$reset_color%}] %~
+PROMPT='${blue}╭─ %{$reset_color%}[%{$fg[magenta]%}%M%{$reset_color%}]%{$reset_color%} %~
 ${blue}╰─ ${green}${colour_chevron}%{$reset_color%} '
 
 
