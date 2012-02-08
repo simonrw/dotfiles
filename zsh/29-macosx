@@ -1,5 +1,5 @@
 if [[ $OSTYPE == "darwin11.0" ]]; then
     LD_LIBRARY_PATH=/opt/local/lib:/sw/lib:${LD_LIBRARY_PATH}
-    export PATH=/opt/local/bin:/sw/bin:${PATH}
+    export PATH=/opt/local/bin:/sw/bin:/usr/local/texlive/2009/bin/universal-darwin:${PATH}
     export PYTHONPATH=/opt/local/Library/Frameworks/Python.framework/Versions/Current/lib/python2.7/site-packages:$PYTHONPATH
 fi
