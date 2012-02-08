@@ -12,13 +12,12 @@ local blue="%{$fg[blue]%}"
 local green="%{$fg[green]%}"
 local red="%{$fg[red]%}"
 local lgrey="%{$fg[grey]%}"
-PROMPT='${blue}╭─%{$reset_color%} %~
+PROMPT='${blue}╭─ [%{$fg[magenta]%}%M%{$reset_color%}] %~
 ${blue}╰─ ${green}${colour_chevron}%{$reset_color%} '
 
 
 ## Get the git branch info 
-#RPROMPT='%{$fg[red]%}$(get_git_prompt_info)%{$reset_color%}'
-RPROMPT="%{$fg[magenta]%}%M%{$reset_color%}"
+RPROMPT='%{$fg[red]%}$(get_git_prompt_info)%{$reset_color%}'
 
 #PROMPT="╭─${path_p}─${user_host}─${ret_status}─${hist_no}
 #╰─${blue_op}${smiley}${blue_cp} %# "
