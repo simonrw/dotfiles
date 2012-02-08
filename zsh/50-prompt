@@ -18,7 +18,7 @@ ${blue}╰─ ${green}${colour_chevron}%{$reset_color%} '
 
 ## Get the git branch info 
 #RPROMPT='%{$fg[red]%}$(get_git_prompt_info)%{$reset_color%}'
-RPROMPT="%{$fg[magenta]%}%M"
+RPROMPT="%{$fg[magenta]%}%M%{$reset_color%}"
 
 #PROMPT="╭─${path_p}─${user_host}─${ret_status}─${hist_no}
 #╰─${blue_op}${smiley}${blue_cp} %# "
