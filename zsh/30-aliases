@@ -1,4 +1,5 @@
-alias py="ipython -pylab"
+alias pylab="ipython -pylab"
+alias py='ipython'
 alias cgrep="grep --color=auto"
 alias tmux="tmux -2"
 alias valgrind="valgrind --log-file=valgrind.log --leak-check=full"
