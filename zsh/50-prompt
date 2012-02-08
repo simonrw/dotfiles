@@ -5,14 +5,21 @@ setopt prompt_subst
 
 # print smiley for last command status
 local smiley="%(?,%{$fg[green]%}☺%{$reset_color%},%{$fg[red]%}☹%{$reset_color%})"
+local colour_chevron="%(?,%{$fg[green]%}>%{$reset_color%},%{$fg[red]%}>%{$reset_color%})"
 
-# Control promt
-PROMPT='
-%~
-${smiley}  %{$reset_color%}'
+## Control promt
+local blue="%{$fg[blue]%}"
+local green="%{$fg[green]%}"
+PROMPT='${blue}╭─%{$reset_color%} %~
+${blue}╰─ ${green}${colour_chevron}%{$reset_color%} '
 
 
-# Get the git branch info 
+## Get the git branch info 
 RPROMPT='%{$fg[red]%}$(get_git_prompt_info)%{$reset_color%}'
+
+#PROMPT="╭─${path_p}─${user_host}─${ret_status}─${hist_no}
+#╰─${blue_op}${smiley}${blue_cp} %# "
+#local cur_cmd="${blue_op}%_${blue_cp}"
+#PROMPT2="${cur_cmd}> "
 
 
