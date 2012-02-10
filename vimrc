@@ -46,7 +46,7 @@ set number
 
 " always have status line on
 set laststatus=2
-
+set encoding=utf-8 " Necessary to show unicode glyphs
 
 " Set colour scheme
 if &t_Co >= 256 || has("gui_running")
