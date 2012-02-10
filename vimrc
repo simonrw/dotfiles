@@ -94,3 +94,6 @@ noremap <Up> <nop>
 noremap <Down> <nop>
 noremap <Left> <nop>
 noremap <Right> <nop>
+
+" Set Ultisnips comment style
+let g:ultisnips_python_style='doxygen'
