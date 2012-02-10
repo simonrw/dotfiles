@@ -97,3 +97,7 @@ noremap <Right> <nop>
 
 " Set Ultisnips comment style
 let g:ultisnips_python_style='doxygen'
+
+" Automatically resize vertical splits.
+:au WinEnter * :set winfixheight
+:au WinEnter * :wincmd =
