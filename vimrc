@@ -50,8 +50,7 @@ set encoding=utf-8 " Necessary to show unicode glyphs
 
 " Set colour scheme
 if &t_Co >= 256 || has("gui_running")
-	"colorscheme lucius
-    colorscheme badwolf
+	colorscheme lucius
 	"colorscheme jellybeans
 endif
 
