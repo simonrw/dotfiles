@@ -105,3 +105,6 @@ let g:ultisnips_python_style='doxygen'
 " Set the tags directory
 set tags=./tags;/
 map <F8> :!ctags -R --c++-kinds=+p --fields=+iaS --extra=+q .<CR>
+
+" Shortcut for the tag list 
+map <leader>t :TlistToggle<CR>
