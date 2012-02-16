@@ -1,7 +1,7 @@
 if [[ $OSTYPE == "linux-gnu" || $OSTYPE == "linux" ]]; then
     export LD_PRELOAD=
     export PGPLOT_DIR=${HOME}/build/pgplot
-    export LD_LIBRARY_PATH=${HOME}/build/clang/lib:${HOME}/build/gcc/lib64:${PGPLOT_DIR}:${LD_LIBRARY_PATH}
+    export LD_LIBRARY_PATH=${HOME}/build/clang/lib:${HOME}/build/gcc/lib64:${PGPLOT_DIR}:${HOME}/build/mysql/lib:${LD_LIBRARY_PATH}
     export TERM=screen-256color
     export PGPLOT_FONT=/home/astro/phrfbf/build/pgplot/grfont.dat
     export HEADAS=$HOME/build/heasoft/x86_64-unknown-linux-gnu-libc2.11.2
