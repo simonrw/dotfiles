@@ -17,3 +17,9 @@ autoload -Uz compinit
 compinit -u
 
 # bindkey -M vicmd '?' history-incremental-search-backward
+
+# Ignore duplicate history entries
+zstyle ':completion:*:history-words' stop yes
+zstyle ':completion:*:history-words' remove-all-dups yes
+zstyle ':completion:*:history-words' list false
+zstyle ':completion:*:history-words' menu yes
