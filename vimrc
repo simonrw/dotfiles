@@ -98,10 +98,6 @@ noremap <Right> <nop>
 " Set Ultisnips comment style
 let g:ultisnips_python_style='doxygen'
 
-" Automatically resize vertical splits.
-:au WinEnter * :set winfixheight
-:au WinEnter * :wincmd =
-
 " Set the tags directory
 set tags=./tags;/
 map <F8> :!ctags -R --c++-kinds=+p --fields=+iaS --extra=+q .<CR>
