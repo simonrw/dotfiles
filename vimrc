@@ -104,3 +104,19 @@ map <F8> :!ctags -R --c++-kinds=+p --fields=+iaS --extra=+q .<CR>
 
 " Shortcut for the tag list 
 map <leader>t :TlistToggle<CR>
+
+" Relative and absolute line number toggling
+function! NumberToggle()
+    if (&relativenumber == 1)
+        set number
+    else
+        set relativenumber
+    endif
+endfunc
+
+
+" Map this to a nice keyboard shortcut
+nnoremap <leader>n :call NumberToggle()<CR>
+
+" Set absolute mode whenever window loses focus
+:au FocusLost * :set number
