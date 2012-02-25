@@ -18,6 +18,9 @@ compinit -u
 
 # bindkey -M vicmd '?' history-incremental-search-backward
 
+# Turn off autocd
+unsetopt autopushd
+
 # Ignore duplicate history entries
 zstyle ':completion:*:history-words' stop yes
 zstyle ':completion:*:history-words' remove-all-dups yes
