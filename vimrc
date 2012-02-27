@@ -22,7 +22,7 @@ set autochdir
 let mapleader=","
 
 " enable the semicolon key to act like the colon key
-"noremap ; :
+noremap ; :
 
 " set incremental search
 set incsearch
