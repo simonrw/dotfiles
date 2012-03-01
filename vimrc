@@ -100,7 +100,13 @@ let g:ultisnips_python_style='doxygen'
 
 " Set the tags directory
 set tags=./tags;/
-map <F8> :!ctags -R --c++-kinds=+p --fields=+iaS --extra=+q .<CR>
+"map <F8> :!ctags -R --c++-kinds=+p --fields=+iaS --extra=+q .<CR>
+
+" Set tags executable
+if has("macunix")
+    " Have to change this for my laptop
+    let Tlist_Ctags_Cmd='/usr/local/bin/ctags'
+endif
 
 " Shortcut for the tag list 
 map <leader>t :TlistToggle<CR>
@@ -137,3 +143,4 @@ vnoremap / /\v
 " Reselect visual block after indent/outdent
 vnoremap < <gv
 vnoremap > >gv
+
