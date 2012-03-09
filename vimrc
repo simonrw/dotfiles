@@ -6,7 +6,7 @@ let g:pathogen_disabled = []
 
 " If the clang binary is not available
 let s:clang_search = system("which clang")
-if empty(s:clang_search)
+if !empty(matchstr(s:clang_search, "clang not found"))
     echo "Cannot find clang, disabling clang completion"
     call add(g:pathogen_disabled, "clang_complete")
 endif
