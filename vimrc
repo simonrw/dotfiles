@@ -1,7 +1,6 @@
 " Nice pathogen stuff
 filetype off
-call pathogen#runtime_append_all_bundles()
-call pathogen#helptags()
+call pathogen#infect()
 
 " Set no vi compatible
 set nocompatible
