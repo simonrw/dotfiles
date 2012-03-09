@@ -127,6 +127,11 @@ nnoremap <leader>n :call NumberToggle()<CR>
 " Set absolute mode whenever window loses focus
 :au FocusLost * :set number
 
+" Some clang completion settings
+
+" Show clang errors in quickfix window
+let g:clang_complete_copen = 1
+
 
 " Automatically reload the vimrc file when saved
 au BufWritePost .vimrc so ~/.vimrc
