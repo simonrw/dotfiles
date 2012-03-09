@@ -1,6 +1,16 @@
 " Nice pathogen stuff
 filetype off
 
+" Handle disabling pathogen under certain circumstances
+let g:pathogen_disabled = []
+
+" If the clang binary is not available
+let s:clang_search = system("which clang")
+if empty(s:clang_search)
+    call add(g:pathogen_disabled, "clang_complete")
+endif
+
+
 " Import the pathogen modules
 call pathogen#infect()
 
