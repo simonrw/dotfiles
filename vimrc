@@ -1,5 +1,7 @@
 " Nice pathogen stuff
 filetype off
+
+" Import the pathogen modules
 call pathogen#infect()
 
 " Set no vi compatible
