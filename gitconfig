@@ -11,7 +11,7 @@
     ui = auto
 [core]
     pager = less -FXRS
-    excludesfile = ~/.global_ignore
+	excludesfile = ~/.cvsignore
     autocrlf = false
     safecrlf = true
     whitespace = fix
