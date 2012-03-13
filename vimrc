@@ -156,3 +156,5 @@ vnoremap / /\v
 vnoremap < <gv
 vnoremap > >gv
 
+" Set text width with tex files
+au FileType tex set textwidth=72
