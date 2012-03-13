@@ -1,3 +1,12 @@
 snippet use "usepackage command" !b
 \usepackage{${1}}
 endsnippet
+
+snippet subsub "Subsubsection" b
+\subsubsection{${1:subsubsection name}}
+\label{subsub:${2:${1/\\\w+\{(.*?)\}|\\(.)|(\w+)|([^\w\\]+)/(?4:_:\L$1$2$3\E)/g}}}
+
+${0}
+
+% subsubsection $2 (end)
+endsnippet
