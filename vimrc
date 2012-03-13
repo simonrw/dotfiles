@@ -79,7 +79,7 @@ set backspace=indent,eol,start
 
 " if mac use the monaco font
 if has("macunix")
-    set gfn=Monaco:h12
+    set gfn=Monaco:h13
 endif
 
 set mouse=a
