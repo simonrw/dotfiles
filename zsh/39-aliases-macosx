@@ -1,5 +1,4 @@
 if [[ $OSTYPE == "darwin11.0" ]]; then
-    alias py='ipython --pylab'
     alias cls='ls -G'
 fi
 
