@@ -1,4 +1,4 @@
 if [[ $OSTYPE == "darwin11.0" ]]; then
-    DYLD_LIBRARY_PATH=/usr/local/cuda/lib::${DYLD_LIBRARY_PATH}
+    export DYLD_LIBRARY_PATH=/usr/local/cuda/lib::${DYLD_LIBRARY_PATH}
     export PATH=/usr/local/share/python:/usr/local/bin:/sw/bin:/usr/local/texlive/2009/bin/universal-darwin:/usr/local/cuda/bin:/usr/local/Cellar/ruby/1.9.3-p125/bin:${PATH}
 fi
