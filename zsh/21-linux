@@ -16,5 +16,8 @@ if [[ $OSTYPE == "linux-gnu" || $OSTYPE == "linux" ]]; then
     # If the server is at Leicester, source the intel compiler variables
     if [[ `dnsdomainname` == "star.le.ac.uk" ]]; then
         source /opt/intel/composerxe-2011.0.084/bin/compilervars.sh intel64 2>/dev/null
+    else
+        export PATH=/warwick/CUDA/4.0.17/cuda/bin:$PATH
+        export LD_LIBRARY_PATH=/warwick/CUDA/4.0.17/cuda/lib64:$LD_LIBRARY_PATH
     fi
 fi
