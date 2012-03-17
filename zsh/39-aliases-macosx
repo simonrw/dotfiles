@@ -1,4 +1,4 @@
-if [[ $OSTYPE == "darwin11.0" ]]; then
+if [[ $OSTYPE == "darwin11.3.0" ]]; then
     alias cls='ls -G'
 fi
 
