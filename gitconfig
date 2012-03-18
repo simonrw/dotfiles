@@ -8,6 +8,7 @@
     co = checkout
     oneline = log --pretty=oneline
     tree = log --graph --oneline --all
+    su = submodule update --init --recursive
 [color]
     ui = auto
 [core]
