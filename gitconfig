@@ -25,9 +25,7 @@
 [github]
     user = mindriot101
     token = 7e549ed4dddc6ecc0bab22bcac87adac
-[difftool "sourcetree"]
-	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-	path = 
-[mergetool "sourcetree"]
-	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
-	trustExitCode = true
+[diff]
+    external = git_diff_wrapper
+[pager]
+    diff =
