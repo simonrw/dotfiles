@@ -29,3 +29,8 @@
     external = git_diff_wrapper
 [pager]
     diff =
+[merge]
+    tool = threesome
+[mergetool "threesome"]
+    cmd = "vim -f $BASE $LOCAL $REMOTE $MERGED -c 'ThreesomeInit'"
+    trustExitCode = true
