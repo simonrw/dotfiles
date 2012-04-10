@@ -1,0 +1,7 @@
+if [[ $OSTYPE == "linux-gnu" || $OSTYPE == "linux" ]]; then
+    if [[ `dnsdomainname` == "star.le.ac.uk" ]]; then
+    else
+        # Set up the python environment
+        source $HOME/PythonEnv/bin/activate
+    fi
+fi
