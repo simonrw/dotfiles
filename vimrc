@@ -162,3 +162,6 @@ au FileType tex set spell
 
 " Change the way tab autocompletion works
 set wildmode=list:longest,list:full
+
+" Enable c++11 formatting
+au BufNewFile,BufRead *.cpp set syntax=cpp11
