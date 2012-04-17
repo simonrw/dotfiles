@@ -77,11 +77,6 @@ set backspace=indent,eol,start
 " pyclewn port
 "let g:pyclewn_connection="localhost:80801:changeme"
 
-" if mac use the monaco font
-if has("macunix")
-    set gfn=Monaco:h12
-endif
-
 set mouse=a
 
 " Vim latex commands
