@@ -167,3 +167,6 @@ au BufNewFile,BufRead *.py set textwidth=79
 if v:version >= 703
     au BufNewFile,BufRead *.py set colorcolumn=+1
 endif
+
+" Remap the Q key
+map Q gq
