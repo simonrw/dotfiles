@@ -20,7 +20,4 @@ if [[ $OSTYPE == "linux-gnu" || $OSTYPE == "linux" ]]; then
         export PATH=/warwick/CUDA/4.0.17/cuda/bin:$PATH
         export LD_LIBRARY_PATH=/warwick/CUDA/4.0.17/cuda/lib64:$LD_LIBRARY_PATH
     fi
-
-    # Set up the python environment
-    source $HOME/PythonEnv/bin/activate
 fi
