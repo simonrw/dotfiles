@@ -162,7 +162,7 @@ set wildmode=list:longest,list:full
 au BufNewFile,BufRead *.cpp set syntax=cpp11
 
 " Python text wrapping limit
-au BufNewFile,BufRead *.py set textwidth=72
+au BufNewFile,BufRead *.py set textwidth=79
 
 if v:version >= 703
     au BufNewFile,BufRead *.py set colorcolumn=+1
