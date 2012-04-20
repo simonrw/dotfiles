@@ -170,3 +170,6 @@ endif
 
 " Remap the Q key
 map Q gq
+
+" Make the Y key work
+map Y y$
