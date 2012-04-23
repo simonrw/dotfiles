@@ -2,6 +2,7 @@ if [[ $OSTYPE == "linux-gnu" || $OSTYPE == "linux" ]]; then
     alias cls='ls --color=auto'
     alias open="xdg-open"
     alias heainit="source $HEADAS/headas-init.sh"
+    alias gitk="gitk --all"
 
     # Set up the module command
     function module() { eval `modulecmd zsh $*`; }
