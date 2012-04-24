@@ -173,3 +173,6 @@ map Q gq
 
 " Make the Y key work
 map Y y$
+
+" Strip trailing whitespace from certain filetypes
+autocmd FileType python autocmd BufWritePre <buffer> :%s/\s\+$//e
