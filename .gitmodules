@@ -1,3 +1,48 @@
-[submodule "vim"]
-	path = vim
-	url = git@github.com:mindriot101/vimfiles.git
+[submodule "vim/vim/bundle/gundo"]
+	path = vim/vim/bundle/gundo
+	url = git://github.com/sjl/gundo.vim.git
+[submodule "vim/vim/bundle/nerdcommenter"]
+	path = vim/vim/bundle/nerdcommenter
+	url = git://github.com/scrooloose/nerdcommenter.git
+[submodule "vim/vim/bundle/a.vim"]
+	path = vim/vim/bundle/a.vim
+	url = git://github.com/vim-scripts/a.vim.git
+[submodule "vim/vim/bundle/fugitive"]
+	path = vim/vim/bundle/fugitive
+	url = git://github.com/tpope/vim-fugitive.git
+[submodule "vim/vim/bundle/addon-mw-utils"]
+	path = vim/vim/bundle/addon-mw-utils
+	url = git://github.com/MarcWeber/vim-addon-mw-utils.git
+[submodule "vim/vim/bundle/tlib"]
+	path = vim/vim/bundle/tlib
+	url = git://github.com/tomtom/tlib_vim.git
+[submodule "vim/vim/bundle/unimpaired"]
+	path = vim/vim/bundle/unimpaired
+	url = git://github.com/tpope/vim-unimpaired.git
+[submodule "vim/vim/bundle/tslime"]
+	path = vim/vim/bundle/tslime
+	url = git://github.com/jgdavey/tslime.vim.git
+[submodule "vim/vim/bundle/indent-guides"]
+	path = vim/vim/bundle/indent-guides
+	url = git://github.com/nathanaelkane/vim-indent-guides.git
+[submodule "vim/vim/bundle/ultisnips"]
+	path = vim/vim/bundle/ultisnips
+	url = git@github.com:mindriot101/UltiSnips.git
+[submodule "vim/vim/bundle/taglist"]
+	path = vim/vim/bundle/taglist
+	url = git://github.com/vim-scripts/taglist.vim.git
+[submodule "vim/vim/bundle/clang_complete"]
+	path = vim/vim/bundle/clang_complete
+	url = git://github.com/Rip-Rip/clang_complete.git
+[submodule "vim/vim/bundle/syntastic"]
+	path = vim/vim/bundle/syntastic
+	url = git://github.com/scrooloose/syntastic.git
+[submodule "vim/vim/bundle/indent-object"]
+	path = vim/vim/bundle/indent-object
+	url = git://github.com/michaeljsmith/vim-indent-object.git
+[submodule "vim/vim/bundle/threesome"]
+	path = vim/vim/bundle/threesome
+	url = git://github.com/sjl/threesome.vim.git
+[submodule "vim/vim/bundle/powerline"]
+	path = vim/vim/bundle/powerline
+	url = git://github.com/Lokaltog/vim-powerline.git
