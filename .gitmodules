@@ -1,48 +1,49 @@
 [submodule "bundle/gundo"]
-	path = bundle/gundo
+	path = vim/bundle/gundo
 	url = git://github.com/sjl/gundo.vim.git
 [submodule "bundle/nerdcommenter"]
-	path = bundle/nerdcommenter
+	path = vim/bundle/nerdcommenter
 	url = git://github.com/scrooloose/nerdcommenter.git
 [submodule "bundle/a.vim"]
-	path = bundle/a.vim
+	path = vim/bundle/a.vim
 	url = git://github.com/vim-scripts/a.vim.git
 [submodule "bundle/fugitive"]
-	path = bundle/fugitive
+	path = vim/bundle/fugitive
 	url = git://github.com/tpope/vim-fugitive.git
 [submodule "bundle/addon-mw-utils"]
-	path = bundle/addon-mw-utils
+	path = vim/bundle/addon-mw-utils
 	url = git://github.com/MarcWeber/vim-addon-mw-utils.git
 [submodule "bundle/tlib"]
-	path = bundle/tlib
+	path = vim/bundle/tlib
 	url = git://github.com/tomtom/tlib_vim.git
 [submodule "bundle/unimpaired"]
-	path = bundle/unimpaired
+	path = vim/bundle/unimpaired
 	url = git://github.com/tpope/vim-unimpaired.git
 [submodule "bundle/tslime"]
-	path = bundle/tslime
+	path = vim/bundle/tslime
 	url = git://github.com/jgdavey/tslime.vim.git
 [submodule "bundle/indent-guides"]
-	path = bundle/indent-guides
+	path = vim/bundle/indent-guides
 	url = git://github.com/nathanaelkane/vim-indent-guides.git
 [submodule "bundle/ultisnips"]
-	path = bundle/ultisnips
+	path = vim/bundle/ultisnips
 	url = git@github.com:mindriot101/UltiSnips.git
 [submodule "bundle/taglist"]
-	path = bundle/taglist
+	path = vim/bundle/taglist
 	url = git://github.com/vim-scripts/taglist.vim.git
 [submodule "bundle/clang_complete"]
-	path = bundle/clang_complete
+	path = vim/bundle/clang_complete
 	url = git://github.com/Rip-Rip/clang_complete.git
 [submodule "bundle/syntastic"]
-	path = bundle/syntastic
+	path = vim/bundle/syntastic
 	url = git://github.com/scrooloose/syntastic.git
 [submodule "bundle/vim-indent-object"]
-	path = bundle/vim-indent-object
+	path = vim/bundle/vim-indent-object
 	url = git://github.com/michaeljsmith/vim-indent-object.git
 [submodule "bundle/threesome"]
-	path = bundle/threesome
+	path = vim/bundle/threesome
 	url = git://github.com/sjl/threesome.vim.git
 [submodule "bundle/powerline"]
-	path = bundle/powerline
+	path = vim/bundle/powerline
 	url = git://github.com/Lokaltog/vim-powerline.git
+
