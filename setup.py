@@ -7,6 +7,8 @@ Install the soft links required for the dotfiles repository
 
 import os
 
+EXCLUDE_LIST = ['.git', 'osx']
+
 def get_to_links():
     '''
     Every subdirectory below this one should contain extra objects either files
@@ -23,7 +25,7 @@ def get_to_links():
         dotfiles_dir = "."
 
     for name in os.listdir(dotfiles_dir):
-        if os.path.isdir(name) and name != '.git':
+        if os.path.isdir(name) and (name not in EXCLUDE_LIST):
             # Every subdirectory contained in the same directory as this file
             # and not the .git dir
             subfiles = os.listdir(os.path.join(dotfiles_dir, name))
