@@ -69,11 +69,33 @@ def remove_links():
             os.remove(ln)
 
 
+def ostype():
+    '''
+    Returns the operating system type
+    '''
+    return os.uname()[0]
+
+
 def main(args):
     if args.command == 'install':
         add_links()
+
+        is_mac = (ostype() == "Darwin")
+
+        # Handle setting up the defaults
+        if is_mac:
+            ans = raw_input("""This system is OSX, do you want to setup the defaults? [Y/N]
+        > """)
+            if ans.upper() in ['Y', 'N']:
+                os.system("source %s" %
+                        (os.path.join(os.path.dirname(__file__), "osx",
+                            "defaults.sh"), ))
+
     else:
         remove_links()
+
+
+
 
 if __name__ == '__main__':
     import argparse
