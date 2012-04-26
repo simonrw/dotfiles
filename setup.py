@@ -9,6 +9,7 @@ import os
 
 EXCLUDE_LIST = ['.git', 'osx']
 
+
 def get_to_links():
     '''
     Every subdirectory below this one should contain extra objects either files
@@ -83,8 +84,8 @@ def main(args):
 
         # Handle setting up the defaults
         if is_mac:
-            ans = raw_input("""This system is OSX, do you want to setup the defaults? [Y/N]
-> """)
+            ans = raw_input("This system is OSX, do you want to setup the "
+                    "defaults? [Y/N]\n> ")
             if ans.upper() in ['Y', 'N']:
                 os.system("source %s" %
                         (os.path.join(os.path.dirname(__file__), "osx",
@@ -106,5 +107,5 @@ if __name__ == '__main__':
     parser = argparse.ArgumentParser()
 
     parser.add_argument("command", help="Command to run", choices=['install',
-        'uninstall',])
+        'uninstall', ])
     main(parser.parse_args())
