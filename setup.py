@@ -85,7 +85,7 @@ def main(args):
         # Handle setting up the defaults
         if is_mac:
             ans = raw_input("""This system is OSX, do you want to setup the defaults? [Y/N]
-        > """)
+> """)
             if ans.upper() in ['Y', 'N']:
                 os.system("source %s" %
                         (os.path.join(os.path.dirname(__file__), "osx",
