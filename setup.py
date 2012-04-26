@@ -77,10 +77,9 @@ def ostype():
 
 
 def main(args):
+    is_mac = (ostype() == "Darwin")
     if args.command == 'install':
         add_links()
-
-        is_mac = (ostype() == "Darwin")
 
         # Handle setting up the defaults
         if is_mac:
