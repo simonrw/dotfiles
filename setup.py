@@ -49,7 +49,10 @@ def add_links():
     for name in get_to_links():
         ln = link_name(name)
         if not os.path.islink(ln):
+            print "Linking %s" % ln
             os.symlink(os.path.abspath(name), ln)
+        else:
+            print "Link %s already found" % ln
 
 
 def remove_links():
@@ -60,6 +63,7 @@ def remove_links():
         ln = link_name(name)
 
         if os.path.islink(ln):
+            print "Removing link %s" % ln
             os.remove(ln)
 
 
