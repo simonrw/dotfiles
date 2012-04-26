@@ -92,8 +92,13 @@ def main(args):
 
     else:
         remove_links()
-
-
+        if is_mac:
+            ans = raw_input("This system is OSX, do you want to remove the "
+            "custom defaults? [Y/N]\n> ")
+            if ans.upper() in ['Y', 'N']:
+                os.system("source %s" %
+                        (os.path.join(os.path.dirname(__file__), "osx",
+                            "restore.sh"), ))
 
 
 if __name__ == '__main__':
