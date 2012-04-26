@@ -7,7 +7,8 @@
     update = commit -am
     co = checkout
     oneline = log --pretty=oneline
-    tree = log --graph --oneline --all --decorate --abbrev-commit
+    tree = log --graph --oneline --decorate --abbrev-commit
+    atree = log --graph --oneline --all --decorate --abbrev-commit
     su = submodule update --init --recursive
 [color]
     ui = auto
