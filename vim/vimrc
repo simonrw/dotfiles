@@ -151,10 +151,6 @@ vnoremap / /\v
 vnoremap < <gv
 vnoremap > >gv
 
-" Set text width with tex files
-au FileType tex set textwidth=72
-"au FileType tex set spell
-
 " Change the way tab autocompletion works
 set wildmode=list:longest,list:full
 
