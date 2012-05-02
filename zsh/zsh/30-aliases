@@ -5,3 +5,7 @@ alias tmux="tmux -2"
 alias valgrind="valgrind --log-file=valgrind.log --leak-check=full"
 alias wasphead="ssh -t sw@wasphead.star.le.ac.uk 'source ~/.zshrc; tmux attach-session -t PROGRESS'"
 alias g=git
+
+# Set some common typos
+alias sl=ls
+alias csl=cls
