@@ -43,3 +43,6 @@
 [submodule "vim/vim/bundle/powerline"]
 	path = vim/vim/bundle/powerline
 	url = git://github.com/Lokaltog/vim-powerline.git
+[submodule "vim/vim/bundle/splice"]
+	path = vim/vim/bundle/splice
+	url = git://github.com/sjl/splice.vim.git
