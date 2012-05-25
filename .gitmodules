@@ -40,9 +40,6 @@
 [submodule "vim/vim/bundle/indent-object"]
 	path = vim/vim/bundle/indent-object
 	url = git://github.com/michaeljsmith/vim-indent-object.git
-[submodule "vim/vim/bundle/threesome"]
-	path = vim/vim/bundle/threesome
-	url = git://github.com/sjl/threesome.vim.git
 [submodule "vim/vim/bundle/powerline"]
 	path = vim/vim/bundle/powerline
 	url = git://github.com/Lokaltog/vim-powerline.git
