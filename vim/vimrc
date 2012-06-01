@@ -116,7 +116,7 @@ if has("macunix")
 endif
 
 " Shortcut for the tag list 
-map <leader>t :TlistToggle<CR>
+map <leader><Tab> :TlistToggle<CR>
 
 " Relative and absolute line number toggling
 function! NumberToggle()
