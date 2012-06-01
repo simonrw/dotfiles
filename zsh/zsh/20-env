@@ -5,3 +5,4 @@ export PGPLOT_BACKGROUND=white
 export PGPLOT_FOREGROUND=black
 #export PGPLOT_BACKGROUND=black
 #export PGPLOT_FOREGROUND=white
+export EDITOR=vim
