@@ -114,7 +114,7 @@ lines.antialiased : True         # render lines in antialised (no jaggies)
 # The font.size property is the default font size for text, given in pts.
 # 12pt is the standard value.
 #
-font.family         : sans-serif
+font.family         : serif
 #font.style          : normal
 #font.variant        : normal
 font.weight         : ultralight
