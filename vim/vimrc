@@ -172,3 +172,6 @@ autocmd FileType python autocmd BufWritePre <buffer> :%s/\s\+$//e
 " For git commits, set the text width to 50
 autocmd FileType gitcommit set textwidth=50
 autocmd FileType gitcommit set colorcolumn=+1
+
+" Shortcut for disabling syntax checking
+nnoremap <leader>s :SyntasticToggleMode<CR>
