@@ -139,10 +139,6 @@ nnoremap <leader>n :call NumberToggle()<CR>
 " Show clang errors in quickfix window
 let g:clang_complete_copen = 1
 
-
-" Automatically reload the vimrc file when saved
-au BufWritePost .vimrc so ~/.vimrc
-
 " Use sane regexes
 nnoremap / /\v
 vnoremap / /\v
