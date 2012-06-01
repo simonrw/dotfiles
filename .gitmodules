@@ -46,3 +46,6 @@
 [submodule "vim/vim/bundle/splice"]
 	path = vim/vim/bundle/splice
 	url = git://github.com/sjl/splice.vim.git
+[submodule "vim/vim/bundle/commandt"]
+	path = vim/vim/bundle/commandt
+	url = git://github.com/wincent/Command-T.git
