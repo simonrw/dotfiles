@@ -176,3 +176,8 @@ autocmd FileType gitcommit set colorcolumn=+1
 " Shortcut for syntax checking
 let g:syntastic_mode_map = {'mode': 'passive'}
 nnoremap <leader>s :SyntasticCheck<CR>
+
+" Change the ctrlp plugin key combo, and the default function to search in
+" buffers also
+let g:ctrlp_map = '<leader>t'
+let g:ctrlp_cmd = 'CtrlPMixed'
