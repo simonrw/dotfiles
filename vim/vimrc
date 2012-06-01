@@ -168,3 +168,7 @@ map Y y$
 
 " Strip trailing whitespace from certain filetypes
 autocmd FileType python autocmd BufWritePre <buffer> :%s/\s\+$//e
+
+" For git commits, set the text width to 50
+autocmd FileType gitcommit set textwidth=50
+autocmd FileType gitcommit set colorcolumn=+1
