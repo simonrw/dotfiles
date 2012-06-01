@@ -181,3 +181,9 @@ nnoremap <leader>s :SyntasticCheck<CR>
 " buffers also
 let g:ctrlp_map = '<leader>t'
 let g:ctrlp_cmd = 'CtrlPMixed'
+
+" Add some fugitive leader commands
+noremap <leader>gd :Gdiff<CR>
+noremap <leader>gw :Gwrite<CR>
+noremap <leader>gr :Gread<CR>
+noremap <leader>gc :Gcommit<CR>
