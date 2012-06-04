@@ -25,9 +25,6 @@
 [submodule "vim/vim/bundle/indent-guides"]
 	path = vim/vim/bundle/indent-guides
 	url = git://github.com/nathanaelkane/vim-indent-guides.git
-[submodule "vim/vim/bundle/ultisnips"]
-	path = vim/vim/bundle/ultisnips
-	url = git@github.com:mindriot101/UltiSnips.git
 [submodule "vim/vim/bundle/taglist"]
 	path = vim/vim/bundle/taglist
 	url = git://github.com/vim-scripts/taglist.vim.git
