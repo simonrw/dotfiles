@@ -187,3 +187,6 @@ noremap <leader>gd :Gdiff<CR>
 noremap <leader>gw :Gwrite<CR>
 noremap <leader>gr :Gread<CR>
 noremap <leader>gc :Gcommit<CR>
+
+" Add to the runtime path the snippets directory
+let g:snippets_dir = '$HOME/.vim/snippets'
