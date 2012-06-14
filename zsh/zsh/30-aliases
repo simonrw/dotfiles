@@ -9,3 +9,7 @@ alias g=git
 # Set some common typos
 alias sl=ls
 alias csl=cls
+
+# Vim no longer uses X
+alias vim='vim -X'
+alias view='view -X'
