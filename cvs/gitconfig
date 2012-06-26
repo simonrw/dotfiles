@@ -10,6 +10,7 @@
     tree = log --graph --oneline --decorate --abbrev-commit
     atree = log --graph --oneline --all --decorate --abbrev-commit
     su = submodule update --init --recursive
+    gpr = pull --rebase
 [color]
     ui = auto
 [core]
