@@ -1,4 +1,5 @@
-if [[ $OSTYPE == "linux-gnu" || $OSTYPE == "linux" ]]; then
+VIRTUALENV_SOURCE_FILE=${HOME}/PythonEnv/bin/activate
+if [[ -f ${VIRTUALENV_SOURCE_FILE} ]]; then
     # Set up the python environment
-    source $HOME/PythonEnv/bin/activate
+    source ${VIRTUALENV_SOURCE_FILE}
 fi
