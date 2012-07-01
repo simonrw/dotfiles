@@ -276,7 +276,7 @@ font.size           : 10.0
 
 ### FIGURE
 # See http://matplotlib.sourceforge.net/api/figure_api.html#matplotlib.figure.Figure
-figure.figsize   : 11, 8    # figure size in inches
+#figure.figsize   : 11, 8    # figure size in inches
 figure.dpi       : 100      # figure dots per inch
 figure.facecolor : white    # figure facecolor; 0.75 is scalar gray
 figure.edgecolor : white   # figure edgecolor
