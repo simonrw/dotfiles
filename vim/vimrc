@@ -146,6 +146,7 @@ vnoremap > >gv
 set cursorline
 
 " Change the way tab autocompletion works
+set wildmenu
 set wildmode=list:longest,list:full
 
 " Enable c++11 formatting
