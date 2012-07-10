@@ -220,3 +220,7 @@ inoremap jj <ESC>
 
 " Nice mapping for gundo
 noremap <leader>gu :GundoToggle<CR>
+
+" Paste toggling - allow for pasting from other sources with correct
+" formatting
+set pastetoggle=<leader>p
