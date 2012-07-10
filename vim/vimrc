@@ -115,9 +115,9 @@ inoremap <Down> <nop>
 inoremap <Left> <nop>
 inoremap <Right> <nop>
 
-
-" Set Ultisnips comment style
-let g:ultisnips_python_style='doxygen'
+" better line movement
+nnoremap j gj
+nnoremap k gk
 
 " Set the tags directory
 set tags=./tags;/
