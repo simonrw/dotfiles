@@ -215,3 +215,5 @@ endif
 " Format options
 set formatoptions=croqln1
 
+" Use double j to escape
+inoremap jj <ESC>
