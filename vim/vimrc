@@ -145,6 +145,9 @@ vnoremap > >gv
 " Show the cursor line
 set cursorline
 
+" Enable fast tty mode
+set ttyfast
+
 " Change the way tab autocompletion works
 set wildmenu
 set wildmode=list:longest,list:full
