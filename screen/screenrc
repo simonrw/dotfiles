@@ -1,5 +1,5 @@
 # Rebind escape combination
-escape ^Bb
+escape ^Ss
 
 shell -${SHELL}
 caption always "%n(%t): %C"
