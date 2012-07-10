@@ -48,6 +48,10 @@ set incsearch
 set ignorecase
 set smartcase
 
+" Nice matching parentheses
+set showmatch
+
+
 " show command as it's typed
 set showcmd
 
