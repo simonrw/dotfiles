@@ -58,10 +58,10 @@ set showcmd
 set background=dark
 
 " nice file formatting
-if has("autocmd")
-  filetype plugin indent on
-endif 
-"
+filetype plugin indent on
+set autoindent
+
+
 " line numbers
 set number
 
