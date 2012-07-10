@@ -211,3 +211,7 @@ noremap <leader>gc :Gcommit<CR>
 if filereadable(".local.vim")
     source .local.vim
 endif
+
+" Format options
+set formatoptions=croqln1
+
