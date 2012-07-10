@@ -142,6 +142,9 @@ vnoremap / /\v
 vnoremap < <gv
 vnoremap > >gv
 
+" Show the cursor line
+set cursorline
+
 " Change the way tab autocompletion works
 set wildmode=list:longest,list:full
 
