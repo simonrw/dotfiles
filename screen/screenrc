@@ -1,0 +1,8 @@
+# Rebind escape combination
+escape ^Bb
+
+shell -${SHELL}
+caption always "%n(%t): %C"
+startup_message off
+hardstatus on
+hardstatus alwayslastline
