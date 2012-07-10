@@ -119,6 +119,14 @@ inoremap <Right> <nop>
 nnoremap j gj
 nnoremap k gk
 
+" disable f1 key
+inoremap <F1> <ESC>
+nnoremap <F1> <ESC>
+vnoremap <F1> <ESC>
+
+" Set Ultisnips comment style
+let g:ultisnips_python_style='doxygen'
+
 " Set the tags directory
 set tags=./tags;/
 "map <F8> :!ctags -R --c++-kinds=+p --fields=+iaS --extra=+q .<CR>
