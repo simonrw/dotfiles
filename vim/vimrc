@@ -25,6 +25,10 @@ set softtabstop=4
 set smarttab
 set expandtab
 
+
+" Scroll border
+set scrolloff=5
+
 " reload all file changes automatically
 set autoread
 
