@@ -106,10 +106,15 @@ map <C-k> <C-w>k
 map <C-l> <C-w>l
 
 " Remove the arrow key functionality
-noremap <Up> <nop>
-noremap <Down> <nop>
-noremap <Left> <nop>
-noremap <Right> <nop>
+nnoremap <Up> <nop>
+nnoremap <Down> <nop>
+nnoremap <Left> <nop>
+nnoremap <Right> <nop>
+inoremap <Up> <nop>
+inoremap <Down> <nop>
+inoremap <Left> <nop>
+inoremap <Right> <nop>
+
 
 " Set Ultisnips comment style
 let g:ultisnips_python_style='doxygen'
