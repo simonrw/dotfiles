@@ -38,8 +38,8 @@ set autochdir
 " change leader key
 let mapleader=","
 
-" enable the spacebar to act like the colon key
-noremap <space> :
+" enable the semicolon to act like the colon key
+noremap ; :
 
 " set incremental search
 set incsearch
