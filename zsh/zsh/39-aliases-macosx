@@ -1,4 +1,5 @@
 if [[ $OSTYPE == "darwin11.3.0" ]]; then
     alias cls='ls -G'
+    alias amazon='ssh -i ~/websites/amazon/security/amazon_key.pem ubuntu@ec2-50-112-231-121.us-west-2.compute.amazonaws.com'
 fi
 
