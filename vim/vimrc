@@ -27,7 +27,7 @@ set expandtab
 
 
 " Scroll border
-set scrolloff=5
+"set scrolloff=5
 
 " reload all file changes automatically
 set autoread
