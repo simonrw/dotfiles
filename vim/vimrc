@@ -224,3 +224,14 @@ set pastetoggle=<leader>p
 
 " Disable escape keys which makes vim more responsive
 set noesckeys
+
+" Function to search the interwebs
+" taken from http://hartley.io/blog/2012/07/21/search-the-web-from-vim/
+function! Terms()
+  call inputsave()
+  let searchterm = input('Search: ')
+  call inputrestore()
+  return searchterm
+endfunction
+map <leader>s :! /usr/bin/open -a "/Applications/Google Chrome.app" 'https://google.com/search?q=<C-R>=Terms()<CR>'<CR><CR>
+
