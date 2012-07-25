@@ -235,3 +235,7 @@ function! Terms()
 endfunction
 map <leader>s :! /usr/bin/open -a "/Applications/Google Chrome.app" 'https://google.com/search?q=<C-R>=Terms()<CR>'<CR><CR>
 
+" Protobuf syntax
+augroup filetype
+  au! BufRead,BufNewFile *.proto setfiletype proto
+augroup end
