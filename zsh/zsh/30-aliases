@@ -19,3 +19,5 @@ alias grep=ack
 
 # Sometimes pydoc does not work with virtualenvs
 alias pydoc='python -m pydoc'
+
+alias top=htop
