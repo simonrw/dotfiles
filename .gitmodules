@@ -61,3 +61,6 @@
 [submodule "vim/vim/bundle/git"]
 	path = vim/vim/bundle/git
 	url = git://github.com/tpope/vim-git.git
+[submodule "vim/vim/bundle/NrrwRgn"]
+	path = vim/vim/bundle/NrrwRgn
+	url = git://github.com/chrisbra/NrrwRgn.git
