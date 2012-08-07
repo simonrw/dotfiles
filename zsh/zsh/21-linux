@@ -1,5 +1,6 @@
 if [[ $OSTYPE == "linux-gnu" || $OSTYPE == "linux" ]]; then
     export LD_PRELOAD=
+    export ADAM_USER=${HOME}/.adam
     export PGPLOT_DIR=${HOME}/build/pgplot
     export LD_LIBRARY_PATH=${HOME}/build/clang/lib:${HOME}/build/gcc/lib64:${PGPLOT_DIR}:${HOME}/build/mysql/lib:${LD_LIBRARY_PATH}
     export TERM=screen-256color
