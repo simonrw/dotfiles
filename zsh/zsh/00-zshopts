@@ -8,6 +8,10 @@ unsetopt beep
 bindkey -e
 
 
+autoload -Uz vcs_info
+zstyle ':vcs_info:*' check-for-changes true
+zstyle ':vcs_info:*' enable git svn hg
+
 typeset -ga preexec_functions
 typeset -ga precmd_functions
 typeset -ga chpwd_functions
@@ -27,3 +31,10 @@ zstyle ':completion:*:history-words' stop yes
 zstyle ':completion:*:history-words' remove-all-dups yes
 zstyle ':completion:*:history-words' list false
 zstyle ':completion:*:history-words' menu yes
+
+# Enable spell checking
+setopt correct
+
+precmd() {
+vcs_info
+}
