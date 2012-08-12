@@ -89,7 +89,7 @@ def main(args):
         if is_mac:
             ans = raw_input("This system is OSX, do you want to setup the "
                     "defaults? [Y/N]\n> ")
-            if ans.upper() in ['Y', 'N']:
+            if ans.upper() in ['Y', ]:
                 os.system("source %s" %
                         (os.path.join(os.path.dirname(__file__), "osx",
                             "defaults.sh"), ))
@@ -99,7 +99,7 @@ def main(args):
         if is_mac:
             ans = raw_input("This system is OSX, do you want to remove the "
             "custom defaults? [Y/N]\n> ")
-            if ans.upper() in ['Y', 'N']:
+            if ans.upper() in ['Y', ]:
                 os.system("source %s" %
                         (os.path.join(os.path.dirname(__file__), "osx",
                             "restore.sh"), ))
