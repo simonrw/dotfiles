@@ -138,7 +138,7 @@ if has("macunix")
 endif
 
 " Shortcut for the tag list 
-map <leader><Tab> :TlistToggle<CR>
+map <leader><Tab> :TagbarToggle<CR>
 
 " Map this to a nice keyboard shortcut
 nnoremap <leader>n :call NumberToggle()<CR>
