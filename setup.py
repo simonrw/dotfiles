@@ -53,7 +53,10 @@ def add_links():
         ln = link_name(name)
         if not os.path.islink(ln):
             print "Linking %s" % ln
-            os.symlink(os.path.abspath(name), ln)
+            try:
+                os.symlink(os.path.abspath(name), ln)
+            except OSError:
+                raise RuntimeError("Cannot link {:s}".format(name))
         else:
             print "Link %s already found" % ln
 
