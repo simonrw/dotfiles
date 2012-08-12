@@ -56,7 +56,7 @@ def add_links():
             try:
                 os.symlink(os.path.abspath(name), ln)
             except OSError:
-                raise RuntimeError("Cannot link {:s}".format(name))
+                print "Warning: Cannot link {:s}".format(name)
         else:
             print "Link %s already found" % ln
 
