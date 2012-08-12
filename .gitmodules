@@ -61,9 +61,6 @@
 [submodule "vim/vim/bundle/NrrwRgn"]
 	path = vim/vim/bundle/NrrwRgn
 	url = git://github.com/chrisbra/NrrwRgn.git
-[submodule "vim/vim/bundle/simple-pairs"]
-	path = vim/vim/bundle/simple-pairs
-	url = git://github.com/vim-scripts/simple-pairs.git
 [submodule "vim/vim/bundle/tagbar"]
 	path = vim/vim/bundle/tagbar
 	url = git://github.com/majutsushi/tagbar.git
