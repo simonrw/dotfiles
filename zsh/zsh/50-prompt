@@ -17,7 +17,8 @@ ${blue}╰─ ${green}${colour_chevron}%{$reset_color%} '
 
 
 ## Get the git branch info 
-RPROMPT='%{$fg[red]%}${vcs_info_msg_0_}%{$reset_color%}'
+#RPROMPT='%{$fg[red]%}${vcs_info_msg_0_}%{$reset_color%}'
+RPROMPT='%{$fg[red]%}${GIT_MESSAGE}%{$reset_color%}'
 
 #PROMPT="╭─${path_p}─${user_host}─${ret_status}─${hist_no}
 #╰─${blue_op}${smiley}${blue_cp} %# "
