@@ -247,3 +247,6 @@ let g:tex_conceal="adgm"
 
 " Powerline symbols
 let g:Powerline_symbols = 'fancy'
+
+" Highlight some bad characters (tabs, leading and trailing spaces)
+set list listchars=tab:▸\ ,trail:·,nbsp:·
