@@ -55,7 +55,6 @@ set showmatch
 " show command as it's typed
 set showcmd
 
-set background=dark
 
 " nice file formatting
 filetype plugin indent on
@@ -68,12 +67,6 @@ set number
 " always have status line on
 set laststatus=2
 set encoding=utf-8 " Necessary to show unicode glyphs
-
-" Set colour scheme
-if &t_Co >= 256 || has("gui_running")
-	colorscheme lucius
-	"colorscheme jellybeans
-endif
 
 " turn syntax highlighting on
 if &t_Co > 2 || has("gui_running")
@@ -250,3 +243,10 @@ let g:Powerline_symbols = 'fancy'
 
 " Highlight some bad characters (tabs, leading and trailing spaces)
 set list listchars=tab:▸\ ,trail:·,nbsp:·
+
+" Set colour scheme
+if &t_Co >= 256 || has("gui_running")
+    colorscheme lucius
+	"colorscheme jellybeans
+endif
+
