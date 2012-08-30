@@ -21,8 +21,3 @@ alias grep=ack
 alias pydoc='python -m pydoc'
 
 alias top=htop
-
-# Alias some tmux commands
-alias ta="tmux attach"
-alias tns="tmux new-session -s"
-alias tls="tmux ls"
