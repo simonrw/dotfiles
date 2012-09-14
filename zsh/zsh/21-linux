@@ -8,7 +8,7 @@ if [[ $OSTYPE == "linux-gnu" || $OSTYPE == "linux" ]]; then
     export HEADAS=$HOME/build/heasoft/x86_64-unknown-linux-gnu-libc2.11.2
     export LS_OPTIONS=
     export APPENGINE=${HOME}/build/google_appengine
-    export PYTHONPATH=${APPENGINE}:/home/astro/phrebf/Python/JG:$PYTHONPATH
+    export PYTHONPATH=${APPENGINE}:/home/astro/phrebf/Python/JG:/home/astro/phsaap/software/lib64/python2.6/site-packages:$PYTHONPATH
     export PATH=${HOME}/.cabal/bin:${APPENGINE}:${HOME}/SelectionEffects/bin:${HOME}/WASPPrograms/bin:${HOME}/build/gcc/bin:${HOME}/build/clang/bin:${PATH}
 
 
