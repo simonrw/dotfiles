@@ -16,9 +16,6 @@
 [submodule "vim/vim/bundle/tslime"]
 	path = vim/vim/bundle/tslime
 	url = git://github.com/jgdavey/tslime.vim.git
-[submodule "vim/vim/bundle/indent-guides"]
-	path = vim/vim/bundle/indent-guides
-	url = git://github.com/nathanaelkane/vim-indent-guides.git
 [submodule "vim/vim/bundle/indent-object"]
 	path = vim/vim/bundle/indent-object
 	url = git://github.com/michaeljsmith/vim-indent-object.git
