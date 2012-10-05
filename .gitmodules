@@ -13,9 +13,6 @@
 [submodule "vim/vim/bundle/unimpaired"]
 	path = vim/vim/bundle/unimpaired
 	url = git://github.com/tpope/vim-unimpaired.git
-[submodule "vim/vim/bundle/tslime"]
-	path = vim/vim/bundle/tslime
-	url = git://github.com/jgdavey/tslime.vim.git
 [submodule "vim/vim/bundle/indent-object"]
 	path = vim/vim/bundle/indent-object
 	url = git://github.com/michaeljsmith/vim-indent-object.git
