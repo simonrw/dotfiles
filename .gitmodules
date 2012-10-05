@@ -7,9 +7,6 @@
 [submodule "vim/vim/bundle/fugitive"]
 	path = vim/vim/bundle/fugitive
 	url = git://github.com/tpope/vim-fugitive.git
-[submodule "vim/vim/bundle/addon-mw-utils"]
-	path = vim/vim/bundle/addon-mw-utils
-	url = git://github.com/MarcWeber/vim-addon-mw-utils.git
 [submodule "vim/vim/bundle/tlib"]
 	path = vim/vim/bundle/tlib
 	url = git://github.com/tomtom/tlib_vim.git
