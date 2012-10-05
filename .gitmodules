@@ -64,6 +64,3 @@
 [submodule "vim/vim/bundle/align"]
 	path = vim/vim/bundle/align
 	url = git://github.com/vim-scripts/Align.git
-[submodule "vim/vim/bundle/coffeescript"]
-	path = vim/vim/bundle/coffeescript
-	url = git://github.com/kchmck/vim-coffee-script.git
