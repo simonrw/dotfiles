@@ -21,3 +21,6 @@ alias grep=ack
 alias pydoc='python -m pydoc'
 
 alias top=htop
+
+# Use astyle for formatting
+alias formatfile='astyle --style=java --indent=spaces --indent-classes --indent-switches --indent-namespaces --break-blocks=all --pad-oper --pad-header --add-brackets --convert-tabs --align-pointer=name --align-reference=name'
