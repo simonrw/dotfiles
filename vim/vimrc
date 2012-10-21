@@ -252,3 +252,6 @@ if &t_Co >= 256 || has("gui_running")
 	"colorscheme jellybeans
 endif
 
+" Hide buffers instead of closing them
+set hidden
+
