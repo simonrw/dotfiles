@@ -255,3 +255,5 @@ endif
 " Hide buffers instead of closing them
 set hidden
 
+" Don't update the display while executing macros
+set lazyredraw
