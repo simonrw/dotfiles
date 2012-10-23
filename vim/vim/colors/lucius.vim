@@ -12,7 +12,6 @@
 " so it is easy to understand what each part does.
 
 
-set background=dark
 hi clear
 if exists("syntax_on")
     syntax reset
@@ -338,3 +337,4 @@ hi Visual           ctermfg=NONE            ctermbg=60
 hi VisualNOS        guifg=fg                                        gui=underline
 hi VisualNOS        ctermfg=fg                                      cterm=underline
 
+set background=dark
