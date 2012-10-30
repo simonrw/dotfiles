@@ -1,3 +1,4 @@
+alias git=hub
 alias pylab="ipython --pylab"
 alias py='ipython'
 alias cls='ls --color=auto'
