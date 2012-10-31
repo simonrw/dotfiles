@@ -1,0 +1,27 @@
+# Set up the git code
+export __CURRENT_GIT_BRANCH=
+
+parse_git_branch() {
+    git branch --no-color 2>/dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/'
+}
+
+# Update the variable when a git command is run
+preexec_functions+='zsh_preexec_update_git_vars'
+zsh_preexec_update_git_vars() {
+    case "$(history $HISTCMD)" in
+        *git*)
+            export __CURRENT_GIT_BRANCH="$(parse_git_branch)"
+            ;;
+    esac
+}
+
+# Update the variable when the directory is changed
+chpwd_functions+='zsh_chpwd_update_git_vars'
+zsh_chpwd_update_git_vars() {
+    export __CURRENT_GIT_BRANCH="$(parse_git_branch)"
+}
+
+# Make it accessible to the prompt
+get_git_prompt_info() {
+    echo $__CURRENT_GIT_BRANCH
+}
