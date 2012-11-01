@@ -1,6 +1,6 @@
 alias git=hub
 alias pylab="ipython --pylab"
-alias py='ipython'
+alias py=pylab
 alias cls='ls --color=auto'
 alias tmux="tmux -2"
 alias valgrind="valgrind --log-file=valgrind.log --leak-check=full"
