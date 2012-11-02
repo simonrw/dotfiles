@@ -9,6 +9,8 @@ if [[ $OSTYPE == "linux-gnu" || $OSTYPE == "linux" ]]; then
     # Set up the queue commands on wasphead
     if [[ `dnsdomainname` == "star.le.ac.uk" ]]; then
         source /usr/local/sge/default/common/settings.sh
+    else
+        alias git=hub
     fi
 
 fi
