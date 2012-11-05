@@ -257,3 +257,9 @@ set hidden
 
 " Don't update the display while executing macros
 set lazyredraw
+
+" Automatically generate ctags if it exists on file save
+if filereadable(findfile("tags", ".;"))
+    let file = findfile("tags", ".;")
+    autocmd BufWritePost * silent! !ctags -R -f $file&
+endif
