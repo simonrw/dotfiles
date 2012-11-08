@@ -32,9 +32,6 @@ set scrolloff=5
 " reload all file changes automatically
 set autoread
 
-" automatically change directory to where the file is
-set autochdir
-
 " change leader key
 let mapleader=","
 
