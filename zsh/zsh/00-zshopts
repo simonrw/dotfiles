@@ -1,4 +1,5 @@
 # Lines configured by zsh-newuser-install
+skip_global_compinit=1
 HISTFILE=~/.zsh_history
 HISTSIZE=500
 SAVEHIST=500
