@@ -15,7 +15,7 @@ alias csl=cls
 alias vim='vim -X'
 alias view='view -X'
 
-# Stop using grep 
+" Stop using grep 
 alias grep=ack
 
 # Sometimes pydoc does not work with virtualenvs
