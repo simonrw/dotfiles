@@ -255,3 +255,6 @@ set hidden
 
 " Don't update the display while executing macros
 set lazyredraw
+
+" Latex folding
+let g:tex_fold_enabled=1
