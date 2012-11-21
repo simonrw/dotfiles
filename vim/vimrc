@@ -166,6 +166,10 @@ au BufNewFile,BufRead *.cpp set syntax=cpp11
 " Python text wrapping limit
 au filetype python set textwidth=79
 
+" Python make command to run flake8
+au filetype python setlocal makeprg=flake8\ %
+au filetype python setlocal efm="%f:%l%:%c: %m"
+
 if v:version >= 703
     au filetype python set colorcolumn=+1
 endif
