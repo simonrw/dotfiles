@@ -1,4 +1,3 @@
-alias ls="ls -F"
 alias pylab="ipython --pylab"
 alias py=pylab
 alias cls='ls --color=auto'
