@@ -177,13 +177,13 @@ map Q gq
 map Y y$
 
 " Strip trailing whitespace from certain filetypes
-autocmd FileType python autocmd BufWritePre <buffer> :%s/\s\+$//e
-autocmd FileType cpp autocmd BufWritePre <buffer> :%s/\s\+$//e
-autocmd FileType cpp11 autocmd BufWritePre <buffer> :%s/\s\+$//e
+au FileType python au BufWritePre <buffer> :%s/\s\+$//e
+au FileType cpp au BufWritePre <buffer> :%s/\s\+$//e
+au FileType cpp11 au BufWritePre <buffer> :%s/\s\+$//e
 
 " For git commits, set the text width to 50
-autocmd FileType gitcommit set textwidth=50
-autocmd FileType gitcommit set colorcolumn=+1
+au FileType gitcommit set textwidth=50
+au FileType gitcommit set colorcolumn=+1
 
 " Shortcut for syntax checking
 let g:syntastic_mode_map = {'mode': 'passive'}
