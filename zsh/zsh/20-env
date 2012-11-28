@@ -6,3 +6,4 @@ export PGPLOT_FOREGROUND=black
 #export PGPLOT_BACKGROUND=black
 #export PGPLOT_FOREGROUND=white
 export EDITOR=vim
+export PAGER=vimpager
