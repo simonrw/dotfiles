@@ -87,8 +87,6 @@ let g:tex_flavor='latex'
 " Auto-clean fugitive buffers
 autocmd BufReadPost fugitive://* set bufhidden=delete
 
-" Set status line
-set statusline=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P
 
 " Remap the move-window keys
 map <C-h> <C-w>h
@@ -263,3 +261,30 @@ set lazyredraw
 
 " Latex folding
 let g:tex_fold_enabled=1
+
+" Set up statusline
+set statusline=
+
+" Buffer number and pipe character with spaces
+set statusline+=%-3.3n\ 
+
+" Filename relative to opening path
+set statusline+=%f\ 
+
+" Status markers
+set statusline+=%h%m%r%q
+
+" Git status
+set statusline+=%{fugitive#statusline()}
+
+" End of left section, start right section
+set statusline+=%=
+
+" File type
+set statusline+=%y\ 
+
+" Cursor position
+set statusline+=%-14.(%l,%c%V%)\ 
+
+" View position
+set statusline+=%P
