@@ -7,3 +7,6 @@ export PGPLOT_FOREGROUND=black
 #export PGPLOT_FOREGROUND=white
 export EDITOR=vim
 export PAGER=vimpager
+
+# Set the LS colours
+export LS_COLORS="di=00;34:ln=00;35:so=00;32:pi=01;33:ex=00;31:bd=00;34"
