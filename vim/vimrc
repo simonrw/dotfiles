@@ -250,8 +250,9 @@ set list listchars=tab:▸\ ,trail:·,nbsp:·
 
 " Set colour scheme
 if &t_Co >= 256 || has("gui_running")
-    colorscheme lucius
-	"colorscheme jellybeans
+    "colorscheme lucius
+    set background=dark
+    colorscheme solarized
 endif
 
 " Hide buffers instead of closing them
