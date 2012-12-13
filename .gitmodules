@@ -52,9 +52,6 @@
 [submodule "vim/vim/bundle/markmultiple"]
 	path = vim/vim/bundle/markmultiple
 	url = git://github.com/adinapoli/vim-markmultiple.git
-[submodule "vim/vim/bundle/vim-latex"]
-	path = vim/vim/bundle/vim-latex
-	url = git://github.com/vim-scripts/LaTeX-Suite-aka-Vim-LaTeX.git
 [submodule "vim/vim/bundle/solarized"]
 	path = vim/vim/bundle/solarized
 	url = git://github.com/altercation/vim-colors-solarized.git
