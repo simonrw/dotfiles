@@ -248,9 +248,9 @@ set list listchars=tab:▸\ ,trail:·,nbsp:·
 
 " Set colour scheme
 if &t_Co >= 256 || has("gui_running")
-    "colorscheme lucius
     set background=dark
-    colorscheme solarized
+    "colorscheme solarized
+    colorscheme lucius
 endif
 
 " Hide buffers instead of closing them
