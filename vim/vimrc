@@ -149,7 +149,7 @@ vnoremap < <gv
 vnoremap > >gv
 
 " Show the cursor line
-set cursorline
+set cursorline cursorcolumn
 
 " Enable fast tty mode
 set ttyfast
