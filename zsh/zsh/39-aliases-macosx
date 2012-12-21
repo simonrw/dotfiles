@@ -3,5 +3,7 @@ if [[ $OSTYPE =~ "^darwin.*$" ]]; then
     alias amazon='ssh -i ~/websites/amazon/security/amazon_key.pem ubuntu@ec2-50-112-231-121.us-west-2.compute.amazonaws.com'
     alias ds9='/Applications/SAOImage\ DS9.app/Contents/MacOS/ds9'
     alias git=hub
+    alias gvim=mvim
+    alias gview=mview
 fi
 
