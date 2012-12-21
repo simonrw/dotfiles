@@ -161,6 +161,9 @@ set wildmode=list:longest,list:full
 " Enable c++11 formatting
 au BufNewFile,BufRead *.cpp set syntax=cpp11
 
+" Add coffeescript filetype
+au BufNewFile,BufRead *.coffee set syntax=coffee
+
 " Python text wrapping limit
 au filetype python set textwidth=79
 
