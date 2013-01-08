@@ -260,7 +260,7 @@ set hidden
 set lazyredraw
 
 " Latex folding
-let g:tex_fold_enabled=1
+"let g:tex_fold_enabled=1
 
 " Set up statusline
 set statusline=
