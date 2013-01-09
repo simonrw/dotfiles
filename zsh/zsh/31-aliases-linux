@@ -10,7 +10,6 @@ if [[ $OSTYPE == "linux-gnu" || $OSTYPE == "linux" ]]; then
     if [[ `dnsdomainname` == "star.le.ac.uk" ]]; then
         source /usr/local/sge/default/common/settings.sh
     else
-        alias git=hub
     fi
 
 fi
