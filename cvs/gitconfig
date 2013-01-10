@@ -11,6 +11,7 @@
     atree = log --graph --oneline --all --decorate --abbrev-commit
     su = submodule update --init --recursive
     gpr = pull --rebase
+    up = !git pull --rebase && git push
 [color]
     ui = auto
 [core]
