@@ -12,6 +12,7 @@
     su = submodule update --init --recursive
     gpr = pull --rebase
     up = !git pull --rebase && git push
+    cbranch = rev-parse --abbrev-ref HEAD
 [color]
     ui = auto
 [core]
