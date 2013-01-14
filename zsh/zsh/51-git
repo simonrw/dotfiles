@@ -1,4 +1,8 @@
-if [[ $OSTYPE == "linux-gnu" || $OSTYPE == "linux" ]]; then
-    . ${HOME}/build/share/git-core/contrib/completion/git-prompt.sh
+if [[ $OSTYPE == "linux-gnu" || $OSTYPE == "linux" || $OSTYPE == "linux-gnueabi" ]]; then
+    for FNAME in "${HOME}/build/share/git-core/contrib/completion/git-prompt.sh" "/etc/bash_completion.d/git"; do
+        if [ -f ${FNAME} ]; then
+            . ${FNAME}
+        fi
+    done
 fi
 
