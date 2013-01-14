@@ -1,0 +1,4 @@
+if [[ $OSTYPE =~ "^darwin.*$" ]]; then
+    . $(brew --prefix git)/etc/bash_completion.d/git-prompt.sh
+fi
+
