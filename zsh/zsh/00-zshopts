@@ -1,4 +1,5 @@
 # Lines configured by zsh-newuser-install
+fpath=(/usr/local/share/zsh-completions $fpath)
 skip_global_compinit=1
 HISTFILE=~/.zsh_history
 HISTSIZE=10000
