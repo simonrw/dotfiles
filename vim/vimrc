@@ -289,8 +289,5 @@ set statusline+=%-14.(%l,%c%V%)\
 " View position
 set statusline+=%P
 
-" Remove jedi autocompletion on member dot character
-let g:jedi#popup_on_dot = 0
-
 " Vimux mappings
 map <leader>vm :VimuxPromptCommand<CR>
