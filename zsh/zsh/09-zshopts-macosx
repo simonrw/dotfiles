@@ -1,0 +1,5 @@
+if [[ $OSTYPE =~ "^darwin.*$" ]]; then
+    # Completion for git
+    zstyle ':completion:*:*:git:*' script /usr/local/etc/bash_completion.d/git-completion.bash
+fi
+
