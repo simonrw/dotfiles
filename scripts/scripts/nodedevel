@@ -1,0 +1,9 @@
+#!/bin/bash
+
+SESSIONNAME=nodedevel
+tmux new-session -d -s ${SESSIONNAME}
+tmux rename-window -t ${SESSIONNAME} 'server'
+tmux new-window -t ${SESSIONNAME} 
+tmux rename-window -t ${SESSIONNAME} 'coffee'
+tmux new-window -t ${SESSIONNAME} 
+tmux rename-window -t ${SESSIONNAME} 'devel'
