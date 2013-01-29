@@ -3,5 +3,5 @@ VIRTUALENV_SOURCE_FILE=${VIRTUALENV_DIR}/bin/activate
 if [[ -f ${VIRTUALENV_SOURCE_FILE} ]]; then
     # Set up the python environment
     source ${VIRTUALENV_SOURCE_FILE}
-    export PYTHONPATH=${VIRTUALENV_DIR}/lib/python2.7/site-packages:$PYTHONPATH
+    # export PYTHONPATH=${VIRTUALENV_DIR}/lib/python2.7/site-packages:$PYTHONPATH
 fi
