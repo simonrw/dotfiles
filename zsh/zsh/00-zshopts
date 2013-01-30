@@ -10,7 +10,6 @@ unsetopt beep
 bindkey -e
 
 
-
 typeset -ga preexec_functions
 typeset -ga precmd_functions
 typeset -ga chpwd_functions
@@ -30,3 +29,6 @@ zstyle ':completion:*:history-words' stop yes
 zstyle ':completion:*:history-words' remove-all-dups yes
 zstyle ':completion:*:history-words' list false
 zstyle ':completion:*:history-words' menu yes
+
+# Do not confirm on removal with a *
+setopt rmstarsilent
