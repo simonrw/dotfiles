@@ -1,19 +1,11 @@
 " Nice pathogen stuff
 filetype off
 
-" Handle disabling pathogen under certain circumstances
-let g:pathogen_disabled = []
+" Handle vundle here
+set rtp+=~/.vim/bundle/vundle
+call vundle#rc()
 
-" If the clang binary is not available
-let s:clang_search = system("which clang")
-if !empty(matchstr(s:clang_search, "clang not found"))
-    "echo "Cannot find clang, disabling clang completion"
-    call add(g:pathogen_disabled, "clang_complete")
-endif
-
-
-" Import the pathogen modules
-call pathogen#infect()
+Bundle 'gmarik/vundle'
 
 filetype plugin indent on
 
