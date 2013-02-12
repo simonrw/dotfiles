@@ -5,7 +5,30 @@ filetype off
 set rtp+=~/.vim/bundle/vundle
 call vundle#rc()
 
+" Add bundles here
 Bundle 'gmarik/vundle'
+Bundle 'scrooloose/nerdcommenter'
+Bundle 'vim-scripts/a.vim'
+Bundle 'tpope/vim-fugitive'
+Bundle 'tomtom/tlib_vim'
+Bundle 'tpope/vim-unimpaired'
+Bundle 'michaeljsmith/vim-indent-object'
+Bundle 'sjl/splice.vim'
+Bundle 'kien/ctrlp.vim'
+Bundle 'msanders/snipmate.vim'
+Bundle 'tpope/vim-surround'
+Bundle 'tpope/vim-repeat'
+Bundle 'tpope/vim-git'
+Bundle 'majutsushi/tagbar'
+Bundle 'digitaltoad/vim-jade'
+Bundle 'vim-scripts/Align'
+Bundle 'nathanaelkane/vim-indent-guides'
+Bundle 'adinapoli/vim-markmultiple'
+Bundle 'altercation/vim-colors-solarized'
+Bundle 'jmcantrell/vim-virtualenv'
+Bundle 'benmills/vimux'
+Bundle 'kchmck/vim-coffee-script'
+Bundle 'goldfeld/vim-seek'
 
 filetype plugin indent on
 
