@@ -1,6 +1,8 @@
 " Nice pathogen stuff
 filetype off
 
+let g:vundle_default_git_proto = 'git'
+
 " Handle vundle here
 set rtp+=~/.vim/bundle/vundle
 call vundle#rc()
