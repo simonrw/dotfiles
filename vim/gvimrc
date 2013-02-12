@@ -16,3 +16,4 @@ if has("gui_macvim")
 endif
 
 set sw=4
+set transparency=5
