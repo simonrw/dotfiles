@@ -1,19 +1,34 @@
 " Nice pathogen stuff
 filetype off
 
-" Handle disabling pathogen under certain circumstances
-let g:pathogen_disabled = []
+" Handle vundle here
+set rtp+=~/.vim/bundle/vundle
+call vundle#rc()
 
-" If the clang binary is not available
-let s:clang_search = system("which clang")
-if !empty(matchstr(s:clang_search, "clang not found"))
-    "echo "Cannot find clang, disabling clang completion"
-    call add(g:pathogen_disabled, "clang_complete")
-endif
-
-
-" Import the pathogen modules
-call pathogen#infect()
+" Add bundles here
+Bundle 'gmarik/vundle'
+Bundle 'scrooloose/nerdcommenter'
+Bundle 'vim-scripts/a.vim'
+Bundle 'tpope/vim-fugitive'
+Bundle 'tomtom/tlib_vim'
+Bundle 'tpope/vim-unimpaired'
+Bundle 'michaeljsmith/vim-indent-object'
+Bundle 'sjl/splice.vim'
+Bundle 'kien/ctrlp.vim'
+Bundle 'msanders/snipmate.vim'
+Bundle 'tpope/vim-surround'
+Bundle 'tpope/vim-repeat'
+Bundle 'tpope/vim-git'
+Bundle 'majutsushi/tagbar'
+Bundle 'digitaltoad/vim-jade'
+Bundle 'vim-scripts/Align'
+Bundle 'nathanaelkane/vim-indent-guides'
+Bundle 'adinapoli/vim-markmultiple'
+Bundle 'altercation/vim-colors-solarized'
+Bundle 'jmcantrell/vim-virtualenv'
+Bundle 'benmills/vimux'
+Bundle 'kchmck/vim-coffee-script'
+Bundle 'goldfeld/vim-seek'
 
 filetype plugin indent on
 
