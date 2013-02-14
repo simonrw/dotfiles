@@ -1,3 +1,3 @@
 setlocal foldmethod=syntax
-set iskeyword+=:
-set sw=2
+setlocal iskeyword+=:
+setlocal sw=2
