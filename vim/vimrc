@@ -8,7 +8,7 @@ set rtp+=~/.vim/bundle/vundle
 call vundle#rc()
 
 " Add bundles here
-source ~/.vim/bundles.vim
+source ~/.vim/setup/bundles.vim
 
 filetype plugin indent on
 
