@@ -3,3 +3,4 @@ matplotlib/matplotlib/fontList.cache
 ipython/ipython/history
 vim/vim/spell
 vim/vim/bundle
+*.swp
