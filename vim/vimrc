@@ -74,11 +74,6 @@ set backspace=indent,eol,start
 
 set mouse=a
 
-" Vim latex commands
-set grepprg=grep\ -nH\ $*
-let g:Tex_CompileRule_dvi='latex -interaction=nonstopmode --src-specials $*'
-let g:tex_flavor='latex'
-
 " Auto-clean fugitive buffers
 autocmd BufReadPost fugitive://* set bufhidden=delete
 
@@ -123,17 +118,6 @@ endif
 
 " Shortcut for the tag list 
 map <leader><Tab> :TagbarToggle<CR>
-
-" Map this to a nice keyboard shortcut
-nnoremap <leader>n :call NumberToggle()<CR>
-
-" Set absolute mode whenever window loses focus
-:au FocusLost * :set number
-
-" Some clang completion settings
-
-" Show clang errors in quickfix window
-let g:clang_complete_copen = 1
 
 " Use sane regexes
 nnoremap / /\v
@@ -182,10 +166,6 @@ au FileType cpp11 au BufWritePre <buffer> :%s/\s\+$//e
 au FileType gitcommit set textwidth=50
 au FileType gitcommit set colorcolumn=+1
 
-" Shortcut for syntax checking
-let g:syntastic_mode_map = {'mode': 'passive'}
-nnoremap <leader>s :SyntasticCheck<CR>
-
 " Change the ctrlp plugin key combo, and the default function to search in
 " buffers also
 let g:ctrlp_map = '<leader>t'
@@ -205,9 +185,6 @@ endif
 " Use double j to escape
 inoremap jj <ESC>
 
-" Nice mapping for gundo
-noremap <leader>gu :GundoToggle<CR>
-
 " Paste toggling - allow for pasting from other sources with correct
 " formatting
 set pastetoggle=<leader>p
@@ -215,9 +192,6 @@ set pastetoggle=<leader>p
 " Disable escape keys which makes vim more responsive
 set noesckeys
 
-
-" Powerline symbols
-let g:Powerline_symbols = 'fancy'
 
 " Highlight some bad characters (tabs, leading and trailing spaces)
 set list listchars=tab:▸\ ,trail:·,nbsp:·
@@ -239,9 +213,6 @@ set hidden
 
 " Don't update the display while executing macros
 set lazyredraw
-
-" Latex folding
-"let g:tex_fold_enabled=1
 
 " Set up statusline
 set statusline=
