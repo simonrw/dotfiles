@@ -1,5 +1,6 @@
 " For git commits, set the text width to 50
-set textwidth=50
-set colorcolumn=+1
+setlocal textwidth=50
+setlocal wrap
+setlocal colorcolumn=+1
 
 
