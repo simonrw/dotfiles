@@ -140,17 +140,6 @@ set wildmode=list:longest,list:full
 " Enable c++11 formatting
 au BufNewFile,BufRead *.cpp set syntax=cpp11
 
-" Python text wrapping limit
-"au filetype python set textwidth=79
-
-" Python make command to run flake8
-au filetype python setlocal makeprg=flake8\ %
-au filetype python setlocal efm="%f:%l%:%c: %m"
-
-if v:version >= 703
-    au filetype python set colorcolumn=80
-endif
-
 " Remap the Q key
 map Q gq
 
@@ -158,7 +147,6 @@ map Q gq
 map Y y$
 
 " Strip trailing whitespace from certain filetypes
-au FileType python au BufWritePre <buffer> :%s/\s\+$//e
 au FileType cpp au BufWritePre <buffer> :%s/\s\+$//e
 au FileType cpp11 au BufWritePre <buffer> :%s/\s\+$//e
 
@@ -244,6 +232,3 @@ set statusline+=%P
 " Vimux mappings
 map <leader>vm :VimuxPromptCommand<CR>
 map <leader>vr :VimuxRunLastCommand<CR>
-
-" Smart indent for python code
-autocmd BufRead *.py set smartindent cinwords=if,elif,else,for,while,try,except,finally,def,class
