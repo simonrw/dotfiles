@@ -10,4 +10,4 @@ else
 endif
 
 set sw=4
-set transparency=5
+set transparency=2
