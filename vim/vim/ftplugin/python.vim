@@ -5,10 +5,10 @@ endif
 " Change the saving behaviour, strip empty whitespace
 au BufWritePre <buffer> :%s/\s\+$//e
 
-setlocal tabstop=4
-setlocal shiftwidth=4
+setlocal tabstop=2
+setlocal shiftwidth=2
 setlocal expandtab
 setlocal smarttab
 setlocal formatoptions=croql
-setlocal softtabstop=4
+setlocal softtabstop=2
 
