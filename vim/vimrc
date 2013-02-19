@@ -222,3 +222,6 @@ map <leader>vr :VimuxRunLastCommand<CR>
 
 " Enable hard mode by default
 autocmd VimEnter,BufNewFile,BufReadPost * silent! call HardMode()
+
+" Folding method
+set foldmethod=marker
