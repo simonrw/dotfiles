@@ -219,6 +219,3 @@ set statusline+=%P
 " Vimux mappings
 map <leader>vm :VimuxPromptCommand<CR>
 map <leader>vr :VimuxRunLastCommand<CR>
-
-" Enable hard mode by default
-autocmd VimEnter,BufNewFile,BufReadPost * silent! call HardMode()
