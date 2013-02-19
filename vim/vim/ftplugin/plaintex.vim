@@ -1,1 +1,1 @@
-set filetype tex
+set filetype=tex
