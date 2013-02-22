@@ -222,3 +222,6 @@ map <leader>vr :VimuxRunLastCommand<CR>
 
 " Folding method
 set foldmethod=marker
+
+" Thesaurus
+set thesaurus+=~/thesaurus/mthesaur.txt
