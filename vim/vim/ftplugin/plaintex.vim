@@ -1,1 +1,1 @@
-set filetype=tex
+setlocal filetype=tex
