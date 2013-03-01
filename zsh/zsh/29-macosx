@@ -4,4 +4,7 @@ if [[ $OSTYPE =~ "^darwin.*$" ]]; then
     export NODE_PATH=/usr/local/lib/node_modules
     export HOMEBREW_TEMP=/tmp
     # export PYTHONPATH=/usr/local/lib/python2.7/site-packages:$PYTHONPATH
+
+		# rbenv settings
+		if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 fi
