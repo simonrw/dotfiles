@@ -1,6 +1,7 @@
 setlocal foldmethod=marker
 setlocal iskeyword+=:
 setlocal sw=2
-set wrap
-set nolist
-set linebreak
+setlocal wrap
+setlocal nolist
+setlocal spell
+setlocal linebreak
