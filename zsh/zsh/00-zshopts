@@ -7,7 +7,7 @@ SAVEHIST=10000
 setopt appendhistory
 setopt autocd
 unsetopt beep
-bindkey -e
+bindkey -v				# Use vim keybindings
 
 
 typeset -ga preexec_functions
