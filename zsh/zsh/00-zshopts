@@ -7,7 +7,10 @@ SAVEHIST=10000
 setopt appendhistory
 setopt autocd
 unsetopt beep
+
 bindkey -v				# Use vim keybindings
+bindkey "^R" history-incremental-search-backward # Put the reverse history back
+
 
 
 typeset -ga preexec_functions
