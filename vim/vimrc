@@ -28,7 +28,7 @@ set scrolloff=5
 set autoread
 
 " change leader key
-let mapleader="\<space>"
+let mapleader=","
 
 " enable the semicolon to act like the colon key
 noremap ; :
