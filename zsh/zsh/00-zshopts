@@ -4,9 +4,13 @@ skip_global_compinit=1
 HISTFILE=~/.zsh_history
 HISTSIZE=10000
 SAVEHIST=10000
-setopt appendhistory
+setopt append_history
 setopt autocd
 unsetopt beep
+
+# Only unique history entries in the reverse history search HIST_FIND_NO_DUPS=1
+setopt hist_ignore_all_dups
+setopt hist_ignore_dups
 
 bindkey -v				# Use vim keybindings
 bindkey "^R" history-incremental-search-backward # Put the reverse history back
