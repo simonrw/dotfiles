@@ -34,6 +34,7 @@
     diff =
 [merge]
     tool = splice
+	conflictstyle = diff3
 [mergetool "splice"]
     cmd = "vim -f $BASE $LOCAL $REMOTE $MERGED -c 'SpliceInit'"
     trustExitCode = true
