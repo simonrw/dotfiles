@@ -6,6 +6,8 @@ setlocal nolist
 setlocal spell
 setlocal linebreak
 setlocal nonumber
+setlocal cc=0
+setlocal nocursorcolumn
 
 " Ignore trash files for file globbing
 " taken from https://github.com/lukepfister/.dotfiles/blob/master/.vimrc
