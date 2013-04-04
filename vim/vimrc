@@ -1,3 +1,21 @@
+" turn syntax highlighting on
+if &t_Co > 2 || has("gui_running")
+    syntax on
+endif
+
+" Set colour scheme
+if &t_Co >= 256 || has("gui_running")
+    set background=dark
+    "colorscheme solarized
+    colorscheme lucius
+endif
+"
+
+" Conceal options
+hi Conceal ctermfg=254 ctermbg=235 guibg=#242424 guifg=#e4e4e4
+set cole=2
+let g:tex_conceal="adgm"
+
 " Nice pathogen stuff
 filetype off
 
@@ -59,10 +77,6 @@ set number
 set laststatus=2
 set encoding=utf-8 " Necessary to show unicode glyphs
 
-" turn syntax highlighting on
-if &t_Co > 2 || has("gui_running")
-    syntax on
-endif
 
 " make backspace behave nicely
 set backspace=indent,eol,start
@@ -170,18 +184,6 @@ set noesckeys
 
 " Highlight some bad characters (tabs, leading and trailing spaces)
 set list listchars=tab:▸\ ,trail:·,nbsp:·
-
-" Set colour scheme
-if &t_Co >= 256 || has("gui_running")
-    set background=dark
-    "colorscheme solarized
-    colorscheme lucius
-endif
-"
-" Conceal options
-hi Conceal ctermfg=254 ctermbg=235 guibg=#242424 guifg=#e4e4e4
-set cole=2
-let g:tex_conceal="adgm"
 
 " Hide buffers instead of closing them
 set hidden
