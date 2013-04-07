@@ -1,5 +1,6 @@
 Bundle 'gmarik/vundle'
-Bundle 'scrooloose/nerdcommenter'
+"Bundle 'scrooloose/nerdcommenter'
+Bundle 'tomtom/tcomment_vim'
 Bundle 'vim-scripts/a.vim'
 Bundle 'tpope/vim-fugitive'
 Bundle 'tpope/vim-unimpaired'
