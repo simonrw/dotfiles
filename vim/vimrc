@@ -231,3 +231,8 @@ set thesaurus+=~/thesaurus/mthesaur.txt
 " Change directory to that of the current file
 " Taken from Dave Aitken http://www.github.com/actionshrimp
 map <leader>cd :cd %:p:h<CR>:pwd<CR>
+
+" Tube
+if has("macunix")
+		let g:tube_terminal = 'iterm'
+endif
