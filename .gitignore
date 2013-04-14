@@ -4,3 +4,5 @@ ipython/ipython/history
 vim/vim/spell
 vim/vim/bundle
 *.swp
+ghc/ghc/ghci_history
+ghc/ghc/x86_64-*
