@@ -11,11 +11,6 @@ if &t_Co >= 256 || has("gui_running")
 endif
 "
 
-" Conceal options
-hi Conceal ctermfg=254 ctermbg=235 guibg=#242424 guifg=#e4e4e4
-set cole=2
-let g:tex_conceal="adgm"
-
 " Nice pathogen stuff
 filetype off
 
