@@ -39,9 +39,6 @@ set shiftwidth=2
 set noexpandtab
 
 
-" Scroll border
-set scrolloff=5
-
 " reload all file changes automatically
 set autoread
 
