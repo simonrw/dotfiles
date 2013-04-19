@@ -225,3 +225,6 @@ map <leader>cd :cd %:p:h<CR>:pwd<CR>
 if has("macunix")
 		let g:tube_terminal = 'iterm'
 endif
+
+" Latexbox ignore warnings
+let g:LatexBox_show_warnings = 0
