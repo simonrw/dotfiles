@@ -154,6 +154,7 @@ noremap <leader>gd :Gdiff<CR>
 noremap <leader>gw :Gwrite<CR>
 noremap <leader>gr :Gread<CR>
 noremap <leader>gc :Gcommit<CR>
+noremap <leader>gst :Gst<CR>
 
 " If a .local.vim file exists in the cwd then source it
 if filereadable(".local.vim")
