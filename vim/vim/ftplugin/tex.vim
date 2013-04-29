@@ -13,3 +13,6 @@ setlocal nocursorcolumn
 " taken from https://github.com/lukepfister/.dotfiles/blob/master/.vimrc
 let g:ctrlp_custom_ignore = {
 			\ 'file': '\v\.(ps|pdf|dvi|aux)$'}
+
+" Synctex in skim
+map <silent> <LocalLeader>ls :silent !/Applications/Skim.app/Contents/SharedSupport/displayline <C-R>=line('.')<CR> "<C-R>=LatexBox_GetOutputFile()<CR>" "%:p" <CR>
