@@ -169,7 +169,7 @@ inoremap jj <ESC>
 set pastetoggle=<leader>p
 
 " Disable escape keys which makes vim more responsive
-set noesckeys
+" set noesckeys
 
 
 " Highlight some bad characters (tabs, leading and trailing spaces)
@@ -229,3 +229,8 @@ endif
 
 " Latexbox ignore warnings
 let g:LatexBox_show_warnings = 0
+
+" fix slight delay after pressing ESC then O
+" http://ksjoberg.com/vim-esckeys.html
+" set noesckeys
+set timeout timeoutlen=1000 ttimeoutlen=100
