@@ -3,14 +3,6 @@ if &t_Co > 2 || has("gui_running")
     syntax on
 endif
 
-" Set colour scheme
-if &t_Co >= 256 || has("gui_running")
-    set background=dark
-    "colorscheme solarized
-    colorscheme lucius
-endif
-"
-
 " Nice pathogen stuff
 filetype off
 
@@ -24,6 +16,14 @@ call vundle#rc()
 source ~/.vim/setup/bundles.vim
 
 filetype plugin indent on
+
+" Set colour scheme
+if &t_Co >= 256 || has("gui_running")
+    set background=light
+		colorscheme solarized
+    " colorscheme lucius
+endif
+"
 
 " Set no vi compatible
 set nocompatible
