@@ -15,3 +15,6 @@ setlocal softtabstop=4
 " Set the makeprg to flake8 for syntax checking
 setlocal makeprg=flake8\ %
 
+" Set up some common spelling replacements
+Abolish wiht with
+Abolish improt import
