@@ -13,4 +13,5 @@ setlocal formatoptions=croql
 setlocal softtabstop=4
 
 " Set the makeprg to flake8 for syntax checking
-set makeprg=flake8\ %
+setlocal makeprg=flake8\ %
+
