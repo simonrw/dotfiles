@@ -9,7 +9,7 @@ if [[ $OSTYPE == "linux-gnu" || $OSTYPE == "linux" ]]; then
     export LS_OPTIONS=
     export APPENGINE=${HOME}/build/google_appengine
     export PYTHONPATH=${APPENGINE}:/home/astro/phrebf/Python/JG:$PYTHONPATH
-    export PATH=${HOME}/.cabal/bin:${APPENGINE}:${HOME}/SelectionEffects/bin:${HOME}/WASPPrograms/bin:${HOME}/build/gcc/bin:${HOME}/build/clang/bin:${PATH}
+    export PATH=${HOME}/build/bin:${HOME}/.cabal/bin:${APPENGINE}:${HOME}/SelectionEffects/bin:${HOME}/WASPPrograms/bin:${HOME}/build/gcc/bin:${HOME}/build/clang/bin:${PATH}
     export LESS=-RFX
 
 
