@@ -23,7 +23,6 @@ if &t_Co >= 256 || has("gui_running")
 		colorscheme solarized
     " colorscheme lucius
 endif
-"
 
 " Set no vi compatible
 set nocompatible
@@ -73,14 +72,11 @@ set encoding=utf-8 " Necessary to show unicode glyphs
 " make backspace behave nicely
 set backspace=indent,eol,start
 
-" pyclewn port
-"let g:pyclewn_connection="localhost:80801:changeme"
-
+" Set mouse mode
 set mouse=a
 
 " Auto-clean fugitive buffers
 autocmd BufReadPost fugitive://* set bufhidden=delete
-
 
 " Remap the move-window keys
 map <C-h> <C-w>h
@@ -112,7 +108,6 @@ let g:ultisnips_python_style='doxygen'
 
 " Set the tags directory
 set tags=./tags;/
-"map <F8> :!ctags -R --c++-kinds=+p --fields=+iaS --extra=+q .<CR>
 
 " Set tags executable
 if has("macunix")
@@ -225,8 +220,3 @@ endif
 
 " Latexbox ignore warnings
 let g:LatexBox_show_warnings = 0
-
-" fix slight delay after pressing ESC then O
-" http://ksjoberg.com/vim-esckeys.html
-" set noesckeys
-set timeout timeoutlen=1000 ttimeoutlen=100
