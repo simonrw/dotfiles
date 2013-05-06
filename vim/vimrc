@@ -171,10 +171,6 @@ set pastetoggle=<leader>p
 " Disable escape keys which makes vim more responsive
 " set noesckeys
 
-
-" Highlight some bad characters (tabs, leading and trailing spaces)
-set list listchars=tab:▸\ ,trail:·,nbsp:·
-
 " Hide buffers instead of closing them
 set hidden
 
