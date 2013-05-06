@@ -1,7 +1,6 @@
 if [[ $OSTYPE == "linux-gnu" || $OSTYPE == "linux" ]]; then
     alias open="xdg-open"
     alias heainit="source $HEADAS/headas-init.sh"
-    alias gitk="gitk --all"
 
     # Set up the module command
     function module() { eval `modulecmd zsh $*`; }
@@ -9,7 +8,6 @@ if [[ $OSTYPE == "linux-gnu" || $OSTYPE == "linux" ]]; then
     # Set up the queue commands on wasphead
     if [[ `dnsdomainname` == "star.le.ac.uk" ]]; then
         source /usr/local/sge/default/common/settings.sh
-    else
     fi
 
 fi

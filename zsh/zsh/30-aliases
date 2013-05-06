@@ -1,24 +1,12 @@
 alias pylab="ipython --pylab"
 alias py=pylab
 alias cls='ls --color=auto'
-alias lcs=cls
-alias tmux="tmux -2"
-alias valgrind="valgrind --log-file=valgrind.log --leak-check=full"
-alias wasphead="ssh -t sw@wasphead.star.le.ac.uk 'source ~/.zshrc; tmux attach-session -t PROGRESS'"
 alias g=git
 
 # Set some common typos
 alias sl=ls
 alias csl=cls
-
-# Vim no longer uses X
-alias vim='vim -X'
-alias view='view -X'
+alias lcs=cls
 
 # Sometimes pydoc does not work with virtualenvs
 alias pydoc='python -m pydoc'
-
-alias top=htop
-
-# Use astyle for formatting
-alias formatfile='astyle --style=java --indent=spaces --indent-classes --indent-switches --indent-namespaces --break-blocks=all --pad-oper --pad-header --add-brackets --convert-tabs --align-pointer=name --align-reference=name --suffix=none'
