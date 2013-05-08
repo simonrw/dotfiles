@@ -4,3 +4,6 @@ Abolish improt import
 Abolish pfyits pyfits
 Abolish oepn open
 Abolish opne open
+Abolish teh the
+Abolish adn and
+Abolish retunr return
