@@ -7,3 +7,5 @@ Abolish opne open
 Abolish teh the
 Abolish adn and
 Abolish retunr return
+Abolish paht path
+Abolish pritn print
