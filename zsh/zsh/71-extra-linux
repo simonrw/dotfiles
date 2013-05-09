@@ -1,0 +1,10 @@
+if [[ $OSTYPE == "linux-gnu" || $OSTYPE == "linux" ]]; then
+	VIRTUALENV_DIR=${HOME}/PythonEnv
+	VIRTUALENV_SOURCE_FILE=${VIRTUALENV_DIR}/bin/activate
+	if [[ -f ${VIRTUALENV_SOURCE_FILE} ]]; then
+		# Set up the python environment
+		# Set the environment variable for only this env to disable the prompt
+		VIRTUAL_ENV_DISABLE_PROMPT=1 source ${VIRTUALENV_SOURCE_FILE}
+		# export PYTHONPATH=${VIRTUALENV_DIR}/lib/python2.7/site-packages:$PYTHONPATH
+	fi
+fi
