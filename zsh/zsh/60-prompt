@@ -4,14 +4,14 @@ colors
 setopt prompt_subst
 
 # print smiley for last command status
-local smiley="%(?,%{$fg[green]%}☺%{$reset_color%},%{$fg[red]%}☹%{$reset_color%})"
-local colour_chevron="%(?,%{$fg[green]%}>%{$reset_color%},%{$fg[red]%}>%{$reset_color%})"
+local process_status="%(?,%{$fg[green]%}✔%{$reset_color%},%{$fg[red]%}✗%{$reset_color%})"
 
 ## Control promt
 local blue="%{$fg[blue]%}"
 local green="%{$fg[green]%}"
 local red="%{$fg[red]%}"
 local lgrey="%{$fg[grey]%}"
-PROMPT='${blue}╭─ %{$reset_color%}[%{$fg[magenta]%}%M%{$reset_color%}]%{$reset_color%} %~
-${blue}╰─ ${green}${colour_chevron}%{$reset_color%} '
+local magenta="%{$fg[magenta]%}"
+PROMPT='${process_status} [${magenta}%M%{$reset_color%}]%{$reset_color%} %# '
+
 RPROMPT='${red}$(__git_ps1)%{$reset_color%}'
