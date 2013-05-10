@@ -14,7 +14,7 @@ local lgrey="%{$fg[grey]%}"
 local magenta="%{$fg[magenta]%}"
 local reset="%{$reset_color%}"
 PROMPT='
-${process_status} [${magenta}%M${reset} ${green}=>${reset} %2~
+${process_status} ${blue}[${reset}${magenta}%M${reset} ${green}=>${reset} %2~${blue}]${reset}
 > '
 
 RPROMPT='${red}$(__git_ps1)%{$reset_color%}'
