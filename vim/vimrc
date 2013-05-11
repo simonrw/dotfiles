@@ -30,7 +30,7 @@ set nocompatible
 " set up some nice tab defaults
 set tabstop=2
 set shiftwidth=2
-set noexpandtab
+set expandtab
 
 
 " reload all file changes automatically
