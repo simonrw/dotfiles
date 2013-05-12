@@ -22,6 +22,7 @@ if &t_Co >= 256 || has("gui_running")
     set background=dark
 		" colorscheme solarized
     colorscheme lucius
+    LuciusDark
 endif
 
 " Set no vi compatible
