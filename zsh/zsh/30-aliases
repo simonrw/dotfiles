@@ -10,9 +10,3 @@ alias lcs=cls
 
 # Sometimes pydoc does not work with virtualenvs
 alias pydoc='python -m pydoc'
-
-# Some suffix aliases
-alias -s rb=vim
-alias -s py=vim
-alias -s cpp=vim
-alias -s c=vim
