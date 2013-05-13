@@ -16,15 +16,6 @@ call vundle#rc()
 source ~/.vim/setup/bundles.vim
 
 filetype plugin indent on
-
-" Set colour scheme
-if &t_Co >= 256 || has("gui_running")
-    set background=dark
-		" colorscheme solarized
-    colorscheme lucius
-    LuciusDark
-endif
-
 " Set no vi compatible
 set nocompatible
 
@@ -221,3 +212,10 @@ endif
 
 " Latexbox ignore warnings
 let g:LatexBox_show_warnings = 0
+
+" Set colour scheme
+if &t_Co >= 256 || has("gui_running")
+    set background=dark
+		" colorscheme solarized
+    colorscheme lucius
+endif
