@@ -219,3 +219,6 @@ if &t_Co >= 256 || has("gui_running")
 		" colorscheme solarized
     colorscheme lucius
 endif
+
+" Ctrl-P ignore list
+let g:ctrlp_custom_ignore = '\v[\/]\.(aux)$'
