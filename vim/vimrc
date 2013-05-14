@@ -110,10 +110,6 @@ endif
 " Shortcut for the tag list 
 map <leader><Tab> :TagbarToggle<CR>
 
-" Use sane regexes
-nnoremap / /\v
-vnoremap / /\v
-
 " Reselect visual block after indent/outdent
 vnoremap < <gv
 vnoremap > >gv
