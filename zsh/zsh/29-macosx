@@ -4,6 +4,4 @@ if [[ $OSTYPE =~ "^darwin.*$" ]]; then
     export NODE_PATH=/usr/local/lib/node_modules
     export HOMEBREW_TEMP=/tmp
     # export PYTHONPATH=/usr/local/lib/python2.7/site-packages:$PYTHONPATH
-
-    source /usr/local/share/python/virtualenvwrapper.sh
 fi
