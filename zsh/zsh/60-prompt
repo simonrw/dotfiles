@@ -13,4 +13,4 @@ local red="%{$fg[red]%}"
 local lgrey="%{$fg[grey]%}"
 local magenta="%{$fg[magenta]%}"
 local reset="%{$reset_color%}"
-PROMPT=' ${process_status} ${blue}>${reset} '
+PROMPT=' ${process_status} > '
