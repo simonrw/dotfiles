@@ -1,5 +1,5 @@
 alias pylab="ipython --pylab"
-alias py=pylab
+alias py=ipython
 alias cls='ls --color=auto'
 alias g=git
 
