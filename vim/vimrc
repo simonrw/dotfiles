@@ -221,3 +221,6 @@ endif
 
 " Ctrl-P ignore list
 let g:ctrlp_custom_ignore = '\v[\/]\.(aux)$'
+
+" Add a command to list the recent files using ctrlp's mru feature
+command Recent execute "CtrlPMRU"
