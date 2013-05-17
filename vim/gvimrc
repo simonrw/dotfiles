@@ -1,6 +1,5 @@
 " turn off unneeded gui crap
-set guioptions-=T
-set guioptions-=m
+set et o=
 
 " if mac use the monaco font
 if has("macunix")
