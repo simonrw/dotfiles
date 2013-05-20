@@ -19,6 +19,9 @@ filetype plugin indent on
 " Set no vi compatible
 set nocompatible
 
+" Enable matchit
+runtime macros/matchit.vim
+
 " set up some nice tab defaults
 set tabstop=2
 set shiftwidth=2
