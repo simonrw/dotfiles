@@ -6,6 +6,8 @@ HISTSIZE=10000
 SAVEHIST=10000
 setopt append_history
 setopt autocd
+setopt auto_param_slash
+setopt mark_dirs
 unsetopt beep
 
 # Only unique history entries in the reverse history search HIST_FIND_NO_DUPS=1
