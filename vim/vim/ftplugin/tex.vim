@@ -10,4 +10,4 @@ setlocal cc=0
 setlocal nocursorcolumn
 
 " Synctex in skim
-map <silent> <LocalLeader>ls :silent !/Applications/Skim.app/Contents/SharedSupport/displayline <C-R>=line('.')<CR> "<C-R>=LatexBox_GetOutputFile()<CR>" "%:p" <CR>
+map <silent> <LocalLeader>ls :silent !/Applications/Skim.app/Contents/SharedSupport/displayline -b -g <C-R>=line('.')<CR> "<C-R>=LatexBox_GetOutputFile()<CR>" "%:p" <CR>
