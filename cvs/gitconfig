@@ -14,19 +14,19 @@
     up = !git pull --rebase && git push
     cbranch = rev-parse --abbrev-ref HEAD
     upstream = !git rebase master && git checkout master && git merge --no-ff - && git checkout -
-	sync = !legit sync \"$@\"
-	switch = !legit switch \"$@\"
-	branches = !legit branches
-	sprout = !legit sprout \"$@\"
-	unpublish = !legit unpublish \"$@\"
-	harvest = !legit harvest \"$@\"
-	publish = !legit publish \"$@\"
-	graft = !legit graft \"$@\"
+    sync = !legit sync \"$@\"
+    switch = !legit switch \"$@\"
+    branches = !legit branches
+    sprout = !legit sprout \"$@\"
+    unpublish = !legit unpublish \"$@\"
+    harvest = !legit harvest \"$@\"
+    publish = !legit publish \"$@\"
+    graft = !legit graft \"$@\"
 [color]
     ui = auto
 [core]
     pager = less -FXRS
-	excludesfile = ~/.cvsignore
+    excludesfile = ~/.cvsignore
     autocrlf = false
     safecrlf = true
     whitespace = fix
@@ -47,6 +47,6 @@
     cmd = "vim -f $BASE $LOCAL $REMOTE $MERGED -c 'SpliceInit'"
     trustExitCode = true
 [push]
-	default = current
+    default = current
 [diff]
-	algorithm = patience
+    algorithm = patience
