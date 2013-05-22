@@ -29,6 +29,10 @@ set shiftwidth=4
 set shiftround
 set expandtab
 
+" Set history settings
+set history=700
+set undolevels=700
+
 
 " reload all file changes automatically
 set autoread
