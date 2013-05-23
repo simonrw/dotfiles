@@ -240,3 +240,5 @@ set nobackup
 set nowritebackup
 set noswapfile
 
+" Leader command for clearing all other buffers
+map <leader>bo :BufOnly<CR>
