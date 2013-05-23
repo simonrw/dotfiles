@@ -8,3 +8,5 @@ else
     set gfn=Bitstream\ Vera\ Sans\ Mono\ 10
 endif
 
+" Disable cursor blinking in normal mode
+set gcr=n:blinkon0
