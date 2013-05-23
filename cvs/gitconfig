@@ -4,16 +4,11 @@
 [alias]
     st = status -s
     unstage = reset HEAD
-    update = commit -am
+    cm = commit -m
     co = checkout
-    oneline = log --pretty=oneline
-    tree = log --graph --oneline --decorate --abbrev-commit
-    atree = log --graph --oneline --all --decorate --abbrev-commit
+    oneline = log --pretty=oneline --date=relative
+    tree = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative
     su = submodule update --init --recursive
-    gpr = pull --rebase
-    up = !git pull --rebase && git push
-    cbranch = rev-parse --abbrev-ref HEAD
-    upstream = !git rebase master && git checkout master && git merge --no-ff - && git checkout -
     sync = !legit sync \"$@\"
     switch = !legit switch \"$@\"
     branches = !legit branches
