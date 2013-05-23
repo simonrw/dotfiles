@@ -242,3 +242,6 @@ set noswapfile
 
 " Leader command for clearing all other buffers
 map <leader>bo :BufOnly<CR>
+
+" Map control-s to update, rather than write
+noremap <C-s> :update<CR>
