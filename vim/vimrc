@@ -245,7 +245,9 @@ set noswapfile
 map <leader>bo :BufOnly<CR>
 
 " Map control-s to update, rather than write
-noremap <C-s> :update<CR>
+nmap <C-s> :update<CR>
+imap <C-s> :update<CR>
+vmap <C-s> :update<CR>
 
 " Map leader r to recent command
 map <leader>r :Recent<CR>
