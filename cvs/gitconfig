@@ -17,6 +17,7 @@
     harvest = !legit harvest \"$@\"
     publish = !legit publish \"$@\"
     graft = !legit graft \"$@\"
+    gpr = pull --rebase
 [color]
     ui = auto
 [core]
