@@ -10,3 +10,6 @@ defaults write -g NSDisableAutomaticTermination -bool no
 # Enable the local time machine backup system
 # Link: http://jeetworks.org/node/107
 sudo tmutil enablelocal
+
+# Disable tap to click on the login screen
+sudo defaults write /Library/Preferences/.GlobalPreferences com.apple.mouse.tapBehavior -int 0
