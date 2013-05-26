@@ -245,3 +245,6 @@ map <leader>bo :BufOnly<CR>
 
 " Map control-s to update, rather than write
 noremap <C-s> :update<CR>
+
+" Open nerdtree with leader command
+map <leader>nt :NERDTreeToggle<CR>
