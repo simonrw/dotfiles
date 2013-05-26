@@ -1,8 +1,0 @@
-# Some nice shell features
-if [[ $ZSH_VERSION > 4.3.9 ]]; then
-  # This script only works with recent zsh versions
-  source ${HOME}/.zsh/functions/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-fi
-
-
-source ${HOME}/.zsh/functions/zsh-history-substring-search/zsh-history-substring-search.zsh
