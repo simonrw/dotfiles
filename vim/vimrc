@@ -254,3 +254,7 @@ map <leader>r :Recent<CR>
 
 " Open nerdtree with leader command
 map <leader>nt :NERDTreeToggle<CR>
+
+" Python-mode settings
+let g:pymode_lint_ignore = "E128,E501"
+let g:pymode_folding = 0

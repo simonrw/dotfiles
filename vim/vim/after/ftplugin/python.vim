@@ -9,4 +9,3 @@ setlocal makeprg=flake8\ %
 
 " Python autocompletion !
 set omnifunc=pythoncomplete#Complete 
-
