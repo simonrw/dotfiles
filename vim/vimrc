@@ -256,5 +256,6 @@ map <leader>r :Recent<CR>
 map <leader>nt :NERDTreeToggle<CR>
 
 " Python-mode settings
-let g:pymode_lint_ignore = "E128,E501"
+" Disable syntax checking from this plugin
+let g:pymode_lint = 0
 let g:pymode_folding = 0
