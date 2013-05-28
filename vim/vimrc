@@ -254,9 +254,3 @@ map <leader>r :Recent<CR>
 
 " Open nerdtree with leader command
 map <leader>nt :NERDTreeToggle<CR>
-
-" Python-mode settings
-" Disable syntax checking on save
-let g:pymode_lint_write = 0
-let g:pymode_folding = 0
-let g:pymode_lint_ignore = "E128,E501"
