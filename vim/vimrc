@@ -218,12 +218,8 @@ let g:LatexBox_show_warnings = 0
 " Disable folding
 let g:LatexBox_fold_envs = 0
 
-" Set colour scheme
-if &t_Co >= 256 || has("gui_running")
-    set background=dark
-		" colorscheme solarized
-    colorscheme lucius
-endif
+" Set background
+set background=dark
 
 " Ctrl-P ignore list
 set wildignore+=*.pyc
