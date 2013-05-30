@@ -1,7 +1,9 @@
 alias pylab="ipython --pylab"
 alias py=ipython
-alias cls='ls --color=auto'
+alias cls='ls --color=always'
+alias ll='cls -lah'
 alias g=git
+alias less='less -R'
 
 # Set some common typos
 alias sl=ls

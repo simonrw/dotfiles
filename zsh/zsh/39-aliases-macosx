@@ -1,5 +1,5 @@
 if [[ $OSTYPE =~ "^darwin.*$" ]]; then
-    alias cls='ls -G'
+    alias cls='CLICOLOR_FORCE=1 ls -G'
     alias gvim=mvim
     alias gview=mview
 fi
