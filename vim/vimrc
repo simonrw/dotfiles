@@ -37,9 +37,6 @@ set undolevels=700
 " reload all file changes automatically
 set autoread
 
-" change leader key
-let mapleader=","
-
 " enable the semicolon to act like the colon key
 noremap ; :
 
