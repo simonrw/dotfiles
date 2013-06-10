@@ -53,6 +53,29 @@ def remove_links
     end
 end
 
+module OS
+    def OS.windows?
+        (/cygwin|mswin|mingw|bccwin|wince|emx/ =~ RUBY_PLATFORM) != nil
+    end
+
+    def OS.mac?
+        (/darwin/ =~ RUBY_PLATFORM) != nil
+    end
+
+    def OS.unix?
+        !OS.windows?
+    end
+
+    def OS.linux?
+        OS.unix? and not OS.mac?
+    end
+end
+
+def source_osx_file(arg, fname)
+    if arg
+        system "source #{File.join File.dirname(__FILE__), 'osx', fname}"
+    end
+end
 
 task :default do
     tasks = `rake --tasks`
@@ -62,11 +85,16 @@ task :default do
 end
 
 desc 'Links the respective files into the correct places'
-task :install do
+task :install, [:install_osx] do |t, args|
     add_links
+
+    source_osx_file args[:install_osx], 'defaults.sh'
 end
 
 desc 'Removes any soft-links created by this script'
-task :uninstall do
+task :uninstall, [:uninstall_osx] do |t, args|
     remove_links
+
+    source_osx_file args[:uninstall_osx], 'restore.sh'
+
 end
