@@ -18,4 +18,7 @@ local black="%{$fg[black]%}"
 source ~/.zsh/git-prompt/zshrc.sh
 PROMPT=' 
 ${process_status} $(git_super_status)${reset} > '
-RPROMPT='${red}$($rvm_path/bin/rvm-prompt v g)${reset}'
+if [[ -f ~/.rvm/scripts/rvm ]]; then
+    RPROMPT='${red}$($rvm_path/bin/rvm-prompt v g)${reset}'
+fi
+

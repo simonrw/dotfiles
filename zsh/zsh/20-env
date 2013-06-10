@@ -1,5 +1,5 @@
 export LD_LIBRARY_PATH=${HOME}/build/lib
-export PATH=${HOME}/.scripts:${HOME}/scripts:${HOME}/.gem/ruby/1.8/bin:${HOME}/.cabal/bin:${PATH}
+export PATH=${HOME}/.scripts:${HOME}/.rvm/bin:${HOME}/scripts:${HOME}/.gem/ruby/1.8/bin:${HOME}/.cabal/bin:${PATH}
 export PYTHONPATH=${HOME}/build/Python/SRW:$PYTHONPATH
 export PGPLOT_BACKGROUND=white
 export PGPLOT_FOREGROUND=black
