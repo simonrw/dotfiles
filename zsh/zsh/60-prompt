@@ -14,4 +14,8 @@ local magenta="%{$fg[magenta]%}"
 local reset="%{$reset_color%}"
 local black="%{$fg[black]%}"
 PROMPT=' 
-${process_status} ${red}($(~/.rvm/bin/rvm-prompt v g))${reset} > '
+${process_status} ${red}($($rvm_path/bin/rvm-prompt v g))${reset} > '
+
+# Create git prompt
+source ~/.zsh/git-prompt/zshrc.sh
+RPROMPT='$(git_super_status)'
