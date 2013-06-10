@@ -34,7 +34,7 @@ def add_links
         ln = link_name(name)
         if not File.exists? ln
             puts "Linking #{ln}"
-            File.symlink File.absolute_path(name), ln
+            File.symlink File.expand_path(name), ln
         else
             puts "Link #{ln} already found"
         end
