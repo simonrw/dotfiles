@@ -10,8 +10,8 @@ local process_status="%(?,%{$fg[green]%}✔%{$reset_color%},%{$fg[red]%}✗ %?%{
 local blue="%{$fg[blue]%}"
 local green="%{$fg[green]%}"
 local red="%{$fg[red]%}"
-local lgrey="%{$fg[grey]%}"
 local magenta="%{$fg[magenta]%}"
 local reset="%{$reset_color%}"
+local black="%{$fg[black]%}"
 PROMPT=' 
- ${process_status} > '
+${process_status} ${red}($(~/.rvm/bin/rvm-prompt v g))${reset} > '
