@@ -5,7 +5,6 @@ setlocal wrap
 setlocal nolist
 setlocal spell
 setlocal linebreak
-setlocal nonumber
 setlocal cc=0
 setlocal nocursorcolumn
 
