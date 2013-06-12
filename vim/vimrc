@@ -254,3 +254,6 @@ map <leader>nt :NERDTreeToggle<CR>
 
 " Enable hard mode by default
 autocmd VimEnter,BufNewFile,BufReadPost * silent! call HardMode()
+
+" Enable british spelling
+set spelllang=en_gb
