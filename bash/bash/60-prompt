@@ -1,0 +1,16 @@
+__RED=$'\033[1;31m'
+__BLUE=$'\033[1;34m'
+__RESET=$'\033[0m'
+__GREEN=$'\033[0;32m'
+
+get_exit_status(){
+   es=$?
+   if [ $es -eq 0 ]
+   then
+       echo -e "${__GREEN}✔${__RESET}"
+   else
+       echo -e "${__RED}✗ ${es}${__RESET}"
+   fi
+}
+
+PS1='$(get_exit_status) > '

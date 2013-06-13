@@ -1,0 +1,25 @@
+case $OSTYPE in linux*)
+    export LD_PRELOAD=
+    export ADAM_USER=${HOME}/.adam
+    export PGPLOT_DIR=${HOME}/build/pgplot
+    export LD_LIBRARY_PATH=${HOME}/build/clang/lib:${HOME}/build/gcc/lib64:${PGPLOT_DIR}:${HOME}/build/mysql/lib:${LD_LIBRARY_PATH}
+    export TERM=screen-256color
+    export PGPLOT_FONT=/home/astro/phrfbf/build/pgplot/grfont.dat
+    export HEADAS=$HOME/build/heasoft/x86_64-unknown-linux-gnu-libc2.11.2
+    export LS_OPTIONS=
+    export APPENGINE=${HOME}/build/google_appengine
+    export PYTHONPATH=${APPENGINE}:/home/astro/phrebf/Python/JG:$PYTHONPATH
+    export PATH=${HOME}/build/bin:${APPENGINE}:${HOME}/SelectionEffects/bin:${HOME}/WASPPrograms/bin:${HOME}/build/gcc/bin:${HOME}/build/clang/bin:${PATH}
+    export LESS=-RFX
+
+
+
+
+    # If the server is at Leicester, source the intel compiler variables
+    if [[ `dnsdomainname` == "star.le.ac.uk" ]]; then
+        source /opt/intel/composerxe-2011.0.084/bin/compilervars.sh intel64 2>/dev/null
+    else
+        export PATH=/warwick/CUDA/4.0.17/cuda/bin:$PATH
+        export LD_LIBRARY_PATH=/warwick/CUDA/4.0.17/cuda/lib64:$LD_LIBRARY_PATH
+    fi
+;; esac
