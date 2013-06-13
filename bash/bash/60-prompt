@@ -13,4 +13,4 @@ get_exit_status(){
    fi
 }
 
-PS1='$(get_exit_status) > '
+PS1='\n$(get_exit_status) > '
