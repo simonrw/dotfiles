@@ -1,3 +1,7 @@
 case $OSTYPE in darwin*)
     export PATH=${HOME}/.cabal/bin:${PATH}
+
+    if [ -f $(brew --prefix)/etc/bash_completion ]; then
+    . $(brew --prefix)/etc/bash_completion
+    fi
 ;; esac
