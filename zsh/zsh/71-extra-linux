@@ -1,4 +1,4 @@
-if [[ $OSTYPE == "linux-gnu" || $OSTYPE == "linux" ]]; then
+case $OSTYPE in linux*)
 	VIRTUALENV_DIR=${HOME}/PythonEnv
 	VIRTUALENV_SOURCE_FILE=${VIRTUALENV_DIR}/bin/activate
 	if [[ -f ${VIRTUALENV_SOURCE_FILE} ]]; then
@@ -7,4 +7,4 @@ if [[ $OSTYPE == "linux-gnu" || $OSTYPE == "linux" ]]; then
 		VIRTUAL_ENV_DISABLE_PROMPT=1 source ${VIRTUALENV_SOURCE_FILE}
 		# export PYTHONPATH=${VIRTUALENV_DIR}/lib/python2.7/site-packages:$PYTHONPATH
 	fi
-fi
+;; esac

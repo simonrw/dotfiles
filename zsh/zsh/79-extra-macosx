@@ -1,3 +1,3 @@
-if [[ $OSTYPE =~ "^darwin.*$" ]]; then
+case $OSTYPE in darwin*)
     export PATH=${HOME}/.cabal/bin:${PATH}
-fi
+;; esac
