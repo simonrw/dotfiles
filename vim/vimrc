@@ -254,3 +254,6 @@ map <leader>nt :NERDTreeToggle<CR>
 
 " Enable british spelling
 set spelllang=en_gb
+
+" Better formatting
+set formatprg=par
