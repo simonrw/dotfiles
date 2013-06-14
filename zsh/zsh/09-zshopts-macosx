@@ -1,9 +1,8 @@
-if [[ $OSTYPE =~ "^darwin.*$" ]]; then
+case $OSTYPE in darwin*)
     # Completion for git
     zstyle ':completion:*:*:git:*' script /usr/local/etc/bash_completion.d/git-completion.bash
 
     #precmd () {print -Pn "\e]2; %~/ \a"}
     #preexec () {print -Pn "\e]2; %~/ \a"}
     chpwd () {print -Pn "\e]2; %~/ \a"}
-fi
-
+;; esac

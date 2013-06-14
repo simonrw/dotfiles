@@ -1,4 +1,4 @@
-if [[ $OSTYPE == "linux-gnu" || $OSTYPE == "linux" ]]; then
+case $OSTYPE in linux*)
     alias open="xdg-open"
     alias heainit="source $HEADAS/headas-init.sh"
 
@@ -9,5 +9,4 @@ if [[ $OSTYPE == "linux-gnu" || $OSTYPE == "linux" ]]; then
     if [[ `dnsdomainname` == "star.le.ac.uk" ]]; then
         source /usr/local/sge/default/common/settings.sh
     fi
-
-fi
+;; esac
