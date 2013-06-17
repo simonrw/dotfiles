@@ -257,3 +257,8 @@ set spelllang=en_gb
 
 " Better formatting
 set formatprg=par
+
+" Set up haskell mode
+au BufEnter *.hs compiler ghc
+let g:haddock_browser = "open"
+let g:haddock_browser_callformat = "%s %s"
