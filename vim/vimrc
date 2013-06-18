@@ -22,6 +22,10 @@ set nocompatible
 " Enable matchit
 runtime macros/matchit.vim
 
+" Remap the leader key to comma
+let mapleader=','
+
+
 " set up some nice tab defaults
 set tabstop=4
 set softtabstop=4
