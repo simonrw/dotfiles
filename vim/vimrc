@@ -276,3 +276,7 @@ nnoremap ` '
 
 " Add some lines around the cursor
 set scrolloff=3
+
+" Speed up ctrl-e/ctrl-y
+nnoremap <C-e> 3<C-e>
+nnoremap <C-y> 3<C-y>
