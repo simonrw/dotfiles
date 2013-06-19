@@ -273,3 +273,6 @@ command! A call altr#forward()
 " Swap the mark keys
 nnoremap ' `
 nnoremap ` '
+
+" Add some lines around the cursor
+set scrolloff=3
