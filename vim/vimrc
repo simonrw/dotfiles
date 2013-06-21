@@ -22,6 +22,10 @@ set nocompatible
 " Enable matchit
 runtime macros/matchit.vim
 
+" Remap the leader key to comma
+let mapleader=','
+
+
 " set up some nice tab defaults
 set tabstop=4
 set softtabstop=4
@@ -262,3 +266,23 @@ set formatprg=par
 au BufEnter *.hs compiler ghc
 let g:haddock_browser = "open"
 let g:haddock_browser_callformat = "%s %s"
+
+" Configure the keys for altr
+command! A call altr#forward()
+
+" Swap the mark keys
+nnoremap ' `
+nnoremap ` '
+
+" Add some lines around the cursor
+set scrolloff=3
+
+" Speed up ctrl-e/ctrl-y
+nnoremap <C-e> 3<C-e>
+nnoremap <C-y> 3<C-y>
+
+" Configure 'Press enter to continue' messages
+set shortmess=atI
+
+" Decrease the leader key timeout for the comma key
+set timeoutlen=500

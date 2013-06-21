@@ -8,4 +8,7 @@ setlocal formatoptions=croql
 setlocal makeprg=flake8\ %
 
 " Python autocompletion !
-set omnifunc=pythoncomplete#Complete 
+setlocal omnifunc=pythoncomplete#Complete 
+
+" Disable spelling
+setlocal nospell

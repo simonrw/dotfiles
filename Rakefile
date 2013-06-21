@@ -96,5 +96,9 @@ task :uninstall, [:uninstall_osx] do |t, args|
     remove_links
 
     source_osx_file args[:uninstall_osx], 'restore.sh'
+end
 
+desc 'Synchronises the repositories'
+task :deploy do
+    sh 'legit sync'
 end

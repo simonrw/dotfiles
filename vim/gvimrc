@@ -1,6 +1,9 @@
 " turn off unneeded gui crap
 set go=
 
+" Use console popups
+set go+=c
+
 " if mac use the monaco font
 if has("macunix")
     set gfn=Menlo:h12
