@@ -283,3 +283,6 @@ nnoremap <C-y> 3<C-y>
 
 " Configure 'Press enter to continue' messages
 set shortmess=atI
+
+" Decrease the leader key timeout for the comma key
+set timeoutlen=500
