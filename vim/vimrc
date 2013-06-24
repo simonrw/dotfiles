@@ -286,3 +286,6 @@ set shortmess=atI
 
 " Decrease the leader key timeout for the comma key
 set timeoutlen=500
+
+" Minubuf explorer bindings
+map <leader>mb :MBEToggle!<CR>
