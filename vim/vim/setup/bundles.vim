@@ -4,6 +4,7 @@ Bundle 'gmarik/vundle'
 Bundle 'MarcWeber/vim-addon-mw-utils'
 Bundle 'tomtom/tlib_vim'
 
+Bundle 'bjoernd/vim-weasel'
 Bundle 'BufOnly.vim'
 Bundle 'digitaltoad/vim-jade'
 Bundle 'garbas/vim-snipmate'
