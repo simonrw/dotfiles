@@ -292,3 +292,8 @@ map <leader>mb :MBEToggle!<CR>
 noremap <C-Tab> :MBEbn<CR>
 noremap <C-S-Tab> :MBEbp<CR>
 let g:miniBufExplCycleArround = 1
+
+" Tslime configuration
+vmap <C-c><C-c> <Plug>SendSelectionToTmux
+nmap <C-c><C-c> <Plug>NormalModeSendToTmux
+nmap <C-c>r <Plug>SetTmuxVars
