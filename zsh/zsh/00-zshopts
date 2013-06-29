@@ -14,7 +14,6 @@ unsetopt beep
 setopt hist_ignore_all_dups
 setopt hist_ignore_dups
 
-bindkey -v				# Use vim keybindings
 bindkey "^R" history-incremental-search-backward # Put the reverse history back
 
 
