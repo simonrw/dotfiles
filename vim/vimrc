@@ -154,9 +154,6 @@ if filereadable(".local.vim")
     source .local.vim
 endif
 
-" Use double j to escape
-inoremap jj <ESC>
-
 " Paste toggling - allow for pasting from other sources with correct
 " formatting
 set pastetoggle=<leader>p
