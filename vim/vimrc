@@ -234,11 +234,6 @@ set wildignore+=venv/*
 " Add a command to list the recent files using ctrlp's mru feature
 command! Recent execute "CtrlPMRU"
 
-" Disable backup files
-set nobackup
-set nowritebackup
-set noswapfile
-
 " Leader command for clearing all other buffers
 map <leader>bo :BufOnly<CR>
 
