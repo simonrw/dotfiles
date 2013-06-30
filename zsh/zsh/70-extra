@@ -4,6 +4,6 @@ if [[ -e /usr/local/opt/chruby ]]; then
 fi
 
 # Speed up git completion
-# __git_files() {
-#     _wanted files expl 'local files' _files
-# }
+__git_files() {
+    _wanted files expl 'local files' _files
+}
