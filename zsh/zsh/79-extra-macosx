@@ -1,3 +1,9 @@
 case $OSTYPE in darwin*)
     export PATH=${HOME}/.cabal/bin:${PATH}
+
+    if [[ -e /usr/local/opt/chruby ]]; then
+        source /usr/local/opt/chruby/share/chruby/chruby.sh
+        source /usr/local/opt/chruby/share/chruby/auto.sh
+    fi
+
 ;; esac
