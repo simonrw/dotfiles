@@ -1,8 +1,3 @@
-if [[ -f ~/.rvm/scripts/rvm ]]; then
-    source ~/.rvm/scripts/rvm
-    export PATH=${HOME}/.rvm/bin:$PATH
-fi
-
 # Speed up git completion
 # __git_files() {
 #     _wanted files expl 'local files' _files
