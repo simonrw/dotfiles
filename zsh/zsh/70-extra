@@ -1,3 +1,8 @@
+if [[ -e /usr/local/opt/chruby ]]; then
+    source /usr/local/opt/chruby/share/chruby/chruby.sh
+    source /usr/local/opt/chruby/share/chruby/auto.sh
+fi
+
 # Speed up git completion
 # __git_files() {
 #     _wanted files expl 'local files' _files
