@@ -5,6 +5,7 @@ Abolish pfyits pyfits
 Abolish oepn open
 Abolish opne open
 Abolish teh the
+Abolish hte the
 Abolish adn and
 Abolish retunr return
 Abolish paht path
