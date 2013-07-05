@@ -17,12 +17,3 @@ export VIRTUALENV_DISTRIBUTE=1
 # Set up go
 export GOPATH=${HOME}/.golang
 export PATH=${GOPATH}/bin:${PATH}
-
-# Clever alias of the g command
-function g {
-    if [[ $# > 0 ]]; then
-        git $@
-    else
-        git st
-    fi
-}
