@@ -4,6 +4,7 @@ alias cls='ls --color=always'
 alias ll='cls -lah'
 alias git=hub
 alias less='less -R'
+alias vim='vim -X'
 
 # Set some common typos
 alias sl=ls
