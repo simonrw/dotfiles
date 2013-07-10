@@ -7,3 +7,8 @@ vim/vim/bundle
 ghc/ghc/ghci_history
 ghc/ghc/x86_64-*
 vim/vim/haskellmode.config
+ipython/ipython/profile_default/history.sqlite
+ipython/ipython/profile_default/db/
+ipython/ipython/profile_default/log/
+ipython/ipython/profile_default/pid/
+ipython/ipython/profile_default/security/
