@@ -10,3 +10,6 @@ Abolish adn and
 Abolish retunr return
 Abolish paht path
 Abolish pritn print
+Abolish sensitiviyt sensitivity
+Abolish sensitivty sensitivty
+Abolish occurence occurrence
