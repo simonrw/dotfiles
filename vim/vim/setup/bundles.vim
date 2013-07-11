@@ -34,5 +34,6 @@ NeoBundle 'tpope/vim-repeat'
 NeoBundle 'tpope/vim-surround'
 NeoBundle 'tpope/vim-unimpaired'
 NeoBundle 'VimClojure'
+NeoBundle 'mindriot101/vim-tslime-input'
 
 NeoBundleCheck
