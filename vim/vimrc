@@ -309,3 +309,7 @@ function! s:unite_settings()
   imap <buffer> <C-j>   <Plug>(unite_select_next_line)
   imap <buffer> <C-k>   <Plug>(unite_select_previous_line)
 endfunction
+
+" Mappings for running tslime commands
+nmap <leader>a :call TslimeAskForCommand()<CR>
+nmap <leader>R :call TslimeResetLastCommand()<CR>
