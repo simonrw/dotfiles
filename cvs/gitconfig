@@ -9,15 +9,8 @@
     oneline = log --pretty=oneline --date=relative
     tree = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative
     su = submodule update --init --recursive
-    sync = !legit sync \"$@\"
-    switch = !legit switch \"$@\"
-    branches = !legit branches
-    sprout = !legit sprout \"$@\"
-    unpublish = !legit unpublish \"$@\"
-    harvest = !legit harvest \"$@\"
-    publish = !legit publish \"$@\"
-    graft = !legit graft \"$@\"
     gpr = pull --rebase
+    sync = !git gpr && git push
 [color]
     ui = auto
 [core]
