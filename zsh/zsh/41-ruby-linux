@@ -1,8 +1,2 @@
 case $OSTYPE in linux*)
-    TESTPATH=${HOME}/build/share/chruby
-    TESTFILE=${TESTPATH}/chruby.sh
-    if [[ -e ${TESTFILE} ]]; then
-        source ${TESTPATH}/chruby.sh
-        source ${TESTPATH}/auto.sh
-    fi
 ;; esac
