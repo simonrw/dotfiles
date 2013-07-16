@@ -1,0 +1,10 @@
+case $OSTYPE in darwin*)
+    if [[ -e /usr/local/opt/chruby ]]; then
+        source /usr/local/opt/chruby/share/chruby/chruby.sh
+        source /usr/local/opt/chruby/share/chruby/auto.sh
+        chruby ruby-1.9.3-p448
+    fi
+
+    export PATH=$HOME/.rbenv/bin:${PATH}
+    eval "$(rbenv init -)"
+;; esac
