@@ -10,6 +10,7 @@ NeoBundle 'christoomey/vim-tmux-navigator'
 NeoBundle 'digitaltoad/vim-jade'
 NeoBundle 'garbas/vim-snipmate'
 NeoBundle 'honza/vim-snippets'
+NeoBundle 'indentpython.vim' " 0.1   An alternative indentation script for python
 NeoBundle 'jgdavey/tslime.vim'
 NeoBundle 'kana/vim-altr'
 NeoBundle 'kana/vim-niceblock'
