@@ -6,7 +6,6 @@ NeoBundle 'tomtom/tlib_vim'
 
 NeoBundle 'bjoernd/vim-weasel'
 NeoBundle 'BufOnly.vim'
-NeoBundle 'christoomey/vim-tmux-navigator'
 NeoBundle 'digitaltoad/vim-jade'
 NeoBundle 'garbas/vim-snipmate'
 NeoBundle 'honza/vim-snippets'
