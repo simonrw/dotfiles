@@ -1,4 +1,2 @@
 case $OSTYPE in darwin*)
-    export PATH=$HOME/.rbenv/bin:${PATH}
-    eval "$(rbenv init -)"
 ;; esac
