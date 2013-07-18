@@ -1,6 +1,10 @@
+setlocal textwidth=79
+
 if v:version >= 703
-    setlocal colorcolumn=80
+    setlocal colorcolumn=+1
 endif
+
+set wrap
 
 setlocal formatoptions=croql
 
