@@ -224,7 +224,7 @@ let g:LatexBox_fold_envs = 0
 if &t_Co >= 256 || has("gui_running")
     set background=dark
 		" colorscheme solarized
-    colorscheme lucius
+    colorscheme solarized
 endif
 
 " Ctrl-P ignore list
