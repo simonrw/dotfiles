@@ -8,7 +8,6 @@ setlocal linebreak
 setlocal nonumber
 setlocal cc=0
 setlocal nocursorcolumn
-let maplocalleader=','
 
 " Synctex in skim
 if has("gui_running")
