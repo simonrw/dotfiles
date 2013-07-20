@@ -313,3 +313,6 @@ endfunction
 " Mappings for running tslime commands
 nmap <leader>a :call TslimeAskForCommand()<CR>
 nmap <leader>R :call TslimeResetLastCommand()<CR>
+
+" Enable hardtime
+let g:hardtime_default_on = 1
