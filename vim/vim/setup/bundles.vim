@@ -25,7 +25,6 @@ NeoBundle 'Shougo/unite.vim'
 NeoBundle 'Shougo/vimproc.vim'
 NeoBundle 'sjl/splice.vim'
 NeoBundle 'takac/vim-commandcaps' " vim-commandcaps
-NeoBundle 'takac/vim-hardtime' " Plugin to help you stop repeating the basic movement keys
 NeoBundle 'terryma/vim-multiple-cursors'
 NeoBundle 'tomtom/tcomment_vim'
 NeoBundle 'tpope/vim-abolish'
