@@ -35,6 +35,7 @@ NeoBundle 'tpope/vim-rake'
 NeoBundle 'tpope/vim-repeat'
 NeoBundle 'tpope/vim-surround'
 NeoBundle 'tpope/vim-unimpaired'
-NeoBundle 'VimClojure'
+NeoBundle 'Yggdroot/indentLine' " A vim plugin to display the indention levels with thin vertical lineseoBundle 'VimClojure'
+
 
 NeoBundleCheck

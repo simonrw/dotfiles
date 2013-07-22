@@ -316,3 +316,7 @@ nmap <leader>R :call TslimeResetLastCommand()<CR>
 
 " Enable hardtime
 let g:hardtime_default_on = 1
+
+" Configuring indentLine
+let g:indentLine_char = '│'
+let g:indentLine_fileType = ['markdown', 'tex', 'rb',]
