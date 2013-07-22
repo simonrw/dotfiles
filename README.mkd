@@ -16,7 +16,7 @@ Configurations are installed with soft links. Each directory contained within th
 
 Anyway with these repos the installation method is not the most key thing; the configurations themselves are more interesting. The main repos (which receive the most attention) are zsh and vim, in fact the vim subdir changes almost daily.
 
-Vim plugins are managed by [neobundle](http://github.com/shuogo/neobundle.vim), and zsh files are split up by what they handle.
+Vim plugins are managed by [neobundle](https://github.com/Shougo/neobundle.vim), and zsh files are split up by what they handle.
 
 ## OSX
 
