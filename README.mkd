@@ -1,8 +1,38 @@
 # Simon's dotfiles
 
-This repository contains the dot files for my projects.
+The traditional dotfiles repository.
 
-Included are:
+## Installation of configs
 
-* zsh configurations
-...
+This project (currently) uses Ruby's Rakefile system, so `gem install rake`. The tasks can be listed with `bundle exec rake -T`, but these consist of `install` and `uninstall`.
+
+``` sh
+rake deploy                    # Synchronises the repositories
+rake install[install_osx]      # Links the respective files into the correct places
+rake uninstall[uninstall_osx]  # Removes any soft-links created by this script
+```
+
+Configurations are installed with soft links. Each directory contained within this one is linked to the home directory but a '.' is prepended to hide it, e.g. zsh/zshrc gets linked to ~/.zshrc.
+
+Anyway with these repos the installation method is not the most key thing; the configurations themselves are more interesting. The main repos (which receive the most attention) are zsh and vim, in fact the vim subdir changes almost daily.
+
+Vim plugins are managed by [neobundle](http://github.com/shuogo/neobundle.vim), and zsh files are split up by what they handle.
+
+## OSX
+
+If you're running OSX the osx directory contains some nice defaults which I use. To install them add an argument to the `install` task. The argument could be anything; I haven't worked out how to add arguments properly yet.
+
+### Included configurations
+
+* bash
+* cvs
+* gem
+* ghc
+* ipython
+* irb
+* mongo
+* osx
+* screen
+* tmux
+* vim
+* zsh
