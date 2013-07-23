@@ -7,6 +7,7 @@ NeoBundle 'tomtom/tlib_vim'
 NeoBundle 'bjoernd/vim-weasel'
 NeoBundle 'BufOnly.vim'
 NeoBundle 'digitaltoad/vim-jade'
+NeoBundle 'frerich/unicode-haskell' " Vim script for using Unicode characters in Haskell source code, if appropriate
 NeoBundle 'garbas/vim-snipmate'
 NeoBundle 'honza/vim-snippets'
 NeoBundle 'indentpython.vim' " 0.1   An alternative indentation script for python
@@ -36,6 +37,5 @@ NeoBundle 'tpope/vim-repeat'
 NeoBundle 'tpope/vim-surround'
 NeoBundle 'tpope/vim-unimpaired'
 NeoBundle 'Yggdroot/indentLine' " A vim plugin to display the indention levels with thin vertical lineseoBundle 'VimClojure'
-
 
 NeoBundleCheck
