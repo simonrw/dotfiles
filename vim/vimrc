@@ -327,3 +327,8 @@ set scrolljump=5
 if has('macunix')
     let g:ruby_doc_command='open'
 endif
+
+" Disable latexbox pattern matching
+" These slow down my vim too much and I never use them
+let g:LatexBox_open_pats = []
+let g:LatexBox_close_pats = []
