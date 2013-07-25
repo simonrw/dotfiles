@@ -300,6 +300,7 @@ nnoremap <leader>r :<c-u>Unite -buffer-name=mru     -start-insert file_mru<cr>
 nnoremap <leader>o :<c-u>Unite -buffer-name=outline -start-insert outline<cr>
 nnoremap <leader>y :<c-u>Unite -buffer-name=yank    history/yank<cr>
 nnoremap <leader>e :<c-u>Unite -buffer-name=buffer  buffer<cr>
+nnoremap <leader>j :<c-u>Unite -buffer-name=jump jump<cr>
 nnoremap <leader><tab> :<c-u>Unite outline<CR>
 
 " Custom mappings for the unite buffer
