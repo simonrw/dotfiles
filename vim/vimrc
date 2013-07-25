@@ -22,9 +22,6 @@ filetype plugin indent on
 " Set no vi compatible
 set nocompatible
 
-" Enable matchit
-runtime macros/matchit.vim
-
 " Remap the leader key to comma
 let mapleader=','
 
@@ -53,9 +50,6 @@ set incsearch
 " set case options for searching
 set ignorecase
 set smartcase
-
-" Nice matching parentheses
-set showmatch
 
 
 " show command as it's typed
@@ -332,3 +326,10 @@ endif
 " These slow down my vim too much and I never use them
 let g:LatexBox_open_pats = []
 let g:LatexBox_close_pats = []
+
+" Create it to prevent matching parens
+let g:LatexBox_loaded_matchparen = 1
+
+" Disable paren matching
+" This makes vim reaaaaly slow...
+let loaded_matchparen = 1
