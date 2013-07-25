@@ -323,3 +323,7 @@ let g:indentLine_fileTypeExclude = ['markdown', 'tex', 'ruby',]
 
 " Enable scrolljump
 set scrolljump=5
+
+if has('macunix')
+    let g:ruby_doc_command='open'
+endif
