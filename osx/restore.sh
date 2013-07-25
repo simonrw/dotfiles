@@ -14,7 +14,12 @@ sudo tmutil enablelocal
 # Disable tap to click on the login screen
 sudo defaults write /Library/Preferences/.GlobalPreferences com.apple.mouse.tapBehavior -int 0
 
+# This currently does not work...
 SYSCTLFILENAME=/etc/sysctl.conf
 if [[ -f ${SYSCTLFILENAME} ]]; then
-    sudo cat ${SYSCTLFILENAME} | grep  -Ev 'kern\.maxfiles=' | grep -Ev 'kern\.maxfilesperproc=' > ${SYSCTLFILENAME}
+    sudo cat ${SYSCTLFILENAME} \
+        | grep  -Ev 'kern\.maxfiles=' \
+        | grep -Ev 'kern\.maxfilesperproc=' \
+        | grep -Ev 'kern\.sysv\.shmall' \
+        | grep -Ev 'kern\.sysv\.shmmax' > /etc/tmp && mv /etc/tmp ${SYSCTLFILENAME}
 fi
