@@ -17,6 +17,7 @@ NeoBundle 'kana/vim-niceblock'
 NeoBundle 'kchmck/vim-coffee-script'
 NeoBundle 'LaTeX-Box-Team/LaTeX-Box'
 NeoBundle 'Lokaltog/vim-easymotion'
+NeoBundle 'lucapette/vim-ruby-doc' " Browse Ruby RSpec and Rails API docs quickly with Vim
 NeoBundle 'lukerandall/haskellmode-vim'
 NeoBundle 'michaeljsmith/vim-indent-object'
 NeoBundle 'mileszs/ack.vim'
@@ -36,6 +37,7 @@ NeoBundle 'tpope/vim-rake'
 NeoBundle 'tpope/vim-repeat'
 NeoBundle 'tpope/vim-surround'
 NeoBundle 'tpope/vim-unimpaired'
+NeoBundle 'vim-ruby/vim-ruby' " Vim/Ruby Configuration Files
 NeoBundle 'Yggdroot/indentLine' " A vim plugin to display the indention levels with thin vertical lineseoBundle 'VimClojure'
 
 NeoBundleCheck
