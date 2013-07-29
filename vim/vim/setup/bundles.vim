@@ -34,6 +34,7 @@ NeoBundle 'tpope/vim-abolish'
 NeoBundle 'tpope/vim-dispatch'
 NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'tpope/vim-markdown'
+NeoBundle 'tpope/vim-rails' " rails.vim: Ruby on Rails power tools
 NeoBundle 'tpope/vim-rake'
 NeoBundle 'tpope/vim-repeat'
 NeoBundle 'tpope/vim-surround'
