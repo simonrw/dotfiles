@@ -217,7 +217,7 @@ let g:LatexBox_fold_envs = 0
 " Set colour scheme
 if &t_Co >= 256 || has("gui_running")
     set background=dark
-    colorscheme railscasts
+    colorscheme lucius
 endif
 
 " Ctrl-P ignore list
