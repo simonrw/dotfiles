@@ -11,6 +11,7 @@
     su = submodule update --init --recursive
     gpr = pull --rebase
     sync = !git gpr && git push
+    pu = !"git fetch origin -v; git fetch upstream -v; git merge upstream/master"
 [color]
     ui = auto
 [core]
