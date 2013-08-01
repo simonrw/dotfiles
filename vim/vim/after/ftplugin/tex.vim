@@ -8,6 +8,7 @@ setlocal linebreak
 setlocal nonumber
 setlocal cc=0
 setlocal nocursorcolumn
+setlocal conceallevel=0
 
 " Synctex in skim
 if has("gui_running")

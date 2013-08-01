@@ -332,3 +332,6 @@ let g:LatexBox_loaded_matchparen = 1
 " Disable paren matching
 " This makes vim reaaaaly slow...
 let loaded_matchparen = 1
+
+" Disable conceal
+set conceallevel=0
