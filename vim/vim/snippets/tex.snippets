@@ -2,9 +2,8 @@ snippet use
 	\usepackage{${1:package}}
 snippet figure
 	\begin{figure}
-		\begin{center}
-			\includegraphics[width=${1}\columnwidth]{${2}}
-			\caption{${4}}
-			\label{fig:${3}}
-		\end{center}
+		\centering
+		\includegraphics[width=${1}\columnwidth]{${2}}
+		\caption{${4}}
+		\label{fig:${3}}
 	\end{figure}
