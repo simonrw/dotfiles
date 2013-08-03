@@ -4,10 +4,6 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 NeoBundle 'MarcWeber/vim-addon-mw-utils'
 NeoBundle 'tomtom/tlib_vim'
 
-" these two are required for dash
-NeoBundle 'rizzatti/funcoo.vim'
-NeoBundle 'rizzatti/dash.vim'
-
 NeoBundle 'bjoernd/vim-weasel'
 NeoBundle 'BufOnly.vim'
 NeoBundle 'digitaltoad/vim-jade'
