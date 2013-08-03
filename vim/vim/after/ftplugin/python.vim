@@ -1,4 +1,4 @@
-setlocal textwidth=79
+setlocal textwidth=99
 
 if v:version >= 703
     setlocal colorcolumn=+1
