@@ -6,6 +6,7 @@ setlocal nolist
 setlocal spell
 setlocal linebreak
 setlocal nonumber
+setlocal norelativenumber
 setlocal cc=0
 setlocal nocursorcolumn
 setlocal conceallevel=0
