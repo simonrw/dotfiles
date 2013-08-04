@@ -1,15 +1,11 @@
 alias pylab="ipython --pylab"
 alias py=ipython
-alias cls='ls --color=always'
-alias ll='cls -lah'
 alias less='less -R'
 alias vim='vim -X'
 alias g=git
 
 # Set some common typos
 alias sl=ls
-alias csl=cls
-alias lcs=cls
 
 # Sometimes pydoc does not work with virtualenvs
 alias pydoc='python -m pydoc'
