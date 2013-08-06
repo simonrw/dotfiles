@@ -6,6 +6,12 @@ case $OSTYPE in linux*)
     # Set up the module command
     function module() { eval `modulecmd zsh $*`; }
 
+    # Setup idl
+    function setup_idl() {
+        export IDL_PATH=${HOME}/idl:${IDL_PATH}
+        module load idl
+    }
+
     # Set up the queue commands on wasphead
     if [[ `dnsdomainname` == "star.le.ac.uk" ]]; then
         source /usr/local/sge/default/common/settings.sh
