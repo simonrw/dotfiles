@@ -6,8 +6,6 @@ endif
 
 set wrap
 
-setlocal formatoptions=croql
-
 " Set the makeprg to flake8 for syntax checking
 setlocal makeprg=flake8\ %
 
