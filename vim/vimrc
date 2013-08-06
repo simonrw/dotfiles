@@ -338,3 +338,6 @@ set showmatch
 
 " Disable conceal
 set conceallevel=0
+
+" Enable relativenumber
+set relativenumber
