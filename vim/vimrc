@@ -137,7 +137,7 @@ map Y y$
 " let g:ctrlp_cmd = 'CtrlPMixed'
 
 " Add some fugitive leader commands
-noremap <leader>gd :Gdiff<CR>
+noremap <leader>gd :Gsdiff<CR>
 noremap <leader>gw :Gwrite<CR>
 noremap <leader>gr :Gread<CR>
 noremap <leader>gc :Gcommit<CR>
