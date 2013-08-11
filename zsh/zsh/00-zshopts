@@ -8,6 +8,7 @@ setopt append_history
 setopt autocd
 setopt auto_param_slash
 setopt mark_dirs
+setopt interactive_comments
 unsetopt beep
 
 # Only unique history entries in the reverse history search HIST_FIND_NO_DUPS=1
