@@ -2,6 +2,7 @@ alias pylab="ipython --pylab"
 alias py=ipython
 alias less='less -R'
 alias vim='vim -X'
+alias view='view -X'
 alias g=git
 
 # Set some common typos
