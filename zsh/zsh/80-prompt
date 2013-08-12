@@ -16,4 +16,5 @@ local black="%{$fg[black]%}"
 PROMPT=' 
 ${process_status} [${green}%m${reset}:${magenta}%2c${reset}] 
 > '
+PROMPT2='. '
 RPROMPT='${red}$(__git_prompt)${reset}'
