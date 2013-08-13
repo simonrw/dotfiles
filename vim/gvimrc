@@ -16,3 +16,5 @@ set gcr=n:blinkon0
 
 " Disable audible bell by enabling visual bell which is not implemented
 set visualbell
+
+colorscheme railscasts
