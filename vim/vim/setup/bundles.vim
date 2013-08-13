@@ -6,6 +6,7 @@ NeoBundle 'tomtom/tlib_vim'
 
 NeoBundle 'bjoernd/vim-weasel'
 NeoBundle 'BufOnly.vim'
+NeoBundle 'dhruvasagar/vim-railscasts-theme'
 NeoBundle 'digitaltoad/vim-jade'
 NeoBundle 'frerich/unicode-haskell' " Vim script for using Unicode characters in Haskell source code, if appropriate
 NeoBundle 'garbas/vim-snipmate'
