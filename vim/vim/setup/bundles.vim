@@ -38,7 +38,6 @@ NeoBundle 'tpope/vim-rake'
 NeoBundle 'tpope/vim-repeat'
 NeoBundle 'tpope/vim-surround'
 NeoBundle 'tpope/vim-unimpaired'
-NeoBundle 'morhetz/gruvbox'
 NeoBundle 'zeis/vim-kolor'
 
 NeoBundleCheck
