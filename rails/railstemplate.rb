@@ -15,11 +15,6 @@ gem_group :development, :test do
     gem 'capybara'
 end
 
-gem_group :development do
-    # Nice debugging information on request timings
-    gem 'rack-mini-profiler'
-end
-
 # For encrypted passwords
 gem 'bcrypt-ruby'
 
