@@ -1,2 +1,5 @@
 export PATH=$HOME/.rbenv/bin:${PATH}
 eval "$(rbenv init - zsh)"
+
+# bundler-exec
+source ~/.bundler-exec.zsh
