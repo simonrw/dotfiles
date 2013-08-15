@@ -100,5 +100,5 @@ end
 
 desc 'Synchronises the repositories'
 task :deploy do
-    sh 'legit sync'
+    sh 'git sync'
 end
