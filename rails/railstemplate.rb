@@ -15,6 +15,9 @@ gem_group :development, :test do
     gem 'capybara'
 end
 
+# Foreman for running multiple tasks
+gem 'foreman'
+
 # For encrypted passwords
 gem 'bcrypt-ruby'
 
@@ -30,8 +33,3 @@ run "echo 'STDOUT.sync = true' >> config/environments/development.rb"
 
 # Set up guard
 run "bundle exec guard init rspec"
-
-# Initialize git
-git :init
-git add: '.'
-git commit: %Q{ -m 'Initial commit' }
