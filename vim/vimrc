@@ -144,11 +144,6 @@ noremap <leader>gr :Gread<CR>
 noremap <leader>gc :Gcommit<CR>
 noremap <leader>gst :Gst<CR>
 
-" If a .local.vim file exists in the cwd then source it
-if filereadable(".local.vim")
-    source .local.vim
-endif
-
 " Paste toggling - allow for pasting from other sources with correct
 " formatting
 set pastetoggle=<leader>p
