@@ -61,5 +61,6 @@ Bundle 'tpope/vim-surround'
 Bundle 'tpope/vim-unimpaired'
 Bundle 'zeis/vim-kolor'
 Bundle 'takac/vim-hardtime'
+Bundle 'ctags.vim'
 
 filetype plugin indent on
