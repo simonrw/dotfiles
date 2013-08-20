@@ -344,3 +344,6 @@ set conceallevel=0
 map <Leader>s :call RunNearestSpec()<CR>
 map <Leader>sl :call RunLastSpec()<CR>
 let g:rspec_command = "!spring rspec {spec}"
+
+" enable hardtime by default
+let g:hardtime_default_on = 1
