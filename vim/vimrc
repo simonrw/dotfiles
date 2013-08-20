@@ -342,3 +342,7 @@ let g:rspec_command = "!spring rspec {spec}"
 
 " enable hardtime by default
 let g:hardtime_default_on = 1
+
+" settings from thoughtbot dotfiles repo
+" Swap between two files
+map <leader><leader> <C-^>
