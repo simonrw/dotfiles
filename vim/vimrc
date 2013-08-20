@@ -346,3 +346,13 @@ let g:hardtime_default_on = 1
 " settings from thoughtbot dotfiles repo
 " Swap between two files
 map <leader><leader> <C-^>
+
+" Open new split panes to right and bottom, which feels more natural
+set splitbelow
+set splitright
+
+" Set shorter history
+set history=50
+
+" Enable the ruler
+set ruler
