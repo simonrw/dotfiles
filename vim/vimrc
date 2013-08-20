@@ -331,6 +331,11 @@ let g:rspec_command = "!spring rspec {spec}"
 " enable hardtime by default
 let g:hardtime_default_on = 1
 
+" Set relative numbering only on 7.4 upwards
+if version >= 704
+    set relativenumber
+endif
+
 " settings from thoughtbot dotfiles repo
 " Swap between two files
 map <leader><leader> <C-^>
