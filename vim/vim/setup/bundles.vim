@@ -1,3 +1,5 @@
+" Global setup
+" -------------
 " Set no vi compatible
 set nocompatible
 
@@ -10,7 +12,12 @@ let g:vundle_default_git_proto = 'git'
 set rtp+=~/.vim/bundle/vundle
 call vundle#rc()
 
+
+" Let vundle manage vundle
 Bundle 'gmarik/vundle'
+
+" Plugins
+" --------
 
 " these 2 are required for snipmate plugin
 Bundle 'MarcWeber/vim-addon-mw-utils'
