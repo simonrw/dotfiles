@@ -1,3 +1,15 @@
+" Set no vi compatible
+set nocompatible
+
+" Nice vundle stuff
+filetype off
+
+let g:vundle_default_git_proto = 'git'
+
+" Handle vundle here
+set rtp+=~/.vim/bundle/vundle
+call vundle#rc()
+
 Bundle 'gmarik/vundle'
 
 " these 2 are required for snipmate plugin
@@ -42,3 +54,5 @@ Bundle 'tpope/vim-surround'
 Bundle 'tpope/vim-unimpaired'
 Bundle 'zeis/vim-kolor'
 Bundle 'takac/vim-hardtime'
+
+filetype plugin indent on

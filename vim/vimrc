@@ -1,6 +1,3 @@
-" Set no vi compatible
-set nocompatible
-
 " Run a login shell for the shell subprocess
 set shell=$SHELL\ -l
 
@@ -9,19 +6,10 @@ if (&t_Co > 2 || has("gui_running")) && !exists("syntax_on")
     syntax on
 endif
 
-" Nice pathogen stuff
-filetype off
-
-let g:vundle_default_git_proto = 'git'
-
-" Handle vundle here
-set rtp+=~/.vim/bundle/vundle
-call vundle#rc()
-
-" Add bundles here
+" Load all of the plugins with vundle
+if filereadable(expand("~/.vim/setup/bundles.vim"))
 source ~/.vim/setup/bundles.vim
-
-filetype plugin indent on
+endif
 
 " Remap the leader key to comma
 let mapleader=','
