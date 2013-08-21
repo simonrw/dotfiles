@@ -3,8 +3,8 @@ case $OSTYPE in linux*)
     export LD_PRELOAD=
     export ADAM_USER=${HOME}/.adam
     export LS_OPTIONS=
-    export PYTHONPATH=${APPENGINE}:/home/astro/phrebf/Python/JG:$PYTHONPATH
-    export PATH=${APPENGINE}:${HOME}/SelectionEffects/bin:${HOME}/WASPPrograms/bin:${PATH}
+    export PYTHONPATH=/home/astro/phrebf/Python/JG:$PYTHONPATH
+    export PATH=${HOME}/prefix/bin:${HOME}/SelectionEffects/bin:${HOME}/WASPPrograms/bin:${PATH}
     export LESS=-RFX
     export PKG_CONFIG_PATH=${HOME}/prefix/lib/pkgconfig:$PKG_CONFIG_PATH
 
