@@ -1,3 +1,4 @@
+# vim: ft=zsh
 case $OSTYPE in linux*)
     export LD_PRELOAD=
     export ADAM_USER=${HOME}/.adam

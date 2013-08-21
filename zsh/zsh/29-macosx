@@ -1,3 +1,4 @@
+# vim: ft=zsh
 case $OSTYPE in darwin*)
     DYLD_LIBRARY_PATH=/usr/local/cuda/lib::${DYLD_LIBRARY_PATH}
     export PATH=/usr/local/share/npm/bin:/usr/local/bin:/usr/local/sbin:/usr/texbin:${PATH}

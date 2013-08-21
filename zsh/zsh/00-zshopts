@@ -1,3 +1,4 @@
+# # vim: ft=zsh
 # Lines configured by zsh-newuser-install
 fpath=(/usr/local/share/zsh-completions ~/.zsh/completion $fpath)
 skip_global_compinit=1

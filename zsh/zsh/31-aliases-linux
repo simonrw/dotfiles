@@ -1,3 +1,4 @@
+# vim: ft=zsh
 case $OSTYPE in linux*)
     alias ls='ls -pF'
     alias open="xdg-open"

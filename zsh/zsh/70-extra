@@ -1,3 +1,4 @@
+# vim: ft=zsh
 function gi() {
     # This function gets the gitignore results from gitignore.io and prints them
     # to screen

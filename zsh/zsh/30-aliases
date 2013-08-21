@@ -1,3 +1,4 @@
+# vim: ft=zsh
 alias pylab="ipython --pylab"
 alias py=ipython
 alias less='less -R'

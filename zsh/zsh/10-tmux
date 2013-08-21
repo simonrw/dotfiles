@@ -1,3 +1,4 @@
+## vim: ft=zsh
 # Function to attach to a session. If the session is not specified then
 #just run `tmux attach`, otherwise add a -t flag
 function _tmux_attach() {

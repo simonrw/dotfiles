@@ -1,3 +1,4 @@
+# vim: ft=zsh
 export LD_LIBRARY_PATH=${HOME}/build/lib
 export PATH=${HOME}/.scripts:${HOME}/scripts:${HOME}/.cabal/bin:${PATH}
 export PGPLOT_BACKGROUND=white

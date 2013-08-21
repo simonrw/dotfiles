@@ -1,3 +1,4 @@
+# vim: ft=zsh
 case $OSTYPE in darwin*)
     alias ls='ls -F'
     alias gvim=mvim

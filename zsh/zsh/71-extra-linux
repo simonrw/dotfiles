@@ -1,3 +1,4 @@
+# vim: ft=zsh
 case $OSTYPE in linux*)
 	VIRTUALENV_DIR=${HOME}/PythonEnv
 	VIRTUALENV_SOURCE_FILE=${VIRTUALENV_DIR}/bin/activate
