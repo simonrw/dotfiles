@@ -26,11 +26,11 @@ function unmark {
     rm -i $MARKPATH/$1 
 }
 function marks {
-    ls -l $MARKPATH | sed 's/  / /g' | cut -d' ' -f9- | sed 's/ -/\t-/g' && echo
+    \ls -l "$MARKPATH" | tail -n +2 | sed 's/  / /g' | cut -d' ' -f9- | awk -F ' -> ' '{printf "%-10s -> %s\n", $1, $2}'
 }
 
-# Enable completion from https://github.com/robbyrussell/oh-my-zsh/pull/2045#issuecomment-22820224
-_jump_comp() {
-    reply=($MARKPATH/*(@:t))
+function _completemarks {
+    reply=($(ls $MARKPATH))
 }
-compctl -K _jump_comp jump
+compctl -K _completemarks jump
+compctl -K _completemarks unmark
