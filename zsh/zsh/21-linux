@@ -1,6 +1,7 @@
 # vim: ft=zsh
 case $OSTYPE in linux*)
     export LD_PRELOAD=
+    export LD_LIBRARY_PATH=${HOME}/prefix/lib:${LD_LIBRARY_PATH}
     export ADAM_USER=${HOME}/.adam
     export LS_OPTIONS=
     export PYTHONPATH=/home/astro/phrebf/Python/JG:$PYTHONPATH
