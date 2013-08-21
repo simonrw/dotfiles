@@ -34,3 +34,6 @@ function _completemarks {
 }
 compctl -K _completemarks jump
 compctl -K _completemarks unmark
+
+# Add an alias for the jump command
+alias j=jump
