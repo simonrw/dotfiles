@@ -245,7 +245,7 @@ nnoremap ' `
 nnoremap ` '
 
 " Add some lines around the cursor
-set scrolloff=3
+set scrolloff=14
 
 " Speed up ctrl-e/ctrl-y
 nnoremap <C-e> 3<C-e>
