@@ -6,7 +6,7 @@ case $OSTYPE in linux*)
     export PYTHONPATH=${APPENGINE}:/home/astro/phrebf/Python/JG:$PYTHONPATH
     export PATH=${APPENGINE}:${HOME}/SelectionEffects/bin:${HOME}/WASPPrograms/bin:${PATH}
     export LESS=-RFX
-    export PKG_CONFIG_PATH=${HOME}/build/lib/pkgconfig:$PKG_CONFIG_PATH
+    export PKG_CONFIG_PATH=${HOME}/prefix/lib/pkgconfig:$PKG_CONFIG_PATH
 
 
     # If the server is at Leicester, source the intel compiler variables
