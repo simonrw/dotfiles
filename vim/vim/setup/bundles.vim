@@ -23,6 +23,7 @@ Bundle 'gmarik/vundle'
 Bundle 'MarcWeber/vim-addon-mw-utils'
 Bundle 'tomtom/tlib_vim'
 
+Bundle 'altercation/vim-colors-solarized'
 Bundle 'bjoernd/vim-weasel'
 Bundle 'BufOnly.vim'
 Bundle 'digitaltoad/vim-jade'
