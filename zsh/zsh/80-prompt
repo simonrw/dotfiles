@@ -1,4 +1,21 @@
-# vim: ft=zsh
-export PROMPT='
-%m%#
-'
+# # vim: ft=zsh
+# colours
+autoload -U colors
+colors
+setopt prompt_subst
+
+# print smiley for last command status
+local process_status="%(?,%{$fg[green]%}✔%{$reset_color%},%{$fg[red]%}✗ %?%{$reset_color%})"
+
+## Control promt
+local blue="%{$fg[blue]%}"
+local green="%{$fg[green]%}"
+local red="%{$fg[red]%}"
+local magenta="%{$fg[magenta]%}"
+local reset="%{$reset_color%}"
+local black="%{$fg[black]%}"
+PROMPT=' 
+${process_status} [${green}%m${reset}:${magenta}%2c${reset}] 
+> '
+PROMPT2='. '
+RPROMPT='${red}$(__git_prompt)${reset}'
