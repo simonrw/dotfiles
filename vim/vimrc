@@ -145,10 +145,10 @@ set lazyredraw
 set statusline=
 
 " Buffer number and pipe character with spaces
-set statusline+=%-3.3n\
+set statusline+=%-3.3n\ 
 
 " Filename relative to opening path
-set statusline+=%f\
+set statusline+=%f\ 
 
 " Status markers
 set statusline+=%h%m%r%q
@@ -160,10 +160,10 @@ set statusline+=%{fugitive#statusline()}
 set statusline+=%=
 
 " File type
-set statusline+=%y\
+set statusline+=%y\ 
 
 " Cursor position
-set statusline+=%-14.(%l,%c%V%)\
+set statusline+=%-14.(%l,%c%V%)\ 
 
 " View position
 set statusline+=%P
@@ -348,6 +348,3 @@ set history=50
 
 " Enable the ruler
 set ruler
-
-" Strip trailing whitespace on save
-autocmd BufWritePre * :%s/\s\+$//e
