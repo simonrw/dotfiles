@@ -348,3 +348,6 @@ set history=50
 
 " Enable the ruler
 set ruler
+
+" Strip trailing whitespace on save
+autocmd BufWritePre * :%s/\s\+$//e
