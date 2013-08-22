@@ -1,0 +1,4 @@
+# vim: ft=zsh
+export PROMPT='
+%m%#
+'
