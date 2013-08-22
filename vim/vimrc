@@ -348,3 +348,8 @@ set history=50
 
 " Enable the ruler
 set ruler
+
+" Set hlsearch and allow disabling from
+" http://tilvim.com/2013/08/22/clearing-search-highlights.html
+set hlsearch
+nnoremap <cr> :nohlsearch<cr>
