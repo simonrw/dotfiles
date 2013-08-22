@@ -48,10 +48,6 @@ set showcmd
 " nice file formatting
 set autoindent
 
-
-" line numbers
-set number
-
 " always have status line on
 set laststatus=2
 set encoding=utf-8 " Necessary to show unicode glyphs
@@ -331,9 +327,12 @@ let g:rspec_command = "!spring rspec {spec}"
 " enable hardtime by default
 let g:hardtime_default_on = 1
 
-" Set relative numbering only on 7.4 upwards
+" Enable relativenumber
+set relativenumber
+
+" Enable number also to get the current line numbered, only in 7.4 and above
 if version >= 704
-    set relativenumber
+    set number
 endif
 
 " settings from thoughtbot dotfiles repo
