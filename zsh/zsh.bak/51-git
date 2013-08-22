@@ -1,8 +1,0 @@
-# vim: ft=zsh
-case $OSTYPE in linux*)
-    for FNAME in "${HOME}/prefix/share/git-core/contrib/completion/git-prompt.sh" "/etc/bash_completion.d/git" "/usr/share/git/completion/git-prompt.sh"; do
-        if [ -f ${FNAME} ]; then
-            . ${FNAME}
-        fi
-    done
-;; esac

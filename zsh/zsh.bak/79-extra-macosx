@@ -1,4 +1,0 @@
-# vim: ft=zsh
-case $OSTYPE in darwin*)
-    export PATH=${HOME}/.cabal/bin:${PATH}
-;; esac
