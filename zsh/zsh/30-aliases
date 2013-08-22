@@ -11,3 +11,6 @@ alias sl=ls
 
 # Sometimes pydoc does not work with virtualenvs
 alias pydoc='python -m pydoc'
+
+# Hub aliasing
+eval "$(hub alias -s)"
