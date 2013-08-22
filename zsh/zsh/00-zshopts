@@ -22,3 +22,4 @@ SAVEHIST=10000
 
 # Completion
 autoload -U compinit && compinit
+zstyle ':completion:*' menu select=20
