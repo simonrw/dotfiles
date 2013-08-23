@@ -325,7 +325,7 @@ map <Leader>sl :call RunLastSpec()<CR>
 let g:rspec_command = "!spring rspec {spec}"
 
 " enable hardtime by default
-let g:hardtime_default_on = 1
+" let g:hardtime_default_on = 1
 
 " Enable relativenumber
 set relativenumber
@@ -348,8 +348,3 @@ set history=50
 
 " Enable the ruler
 set ruler
-
-" Set hlsearch and allow disabling from
-" http://tilvim.com/2013/08/22/clearing-search-highlights.html
-set hlsearch
-nnoremap <cr> :nohlsearch<cr>
