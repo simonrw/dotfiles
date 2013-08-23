@@ -288,9 +288,6 @@ endfunction
 nmap <leader>a :call TslimeAskForCommand()<CR>
 nmap <leader>R :call TslimeResetLastCommand()<CR>
 
-" Enable hardtime
-let g:hardtime_default_on = 1
-
 " Configuring indentLine
 let g:indentLine_fileTypeExclude = ['markdown', 'tex', 'ruby',]
 
@@ -323,9 +320,6 @@ set conceallevel=0
 map <Leader>s :call RunNearestSpec()<CR>
 map <Leader>sl :call RunLastSpec()<CR>
 let g:rspec_command = "!spring rspec {spec}"
-
-" enable hardtime by default
-" let g:hardtime_default_on = 1
 
 " Enable relativenumber
 set relativenumber
