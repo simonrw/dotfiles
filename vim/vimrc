@@ -306,7 +306,7 @@ set conceallevel=0
 " Settings for vim-rspec
 map <Leader>s :call RunNearestSpec()<CR>
 map <Leader>sl :call RunLastSpec()<CR>
-let g:rspec_command = "!spring rspec {spec}"
+let g:rspec_command = "!bundle exec rspec {spec}"
 
 " Enable relativenumber
 set relativenumber
