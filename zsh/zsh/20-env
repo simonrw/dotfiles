@@ -1,5 +1,5 @@
 # vim: ft=zsh
-export PATH=/usr/local/bin:${HOME}/prefix/bin:$PATH
+export PATH=${HOME}/.bin:/usr/local/bin:${HOME}/prefix/bin:$PATH
 export EDITOR=vim
 export BIBINPUTS=${HOME}/work/central-bibliography:${BIBINPUTS}
 export TERM=screen-256color
