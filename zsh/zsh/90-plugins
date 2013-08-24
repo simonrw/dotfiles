@@ -1,0 +1,1 @@
+plugins=(brew bundler redis-cli heroku)
