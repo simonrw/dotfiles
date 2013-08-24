@@ -15,7 +15,7 @@ local magenta="%{$fg[magenta]%}"
 local reset="%{$reset_color%}"
 local black="%{$fg[black]%}"
 PROMPT=' 
-${process_status} [${green}%m${reset}:${magenta}%2c${reset}] 
+${process_status} [${green}%m${reset}:${magenta}%2c${reset}|$(rbenv version-name)] 
 > '
 PROMPT2='. '
 RPROMPT='${red}$(__git_prompt)${reset}'
