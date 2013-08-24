@@ -1,4 +1,5 @@
 # vim: ft=zsh
 case $OSTYPE in darwin*)
     export PATH=${PATH}:/usr/texbin
+    source /usr/local/opt/autoenv/activate.sh
 ;; esac
