@@ -297,9 +297,6 @@ let g:LatexBox_loaded_matchparen = 1
 " This makes vim reaaaaly slow...
 let loaded_matchparen = 1
 
-" Showmatch is nice
-set showmatch
-
 " Disable conceal
 set conceallevel=0
 
