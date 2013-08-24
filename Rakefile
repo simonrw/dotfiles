@@ -98,6 +98,12 @@ task :uninstall, [:uninstall_osx] do |t, args|
     source_osx_file args[:uninstall_osx], 'restore.sh'
 end
 
+desc 'Reinstalls directories'
+task :reinstall do 
+    Rake::Task["uninstall"].invoke
+    Rake::Task["install"].invoke
+end
+
 desc 'Synchronises the repositories'
 task :deploy do
     sh 'git sync'
