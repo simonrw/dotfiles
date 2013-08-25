@@ -2,6 +2,7 @@ class OhMyZSH
     def initialize(options = {})
         @location = options['location'] || File.join(ENV['HOME'], '.oh-my-zsh')
         @file_directory = options['directory'] || File.join(File.dirname(__FILE__), '..')
+        @repository = options['repository'] || "https://github.com/robbyrussell/oh-my-zsh.git"
     end
 
     def install
@@ -19,7 +20,7 @@ class OhMyZSH
     end
 
     def fetch
-        system %Q{git clone https://github.com/robbyrussell/oh-my-zsh.git #{@location}}
+        system %Q{git clone #{@repository} #{@location}}
     end
 
     def remove
