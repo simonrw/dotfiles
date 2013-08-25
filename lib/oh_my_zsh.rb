@@ -2,7 +2,7 @@ class OhMyZSH
     def initialize(options = {})
         @location = options['location'] || File.join(ENV['HOME'], '.oh-my-zsh')
         @file_directory = options['directory'] || File.join(File.dirname(__FILE__), '..')
-        @repository = options['repository'] || "https://github.com/robbyrussell/oh-my-zsh.git"
+        @repository = options['repository'] || "git://github.com/robbyrussell/oh-my-zsh.git"
     end
 
     def install
