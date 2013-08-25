@@ -1,6 +1,0 @@
-## vim: ft=zsh
-# Function for git branch
-__git_prompt() {
-    ref=$(git rev-parse --abbrev-ref HEAD 2>/dev/null)
-    echo $ref
-}
