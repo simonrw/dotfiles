@@ -17,9 +17,5 @@ zstyle ':completion:*:history-words' menu yes
 
 
 HISTFILE=~/.zsh_history
-HISTSIZE=10000
-SAVEHIST=10000
-
-# Completion
-autoload -U compinit && compinit
-zstyle ':completion:*' menu select=20
+HISTSIZE=100
+SAVEHIST=100

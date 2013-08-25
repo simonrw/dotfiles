@@ -1,9 +1,3 @@
-# # vim: ft=zsh
-# colours
-autoload -U colors
-colors
-setopt prompt_subst
-
 # print smiley for last command status
 local process_status="%(?,%{$fg[green]%}✔%{$reset_color%},%{$fg[red]%}✗ %?%{$reset_color%})"
 
@@ -15,7 +9,10 @@ local magenta="%{$fg[magenta]%}"
 local reset="%{$reset_color%}"
 local black="%{$fg[black]%}"
 PROMPT=' 
-${process_status} [${green}%m${reset}:${magenta}%2c${reset}] 
+${process_status} [${green}%m${reset}:${magenta}%2c${reset}|$(rbenv version-name)] 
 > '
 PROMPT2='. '
-RPROMPT='${red}$(__git_prompt)${reset}'
+
+# Handle the prompt if the current_branch function is available
+current_branch &>/dev/null && RPROMPT='${red}$(current_branch)${reset}'
+

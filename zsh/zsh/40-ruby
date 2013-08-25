@@ -1,6 +1,0 @@
-# vim: ft=zsh
-export PATH=$HOME/.rbenv/bin:${PATH}
-eval "$(rbenv init - zsh --no-rehash)"
-
-# bundler-exec
-source ~/.bundler-exec.zsh
