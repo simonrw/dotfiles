@@ -12,4 +12,7 @@ PROMPT='
 ${process_status} [${green}%m${reset}:${magenta}%2c${reset}|$(rbenv version-name)] 
 > '
 PROMPT2='. '
-RPROMPT='${red}$(current_branch)${reset}'
+
+# Handle the prompt if the current_branch function is available
+current_branch &>/dev/null && RPROMPT='${red}$(current_branch)${reset}'
+
