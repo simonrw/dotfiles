@@ -15,3 +15,6 @@ if has("gui_running")
 else
     map <silent> <Leader>ls :!/Applications/Skim.app/Contents/SharedSupport/displayline -b -g <C-R>=line('.')<CR> "<C-R>=LatexBox_GetOutputFile()<CR>" "%:p" <CR>
 endif
+
+" Disable syntax
+syntax off
