@@ -13,7 +13,7 @@ class OhMyZSH
         exists? && remove
     end
 
-    private
+private
 
     def exists?
         File.exist? @location
