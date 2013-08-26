@@ -17,4 +17,4 @@ else
 endif
 
 " Disable syntax
-syntax off
+set syntax=OFF
