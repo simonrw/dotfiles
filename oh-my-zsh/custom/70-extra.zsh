@@ -38,3 +38,8 @@ compctl -K _completemarks unmark
 
 # Add an alias for the jump command
 alias j=jump
+
+# Source the custom zshrc.local file in the system
+if [[ -f ${HOME}/.zshrc.local ]]; then
+    source ${HOME}/.zshrc.local
+fi
