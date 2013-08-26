@@ -39,11 +39,11 @@ private
         Dir["#{source_location}/*"]
     end
 
-    def remove_custom
-        system %Q{rm -rf "#{custom_location}"}
+    def new_path(path)
+        File.join(custom_location, File.basename(path))
     end
 
     def link_custom_contents
-        system %Q{ln -sv #{source_location} #{custom_location}}
+        custom_contents.each { |source| File.symlink(source, new_path(source)) }
     end
 end
