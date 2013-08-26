@@ -35,8 +35,8 @@ private
         File.expand_path(File.join(@location, 'custom'))
     end
 
-    def update_custom
-        remove_custom && link_custom
+    def custom_contents
+        Dir["#{source_location}/*"]
     end
 
     def remove_custom
