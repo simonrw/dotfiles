@@ -6,7 +6,7 @@ class OhMyZSH
     end
 
     def install
-        (exists? || fetch) && update_custom
+        (exists? || fetch) && link_custom_contents
     end
 
     def uninstall
@@ -43,7 +43,7 @@ class OhMyZSH
         system %Q{rm -rf "#{custom_location}"}
     end
 
-    def link_custom
+    def link_custom_contents
         system %Q{ln -sv #{source_location} #{custom_location}}
     end
 end
