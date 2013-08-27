@@ -1,5 +1,5 @@
 ZSH=$HOME/.oh-my-zsh
-ZSH_THEME="kardan" # Nice simple theme
+ZSH_THEME="kardan-srwalker" # Nice simple theme
 # ZSH_THEME="mrtazz" # Also not too bad
 DISABLE_LS_COLORS="true"
 DISABLE_CORRECTION="true"
