@@ -3,5 +3,5 @@ ZSH_THEME="srwalker"
 DISABLE_LS_COLORS="true"
 DISABLE_CORRECTION="true"
 DISABLE_UNTRACKED_FILES_DIRTY="true"
-plugins=(brew bundler redis-cli heroku pow powder vagrant git rbenv github gem)
+plugins=(brew bundler redis-cli git rbenv gem pow powder)
 source $ZSH/oh-my-zsh.sh
