@@ -1,0 +1,2 @@
+export PATH="/usr/local/opt/rbenv/shims:/usr/local/opt/rbenv/bin:$PATH"
+export POW_WORKERS=3
