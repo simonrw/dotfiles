@@ -44,6 +44,12 @@ private
     end
 
     def link_custom_contents
-        custom_contents.each { |source| File.symlink(source, new_path(source)) }
+        custom_contents.each do |source|
+            begin
+                File.symlink(source, new_path(source))
+            rescue
+                puts "File #{new_path(source)} already found"
+            end
+        end
     end
 end

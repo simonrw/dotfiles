@@ -34,10 +34,10 @@ end
 def add_links
     for name in get_to_links
         ln = link_name(name)
-        if not File.exists? ln
-            puts "Linking #{ln}"
+        begin
             File.symlink File.expand_path(name), ln
-        else
+            puts "Linking #{ln}"
+        rescue
             puts "Link #{ln} already found"
         end
     end
