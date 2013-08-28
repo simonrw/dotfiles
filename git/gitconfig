@@ -7,7 +7,6 @@
     cm = commit -m
     co = checkout
     tree = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative
-    oneline = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative
     su = submodule update --init --recursive
     gpr = pull --rebase
     sync = !git gpr && git push
