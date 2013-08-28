@@ -1,2 +1,5 @@
+# Used to set up bundle properly with rbenv
 export PATH="/usr/local/opt/rbenv/shims:/usr/local/opt/rbenv/bin:$PATH"
-export POW_WORKERS=3
+
+# Shorten the pow timeout
+export POW_TIMEOUT=300
