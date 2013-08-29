@@ -195,7 +195,11 @@ let g:LatexBox_fold_envs = 0
 " Set colour scheme
 if &t_Co >= 256 || has("gui_running")
     set background=light
-    colorscheme solarized
+    if ($TERM_PROGRAM == 'iTerm.app')
+        colorscheme solarized
+    else
+        colorscheme desert
+    end
 endif
 
 " Ctrl-P ignore list
