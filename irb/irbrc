@@ -1,2 +1,19 @@
-require "awesome_print"
-require "interactive_editor"
+require 'irb/completion'
+
+IRB.conf[:PROMPT_MODE] = :SIMPLE
+
+# Add some nice methods
+class Object
+  def local_methods(obj = self)
+    (obj.methods - obj.class.superclass.instance_methods).sort
+  end
+
+  # Documentation
+  def ri(method = nil)
+    unless method && method =~ /^[A-Z]/
+      klass = self.kind_of?(Class) ? name : self.class.name
+      method = [klass, method].compact.join('#')
+    end
+    system 'ri', method.to_s
+  end
+end
