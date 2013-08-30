@@ -17,7 +17,6 @@ call vundle#rc()
 Bundle 'gmarik/vundle'
 
 " Custom plugins
-Bundle 'Command-T'
 Bundle 'tpope/vim-fugitive'
 Bundle 'tpope/vim-commentary'
 Bundle 'tpope/vim-surround'
@@ -26,6 +25,6 @@ Bundle 'tpope/vim-dispatch'
 Bundle 'tpope/vim-unimpaired'
 Bundle 'altercation/vim-colors-solarized'
 Bundle 'vim-ruby/vim-ruby'
-
+Bundle 'kien/ctrlp.vim'
 
 filetype plugin indent on

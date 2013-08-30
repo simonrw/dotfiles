@@ -1,1 +1,1 @@
-map <leader>f :CommandT<cr>
+map <leader>f :CtrlP<cr>
