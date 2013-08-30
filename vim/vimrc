@@ -1,6 +1,3 @@
-" Run a login shell for the shell subprocess
-set shell=$SHELL\ -l
-
 " turn syntax highlighting on
 if (&t_Co > 2 || has("gui_running")) && !exists("syntax_on")
     syntax on
@@ -60,9 +57,6 @@ set backspace=indent,eol,start
 " Set mouse mode
 set mouse=a
 
-" Auto-clean fugitive buffers
-autocmd BufReadPost fugitive://* set bufhidden=delete
-
 " Remap the move-window keys
 map <C-h> <C-w>h
 map <C-j> <C-w>j
@@ -84,17 +78,8 @@ inoremap <F1> <ESC>
 nnoremap <F1> <ESC>
 vnoremap <F1> <ESC>
 
-" Set Ultisnips comment style
-let g:ultisnips_python_style='doxygen'
-
 " Set the tags directory
 set tags=./tags;/
-
-" Set tags executable
-if has("macunix")
-    " Have to change this for my laptop
-    let Tlist_Ctags_Cmd='/usr/local/bin/ctags'
-endif
 
 " Reselect visual block after indent/outdent
 vnoremap < <gv
@@ -112,18 +97,6 @@ map Q gq
 
 " Make the Y key work
 map Y y$
-
-" Change the ctrlp plugin key combo, and the default function to search in
-" buffers also
-" let g:ctrlp_map = '<leader>t'
-" let g:ctrlp_cmd = 'CtrlPMixed'
-
-" Add some fugitive leader commands
-noremap <leader>gd :Gsdiff<CR>
-noremap <leader>gw :Gwrite<CR>
-noremap <leader>gr :Gread<CR>
-noremap <leader>gc :Gcommit<CR>
-noremap <leader>gst :Gst<CR>
 
 " Paste toggling - allow for pasting from other sources with correct
 " formatting
@@ -150,9 +123,6 @@ set statusline+=%f\
 " Status markers
 set statusline+=%h%m%r%q
 
-" Git status
-set statusline+=%{fugitive#statusline()}
-
 " End of left section, start right section
 set statusline+=%=
 
@@ -165,10 +135,6 @@ set statusline+=%-14.(%l,%c%V%)\
 " View position
 set statusline+=%P
 
-" Vimux mappings
-map <leader>vm :VimuxPromptCommand<CR>
-map <leader>vr :VimuxRunLastCommand<CR>
-
 " Folding method
 set foldmethod=marker
 
@@ -180,62 +146,20 @@ set thesaurus+=~/thesaurus/mthesaur.txt
 " Tweaked to run lcd instead of cd
 map <leader>cd :lcd %:p:h<CR>:pwd<CR>
 
-" Tube
-if has("macunix")
-		let g:tube_terminal = 'iterm'
-endif
-
-" Latexbox ignore warnings
-let g:LatexBox_show_warnings = 0
-
-" Disable folding
-let g:LatexBox_fold_envs = 0
-
 " Set colour scheme
-if &t_Co >= 256 || has("gui_running")
-    set background=light
-    if ($TERM_PROGRAM == 'iTerm.app')
-        colorscheme solarized
-    else
-        colorscheme desert
-    end
-endif
-
-" Ctrl-P ignore list
-set wildignore+=*.pyc
-set wildignore+=*.aux
-set wildignore+=venv/*
-
-" Add a command to list the recent files using ctrlp's mru feature
-command! Recent execute "CtrlPMRU"
-
-" Leader command for clearing all other buffers
-map <leader>bo :BufOnly<CR>
+set background=dark
+colorscheme grb256
 
 " Map control-s to update, rather than write
 nmap <C-s> :update<CR>
 imap <C-s> :update<CR>
 vmap <C-s> :update<CR>
 
-" Map leader r to recent command
-map <leader>r :Recent<CR>
-
-" Open nerdtree with leader command
-map <leader>nt :NERDTreeToggle<CR>
-
 " Enable british spelling
 set spelllang=en_gb
 
 " Better formatting
 set formatprg=par
-
-" Set up haskell mode
-au BufEnter *.hs compiler ghc
-let g:haddock_browser = "open"
-let g:haddock_browser_callformat = "%s %s"
-
-" Configure the keys for altr
-command! A call altr#forward()
 
 " Swap the mark keys
 nnoremap ' `
@@ -254,61 +178,11 @@ set shortmess=atI
 " Decrease the leader key timeout for the comma key
 set timeoutlen=500
 
-" Minubuf explorer bindings
-map <leader>mb :MBEToggle!<CR>
-noremap <C-Tab> :MBEbn<CR>
-noremap <C-S-Tab> :MBEbp<CR>
-let g:miniBufExplCycleArround = 1
-
-" Unite
-let g:unite_source_history_yank_enable = 1
-call unite#filters#matcher_default#use(['matcher_fuzzy'])
-nnoremap <leader>t :<c-u>Unite -buffer-name=files   -start-insert file_rec/async:!<cr>
-nnoremap <leader>f :<c-u>Unite -buffer-name=files   -start-insert file<cr>
-nnoremap <leader>r :<c-u>Unite -buffer-name=mru     -start-insert file_mru<cr>
-nnoremap <leader>o :<c-u>Unite -buffer-name=outline -start-insert outline<cr>
-nnoremap <leader>y :<c-u>Unite -buffer-name=yank    history/yank<cr>
-nnoremap <leader>e :<c-u>Unite -buffer-name=buffer  buffer<cr>
-nnoremap <leader>j :<c-u>Unite -buffer-name=jump jump<cr>
-nnoremap <leader><tab> :<c-u>Unite outline<CR>
-
-" Custom mappings for the unite buffer
-autocmd FileType unite call s:unite_settings()
-function! s:unite_settings()
-  " Enable navigation with control-j and control-k in insert mode
-  imap <buffer> <C-j>   <Plug>(unite_select_next_line)
-  imap <buffer> <C-k>   <Plug>(unite_select_previous_line)
-endfunction
-
-" Configuring indentLine
-let g:indentLine_fileTypeExclude = ['markdown', 'tex', 'ruby',]
-
 " Enable scrolljump
 set scrolljump=5
 
-if has('macunix')
-    let g:ruby_doc_command='open'
-endif
-
-" Disable latexbox pattern matching
-" These slow down my vim too much and I never use them
-let g:LatexBox_open_pats = []
-let g:LatexBox_close_pats = []
-
-" Create it to prevent matching parens
-let g:LatexBox_loaded_matchparen = 1
-
-" Disable paren matching
-" This makes vim reaaaaly slow...
-let loaded_matchparen = 1
-
 " Disable conceal
 set conceallevel=0
-
-" Settings for vim-rspec
-map <Leader>s :call RunNearestSpec()<CR>
-map <Leader>sl :call RunLastSpec()<CR>
-let g:rspec_command = "Dispatch bundle exec rspec {spec}"
 
 " Enable relativenumber
 set relativenumber
@@ -331,3 +205,14 @@ set history=50
 
 " Enable the ruler
 set ruler
+
+" Always show the tab line
+set showtabline=2
+
+" Set some ignore patterns
+set wildignore+=*.aux,*.o,*.git
+
+" Now load the plugins settings
+if filereadable("~/.vim/setup/plugin_settings.vim")
+    source "~/.vim/setup/plugin_settings.vim"
+endif

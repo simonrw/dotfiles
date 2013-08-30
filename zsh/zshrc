@@ -4,5 +4,5 @@ ZSH_THEME="kardan-srwalker" # Nice simple theme
 DISABLE_LS_COLORS="true"
 DISABLE_CORRECTION="true"
 DISABLE_UNTRACKED_FILES_DIRTY="true"
-plugins=(brew bundler redis-cli git rbenv gem pow powder)
+plugins=(rbenv)
 source $ZSH/oh-my-zsh.sh

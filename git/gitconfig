@@ -30,11 +30,8 @@
 [pager]
     diff =
 [merge]
-    tool = splice
+    tool = vimdiff
 	conflictstyle = diff3
-[mergetool "splice"]
-    cmd = "vim -f $BASE $LOCAL $REMOTE $MERGED -c 'SpliceInit'"
-    trustExitCode = true
 [push]
     default = current
 [diff]
