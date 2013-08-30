@@ -213,6 +213,7 @@ set showtabline=2
 set wildignore+=*.aux,*.o,*.git
 
 " Now load the plugins settings
-if filereadable("~/.vim/setup/plugin_settings.vim")
-    source "~/.vim/setup/plugin_settings.vim"
+let s:plugin_settings = expand($HOME . '/.vim/setup/plugin_settings.vim')
+if filereadable(s:plugin_settings)
+    :exec ':so ' . s:plugin_settings
 endif
