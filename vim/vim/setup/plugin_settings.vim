@@ -1,1 +1,1 @@
-map <leader>t :CommandT<cr>
+map <leader>f :CommandT<cr>
