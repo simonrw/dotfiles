@@ -1,2 +1,4 @@
 " Disable new slower regex engine
-set re=1
+if version >= 704
+    set re=1
+endif
