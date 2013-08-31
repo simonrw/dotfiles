@@ -211,7 +211,8 @@ set showtabline=2
 " Set some ignore patterns
 set wildignore+=*.aux,*.o,*.git
 
-" Now load the plugins settings
+set switchbuf=useopen
+
 let s:plugin_settings = expand($HOME . '/.vim/setup/plugin_settings.vim')
 if filereadable(s:plugin_settings)
     :exec ':so ' . s:plugin_settings
