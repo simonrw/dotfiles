@@ -26,5 +26,6 @@ Bundle 'tpope/vim-unimpaired'
 Bundle 'altercation/vim-colors-solarized'
 Bundle 'vim-ruby/vim-ruby'
 Bundle 'kien/ctrlp.vim'
+Bundle 'thoughtbot/vim-rspec'
 
 filetype plugin indent on
