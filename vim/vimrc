@@ -177,7 +177,8 @@ nnoremap <C-y> 3<C-y>
 set shortmess=atI
 
 " Decrease the leader key timeout for the comma key
-:set timeout timeoutlen=1000 ttimeoutlen=100
+set timeout timeoutlen=1000 ttimeoutlen=100
+
 
 
 " Enable scrolljump
