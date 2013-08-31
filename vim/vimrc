@@ -179,6 +179,8 @@ set shortmess=atI
 " Decrease the leader key timeout for the comma key
 set timeout timeoutlen=1000 ttimeoutlen=100
 
+" GRB does these
+set winwidth=79
 
 
 " Enable scrolljump
