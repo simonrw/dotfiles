@@ -202,9 +202,6 @@ map <leader><leader> <C-^>
 set splitbelow
 set splitright
 
-" Set shorter history
-set history=50
-
 " Enable the ruler
 set ruler
 
