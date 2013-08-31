@@ -27,5 +27,6 @@ Bundle 'altercation/vim-colors-solarized'
 Bundle 'vim-ruby/vim-ruby'
 Bundle 'kien/ctrlp.vim'
 Bundle 'thoughtbot/vim-rspec'
+Bundle 'mindriot101/srw-colorscheme.vim'
 
 filetype plugin indent on

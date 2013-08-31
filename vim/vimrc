@@ -149,7 +149,7 @@ map <leader>cd :lcd %:p:h<CR>:pwd<CR>
 
 " Set colour scheme
 set background=dark
-colorscheme grb256
+colorscheme srw
 
 " Map control-s to update, rather than write
 nmap <C-s> :update<CR>
