@@ -9,3 +9,7 @@ alias gt='git tree'
 alias gc='git commit -m'
 alias gd='git diff'
 alias gdc='git diff --cached'
+
+# Update vim plugins
+alias vbi='vim +BundleInstall +qa'
+alias vbu='vim +BundleUpdate'
