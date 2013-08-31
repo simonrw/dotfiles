@@ -219,6 +219,13 @@ au BufReadPost *
     \ exe "normal! g`\"" | 
     \ endif
 
+
+" Configure hlsearch 
+set hlsearch
+noremap <cr> :nohlsearch<cr>
+
+
+" Now load the plugins settings
 let s:plugin_settings = expand($HOME . '/.vim/setup/plugin_settings.vim')
 if filereadable(s:plugin_settings)
     :exec ':so ' . s:plugin_settings
