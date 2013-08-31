@@ -64,14 +64,15 @@ map <C-k> <C-w>k
 map <C-l> <C-w>l
 
 " Remove the arrow key functionality
-nnoremap <Up> <nop>
-nnoremap <Down> <nop>
-nnoremap <Left> <nop>
-nnoremap <Right> <nop>
-inoremap <Up> <nop>
-inoremap <Down> <nop>
-inoremap <Left> <nop>
-inoremap <Right> <nop>
+nnoremap <Up> :echo "no!"<cr>
+nnoremap <Down> :echo "no!"<cr>
+nnoremap <Left> :echo "no!"<cr>
+nnoremap <Right> :echo "no!"<cr>
+inoremap <Up> <esc>:echo "no!"<cr>
+inoremap <Down> <esc>:echo "no!"<cr>
+inoremap <Left> <esc>:echo "no!"<cr>
+inoremap <Right> <esc>:echo "no!"<cr>
+
 
 " disable f1 key
 inoremap <F1> <ESC>
