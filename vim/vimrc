@@ -29,7 +29,7 @@ set autoread
 
 " enable the semicolon to act like the colon key
 " swap the keys to get the old semicolon functionality back
-nnoremap ; :
+map ; :
 
 " set incremental search
 set incsearch
