@@ -213,6 +213,12 @@ set wildignore+=*.aux,*.o,*.git
 
 set switchbuf=useopen
 
+" Jump back to last file position
+au BufReadPost * 
+    \ if line("'\"") > 1 && line("'\"") <= line("$") | 
+    \ exe "normal! g`\"" | 
+    \ endif
+
 let s:plugin_settings = expand($HOME . '/.vim/setup/plugin_settings.vim')
 if filereadable(s:plugin_settings)
     :exec ':so ' . s:plugin_settings
