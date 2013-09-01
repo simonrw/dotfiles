@@ -28,5 +28,6 @@ Bundle 'vim-ruby/vim-ruby'
 Bundle 'kien/ctrlp.vim'
 Bundle 'thoughtbot/vim-rspec'
 Bundle 'mindriot101/srw-colorscheme.vim'
+Bundle 'thinca/vim-localrc'
 
 filetype plugin indent on
