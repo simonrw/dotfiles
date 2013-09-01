@@ -11,6 +11,7 @@
     gpr = pull --rebase
     sync = !git gpr && git push
     pu = !"git fetch origin -v; git fetch upstream -v; git merge upstream/master"
+    wdiff = diff --color-words
 [color]
     ui = auto
 [core]
