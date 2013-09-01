@@ -29,7 +29,5 @@
 	conflictstyle = diff3
 [push]
     default = current
-[diff]
-    algorithm = patience
 [init]
 	templatedir = ~/.git_template
