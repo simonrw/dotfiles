@@ -1,2 +1,2 @@
-map <leader>f :CommandT<cr>
+map <leader>f :CtrlP<cr>
 map <leader>r :call RunNearestSpec()<cr>

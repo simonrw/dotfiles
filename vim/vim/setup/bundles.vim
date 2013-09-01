@@ -25,9 +25,8 @@ Bundle 'tpope/vim-dispatch'
 Bundle 'tpope/vim-unimpaired'
 Bundle 'altercation/vim-colors-solarized'
 Bundle 'vim-ruby/vim-ruby'
-Bundle 'Command-T'
+Bundle 'kien/ctrlp.vim'
 Bundle 'thoughtbot/vim-rspec'
 Bundle 'mindriot101/srw-colorscheme.vim'
-Bundle 'thinca/vim-localrc'
 
 filetype plugin indent on
