@@ -29,12 +29,30 @@ show_git_head() {
     git show -p --pretty="tformat:"
 }
 
+# Horrible way to do this...
+os_independent_sed() {
+    case $OSTYPE in
+        linux*)
+            SED='sed -re'
+            ;;
+        darwin*)
+            SED='sed -Ee'
+            ;;
+    esac
+}
+
+strip_times() {
+    os_independent_sed
+
+    # Replace (2 years ago) with (2 years)
+    ${SED} 's/(^[^<]*) ago\)/\1)/' |
+    # Replace (2 years, 5 months) with (2 years)
+    ${SED} 's/(^[^<]*), [[:digit:]]+ .*months?\)/\1)/'
+}
+
 pretty_git_log() {
     git log --graph --pretty="tformat:${FORMAT}" $* |
-        # Replace (2 years ago) with (2 years)
-        sed -Ee 's/(^[^<]*) ago\)/\1)/' |
-        # Replace (2 years, 5 months) with (2 years)
-        sed -Ee 's/(^[^<]*), [[:digit:]]+ .*months?\)/\1)/' |
+        strip_times |
         # Line columns up based on } delimiter
         column -s '}' -t |
         # Page only if we need to
