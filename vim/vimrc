@@ -228,7 +228,7 @@ au BufReadPost *
 
 " Configure hlsearch 
 set hlsearch
-noremap <cr> :nohlsearch<cr>
+nmap <space> :nohlsearch<cr>
 
 " Multipurpose tab key from grb
 function! InsertTabWrapper()
