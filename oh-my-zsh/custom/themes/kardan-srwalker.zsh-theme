@@ -4,7 +4,8 @@ function get_host {
 	echo '@'`hostname`''
 }
 
-PROMPT='> '
+PROMPT='
+> '
 RPROMPT='%1~$(git_prompt_info)$(get_host)'
 
 ZSH_THEME_GIT_PROMPT_DIRTY="%{$fg[yellow]%}✗%{$reset_color%}"
