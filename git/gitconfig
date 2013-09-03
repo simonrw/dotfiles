@@ -18,6 +18,7 @@
     l = "!. ~/.githelpers && pretty_git_log"
     la = !git l --all
     dc = diff --cached
+    aa = add --all
 [color]
     ui = auto
 [core]
