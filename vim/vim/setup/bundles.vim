@@ -28,6 +28,11 @@ Bundle 'kien/ctrlp.vim'
 Bundle 'thoughtbot/vim-rspec'
 Bundle 'mindriot101/srw-colorscheme.vim'
 Bundle 'thinca/vim-localrc'
-Bundle 'msanders/snipmate.vim'
+
+" Snipmate plugins
+Bundle "MarcWeber/vim-addon-mw-utils"
+Bundle "tomtom/tlib_vim"
+Bundle "garbas/vim-snipmate"
+Bundle "honza/vim-snippets"
 
 filetype plugin indent on
