@@ -20,7 +20,7 @@ set shiftround
 set expandtab
 
 " Set history settings
-set history=700
+set history=10000
 set undolevels=700
 
 
