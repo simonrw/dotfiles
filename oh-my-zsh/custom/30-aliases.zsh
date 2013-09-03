@@ -5,10 +5,6 @@ alias vim=vim_nox
 
 # Git aliases
 alias g=git
-alias gt='git tree'
-alias gc='git commit -m'
-alias gd='git diff'
-alias gdc='git diff --cached'
 
 # Update vim plugins
 alias vbi='vim +BundleInstall +qa'
