@@ -9,6 +9,7 @@
     sync = !git gpr && git push
     wdiff = diff --color-words
     cm = commit --message
+    q = quick
 
     # Logging from Gary Bernhardt
     head = !git l -1
