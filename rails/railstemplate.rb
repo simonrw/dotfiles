@@ -1,22 +1,12 @@
 gem_group :development, :test do
-    # Nice repl
-    gem 'pry'
-    gem 'pry-rails'
-
     # Better testing dsl
     gem 'rspec'
     gem 'rspec-rails'
-
-    # Automated tasks
-    gem 'guard'
-    gem 'guard-rspec'
+    gem 'cucumber'
 
     # Integration tests with a real headless browser
     gem 'capybara'
 end
-
-# Foreman for running multiple tasks
-gem 'foreman'
 
 # For encrypted passwords
 gem 'bcrypt-ruby'
