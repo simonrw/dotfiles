@@ -31,5 +31,4 @@ run "echo '.env' >> .gitignore"
 # disable output buffering
 run "echo 'STDOUT.sync = true' >> config/environments/development.rb"
 
-# Set up guard
-run "bundle exec guard init rspec"
+git :init
