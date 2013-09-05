@@ -13,6 +13,7 @@ gem 'bcrypt-ruby'
 
 # Remove the secret token from the tracking
 run "echo 'config/initializers/secret_token.rb' >> .gitignore"
+run "echo 'config/database.hml' >> .gitignore"
 
 # Set up foreman
 run "echo 'web: bundle exec rails s -p $PORT' >> Procfile"
