@@ -5,5 +5,28 @@ DISABLE_LS_COLORS="true"
 DISABLE_AUTO_UPDATE="true"
 DISABLE_CORRECTION="true"
 DISABLE_UNTRACKED_FILES_DIRTY="true"
+
 plugins=(rbenv)
-source $ZSH/oh-my-zsh.sh
+for config_file (~/.oh-my-zsh/custom/*.zsh(N)); do
+  source $config_file
+done
+unset config_file
+
+export PATH=${HOME}/.rbenv/bin:${PATH}
+eval "$(rbenv init - no-rehash)"
+
+#
+# Simple theme based on my old zsh settings.
+
+setopt prompt_subst
+function get_host {
+	echo '@'`hostname`''
+}
+
+PROMPT='
+> '
+
+RPROMPT='%1~$(get_host)'
+ZSH_THEME_GIT_PROMPT_DIRTY="%{$fg[yellow]%}✗%{$reset_color%}"
+ZSH_THEME_GIT_PROMPT_PREFIX="("
+ZSH_THEME_GIT_PROMPT_SUFFIX=")"
