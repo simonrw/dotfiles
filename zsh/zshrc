@@ -3,9 +3,6 @@ for config_file (~/.zsh/*.zsh(N)); do
 done
 unset config_file
 
-export PATH=${HOME}/.rbenv/bin:${PATH}
-eval "$(rbenv init - no-rehash)"
-
 # get the name of the branch we are on
 git_prompt_info() {
   ref=$(command git symbolic-ref HEAD 2> /dev/null) || \
