@@ -14,3 +14,5 @@ setlocal omnifunc=pythoncomplete#Complete
 
 " Disable spelling
 setlocal nospell
+
+map <leader>w :w\|!python %<cr>
