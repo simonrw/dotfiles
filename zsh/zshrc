@@ -17,6 +17,7 @@ eval "$(rbenv init - no-rehash)"
 
 #
 # Simple theme based on my old zsh settings.
+source ~/.oh-my-zsh/lib/git.zsh
 
 setopt prompt_subst
 function get_host {
@@ -26,7 +27,7 @@ function get_host {
 PROMPT='
 > '
 
-RPROMPT='%1~$(get_host)'
+RPROMPT='%1~$(git_prompt_info)$(get_host)'
 ZSH_THEME_GIT_PROMPT_DIRTY="%{$fg[yellow]%}✗%{$reset_color%}"
 ZSH_THEME_GIT_PROMPT_PREFIX="("
 ZSH_THEME_GIT_PROMPT_SUFFIX=")"
