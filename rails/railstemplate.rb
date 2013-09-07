@@ -2,7 +2,7 @@ gem_group :development, :test do
     # Better testing dsl
     gem 'rspec'
     gem 'rspec-rails'
-    gem 'cucumber'
+    gem 'cucumber-rails'
 
     # Integration tests with a real headless browser
     gem 'capybara'
