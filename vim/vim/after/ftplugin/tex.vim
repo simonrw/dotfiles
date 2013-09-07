@@ -18,3 +18,6 @@ if has("gui_running")
 else
     map <silent> <Leader>ls :!/Applications/Skim.app/Contents/SharedSupport/displayline -b -g <C-R>=line('.')<CR> "Thesis.pdf" "%:p" <CR>
 endif
+
+" Compile with leader command
+map <leader>w :w\|!rake build:once<cr>
