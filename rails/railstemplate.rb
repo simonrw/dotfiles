@@ -2,7 +2,8 @@ gem_group :development, :test do
     # Better testing dsl
     gem 'rspec'
     gem 'rspec-rails'
-    gem 'cucumber-rails'
+    gem 'cucumber-rails', require: false
+    gem 'database_cleaner'
 
     # Integration tests with a real headless browser
     gem 'capybara'
