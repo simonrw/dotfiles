@@ -73,6 +73,8 @@ inoremap <Down> <esc>:echo "no!"<cr>
 inoremap <Left> <esc>:echo "no!"<cr>
 inoremap <Right> <esc>:echo "no!"<cr>
 
+" Faster exiting
+inoremap jk <esc>
 
 " disable f1 key
 inoremap <F1> <ESC>
