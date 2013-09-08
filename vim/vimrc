@@ -162,6 +162,9 @@ au BufReadPost *
 "     MAPPINGS     "
 """"""""""""""""""""
 
+" Remap the leader key to comma
+let mapleader=','
+
 " Multipurpose tab key from grb
 function! InsertTabWrapper()
     let col = col('.') - 1
@@ -237,9 +240,6 @@ map <C-l> <C-w>l
 " enable the semicolon to act like the colon key
 " swap the keys to get the old semicolon functionality back
 map ; :
-
-" Remap the leader key to comma
-let mapleader=','
 
 """"""""""""""""""""
 "     PLUGINS      "
