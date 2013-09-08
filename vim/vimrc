@@ -8,10 +8,6 @@ if filereadable(expand("~/.vim/setup/bundles.vim"))
 source ~/.vim/setup/bundles.vim
 endif
 
-" Remap the leader key to comma
-let mapleader=','
-
-
 " set up some nice tab defaults
 set tabstop=4
 set softtabstop=4
@@ -23,13 +19,8 @@ set expandtab
 set history=10000
 set undolevels=700
 
-
 " reload all file changes automatically
 set autoread
-
-" enable the semicolon to act like the colon key
-" swap the keys to get the old semicolon functionality back
-map ; :
 
 " set incremental search
 set incsearch
@@ -38,10 +29,8 @@ set incsearch
 set ignorecase
 set smartcase
 
-
 " show command as it's typed
 set showcmd
-
 
 " nice file formatting
 set autoindent
@@ -50,43 +39,14 @@ set autoindent
 set laststatus=2
 set encoding=utf-8 " Necessary to show unicode glyphs
 
-
 " make backspace behave nicely
 set backspace=indent,eol,start
 
 " Set mouse mode
 set mouse=a
 
-" Remap the move-window keys
-map <C-h> <C-w>h
-map <C-j> <C-w>j
-map <C-k> <C-w>k
-map <C-l> <C-w>l
-
-" Remove the arrow key functionality
-nnoremap <Up> :echo "no!"<cr>
-nnoremap <Down> :echo "no!"<cr>
-nnoremap <Left> :echo "no!"<cr>
-nnoremap <Right> :echo "no!"<cr>
-inoremap <Up> <esc>:echo "no!"<cr>
-inoremap <Down> <esc>:echo "no!"<cr>
-inoremap <Left> <esc>:echo "no!"<cr>
-inoremap <Right> <esc>:echo "no!"<cr>
-
-" Faster exiting
-inoremap jk <esc>
-
-" disable f1 key
-inoremap <F1> <ESC>
-nnoremap <F1> <ESC>
-vnoremap <F1> <ESC>
-
 " Set the tags directory
 set tags=./tags;/
-
-" Reselect visual block after indent/outdent
-vnoremap < <gv
-vnoremap > >gv
 
 " Enable fast tty mode
 set ttyfast
@@ -94,12 +54,6 @@ set ttyfast
 " Change the way tab autocompletion works
 set wildmenu
 set wildmode=list:longest,list:full
-
-" Remap the Q key
-map Q gq
-
-" Make the Y key work
-map Y y$
 
 " Paste toggling - allow for pasting from other sources with correct
 " formatting
@@ -144,19 +98,9 @@ set foldmethod=marker
 " Thesaurus
 set thesaurus+=~/thesaurus/mthesaur.txt
 
-" Change directory to that of the current file
-" Taken from Dave Aitken http://www.github.com/actionshrimp
-" Tweaked to run lcd instead of cd
-map <leader>cd :lcd %:p:h<CR>:pwd<CR>
-
 " Set colour scheme
 set background=dark
 colorscheme srw
-
-" Map control-s to update, rather than write
-nmap <C-s> :update<CR>
-imap <C-s> :update<CR>
-vmap <C-s> :update<CR>
 
 " Enable british spelling
 set spelllang=en_gb
@@ -164,16 +108,8 @@ set spelllang=en_gb
 " Better formatting
 set formatprg=par
 
-" Swap the mark keys
-nnoremap ' `
-nnoremap ` '
-
 " Add some lines around the cursor
 set scrolloff=3
-
-" Speed up ctrl-e/ctrl-y
-nnoremap <C-e> 3<C-e>
-nnoremap <C-y> 3<C-y>
 
 " Configure 'Press enter to continue' messages
 set shortmess=atI
@@ -184,7 +120,6 @@ set timeout timeoutlen=1000 ttimeoutlen=100
 " GRB does these
 set winwidth=79
 set winheight=20
-
 
 " Enable scrolljump
 set scrolljump=5
@@ -199,10 +134,6 @@ set relativenumber
 if version >= 704
     set number
 endif
-
-" settings from thoughtbot dotfiles repo
-" Swap between two files
-map <leader><leader> <C-^>
 
 " Open new split panes to right and bottom, which feels more natural
 set splitbelow
@@ -227,10 +158,9 @@ au BufReadPost *
     \ exe "normal! g`\"" | 
     \ endif
 
-
-" Configure hlsearch 
-set hlsearch
-nmap <space> :nohlsearch<cr>
+""""""""""""""""""""
+"     MAPPINGS     "
+""""""""""""""""""""
 
 " Multipurpose tab key from grb
 function! InsertTabWrapper()
@@ -243,6 +173,77 @@ function! InsertTabWrapper()
 endfunction
 inoremap <tab> <c-r>=InsertTabWrapper()<cr>
 inoremap <s-tab> <c-n>
+
+" Configure hlsearch
+set hlsearch
+nmap <space> :nohlsearch<cr>
+
+" settings from thoughtbot dotfiles repo
+" Swap between two files
+map <leader><leader> <C-^>
+
+" Speed up ctrl-e/ctrl-y
+nnoremap <C-e> 3<C-e>
+nnoremap <C-y> 3<C-y>
+
+" Swap the mark keys
+nnoremap ' `
+nnoremap ` '
+
+" Map control-s to update, rather than write
+nmap <C-s> :update<CR>
+imap <C-s> :update<CR>
+vmap <C-s> :update<CR>
+
+" Change directory to that of the current file
+" Taken from Dave Aitken http://www.github.com/actionshrimp
+" Tweaked to run lcd instead of cd
+map <leader>cd :lcd %:p:h<CR>:pwd<CR>
+
+" Remap the Q key
+map Q gq
+
+" Make the Y key work
+map Y y$
+
+" Reselect visual block after indent/outdent
+vnoremap < <gv
+vnoremap > >gv
+
+" Faster exiting
+inoremap jk <esc>
+
+" disable f1 key
+inoremap <F1> <ESC>
+nnoremap <F1> <ESC>
+vnoremap <F1> <ESC>
+
+" Remove the arrow key functionality
+nnoremap <Up> :echo "no!"<cr>
+nnoremap <Down> :echo "no!"<cr>
+nnoremap <Left> :echo "no!"<cr>
+nnoremap <Right> :echo "no!"<cr>
+inoremap <Up> <esc>:echo "no!"<cr>
+inoremap <Down> <esc>:echo "no!"<cr>
+inoremap <Left> <esc>:echo "no!"<cr>
+inoremap <Right> <esc>:echo "no!"<cr>
+
+" Remap the move-window keys
+map <C-h> <C-w>h
+map <C-j> <C-w>j
+map <C-k> <C-w>k
+map <C-l> <C-w>l
+
+" enable the semicolon to act like the colon key
+" swap the keys to get the old semicolon functionality back
+map ; :
+
+" Remap the leader key to comma
+let mapleader=','
+
+""""""""""""""""""""
+"     PLUGINS      "
+""""""""""""""""""""
 
 " Now load the plugins settings
 let s:plugin_settings = expand($HOME . '/.vim/setup/plugin_settings.vim')
