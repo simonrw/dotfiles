@@ -165,6 +165,15 @@ au BufReadPost *
 " Remap the leader key to comma
 let mapleader=','
 
+" Git mappings
+nmap <leader>gc :Gcommit<cr>
+nmap <leader>gd :Gdiff<cr>
+nmap <leader>gsd :Gsdiff<cr>
+nmap <leader>gcm :Gcommit -m 
+nmap <leader>gw :Gwrite<cr>
+nmap <leader>gr :Gread<cr>
+nmap <leader>gl :Glog<cr>
+
 " Multipurpose tab key from grb
 function! InsertTabWrapper()
     let col = col('.') - 1
