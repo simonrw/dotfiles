@@ -89,14 +89,12 @@ end
 desc 'Links the respective files into the correct places'
 task :install, [:install_osx] do |t, args|
     add_links
-    OhMyZSH.new.install
     source_osx_file args[:install_osx], 'defaults.sh'
 end
 
 desc 'Removes any soft-links created by this script'
 task :uninstall, [:uninstall_osx] do |t, args|
     remove_links
-    OhMyZSH.new.uninstall
     source_osx_file args[:uninstall_osx], 'restore.sh'
 end
 
