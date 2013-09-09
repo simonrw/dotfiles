@@ -171,9 +171,9 @@ set pastetoggle=<leader>p
 
 " Git mappings
 nmap <leader>gc :Gcommit<cr>
+nmap <leader>gm :Gcommit -m '
 nmap <leader>gd :Gdiff<cr>
 nmap <leader>gsd :Gsdiff<cr>
-nmap <leader>gcm :Gcommit -m 
 nmap <leader>gw :Gwrite<cr>
 nmap <leader>gr :Gread<cr>
 nmap <leader>gl :Glog<cr>
