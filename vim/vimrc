@@ -158,6 +158,10 @@ au BufReadPost *
 "     MAPPINGS     "
 """"""""""""""""""""
 
+" enable the semicolon to act like the colon key
+" swap the keys to get the old semicolon functionality back
+map ; :
+
 " Remap the leader key to comma
 let mapleader=','
 
@@ -245,10 +249,6 @@ map <C-h> <C-w>h
 map <C-j> <C-w>j
 map <C-k> <C-w>k
 map <C-l> <C-w>l
-
-" enable the semicolon to act like the colon key
-" swap the keys to get the old semicolon functionality back
-map ; :
 
 """"""""""""""""""""
 "     PLUGINS      "
