@@ -115,7 +115,9 @@ set timeout timeoutlen=1000 ttimeoutlen=100
 
 " GRB does these
 set winwidth=79
-set winheight=20
+
+" Prevent vim from clobbering the scrollback buffer
+set t_ti= t_te=
 
 " Enable scrolljump
 set scrolljump=5
