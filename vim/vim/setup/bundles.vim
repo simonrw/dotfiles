@@ -26,7 +26,6 @@ Bundle 'altercation/vim-colors-solarized'
 Bundle 'kien/ctrlp.vim'
 Bundle 'thoughtbot/vim-rspec'
 Bundle 'mindriot101/srw-colorscheme.vim'
-Bundle 'thinca/vim-localrc'
 
 " Snipmate plugins
 Bundle "MarcWeber/vim-addon-mw-utils"
