@@ -1,2 +1,2 @@
 " Guard
-au BufNewFile,BufRead Guardfile,.Guardfile    set filetype=ruby
+au BufNewFile,BufRead Guardfile,.Guardfile,Vagrantfile,Cheffile    set filetype=ruby
