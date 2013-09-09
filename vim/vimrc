@@ -55,10 +55,6 @@ set ttyfast
 set wildmenu
 set wildmode=list:longest,list:full
 
-" Paste toggling - allow for pasting from other sources with correct
-" formatting
-set pastetoggle=<leader>p
-
 " Disable escape keys which makes vim more responsive
 " set noesckeys
 
@@ -164,6 +160,10 @@ au BufReadPost *
 
 " Remap the leader key to comma
 let mapleader=','
+
+" Paste toggling - allow for pasting from other sources with correct
+" formatting
+set pastetoggle=<leader>p
 
 " Git mappings
 nmap <leader>gc :Gcommit<cr>
