@@ -20,4 +20,4 @@ else
 endif
 
 " Compile with leader command
-map <leader>w :w\|!rake build:once<cr>
+map <buffer> <silent> <leader>w :w\|!rake build:once<cr>
