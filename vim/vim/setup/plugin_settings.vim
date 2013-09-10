@@ -7,3 +7,6 @@ let g:rspec_command = '!rspec-runner {spec}'
 " Snipmate settings - use Ctrl-J for completion
 imap <c-j> <Plug>snipMateNextOrTrigger
 smap <c-j> <Plug>snipMateNextOrTrigger
+
+" Taglist
+map <leader><tab> :TlistToggle<cr>
