@@ -177,14 +177,6 @@ nnoremap ;f :update<cr>
 " formatting
 set pastetoggle=<leader>p
 
-" Git mappings
-nmap <leader>gc :Gcommit<cr>
-nmap <leader>gd :Gdiff<cr>
-nmap <leader>gsd :Gsdiff<cr>
-nmap <leader>gw :Gwrite<cr>
-nmap <leader>gr :Gread<cr>
-nmap <leader>gl :Glog<cr>
-
 " Multipurpose tab key from grb
 function! InsertTabWrapper()
     let col = col('.') - 1
