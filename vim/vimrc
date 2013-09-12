@@ -167,6 +167,12 @@ map ; :
 " Remap the leader key to comma
 let mapleader=','
 
+" Mappings for saving in different modes
+" from http://reefpoints.dockyard.com/2013/09/11/vim-staying-on-home-row-via-map.html
+inoremap ;l <esc>
+inoremap ;f <esc>:update<cr>a
+nnoremap ;f :update<cr>
+
 " Paste toggling - allow for pasting from other sources with correct
 " formatting
 set pastetoggle=<leader>p
@@ -227,9 +233,6 @@ map Y y$
 " Reselect visual block after indent/outdent
 vnoremap < <gv
 vnoremap > >gv
-
-" Faster exiting
-inoremap jk <esc>
 
 " disable f1 key
 inoremap <F1> <ESC>
