@@ -34,4 +34,7 @@ Bundle "tomtom/tlib_vim"
 Bundle "garbas/vim-snipmate"
 Bundle "honza/vim-snippets"
 
+" Add lots of language packs
+Bundle 'sheerun/vim-polyglot'
+
 filetype plugin indent on
