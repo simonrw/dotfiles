@@ -1,6 +1,6 @@
 let g:ctrlp_map = '<leader>f'
 let g:ctrlp_cmd = 'CtrlPMixed'
-map <leader>r :call RunNearestSpec()<cr>
+map <leader>r :w\|call RunNearestSpec()<cr>
 
 let g:rspec_command = '!rspec-runner {spec}'
 
