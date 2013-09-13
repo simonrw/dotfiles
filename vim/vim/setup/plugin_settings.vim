@@ -9,7 +9,7 @@ imap <c-j> <Plug>snipMateNextOrTrigger
 smap <c-j> <Plug>snipMateNextOrTrigger
 
 " Taglist
-map <leader><tab> :TlistToggle<cr>
+map <leader><tab> :TagbarToggle<cr>
 
 " Fugitive mappings
 nmap <leader>gc :Gcommit<cr>
