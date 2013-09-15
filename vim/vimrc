@@ -45,8 +45,8 @@ set backspace=indent,eol,start
 " Set mouse mode
 set mouse=a
 
-" Set the tags directory
-set tags=./tags;/
+" Set the tags file location
+set tags=.git/tags;/
 
 " Enable fast tty mode
 set ttyfast
