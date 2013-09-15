@@ -16,17 +16,21 @@ call vundle#rc()
 " Let vundle manage vundle
 Bundle 'gmarik/vundle'
 
-" Custom plugins
+" tpope plugins, these deserve their own section
 Bundle 'tpope/vim-fugitive'
 Bundle 'tpope/vim-commentary'
 Bundle 'tpope/vim-surround'
 Bundle 'tpope/vim-repeat'
 Bundle 'tpope/vim-unimpaired'
+Bundle 'tpope/vim-endwise'
+
+" Custom plugins
 Bundle 'altercation/vim-colors-solarized'
 Bundle 'kien/ctrlp.vim'
 Bundle 'thoughtbot/vim-rspec'
 Bundle 'mindriot101/srw-colorscheme.vim'
 Bundle 'majutsushi/tagbar'
+Bundle 'Raimondi/delimitMate'
 
 " Snipmate plugins
 Bundle "MarcWeber/vim-addon-mw-utils"
@@ -36,5 +40,6 @@ Bundle "honza/vim-snippets"
 
 " Add lots of language packs
 Bundle 'sheerun/vim-polyglot'
+
 
 filetype plugin indent on
