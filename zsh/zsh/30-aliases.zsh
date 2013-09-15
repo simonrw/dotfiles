@@ -10,3 +10,6 @@ alias g=git
 # Update vim plugins
 alias vbi='vim +BundleInstall +qa'
 alias vbu='vim +BundleUpdate'
+
+# Ruby aliases
+alias bcb='bundle check; bundle'
