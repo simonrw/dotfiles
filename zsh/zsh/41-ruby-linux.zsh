@@ -1,7 +1,7 @@
 # vim: ft=zsh
 case $OSTYPE in linux*)
-    export PATH=${HOME}/.rbenv/bin:${PATH}
-    if [ $(type rbenv >/dev/null 2>&1) ]; then
+    if [ -d ${HOME}/.rbenv ]; then
+        export PATH=${HOME}/.rbenv/bin:${PATH}
         eval "$(rbenv init - --no-rehash)"
     fi
 ;; esac
