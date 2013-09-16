@@ -148,9 +148,9 @@ set switchbuf=useopen
 set cursorline
 
 " Jump back to last file position
-au BufReadPost * 
-    \ if line("'\"") > 1 && line("'\"") <= line("$") | 
-    \ exe "normal! g`\"" | 
+au BufReadPost *
+    \ if line("'\"") > 1 && line("'\"") <= line("$") |
+    \ exe "normal! g`\"" |
     \ endif
 
 " Highlight trailing whitespace only in normal mode
