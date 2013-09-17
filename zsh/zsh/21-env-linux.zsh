@@ -5,7 +5,10 @@ case $OSTYPE in linux*)
     # Set up the module command
     function module() { eval `modulecmd zsh $*`; }
 
-    # Set up rbenv
+    local autoenv_file=${HOME}/.autoenv/activate.sh
+    if [ $autoenv_file ]; then
+        source $autoenv_file
+    fi
 
     # If the server is at Leicester, source the intel compiler variables
     if [[ `dnsdomainname` == "star.le.ac.uk" ]]; then
