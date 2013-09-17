@@ -30,7 +30,6 @@ Bundle 'kien/ctrlp.vim'
 Bundle 'thoughtbot/vim-rspec'
 Bundle 'mindriot101/srw-colorscheme.vim'
 Bundle 'majutsushi/tagbar'
-Bundle 'Raimondi/delimitMate'
 Bundle 'mileszs/ack.vim'
 
 " Snipmate plugins
