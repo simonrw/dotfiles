@@ -1,5 +1,6 @@
 # vim: ft=zsh
 alias pylab="ipython --pylab"
+alias py='ipython --pylab'
 alias pydoc='python -m pydoc'
 alias vim=vim_nox
 alias ls='ls -F'
