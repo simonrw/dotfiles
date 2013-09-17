@@ -145,8 +145,6 @@ set wildignore+=*.aux,*.o,*.git,/tmp/*,*.so,*.swp,*.zip,venv,env,*.pyc
 
 set switchbuf=useopen
 
-set cursorline
-
 " Jump back to last file position
 au BufReadPost *
     \ if line("'\"") > 1 && line("'\"") <= line("$") |
