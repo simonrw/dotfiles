@@ -158,7 +158,6 @@ set switchbuf=useopen
 aug AutoloadVimrc
     au!
     au BufWritePost $MYVIMRC source $MYVIMRC
-    au BufWritePost ~/.vim/**/*.vim
 aug END
 
 " Jump back to last file position
