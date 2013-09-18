@@ -2,5 +2,10 @@ require 'irb/completion'
 
 IRB.conf[:PROMPT_MODE] = :SIMPLE
 
+def tic
+  @_tic = Time.now
+end
 
+def toc
+  Time.now - @_tic
 end
