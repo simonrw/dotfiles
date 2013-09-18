@@ -154,6 +154,13 @@ set wildignore+=*.aux,*.o,*.git,/tmp/*,*.so,*.swp,*.zip,venv,env,*.pyc
 
 set switchbuf=useopen
 
+" Enable auto sourcing of vim config files
+aug AutoloadVimrc
+    au!
+    au BufWritePost $MYVIMRC source $MYVIMRC
+    au BufWritePost ~/.vim/**/*.vim
+aug END
+
 " Jump back to last file position
 au BufReadPost *
     \ if line("'\"") > 1 && line("'\"") <= line("$") |
