@@ -98,6 +98,11 @@ set thesaurus+=~/thesaurus/mthesaur.txt
 set background=dark
 colorscheme srw
 
+" Handle the splat clipboard
+if has('unnamedplus')
+    set clipboard=unnamedplus
+endif
+
 " Enable british spelling
 set spelllang=en_gb
 
