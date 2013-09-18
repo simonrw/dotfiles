@@ -103,6 +103,10 @@ if has('unnamedplus')
     set clipboard=unnamedplus
 endif
 
+" source local vimrc files
+set exrc
+set secure
+
 " Enable british spelling
 set spelllang=en_gb
 
