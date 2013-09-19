@@ -13,4 +13,4 @@ alias vbi='vim +BundleInstall +qa'
 alias vbu='vim +BundleUpdate'
 
 # Ruby aliases
-alias bcb='bundle check; bundle'
+alias bcb='bundle check; bundle install --binstubs .bundle/bin'
