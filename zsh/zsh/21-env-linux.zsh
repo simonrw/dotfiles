@@ -6,7 +6,7 @@ case $OSTYPE in linux*)
     function module() { eval `modulecmd zsh $*`; }
 
     local autoenv_file=${HOME}/.autoenv/activate.sh
-    if [ $autoenv_file ]; then
+    if [ -f $autoenv_file ]; then
         source $autoenv_file
     fi
 
