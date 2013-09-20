@@ -192,8 +192,6 @@ nnoremap <leader>b :ls<cr>:b<space>
 " Mappings for saving in different modes
 " from http://reefpoints.dockyard.com/2013/09/11/vim-staying-on-home-row-via-map.html
 inoremap ;l <esc>
-inoremap ;f <esc>:update<cr>a
-nnoremap ;f :update<cr>
 
 " Paste toggling - allow for pasting from other sources with correct
 " formatting
