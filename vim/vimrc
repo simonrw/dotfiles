@@ -9,11 +9,12 @@ source ~/.vim/setup/bundles.vim
 endif
 
 " set up some nice tab defaults
-set tabstop=4
+set tabstop=8
 set softtabstop=4
 set shiftwidth=4
 set shiftround
 set expandtab
+set smarttab
 
 " Set history settings
 set history=10000
