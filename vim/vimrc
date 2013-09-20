@@ -57,7 +57,7 @@ set wildmenu
 set wildmode=list:longest,list:full
 
 " Disable escape keys which makes vim more responsive
-" set noesckeys
+set noesckeys
 
 " Hide buffers instead of closing them
 set hidden
