@@ -32,6 +32,7 @@ Bundle 'mindriot101/srw-colorscheme.vim'
 Bundle 'majutsushi/tagbar'
 Bundle 'mileszs/ack.vim'
 Bundle 'SyntaxRange'
+Bundle 'sheerun/vim-polyglot'
 
 " Snipmate plugins
 Bundle "MarcWeber/vim-addon-mw-utils"
