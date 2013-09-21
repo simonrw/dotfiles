@@ -14,6 +14,9 @@ function gi() {
     curl ${URL}${ARGS}
 }
 
+# From GRB
+function mcd() { mkdir -p $1 && cd $1 }
+function cdf() { cd *$1*/ }
 
 # Source the custom zshrc.local file in the system
 if [[ -f ${HOME}/.zshrc.local ]]; then
