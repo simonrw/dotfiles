@@ -35,6 +35,8 @@ set showcmd
 
 " nice file formatting
 set autoindent
+set smartindent
+set cindent
 
 " always have status line on
 set laststatus=2
