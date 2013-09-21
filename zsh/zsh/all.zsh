@@ -1,6 +1,3 @@
-# vim: ft=zsh
-setopt interactive_comments
-bindkey "^R" history-incremental-search-backward # Put the reverse history back
 setopt rmstarsilent
 setopt append_history
 
@@ -19,7 +16,6 @@ zstyle ':completion:*:history-words' menu yes
 HISTFILE=~/.zsh_history
 HISTSIZE=10000
 SAVEHIST=10000
-## vim: ft=zsh
 # Function to attach to a session. If the session is not specified then
 #just run `tmux attach`, otherwise add a -t flag
 function _tmux_attach() {
@@ -35,7 +31,6 @@ alias ta=_tmux_attach
 alias tns="tmux new-session -s"
 alias tls="tmux ls"
 
-# vim: ft=zsh
 export PATH=${HOME}/.bin:${HOME}/prefix/bin:$PATH
 export EDITOR=vim_nox
 export VISUAL=${EDITOR}
@@ -47,33 +42,7 @@ export TERM=screen-256color
 # By default, zsh considers many characters part of a word (e.g., _ and -).
 # Narrow that down to allow easier skipping through words via M-f and M-b.
 export WORDCHARS='*?[]~&;!$%^<>'
-# vim: ft=zsh
-case $OSTYPE in linux*)
-    export LD_LIBRARY_PATH=${HOME}/prefix/lib:${LD_LIBRARY_PATH}
 
-    # Set up the module command
-    function module() { eval `modulecmd zsh $*`; }
-
-    local autoenv_file=${HOME}/.autoenv/activate.sh
-    if [ -f $autoenv_file ]; then
-        source $autoenv_file
-    fi
-
-    # If the server is at Leicester, source the intel compiler variables
-    if [[ `dnsdomainname` == "star.le.ac.uk" ]]; then
-        source /opt/intel/composerxe-2011.0.084/bin/compilervars.sh intel64 2>/dev/null
-        source /usr/local/sge/default/common/settings.sh
-    fi
-;; esac
-# vim: ft=zsh
-case $OSTYPE in darwin*)
-    export PATH=${PATH}:/usr/texbin:/usr/local/share/npm/bin:/usr/local/sbin
-    local autoenv_file=/usr/local/opt/autoenv/activate.sh
-    if [ -f $autoenv_file ]; then
-        source $autoenv_file
-    fi
-;; esac
-# vim: ft=zsh
 alias pylab="ipython --pylab"
 alias py='ipython --pylab'
 alias pydoc='python -m pydoc'
@@ -89,26 +58,7 @@ alias vbu='vim +BundleUpdate'
 
 # Ruby aliases
 alias bcb='bundle check; bundle install --binstubs .bundle/bin'
-# vim: ft=zsh
-case $OSTYPE in darwin*)
-    alias gvim=mvim
-    alias gview=mview
-    alias -g awk=gawk
-;; esac
 
-# vim: ft=zsh
-case $OSTYPE in linux*)
-    if [ -d ${HOME}/.rbenv ]; then
-        export PATH=${HOME}/.rbenv/bin:${PATH}
-        eval "$(rbenv init - --no-rehash)"
-    fi
-;; esac
-# vim: ft=zsh
-case $OSTYPE in darwin*)
-    export RBENV_ROOT=/usr/local/var/rbenv
-    if which rbenv > /dev/null; then eval "$(rbenv init - --no-rehash)"; fi
-;; esac
-# vim: ft=zsh
 function gi() {
     # This function gets the gitignore results from gitignore.io and prints them
     # to screen
@@ -132,17 +82,6 @@ function cdf() { cd *$1*/ }
 if [[ -f ${HOME}/.zshrc.local ]]; then
     source ${HOME}/.zshrc.local
 fi
-# vim: ft=zsh
-case $OSTYPE in linux*)
-    VIRTUALENV_DIR=${HOME}/PythonEnv
-        VIRTUALENV_SOURCE_FILE=${VIRTUALENV_DIR}/bin/activate
-        if [[ -f ${VIRTUALENV_SOURCE_FILE} ]]; then
-                # Set up the python environment
-                # Set the environment variable for only this env to disable the prompt
-                VIRTUAL_ENV_DISABLE_PROMPT=1 source ${VIRTUALENV_SOURCE_FILE}
-                # export PYTHONPATH=${VIRTUALENV_DIR}/lib/python2.7/site-packages:$PYTHONPATH
-        fi
-;; esac
 local fifo_name='.fifo'
 ensure_fifo() {
     if [ ! -p $fifo_name ]; then
@@ -154,3 +93,51 @@ listen() {
     echo "Listening for commands"
     ensure_fifo && while true; do sh -c "$(cat $fifo_name)"; done
 }
+
+case $OSTYPE in
+    linux*)
+        export LD_LIBRARY_PATH=${HOME}/prefix/lib:${LD_LIBRARY_PATH}
+
+        # Set up the module command
+        function module() { eval `modulecmd zsh $*`; }
+
+        local autoenv_file=${HOME}/.autoenv/activate.sh
+        if [ -f $autoenv_file ]; then
+            source $autoenv_file
+        fi
+
+        # If the server is at Leicester, source the intel compiler variables
+        if [[ `dnsdomainname` == "star.le.ac.uk" ]]; then
+            source /opt/intel/composerxe-2011.0.084/bin/compilervars.sh intel64 2>/dev/null
+            source /usr/local/sge/default/common/settings.sh
+        fi
+
+        if [ -d ${HOME}/.rbenv ]; then
+            export PATH=${HOME}/.rbenv/bin:${PATH}
+            eval "$(rbenv init - --no-rehash)"
+        fi
+
+        VIRTUALENV_DIR=${HOME}/PythonEnv
+        VIRTUALENV_SOURCE_FILE=${VIRTUALENV_DIR}/bin/activate
+        if [[ -f ${VIRTUALENV_SOURCE_FILE} ]]; then
+            # Set up the python environment
+            # Set the environment variable for only this env to disable the prompt
+            VIRTUAL_ENV_DISABLE_PROMPT=1 source ${VIRTUALENV_SOURCE_FILE}
+            # export PYTHONPATH=${VIRTUALENV_DIR}/lib/python2.7/site-packages:$PYTHONPATH
+        fi
+        ;;
+    darwin*)
+        export PATH=${PATH}:/usr/texbin:/usr/local/share/npm/bin:/usr/local/sbin
+        local autoenv_file=/usr/local/opt/autoenv/activate.sh
+        if [ -f $autoenv_file ]; then
+            source $autoenv_file
+        fi
+
+        alias gvim=mvim
+        alias gview=mview
+        alias -g awk=gawk
+
+        export RBENV_ROOT=/usr/local/var/rbenv
+        if which rbenv > /dev/null; then eval "$(rbenv init - --no-rehash)"; fi
+        ;;
+esac
