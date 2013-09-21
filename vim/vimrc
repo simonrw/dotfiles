@@ -253,14 +253,14 @@ nnoremap <F1> <ESC>
 vnoremap <F1> <ESC>
 
 " Remove the arrow key functionality
-nnoremap <Up> :echo "no!"<cr>
-nnoremap <Down> :echo "no!"<cr>
-nnoremap <Left> :echo "no!"<cr>
-nnoremap <Right> :echo "no!"<cr>
-inoremap <Up> <esc>:echo "no!"<cr>
-inoremap <Down> <esc>:echo "no!"<cr>
-inoremap <Left> <esc>:echo "no!"<cr>
-inoremap <Right> <esc>:echo "no!"<cr>
+nnoremap <Up> :echo "Use k!"<cr>
+nnoremap <Down> :echo "Use j!"<cr>
+nnoremap <Left> :echo "Use h!"<cr>
+nnoremap <Right> :echo "Use l!"<cr>
+inoremap <Up> <esc>:echo "Use k!"<cr>
+inoremap <Down> <esc>:echo "Use j!"<cr>
+inoremap <Left> <esc>:echo "Use h!"<cr>
+inoremap <Right> <esc>:echo "Use l!"<cr>
 
 " Remap the move-window keys
 map <C-h> <C-w>h
