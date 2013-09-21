@@ -31,6 +31,7 @@ Bundle 'thoughtbot/vim-rspec'
 Bundle 'mindriot101/srw-colorscheme.vim'
 Bundle 'majutsushi/tagbar'
 Bundle 'mileszs/ack.vim'
+Bundle 'SyntaxRange'
 
 " Snipmate plugins
 Bundle "MarcWeber/vim-addon-mw-utils"
