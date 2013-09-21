@@ -8,7 +8,7 @@
     gpr = pull --rebase
     sync = !git gpr && git push
     wdiff = diff --color-words
-    cm = commit --message
+    ci = commit
     q = quick
 
     # Logging from Gary Bernhardt
