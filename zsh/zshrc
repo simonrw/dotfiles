@@ -176,13 +176,14 @@ function git_prompt_info() {
 }
 
 local green="%{$fg_bold[green]%}"
-local yellow='%{$fg_bold[yellow]%}'
-local red='%{$fg_bold[red]%}'
+local yellow="%{$fg_bold[yellow]%}"
+local red="%{$fg_bold[red]%}"
 local reset="%{$reset_color%}"
 
+ZSH_THEME_GIT_PROMPT_PREFIX='('
+ZSH_THEME_GIT_PROMPT_SUFFIX=')'
 PROMPT="%(?.$green.$red)>$reset "
-RPROMPT="%1~($green$(git_prompt_info)$reset)@$yellow$(hostname)$reset"
-
+RPROMPT='%1~$green$(git_prompt_info)$reset@$yellow$(hostname)$reset'
 
 # Source the custom zshrc.local file in the system
 if [[ -f ${HOME}/.zshrc.local ]]; then
