@@ -182,6 +182,8 @@ local reset="%{$reset_color%}"
 
 ZSH_THEME_GIT_PROMPT_PREFIX='('
 ZSH_THEME_GIT_PROMPT_SUFFIX=')'
+ZSH_THEME_GIT_PROMPT_DIRTY="|${red}✗${reset}"
+ZSH_THEME_GIT_PROMPT_CLEAN=''
 PROMPT="%(?.$green.$red)>$reset "
 RPROMPT='%1~$green$(git_prompt_info)$reset@$yellow$(hostname)$reset'
 
