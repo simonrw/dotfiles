@@ -1,4 +1,0 @@
-export PATH=/usr/local/bin:${PATH}
-fpath=($HOME/.zsh/func $fpath)
-typeset -U fpath
-

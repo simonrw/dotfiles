@@ -1,7 +1,12 @@
+export PATH=/usr/local/bin:${PATH}
+fpath=($HOME/.zsh/func $fpath)
+typeset -U fpath
+
 autoload -U compinit
 compinit
 
 setopt rmstarsilent
+setopt prompt_subst
 setopt append_history
 
 # Only unique history entries in the reverse history search HIST_FIND_NO_DUPS=1
@@ -19,6 +24,7 @@ zstyle ':completion:*:history-words' menu yes
 HISTFILE=~/.zsh_history
 HISTSIZE=10000
 SAVEHIST=10000
+
 # Function to attach to a session. If the session is not specified then
 #just run `tmux attach`, otherwise add a -t flag
 function _tmux_attach() {
@@ -28,6 +34,74 @@ function _tmux_attach() {
         tmux attach
     fi
 }
+
+function gi() {
+    # This function gets the gitignore results from gitignore.io and prints them
+    # to screen
+    #
+    # Inputs: any extra arguments given on the command line are treated as
+    # ignore classes for the website.
+    #
+    # E.g. > gi linux osx python
+    #
+    # will translate to http://gitignore.io/api/linux,osx,python
+    URL=http://gitignore.io/api/
+    ARGS=$(echo $* | sed 's/ /,/g')
+    curl ${URL}${ARGS}
+}
+
+
+# From GRB
+function mcd() { mkdir -p $1 && cd $1 }
+function cdf() { cd *$1*/ }
+
+local fifo_name='.fifo'
+function ensure_fifo() {
+    if [ ! -p $fifo_name ]; then
+        mkfifo $fifo_name
+    fi
+}
+
+function listen() {
+    echo "Listening for commands"
+    ensure_fifo && while true; do sh -c "$(cat $fifo_name)"; done
+}
+
+# get the name of the branch we are on
+function git_prompt_info() {
+  ref=$(command git symbolic-ref HEAD 2> /dev/null) || \
+  ref=$(command git rev-parse --short HEAD 2> /dev/null) || return
+  echo "$ZSH_THEME_GIT_PROMPT_PREFIX${ref#refs/heads/}$(parse_git_dirty)$ZSH_THEME_GIT_PROMPT_SUFFIX"
+}
+
+function parse_git_dirty() {
+  local SUBMODULE_SYNTAX=''
+  local GIT_STATUS=''
+  local CLEAN_MESSAGE='nothing to commit (working directory clean)'
+  if [[ "$(command git config --get oh-my-zsh.hide-status)" != "1" ]]; then
+    if [[ $POST_1_7_2_GIT -gt 0 ]]; then
+          SUBMODULE_SYNTAX="--ignore-submodules=dirty"
+    fi
+    if [[ "$DISABLE_UNTRACKED_FILES_DIRTY" == "true" ]]; then
+        GIT_STATUS=$(command git status -s ${SUBMODULE_SYNTAX} -uno 2> /dev/null | tail -n1)
+    else
+        GIT_STATUS=$(command git status -s ${SUBMODULE_SYNTAX} 2> /dev/null | tail -n1)
+    fi
+    if [[ -n $GIT_STATUS ]]; then
+      echo "$ZSH_THEME_GIT_PROMPT_DIRTY"
+    else
+      echo "$ZSH_THEME_GIT_PROMPT_CLEAN"
+    fi
+  else
+    echo "$ZSH_THEME_GIT_PROMPT_CLEAN"
+  fi
+}
+
+
+function get_host {
+	echo '@'`hostname`''
+}
+
 
 # Alias some tmux commands
 alias ta=_tmux_attach
@@ -61,41 +135,6 @@ alias vbu='vim +BundleUpdate'
 
 # Ruby aliases
 alias bcb='bundle check; bundle install --binstubs .bundle/bin'
-
-function gi() {
-    # This function gets the gitignore results from gitignore.io and prints them
-    # to screen
-    #
-    # Inputs: any extra arguments given on the command line are treated as
-    # ignore classes for the website.
-    #
-    # E.g. > gi linux osx python
-    #
-    # will translate to http://gitignore.io/api/linux,osx,python
-    URL=http://gitignore.io/api/
-    ARGS=$(echo $* | sed 's/ /,/g')
-    curl ${URL}${ARGS}
-}
-
-# From GRB
-function mcd() { mkdir -p $1 && cd $1 }
-function cdf() { cd *$1*/ }
-
-# Source the custom zshrc.local file in the system
-if [[ -f ${HOME}/.zshrc.local ]]; then
-    source ${HOME}/.zshrc.local
-fi
-local fifo_name='.fifo'
-ensure_fifo() {
-    if [ ! -p $fifo_name ]; then
-        mkfifo $fifo_name
-    fi
-}
-
-listen() {
-    echo "Listening for commands"
-    ensure_fifo && while true; do sh -c "$(cat $fifo_name)"; done
-}
 
 case $OSTYPE in
     linux*)
@@ -135,42 +174,6 @@ case $OSTYPE in
         ;;
 esac
 
-# get the name of the branch we are on
-git_prompt_info() {
-  ref=$(command git symbolic-ref HEAD 2> /dev/null) || \
-  ref=$(command git rev-parse --short HEAD 2> /dev/null) || return
-  echo "$ZSH_THEME_GIT_PROMPT_PREFIX${ref#refs/heads/}$(parse_git_dirty)$ZSH_THEME_GIT_PROMPT_SUFFIX"
-}
-
-parse_git_dirty() {
-  local SUBMODULE_SYNTAX=''
-  local GIT_STATUS=''
-  local CLEAN_MESSAGE='nothing to commit (working directory clean)'
-  if [[ "$(command git config --get oh-my-zsh.hide-status)" != "1" ]]; then
-    if [[ $POST_1_7_2_GIT -gt 0 ]]; then
-          SUBMODULE_SYNTAX="--ignore-submodules=dirty"
-    fi
-    if [[ "$DISABLE_UNTRACKED_FILES_DIRTY" == "true" ]]; then
-        GIT_STATUS=$(command git status -s ${SUBMODULE_SYNTAX} -uno 2> /dev/null | tail -n1)
-    else
-        GIT_STATUS=$(command git status -s ${SUBMODULE_SYNTAX} 2> /dev/null | tail -n1)
-    fi
-    if [[ -n $GIT_STATUS ]]; then
-      echo "$ZSH_THEME_GIT_PROMPT_DIRTY"
-    else
-      echo "$ZSH_THEME_GIT_PROMPT_CLEAN"
-    fi
-  else
-    echo "$ZSH_THEME_GIT_PROMPT_CLEAN"
-  fi
-}
-
-
-setopt prompt_subst
-function get_host {
-	echo '@'`hostname`''
-}
-
 PROMPT='
 > '
 RPROMPT='%1~$(git_prompt_info)$(get_host)'
@@ -178,3 +181,10 @@ RPROMPT='%1~$(git_prompt_info)$(get_host)'
 ZSH_THEME_GIT_PROMPT_DIRTY="%{$fg[yellow]%}✗%{$reset_color%}"
 ZSH_THEME_GIT_PROMPT_PREFIX="("
 ZSH_THEME_GIT_PROMPT_SUFFIX=")"
+
+
+# Source the custom zshrc.local file in the system
+if [[ -f ${HOME}/.zshrc.local ]]; then
+    source ${HOME}/.zshrc.local
+fi
+
