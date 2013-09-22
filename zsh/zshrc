@@ -5,6 +5,9 @@ typeset -U fpath
 autoload -U compinit
 compinit
 
+autoload -U colors
+colors
+
 setopt rmstarsilent
 setopt prompt_subst
 setopt append_history
