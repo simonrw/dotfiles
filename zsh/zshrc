@@ -127,7 +127,7 @@ case $OSTYPE in
         fi
 
         # Set up chruby
-        source ${HOME}/prefix/chruby/chruby.sh
+        source ${HOME}/prefix/share/chruby/chruby.sh
         RUBIES=(~/.rbenv/versions/*)
         ;;
     darwin*)
