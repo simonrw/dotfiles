@@ -18,9 +18,3 @@ nmap <leader>gsd :Gsdiff<cr>
 nmap <leader>gw :Gwrite<cr>
 nmap <leader>gr :Gread<cr>
 nmap <leader>gl :Glog<cr>
-
-
-" If ag is available then use it
-if executable("ag")
-    let g:ackprg = 'ag --nogroup --nocolor --column'
-endif
