@@ -71,8 +71,6 @@ function listen() {
 }
 
 
-
-
 # Alias some tmux commands
 alias ta=_tmux_attach
 alias tns="tmux new-session -s"
@@ -119,11 +117,6 @@ case $OSTYPE in
             source /usr/local/sge/default/common/settings.sh
         fi
 
-        if [ -d ${HOME}/.rbenv ]; then
-            export PATH=${HOME}/.rbenv/bin:${PATH}
-            eval "$(rbenv init - --no-rehash)"
-        fi
-
         VIRTUALENV_DIR=${HOME}/PythonEnv
         VIRTUALENV_SOURCE_FILE=${VIRTUALENV_DIR}/bin/activate
         if [[ -f ${VIRTUALENV_SOURCE_FILE} ]]; then
@@ -132,6 +125,10 @@ case $OSTYPE in
             VIRTUAL_ENV_DISABLE_PROMPT=1 source ${VIRTUALENV_SOURCE_FILE}
             # export PYTHONPATH=${VIRTUALENV_DIR}/lib/python2.7/site-packages:$PYTHONPATH
         fi
+
+        # Set up chruby
+        source ${HOME}/prefix/chruby/chruby.sh
+        RUBIES=(~/.rbenv/versions/*)
         ;;
     darwin*)
         export PATH=${PATH}:/usr/texbin:/usr/local/share/npm/bin:/usr/local/sbin
@@ -139,10 +136,13 @@ case $OSTYPE in
         alias gview=mview
         alias -g awk=gawk
 
-        export RBENV_ROOT=/usr/local/var/rbenv
-        if which rbenv > /dev/null; then eval "$(rbenv init - --no-rehash)"; fi
+        # Set up chruby
+        source /usr/local/opt/chruby/share/chruby/chruby.sh
+        RUBIES=(/usr/local/var/rbenv/versions/*)
         ;;
 esac
+
+chruby 2.0.0
 
 # Prompt customising
 function parse_git_dirty() {
