@@ -2,6 +2,14 @@ export PATH=/usr/local/bin:${PATH}
 fpath=($HOME/.zsh/func $fpath)
 typeset -U fpath
 
+# Vim keybindings
+set -o vi
+bindkey "^?" backward-delete-char
+bindkey "^W" backward-kill-word
+bindkey "^H" backward-delete-char
+bindkey "^U" kill-line
+bindkey "^R" history-incremental-search-backward
+
 autoload -U compinit
 compinit
 
