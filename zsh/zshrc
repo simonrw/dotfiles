@@ -4,6 +4,7 @@ typeset -U fpath
 
 # Vim keybindings
 set -o vi
+bindkey -v
 bindkey "^?" backward-delete-char
 bindkey "^W" backward-kill-word
 bindkey "^H" backward-delete-char
