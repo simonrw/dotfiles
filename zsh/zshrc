@@ -8,6 +8,7 @@ compinit
 autoload -U colors
 colors
 
+setopt interactivecomments
 setopt rmstarsilent
 setopt prompt_subst
 setopt append_history
