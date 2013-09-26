@@ -8,6 +8,10 @@ let g:rspec_command = '!rspec-runner {spec}'
 imap <c-j> <Plug>snipMateNextOrTrigger
 smap <c-j> <Plug>snipMateNextOrTrigger
 
+" Mapping for quick switching buffers
+nnoremap <leader>b :CtrlPBuffer<cr>
+
+
 " Taglist
 map <leader><tab> :TagbarToggle<cr>
 
