@@ -188,10 +188,6 @@ let mapleader=','
 " Quick spelling toggle
 nmap <silent> <leader>s :set spell!<cr>
 
-" Better line movement
-map j gj
-map k gk
-
 " Mapping for quick switching buffers
 nnoremap <leader>b :ls<cr>:b<space>
 
