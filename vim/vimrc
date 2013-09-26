@@ -1,4 +1,3 @@
-set shell=$SHELL\ -i
 " turn syntax highlighting on
 if (&t_Co > 2 || has("gui_running")) && !exists("syntax_on")
     syntax on
