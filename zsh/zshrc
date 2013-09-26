@@ -2,6 +2,10 @@ export PATH=/usr/local/bin:${PATH}
 fpath=($HOME/.zsh/func $fpath)
 typeset -U fpath
 
+autoload -U compinit
+compinit
+
+
 # Vim keybindings
 set -o vi
 bindkey -v
@@ -10,9 +14,6 @@ bindkey "^W" backward-kill-word
 bindkey "^H" backward-delete-char
 bindkey "^U" kill-line
 bindkey "^R" history-incremental-search-backward
-
-autoload -U compinit
-compinit
 
 autoload -U colors
 colors
