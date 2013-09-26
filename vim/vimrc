@@ -70,27 +70,6 @@ set lazyredraw
 " Set up statusline
 set statusline=
 
-" Buffer number and pipe character with spaces
-set statusline+=%-3.3n\ 
-
-" Filename relative to opening path
-set statusline+=%f\ 
-
-" Status markers
-set statusline+=%h%m%r%q
-
-" End of left section, start right section
-set statusline+=%=
-
-" File type
-set statusline+=%y\ 
-
-" Cursor position
-set statusline+=%-14.(%l,%c%V%)\ 
-
-" View position
-set statusline+=%P
-
 " Folding method
 set foldmethod=marker
 
