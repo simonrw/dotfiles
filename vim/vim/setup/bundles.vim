@@ -33,6 +33,7 @@ Bundle 'majutsushi/tagbar'
 Bundle 'mileszs/ack.vim'
 Bundle 'SyntaxRange'
 Bundle 'sheerun/vim-polyglot'
+Bundle 'ervandew/supertab'
 
 " My plugins or forks
 Bundle 'mindriot101/vim-scratch'
