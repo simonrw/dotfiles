@@ -1,4 +1,0 @@
-if [[ -f ~/.rvm/scripts/rvm ]]; then
-    source ~/.rvm/scripts/rvm
-    export PATH=${HOME}/.rvm/bin:$PATH
-fi

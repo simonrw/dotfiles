@@ -1,5 +1,0 @@
-case $OSTYPE in darwin*)
-    alias cls='CLICOLOR_FORCE=1 ls -G'
-    alias gvim=mvim
-    alias gview=mview
-;; esac
