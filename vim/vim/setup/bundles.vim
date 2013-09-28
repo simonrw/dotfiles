@@ -29,11 +29,14 @@ Bundle 'tpope/vim-dispatch'
 Bundle 'altercation/vim-colors-solarized'
 Bundle 'kien/ctrlp.vim'
 Bundle 'thoughtbot/vim-rspec'
-Bundle 'mindriot101/srw-colorscheme.vim'
 Bundle 'majutsushi/tagbar'
 Bundle 'mileszs/ack.vim'
 Bundle 'SyntaxRange'
 Bundle 'sheerun/vim-polyglot'
+
+" My plugins or forks
+Bundle 'mindriot101/vim-scratch'
+Bundle 'mindriot101/srw-colorscheme.vim'
 
 " Snipmate plugins
 Bundle "MarcWeber/vim-addon-mw-utils"
