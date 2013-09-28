@@ -15,6 +15,7 @@ set shiftwidth=4
 set shiftround
 set expandtab
 set smarttab
+set shell=bash
 
 " Set history settings
 set history=10000
