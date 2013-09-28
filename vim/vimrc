@@ -125,6 +125,9 @@ endif
 " Enable the ruler
 set ruler
 
+" Show the cursor line
+set cursorline
+
 " Always show the tab line
 set showtabline=2
 
