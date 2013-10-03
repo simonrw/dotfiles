@@ -157,6 +157,9 @@ highlight ExtraWhitespace ctermbg=red guibg=red
 au InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
 au InsertLeave * match ExtraWhitespace /\s\+$/
 
+" Set the status line
+set statusline=%<%f\ %h%m%r%=%y\ %-14.(%l,%c%V%)\ %P
+
 """"""""""""""""""""
 "     MAPPINGS     "
 """"""""""""""""""""
