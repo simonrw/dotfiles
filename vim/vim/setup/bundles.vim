@@ -26,12 +26,8 @@ Bundle 'tpope/vim-endwise'
 Bundle 'tpope/vim-dispatch'
 
 " Custom plugins
-Bundle 'altercation/vim-colors-solarized'
 Bundle 'kien/ctrlp.vim'
-Bundle 'thoughtbot/vim-rspec'
-Bundle 'majutsushi/tagbar'
 Bundle 'mileszs/ack.vim'
-Bundle 'SyntaxRange'
 Bundle 'sheerun/vim-polyglot'
 Bundle 'ervandew/supertab'
 
