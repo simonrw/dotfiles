@@ -26,7 +26,6 @@ Bundle 'tpope/vim-endwise'
 Bundle 'tpope/vim-dispatch'
 
 " Custom plugins
-Bundle 'kien/ctrlp.vim'
 Bundle 'mileszs/ack.vim'
 Bundle 'sheerun/vim-polyglot'
 Bundle 'ervandew/supertab'

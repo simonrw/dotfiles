@@ -1,12 +1,6 @@
-let g:ctrlp_map = '<leader>f'
-let g:ctrlp_cmd = 'CtrlPMixed'
-
 " Snipmate settings - use Ctrl-J for completion
 imap <c-j> <Plug>snipMateNextOrTrigger
 smap <c-j> <Plug>snipMateNextOrTrigger
-
-" Mapping for quick switching buffers
-nnoremap <leader>b :CtrlPBuffer<cr>
 
 " Fugitive mappings
 nmap <leader>gc :Gcommit<cr>
