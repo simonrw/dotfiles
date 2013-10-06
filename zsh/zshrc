@@ -104,16 +104,7 @@ alias py='ipython --pylab'
 alias pydoc='python -m pydoc'
 alias vim=vim_nox
 alias ls='ls -F'
-
-# Git aliases
-# alias g=git
-function g() {
-    if [[ $# == '0' ]]; then
-        command git status -sb
-    else
-        command git "$@"
-    fi
-}
+alias g='git'
 
 # Update vim plugins
 alias vbi='vim +BundleInstall +qa'
