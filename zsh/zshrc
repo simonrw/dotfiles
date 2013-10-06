@@ -106,7 +106,14 @@ alias vim=vim_nox
 alias ls='ls -F'
 
 # Git aliases
-alias g=git
+# alias g=git
+function g() {
+    if [[ $# == '0' ]]; then
+        command git status -sb
+    else
+        command git "$@"
+    fi
+}
 
 # Update vim plugins
 alias vbi='vim +BundleInstall +qa'
