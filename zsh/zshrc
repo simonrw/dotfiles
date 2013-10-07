@@ -151,7 +151,7 @@ case $OSTYPE in
         ;;
 esac
 
-chruby 2.0.0
+chruby 2.0.0-p247
 
 # Prompt customising
 function parse_git_dirty() {
