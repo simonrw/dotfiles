@@ -22,7 +22,6 @@ Bundle 'tpope/vim-commentary'
 Bundle 'tpope/vim-surround'
 Bundle 'tpope/vim-repeat'
 Bundle 'tpope/vim-unimpaired'
-Bundle 'tpope/vim-endwise'
 Bundle 'tpope/vim-dispatch'
 
 " Custom plugins
