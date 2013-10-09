@@ -185,6 +185,14 @@ function git_prompt_info() {
   echo "$ZSH_THEME_GIT_PROMPT_PREFIX${ref#refs/heads/}$(parse_git_dirty)$ZSH_THEME_GIT_PROMPT_SUFFIX"
 }
 
+# Most recent history commands
+function most_recent_history() {
+    history 1 |
+    awk '{a[$2]++}END{for (i in a){print a[i] " " i}}' |
+    sort -rn |
+    head -n 20
+}
+
 local green="%{$fg_bold[green]%}"
 local yellow="%{$fg_bold[yellow]%}"
 local red="%{$fg_bold[red]%}"
