@@ -46,9 +46,6 @@ set encoding=utf-8 " Necessary to show unicode glyphs
 " make backspace behave nicely
 set backspace=indent,eol,start
 
-" Set mouse mode
-set mouse=a
-
 " Set the tags file location
 set tags=.git/tags;/
 
