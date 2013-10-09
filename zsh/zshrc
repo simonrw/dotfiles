@@ -107,6 +107,7 @@ alias vim=vim_nox
 alias ls='ls -F'
 alias g='git'
 alias gcm='git commit -m'
+alias gse='git sync && exit'
 
 # Update vim plugins
 alias vbi='vim +BundleInstall +qa'
