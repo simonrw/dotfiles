@@ -106,6 +106,7 @@ alias pydoc='python -m pydoc'
 alias vim=vim_nox
 alias ls='ls -F'
 alias g='git'
+alias gcm='git commit -m'
 
 # Update vim plugins
 alias vbi='vim +BundleInstall +qa'
