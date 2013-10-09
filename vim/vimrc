@@ -149,6 +149,9 @@ au BufReadPost *
     \ exe "normal! g`\"" |
     \ endif
 
+" ... unless it's a git commit
+au FileType gitcommit au! bufEnter COMMIT_EDITMSG call setpos('.', [0, 1, 1, 0])
+
 " Highlight trailing whitespace only in normal mode
 highlight ExtraWhitespace ctermbg=red guibg=red
 au InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
