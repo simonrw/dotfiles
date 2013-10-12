@@ -9,6 +9,3 @@ nmap <leader>gsd :Gsdiff<cr>
 nmap <leader>gw :Gwrite<cr>
 nmap <leader>gr :Gread<cr>
 nmap <leader>gl :Glog<cr>
-
-" Command-T mappings
-nnoremap <silent> <leader>f :CommandT<cr>

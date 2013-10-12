@@ -25,7 +25,7 @@ Bundle 'tpope/vim-unimpaired'
 Bundle 'tpope/vim-dispatch'
 
 " Custom plugins
-Bundle 'wincent/Command-T'
+" Bundle 'wincent/Command-T'
 Bundle 'mileszs/ack.vim'
 Bundle 'sheerun/vim-polyglot'
 
