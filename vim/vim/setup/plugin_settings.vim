@@ -9,3 +9,7 @@ nmap <leader>gsd :Gsdiff<cr>
 nmap <leader>gw :Gwrite<cr>
 nmap <leader>gr :Gread<cr>
 nmap <leader>gl :Glog<cr>
+
+" Ctrl-p settings
+let g:ctrlp_map = "<leader>f"
+let g:ctrlp_cmd = "CtrlPMixed"
