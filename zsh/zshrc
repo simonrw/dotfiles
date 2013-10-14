@@ -207,7 +207,7 @@ ZSH_THEME_GIT_PROMPT_PREFIX='('
 ZSH_THEME_GIT_PROMPT_SUFFIX=')'
 ZSH_THEME_GIT_PROMPT_DIRTY="|${red}✗${reset}"
 ZSH_THEME_GIT_PROMPT_CLEAN=''
-PROMPT="%(?.$green.$red)>$reset "
+PROMPT="%(?.$green.$red)\$$reset "
 RPROMPT='%1~$green$(git_prompt_info)$reset@$yellow$(hostname)$reset'
 
 # Source the custom zshrc.local file in the system
