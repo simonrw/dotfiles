@@ -1,2 +1,0 @@
-#compdef exercism
-compadd `exercism help | grep exercism | cut -d ' ' -f 4 | xargs`
