@@ -29,6 +29,10 @@ Bundle 'kien/ctrlp.vim'
 Bundle 'mileszs/ack.vim'
 Bundle 'sheerun/vim-polyglot'
 
+" Enable dash searching
+Bundle 'rizzatti/funcoo.vim'
+Bundle 'rizzatti/dash.vim'
+
 " My plugins or forks
 Bundle 'mindriot101/vim-scratch'
 Bundle 'mindriot101/srw-colorscheme.vim'
