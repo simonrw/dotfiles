@@ -267,6 +267,13 @@ map <C-l> <C-w>l
 " Nice interface to the buffer list
 nnoremap gb :buffers<cr>:b<space>
 
+" Performance measurements
+nnoremap <silent> <leader>DD :profile start /tmp/profile.log
+    \ <bar> profile func *
+    \ <bar> profile file * <cr>
+nnoremap <silent> <leader>DQ :profile pause
+    \ <bar> noautocmd qall! <cr>
+
 """"""""""""""""""""
 "     PLUGINS      "
 """"""""""""""""""""
