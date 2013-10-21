@@ -10,6 +10,7 @@
 ; Install packages
 (setq package-list '(melpa
 		     solarized-theme
+		     haskell-mode
                      dash
                      markdown-mode))
 (dolist (package package-list)
