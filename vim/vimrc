@@ -52,7 +52,7 @@ set tags=.git/tags;/
 set report=0
 
 " Enable fast tty mode
-set ttyfast
+set nottyfast
 
 " Change the way tab autocompletion works
 set wildmenu
