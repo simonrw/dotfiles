@@ -3,11 +3,6 @@ if (&t_Co > 2 || has("gui_running")) && !exists("syntax_on")
     syntax on
 endif
 
-" Load all of the plugins with vundle
-if filereadable(expand("~/.vim/setup/bundles.vim"))
-source ~/.vim/setup/bundles.vim
-endif
-
 " set up some nice tab defaults
 set tabstop=8
 set softtabstop=4
@@ -74,10 +69,6 @@ set foldmethod=marker
 
 " Thesaurus
 set thesaurus+=~/thesaurus/mthesaur.txt
-
-" Set colour scheme
-set background=dark
-colorscheme srw
 
 " Handle the splat clipboard
 if has('unnamedplus')
@@ -277,6 +268,11 @@ nnoremap <silent> <leader>DQ :profile pause
 """"""""""""""""""""
 "     PLUGINS      "
 """"""""""""""""""""
+
+" Load all of the plugins with vundle
+if filereadable(expand("~/.vim/setup/bundles.vim"))
+source ~/.vim/setup/bundles.vim
+endif
 
 " Now load the plugins settings
 let s:plugin_settings = expand($HOME . '/.vim/setup/plugin_settings.vim')

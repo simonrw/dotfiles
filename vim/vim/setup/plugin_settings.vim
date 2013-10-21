@@ -13,3 +13,7 @@ nmap <leader>gl :Glog<cr>
 " Ctrl-p settings
 let g:ctrlp_map = "<leader>f"
 let g:ctrlp_cmd = "CtrlPMixed"
+
+" Set colour scheme
+set background=dark
+colorscheme srw
