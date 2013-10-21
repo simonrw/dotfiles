@@ -140,24 +140,24 @@ set wildignore+=*.aux,*.o,*.git,/tmp/*,*.so,*.swp,*.zip,venv,env,*.pyc
 set switchbuf=useopen
 
 " Enable auto sourcing of vim config files
-aug AutoloadVimrc
-    au!
-    au BufWritePost $MYVIMRC source $MYVIMRC
-aug END
+augroup AutoloadVimrc
+    autocmd!
+    autocmd BufWritePost $MYVIMRC source $MYVIMRC
+augroup END
 
 " Jump back to last file position
-au BufReadPost *
+autocmd BufReadPost *
     \ if line("'\"") > 1 && line("'\"") <= line("$") |
     \ exe "normal! g`\"" |
     \ endif
 
 " ... unless it's a git commit
-au FileType gitcommit au! bufEnter COMMIT_EDITMSG call setpos('.', [0, 1, 1, 0])
+autocmd FileType gitcommit autocmd! bufEnter COMMIT_EDITMSG call setpos('.', [0, 1, 1, 0])
 
 " Highlight trailing whitespace only in normal mode
 highlight ExtraWhitespace ctermbg=red guibg=red
-au InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
-au InsertLeave * match ExtraWhitespace /\s\+$/
+autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
+autocmd InsertLeave * match ExtraWhitespace /\s\+$/
 
 " Set the status line
 set statusline=%<%f\ %h%m%r%=%y\ %-14.(%l,%c%V%)\ %P
@@ -287,5 +287,5 @@ endif
 " Now load the plugins settings
 let s:plugin_settings = expand($HOME . '/.vim/setup/plugin_settings.vim')
 if filereadable(s:plugin_settings)
-    :exec ':so ' . s:plugin_settings
+    exec ':source ' . s:plugin_settings
 endif
