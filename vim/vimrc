@@ -17,7 +17,7 @@ scriptencoding utf-8
 set autowrite
 
 " Set history settings
-set history=10000
+set history=1000
 set undolevels=700
 
 " reload all file changes automatically
