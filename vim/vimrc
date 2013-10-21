@@ -54,6 +54,9 @@ set report=0
 " Enable fast tty mode
 set nottyfast
 
+" Support file types in this order
+set fileformats=unix,mac,dos
+
 " Change the way tab autocompletion works
 set wildmenu
 set wildmode=list:longest,list:full
