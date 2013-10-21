@@ -172,10 +172,6 @@ let mapleader=','
 " Quick spelling toggle
 nmap <silent> <leader>s :set spell!<cr>
 
-" Mappings for saving in different modes
-" from http://reefpoints.dockyard.com/2013/09/11/vim-staying-on-home-row-via-map.html
-inoremap ;l <esc>
-
 " Paste toggling - allow for pasting from other sources with correct
 " formatting
 set pastetoggle=<leader>p
