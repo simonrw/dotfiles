@@ -16,4 +16,4 @@ let g:ctrlp_cmd = "CtrlPMixed"
 
 " Set colour scheme
 set background=dark
-colorscheme srw
+colorscheme solarized
