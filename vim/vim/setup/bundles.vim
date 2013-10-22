@@ -28,7 +28,6 @@ Bundle 'tpope/vim-dispatch'
 Bundle 'kien/ctrlp.vim'
 Bundle 'mileszs/ack.vim'
 Bundle 'sheerun/vim-polyglot'
-Bundle 'altercation/vim-colors-solarized'
 
 " Enable dash searching
 Bundle 'rizzatti/funcoo.vim'
