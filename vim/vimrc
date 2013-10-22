@@ -220,6 +220,11 @@ endfunction
 inoremap <tab> <c-r>=InsertTabWrapper()<cr>
 inoremap <s-tab> <c-n>
 
+" delete comment character when joining commented lines
+if v:version > 703 || v:version == 703 && has("patch541")
+    set formatoptions+=j
+endif
+
 " Configure hlsearch
 set hlsearch
 nmap <space> :nohlsearch<cr>
