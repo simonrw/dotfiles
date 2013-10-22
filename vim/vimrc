@@ -1,8 +1,3 @@
-" turn syntax highlighting on
-if (&t_Co > 2 || has("gui_running")) && !exists("syntax_on")
-    syntax on
-endif
-
 """"""""""""""""""""
 "     PLUGINS      "
 """"""""""""""""""""
@@ -21,6 +16,11 @@ endif
 """"""""""""""""""""
 "     SETTINGS     "
 """"""""""""""""""""
+
+" turn syntax highlighting on
+if (&t_Co > 2 || has("gui_running")) && !exists("syntax_on")
+    syntax on
+endif
 
 " set up some nice tab defaults
 set tabstop=8
