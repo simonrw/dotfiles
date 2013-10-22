@@ -13,6 +13,9 @@ set smarttab
 set shell=bash
 scriptencoding utf-8
 
+" Use the OS clipboard
+set clipboard=unnamed
+
 " Automatically save on certain commands
 set autowrite
 
@@ -45,6 +48,9 @@ set encoding=utf-8 " Necessary to show unicode glyphs
 " make backspace behave nicely
 set backspace=indent,eol,start
 
+" Join lines with 1 space instead of 2
+set nojoinspaces
+
 " Set the tags file location
 set tags=.git/tags;/
 
@@ -52,7 +58,7 @@ set tags=.git/tags;/
 set report=0
 
 " Enable fast tty mode
-set nottyfast
+set ttyfast
 
 " Support file types in this order
 set fileformats=unix,mac,dos
@@ -100,8 +106,10 @@ set scrolloff=3
 " Configure 'Press enter to continue' messages
 set shortmess=atI
 
-" Decrease the leader key timeout for the comma key
-set timeout timeoutlen=1000 ttimeoutlen=100
+" Time out on key codes but not mappings
+set notimeout
+set ttimeout
+set ttimeoutlen=100
 
 " GRB does these
 set winwidth=79
@@ -217,6 +225,10 @@ map <leader>cd :lcd %:p:h<CR>:pwd<CR>
 " Remap the Q key
 map Q gq
 
+" Expand %% to the current directory
+" http://vimcasts.org/e/14
+cnoremap %% <c-r>=expand('%:h') . '/'<cr>
+
 " Make the Y key work
 map Y y$
 
@@ -269,3 +281,13 @@ let s:plugin_settings = expand($HOME . '/.vim/setup/plugin_settings.vim')
 if filereadable(s:plugin_settings)
     exec ':source ' . s:plugin_settings
 endif
+
+""""""""""""""""""""
+"       MISC       "
+""""""""""""""""""""
+
+" Increase scrolling performance
+syntax sync minlines=256
+
+" Don't syntax highlight long lines
+set synmaxcol=128

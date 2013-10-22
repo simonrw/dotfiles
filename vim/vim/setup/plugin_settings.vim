@@ -1,3 +1,6 @@
+" Enable matchit
+runtime macros/matchit.vim
+
 " Snipmate settings - use Ctrl-J for completion
 imap <c-j> <Plug>snipMateNextOrTrigger
 smap <c-j> <Plug>snipMateNextOrTrigger
