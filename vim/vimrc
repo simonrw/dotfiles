@@ -1,3 +1,4 @@
+" {{{ Plugins
 """"""""""""""""""""
 "     PLUGINS      "
 """"""""""""""""""""
@@ -13,6 +14,8 @@ if filereadable(s:plugin_settings)
     exec ':source ' . s:plugin_settings
 endif
 
+" }}}
+" {{{ Settings
 """"""""""""""""""""
 "     SETTINGS     "
 """"""""""""""""""""
@@ -189,6 +192,8 @@ autocmd InsertLeave * match ExtraWhitespace /\s\+$/
 " Set the status line
 set statusline=%<%f\ %h%m%r%=%y\ %-14.(%l,%c%V%)\ %P
 
+" }}}
+" {{{ Mappings
 """"""""""""""""""""
 "     MAPPINGS     "
 """"""""""""""""""""
@@ -286,6 +291,9 @@ nnoremap <silent> <leader>DD :profile start /tmp/profile.log
 nnoremap <silent> <leader>DQ :profile pause
     \ <bar> noautocmd qall! <cr>
 
+" }}}
+" {{{ Misc
+
 """"""""""""""""""""
 "       MISC       "
 """"""""""""""""""""
@@ -295,3 +303,5 @@ syntax sync minlines=256
 
 " Don't syntax highlight long lines
 set synmaxcol=128
+
+" }}}
