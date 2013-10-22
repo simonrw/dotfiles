@@ -3,6 +3,25 @@ if (&t_Co > 2 || has("gui_running")) && !exists("syntax_on")
     syntax on
 endif
 
+""""""""""""""""""""
+"     PLUGINS      "
+""""""""""""""""""""
+
+" Load all of the plugins with vundle
+if filereadable(expand("~/.vim/setup/bundles.vim"))
+source ~/.vim/setup/bundles.vim
+endif
+
+" Now load the plugins settings
+let s:plugin_settings = expand($HOME . '/.vim/setup/plugin_settings.vim')
+if filereadable(s:plugin_settings)
+    exec ':source ' . s:plugin_settings
+endif
+
+""""""""""""""""""""
+"     SETTINGS     "
+""""""""""""""""""""
+
 " set up some nice tab defaults
 set tabstop=8
 set softtabstop=4
@@ -266,21 +285,6 @@ nnoremap <silent> <leader>DD :profile start /tmp/profile.log
     \ <bar> profile file * <cr>
 nnoremap <silent> <leader>DQ :profile pause
     \ <bar> noautocmd qall! <cr>
-
-""""""""""""""""""""
-"     PLUGINS      "
-""""""""""""""""""""
-
-" Load all of the plugins with vundle
-if filereadable(expand("~/.vim/setup/bundles.vim"))
-source ~/.vim/setup/bundles.vim
-endif
-
-" Now load the plugins settings
-let s:plugin_settings = expand($HOME . '/.vim/setup/plugin_settings.vim')
-if filereadable(s:plugin_settings)
-    exec ':source ' . s:plugin_settings
-endif
 
 """"""""""""""""""""
 "       MISC       "
