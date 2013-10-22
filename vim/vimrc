@@ -314,3 +314,4 @@ syntax sync minlines=256
 set synmaxcol=128
 
 " }}}
+" vim: foldmethod=marker
