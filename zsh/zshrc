@@ -191,7 +191,7 @@ function git_prompt_info() {
 }
 
 # Most recent history commands
-function most_recent_history() {
+function most_used_history() {
     history 1 |
     awk '{a[$2]++}END{for (i in a){print a[i] " " i}}' |
     sort -rn |
