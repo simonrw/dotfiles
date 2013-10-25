@@ -35,9 +35,6 @@ set smarttab
 set shell=bash
 scriptencoding utf-8
 
-" Use the OS clipboard
-set clipboard=unnamed
-
 " Automatically save on certain commands
 set autowrite
 
