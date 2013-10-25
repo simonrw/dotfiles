@@ -50,38 +50,9 @@ function _tmux_attach() {
     fi
 }
 
-function gi() {
-    # This function gets the gitignore results from gitignore.io and prints them
-    # to screen
-    #
-    # Inputs: any extra arguments given on the command line are treated as
-    # ignore classes for the website.
-    #
-    # E.g. > gi linux osx python
-    #
-    # will translate to http://gitignore.io/api/linux,osx,python
-    URL=http://gitignore.io/api/
-    ARGS=$(echo $* | sed 's/ /,/g')
-    curl ${URL}${ARGS}
-}
-
-
 # From GRB
 function mcd() { mkdir -p $1 && cd $1 }
 function cdf() { cd *$1*/ }
-
-local fifo_name='.fifo'
-function ensure_fifo() {
-    if [ ! -p $fifo_name ]; then
-        mkfifo $fifo_name
-    fi
-}
-
-function listen() {
-    echo "Listening for commands"
-    ensure_fifo && while true; do sh -c "$(cat $fifo_name)"; done
-}
-
 
 # Alias some tmux commands
 alias ta=_tmux_attach
