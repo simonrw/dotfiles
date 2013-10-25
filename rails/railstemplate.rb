@@ -2,7 +2,6 @@ gem_group :development, :test do
     # Better testing dsl
     gem 'rspec'
     gem 'rspec-rails'
-    gem 'cucumber-rails', require: false
     gem 'database_cleaner'
 
     # Integration tests with a real headless browser
@@ -27,7 +26,6 @@ git :init
 
 # Install rspec and capybara
 generate "rspec:install"
-generate "cucumber:install"
 
 inject_into_file "spec/spec_helper.rb", after: "require 'rspec/autorun'\n" do
   "require 'capybara/rspec'\n"
