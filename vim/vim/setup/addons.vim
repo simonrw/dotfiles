@@ -20,12 +20,10 @@ let s:plugins += ['github:mindriot101/vim-scratch']
 let s:plugins += ['github:mindriot101/srw-colorscheme.vim']
 
 " Snipmate plugins
-let s:plugins += ['github:MarcWeber/vim-addon-mw-utils']
-let s:plugins += ['github:tomtom/tlib_vim']
 let s:plugins += ['github:garbas/vim-snipmate']
 let s:plugins += ['github:honza/vim-snippets']
 
-fun! EnsureVamIsOnDisk(plugin_root_dir)
+fun! EnsureVamIsOnDisk(plugin_root_dir)"{{{
     " windows users may want to use http://mawercer.de/~marc/vam/index.php
     " to fetch VAM, VAM-known-repositories and the listed plugins
     " without having to install curl, 7-zip and git tools first
@@ -50,9 +48,8 @@ fun! EnsureVamIsOnDisk(plugin_root_dir)
     endif
     return isdirectory(vam_autoload_dir)
     endif
-endfun
-
-fun! SetupVAM()
+endfun"}}}
+fun! SetupVAM()"{{{
     " Set advanced options like this:
     " let g:vim_addon_manager = {}
     " let g:vim_addon_manager.key = value
@@ -68,6 +65,7 @@ fun! SetupVAM()
     let c = get(g:, 'vim_addon_manager', {})
     let g:vim_addon_manager = c
     let c.plugin_root_dir = expand('$HOME/.vim/vim-addons', 1)
+    let c.auto_install = 1
     if !EnsureVamIsOnDisk(c.plugin_root_dir)
     echohl ErrorMsg | echomsg "No VAM found!" | echohl NONE
     return
@@ -75,7 +73,7 @@ fun! SetupVAM()
     let &rtp.=(empty(&rtp)?'':',').c.plugin_root_dir.'/vim-addon-manager'
 
     " Tell VAM which plugins to fetch & load:
-    call vam#ActivateAddons(s:plugins, {'auto_install' : 0})
+    call vam#ActivateAddons(s:plugins)
     " sample: call vam#ActivateAddons(['pluginA','pluginB', ...], {'auto_install' : 0})
     " Also See "plugins-per-line" below
 
@@ -91,12 +89,7 @@ fun! SetupVAM()
     "    ..ActivateAddons(["github:foo", .. => github://foo/vim-addon-foo
     "    ..ActivateAddons(["github:user/repo", .. => github://user/repo
     " Also see section "2.2. names of addons and addon sources" in VAM's documentation
-endfun
+endfun"}}}
+
+" Finally synchronise the plugins
 call SetupVAM()
-" experimental [E1]: load plugins lazily depending on filetype, See
-" NOTES
-" experimental [E2]: run after gui has been started (gvim) [3]
-" option1:  au VimEnter * call SetupVAM()
-" option2:  au GUIEnter * call SetupVAM()
-" See BUGS sections below [*]
-" Vim 7.0 users see BUGS section [3]
