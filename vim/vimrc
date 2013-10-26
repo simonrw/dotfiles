@@ -3,11 +3,6 @@
 "     PLUGINS      "
 """"""""""""""""""""
 
-" Load all of the plugins with vundle
-if filereadable(expand("~/.vim/setup/bundles.vim"))
-source ~/.vim/setup/bundles.vim
-endif
-
 " Now load the plugins settings
 let s:plugin_settings = expand($HOME . '/.vim/setup/plugin_settings.vim')
 if filereadable(s:plugin_settings)
