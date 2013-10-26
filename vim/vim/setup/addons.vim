@@ -1,7 +1,29 @@
 " put this line first in ~/.vimrc
 set nocompatible | filetype indent plugin on | syn on
 
-let s:plugins = ["github:mindriot101/srw-colorscheme.vim"]
+let s:plugins = []
+
+" tpope plugins, these deserve their own section
+let s:plugins += ['github:tpope/vim-fugitive']
+let s:plugins += ['github:tpope/vim-commentary']
+let s:plugins += ['github:tpope/vim-surround']
+let s:plugins += ['github:tpope/vim-repeat']
+let s:plugins += ['github:tpope/vim-unimpaired']
+let s:plugins += ['github:tpope/vim-dispatch']
+
+" Custom plugins
+let s:plugins += ['github:kien/ctrlp.vim']
+let s:plugins += ['github:mileszs/ack.vim']
+
+" My plugins or forks
+let s:plugins += ['github:mindriot101/vim-scratch']
+let s:plugins += ['github:mindriot101/srw-colorscheme.vim']
+
+" Snipmate plugins
+let s:plugins += ['github:MarcWeber/vim-addon-mw-utils']
+let s:plugins += ['github:tomtom/tlib_vim']
+let s:plugins += ['github:garbas/vim-snipmate']
+let s:plugins += ['github:honza/vim-snippets']
 
 fun! EnsureVamIsOnDisk(plugin_root_dir)
     " windows users may want to use http://mawercer.de/~marc/vam/index.php
