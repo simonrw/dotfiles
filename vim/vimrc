@@ -3,6 +3,12 @@
 "     PLUGINS      "
 """"""""""""""""""""
 
+let s:plugin_init = expand($HOME . '/.vim/setup/plugins.vim')
+if filereadable(s:plugin_init)
+    exec ':source ' . s:plugin_init
+endif
+
+
 " Now load the plugins settings
 let s:plugin_settings = expand($HOME . '/.vim/setup/plugin_settings.vim')
 if filereadable(s:plugin_settings)
