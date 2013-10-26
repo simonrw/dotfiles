@@ -3,9 +3,10 @@
 "     PLUGINS      "
 """"""""""""""""""""
 
-let s:plugin_init = expand($HOME . '/.vim/setup/plugins.vim')
-if filereadable(s:plugin_init)
-    exec ':source ' . s:plugin_init
+" Set up the vim addon manager
+let s:addon_init = expand($HOME . '/.vim/setup/addons.vim')
+if filereadable(s:addon_init)
+    exec ':source ' . s:addon_init
 endif
 
 
