@@ -23,6 +23,9 @@ let s:plugins += ['github:mindriot101/srw-colorscheme.vim']
 let s:plugins += ['github:garbas/vim-snipmate']
 let s:plugins += ['github:honza/vim-snippets']
 
+" Language plugins
+let s:plugins += ['github:rodjek/vim-puppet']
+
 fun! EnsureVamIsOnDisk(plugin_root_dir)"{{{
     " windows users may want to use http://mawercer.de/~marc/vam/index.php
     " to fetch VAM, VAM-known-repositories and the listed plugins
