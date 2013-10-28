@@ -140,7 +140,7 @@ local yellow="%{$fg_bold[yellow]%}"
 local reset="%{$reset_color%}"
 
 PROMPT="%(?.$green.$red%? )\$$reset "
-RPROMPT="$yellow%m$reset"
+RPROMPT="%2~@$yellow%m$reset"
 
 # Source the custom zshrc.local file in the system
 if [[ -f ${HOME}/.zshrc.local ]]; then
