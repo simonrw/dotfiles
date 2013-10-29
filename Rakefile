@@ -29,6 +29,7 @@ end
 class Cask
   def self.install
     unless self.installed?
+      puts 'Installing Cask'
       `git clone https://github.com/cask/cask.git ~/.cask`
     end
   end
