@@ -1,0 +1,11 @@
+(source "melpa" "http://melpa.milkbox.net/packages/")
+(source "gnu" "http://elpa.gnu.org/packages/")
+
+(depends-on "auto-complete")
+(depends-on "cask")
+(depends-on "dash")
+(depends-on "enh-ruby-mode")
+(depends-on "epl")
+(depends-on "f")
+(depends-on "pallet")
+(depends-on "s")
