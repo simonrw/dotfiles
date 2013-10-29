@@ -7,5 +7,7 @@
 (depends-on "enh-ruby-mode")
 (depends-on "epl")
 (depends-on "f")
+(depends-on "flycheck")
+(depends-on "haskell-mode")
 (depends-on "pallet")
 (depends-on "s")
