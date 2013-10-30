@@ -14,6 +14,7 @@ let s:plugins += ['github:tpope/vim-dispatch']
 " Custom plugins
 let s:plugins += ['github:kien/ctrlp.vim']
 let s:plugins += ['github:mileszs/ack.vim']
+let s:plugins += ['github:jnwhiteh/vim-golang']
 
 " My plugins or forks
 let s:plugins += ['github:mindriot101/vim-scratch']
