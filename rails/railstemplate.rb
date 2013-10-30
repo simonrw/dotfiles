@@ -22,8 +22,6 @@ run "echo '.env' >> .gitignore"
 # disable output buffering
 run "echo 'STDOUT.sync = true' >> config/environments/development.rb"
 
-git :init
-
 # Install rspec and capybara
 generate "rspec:install"
 
