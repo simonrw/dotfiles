@@ -1,22 +1,3 @@
-" {{{ Plugins
-""""""""""""""""""""
-"     PLUGINS      "
-""""""""""""""""""""
-
-" Set up the vim addon manager
-let s:addon_init = expand($HOME . '/.vim/setup/addons.vim')
-if filereadable(s:addon_init)
-    exec ':source ' . s:addon_init
-endif
-
-
-" Now load the plugins settings
-let s:plugin_settings = expand($HOME . '/.vim/setup/plugin_settings.vim')
-if filereadable(s:plugin_settings)
-    exec ':source ' . s:plugin_settings
-endif
-
-" }}}
 " {{{ Settings
 """"""""""""""""""""
 "     SETTINGS     "
@@ -298,6 +279,25 @@ nnoremap <silent> <leader>DD :profile start /tmp/profile.log
     \ <bar> profile file * <cr>
 nnoremap <silent> <leader>DQ :profile pause
     \ <bar> noautocmd qall! <cr>
+
+" }}}
+" {{{ Plugins
+""""""""""""""""""""
+"     PLUGINS      "
+""""""""""""""""""""
+
+" Set up the vim addon manager
+let s:addon_init = expand($HOME . '/.vim/setup/addons.vim')
+if filereadable(s:addon_init)
+    exec ':source ' . s:addon_init
+endif
+
+
+" Now load the plugins settings
+let s:plugin_settings = expand($HOME . '/.vim/setup/plugin_settings.vim')
+if filereadable(s:plugin_settings)
+    exec ':source ' . s:plugin_settings
+endif
 
 " }}}
 " {{{ Misc
