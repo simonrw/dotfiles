@@ -286,10 +286,9 @@ nnoremap <silent> <leader>DQ :profile pause
 "     PLUGINS      "
 """"""""""""""""""""
 
-" Set up the vim addon manager
-let s:addon_init = expand($HOME . '/.vim/setup/addons.vim')
-if filereadable(s:addon_init)
-    exec ':source ' . s:addon_init
+" Load all of the plugins with vundle
+if filereadable(expand("~/.vim/setup/bundles.vim"))
+source ~/.vim/setup/bundles.vim
 endif
 
 

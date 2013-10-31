@@ -34,6 +34,8 @@ Bundle 'mindriot101/vim-scratch'
 Bundle 'mindriot101/srw-colorscheme.vim'
 
 " Snipmate plugins
+Bundle "MarcWeber/vim-addon-mw-utils"
+Bundle "tomtom/tlib_vim"
 Bundle 'garbas/vim-snipmate'
 Bundle 'honza/vim-snippets'
 
