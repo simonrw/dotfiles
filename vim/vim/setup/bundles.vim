@@ -28,6 +28,7 @@ Bundle 'tpope/vim-dispatch'
 Bundle 'kien/ctrlp.vim'
 Bundle 'mileszs/ack.vim'
 Bundle 'jnwhiteh/vim-golang'
+Bundle 'kien/rainbow_parentheses.vim'
 
 " My plugins or forks
 Bundle 'mindriot101/vim-scratch'
