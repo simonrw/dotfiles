@@ -80,6 +80,10 @@ alias g='git'
 alias gcm='git commit -m'
 alias gse='git sync && exit'
 
+# Update vim plugins
+alias vbi='vim +BundleInstall +qa'
+alias vbu='vim +BundleUpdate'
+
 # Ruby aliases
 alias bcb='bundle check; bundle install --binstubs .bundle/bin'
 alias be='bundle exec'
