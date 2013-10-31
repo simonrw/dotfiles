@@ -9,6 +9,7 @@
 (depends-on "f")
 (depends-on "flycheck")
 (depends-on "haskell-mode")
+(depends-on "magit")
 (depends-on "markdown-mode")
 (depends-on "pallet")
 (depends-on "s")
