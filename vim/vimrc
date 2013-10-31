@@ -1,3 +1,21 @@
+" {{{ Plugins
+""""""""""""""""""""
+"     PLUGINS      "
+""""""""""""""""""""
+
+" Load all of the plugins with vundle
+if filereadable(expand("~/.vim/setup/bundles.vim"))
+source ~/.vim/setup/bundles.vim
+endif
+
+
+" Now load the plugins settings
+let s:plugin_settings = expand($HOME . '/.vim/setup/plugin_settings.vim')
+if filereadable(s:plugin_settings)
+    exec ':source ' . s:plugin_settings
+endif
+
+" }}}
 " {{{ Settings
 """"""""""""""""""""
 "     SETTINGS     "
@@ -279,24 +297,6 @@ nnoremap <silent> <leader>DD :profile start /tmp/profile.log
     \ <bar> profile file * <cr>
 nnoremap <silent> <leader>DQ :profile pause
     \ <bar> noautocmd qall! <cr>
-
-" }}}
-" {{{ Plugins
-""""""""""""""""""""
-"     PLUGINS      "
-""""""""""""""""""""
-
-" Load all of the plugins with vundle
-if filereadable(expand("~/.vim/setup/bundles.vim"))
-source ~/.vim/setup/bundles.vim
-endif
-
-
-" Now load the plugins settings
-let s:plugin_settings = expand($HOME . '/.vim/setup/plugin_settings.vim')
-if filereadable(s:plugin_settings)
-    exec ':source ' . s:plugin_settings
-endif
 
 " }}}
 " {{{ Misc
