@@ -228,8 +228,7 @@ if v:version > 703 || v:version == 703 && has("patch541")
 endif
 
 " Configure hlsearch
-set hlsearch
-nmap <space> :nohlsearch<cr>
+set nohlsearch
 
 " settings from thoughtbot dotfiles repo
 " Swap between two files
