@@ -42,5 +42,6 @@ Bundle 'honza/vim-snippets'
 
 " Language plugins
 Bundle 'rodjek/vim-puppet'
+Bundle 'jimenezrick/vimerl'
 
 filetype plugin indent on
