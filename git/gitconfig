@@ -41,7 +41,7 @@
     tool = diffconflicts
 	conflictstyle = diff3
 [push]
-    default = current
+    default = simple
 [init]
 	templatedir = ~/.git_template
 [mergetool "diffconflicts"]
