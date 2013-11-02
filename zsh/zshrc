@@ -64,6 +64,8 @@ export EDITOR=vim_nox
 export VISUAL=${EDITOR}
 export BIBINPUTS=${HOME}/work/central-bibliography:${BIBINPUTS}
 export TERM=screen-256color
+export GOPATH=${HOME}/Development/gocode
+export PATH=${PATH}:${GOPATH}/bin
 
 # Taken from grb's zshrc
 
