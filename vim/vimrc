@@ -3,6 +3,9 @@
 "     PLUGINS      "
 """"""""""""""""""""
 
+" Remap the leader key to comma
+let mapleader=','
+
 " Load all of the plugins with vundle
 if filereadable(expand("~/.vim/setup/bundles.vim"))
 source ~/.vim/setup/bundles.vim
@@ -199,9 +202,6 @@ augroup END
 """"""""""""""""""""
 "     MAPPINGS     "
 """"""""""""""""""""
-
-" Remap the leader key to comma
-let mapleader=','
 
 " Quick spelling toggle
 nmap <silent> <leader>s :set spell!<cr>
