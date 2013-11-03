@@ -21,6 +21,7 @@
     la = !git l --all
     dc = diff --cached
     aa = add --all
+    aap = add --all --patch
 [color]
     ui = auto
 [core]
