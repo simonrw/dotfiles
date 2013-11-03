@@ -83,6 +83,8 @@ alias g='git'
 alias gst='\git st'
 alias gcm='\git commit -m'
 alias gse='\git sync && exit'
+alias sc="vim +Scratch"
+alias es='exec $SHELL'
 
 # Update vim plugins
 alias vbi='vim +BundleInstall +qa'
