@@ -18,8 +18,8 @@ let g:ctrlp_map = "<leader>f"
 let g:ctrlp_cmd = "CtrlPMixed"
 
 " Set colour scheme
-set background=dark
-colorscheme srw
+set background=light
+colorscheme solarized
 
 " Rainbow parentheses setup
 let g:rbpt_colorpairs = [
