@@ -336,6 +336,10 @@ nnoremap <silent> <leader>DQ :profile pause
 inoremap <C-u> <C-g>u<C-u>
 inoremap <C-w> <C-g>u<C-w>
 
+" Quick file editing
+nnoremap <leader>ev :edit $MYVIMRC<cr>
+nnoremap <leader>ez :edit ~/.zshrc<cr>
+
 " }}}
 " {{{ Misc
 
