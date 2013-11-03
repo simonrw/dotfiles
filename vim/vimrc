@@ -59,6 +59,11 @@ set incsearch
 set ignorecase
 set smartcase
 
+" From Steve Losh
+" iTerm2 is currently slow as ball at rendering the nice unicode lines, so for now I'll just use ascii pipes.  They're ugly but at least I won't want to kill myself when trying to move around a file.
+set fillchars=diff:⣿,vert:│
+set fillchars=diff:⣿,vert:\|
+
 " show command as it's typed
 set showcmd
 
