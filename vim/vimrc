@@ -42,6 +42,9 @@ scriptencoding utf-8
 " Automatically save on certain commands
 set autowrite
 
+" Shorten the paren matching flash time
+set matchtime=3
+
 " Set history settings
 set history=1000
 set undolevels=700
