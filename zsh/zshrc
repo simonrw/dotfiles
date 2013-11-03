@@ -77,18 +77,19 @@ alias pylab="ipython --pylab"
 alias py='\python'
 alias python='echo "Use py..."'
 alias pydoc='\python -m pydoc'
-alias vim=vim_nox
+alias vim="echo 'Use vi...'"
+alias vi=vim_nox
 alias ls='ls -F'
 alias g='git'
 alias gst='\git st'
 alias gcm='\git commit -m'
 alias gse='\git sync && exit'
-alias sc="vim +Scratch"
+alias sc="vi +Scratch"
 alias es='exec $SHELL'
 
 # Update vim plugins
-alias vbi='vim +BundleInstall +qa'
-alias vbu='vim +BundleUpdate'
+alias vbi='vi +BundleInstall +qa'
+alias vbu='vi +BundleUpdate'
 
 # Ruby aliases
 alias bcb='bundle check; bundle install --binstubs .bundle/bin'
