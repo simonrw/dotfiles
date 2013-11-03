@@ -140,7 +140,7 @@ set shortmess=atI
 " Time out on key codes but not mappings
 set notimeout
 set ttimeout
-set ttimeoutlen=100
+set ttimeoutlen=10
 
 " GRB does these
 set winwidth=79
