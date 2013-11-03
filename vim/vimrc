@@ -239,6 +239,12 @@ nmap <silent> <leader>s :set spell!<cr>
 " formatting
 set pastetoggle=<leader>p
 
+" Swap the up down mappings
+nnoremap j gj
+nnoremap k gk
+nnoremap gj j
+nnoremap gk k
+
 " Multipurpose tab key from grb
 function! InsertTabWrapper()
     let col = col('.') - 1
