@@ -297,6 +297,10 @@ nnoremap <silent> <leader>DD :profile start /tmp/profile.log
 nnoremap <silent> <leader>DQ :profile pause
     \ <bar> noautocmd qall! <cr>
 
+" Handy saving of text if a C-u is pressed
+inoremap <C-u> <C-g>u<C-u>
+inoremap <C-w> <C-g>u<C-w>
+
 " }}}
 " {{{ Misc
 
