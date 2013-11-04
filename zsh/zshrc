@@ -132,8 +132,6 @@ case $OSTYPE in
         ;;
 esac
 
-chruby 2.0.0-p247
-
 # Pip download cache
 export PIP_DOWNLOAD_CACHE=${HOME}/.pip-download-cache
 
