@@ -46,7 +46,7 @@ set autowrite
 set matchtime=3
 
 " Set history settings
-set history=1000
+set history=10000
 set undolevels=700
 
 " reload all file changes automatically
