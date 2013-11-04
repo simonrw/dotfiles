@@ -30,6 +30,7 @@ Bundle 'mileszs/ack.vim'
 Bundle 'jnwhiteh/vim-golang'
 Bundle 'kien/rainbow_parentheses.vim'
 Bundle 'altercation/vim-colors-solarized'
+Bundle 'michaeljsmith/vim-indent-object'
 
 " My plugins or forks
 Bundle 'mindriot101/vim-scratch'
