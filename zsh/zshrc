@@ -6,14 +6,13 @@ autoload -U compinit
 compinit
 
 
-# Vim keybindings
-set -o vi
-bindkey -v
-bindkey "^?" backward-delete-char
-bindkey "^W" backward-kill-word
-bindkey "^H" backward-delete-char
-bindkey "^U" kill-line
-bindkey "^R" history-incremental-search-backward
+# Emacs keybindings
+bindkey -e
+
+# Set up editor in command line
+autoload edit-command-line
+zle -N edit-command-line
+bindkey '^Xe' edit-command-line
 
 autoload -U colors
 colors
