@@ -1,6 +1,6 @@
 require_relative 'lib/oh_my_zsh'
 
-$exclude_list = ['.git', 'osx', '.', '..', 'oh-my-zsh', 'lib']
+$exclude_list = ['.git', 'osx', '.', '..', 'oh-my-zsh', 'lib', 'individual_files']
 
 # Every subdirectory below this one should contain extra objects either files or directories which will get linked into ~
 # This function returns all of these
@@ -44,16 +44,20 @@ def link_name(name)
     File.expand_path(File.join('~', '.' + File.basename(name)))
 end
 
+def create_link(name)
+  ln = link_name(name)
+  begin
+    File.symlink File.expand_path(name), ln
+    puts "Linking #{ln}"
+  rescue
+    puts "Link #{ln} already found"
+  end
+end
+
 def add_links
-    for name in get_to_links
-        ln = link_name(name)
-        begin
-            File.symlink File.expand_path(name), ln
-            puts "Linking #{ln}"
-        rescue
-            puts "Link #{ln} already found"
-        end
-    end
+  for name in get_to_links
+    create_link(name)
+  end
 end
 
 # Remove the links that would be installed by this script
@@ -99,9 +103,23 @@ task :default do
     puts tasks
 end
 
+def individual_files
+  Dir["individual_files/*/*"].each do |f|
+    destination =  File.expand_path(File.join('~', '.' + f.split('/')[1..-1].join('/')))
+    source = File.join(File.dirname(__FILE__), f)
+    begin
+      File.symlink(source, destination)
+      puts "Linking #{destination}"
+    rescue
+      puts "Link #{destination} already found"
+    end
+  end
+end
+
 desc 'Links the respective files into the correct places'
 task :install, [:install_osx] do |t, args|
     add_links
+    individual_files
     Cask.install
     source_osx_file args[:install_osx], 'defaults.sh'
 end
