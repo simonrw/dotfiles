@@ -245,6 +245,9 @@ nnoremap k gk
 nnoremap gj j
 nnoremap gk k
 
+" Disable the 'help' key
+nmap K <nop>
+
 " Multipurpose tab key from grb
 function! InsertTabWrapper()
     let col = col('.') - 1
