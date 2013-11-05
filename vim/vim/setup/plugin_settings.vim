@@ -52,3 +52,6 @@ au Syntax * RainbowParenthesesLoadBraces
 
 " Ack.vim
 nnoremap <leader>a :Ack!<space>
+
+" markdown-folding
+let g:markdown_fold_style = 'stacked'
