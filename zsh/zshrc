@@ -58,7 +58,7 @@ alias ta=_tmux_attach
 alias tns="tmux new-session -s"
 alias tls="tmux ls"
 
-export PATH=${HOME}/.bin:${HOME}/prefix/bin:$PATH:${HOME}/.cabal/bin:${HOME}/.cask/bin
+export PATH=${HOME}/.cabal/bin:${HOME}/.bin:${HOME}/prefix/bin:$PATH:${HOME}/.cask/bin
 export EDITOR=vim_nox
 export VISUAL=${EDITOR}
 export BIBINPUTS=${HOME}/work/central-bibliography:${BIBINPUTS}
