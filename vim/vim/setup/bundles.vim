@@ -48,5 +48,6 @@ Bundle 'rodjek/vim-puppet'
 Bundle 'jimenezrick/vimerl'
 Bundle 'nginx.vim'
 Bundle 'kchmck/vim-coffee-script'
+Bundle 'elixir-lang/vim-elixir'
 
 filetype plugin indent on
