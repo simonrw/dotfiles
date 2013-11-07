@@ -1,8 +1,6 @@
 setlocal textwidth=99
 
-if v:version >= 703
-    setlocal colorcolumn=+1
-endif
+call matchadd('ColorColumn', '\%81v', 100)
 
 set wrap
 
