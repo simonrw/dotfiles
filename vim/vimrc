@@ -360,5 +360,14 @@ syntax sync minlines=256
 " Don't syntax highlight long lines
 set synmaxcol=128
 
+" Function to source a range of lines
+function! SourceRange() range
+    let tmpsofile = tempname()
+    call writefile(getline(a:firstline, a:lastline), l:tmpsofile)
+    execute "source " . l:tmpsofile
+    call delete(l:tmpsofile)
+endfunction
+command! -range Source <line1>,<line2>call SourceRange()
+
 " }}}
 " vim: foldmethod=marker
