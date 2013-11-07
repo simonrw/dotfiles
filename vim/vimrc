@@ -8,6 +8,7 @@ set nocompatible
 
 " Remap the leader key to comma
 let mapleader=','
+let maplocalleader='\\'
 
 " Load all of the plugins with vundle
 if filereadable(expand("~/.vim/setup/bundles.vim"))
