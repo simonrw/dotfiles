@@ -299,7 +299,7 @@ vmap <C-s> :update<CR>
 map <leader>cd :lcd %:p:h<CR>:pwd<CR>
 
 " Remap the Q key
-map Q gq
+map Q gqip
 
 " Expand %% to the current directory
 " http://vimcasts.org/e/14
