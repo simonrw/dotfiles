@@ -1,3 +1,6 @@
+" {{{ Compatibility
+set nocompatible
+"}}}
 " {{{ Plugins
 """"""""""""""""""""
 "     PLUGINS      "

@@ -1,8 +1,5 @@
 " Global setup
 " -------------
-" Set no vi compatible
-set nocompatible
-
 " Nice vundle stuff
 filetype off
 
