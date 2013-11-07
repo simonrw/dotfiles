@@ -8,7 +8,7 @@ set wrap
 setlocal makeprg=flake8\ %
 
 " Python autocompletion !
-setlocal omnifunc=pythoncomplete#Complete 
+setlocal omnifunc=pythoncomplete#Complete
 
 " Disable spelling
 setlocal nospell
