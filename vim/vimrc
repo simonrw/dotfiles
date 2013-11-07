@@ -156,9 +156,9 @@ set backupskip=/tmp/*,/private/tmp/*
 " Backup behaviour
 set backup
 set noswapfile
-set undodir=~/.vim/tmp/undo
-set backupdir=~/.vim/tmp/backup
-set directory=~/.vim/tmp/swap
+set undodir=~/.vim/tmp/undo//
+set backupdir=~/.vim/tmp/backup//
+set directory=~/.vim/tmp/swap//
 
 " Make those folders automatically if they don't already exist.
 if !isdirectory(expand(&undodir))
