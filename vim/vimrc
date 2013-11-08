@@ -237,6 +237,12 @@ augroup cline
     autocmd WinEnter,InsertLeave * set cursorline
 augroup END
 
+" List chars
+exec "set listchars=tab:\uBB\uBB,trail:\uB7,nbsp:~"
+set list
+
+
+
 " }}}
 " {{{ Mappings
 """"""""""""""""""""
