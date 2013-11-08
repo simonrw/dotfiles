@@ -33,10 +33,6 @@ if (&t_Co > 2 || has("gui_running")) && !exists("syntax_on")
     syntax on
 endif
 
-" Prevent Vim from clobbering the scrollback buffer. See
-" " http://www.shallowsky.com/linux/noaltscreen.html
-set t_ti= t_te=
-
 " set up some nice tab defaults
 set tabstop=8
 set softtabstop=4
