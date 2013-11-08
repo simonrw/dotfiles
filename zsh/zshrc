@@ -143,6 +143,9 @@ function most_used_history() {
     head -n 20
 }
 
+# ZSH syntax highlighting
+source ${HOME}/.zsh/func/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
 function __is_git_dir() {
     if [[ -d ".git" ]]; then
         echo "[g]"
