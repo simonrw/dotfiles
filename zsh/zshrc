@@ -18,6 +18,7 @@ autoload -U colors
 colors
 
 setopt interactivecomments
+setopt correct
 setopt rmstarsilent
 setopt prompt_subst
 setopt inc_append_history
