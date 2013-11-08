@@ -1,5 +1,6 @@
 setlocal textwidth=99
 
+" Highlight the 81st column
 call matchadd('ColorColumn', '\%81v', 100)
 
 set wrap
