@@ -129,7 +129,7 @@ case $OSTYPE in
 
         # Set up chruby
         source /usr/local/opt/chruby/share/chruby/chruby.sh
-        RUBIES=(/usr/local/var/rbenv/versions/* ~/.rubies/*)
+        RUBIES=(~/.rubies/*)
         ;;
 esac
 
