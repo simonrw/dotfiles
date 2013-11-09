@@ -40,11 +40,9 @@
     token = 7e549ed4dddc6ecc0bab22bcac87adac
 [merge]
     tool = diffconflicts
-	conflictstyle = diff3
+    conflictstyle = diff3
 [push]
     default = current
-[init]
-	templatedir = ~/.git_template
 [mergetool "diffconflicts"]
     cmd = "diffconflicts vim $BASE $LOCAL $REMOTE $MERGED"
     trustExitCode = true
