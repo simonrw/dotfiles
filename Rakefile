@@ -1,6 +1,6 @@
 require_relative 'lib/oh_my_zsh'
 
-$exclude_list = ['.git', 'osx', '.', '..', 'oh-my-zsh', 'lib', 'individual_files']
+$exclude_list = ['.git', 'osx', '.', '..', 'oh-my-zsh', 'lib', 'individual_files', '.bundle']
 
 # Every subdirectory below this one should contain extra objects either files or directories which will get linked into ~
 # This function returns all of these
@@ -118,6 +118,7 @@ end
 
 desc 'Links the respective files into the correct places'
 task :install, [:install_osx] do |t, args|
+    OhMyZSH.new.install
     add_links
     individual_files
     Cask.install
@@ -128,10 +129,11 @@ desc 'Removes any soft-links created by this script'
 task :uninstall, [:uninstall_osx] do |t, args|
     remove_links
     source_osx_file args[:uninstall_osx], 'restore.sh'
+    OhMyZSH.new.uninstall
 end
 
 desc 'Reinstalls directories'
-task :reinstall do 
+task :reinstall do
     Rake::Task["uninstall"].invoke
     Rake::Task["install"].invoke
 end

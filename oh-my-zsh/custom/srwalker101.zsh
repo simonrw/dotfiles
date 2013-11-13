@@ -1,0 +1,155 @@
+export PATH=/usr/local/bin:${PATH}
+fpath=($HOME/.zsh/func $fpath)
+typeset -U fpath
+
+autoload -U compinit
+compinit
+
+
+# Emacs keybindings
+bindkey -e
+
+# Set up editor in command line
+autoload edit-command-line
+zle -N edit-command-line
+bindkey '^Xe' edit-command-line
+
+autoload -U colors
+colors
+
+setopt interactivecomments
+setopt rmstarsilent
+setopt prompt_subst
+setopt inc_append_history
+setopt share_history
+
+# Only unique history entries in the reverse history search HIST_FIND_NO_DUPS=1
+setopt hist_ignore_all_dups
+setopt hist_ignore_dups
+
+
+# Ignore duplicate history entries
+zstyle ':completion:*:history-words' stop yes
+zstyle ':completion:*:history-words' remove-all-dups yes
+zstyle ':completion:*:history-words' list false
+zstyle ':completion:*:history-words' menu yes
+
+
+HISTFILE=~/.zsh_history
+HISTSIZE=10000
+SAVEHIST=10000
+
+# Function to attach to a session. If the session is not specified then
+#just run `tmux attach`, otherwise add a -t flag
+function _tmux_attach() {
+    if [ $1 ]; then
+        tmux attach -t $1
+    else
+        tmux attach
+    fi
+}
+
+# From GRB
+function mcd() { mkdir -p $1 && cd $1 }
+function cdf() { cd *$1*/ }
+
+# Alias some tmux commands
+alias ta=_tmux_attach
+alias tns="tmux new-session -s"
+alias tls="tmux ls"
+
+export PATH=${HOME}/.cabal/bin:${HOME}/.bin:${HOME}/prefix/bin:$PATH:${HOME}/.cask/bin
+export EDITOR=vim_nox
+export VISUAL=${EDITOR}
+export BIBINPUTS=${HOME}/work/central-bibliography:${BIBINPUTS}
+export TERM=screen-256color
+export GOPATH=${HOME}/Development/gocode
+export PATH=${PATH}:${GOPATH}/bin
+
+# Taken from grb's zshrc
+
+# By default, zsh considers many characters part of a word (e.g., _ and -).
+# Narrow that down to allow easier skipping through words via M-f and M-b.
+export WORDCHARS='*?[]~&;!$%^<>'
+
+alias pylab="ipython --pylab"
+alias py='\python'
+alias python='echo "Use py..."'
+alias pydoc='\python -m pydoc'
+alias vim="echo 'Use v...'"
+alias vi="echo 'Use v...'"
+alias v=vim_nox
+alias ls='ls -F'
+alias l=ls
+alias g='git'
+alias gst='\git st'
+alias gcm='\git commit -m'
+alias gse='\git sync && exit'
+alias sc="v +Scratch"
+alias es='exec $SHELL'
+
+# Update vim plugins
+alias vbi='v +BundleInstall +qa'
+alias vbu='v +BundleUpdate'
+
+# Ruby aliases
+alias bcb='bundle check; bundle install --binstubs .bundle/bin'
+alias be='bundle exec'
+
+case $OSTYPE in
+    linux*)
+        export LD_LIBRARY_PATH=${HOME}/prefix/lib:${LD_LIBRARY_PATH}
+
+        # Set up the module command
+        function module() { eval `modulecmd zsh $*`; }
+
+        # If the server is at Leicester, source the intel compiler variables
+        if [[ `dnsdomainname` == "star.le.ac.uk" ]]; then
+            source /opt/intel/composerxe-2011.0.084/bin/compilervars.sh intel64 2>/dev/null
+            source /usr/local/sge/default/common/settings.sh
+        fi
+
+        VIRTUALENV_DIR=${HOME}/PythonEnv
+        VIRTUALENV_SOURCE_FILE=${VIRTUALENV_DIR}/bin/activate
+        if [[ -f ${VIRTUALENV_SOURCE_FILE} ]]; then
+            # Set up the python environment
+            # Set the environment variable for only this env to disable the prompt
+            VIRTUAL_ENV_DISABLE_PROMPT=1 source ${VIRTUALENV_SOURCE_FILE}
+            # export PYTHONPATH=${VIRTUALENV_DIR}/lib/python2.7/site-packages:$PYTHONPATH
+        fi
+
+        # Set up chruby
+        source ${HOME}/prefix/share/chruby/chruby.sh
+        RUBIES=(~/.rbenv/versions/*)
+        ;;
+    darwin*)
+        export PATH=${PATH}:/usr/texbin:/usr/local/share/npm/bin:/usr/local/sbin:/sbin:/usr/sbin
+        alias gvim=mvim
+        alias gview=mview
+        alias -g awk=gawk
+
+        # Set up chruby
+        source /usr/local/opt/chruby/share/chruby/chruby.sh
+        RUBIES=(~/.rubies/*)
+        ;;
+esac
+
+chruby 2.0
+
+# Pip download cache
+export PIP_DOWNLOAD_CACHE=${HOME}/.pip-download-cache
+
+# Most recent history commands
+function most_used_history() {
+    history 1 |
+    awk '{a[$2]++}END{for (i in a){print a[i] " " i}}' |
+    sort -rn |
+    head -n 20
+}
+
+
+# Source the custom zshrc.local file in the system
+if [[ -f ${HOME}/.zshrc.local ]]; then
+    source ${HOME}/.zshrc.local
+fi
+
