@@ -102,6 +102,10 @@ set fileformats=unix,mac,dos
 set wildmenu
 set wildmode=list:longest,list:full
 
+" Highlight certain bad chars
+set listchars=nbsp:~,tab:>-
+set list
+
 " Disable escape keys which makes vim more responsive
 set noesckeys
 
