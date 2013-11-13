@@ -85,12 +85,12 @@ alias g='git'
 alias gst='\git st'
 alias gcm='\git commit -m'
 alias gse='\git sync && exit'
-alias sc="vi +Scratch"
+alias sc="v +Scratch"
 alias es='exec $SHELL'
 
-# Update vim plugins
-alias vbi='vi +BundleInstall +qa'
-alias vbu='vi +BundleUpdate'
+# Update vim plugins
+alias vbi='v +BundleInstall +qa'
+alias vbu='v +BundleUpdate'
 
 # Ruby aliases
 alias bcb='bundle check; bundle install --binstubs .bundle/bin'
