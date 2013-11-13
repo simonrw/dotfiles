@@ -87,7 +87,7 @@ set backspace=indent,eol,start
 set nojoinspaces
 
 " Set the tags file location
-set tags=.git/tags;/
+set tags=.git/tags,tags;/
 
 " Tell us when anything is changed via :...
 set report=0
