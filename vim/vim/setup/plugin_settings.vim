@@ -18,7 +18,7 @@ let g:ctrlp_map = "<leader>f"
 let g:ctrlp_cmd = "CtrlPMixed"
 
 " Set colour scheme
-set background=dark
+set background=light
 colorscheme solarized
 call togglebg#map("<leader>b")
 
