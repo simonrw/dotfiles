@@ -3,6 +3,15 @@
 " Nice vundle stuff
 filetype off
 
+
+" Automatically install vundle
+let vundle_readme=expand('~/.vim/bundle/vundle/README.md')
+if !filereadable(vundle_readme)
+    echo "Installing Vundle.."
+    echo ""
+    silent !git clone git://github.com/gmarik/vundle ~/.vim/bundle/vundle
+endif
+
 let g:vundle_default_git_proto = 'git'
 
 " Handle vundle here
