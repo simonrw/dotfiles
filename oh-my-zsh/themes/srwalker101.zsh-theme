@@ -14,3 +14,5 @@ local reset="%{$reset_color%}"
 PROMPT="
 %(?.$green.$red%? )\$$reset "
 RPROMPT='%2~$(__is_git_dir)@$yellow%m$reset'
+
+# vim: ft=zsh
