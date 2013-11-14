@@ -47,5 +47,6 @@ Bundle 'nginx.vim'
 Bundle 'kchmck/vim-coffee-script'
 Bundle 'elixir-lang/vim-elixir'
 Bundle 'mindriot101/vim-latex-folding'
+Bundle 'derekwyatt/vim-scala'
 
 filetype plugin indent on
