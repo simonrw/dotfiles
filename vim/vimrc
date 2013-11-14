@@ -352,7 +352,7 @@ inoremap <C-w> <C-g>u<C-w>
 
 " Quick file editing
 nnoremap <leader>ev :edit $MYVIMRC<cr>
-nnoremap <leader>ez :edit ~/.zshrc<cr>
+nnoremap <leader>ez :edit ~/.oh-my-zsh/custom/srwalker101.zsh<cr>
 
 " Use space to fold/unfold
 nnoremap <space> za
