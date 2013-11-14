@@ -5,11 +5,13 @@ filetype off
 
 
 " Automatically install vundle
+let s:VundleInstalled = 1
 let vundle_readme=expand('~/.vim/bundle/vundle/README.md')
 if !filereadable(vundle_readme)
     echo "Installing Vundle.."
     echo ""
     silent !git clone git://github.com/gmarik/vundle ~/.vim/bundle/vundle
+    let s:VundleInstalled = 0
 endif
 
 let g:vundle_default_git_proto = 'git'
@@ -59,3 +61,9 @@ Bundle 'mindriot101/vim-latex-folding'
 Bundle 'derekwyatt/vim-scala'
 
 filetype plugin indent on
+
+if s:VundleInstalled == 0
+    echo "Installing bundles"
+    echo ""
+    :BundleInstall
+endif
