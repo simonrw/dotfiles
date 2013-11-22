@@ -19,4 +19,4 @@ endif
 
 " Tag list settings for latex
 let tlist_tex_settings = 'latex;l:labels;s:sections;t:subsections;u:subsubsections'
-set iskeyword=@,48-57,_,-,:,192-255
+setlocal iskeyword=@,48-57,_,-,:,192-255
