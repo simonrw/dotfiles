@@ -15,4 +15,4 @@ setlocal omnifunc=pythoncomplete#Complete
 setlocal nospell
 
 " Set the flake8 settings
-set makeprg=flake8\ %\ --ignore=E501,E128,E123,E126,E261,E262
+setlocal makeprg=flake8\ %\ --ignore=E501,E128,E123,E126,E261,E262
