@@ -364,12 +364,6 @@ nnoremap <space> za
 "       MISC       "
 """"""""""""""""""""
 
-" Increase scrolling performance
-syntax sync minlines=256
-
-" Don't syntax highlight long lines
-set synmaxcol=128
-
 " Function to source a range of lines
 function! SourceRange() range
     let tmpsofile = tempname()
