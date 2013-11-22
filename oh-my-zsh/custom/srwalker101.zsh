@@ -96,6 +96,22 @@ alias vbu='v +BundleUpdate'
 alias bcb='bundle check; bundle install --binstubs .bundle/bin'
 alias be='bundle exec'
 
+# Function for finding my pi
+function __active_interface() {
+    local ifconfig_path=/sbin/ifconfig
+    for interface in en0 en1; do
+        if ${ifconfig_path} ${interface} | xargs | grep -q 192 2>&1 >/dev/null; then
+            echo $interface
+            return
+        fi
+    done
+}
+
+function find_pi() {
+    echo "Usage may require sudo password"
+    sudo arp-scan --interface=`__active_interface` --localnet | grep b8:27:eb | awk '{print $1}'
+}
+
 case $OSTYPE in
     linux*)
         export LD_LIBRARY_PATH=${HOME}/prefix/lib:${LD_LIBRARY_PATH}
