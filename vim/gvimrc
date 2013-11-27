@@ -6,7 +6,7 @@ set go+=c
 
 " if mac use the monaco font
 if has("macunix")
-    set gfn=Menlo:h12
+    set gfn=Cosmic\ Sans\ Neue\ Mono:h14
 else
     set gfn=Bitstream\ Vera\ Sans\ Mono\ 10
 endif
