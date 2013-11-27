@@ -73,18 +73,18 @@ export PATH=${PATH}:${GOPATH}/bin
 export WORDCHARS='*?[]~&;!$%^<>'
 
 alias pylab="ipython --pylab"
-alias py='\python'
+alias py='=python'
 alias python='echo "Use py..."'
-alias pydoc='py -m pydoc'
+alias pydoc='=python -m pydoc'
 alias vim="echo 'Use v...'"
 alias vi=vim_nox
 alias v=vi
 alias ls='ls -F'
 alias l=ls
 alias g='git'
-alias gst='\git st'
-alias gcm='\git commit -m'
-alias gse='\git sync && exit'
+alias gst='=git st'
+alias gcm='=git commit -m'
+alias gse='=git sync && exit'
 alias sc="v +Scratch"
 alias es='exec $SHELL'
 
