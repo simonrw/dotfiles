@@ -1,8 +1,5 @@
 backend: TkAgg
-font.size: 20
 font.family: serif
-font.serif: Computer Sans
-text.usetex: True
 figure.dpi: 100
 figure.facecolor : white    # figure facecolor; 0.75 is scalar gray
 figure.edgecolor : white   # figure edgecolor
