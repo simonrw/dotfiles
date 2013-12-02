@@ -134,23 +134,14 @@ case $OSTYPE in
             # export PYTHONPATH=${VIRTUALENV_DIR}/lib/python2.7/site-packages:$PYTHONPATH
         fi
 
-        # Set up chruby
-        source ${HOME}/prefix/share/chruby/chruby.sh
-        RUBIES=(~/.rbenv/versions/*)
         ;;
     darwin*)
         export PATH=${PATH}:/usr/texbin:/usr/local/share/npm/bin:/usr/local/sbin:/sbin:/usr/sbin
         alias gvim=mvim
         alias gview=mview
         alias -g awk=gawk
-
-        # Set up chruby
-        source /usr/local/opt/chruby/share/chruby/chruby.sh
-        RUBIES=(~/.rubies/*)
         ;;
 esac
-
-chruby 2.0
 
 # Pip download cache
 export PIP_DOWNLOAD_CACHE=${HOME}/.pip-download-cache
