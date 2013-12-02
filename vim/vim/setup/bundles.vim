@@ -40,6 +40,7 @@ Bundle 'kien/rainbow_parentheses.vim'
 Bundle 'altercation/vim-colors-solarized'
 Bundle 'michaeljsmith/vim-indent-object'
 Bundle 'nelstrom/vim-markdown-folding'
+Bundle 'godlygeek/tabular'
 
 " My plugins or forks
 Bundle 'mindriot101/vim-scratch'
