@@ -143,6 +143,8 @@ case $OSTYPE in
         ;;
 esac
 
+if which rbenv > /dev/null; then eval "$(rbenv init --no-rehash - zsh)"; fi
+
 # Pip download cache
 export PIP_DOWNLOAD_CACHE=${HOME}/.pip-download-cache
 
