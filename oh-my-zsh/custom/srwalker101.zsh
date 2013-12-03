@@ -58,13 +58,12 @@ alias ta=_tmux_attach
 alias tns="tmux new-session -s"
 alias tls="tmux ls"
 
-export PATH=${HOME}/.cabal/bin:${HOME}/.bin:${HOME}/prefix/bin:$PATH:${HOME}/.cask/bin
+export GOPATH=${HOME}/Development/gocode
+export PATH=${HOME}/.cabal/bin:${HOME}/.bin:${HOME}/prefix/bin:${HOME}/.rbenv/bin:${PATH}:${HOME}/.cask/bin:${GOPATH}/bin
 export EDITOR=vim_nox
 export VISUAL=${EDITOR}
 export BIBINPUTS=${HOME}/work/central-bibliography:${BIBINPUTS}
 export TERM=screen-256color
-export GOPATH=${HOME}/Development/gocode
-export PATH=${PATH}:${GOPATH}/bin
 
 # Taken from grb's zshrc
 
