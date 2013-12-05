@@ -59,7 +59,9 @@ alias tns="tmux new-session -s"
 alias tls="tmux ls"
 
 export GOPATH=${HOME}/Development/gocode
-export PATH=${HOME}/.cabal/bin:${HOME}/.bin:${HOME}/prefix/bin:${HOME}/.rbenv/bin:${PATH}:${HOME}/.cask/bin:${GOPATH}/bin
+export PATH=${HOME}/.cabal/bin:${HOME}/prefix/bin:${HOME}/.rbenv/bin:${PATH}:${HOME}/.cask/bin:${GOPATH}/bin
+# Ensure my .bin directory is first
+export PATH=${HOME}/.bin:${PATH}
 export EDITOR=vim_nox
 export VISUAL=${EDITOR}
 export BIBINPUTS=${HOME}/work/central-bibliography:${BIBINPUTS}
