@@ -31,6 +31,7 @@ Bundle 'tpope/vim-surround'
 Bundle 'tpope/vim-repeat'
 Bundle 'tpope/vim-unimpaired'
 Bundle 'tpope/vim-dispatch'
+Bundle 'tpope/vim-markdown'
 
 " Custom plugins
 Bundle 'kien/ctrlp.vim'
