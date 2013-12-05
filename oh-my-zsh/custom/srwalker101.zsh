@@ -146,9 +146,6 @@ esac
 
 if which rbenv > /dev/null; then eval "$(rbenv init --no-rehash - zsh)"; fi
 
-# Pip download cache
-export PIP_DOWNLOAD_CACHE=${HOME}/.pip-download-cache
-
 # Most recent history commands
 function most_used_history() {
     history 1 |
