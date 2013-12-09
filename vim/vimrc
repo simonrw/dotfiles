@@ -114,9 +114,6 @@ set lazyredraw
 " Set up statusline
 set statusline=
 
-" Folding method
-set foldmethod=marker
-
 " Thesaurus
 set thesaurus+=~/thesaurus/mthesaur.txt
 
