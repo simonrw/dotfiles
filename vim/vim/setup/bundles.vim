@@ -42,6 +42,8 @@ Bundle 'altercation/vim-colors-solarized'
 Bundle 'michaeljsmith/vim-indent-object'
 Bundle 'nelstrom/vim-markdown-folding'
 Bundle 'godlygeek/tabular'
+Bundle 'jgdavey/tslime.vim'
+Bundle 'benmills/vimux'
 
 " My plugins or forks
 Bundle 'mindriot101/vim-scratch'

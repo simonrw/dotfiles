@@ -58,3 +58,8 @@ let g:markdown_fold_style = 'stacked'
 
 " Latex folding
 let g:vim_latex_foldcolumn = 0
+
+" Vimux
+map <leader>vp :VimuxPromptCommand<cr>
+map <leader>vl :VimuxRunLastCommand<cr>
+map <leader>vi :VimuxInspectRunner<cr>
