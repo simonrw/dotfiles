@@ -75,6 +75,7 @@ export WORDCHARS='*?[]~&;!$%^<>'
 
 alias pylab="ipython --pylab"
 alias py='=python'
+alias ipy=ipython
 alias python='echo "Use py..."'
 alias pydoc='=python -m pydoc'
 alias vim="echo 'Use v...'"
