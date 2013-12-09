@@ -138,7 +138,7 @@ case $OSTYPE in
 
         ;;
     darwin*)
-        export PATH=${PATH}:/usr/texbin:/usr/local/share/npm/bin:/usr/local/sbin:/sbin:/usr/sbin
+        export PATH=${PATH}:/usr/texbin:/usr/local/sbin:/sbin:/usr/sbin
         alias gvim=mvim
         alias gview=mview
         alias -g awk=gawk
