@@ -22,6 +22,7 @@
     dc = diff --cached
     aa = add --all
     aap = add --all --patch
+    oneline = log --oneline
 [color]
     ui = auto
 [core]
