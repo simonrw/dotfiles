@@ -62,6 +62,7 @@ Bundle 'nginx.vim'
 Bundle 'kchmck/vim-coffee-script'
 Bundle 'elixir-lang/vim-elixir'
 Bundle 'derekwyatt/vim-scala'
+Bundle 'digitaltoad/vim-jade'
 
 filetype plugin indent on
 
