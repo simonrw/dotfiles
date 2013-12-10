@@ -195,9 +195,6 @@ set showtabline=1
 " Set some ignore patterns
 set wildignore+=*.aux,*.o,*.git,/tmp/*,*.so,*.swp,*.zip,venv,env,*.pyc
 
-" Show broken lines
-let &showbreak = '| '
-
 set switchbuf=useopen
 
 " Enable auto sourcing of vim config files
