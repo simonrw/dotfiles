@@ -73,7 +73,6 @@ export TERM=screen-256color
 # Narrow that down to allow easier skipping through words via M-f and M-b.
 export WORDCHARS='*?[]~&;!$%^<>'
 
-alias pylab="ipython --pylab"
 alias py='=python'
 alias ipy=ipython
 alias python='echo "Use py..."'
