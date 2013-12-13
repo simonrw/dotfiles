@@ -40,7 +40,6 @@ set shiftwidth=4
 set shiftround
 set expandtab
 set smarttab
-set shell=bash
 scriptencoding utf-8
 
 " Automatically save on certain commands
