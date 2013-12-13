@@ -236,9 +236,6 @@ set list
 "     MAPPINGS     "
 """"""""""""""""""""
 
-" Quick spelling toggle
-nmap <silent> <leader>s :set spell!<cr>
-
 " Paste toggling - allow for pasting from other sources with correct
 " formatting
 set pastetoggle=<leader>p

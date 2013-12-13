@@ -63,3 +63,9 @@ let g:vim_latex_foldcolumn = 0
 map <leader>vp :VimuxPromptCommand<cr>
 map <leader>vl :VimuxRunLastCommand<cr>
 map <leader>vi :VimuxInspectRunner<cr>
+
+" Syntatic, set passive mode by default
+let g:syntastic_mode_map = { 'mode': 'passive' }
+let g:syntastic_check_on_wq = 0
+let g:syntastic_enable_highlighting = 0
+map <leader>s :w\|SyntasticCheck<cr>

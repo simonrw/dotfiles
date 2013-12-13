@@ -44,6 +44,7 @@ Bundle 'nelstrom/vim-markdown-folding'
 Bundle 'godlygeek/tabular'
 Bundle 'jgdavey/tslime.vim'
 Bundle 'benmills/vimux'
+Bundle 'scrooloose/syntastic'
 
 " My plugins or forks
 Bundle 'mindriot101/vim-scratch'
