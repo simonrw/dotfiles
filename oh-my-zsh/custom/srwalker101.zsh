@@ -79,7 +79,6 @@ alias python='echo "Use py..."'
 alias pydoc='=python -m pydoc'
 alias vim="echo 'Use v...'"
 alias vi=vim_nox
-alias v=vi
 alias ls='ls -F'
 alias l=ls
 alias g='git'
