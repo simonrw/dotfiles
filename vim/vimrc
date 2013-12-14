@@ -226,9 +226,6 @@ augroup cline
     autocmd WinEnter,InsertLeave * set cursorline
 augroup END
 
-set listchars=nbsp:~
-set list
-
 
 " }}}
 " {{{ Mappings
