@@ -51,6 +51,7 @@ au Syntax * RainbowParenthesesLoadSquare
 au Syntax * RainbowParenthesesLoadBraces
 
 " Ack.vim
+let g:ackprg = 'ag --nogroup --nocolor --column'
 nnoremap <leader>a :Ack!<space>
 
 " markdown-folding
