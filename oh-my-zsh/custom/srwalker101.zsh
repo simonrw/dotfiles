@@ -65,7 +65,7 @@ export PATH=${HOME}/.bin:${PATH}
 export EDITOR=vim_nox
 export VISUAL=${EDITOR}
 export BIBINPUTS=${HOME}/work/central-bibliography:${BIBINPUTS}
-export TERM=screen-256color
+export TERM=xterm-256color
 
 # Taken from grb's zshrc
 
