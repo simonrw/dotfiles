@@ -89,8 +89,8 @@ alias sc="v +Scratch"
 alias es='exec $SHELL'
 
 # Update vim plugins
-alias vbi='v +BundleInstall +qa'
-alias vbu='v +BundleUpdate'
+alias vbi='=vim +BundleInstall +qa'
+alias vbu='=vim +BundleUpdate'
 
 # Ruby aliases
 alias bcb='bundle check; bundle install --binstubs .bundle/bin'
