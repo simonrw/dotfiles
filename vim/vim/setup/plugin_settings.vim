@@ -19,7 +19,7 @@ let g:ctrlp_cmd = "CtrlPMixed"
 
 " Set colour scheme
 set background=dark
-colorscheme solarized
+colorscheme srw
 call togglebg#map("<leader>b")
 
 " Rainbow parentheses setup
