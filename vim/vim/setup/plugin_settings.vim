@@ -1,19 +1,19 @@
-" Enable matchit
+" {{{ matchit
 runtime macros/matchit.vim
-
-" Snipmate settings - use Ctrl-J for completion
+"}}}
+" {{{ snipmate
 imap <c-j> <Plug>snipMateNextOrTrigger
 smap <c-j> <Plug>snipMateNextOrTrigger
-
-" Fugitive mappings
+"}}}
+" {{{ fugitive
 nmap <leader>gc :Gcommit<cr>
 nmap <leader>gd :Gdiff<cr>
 nmap <leader>gsd :Gsdiff<cr>
 nmap <leader>gw :Gwrite<cr>
 nmap <leader>gr :Gread<cr>
 nmap <leader>gl :Glog<cr>
-
-" Ctrl-p settings
+"}}}
+" {{{ ctrlp
 let g:ctrlp_map = "<leader>f"
 let g:ctrlp_cmd = "CtrlPMixed"
 
@@ -28,7 +28,8 @@ set background=dark
 colorscheme srw
 call togglebg#map("<leader>b")
 
-" Rainbow parentheses setup
+"}}}
+" {{{ rainbow_parentheses
 let g:rbpt_colorpairs = [
     \ ['brown',       'RoyalBlue3'],
     \ ['Darkblue',    'SeaGreen3'],
@@ -55,24 +56,28 @@ au VimEnter * RainbowParenthesesToggle
 au Syntax * RainbowParenthesesLoadRound
 au Syntax * RainbowParenthesesLoadSquare
 au Syntax * RainbowParenthesesLoadBraces
-
-" Ack.vim
+"}}}
+" {{{ ack
 let g:ackprg = 'ag --nogroup --nocolor --column'
 nnoremap <leader>a :Ack!<space>
-
-" markdown-folding
+"}}}
+" {{{ markdown-folding
 let g:markdown_fold_style = 'stacked'
 
 " Latex folding
 let g:vim_latex_foldcolumn = 0
 
-" Vimux
+"}}}
+" {{{ vimux
 map <leader>vp :VimuxPromptCommand<cr>
 map <leader>vl :VimuxRunLastCommand<cr>
 map <leader>vi :VimuxInspectRunner<cr>
-
-" Syntatic, set passive mode by default
+"}}}
+" {{{ syntastic
+" set passive mode by default
 let g:syntastic_mode_map = { 'mode': 'passive' }
 let g:syntastic_check_on_wq = 0
 let g:syntastic_enable_highlighting = 0
 map <leader>s :w\|SyntasticCheck<cr>
+"}}}
+" vim: foldmethod=marker
