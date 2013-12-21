@@ -162,7 +162,7 @@ endif
 set winwidth=79
 
 " Enable scrolljump
-set scrolljump=5
+set scrolljump=10
 
 " Disable conceal
 set conceallevel=0
