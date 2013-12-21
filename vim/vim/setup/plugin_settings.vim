@@ -23,6 +23,16 @@ nmap <leader>gv :CtrlP app/views<cr>
 nmap <leader>gc :CtrlP app/controllers<cr>
 nmap <leader>ga :CtrlP app/assets<cr>
 nmap <leader>r :CtrlPMRU<cr>
+
+" Use silver searcher if available
+if executable('ag')
+    " Let ctrlp use ag for files
+    let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+
+    " Disable ag caching
+    let g:ctrlp_use_caching = 0
+endif
+
 "}}}
 " {{{ rainbow_parentheses
 let g:rbpt_colorpairs = [
