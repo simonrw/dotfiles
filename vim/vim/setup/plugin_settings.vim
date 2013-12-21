@@ -21,6 +21,8 @@ nmap <leader>gm :CtrlP app/models<cr>
 nmap <leader>gv :CtrlP app/views<cr>
 nmap <leader>gc :CtrlP app/controllers<cr>
 nmap <leader>ga :CtrlP app/assets<cr>
+nmap <leader>gl :CtrlP lib<cr>
+
 nmap <leader>r :CtrlPMRU<cr>
 
 " Use silver searcher if available
