@@ -133,7 +133,7 @@ set formatprg=par
 set scrolloff=3
 
 " Configure 'Press enter to continue' messages
-set shortmess=atI
+set shortmess=at
 
 " Time out on key codes but not mappings
 set notimeout
