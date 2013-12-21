@@ -57,10 +57,6 @@ nnoremap <leader>a :Ack!<space>
 "}}}
 " {{{ markdown-folding
 let g:markdown_fold_style = 'stacked'
-
-" Latex folding
-let g:vim_latex_foldcolumn = 0
-
 "}}}
 " {{{ vimux
 map <leader>vp :VimuxPromptCommand<cr>
