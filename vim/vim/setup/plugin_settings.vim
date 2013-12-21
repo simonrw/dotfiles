@@ -22,6 +22,7 @@ nmap <leader>gv :CtrlP app/views<cr>
 nmap <leader>gc :CtrlP app/controllers<cr>
 nmap <leader>ga :CtrlP app/assets<cr>
 nmap <leader>gl :CtrlP lib<cr>
+nmap <leader>gM :CtrlP db/migrate<cr>
 
 nmap <leader>r :CtrlPMRU<cr>
 
