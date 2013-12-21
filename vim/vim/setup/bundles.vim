@@ -1,4 +1,4 @@
-" Global setup
+" Global setup {{{
 " -------------
 " Nice vundle stuff
 filetype off
@@ -20,7 +20,7 @@ let g:vundle_default_git_proto = 'git'
 set rtp+=~/.vim/bundle/vundle
 call vundle#rc()
 
-
+"}}}
 " Let vundle manage vundle
 Bundle 'gmarik/vundle'
 
@@ -64,7 +64,8 @@ Bundle 'kchmck/vim-coffee-script'
 Bundle 'elixir-lang/vim-elixir'
 Bundle 'derekwyatt/vim-scala'
 Bundle 'digitaltoad/vim-jade'
-
+"
+"{{{ Post-setup
 filetype plugin indent on
 
 if s:VundleInstalled == 0
@@ -72,3 +73,5 @@ if s:VundleInstalled == 0
     echo ""
     :BundleInstall
 endif
+"}}}
+" vim: foldmethod=marker
