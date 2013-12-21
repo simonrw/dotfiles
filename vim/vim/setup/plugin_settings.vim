@@ -22,12 +22,6 @@ nmap <leader>gm :CtrlP app/models<cr>
 nmap <leader>gv :CtrlP app/views<cr>
 nmap <leader>gc :CtrlP app/controllers<cr>
 nmap <leader>ga :CtrlP app/assets<cr>
-
-" Set colour scheme
-set background=dark
-colorscheme srw
-call togglebg#map("<leader>b")
-
 "}}}
 " {{{ rainbow_parentheses
 let g:rbpt_colorpairs = [
