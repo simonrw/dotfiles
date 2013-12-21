@@ -15,7 +15,6 @@ nmap <leader>gl :Glog<cr>
 "}}}
 " {{{ ctrlp
 let g:ctrlp_map = "<leader>f"
-let g:ctrlp_cmd = "CtrlPMixed"
 
 " Aliases for rails projects
 nmap <leader>gm :CtrlP app/models<cr>
