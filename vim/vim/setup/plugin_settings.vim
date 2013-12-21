@@ -17,6 +17,12 @@ nmap <leader>gl :Glog<cr>
 let g:ctrlp_map = "<leader>f"
 let g:ctrlp_cmd = "CtrlPMixed"
 
+" Aliases for rails projects
+nmap <leader>gm :CtrlP app/models<cr>
+nmap <leader>gv :CtrlP app/views<cr>
+nmap <leader>gc :CtrlP app/controllers<cr>
+nmap <leader>ga :CtrlP app/assets<cr>
+
 " Set colour scheme
 set background=dark
 colorscheme srw
