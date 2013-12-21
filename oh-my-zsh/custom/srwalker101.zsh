@@ -53,6 +53,12 @@ function _tmux_attach() {
 function mcd() { mkdir -p $1 && cd $1 }
 function cdf() { cd *$1*/ }
 
+function ignore_untracked_files() {
+    =git st |
+    grep '??' |
+    cut -d ' ' -f 2- >> .gitignore
+}
+
 # Alias some tmux commands
 alias ta=_tmux_attach
 alias tns="tmux new-session -s"
