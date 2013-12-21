@@ -129,9 +129,6 @@ set spelllang=en_gb
 " Better formatting
 set formatprg=par
 
-" Add some lines around the cursor
-set scrolloff=3
-
 " Configure 'Press enter to continue' messages
 set shortmess=at
 
