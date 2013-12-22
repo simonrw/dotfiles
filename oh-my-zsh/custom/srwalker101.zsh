@@ -22,6 +22,7 @@ setopt rmstarsilent
 setopt prompt_subst
 setopt inc_append_history
 setopt share_history
+unsetopt auto_pushd
 
 # Only unique history entries in the reverse history search HIST_FIND_NO_DUPS=1
 setopt hist_ignore_all_dups
