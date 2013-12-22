@@ -140,12 +140,15 @@ case $OSTYPE in
             # export PYTHONPATH=${VIRTUALENV_DIR}/lib/python2.7/site-packages:$PYTHONPATH
         fi
 
+        alias lsc='ls --color=auto'
+
         ;;
     darwin*)
         export PATH=${PATH}:/usr/texbin:/usr/local/sbin:/sbin:/usr/sbin
         alias gvim=mvim
         alias gview=mview
         alias -g awk=gawk
+        alias lsc='ls -G'
         ;;
 esac
 
