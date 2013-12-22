@@ -4,6 +4,7 @@ gem_group :development, :test do
     gem 'rspec-rails'
     gem 'database_cleaner'
     gem 'pry-rails'
+    gem 'fuubar'
 
     # Integration tests with a real headless browser
     gem 'capybara'
