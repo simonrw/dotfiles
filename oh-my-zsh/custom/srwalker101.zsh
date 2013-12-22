@@ -79,8 +79,8 @@ export TERM=xterm-256color
 # Narrow that down to allow easier skipping through words via M-f and M-b.
 export WORDCHARS='*?[]~&;!$%^<>'
 
-alias py='=python'
-alias ipy=ipython
+alias -g py='=python'
+alias -g ipy=ipython
 alias python='echo "Use py..."'
 alias pydoc='=python -m pydoc'
 alias vim="echo 'Use v...'"
