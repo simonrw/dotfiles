@@ -3,7 +3,6 @@ gem_group :development, :test do
     gem 'rspec'
     gem 'rspec-rails'
     gem 'database_cleaner'
-    gem 'pry'
     gem 'pry-rails'
 
     # Integration tests with a real headless browser
