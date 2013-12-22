@@ -29,3 +29,10 @@ generate "rspec:install"
 inject_into_file "spec/spec_helper.rb", after: "require 'rspec/autorun'\n" do
   "require 'capybara/rspec'\n"
 end
+
+inject_into_file "spec/spec_helper.rb", after: "config.use_transactional_fixtures = true\n" do
+  %Q(
+  # Only allow expect syntax
+  config.syntax = :expect
+  )
+end
