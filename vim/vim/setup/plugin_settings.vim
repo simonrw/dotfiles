@@ -8,7 +8,6 @@ smap <c-j> <Plug>snipMateNextOrTrigger
 " {{{ fugitive
 nmap <leader>gc :Gcommit<cr>
 nmap <leader>gd :Gdiff<cr>
-nmap <leader>gsd :Gsdiff<cr>
 nmap <leader>gw :Gwrite<cr>
 nmap <leader>gr :Gread<cr>
 nmap <leader>gl :Glog<cr>
@@ -23,6 +22,7 @@ nmap <leader>gc :CtrlP app/controllers<cr>
 nmap <leader>ga :CtrlP app/assets<cr>
 nmap <leader>gl :CtrlP lib<cr>
 nmap <leader>gM :CtrlP db/migrate<cr>
+nmap <leader>gs :CtrlP spec<cr>
 
 nmap <leader>r :CtrlPMRU<cr>
 
