@@ -83,4 +83,10 @@ let g:syntastic_check_on_wq = 0
 let g:syntastic_enable_highlighting = 0
 map <leader>s :w\|SyntasticCheck<cr>
 "}}}
+" {{{ vim-rspec
+map <leader>Rt :call RunCurrentSpecFile()<cr>
+map <leader>Rs :call RunNearestSpec()<cr>
+map <leader>Rl :call RunLastSpec()<cr>
+map <leader>Ra :call RunAllSpecs()<cr>
+"}}}
 " vim: foldmethod=marker

@@ -45,6 +45,7 @@ Bundle 'godlygeek/tabular'
 Bundle 'jgdavey/tslime.vim'
 Bundle 'benmills/vimux'
 Bundle 'scrooloose/syntastic'
+Bundle 'thoughtbot/vim-rspec'
 
 " My plugins or forks
 Bundle 'mindriot101/vim-scratch'
