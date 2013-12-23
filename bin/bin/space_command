@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+
+set -e
+
+add_spaces() {
+    for i in `seq 1 $1`; do
+        echo
+    done
+}
+
+add_spaces 15
+$@
