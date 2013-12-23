@@ -364,6 +364,5 @@ command! -range Source <line1>,<line2>call SourceRange()
 " {{{ Colour scheme
 set background=dark
 colorscheme srw
-call togglebg#map("<leader>b")
 "}}}
 " vim: foldmethod=marker
