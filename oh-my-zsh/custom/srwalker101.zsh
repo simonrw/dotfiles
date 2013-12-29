@@ -86,13 +86,12 @@ alias python='echo "Use py..."'
 alias pydoc='=python -m pydoc'
 alias vim="echo 'Use v...'"
 alias vi=vim_nox
-alias ls='ls -F'
-alias l=ls
+alias -g ls='ls -F'
 alias g='git'
 alias gst='=git st'
 alias gcm='=git commit -m'
 alias gse='=git sync && exit'
-alias sc="v +Scratch"
+alias sc="=vim +Scratch"
 alias es='exec $SHELL'
 
 # Update vim plugins
