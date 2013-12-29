@@ -195,6 +195,7 @@ set switchbuf=useopen
 augroup AutoloadVimrc
     autocmd!
     autocmd BufWritePost $MYVIMRC source $MYVIMRC
+    autocmd BufWritePost ~/dotfiles/vim/vimrc source ~/dotfiles/vim/vimrc
 augroup END
 
 " Jump back to last file position
