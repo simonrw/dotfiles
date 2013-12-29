@@ -1,12 +1,30 @@
-#!/usr/bin/env bash
+#!/usr/bin/env python
+# encoding: utf-8
 
-set -e
 
-add_spaces() {
-    for i in `seq 1 $1`; do
-        echo
-    done
-}
+import sys
+import subprocess
 
-add_spaces 15
-$@
+
+def add_spaces(n=15):
+    for _ in xrange(n):
+        print
+
+
+def extract_arguments():
+    args = sys.argv[1:]
+    try:
+        return (int(args[0]), args[1:])
+    except ValueError:
+        return (None, args)
+
+
+def main():
+    nspaces, args = extract_arguments()
+    nspaces = nspaces if nspaces else 15
+    add_spaces(nspaces)
+    subprocess.check_call(args)
+
+
+if __name__ == '__main__':
+    main()
