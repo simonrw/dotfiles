@@ -73,6 +73,7 @@ export EDITOR=vim_nox
 export VISUAL=${EDITOR}
 export BIBINPUTS=${HOME}/work/central-bibliography:${BIBINPUTS}
 export TERM=xterm-256color
+export LESS='-FXR'
 
 # Taken from grb's zshrc
 
@@ -86,7 +87,6 @@ alias python='echo "Use py..."'
 alias pydoc='=python -m pydoc'
 alias vim="echo 'Use v...'"
 alias vi=vim_nox
-alias -g ls='ls -F'
 alias g='git'
 alias gst='=git st'
 alias gcm='=git commit -m'
