@@ -15,15 +15,6 @@ nmap <leader>gl :Glog<cr>
 " {{{ ctrlp
 let g:ctrlp_map = "<leader>f"
 
-" Aliases for rails projects
-nmap <leader>gm :CtrlP app/models<cr>
-nmap <leader>gv :CtrlP app/views<cr>
-nmap <leader>gc :CtrlP app/controllers<cr>
-nmap <leader>ga :CtrlP app/assets<cr>
-nmap <leader>gl :CtrlP lib<cr>
-nmap <leader>gM :CtrlP db/migrate<cr>
-nmap <leader>gs :CtrlP spec<cr>
-
 nmap <leader>r :CtrlPMRU<cr>
 
 " Use silver searcher if available
