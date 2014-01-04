@@ -221,6 +221,8 @@ augroup cline
     autocmd WinEnter,InsertLeave * set cursorline
 augroup END
 
+set scrolloff=1
+
 
 " }}}
 " {{{ Mappings
