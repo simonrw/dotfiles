@@ -41,10 +41,10 @@ c.InteractiveShellApp.exec_lines.append('%autoreload 2')
 # c.InteractiveShellApp.pylab_import_all = True
 
 # A list of dotted module names of IPython extensions to load.
-c.InteractiveShellApp.extensions = [
-        'line_profiler_ext',
-        'memory_profiler_ext',
-        ]
+# c.InteractiveShellApp.extensions = [
+#         'line_profiler_ext',
+#         'memory_profiler_ext',
+#         ]
 
 # Run the module as a script.
 # c.InteractiveShellApp.module_to_run = ''
@@ -120,10 +120,10 @@ c.InteractiveShellApp.extensions = [
 # c.TerminalIPythonApp.quick = False
 
 # A list of dotted module names of IPython extensions to load.
-c.TerminalIPythonApp.extensions = [
-        'line_profiler_ext',
-        'memory_profiler_ext',
-        ]
+# c.TerminalIPythonApp.extensions = [
+#         'line_profiler_ext',
+#         'memory_profiler_ext',
+#         ]
 
 # The Logging format template
 # c.TerminalIPythonApp.log_format = '[%(name)s] %(message)s'
