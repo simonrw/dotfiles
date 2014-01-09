@@ -107,10 +107,10 @@ def individual_files
   Dir["individual_files/*/*"].each do |f|
     destination =  File.expand_path(File.join('~', '.' + f.split('/')[1..-1].join('/')))
     source = File.join(File.dirname(__FILE__), f)
-    begin
+    unless File.exists? destination
       File.symlink(source, destination)
       puts "Linking #{destination}"
-    rescue
+    else
       puts "Link #{destination} already found"
     end
   end
