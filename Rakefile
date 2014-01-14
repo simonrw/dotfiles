@@ -104,7 +104,8 @@ task :default do
 end
 
 def individual_files
-  Dir["individual_files/*/*"].each do |f|
+  files = Dir["individual_files/*/*"] + Dir["individual_files/*"]
+  files.each do |f|
     destination =  File.expand_path(File.join('~', '.' + f.split('/')[1..-1].join('/')))
     source = File.join(File.dirname(__FILE__), f)
     unless File.exists? destination
