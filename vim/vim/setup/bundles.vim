@@ -37,6 +37,7 @@ Bundle 'tpope/vim-vinegar'
 " Custom plugins
 Bundle 'kien/ctrlp.vim'
 Bundle 'mileszs/ack.vim'
+Bundle 'rking/ag.vim'
 Bundle 'jnwhiteh/vim-golang'
 Bundle 'kien/rainbow_parentheses.vim'
 Bundle 'altercation/vim-colors-solarized'
