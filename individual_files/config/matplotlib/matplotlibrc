@@ -71,7 +71,7 @@ backend : TkAgg
 # information on patch properties
 #patch.linewidth   	: 1.0     # edge width in points
 #patch.facecolor  	: blue
-#patch.edgecolor  	: black
+# patch.edgecolor  	: None
 #patch.antialiased 	: True    # render patches in antialised (no jaggies)
 
 ### FONT
