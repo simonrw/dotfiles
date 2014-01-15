@@ -6,8 +6,8 @@ process_list() {
     ps aux
 }
 
-find_chrome_processes() {
-    grep -i chrome |
+find_processes() {
+    grep -i $PSNAME |
     grep -v grep
 }
 
@@ -24,24 +24,31 @@ memory_usage_from_resident() {
 }
 
 get_memory_mb() {
-    process_list | find_chrome_processes | memory_usage_from_percentage
+    process_list | find_processes | memory_usage_from_percentage
     
 }
 
 get_memory_resident() {
-    process_list | find_chrome_processes | memory_usage_from_resident
+    process_list | find_processes | memory_usage_from_resident
 }
 
 get_memory_virtual() {
-    process_list | find_chrome_processes | memory_usage_from_virtual
+    process_list | find_processes | memory_usage_from_virtual
 }
 
 main() {
-    echo "Chrome memory usage   : `get_memory_mb` MB"
+    if [[ $# -ne 1 ]]; then
+        echo "Program usage: `basename ${0}` <name>"
+        exit 1
+    fi
+
+    PSNAME=$1
+    echo "$PSNAME"
+    echo "Memory usage          : `get_memory_mb` MB"
     echo "Resident memory usage : `get_memory_resident` MB"
     echo "Virtual memory usage  : `get_memory_virtual` MB"
 }
 
-main
+main $*
 
 #vim: ft=bash
