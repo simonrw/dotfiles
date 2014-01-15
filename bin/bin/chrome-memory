@@ -1,0 +1,47 @@
+#!/bin/bash
+
+set -e
+
+process_list() {
+    ps aux
+}
+
+find_chrome_processes() {
+    grep -i chrome |
+    grep -v grep
+}
+
+memory_usage_from_percentage() {
+    awk '{s+=$4} END {print s*2048*2/100}'
+}
+
+memory_usage_from_virtual() {
+    awk '{s+=$5} END {print s / 1024}'
+}
+
+memory_usage_from_resident() {
+    awk '{s+=$6} END {print s / 1024}'
+}
+
+get_memory_mb() {
+    process_list | find_chrome_processes | memory_usage_from_percentage
+    
+}
+
+get_memory_resident() {
+    process_list | find_chrome_processes | memory_usage_from_resident
+}
+
+get_memory_virtual() {
+    process_list | find_chrome_processes | memory_usage_from_virtual
+}
+
+main() {
+    echo "Chrome memory usage   : `get_memory_mb` MB"
+    echo "Resident memory usage : `get_memory_resident` MB"
+    echo "Virtual memory usage  : `get_memory_virtual` MB"
+}
+
+main
+
+#vim: ft=bash
