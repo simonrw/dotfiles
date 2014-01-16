@@ -32,25 +32,15 @@ Bundle 'tpope/vim-repeat'
 Bundle 'tpope/vim-unimpaired'
 Bundle 'tpope/vim-dispatch'
 Bundle 'tpope/vim-markdown'
-Bundle 'tpope/vim-vinegar'
+" Bundle 'tpope/vim-vinegar'
 
 " Custom plugins
 Bundle 'kien/ctrlp.vim'
 Bundle 'mileszs/ack.vim'
 Bundle 'rking/ag.vim'
-Bundle 'jnwhiteh/vim-golang'
-Bundle 'kien/rainbow_parentheses.vim'
-Bundle 'altercation/vim-colors-solarized'
-Bundle 'michaeljsmith/vim-indent-object'
 Bundle 'nelstrom/vim-markdown-folding'
-Bundle 'godlygeek/tabular'
-Bundle 'jgdavey/tslime.vim'
-Bundle 'benmills/vimux'
-Bundle 'scrooloose/syntastic'
-Bundle 'thoughtbot/vim-rspec'
 
 " My plugins or forks
-Bundle 'mindriot101/vim-scratch'
 Bundle 'mindriot101/srw-colorscheme.vim'
 
 " Snipmate plugins
@@ -59,15 +49,6 @@ Bundle 'tomtom/tlib_vim'
 Bundle 'garbas/vim-snipmate'
 Bundle 'honza/vim-snippets'
 
-" Language plugins
-Bundle 'rodjek/vim-puppet'
-Bundle 'jimenezrick/vimerl'
-Bundle 'nginx.vim'
-Bundle 'kchmck/vim-coffee-script'
-Bundle 'elixir-lang/vim-elixir'
-Bundle 'derekwyatt/vim-scala'
-Bundle 'digitaltoad/vim-jade'
-"
 "{{{ Post-setup
 filetype plugin indent on
 
