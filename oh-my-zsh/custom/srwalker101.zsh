@@ -65,6 +65,9 @@ alias ta=_tmux_attach
 alias tns="tmux new-session -s"
 alias tls="tmux ls"
 
+# Run irssi with the correct TERM variable
+alias irssi="TERM=screen-256color irssi"
+
 export GOPATH=${HOME}/Development/gocode
 export PATH=${HOME}/.cabal/bin:${HOME}/prefix/bin:${HOME}/.rbenv/bin:${PATH}:${HOME}/.cask/bin:${GOPATH}/bin
 # Ensure my .bin directory is first
