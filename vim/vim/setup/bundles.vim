@@ -49,6 +49,9 @@ Bundle 'tomtom/tlib_vim'
 Bundle 'garbas/vim-snipmate'
 Bundle 'honza/vim-snippets'
 
+" Language plugins
+Bundle 'elixir-lang/vim-elixir'
+
 "{{{ Post-setup
 filetype plugin indent on
 
