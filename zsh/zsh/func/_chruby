@@ -1,2 +1,0 @@
-#compdef chruby
-compadd `chruby  | sed 's/*//'  | xargs`
