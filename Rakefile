@@ -119,7 +119,6 @@ end
 
 desc 'Links the respective files into the correct places'
 task :install, [:install_osx] do |t, args|
-    OhMyZSH.new.install
     add_links
     individual_files
     Cask.install
@@ -130,7 +129,6 @@ desc 'Removes any soft-links created by this script'
 task :uninstall, [:uninstall_osx] do |t, args|
     remove_links
     source_osx_file args[:uninstall_osx], 'restore.sh'
-    OhMyZSH.new.uninstall
 end
 
 desc 'Reinstalls directories'
