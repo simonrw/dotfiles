@@ -1,6 +1,6 @@
 setlocal textwidth=99
 
-set wrap
+setlocal wrap
 
 " Set the makeprg to flake8 for syntax checking
 setlocal makeprg=flake8\ %
