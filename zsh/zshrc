@@ -146,6 +146,8 @@ case $OSTYPE in
 
         alias lsc='ls --color=auto'
 
+        export PATH=${HOME}/firefox:${PATH}
+
         ;;
     darwin*)
         export PATH=${PATH}:/usr/texbin:/usr/local/sbin:/sbin:/usr/sbin
