@@ -137,13 +137,10 @@ set notimeout
 set ttimeout
 set ttimeoutlen=10
 
-" better vim behaviour with cronfiles
-set backupskip=/tmp/*,/private/tmp/*
-
 " Backup behaviour
-set backup
-set undodir=~/.vim/tmp/undo//
-set backupdir=~/.vim/tmp/backup//
+set nobackup
+
+" Place to put swap files
 set directory=~/.vim/tmp/swap//
 
 " Make those folders automatically if they don't already exist.
