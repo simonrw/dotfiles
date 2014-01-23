@@ -24,19 +24,6 @@ def get_to_links
     to_links
 end
 
-class Cask
-  def self.install
-    unless self.installed?
-      puts 'Installing Cask'
-      `git clone https://github.com/cask/cask.git ~/.cask`
-    end
-  end
-
-  def self.installed?
-    File.directory? File.expand_path(File.join("~", ".cask", "bin"))
-  end
-end
-
 # Returns the name of the link that will be created
 def link_name(name)
     File.expand_path(File.join('~', '.' + File.basename(name)))
@@ -119,7 +106,6 @@ desc 'Links the respective files into the correct places'
 task :install, [:install_osx] do |t, args|
     add_links
     individual_files
-    Cask.install
     source_osx_file args[:install_osx], 'defaults.sh'
 end
 
