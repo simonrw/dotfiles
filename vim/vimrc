@@ -200,13 +200,6 @@ autocmd InsertLeave * match ExtraWhitespace /\s\+$/
 " Set the status line
 set statusline=%<%f\ %h%m%r%=%y\ %-14.(%l,%c%V%)\ %P
 
-" Show cursorline only when in normal mode
-augroup cline
-    autocmd!
-    autocmd WinLeave,InsertEnter * set nocursorline
-    autocmd WinEnter,InsertLeave * set cursorline
-augroup END
-
 set scrolloff=1
 
 
