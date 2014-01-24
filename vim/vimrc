@@ -111,6 +111,9 @@ set hidden
 " Don't update the display while executing macros
 set lazyredraw
 
+" Match parens when highlighting them
+set showmatch
+
 " Set up statusline
 set statusline=
 
