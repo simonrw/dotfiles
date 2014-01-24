@@ -317,6 +317,9 @@ inoremap <C-w> <C-g>u<C-w>
 nnoremap <leader>ev :vsplit $MYVIMRC<cr>
 nnoremap <leader>ez :vsplit ~/.zshrc<cr>
 
+" open Ag (note the space afterwards)
+nnoremap <leader>a :Ag 
+
 " Use space to fold/unfold
 nnoremap <space> za
 
