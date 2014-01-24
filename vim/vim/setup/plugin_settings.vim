@@ -15,6 +15,12 @@ nmap <leader>gl :Glog<cr>
 " {{{ ctrlp
 let g:ctrlp_map = "<leader>f"
 
+" Always open file in new buffer
+let g:ctrlp_switch_buffer = 0
+
+" Use current working directory always
+let g:ctrlp_working_path_mode = 0
+
 nmap <leader>r :CtrlPMRU<cr>
 
 " Use silver searcher if available
