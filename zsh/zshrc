@@ -105,6 +105,8 @@ alias vbu="=vim '+BundleInstall!'"
 alias bcb='bundle check; bundle install --binstubs .bundle/bin'
 alias be='bundle exec'
 
+if which hub > /dev/null; then alias git=hub; fi
+
 # Function for finding my pi
 function __active_interface() {
     local ifconfig_path=/sbin/ifconfig
