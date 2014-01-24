@@ -92,6 +92,9 @@ set report=0
 " Enable fast tty mode
 set ttyfast
 
+" Enable folding
+set foldenable
+
 " Support file types in this order
 set fileformats=unix,mac,dos
 
