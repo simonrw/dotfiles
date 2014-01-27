@@ -52,13 +52,6 @@ function _tmux_attach() {
 
 # From GRB
 function mcd() { mkdir -p $1 && cd $1 }
-function cdf() { cd *$1*/ }
-
-function ignore_untracked_files() {
-    =git st |
-    grep '??' |
-    cut -d ' ' -f 2- >> .gitignore
-}
 
 # Alias some tmux commands
 alias ta=_tmux_attach
@@ -69,9 +62,8 @@ alias tls="tmux ls"
 alias irssi="TERM=screen-256color irssi"
 
 export GOPATH=${HOME}/Development/gocode
-export PATH=${HOME}/.cabal/bin:${HOME}/prefix/bin:${HOME}/.rbenv/bin:${PATH}:${GOPATH}/bin
-# Ensure my .bin directory is first
-export PATH=${HOME}/.bin:${PATH}
+export PATH=${HOME}/.cabal/bin:${HOME}/prefix/bin:${HOME}/.rbenv/bin:${PATH}
+
 export EDITOR=vim_nox
 export VISUAL=${EDITOR}
 export BIBINPUTS=${HOME}/work/central-bibliography:${BIBINPUTS}
@@ -86,9 +78,7 @@ export WORDCHARS='*?[]~&;!$%^<>'
 
 alias -g py='=python'
 alias -g ipy=ipython
-alias python='echo "Use py..."'
 alias pydoc='=python -m pydoc'
-alias vim="echo 'Use v...'"
 alias vi=vim_nox
 alias g='git'
 alias gst='=git st'
@@ -131,12 +121,6 @@ case $OSTYPE in
         # Set up the module command
         function module() { eval `modulecmd zsh $*`; }
 
-        # If the server is at Leicester, source the intel compiler variables
-        if [[ `dnsdomainname` == "star.le.ac.uk" ]]; then
-            source /opt/intel/composerxe-2011.0.084/bin/compilervars.sh intel64 2>/dev/null
-            source /usr/local/sge/default/common/settings.sh
-        fi
-
         VIRTUALENV_DIR=${HOME}/PythonEnv
         VIRTUALENV_SOURCE_FILE=${VIRTUALENV_DIR}/bin/activate
         if [[ -f ${VIRTUALENV_SOURCE_FILE} ]]; then
@@ -151,8 +135,8 @@ case $OSTYPE in
         SSHAGENT=/usr/bin/ssh-agent
         SSHAGENTARGS="-s"
         if [ -z "$SSH_AUTH_SOCK" -a -x "$SSHAGENT" ]; then
-        eval `$SSHAGENT $SSHAGENTARGS`
-        trap "kill $SSH_AGENT_PID" 0
+            eval `$SSHAGENT $SSHAGENTARGS`
+            trap "kill $SSH_AGENT_PID" 0
         fi
 
         ;;
@@ -167,19 +151,15 @@ esac
 
 if which rbenv > /dev/null; then eval "$(rbenv init --no-rehash - zsh)"; fi
 
-# Most recent history commands
-function most_used_history() {
-    history 1 |
-    awk '{a[$2]++}END{for (i in a){print a[i] " " i}}' |
-    sort -rn |
-    head -n 20
-}
-
-
 # Source the custom zshrc.local file in the system
 if [[ -f ${HOME}/.zshrc.local ]]; then
     source ${HOME}/.zshrc.local
 fi
+
+# Ensure my .bin directory is first
+export PATH=${HOME}/.bin:${PATH}
+
+# Source the custom zshrc.local file in the system
 
 # Finally source the theme
 source ${HOME}/.zsh/srwalker101.zsh-theme
