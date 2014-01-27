@@ -151,6 +151,20 @@ esac
 
 if which rbenv > /dev/null; then eval "$(rbenv init --no-rehash - zsh)"; fi
 
+# Most recent history commands
+function most_used_history() {
+    history 1 |
+    awk '{a[$2]++}END{for (i in a){print a[i] " " i}}' |
+    sort -rn |
+    head -n 20
+}
+
+function cdls() {
+    cd $*
+    ls
+}
+
+
 # Source the custom zshrc.local file in the system
 if [[ -f ${HOME}/.zshrc.local ]]; then
     source ${HOME}/.zshrc.local
