@@ -164,6 +164,27 @@ function cdls() {
     ls
 }
 
+# Function to make a new tmux session at a variable location
+function make_tmux_session() {
+    if [[ $# -gt 0 ]]; then
+        if [[ $# -gt 1 ]]; then
+            return
+        fi
+
+        DIRNAME="$1"
+        if [[ ! -d ${DIRNAME} ]]; then
+            mkdir ${DIRNAME}
+        fi
+
+    else
+        DIRNAME=$(pwd)
+    fi
+
+    cd $DIRNAME
+    TMUXNAME=$(basename `pwd`)
+    tns ${TMUXNAME}
+
+}
 
 # Source the custom zshrc.local file in the system
 if [[ -f ${HOME}/.zshrc.local ]]; then
