@@ -48,3 +48,5 @@
     cmd = "diffconflicts vim $BASE $LOCAL $REMOTE $MERGED"
     trustExitCode = true
     keepBackup = false
+[branch]
+    autosetuprebase = always
