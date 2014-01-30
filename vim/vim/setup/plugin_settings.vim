@@ -21,12 +21,13 @@ let g:ctrlp_switch_buffer = 0
 " Use current working directory always
 let g:ctrlp_working_path_mode = 0
 
-nmap <leader>r :CtrlPMRU<cr>
-
 " Use silver searcher if available
 if executable('ag')
     " Let ctrlp use ag for files
     let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+
+    " Only remember a limited number of files
+    let g:ctrlp_mruf_max = 0
 
     " Disable ag caching
     let g:ctrlp_use_caching = 0
