@@ -17,3 +17,4 @@ ipython/ipython/db
 emacs/emacs.d/elpa
 vim/vim/vim-addons
 emacs/emacs.d/.cask
+zsh/zsh/cache
