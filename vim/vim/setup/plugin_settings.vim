@@ -26,6 +26,9 @@ if executable('ag')
     " Let ctrlp use ag for files
     let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
 
+    " Follow symlinks but not duplicates
+    let g:ctrlp_follow_symlinks = 1
+
     " Only remember a limited number of files
     let g:ctrlp_mruf_max = 0
 
