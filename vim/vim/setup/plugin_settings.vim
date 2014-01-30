@@ -29,6 +29,9 @@ if executable('ag')
     " Follow symlinks but not duplicates
     let g:ctrlp_follow_symlinks = 1
 
+    " Change ctrlp style
+    let g:ctrlp_match_window = 'bottom,order:ttb'
+
     " Only remember a limited number of files
     let g:ctrlp_mruf_max = 0
 
