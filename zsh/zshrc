@@ -69,7 +69,7 @@ alias tls="tmux ls"
 alias irssi="TERM=screen-256color irssi"
 
 export GOPATH=${HOME}/Development/gocode
-export PATH=${HOME}/.cabal/bin:${HOME}/prefix/bin:${HOME}/.rbenv/bin:${PATH}
+export PATH=${HOME}/.bin:${HOME}/.cabal/bin:${HOME}/prefix/bin:${HOME}/.rbenv/bin:${PATH}
 
 export EDITOR=vim_nox
 export VISUAL=${EDITOR}
@@ -197,11 +197,6 @@ function make_tmux_session() {
 if [[ -f ${HOME}/.zshrc.local ]]; then
     source ${HOME}/.zshrc.local
 fi
-
-# Ensure my .bin directory is first
-export PATH=${HOME}/.bin:${PATH}
-
-# Source the custom zshrc.local file in the system
 
 # Finally source the theme
 source ${HOME}/.zsh/srwalker101.zsh-theme
