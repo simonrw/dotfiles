@@ -2,7 +2,7 @@
 """"""""""""""""""""
 "     PLUGINS      "
 """"""""""""""""""""
-
+" Vundle {{{
 " Remap the leader key to comma
 let mapleader=','
 let maplocalleader='\\'
@@ -67,7 +67,8 @@ if s:VundleInstalled == 0
     echo ""
     :BundleInstall
 endif
-
+"}}}
+" Plugin settings {{{
 " {{{ matchit
 runtime macros/matchit.vim
 "}}}
@@ -116,6 +117,7 @@ nnoremap <leader>a :Ack!<space>
 "}}}
 " {{{ markdown-folding
 let g:markdown_fold_style = 'stacked'
+"}}}
 "}}}
 
 " }}}
