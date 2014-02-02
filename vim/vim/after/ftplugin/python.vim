@@ -15,4 +15,4 @@ setlocal nospell
 setlocal makeprg=flake8\ %\ --ignore=E501,E128,E123,E126,E261,E262
 
 " Default mapping which can be overridden
-map <buffer> <leader>t :w\|!python %<cr>
+map <leader>t :w\|!python %<cr>
