@@ -3,6 +3,8 @@
 "     PLUGINS      "
 """"""""""""""""""""
 " Vundle {{{
+
+" Preamble {{{
 " Remap the leader key to comma
 let mapleader=','
 let maplocalleader='\\'
@@ -26,9 +28,8 @@ let g:vundle_default_git_proto = 'git'
 " Handle vundle here
 set rtp+=~/.vim/bundle/vundle
 call vundle#rc()
-
-
-" Let vundle manage vundle
+" }}}
+" Plugins {{{
 Bundle 'gmarik/vundle'
 
 " tpope plugins, these deserve their own section
@@ -58,15 +59,15 @@ Bundle 'honza/vim-snippets'
 
 " Language plugins
 Bundle 'elixir-lang/vim-elixir'
-
-" Post setup
+"}}}
+" Post setup {{{
 filetype plugin indent on
 
 if s:VundleInstalled == 0
     echo "Installing bundles"
     echo ""
     :BundleInstall
-endif
+endif"}}}
 "}}}
 " Plugin settings {{{
 " {{{ matchit
