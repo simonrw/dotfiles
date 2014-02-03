@@ -185,6 +185,9 @@ set backspace=indent,eol,start
 " Join lines with 1 space instead of 2
 set nojoinspaces
 
+" Disable all bells
+set vb t_vb=
+
 " Set the tags file location
 set tags=.git/tags,tags;/
 
