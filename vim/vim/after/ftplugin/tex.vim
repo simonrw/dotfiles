@@ -16,3 +16,7 @@ syntax spell toplevel
 " Tag list settings for latex
 let tlist_tex_settings = 'latex;l:labels;s:sections;t:subsections;u:subsubsections'
 setlocal iskeyword=@,48-57,_,-,:,192-255
+
+let SectionRegex = '\v\\(sub)*section'
+nmap [r ?<C-R>=SectionRegex<cr><cr>
+nmap ]r /<C-R>=SectionRegex<cr><cr>
