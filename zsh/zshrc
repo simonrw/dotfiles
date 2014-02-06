@@ -84,7 +84,7 @@ export LESS='-FXR'
 export WORDCHARS='*?[]~&;!$%^<>'
 
 alias -g py='=python'
-alias -g ipy=ipython
+alias -g ipy='ipython --pylab'
 alias pydoc='=python -m pydoc'
 alias vi=vim_nox
 alias g='git'
