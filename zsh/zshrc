@@ -172,7 +172,7 @@ function cdls() {
 }
 
 # Function to make a new tmux session at a variable location
-function make_tmux_session() {
+function make-tmux-session() {
     if [[ $# -gt 0 ]]; then
         if [[ $# -gt 1 ]]; then
             return
