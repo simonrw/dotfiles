@@ -20,3 +20,5 @@ setlocal iskeyword=@,48-57,_,-,:,192-255
 let SectionRegex = '\v\\(sub)*section'
 nmap [r ?<C-R>=SectionRegex<cr><cr>
 nmap ]r /<C-R>=SectionRegex<cr><cr>
+vmap [r ?<C-R>=SectionRegex<cr><cr>
+vmap ]r /<C-R>=SectionRegex<cr><cr>
