@@ -83,8 +83,13 @@ export LESS='-FXR'
 # Narrow that down to allow easier skipping through words via M-f and M-b.
 export WORDCHARS='*?[]~&;!$%^<>'
 
-alias -g py='=python'
-alias -g ipy='ipython --pylab'
+# run ipython with no arguments, but normal python if args
+function python() {
+    test -z "$1" && ipython || command python "$@"
+}
+
+alias -g py='python'
+alias -g ipy='ipython'
 alias pydoc='=python -m pydoc'
 alias vi=vim_nox
 alias g='git'
