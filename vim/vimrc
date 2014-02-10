@@ -145,6 +145,9 @@ scriptencoding utf-8
 " Automatically save on certain commands
 set autowrite
 
+" Update shell
+let g:is_posix = 1
+
 " Shorten the paren matching flash time
 set matchtime=3
 
