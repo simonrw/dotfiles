@@ -189,6 +189,8 @@ set backspace=indent,eol,start
 set nojoinspaces
 
 " Disable all bells
+set novisualbell
+set noerrorbells
 set vb t_vb=
 
 " Set the tags file location
