@@ -152,8 +152,8 @@ let g:is_posix = 1
 set matchtime=3
 
 " Set history settings
-set history=10000
-set undolevels=700
+set history=250
+set undolevels=100
 
 " reload all file changes automatically
 set autoread
