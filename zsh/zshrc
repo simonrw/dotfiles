@@ -88,8 +88,8 @@ function python() {
     test -z "$1" && ipython || command python "$@"
 }
 
-alias -g py='python'
-alias -g ipy='ipython'
+alias py='python'
+alias ipy='ipython'
 alias pydoc='=python -m pydoc'
 alias vi=vim_nox
 alias g='git'
