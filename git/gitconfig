@@ -33,9 +33,6 @@
     whitespace = fix
     editor = vim
     mergeoptions = --no-ff
-[branch "master"]
-    merge = master
-    remote = origin
 [github]
     user = mindriot101
     token = 7e549ed4dddc6ecc0bab22bcac87adac
