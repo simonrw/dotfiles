@@ -1,0 +1,49 @@
+#!/usr/bin/env bash
+
+set -e
+
+initialise_subdirs() {
+    for SUBDIR in data output doc src; do
+        mkdir -p ${SUBDIR}
+        (cd ${SUBDIR} && touch .gitkeep)
+    done
+
+    touch README.markdown
+}
+
+create_git_project() {
+    git init
+    git add --all
+    git commit -m 'Initial commit'
+
+}
+
+spawn_tmux_session() {
+    tmux new -s `basename $(pwd)`
+}
+
+construct_project() {
+    initialise_subdirs
+    create_git_project
+    spawn_tmux_session
+}
+
+main() {
+    if [[ $# -eq 0 ]]; then
+        echo "Usage: `basename $0` <directory>"
+        exit 1
+    fi
+
+    DIRNAME="$1"
+
+    if [[ ! -d ${DIRNAME} ]]; then
+        mkdir -p "${DIRNAME}"
+    else
+        echo "Directory ${DIRNAME} exists, exiting"
+        exit 0
+    fi
+
+    (cd "${DIRNAME}" && construct_project)
+}
+
+main $*
