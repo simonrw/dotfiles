@@ -12,6 +12,8 @@ initialise_subdirs() {
 
     echo 'output/*' >> .gitignore
     echo '!output/.gitkeep' >> .gitignore
+    echo 'data/*' >> .gitignore
+    echo '!data/.gitkeep' >> .gitignore
 }
 
 create_git_project() {
