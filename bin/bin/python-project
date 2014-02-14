@@ -9,13 +9,15 @@ initialise_subdirs() {
     done
 
     touch README.markdown
+
+    echo 'output/*' >> .gitignore
+    echo '!output/.gitkeep' >> .gitignore
 }
 
 create_git_project() {
     git init
     git add --all
     git commit -m 'Initial commit'
-
 }
 
 spawn_tmux_session() {
