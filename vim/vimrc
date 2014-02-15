@@ -332,6 +332,9 @@ set pastetoggle=<leader>p
 " Disable the 'help' key
 nmap K <nop>
 
+" Clear hlsearch with enter key
+nmap <enter> :nohl<cr>
+
 " Multipurpose tab key from grb
 function! InsertTabWrapper()
     let col = col('.') - 1
@@ -350,7 +353,7 @@ if v:version > 703 || v:version == 703 && has("patch541")
 endif
 
 " Configure hlsearch
-set nohlsearch
+set hlsearch
 
 " settings from thoughtbot dotfiles repo
 " Swap between two files
