@@ -213,3 +213,5 @@ fi
 
 # Finally source the theme
 source ${HOME}/.zsh/srwalker101.zsh-theme
+
+PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
