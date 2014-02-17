@@ -6,6 +6,7 @@
     co = checkout
     su = submodule update --init --recursive
     gpr = pull --rebase
+    pullff = pull --ff-only
     sync = !git gpr && git push
     wdiff = diff --color-words
     ci = commit
