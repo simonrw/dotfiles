@@ -3,12 +3,14 @@
 set -e
 
 initialise_subdirs() {
-    for SUBDIR in data output doc src; do
+    PROJECT_NAME="${1}"
+    for SUBDIR in data output doc src src/${PROJECT_NAME} bin; do
         mkdir -p ${SUBDIR}
         (cd ${SUBDIR} && touch .gitkeep)
     done
 
     touch README.markdown
+    touch src/${PROJECT_NAME}/__init__.py
 
     echo 'output/*' >> .gitignore
     echo '!output/.gitkeep' >> .gitignore
@@ -26,8 +28,28 @@ spawn_tmux_session() {
     tmux new -s `basename $(pwd)`
 }
 
+construct_setup_file() {
+    PROJECT_NAME="${1}"
+    cat > setup.py << EOF
+from setuptools import setup
+from glob import glob
+
+setup(name='${PROJECT_NAME}',
+        version='0.0.1',
+        author='Simon Walker',
+        author_email='s.r.walker101@googlemail.com',
+        packages=['${PROJECT_NAME}', ],
+        package_dir={'': 'src'},
+        scripts=glob('bin/*.py'),
+        long_description=open('README.markdown').read(),
+        )
+EOF
+}
+
 construct_project() {
-    initialise_subdirs
+    PROJECT_NAME="${1}"
+    initialise_subdirs "${PROJECT_NAME}"
+    construct_setup_file "${PROJECT_NAME}"
     create_git_project
     spawn_tmux_session
 }
@@ -47,7 +69,7 @@ main() {
         exit 0
     fi
 
-    (cd "${DIRNAME}" && construct_project)
+    (cd "${DIRNAME}" && construct_project "${DIRNAME}")
 }
 
 main $*
