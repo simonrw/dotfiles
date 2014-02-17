@@ -48,6 +48,9 @@ Bundle 'mileszs/ack.vim'
 Bundle 'rking/ag.vim'
 Bundle 'nelstrom/vim-markdown-folding'
 
+" My plugins or forks
+Bundle 'mindriot101/srw-colorscheme.vim'
+
 " Snipmate plugins
 Bundle 'MarcWeber/vim-addon-mw-utils'
 Bundle 'tomtom/tlib_vim'
@@ -460,5 +463,6 @@ command! -range Source <line1>,<line2>call SourceRange()
 " }}}
 " {{{ Colour scheme
 set background=dark
+colorscheme srw
 "}}}
 " vim: foldmethod=marker
