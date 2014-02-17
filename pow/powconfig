@@ -1,5 +1,0 @@
-# Used to set up bundle properly with rbenv
-source /usr/local/opt/chruby/share/chruby/chruby.sh
-
-# Shorten the pow timeout
-export POW_TIMEOUT=300

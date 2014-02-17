@@ -1,9 +1,0 @@
-require 'irb/completion'
-
-def tic
-  @_tic = Time.now
-end
-
-def toc
-  Time.now - @_tic
-end
