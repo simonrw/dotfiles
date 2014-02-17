@@ -329,8 +329,8 @@ set pastetoggle=<leader>p
 " Disable the 'help' key
 nmap K <nop>
 
-" Clear hlsearch with enter key
-nmap <enter> :nohl<cr>
+" Clear hlsearch with space key
+nmap <space> :nohl<cr>
 
 " Multipurpose tab key from grb
 function! InsertTabWrapper()
@@ -429,9 +429,6 @@ nnoremap <leader>ez :vsplit ~/.zshrc<cr>
 
 " open Ag (note the space afterwards)
 nnoremap <leader>a :Ag 
-
-" Use space to fold/unfold
-nnoremap <space> za
 
 " }}}
 " {{{ Searching
