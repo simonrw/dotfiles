@@ -2,15 +2,20 @@
 
 set -e
 
+python_module() {
+    echo "${1}" | tr '-' '_'
+}
+
 initialise_subdirs() {
     PROJECT_NAME="${1}"
-    for SUBDIR in data output doc src src/${PROJECT_NAME} bin; do
+    PYTHON_MODULE="`python_module ${PROJECT_NAME}`"
+    for SUBDIR in data output doc src/${PYTHON_MODULE} bin; do
         mkdir -p ${SUBDIR}
         (cd ${SUBDIR} && touch .gitkeep)
     done
 
     touch README.markdown
-    touch src/${PROJECT_NAME}/__init__.py
+    touch "src/${PYTHON_MODULE}/__init__.py"
 
     echo 'output/*' >> .gitignore
     echo '!output/.gitkeep' >> .gitignore
@@ -30,15 +35,16 @@ spawn_tmux_session() {
 
 construct_setup_file() {
     PROJECT_NAME="${1}"
+    PYTHON_MODULE="`python_module ${PROJECT_NAME}`"
     cat > setup.py << EOF
 from setuptools import setup
 from glob import glob
 
-setup(name='${PROJECT_NAME}',
+setup(name='${PYTHON_MODULE}',
         version='0.0.1',
         author='Simon Walker',
         author_email='s.r.walker101@googlemail.com',
-        packages=['${PROJECT_NAME}', ],
+        packages=['${PYTHON_MODULE}', ],
         package_dir={'': 'src'},
         scripts=glob('bin/*.py'),
         long_description=open('README.markdown').read(),
