@@ -9,7 +9,7 @@ python_module() {
 initialise_subdirs() {
     PROJECT_NAME="${1}"
     PYTHON_MODULE="`python_module ${PROJECT_NAME}`"
-    for SUBDIR in data output doc src/${PYTHON_MODULE} bin; do
+    for SUBDIR in data output doc src/${PYTHON_MODULE} bin testing; do
         mkdir -p ${SUBDIR}
         (cd ${SUBDIR} && touch .gitkeep)
     done
