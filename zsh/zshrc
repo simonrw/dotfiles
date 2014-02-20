@@ -69,7 +69,7 @@ alias tls="tmux ls"
 alias irssi="TERM=screen-256color irssi"
 
 export GOPATH=${HOME}/Development/gocode
-export PATH=${HOME}/.bin:${HOME}/.cabal/bin:${HOME}/prefix/bin:${HOME}/.rvm/bin:${PATH}
+export PATH=${HOME}/.bin:${HOME}/.cabal/bin:${HOME}/prefix/bin:${PATH}
 
 export EDITOR=vim_nox
 export VISUAL=${EDITOR}
@@ -161,7 +161,7 @@ case $OSTYPE in
 
         ;;
     darwin*)
-        export PATH=${PATH}:/usr/texbin:/usr/local/sbin:/sbin:/usr/sbin
+        export PATH=${HOME}/.rvm/bin:${PATH}:/usr/texbin:/usr/local/sbin:/sbin:/usr/sbin
         alias gvim=mvim
         alias gview=mview
         alias -g awk=gawk
