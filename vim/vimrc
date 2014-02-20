@@ -38,15 +38,9 @@ Bundle 'tpope/vim-commentary'
 Bundle 'tpope/vim-surround'
 Bundle 'tpope/vim-repeat'
 Bundle 'tpope/vim-unimpaired'
-Bundle 'tpope/vim-dispatch'
-Bundle 'tpope/vim-markdown'
-" Bundle 'tpope/vim-vinegar'
 
 " Custom plugins
 Bundle 'kien/ctrlp.vim'
-Bundle 'mileszs/ack.vim'
-Bundle 'rking/ag.vim'
-Bundle 'nelstrom/vim-markdown-folding'
 
 " My plugins or forks
 Bundle 'mindriot101/srw-colorscheme.vim'
@@ -58,7 +52,6 @@ Bundle 'garbas/vim-snipmate'
 Bundle 'honza/vim-snippets'
 
 " Language plugins
-Bundle 'elixir-lang/vim-elixir'
 "}}}
 " Post setup {{{
 filetype plugin indent on
