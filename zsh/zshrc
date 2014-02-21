@@ -69,7 +69,7 @@ alias tls="tmux ls"
 alias irssi="TERM=screen-256color irssi"
 
 export GOPATH=${HOME}/Development/gocode
-export PATH=${HOME}/.bin:${HOME}/.cabal/bin:${HOME}/prefix/bin:${PATH}
+export PATH=${HOME}/.bin:${HOME}/prefix/bin:${PATH}
 
 export EDITOR=vim_nox
 export VISUAL=${EDITOR}
@@ -161,26 +161,13 @@ case $OSTYPE in
 
         ;;
     darwin*)
-        export PATH=${HOME}/.rvm/bin:${PATH}:/usr/texbin:/usr/local/sbin:/sbin:/usr/sbin
+        export PATH=${HOME}/.rvm/bin:${PATH}:/usr/texbin
         alias gvim=mvim
         alias gview=mview
         alias -g awk=gawk
         alias lsc='ls -G'
         ;;
 esac
-
-# Most recent history commands
-function most_used_history() {
-    history 1 |
-    awk '{a[$2]++}END{for (i in a){print a[i] " " i}}' |
-    sort -rn |
-    head -n 20
-}
-
-function cdls() {
-    cd $*
-    ls
-}
 
 # Function to make a new tmux session at a variable location
 function make-tmux-session() {
