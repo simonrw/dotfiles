@@ -9,5 +9,3 @@ nmap <buffer> <leader>gA :CtrlP app/assets<cr>
 nmap <buffer> <leader>gL :CtrlP lib<cr>
 nmap <buffer> <leader>gM :CtrlP db/migrate<cr>
 nmap <buffer> <leader>gS :CtrlP spec<cr>
-
-nmap <buffer> <leader>t :w\|!ruby %<cr>
