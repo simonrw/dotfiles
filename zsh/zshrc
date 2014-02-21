@@ -40,7 +40,6 @@ zstyle ':completion:*' accept-exact '*(N)'
 
 # Use a cache for completion
 zstyle ':completion:*' use-cache on
-zstyle ':completion:*' cache-path ~/.zsh/cache
 
 
 HISTFILE=~/.zsh_history
