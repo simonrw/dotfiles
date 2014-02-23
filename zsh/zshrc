@@ -160,7 +160,7 @@ case $OSTYPE in
 
         ;;
     darwin*)
-        export PATH=${HOME}/.rvm/bin:${PATH}:/usr/texbin
+        export PATH=${HOME}/.rvm/bin:${PATH}:/usr/texbin:${GOPATH}/bin
         alias gvim=mvim
         alias gview=mview
         alias -g awk=gawk
