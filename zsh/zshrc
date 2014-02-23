@@ -68,7 +68,7 @@ alias tls="tmux ls"
 alias irssi="TERM=screen-256color irssi"
 
 export GOPATH=${HOME}/Development/gocode
-export PATH=${HOME}/.bin:${HOME}/prefix/bin:${PATH}
+export PATH=${HOME}/.bin:${HOME}/prefix/bin:${PATH}:bin
 
 export EDITOR=vim_nox
 export VISUAL=${EDITOR}
