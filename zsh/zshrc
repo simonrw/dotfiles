@@ -134,6 +134,7 @@ function find_pi() {
 
 case $OSTYPE in
     linux*)
+        export PATH=${PATH}:${HOME}/.gem/ruby/1.8/bin
         export LD_LIBRARY_PATH=${HOME}/prefix/lib:${LD_LIBRARY_PATH}
         export LS_OPTIONS=--color=never
 
