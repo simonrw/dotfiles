@@ -3,7 +3,7 @@
 c = get_config()
 
 c.IPKernelApp.pylab = 'inline'
-c.NotebookApp.certfile = u'/tmp/ipython-server/mycert.pem'
+c.NotebookApp.certfile = u'/storage/astro2/phsnag/ipython-notebook/mycert.pem'
 c.NotebookApp.ip = "*"
 c.NotebookApp.open_browser = False
 c.NotebookApp.port = 9999
