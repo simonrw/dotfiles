@@ -151,6 +151,7 @@ case $OSTYPE in
         fi
 
         alias lsc='ls --color=auto'
+        export work=${HOME}/work/
 
         SSHAGENT=/usr/bin/ssh-agent
         SSHAGENTARGS="-s"
@@ -166,8 +167,11 @@ case $OSTYPE in
         alias gview=mview
         alias -g awk=gawk
         alias lsc='ls -G'
+        export work=${HOME}/work/Warwick/PostDoc/
         ;;
 esac
+
+alias work="cd ${work} && pwd"
 
 # Function to make a new tmux session at a variable location
 function make-tmux-session() {
