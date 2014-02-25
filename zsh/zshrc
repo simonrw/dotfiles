@@ -172,6 +172,8 @@ case $OSTYPE in
 esac
 
 alias work="cd ${work} && pwd"
+alias ngts="cd ${work}/NGTS && pwd"
+alias wasp="cd ${work}/WASP && pwd"
 
 # Function to make a new tmux session at a variable location
 function make-tmux-session() {
