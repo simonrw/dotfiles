@@ -177,6 +177,7 @@ export NGTS="${work}/NGTS"
 alias work="cd ${work} && pwd && ls"
 alias ngts="cd ${NGTS} && pwd && ls"
 alias wasp="cd ${WASP} && pwd && ls"
+alias dotfiles="cd ${HOME}/dotfiles && pwd"
 
 # Function to make a new tmux session at a variable location
 function make-tmux-session() {
