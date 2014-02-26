@@ -12,6 +12,8 @@ ipython/ipython/profile_default/db/
 ipython/ipython/profile_default/log/
 ipython/ipython/profile_default/pid/
 ipython/ipython/profile_default/security/
+ipython/ipython/profile_nbserver/*
+!ipython/ipython/profile_nbserver/ipython_config.py
 pip/pip/pip.log
 ipython/ipython/db
 emacs/emacs.d/elpa
