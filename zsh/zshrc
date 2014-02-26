@@ -68,7 +68,7 @@ alias tls="tmux ls"
 alias irssi="TERM=screen-256color irssi"
 
 export GOPATH=${HOME}/Development/gocode
-export PATH=${HOME}/.bin:${HOME}/prefix/bin:${PATH}:bin
+export PATH=${HOME}/.bin:${PATH}:bin
 
 export EDITOR=vim_nox
 export VISUAL=${EDITOR}
@@ -134,14 +134,15 @@ function find_pi() {
 
 case $OSTYPE in
     linux*)
-        export PATH=${PATH}:${HOME}/.gem/ruby/1.8/bin
-        export LD_LIBRARY_PATH=${HOME}/prefix/lib:${LD_LIBRARY_PATH}
+        export STORAGE=/storage/astro2/`whoami`
+        export PATH=${STORAGE}/prefix/bin:${PATH}:${HOME}/.gem/ruby/1.8/bin
+        export LD_LIBRARY_PATH=${STORAGE}/prefix/lib:${LD_LIBRARY_PATH}
         export LS_OPTIONS=--color=never
 
         # Set up the module command
         function module() { eval `modulecmd zsh $*`; }
 
-        VIRTUALENV_DIR=${HOME}/PythonEnv
+        VIRTUALENV_DIR=${STORAGE}/PythonEnv
         VIRTUALENV_SOURCE_FILE=${VIRTUALENV_DIR}/bin/activate
         if [[ -f ${VIRTUALENV_SOURCE_FILE} ]]; then
             # Set up the python environment
