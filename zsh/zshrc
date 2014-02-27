@@ -178,6 +178,7 @@ alias work="cd ${work} && pwd && ls"
 alias ngts="cd ${NGTS} && pwd && ls"
 alias wasp="cd ${WASP} && pwd && ls"
 alias dotfiles="cd ${HOME}/dotfiles && pwd"
+alias dev="cd ${HOME}/Development && pwd && ls"
 
 # Function to make a new tmux session at a variable location
 function make-tmux-session() {
