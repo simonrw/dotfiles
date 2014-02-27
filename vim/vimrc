@@ -265,13 +265,8 @@ set scrolljump=10
 " Disable conceal
 set conceallevel=0
 
-" Enable relativenumber
-set relativenumber
-
-" Enable number also to get the current line numbered, only in 7.4 and above
-if version >= 704
-    set number
-endif
+set norelativenumber
+set nonumber
 
 " Open new split panes to right and bottom, which feels more natural
 set splitbelow
