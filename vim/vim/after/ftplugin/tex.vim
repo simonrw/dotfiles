@@ -9,6 +9,8 @@ setlocal conceallevel=0
 setlocal re=2
 syntax spell toplevel
 
+let g:tex_fold_enabled = 1
+
 
 " Example synctex command, for skim
 " map <silent> <Leader>ls :!~/Applications/Skim.app/Contents/SharedSupport/displayline -b -g <C-R>=line('.')<CR> "pdf-filename" "%:p" <CR>
