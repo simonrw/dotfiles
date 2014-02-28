@@ -9,7 +9,7 @@ setlocal conceallevel=0
 setlocal re=2
 syntax spell toplevel
 
-let g:tex_fold_enabled = 1
+let g:tex_fold_enabled = 0
 
 
 " Example synctex command, for skim
