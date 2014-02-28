@@ -328,7 +328,7 @@ set pastetoggle=<leader>p
 nmap K <nop>
 
 " Space key removes highlight search and toggles folds
-nmap <space> :nohl<cr>\|za
+nmap <space> :nohl<cr>
 
 " Multipurpose tab key from grb
 function! InsertTabWrapper()
