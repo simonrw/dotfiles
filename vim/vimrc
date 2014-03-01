@@ -330,17 +330,6 @@ nmap K <nop>
 " Space key removes highlight search and toggles folds
 nmap <space> :nohl<cr>
 
-" Multipurpose tab key from grb
-function! InsertTabWrapper()
-    let col = col('.') - 1
-    if !col || getline('.')[col - 1] !~ '\k'
-        return "\<tab>"
-    else
-        return "\<c-p>"
-    endif
-endfunction
-inoremap <tab> <c-r>=InsertTabWrapper()<cr>
-inoremap <s-tab> <c-n>
 
 " delete comment character when joining commented lines
 if v:version > 703 || v:version == 703 && has("patch541")
