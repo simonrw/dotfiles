@@ -161,7 +161,7 @@ case $OSTYPE in
             eval `$SSHAGENT $SSHAGENTARGS`
             trap "kill $SSH_AGENT_PID" 0
         fi
-
+        export CHRUBY_PATH=${BUILD_PREFIX}/share/chruby
         ;;
     darwin*)
         export PATH=${PATH}:/usr/texbin:${GOPATH}/bin:/usr/local/sbin:/sbin:/usr/sbin
@@ -170,8 +170,14 @@ case $OSTYPE in
         alias -g awk=gawk
         alias lsc='ls -G'
         export work=${HOME}/work/Warwick/PostDoc/
+        export CHRUBY_PATH=/usr/local/opt/chruby/share/chruby
         ;;
 esac
+
+# Configure chruby
+source ${CHRUBY_PATH}/chruby.sh 2>/dev/null && \
+source ${CHRUBY_PATH}/auto.sh && \
+chruby 2.0
 
 export WASP="${work}/WASP"
 export NGTS="${work}/NGTS"
