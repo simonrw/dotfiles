@@ -11,7 +11,7 @@ gem_group :development, :test do
 end
 
 # For encrypted passwords
-gem 'bcrypt-ruby'
+gem 'bcrypt'
 
 # Remove the secret token from the tracking
 run "echo 'config/initializers/secret_token.rb' >> .gitignore"
