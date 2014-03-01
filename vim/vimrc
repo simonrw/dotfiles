@@ -44,6 +44,7 @@ Bundle 'kien/ctrlp.vim'
 Bundle 'rodjek/vim-puppet'
 Bundle 'nelstrom/vim-markdown-folding'
 Bundle 'terryma/vim-multiple-cursors'
+Bundle 'elixir-lang/vim-elixir'
 
 " My plugins or forks
 Bundle 'mindriot101/srw-colorscheme.vim'
