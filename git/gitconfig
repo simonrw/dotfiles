@@ -49,3 +49,5 @@
     keepBackup = false
 [branch]
     autosetuprebase = always
+[grep]
+	extendedRegexp = true
