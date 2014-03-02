@@ -7,7 +7,7 @@ echo ""
 }
 
 function get_load() {
-    uptime  | awk '{print $(NF-1)}'
+    uptime | awk '{print $(NF-2)$(NF-1)$(NF)}' | sed 's/,//g'
 }
 
 local green="%{$fg_bold[green]%}"
