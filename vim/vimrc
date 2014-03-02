@@ -273,8 +273,8 @@ set scrolljump=10
 " Disable conceal
 set conceallevel=0
 
-set norelativenumber
 set nonumber
+set relativenumber
 
 " Open new split panes to right and bottom, which feels more natural
 set splitbelow
