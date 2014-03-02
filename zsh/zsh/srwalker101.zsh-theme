@@ -7,7 +7,7 @@ echo ""
 }
 
 function get_load() {
-    uptime  | cut -d ' ' -f 13
+    uptime  | awk '{print $(NF-1)}'
 }
 
 local green="%{$fg_bold[green]%}"
