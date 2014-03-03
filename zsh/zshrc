@@ -8,6 +8,7 @@ compinit
 
 # Emacs keybindings
 bindkey -v
+bindkey "^R" history-incremental-search-backward
 
 # Set up editor in command line
 autoload edit-command-line
