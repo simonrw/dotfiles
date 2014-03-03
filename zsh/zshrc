@@ -7,7 +7,7 @@ compinit
 
 
 # Emacs keybindings
-bindkey -e
+bindkey -v
 
 # Set up editor in command line
 autoload edit-command-line
