@@ -12,6 +12,8 @@
     wdiff = diff --color-words
     ci = commit
     q = quick
+    # Quickly diff the upstream remote (assume origin)
+    do = diff origin
 
     # Logging from Gary Bernhardt
     head = !git l -1
