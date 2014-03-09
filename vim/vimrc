@@ -49,6 +49,7 @@ Bundle 'elixir-lang/vim-elixir'
 
 " My plugins or forks
 Bundle 'mindriot101/srw-colorscheme.vim'
+Bundle 'mindriot101/vim-pytest-runner'
 
 " Snipmate plugins
 Bundle 'MarcWeber/vim-addon-mw-utils'
@@ -116,6 +117,13 @@ nnoremap <leader>a :Ack!<space>
 "}}}
 " {{{ markdown-folding
 let g:markdown_fold_style = 'stacked'
+"}}}
+" {{{ vim-pytest-runner
+nmap <leader>ra :call RunAllTests()<cr>
+nmap <leader>rc :call RunNearestTest()<cr>
+nmap <leader>rf :call RunCurrentTestFile()<cr>
+nmap <leader>rr :call RunLastTest()<cr>
+let g:pytest_test_regexp = '\v\s*(.*def)\s+test_'
 "}}}
 "}}}
 
