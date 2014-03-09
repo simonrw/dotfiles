@@ -123,7 +123,7 @@ let g:markdown_fold_style = 'stacked'
 nmap <leader>ra :call RunAllTests()<cr>
 nmap <leader>rc :call RunNearestTest()<cr>
 nmap <leader>rf :call RunCurrentTestFile()<cr>
-nmap <leader>rr :call RunLastTest()<cr>
+nmap <leader>rl :call RunLastTest()<cr>
 let g:pytest_test_regexp = '\v\s*(.*def)\s+test_'
 "}}}
 "}}}
