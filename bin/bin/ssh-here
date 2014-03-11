@@ -1,0 +1,25 @@
+#!/usr/bin/env bash
+
+set -e
+
+validate_input() {
+    if [[ $# -ne 1 && $# -ne 2 ]]; then
+        echo "Usage: `basename $0` <ssh-endpoint> (<shell>)" >&2
+        exit 1
+    fi
+}
+
+main() {
+    validate_input $*
+    HERE=`pwd`
+    ENDPOINT=$1
+
+    if [[ $# -eq 2 ]]; then
+        SHELLTOUSE=$2
+    else
+        SHELLTOUSE=${SHELL}
+    fi
+    ssh -t ${ENDPOINT} "cd ${HERE} && ${SHELLTOUSE}"
+}
+
+main $*
