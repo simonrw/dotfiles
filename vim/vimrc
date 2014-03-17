@@ -442,8 +442,8 @@ inoremap <C-u> <C-g>u<C-u>
 inoremap <C-w> <C-g>u<C-w>
 
 " Quick file editing
-nnoremap <leader>ev :e $MYVIMRC<cr>
-nnoremap <leader>ez :e ~/.zshrc<cr>
+nnoremap <leader>ev :tabe $MYVIMRC<cr>
+nnoremap <leader>ez :tabe ~/.zshrc<cr>
 
 " open Ag (note the space afterwards)
 nnoremap <leader>a :Ag 
