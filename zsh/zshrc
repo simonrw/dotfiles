@@ -86,13 +86,9 @@ export WORDCHARS='*?[]~&;!$%^<>'
 # run ipython with no arguments, but normal python if args
 function python() {
     if [[ $# -ge 1 ]]; then
-        if [[ "$1" == "--pylab" ]]; then
-            ipython --pylab
-        else
-            command python "$@"
-        fi
+        command python $*
     else
-        command ipython
+        command ipython --pylab
     fi
 }
 
