@@ -121,12 +121,15 @@ nnoremap <leader>a :Ack!<space>
 let g:markdown_fold_style = 'stacked'
 "}}}
 " {{{ vim-pytest-runner
-nmap <leader>ra :call RunAllTests()<cr>
-nmap <leader>rc :call RunNearestTest()<cr>
-nmap <leader>rf :call RunCurrentTestFile()<cr>
-nmap <leader>rl :call RunLastTest()<cr>
-let g:pytest_test_regexp = '\v\s*(.*def)\s+test_'
-let g:pytest_command = "!py.test {test}"
+augroup PythonTestRunner
+    autocmd!
+    autocmd Filetype python nmap <leader>ra :call RunAllTests()<cr>
+    autocmd Filetype python nmap <leader>rc :call RunNearestTest()<cr>
+    autocmd Filetype python nmap <leader>rf :call RunCurrentTestFile()<cr>
+    autocmd Filetype python nmap <leader>rl :call RunLastTest()<cr>
+    autocmd Filetype python let g:pytest_test_regexp = '\v\s*(.*def)\s+test_'
+    autocmd Filetype python let g:pytest_command = "!py.test {test}"
+augroup END
 "}}}
 "}}}
 
