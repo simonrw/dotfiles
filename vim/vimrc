@@ -272,11 +272,10 @@ set notimeout
 set ttimeout
 set ttimeoutlen=10
 
-set backup
-set backupdir=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
+set nobackup
 set backupskip=/tmp/*,/private/tmp/*
-set directory=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
 set writebackup
+set noswapfile
 
 " GRB does these
 set winwidth=79
