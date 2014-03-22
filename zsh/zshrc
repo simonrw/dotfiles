@@ -60,6 +60,19 @@ function _tmux_attach() {
 # From GRB
 function mcd() { mkdir -p $1 && cd $1 }
 
+# Taken from http://sheerun.net/2014/03/21/how-to-boost-your-vim-productivity/ - quick switch back to vim
+fancy-ctrl-z () {
+  if [[ $#BUFFER -eq 0 ]]; then
+    fg
+    zle redisplay
+  else
+    zle push-input
+    zle clear-screen
+  fi
+}
+zle -N fancy-ctrl-z
+bindkey '^Z' fancy-ctrl-z
+
 # Alias some tmux commands
 alias ta=_tmux_attach
 alias tns="tmux new-session -s"
