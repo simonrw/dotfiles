@@ -165,7 +165,7 @@ case $OSTYPE in
 
         alias lsc='ls --color=auto'
         export work=${HOME}/work/
-        alias open='xdg-open'
+        alias open='xdg-open 2>/dev/null'
 
         SSHAGENT=/usr/bin/ssh-agent
         SSHAGENTARGS="-s"
