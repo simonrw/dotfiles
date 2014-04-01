@@ -7,4 +7,4 @@ c.InlineBackend.rc = {'font.size': 10,
 'savefig.dpi': 72, 
 'figure.subplot.bottom': 0.125, 
 'figure.edgecolor': 'white'}
-
+c.InlineBackend.figure_format = 'svg'
