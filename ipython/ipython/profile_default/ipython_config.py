@@ -75,7 +75,7 @@ c.InteractiveShellApp.exec_lines.append('%autoreload 2')
 # c.TerminalIPythonApp.log_level = 30
 
 # Whether to display a banner upon starting IPython.
-# c.TerminalIPythonApp.display_banner = True
+c.TerminalIPythonApp.display_banner = False
 
 # lines of code to run at IPython startup.
 # c.TerminalIPythonApp.exec_lines = []
