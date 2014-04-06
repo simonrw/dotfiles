@@ -126,7 +126,7 @@ c.TerminalIPythonApp.display_banner = False
 #         ]
 
 # The Logging format template
-# c.TerminalIPythonApp.log_format = '[%(name)s] %(message)s'
+c.TerminalIPythonApp.log_format = '[%(asctime)s|%(name)s] %(message)s'
 
 # dotted module name of an IPython extension to load.
 # c.TerminalIPythonApp.extra_extension = ''
