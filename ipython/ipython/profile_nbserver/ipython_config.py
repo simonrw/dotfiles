@@ -2,7 +2,7 @@
 
 c = get_config()
 
-c.IPKernelApp.pylab = 'inline'
+c.IPKernelApp.pylab = None # 'inline'
 c.NotebookApp.certfile = u'/storage/astro2/phsnag/ipython-notebook/mycert.pem'
 c.NotebookApp.ip = "*"
 c.NotebookApp.open_browser = False
