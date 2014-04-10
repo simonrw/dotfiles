@@ -46,6 +46,7 @@ Plugin 'tpope/vim-fireplace'
 " Custom plugins
 Plugin 'kien/ctrlp.vim'
 Plugin 'rodjek/vim-puppet'
+Plugin 'godlygeek/tabular'
 Plugin 'nelstrom/vim-markdown-folding'
 Plugin 'terryma/vim-multiple-cursors'
 Plugin 'elixir-lang/vim-elixir'
