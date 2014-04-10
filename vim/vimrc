@@ -52,6 +52,7 @@ Plugin 'elixir-lang/vim-elixir'
 Plugin 'justinmk/vim-sneak'
 
 " My plugins or forks
+Plugin 'mindriot101/srw-colorscheme.vim'
 Plugin 'mindriot101/vim-pytest-runner'
 
 " Snipmate plugins
@@ -472,5 +473,6 @@ nnoremap K :grep! "\b<C-R><C-W>\b"<CR>:cw<CR>
 " }}}
 " {{{ Colour scheme
 set background=dark
+colorscheme srw
 "}}}
 " vim: foldmethod=marker
