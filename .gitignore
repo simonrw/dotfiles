@@ -23,3 +23,4 @@ zsh/zsh/cache
 ipython/ipython/profile_nbserver/history.sqlite
 *.cache
 ipython/ipython/profile_default/static/*
+ipython/ipython/cython/*

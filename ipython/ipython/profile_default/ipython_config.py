@@ -44,7 +44,7 @@ c.InteractiveShellApp.exec_lines.append('%autoreload 2')
 #         'line_profiler_ext',
 #         'memory_profiler_ext',
 #         ]
-c.InteractiveShellApp.extensions = ['autoreload']
+c.InteractiveShellApp.extensions = ['autoreload', 'cythonmagic']
 
 # Run the module as a script.
 # c.InteractiveShellApp.module_to_run = ''
