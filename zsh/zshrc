@@ -101,7 +101,7 @@ function python() {
     if [[ $# -ge 1 ]]; then
         command python $*
     else
-        command ipython --pylab
+        command ipython
     fi
 }
 
