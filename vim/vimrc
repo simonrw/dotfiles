@@ -50,7 +50,6 @@ Plugin 'godlygeek/tabular'
 Plugin 'nelstrom/vim-markdown-folding'
 Plugin 'terryma/vim-multiple-cursors'
 Plugin 'elixir-lang/vim-elixir'
-Plugin 'justinmk/vim-sneak'
 
 " My plugins or forks
 Plugin 'mindriot101/srw-colorscheme.vim'
