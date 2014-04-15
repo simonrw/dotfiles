@@ -38,18 +38,12 @@ Plugin 'tpope/vim-commentary'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-repeat'
 Plugin 'tpope/vim-unimpaired'
-Plugin 'tpope/vim-endwise'
 Plugin 'tpope/vim-dispatch'
-Plugin 'tpope/timl'
-Plugin 'tpope/vim-fireplace'
 
 " Custom plugins
 Plugin 'kien/ctrlp.vim'
-Plugin 'rodjek/vim-puppet'
-Plugin 'godlygeek/tabular'
 Plugin 'nelstrom/vim-markdown-folding'
-Plugin 'terryma/vim-multiple-cursors'
-Plugin 'elixir-lang/vim-elixir'
+Plugin 'krisajenkins/vim-pipe'
 
 " My plugins or forks
 Plugin 'mindriot101/srw-colorscheme.vim'
@@ -63,6 +57,8 @@ Plugin 'honza/vim-snippets'
 
 " Language plugins
 Plugin 'guns/vim-clojure-static'
+Plugin 'elixir-lang/vim-elixir'
+Plugin 'rodjek/vim-puppet'
 
 "}}}
 " Post setup {{{
