@@ -341,6 +341,9 @@ set pastetoggle=<leader>p
 " Disable the 'help' key
 nmap K <nop>
 
+" Mapping for closing all windows but this one
+nnoremap <leader>o :only<cr>
+
 " Space key removes highlight search and toggles folds
 nmap <space> :nohl<cr>
 
