@@ -225,7 +225,7 @@ set fileformats=unix,mac,dos
 
 " Change the way tab autocompletion works
 set wildmenu
-set wildmode=list:longest,list:full
+set wildmode=full
 
 " Disable escape keys which makes vim more responsive
 set noesckeys
