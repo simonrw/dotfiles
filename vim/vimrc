@@ -285,9 +285,8 @@ set conceallevel=0
 set number
 set relativenumber
 
-" Open new split panes to right and bottom, which feels more natural
+" Open new split panes to bottom, which feels more natural
 set splitbelow
-set splitright
 set noequalalways
 
 " Enable the ruler
