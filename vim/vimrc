@@ -128,7 +128,7 @@ augroup PythonTestRunner
     autocmd Filetype python nmap <leader>rf :call RunCurrentTestFile()<cr>
     autocmd Filetype python nmap <leader>rl :call RunLastTest()<cr>
     autocmd Filetype python let g:pytest_test_regexp = '\v\s*(.*def)\s+test_'
-    autocmd Filetype python let g:pytest_command = "!py.test {test}"
+    autocmd Filetype python let g:pytest_command = "!py.test -x {test}"
 augroup END
 "}}}
 "}}}
