@@ -35,7 +35,6 @@ Plugin 'gmarik/vundle'
 " tpope plugins, these deserve their own section
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-commentary'
-Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-repeat'
 Plugin 'tpope/vim-unimpaired'
 Plugin 'tpope/vim-dispatch'
