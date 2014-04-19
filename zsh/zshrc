@@ -90,6 +90,15 @@ export BIBINPUTS=${HOME}/work/central-bibliography:${BIBINPUTS}
 export TERM=xterm-256color
 export LESS='-FXR'
 
+# PIP settings
+PIP_CACHE_DIR=${HOME}/.cache/pip
+PIP_WHEEL_DIR=${PIP_CACHE_DIR}/wheels
+test -d ${PIP_WHEEL_DIR} || mkdir -p ${PIP_WHEEL_DIR}
+export PIP_DOWNLOAD_CACHE=${PIP_CACHE_DIR}
+export PIP_USE_WHEEL='yes'
+export PIP_WHEEL_DIR
+export PIP_FIND_LINKS=${PIP_WHEEL_DIR}
+
 # Taken from grb's zshrc
 
 # By default, zsh considers many characters part of a word (e.g., _ and -).
