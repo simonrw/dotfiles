@@ -178,6 +178,33 @@ case $OSTYPE in
         alias lsc='ls -G'
         export work=${HOME}/work/Warwick/PostDoc/
         export CHRUBY_PATH=/usr/local/opt/chruby/share/chruby
+
+        # Set up virtualenvwrapper
+        export WORKON_HOME=${HOME}/.virtualenvs
+        export PROJECT_HOME=${HOME}/Development
+        source /usr/local/bin/virtualenvwrapper.sh
+        export PIP_VIRTUALENV_BASE=${WORKON_HOME}
+
+        function make-virtualenv() {
+            mkvirtualenv $(basename $(pwd))
+        }
+
+        # Function to switch to virtualenv if it exists
+        function check_virtualenv() {
+            if [[ -e .venv ]]; then
+                local env=`cat .venv`
+                if [ "$env" != "${VIRTUAL_ENV##*/}" ]; then
+                    workon $env
+                fi
+            fi
+        }
+
+        function venv_cd() {
+            builtin cd "$@" && check_virtualenv
+        }
+
+        alias cd="venv_cd"
+
         ;;
 esac
 
