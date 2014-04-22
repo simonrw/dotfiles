@@ -106,15 +106,6 @@ export PIP_RESPECT_VIRTUALENV=true
 # Narrow that down to allow easier skipping through words via M-f and M-b.
 export WORDCHARS='*?[]~&;!$%^<>'
 
-# run ipython with no arguments, but normal python if args
-function python() {
-    if [[ $# -ge 1 ]]; then
-        command python $*
-    else
-        command ipython
-    fi
-}
-
 alias py='python'
 alias ipy='ipython'
 alias pydoc='=python -m pydoc'
