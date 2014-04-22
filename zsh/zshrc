@@ -98,6 +98,7 @@ export PIP_DOWNLOAD_CACHE=${PIP_CACHE_DIR}
 export PIP_USE_WHEEL='yes'
 export PIP_WHEEL_DIR
 export PIP_FIND_LINKS=file://${PIP_WHEEL_DIR}
+export PIP_RESPECT_VIRTUALENV=true
 
 # Taken from grb's zshrc
 
