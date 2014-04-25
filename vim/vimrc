@@ -484,7 +484,7 @@ nnoremap K :grep! "\b<C-R><C-W>\b"<CR>:cw<CR>
 
 " }}}
 " {{{ Colour scheme
-set background=light
+set background=dark
 colorscheme solarized
 "}}}
 " vim: foldmethod=marker
