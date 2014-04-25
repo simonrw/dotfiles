@@ -168,7 +168,6 @@ case $OSTYPE in
         export work=${HOME}/work/
         alias open='xdg-open 2>/dev/null'
 
-        export CHRUBY_PATH=${BUILD_PREFIX}/share/chruby
 
         # Source some custom warwick code for astronomy
         test -f ~/.warwick.zsh && source ~/.warwick.zsh
@@ -181,13 +180,15 @@ case $OSTYPE in
         alias lsc='ls -G'
         export work=${HOME}/work/Warwick/PostDoc/
         export CHRUBY_PATH=/usr/local/opt/chruby/share/chruby
+
+        # Configure chruby
+        source ${CHRUBY_PATH}/chruby.sh 2>/dev/null && \
+        source ${CHRUBY_PATH}/auto.sh && \
+        chruby 2.0
+
         ;;
 esac
 
-# Configure chruby
-source ${CHRUBY_PATH}/chruby.sh 2>/dev/null && \
-source ${CHRUBY_PATH}/auto.sh && \
-chruby 2.0
 
 export WASP="${work}/WASP"
 export NGTS="${work}/NGTS"
