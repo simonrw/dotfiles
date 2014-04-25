@@ -169,6 +169,9 @@ case $OSTYPE in
         alias open='xdg-open 2>/dev/null'
 
         export CHRUBY_PATH=${BUILD_PREFIX}/share/chruby
+
+        # Source some custom warwick code for astronomy
+        test -f ~/.warwick.zsh && source ~/.warwick.zsh
         ;;
     darwin*)
         export PATH=${PATH}:/usr/texbin:${GOPATH}/bin:/usr/local/sbin:/sbin:/usr/sbin
