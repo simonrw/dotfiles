@@ -44,6 +44,7 @@ Plugin 'kien/ctrlp.vim'
 Plugin 'nelstrom/vim-markdown-folding'
 Plugin 'krisajenkins/vim-pipe'
 Plugin 'altercation/vim-colors-solarized'
+Plugin 'junegunn/goyo.vim'
 
 " My plugins or forks
 Plugin 'mindriot101/vim-pytest-runner'
@@ -131,6 +132,17 @@ augroup PythonTestRunner
     autocmd Filetype python let g:pytest_test_regexp = '\v\s*(.*def)\s+test_'
     autocmd Filetype python let g:pytest_command = "!py.test -x {test}"
 augroup END
+"}}}
+" {{{ goyo
+function! s:goyo_before()
+    set nonumber
+    set norelativenumber
+endfunction
+
+function! s:goyo_after()
+    set number
+    set relativenumber
+endfunction
 "}}}
 "}}}
 
