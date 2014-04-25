@@ -220,7 +220,7 @@ set nojoinspaces
 " Disable all bells
 set novisualbell
 set noerrorbells
-set vb t_vb=
+set t_vb=
 
 " Set the tags file location
 set tags=.git/tags,tags;/
