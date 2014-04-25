@@ -43,9 +43,9 @@ Plugin 'tpope/vim-dispatch'
 Plugin 'kien/ctrlp.vim'
 Plugin 'nelstrom/vim-markdown-folding'
 Plugin 'krisajenkins/vim-pipe'
+Plugin 'altercation/vim-colors-solarized'
 
 " My plugins or forks
-Plugin 'mindriot101/srw-colorscheme.vim'
 Plugin 'mindriot101/vim-pytest-runner'
 
 " Snipmate plugins
@@ -471,7 +471,7 @@ nnoremap K :grep! "\b<C-R><C-W>\b"<CR>:cw<CR>
 
 " }}}
 " {{{ Colour scheme
-set background=dark
-colorscheme srw
+set background=light
+colorscheme solarized
 "}}}
 " vim: foldmethod=marker
