@@ -51,3 +51,11 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  )
+
+; My custom settings
+(ido-mode t) ; IDO mode, better completion
+(setq ido-enable-flux-matching 1)
+(setq ido-everywhere t)
+(setq inhibit-startup-message t
+      inhibit-startup-echo-area-message 1) ; cleaner startup
+(define-key global-map (kbd "RET") 'newline-and-indent) ; autoindent by default
