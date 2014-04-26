@@ -7,6 +7,7 @@
 	python-mode
 	puppet-mode
 	evil
+	yasnippet
 	magit
 	))
 
