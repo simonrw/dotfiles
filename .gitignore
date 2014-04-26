@@ -24,3 +24,10 @@ ipython/ipython/profile_nbserver/history.sqlite
 *.cache
 ipython/ipython/profile_default/static/*
 ipython/ipython/cython/*
+emacs/emacs.d/auto-save-list/*
+emacs/emacs.d/backups/*
+emacs/!emacs.d/backups/.gitkeep
+emacs/emacs.d/elpa/*
+emacs/!emacs.d/elpa/.gitkeep
+emacs/emacs.d/places
+emacs/emacs.d/tramp
