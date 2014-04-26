@@ -39,6 +39,7 @@ Plugin 'tpope/vim-repeat'
 Plugin 'tpope/vim-unimpaired'
 Plugin 'tpope/vim-dispatch'
 Plugin 'tpope/vim-surround'
+Plugin 'tpope/vim-git'
 
 " Custom plugins
 Plugin 'kien/ctrlp.vim'
