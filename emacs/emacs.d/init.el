@@ -3,6 +3,8 @@
 	cider
 	graphviz-dot-mode
 	multi-term
+	python
+	python-mode
 	evil
 	magit
 	))
