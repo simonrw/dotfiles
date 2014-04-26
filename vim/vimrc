@@ -359,9 +359,6 @@ nmap K <nop>
 " Mapping for closing all windows but this one
 nnoremap <leader>o :only<cr>
 
-" Space key removes highlight search and toggles folds
-nmap <space> :nohl<cr>
-
 " Multipurpose tab key from grb
 function! InsertTabWrapper()
     let col = col('.') - 1
@@ -378,9 +375,6 @@ inoremap <s-tab> <c-n>
 if v:version > 703 || v:version == 703 && has("patch541")
     set formatoptions+=j
 endif
-
-" Configure hlsearch
-set hlsearch
 
 " settings from thoughtbot dotfiles repo
 " Swap between two files
