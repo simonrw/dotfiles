@@ -1,5 +1,6 @@
 (setq package-list
       '(clojure-mode
+	cider
 	graphviz-dot-mode
 	multi-term
 	evil
