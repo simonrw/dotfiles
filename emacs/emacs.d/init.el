@@ -25,3 +25,12 @@
 
 ; Set the colour scheme
 (load "~/.emacs.d/colourscheme/base16-default-theme.el" nil t)
+
+; Configure some plugins
+(setq multi-term-program "zsh")
+
+(custom-set-variables
+ '(menu-bar-mode nil)
+ '(tool-bar-mode nil))
+(custom-set-faces
+ )
