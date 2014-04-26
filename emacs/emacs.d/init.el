@@ -2,6 +2,7 @@
       '(clojure-mode
 	graphviz-dot-mode
 	multi-term
+	evil
 	magit
 	))
 
