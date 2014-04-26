@@ -3,11 +3,14 @@
 	cider
 	graphviz-dot-mode
 	multi-term
+	yaml-mode
 	python
 	python-mode
 	puppet-mode
+	ruby-mode
+	rspec-mode
 	evil
-	yasnippet
+	smart-tab
 	magit
 	))
 
