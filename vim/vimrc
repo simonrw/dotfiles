@@ -135,17 +135,6 @@ augroup PythonTestRunner
     autocmd Filetype python let g:pytest_command = "!py.test -x {test}"
 augroup END
 "}}}
-" {{{ goyo
-function! s:goyo_before()
-    set nonumber
-    set norelativenumber
-endfunction
-
-function! s:goyo_after()
-    set number
-    set relativenumber
-endfunction
-"}}}
 "}}}
 
 " }}}
@@ -296,9 +285,6 @@ set scrolljump=10
 
 " Disable conceal
 set conceallevel=0
-
-set number
-set relativenumber
 
 " Open new split panes to bottom, which feels more natural
 set splitbelow
