@@ -5,6 +5,7 @@
 	multi-term
 	python
 	python-mode
+	puppet-mode
 	evil
 	magit
 	))
