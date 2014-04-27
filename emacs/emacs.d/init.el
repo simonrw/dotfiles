@@ -60,3 +60,15 @@
 (when (equal window-system nil)
   (menu-bar-mode 0))
 
+(global-set-key (kbd "C-o") 'other-window)
+                
+
+
+
+
+
+
+
+
+
+
