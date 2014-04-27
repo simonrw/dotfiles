@@ -61,6 +61,7 @@ Plugin 'honza/vim-snippets'
 Plugin 'guns/vim-clojure-static'
 Plugin 'elixir-lang/vim-elixir'
 Plugin 'rodjek/vim-puppet'
+Plugin 'jnwhiteh/vim-golang'
 
 "}}}
 " Post setup {{{
