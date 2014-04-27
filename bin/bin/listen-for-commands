@@ -1,7 +1,5 @@
 #!/usr/bin/env bash
 
-set -e
-
 # Enable overriding from the command line
 fifo_name=${fifo_name:-.fifo}
 
