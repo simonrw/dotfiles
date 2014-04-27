@@ -59,3 +59,5 @@
   (menu-bar-mode 0))
 
 (global-set-key (kbd "C-o") 'other-window)
+;; Re-enable hash key on mac os x
+(global-set-key (kbd "M-3") '(lambda () (interactive) (insert "#")))
