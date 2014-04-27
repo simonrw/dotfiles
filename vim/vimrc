@@ -327,6 +327,9 @@ set statusline=%<%f\ %h%m%r%=%y\ %-14.(%l,%c%V%)\ %P
 
 set scrolloff=1
 
+" Highlight the current cursor line
+set cursorline
+
 
 " }}}
 " {{{ Mappings
