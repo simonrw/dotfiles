@@ -7,6 +7,10 @@ fifo_name=${fifo_name:-.fifo}
 
 ensure_fifo() {
     if [ ! -p ${fifo_name} ]; then
+        if [ -f ${fifo_name} ]; then
+            echo "Regular file ${fifo_name} exists, removing"
+            rm ${fifo_name}
+        fi
         mkfifo ${fifo_name}
     fi
 }
