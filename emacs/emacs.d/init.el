@@ -1,19 +1,7 @@
 (setq package-list
-      '(clojure-mode
-	cider
-	graphviz-dot-mode
-	multi-term
-	yaml-mode
-	go-mode
-	python
-	python-mode
-	puppet-mode
-	ruby-mode
-	rspec-mode
-	yasnippet
-	evil
-	flycheck
-	magit))
+      '(multi-term
+        python-mode
+        magit))
 
 (setq package-archives
       '(("elpa" . "http://tromey.com/elpa/")
@@ -60,13 +48,6 @@
       inhibit-startup-echo-area-message 1) ; cleaner startup
 (define-key global-map (kbd "RET") 'newline-and-indent) ; autoindent by default
 (global-subword-mode t)
-
-; Configure yas
-(yas-global-mode t)
-(add-to-list 'yas/root-directory "~/.emacs.d/yasnippet-snippets")
-
-; Configure flycheck
-(add-hook 'after-init-hook #'global-flycheck-mode)
 
 
 (global-set-key (kbd "\C-x\C-z") 'magit-status)
