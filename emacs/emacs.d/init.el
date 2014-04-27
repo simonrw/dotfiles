@@ -60,3 +60,11 @@
       inhibit-startup-echo-area-message 1) ; cleaner startup
 (define-key global-map (kbd "RET") 'newline-and-indent) ; autoindent by default
 (global-subword-mode t)
+
+; Configure yas
+(yas-global-mode t)
+(add-to-list 'yas/root-directory "~/.emacs.d/yasnippet-snippets")
+
+; Configure flycheck
+(add-hook 'after-init-hook #'global-flycheck-mode)
+
