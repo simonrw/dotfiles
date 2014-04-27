@@ -114,8 +114,9 @@ alias g='git'
 alias gst='=git st'
 alias gcm='=git commit -m'
 alias gse='=git sync && exit'
-alias sc="=vim +Scratch"
 alias es='exec $SHELL'
+alias lfc='listen-for-commands'
+alias sc='send-command'
 
 # Update vim plugins
 alias vpi='=vim +VundleInstall +qa'
