@@ -4,12 +4,15 @@
 	graphviz-dot-mode
 	multi-term
 	yaml-mode
+	go-mode
 	python
 	python-mode
 	puppet-mode
 	ruby-mode
 	rspec-mode
+	yasnippet
 	evil
+	flycheck
 	magit))
 
 (setq package-archives
