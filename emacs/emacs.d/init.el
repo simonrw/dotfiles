@@ -56,3 +56,7 @@
 (setq-default c-basic-offset 4)
 (setq-default default-tab-width 4)
 
+;; if running in terminal, disable the menu bar
+(when (equal window-system nil)
+  (menu-bar-mode 0))
+
