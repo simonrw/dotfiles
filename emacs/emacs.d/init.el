@@ -70,3 +70,9 @@
 
 
 (global-set-key (kbd "\C-x\C-z") 'magit-status)
+
+;; no tabs
+(setq-default indent-tabs-mode nil)
+(setq-default c-basic-offset 4)
+(setq-default default-tab-width 4)
+
