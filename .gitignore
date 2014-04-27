@@ -32,3 +32,4 @@ emacs/!emacs.d/elpa/.gitkeep
 emacs/emacs.d/places
 emacs/emacs.d/tramp
 **/#*#
+**/.#*
