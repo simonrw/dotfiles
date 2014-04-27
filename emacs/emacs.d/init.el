@@ -1,5 +1,6 @@
 (setq package-list
       '(multi-term
+        vimrc-mode
         python-mode
         magit))
 
@@ -61,14 +62,3 @@
   (menu-bar-mode 0))
 
 (global-set-key (kbd "C-o") 'other-window)
-                
-
-
-
-
-
-
-
-
-
-
