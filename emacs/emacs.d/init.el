@@ -68,3 +68,5 @@
 ; Configure flycheck
 (add-hook 'after-init-hook #'global-flycheck-mode)
 
+
+(global-set-key (kbd "\C-x\C-z") 'magit-status)
