@@ -10,10 +10,7 @@
 	ruby-mode
 	rspec-mode
 	evil
-	smart-tab
-	magit
-	))
-
+	magit))
 
 (setq package-archives
       '(("elpa" . "http://tromey.com/elpa/")
