@@ -56,3 +56,4 @@
 (setq inhibit-startup-message t
       inhibit-startup-echo-area-message 1) ; cleaner startup
 (define-key global-map (kbd "RET") 'newline-and-indent) ; autoindent by default
+(global-subword-mode t)
