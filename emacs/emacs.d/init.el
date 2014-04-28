@@ -55,7 +55,8 @@
 (setq-default default-tab-width 4)
 
 ;; if running in terminal, disable the menu bar
-(when (equal window-system nil)
+(if (equal window-system 'ns)
+    (menu-bar-mode 1)
   (menu-bar-mode 0))
 
 (global-set-key (kbd "C-o") 'other-window)
