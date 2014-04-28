@@ -13,3 +13,7 @@ setlocal nospell
 
 " Set the flake8 settings
 setlocal makeprg=flake8\ %\ --ignore=E501,E128,E123,E126,E261,E262
+
+" Set the vim-pipe command
+let b:vimpipe_command="python"
+"
