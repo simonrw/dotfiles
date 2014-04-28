@@ -62,6 +62,7 @@ Plugin 'guns/vim-clojure-static'
 Plugin 'elixir-lang/vim-elixir'
 Plugin 'rodjek/vim-puppet'
 Plugin 'jnwhiteh/vim-golang'
+Plugin 'exu/pgsql.vim'
 
 "}}}
 " Post setup {{{
@@ -135,6 +136,9 @@ augroup PythonTestRunner
     autocmd Filetype python let g:pytest_test_regexp = '\v\s*(.*def)\s+test_'
     autocmd Filetype python let g:pytest_command = "!py.test -x {test}"
 augroup END
+"}}}
+" {{{ pgsql.vim
+let g:sql_type_default = "pgsql"
 "}}}
 "}}}
 
