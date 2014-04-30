@@ -25,6 +25,10 @@
   (unless (package-installed-p package)
     (package-install package)))
 
+; Set the environment variables from the shell
+(setq exec-path-from-shell-variables '("PATH" "MANPATH" "SHELL"))
+(exec-path-from-shell-initialize)
+
 ; Set the colour scheme
 (load "~/.emacs.d/colourscheme/base16-default-theme.el" nil t)
 
