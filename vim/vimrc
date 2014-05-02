@@ -46,7 +46,7 @@ Plugin 'kien/ctrlp.vim'
 Plugin 'nelstrom/vim-markdown-folding'
 Plugin 'krisajenkins/vim-pipe'
 Plugin 'junegunn/goyo.vim'
-Plugin 'chriskempson/base16-vim'
+Plugin 'altercation/vim-colors-solarized'
 
 " My plugins or forks
 Plugin 'mindriot101/vim-pytest-runner'
@@ -474,6 +474,6 @@ nnoremap K :grep! "\b<C-R><C-W>\b"<CR>:cw<CR>
 " }}}
 " {{{ Colour scheme
 set background=dark
-colorscheme base16-default
+colorscheme solarized
 "}}}
 " vim: foldmethod=marker

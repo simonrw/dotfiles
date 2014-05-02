@@ -4,6 +4,7 @@
         clojure-mode
         exec-path-from-shell
         python-mode
+        color-theme-solarized
         cider
         markdown-mode
         graphviz-dot-mode
@@ -30,7 +31,7 @@
 (exec-path-from-shell-initialize)
 
 ; Set the colour scheme
-(load "~/.emacs.d/colourscheme/base16-default-theme.el" nil t)
+(load-theme 'solarized-dark t)
 
 ; Configure some plugins
 (setq multi-term-program "zsh")
