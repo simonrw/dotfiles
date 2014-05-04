@@ -39,6 +39,10 @@
 ; Configure some plugins
 (setq multi-term-program "zsh")
 
+; Set ido mode
+(ido-mode)
+(ido-everywhere)
+
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
