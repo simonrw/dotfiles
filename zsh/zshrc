@@ -183,8 +183,7 @@ case $OSTYPE in
         export CHRUBY_PATH=/usr/local/opt/chruby/share/chruby
 
         # Configure chruby
-        source ${CHRUBY_PATH}/chruby.sh 2>/dev/null && \
-        source ${CHRUBY_PATH}/auto.sh && \
+        source ${CHRUBY_PATH}/chruby.sh
         chruby 2.0
 
         ;;
