@@ -180,12 +180,10 @@ case $OSTYPE in
         alias -g awk=gawk
         alias lsc='ls -G'
         export work=${HOME}/work/Warwick/PostDoc/
-        export CHRUBY_PATH=/usr/local/opt/chruby/share/chruby
 
         # Configure chruby
-        source ${CHRUBY_PATH}/chruby.sh
+        source /usr/local/opt/chruby/share/chruby/chruby.sh
         chruby 2.0
-
         ;;
 esac
 
