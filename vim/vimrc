@@ -73,10 +73,6 @@ endif"}}}
 " {{{ matchit
 runtime macros/matchit.vim
 "}}}
-" {{{ snipmate
-imap <c-j> <Plug>snipMateNextOrTrigger
-smap <c-j> <Plug>snipMateNextOrTrigger
-"}}}
 " {{{ fugitive
 nmap <leader>gc :Gcommit<cr>
 nmap <leader>gd :Gdiff<cr>
