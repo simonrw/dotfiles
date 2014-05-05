@@ -48,6 +48,7 @@ Plugin 'krisajenkins/vim-pipe'
 Plugin 'junegunn/goyo.vim'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'rking/ag.vim'
+Plugin 'SirVer/ultisnips'
 
 " My plugins or forks
 Plugin 'mindriot101/vim-pytest-runner'
@@ -130,6 +131,12 @@ augroup END
 "}}}
 " {{{ pgsql.vim
 let g:sql_type_default = "pgsql"
+"}}}
+" {{{ ultisnips
+let g:UltiSnipsExpandTrigger="<c-j>"
+let g:UltiSnipsJumpForwardTrigger="<c-j>"
+let g:UltiSnipsJumpBackwardTrigger="<c-k>"
+let g:UltiSnipsSnippetsDir="~/.vim/UltiSnips"
 "}}}
 "}}}
 
