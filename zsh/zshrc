@@ -223,7 +223,12 @@ function make-tmux-session() {
 # - also installs wheel
 function make-virtualenv() {
     virtualenv .
-    source ./bin/activate
+    type direnv >/dev/null 2>&1 && {
+    echo "source $(pwd)/bin/activate" > .envrc
+    direnv allow
+    } || {
+    source $(pwd)/bin/activate
+    }
     pip install wheel
 }
 
