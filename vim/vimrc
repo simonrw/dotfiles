@@ -52,12 +52,6 @@ Plugin 'rking/ag.vim'
 " My plugins or forks
 Plugin 'mindriot101/vim-pytest-runner'
 
-" Snipmate plugins
-Plugin 'MarcWeber/vim-addon-mw-utils'
-Plugin 'tomtom/tlib_vim'
-Plugin 'garbas/vim-snipmate'
-Plugin 'honza/vim-snippets'
-
 " Language plugins
 Plugin 'guns/vim-clojure-static'
 Plugin 'elixir-lang/vim-elixir'
