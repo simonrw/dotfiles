@@ -53,3 +53,5 @@
     autosetuprebase = always
 [grep]
 	extendedRegexp = true
+[help]
+	autocorrect = 5
