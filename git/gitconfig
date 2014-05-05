@@ -2,7 +2,7 @@
     name = Simon Walker
     email = s.r.walker101@googlemail.com
 [alias]
-    st = status -sb
+    st = status
     co = checkout
     su = submodule update --init --recursive
     gpr = pull --rebase
@@ -56,3 +56,6 @@
 	extendedRegexp = true
 [help]
 	autocorrect = 5
+[status]
+	short = 1
+	branch = 1
