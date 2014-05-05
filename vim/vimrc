@@ -49,6 +49,7 @@ Plugin 'junegunn/goyo.vim'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'rking/ag.vim'
 Plugin 'SirVer/ultisnips'
+Plugin 'ervandew/supertab'
 
 " My plugins or forks
 Plugin 'mindriot101/vim-pytest-runner'
