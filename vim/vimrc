@@ -163,6 +163,9 @@ set smarttab
 set shell=bash
 scriptencoding utf-8
 
+" Only use relativenumber
+set relativenumber
+
 " Do not use more prompt
 set nomore
 
