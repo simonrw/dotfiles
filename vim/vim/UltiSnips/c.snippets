@@ -1,5 +1,5 @@
 snippet inc
-#include <$1.h>
+#include <${1:stdio}.h>
 $0
 endsnippet
 
@@ -16,4 +16,13 @@ else:
 ${0}
 
 #endif
+endsnippet
+
+snippet main
+int main(int argc, char *argv[]) {
+
+	$0
+
+	return 0;
+}
 endsnippet

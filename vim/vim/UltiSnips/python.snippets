@@ -36,3 +36,23 @@ def main():
 if __name__ == '__main__':
 	main()
 endsnippet
+
+snippet plt
+import matplotlib.pyplot as plt
+$0
+endsnippet
+
+snippet np
+import numpy as np
+$0
+endsnippet
+
+snippet def
+def $1(${2:`indent('.') > 0 ? 'self' : ''`}):
+	${0:pass}
+endsnippet
+
+snippet class
+class $1(object):
+	$0
+endsnippet
