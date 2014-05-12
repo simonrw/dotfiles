@@ -111,6 +111,8 @@ endif
 
 let g:ctrlp_custom_ignore = 'venv/*'
 
+map <leader>b :CtrlPBuffer<cr>
+
 "}}}
 " {{{ ack
 let g:ackprg = 'ag --nogroup --nocolor --column'
