@@ -15,7 +15,8 @@ local red="%{$fg_bold[red]%}"
 local yellow="%{$fg_bold[yellow]%}"
 local reset="%{$reset_color%}"
 
-PROMPT="%(?.$green.$red)\$$reset "
+PROMPT="
+%(?.$green.$red)\$$reset "
 RPROMPT='%2~$(__is_git_dir)|$yellow%n$reset@$yellow%m${reset}'
 
 # vim: ft=zsh
