@@ -165,8 +165,8 @@ set smarttab
 set shell=bash
 scriptencoding utf-8
 
-" Only use relativenumber
-set relativenumber
+set norelativenumber
+set nonumber
 
 " Do not use more prompt
 set nomore
