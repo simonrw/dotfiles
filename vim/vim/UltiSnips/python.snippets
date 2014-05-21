@@ -24,10 +24,16 @@ snippet ipyembed
 import IPython; IPython.embed(); exit()
 endsnippet
 
+snippet future
+from __future__ import print_function, division, absolute_import
+endsnippet
+
+
 snippet all
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
+from __future__ import print_function, division, absolute_import
 $0
 
 def main():
