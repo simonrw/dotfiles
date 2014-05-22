@@ -210,8 +210,8 @@ set autoindent
 set smartindent
 set cindent
 
-" always have status line on
-set laststatus=2
+" always have status line off
+set laststatus=0
 set encoding=utf-8 " Necessary to show unicode glyphs
 
 " make backspace behave nicely
@@ -334,9 +334,6 @@ autocmd FileType gitcommit autocmd! bufEnter COMMIT_EDITMSG call setpos('.', [0,
 highlight ExtraWhitespace ctermbg=red guibg=red
 autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
 autocmd InsertLeave * match ExtraWhitespace /\s\+$/
-
-" Set the status line
-set statusline=%<%f\ %h%m%r%=%y\ %-14.(%l,%c%V%)\ %P
 
 set scrolloff=1
 
