@@ -65,3 +65,4 @@ tramp
 *.rel
 
 emacs/emacs.d/url
+emacs/emacs.d/eshell/*
