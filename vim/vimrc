@@ -465,6 +465,9 @@ nnoremap <leader>ez :e ~/.zshrc<cr>
 " open Ag (note the space afterwards)
 nnoremap <leader>a :Ag 
 
+" open/close folds
+nnoremap <space> za
+
 " }}}
 " {{{ Searching
 " }}}
