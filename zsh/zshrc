@@ -172,7 +172,7 @@ case $OSTYPE in
         test -f ~/.warwick.zsh && source ~/.warwick.zsh
         ;;
     darwin*)
-        export PATH=${PATH}:/usr/texbin:${GOPATH}/bin:/usr/local/sbin:/sbin:/usr/sbin
+        export PATH=${PATH}:/usr/texbin:${GOPATH}/bin:/usr/local/sbin:/sbin:/usr/sbin:${HOME}/.cabal/bin
         alias gvim=mvim
         alias gview=mview
         alias -g awk=gawk
