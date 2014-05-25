@@ -1,6 +1,5 @@
 (setq package-list
       '(multi-term
-        vimrc-mode
         clojure-mode
         exec-path-from-shell
         python-mode
