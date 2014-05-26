@@ -40,7 +40,9 @@ Plugin 'tpope/vim-unimpaired'
 Plugin 'tpope/vim-dispatch'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-git'
+Plugin 'tpope/vim-fireplace'
 Plugin 'tpope/vim-projectionist'
+Plugin 'tpope/vim-classpath'
 
 " Custom plugins
 Plugin 'kien/ctrlp.vim'
