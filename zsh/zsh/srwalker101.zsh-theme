@@ -7,7 +7,7 @@ echo ""
 }
 
 function get_load() {
-    uptime | awk '{print $(NF-2),$(NF-1),$(NF)}' | sed 's/,//g'
+    uptime | awk '{print $(NF-2),$(NF-1),$(NF)}' | tr -d ' '
 }
 
 function get_nr_jobs() {
