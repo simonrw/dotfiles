@@ -53,10 +53,6 @@ Plugin 'altercation/vim-colors-solarized'
 Plugin 'rking/ag.vim'
 Plugin 'tommcdo/vim-lion'
 
-" Snippets
-Plugin 'SirVer/ultisnips'
-Plugin 'honza/vim-snippets'
-
 " My plugins or forks
 Plugin 'mindriot101/vim-pytest-runner'
 
