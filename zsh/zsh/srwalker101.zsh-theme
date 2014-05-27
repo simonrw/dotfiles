@@ -22,6 +22,6 @@ local reset="%{$reset_color%}"
 
 PROMPT='
 %(?.$green.$red)\$$reset '
-RPROMPT='%2~$(__is_git_dir)|$blue$(get_nr_jobs)$reset|$yellow%n$reset@$yellow%m${reset}'
+RPROMPT='%2~|$blue$(get_nr_jobs)$reset|$yellow%n$reset@$yellow%m${reset}'
 
 # vim: ft=zsh
