@@ -17,3 +17,5 @@ cabal-dev
 Session.vim
 .netrwhist
 *~
+
+.direnv
