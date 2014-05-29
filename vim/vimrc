@@ -179,6 +179,9 @@ set nomore
 " Automatically save on certain commands
 set autowrite
 
+" Highlight extra whitespace
+set list listchars=tab:»·,trail:·
+
 " Update shell
 let g:is_posix = 1
 
