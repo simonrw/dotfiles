@@ -288,7 +288,8 @@ set shortmess=at
 " Time out on key codes but not mappings
 set notimeout
 set ttimeout
-set ttimeoutlen=10
+set ttimeoutlen=1
+set timeoutlen=500
 
 set nobackup
 set backupskip=/tmp/*,/private/tmp/*
