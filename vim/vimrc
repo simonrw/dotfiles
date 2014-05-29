@@ -40,28 +40,19 @@ Plugin 'tpope/vim-unimpaired'
 Plugin 'tpope/vim-dispatch'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-git'
-Plugin 'tpope/vim-fireplace'
-Plugin 'tpope/vim-projectionist'
-Plugin 'tpope/vim-classpath'
 
 " Custom plugins
 Plugin 'kien/ctrlp.vim'
 Plugin 'nelstrom/vim-markdown-folding'
 Plugin 'krisajenkins/vim-pipe'
-Plugin 'junegunn/goyo.vim'
 Plugin 'rking/ag.vim'
-Plugin 'tommcdo/vim-lion'
 Plugin 'nanotech/jellybeans.vim'
 
 " My plugins or forks
 Plugin 'mindriot101/vim-pytest-runner'
 
 " Language plugins
-Plugin 'guns/vim-clojure-static'
-Plugin 'elixir-lang/vim-elixir'
 Plugin 'rodjek/vim-puppet'
-Plugin 'jnwhiteh/vim-golang'
-Plugin 'exu/pgsql.vim'
 
 "}}}
 " Post setup {{{
