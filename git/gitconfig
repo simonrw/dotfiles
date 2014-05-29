@@ -30,7 +30,7 @@
 [color]
     ui = auto
 [core]
-    pager = less -FXR
+    pager = less -FXRS
     excludesfile = ~/.gitignore
     autocrlf = false
     safecrlf = true
