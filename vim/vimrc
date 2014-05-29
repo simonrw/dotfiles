@@ -49,9 +49,9 @@ Plugin 'kien/ctrlp.vim'
 Plugin 'nelstrom/vim-markdown-folding'
 Plugin 'krisajenkins/vim-pipe'
 Plugin 'junegunn/goyo.vim'
-Plugin 'altercation/vim-colors-solarized'
 Plugin 'rking/ag.vim'
 Plugin 'tommcdo/vim-lion'
+Plugin 'nanotech/jellybeans.vim'
 
 " My plugins or forks
 Plugin 'mindriot101/vim-pytest-runner'
@@ -481,6 +481,6 @@ nnoremap <space> za
 " }}}
 " {{{ Colour scheme
 set background=dark
-colorscheme solarized
+colorscheme jellybeans
 "}}}
 " vim: foldmethod=marker
