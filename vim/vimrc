@@ -495,5 +495,9 @@ command! RenameFile call RenameFile()
 " }}}
 " {{{ Colour scheme
 colorscheme jellybeans
+
+" Make it more obvious which paren I'm on
+hi MatchParen cterm=none ctermbg=black ctermfg=yellow
+
 "}}}
 " vim: foldmethod=marker
