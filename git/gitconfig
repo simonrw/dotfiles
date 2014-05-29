@@ -15,6 +15,9 @@
     # Quickly diff the upstream remote (assume origin)
     diffup = diff origin
 
+    # Quickly interactive rebase with upstream
+    rebup = rebase -i origin/master
+
     # Logging from Gary Bernhardt
     head = !git l -1
     h = !git head
