@@ -273,7 +273,7 @@ set spelllang=en_gb
 set formatprg=par
 
 " Configure 'Press enter to continue' messages
-set shortmess=at
+set shortmess=atI
 
 " Time out on key codes but not mappings
 set notimeout
