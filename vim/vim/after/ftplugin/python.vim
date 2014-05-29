@@ -16,4 +16,10 @@ setlocal makeprg=flake8\ %\ --ignore=E501,E128,E123,E126,E261,E262
 
 " Set the vim-pipe command
 let b:vimpipe_command="python"
-"
+
+" Set some custom expansions, basically snippets but without plugins
+iabbrev #! #!/usr/bin/env python
+iabbrev coding # -*- coding: utf-8 -*-
+iabbrev inumpy import numpy as np
+iabbrev ifmain if __name__ == '__main__':
+iabbrev future from __future__ import division, print_function, absolute_import
