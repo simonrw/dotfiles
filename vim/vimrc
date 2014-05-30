@@ -46,6 +46,8 @@ Plugin 'nelstrom/vim-markdown-folding'
 Plugin 'krisajenkins/vim-pipe'
 Plugin 'rking/ag.vim'
 Plugin 'nanotech/jellybeans.vim'
+Plugin 'kana/vim-textobj-user'
+Plugin 'kana/vim-textobj-indent'
 
 " My plugins or forks
 Plugin 'mindriot101/vim-pytest-runner'
