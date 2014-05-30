@@ -333,6 +333,7 @@ set scrolloff=1
 " Highlight the current cursor line
 set cursorline
 
+let g:netrw_liststyle = 3
 
 " }}}
 " {{{ Mappings
