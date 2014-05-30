@@ -67,13 +67,6 @@ endif"}}}
 " {{{ matchit
 runtime macros/matchit.vim
 "}}}
-" {{{ fugitive
-nmap <leader>gc :Gcommit<cr>
-nmap <leader>gd :Gdiff<cr>
-nmap <leader>gw :Gwrite<cr>
-nmap <leader>gr :Gread<cr>
-nmap <leader>gl :Glog<cr>
-"}}}
 " {{{ ctrlp
 let g:ctrlp_map = "<leader>f"
 
@@ -123,16 +116,6 @@ augroup PythonTestRunner
     autocmd Filetype python let g:pytest_test_regexp = '\v\s*(.*def)\s+test_'
     autocmd Filetype python let g:pytest_command = "!py.test -x {test}"
 augroup END
-"}}}
-" {{{ pgsql.vim
-let g:sql_type_default = "pgsql"
-"}}}
-" {{{ ultisnips
-let g:UltiSnipsExpandTrigger="<c-j>"
-let g:UltiSnipsJumpForwardTrigger="<c-j>"
-let g:UltiSnipsJumpBackwardTrigger="<c-k>"
-let g:UltiSnipsSnippetsDir="~/.vim/UltiSnips"
-let g:UltiSnipsEditSplit="vertical"
 "}}}
 "}}}
 
