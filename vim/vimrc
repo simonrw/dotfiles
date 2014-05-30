@@ -184,9 +184,12 @@ set autoindent
 set smartindent
 set cindent
 
-" always have status line off
-set laststatus=0
-set encoding=utf-8 " Necessary to show unicode glyphs
+" Always show the status bar
+set laststatus=2
+
+" Necessary to show unicode glyphs
+set encoding=utf-8 
+
 
 " make backspace behave nicely
 set backspace=indent,eol,start
@@ -231,7 +234,7 @@ set lazyredraw
 set showmatch
 
 " Set up statusline
-set statusline=
+set statusline=%t[%{strlen(&fenc)?&fenc:'none'},%{&ff}]%h%m%r%y%=%c,%l/%L\ %P
 
 " Thesaurus
 set thesaurus+=~/thesaurus/mthesaur.txt
