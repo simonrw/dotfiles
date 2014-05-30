@@ -336,6 +336,10 @@ set cursorline
 " Nicer netrw style
 let g:netrw_liststyle = 3
 
+" Set path to be any subdirectory of the current one
+set path=**
+set suffixesadd+=.py,.sh,.js,.c,.h,.rb
+
 " }}}
 " {{{ Mappings
 """"""""""""""""""""
