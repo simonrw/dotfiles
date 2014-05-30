@@ -95,9 +95,6 @@ if executable('ag')
 endif
 
 let g:ctrlp_custom_ignore = 'venv/*'
-
-map <leader>b :CtrlPBuffer<cr>
-
 "}}}
 " {{{ ack
 let g:ackprg = 'ag --nogroup --nocolor --column'
@@ -332,6 +329,9 @@ set suffixesadd+=.py,.sh,.js,.c,.h,.rb
 " Paste toggling - allow for pasting from other sources with correct
 " formatting
 set pastetoggle=<leader>p
+
+" Buffer management
+map <leader>b :ls<cr>:buffer 
 
 " Disable the 'help' key
 nmap K <nop>
