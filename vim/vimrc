@@ -356,6 +356,11 @@ if v:version > 703 || v:version == 703 && has("patch541")
     set formatoptions+=j
 endif
 
+" Some git wrappings
+map <leader>gw :!git aa %<cr><cr>
+map <leader>gc :!git commit<cr>
+map <leader>gs :!git status<cr>
+
 " settings from thoughtbot dotfiles repo
 " Swap between two files
 map <leader><leader> <C-^>
