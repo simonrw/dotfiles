@@ -193,7 +193,7 @@ set cindent
 set laststatus=2
 
 " Necessary to show unicode glyphs
-set encoding=utf-8 
+set encoding=utf-8
 
 
 " make backspace behave nicely
@@ -365,10 +365,10 @@ set statusline+=%P
 set pastetoggle=<leader>p
 
 " Buffer management
-map <leader>b :ls<cr>:buffer 
+noremap <leader>b :ls<cr>:buffer
 
 " Disable the 'help' key
-nmap K <nop>
+nnoremap K <nop>
 
 " Mapping for closing all windows but this one
 nnoremap <leader>o :only<cr>
@@ -391,13 +391,13 @@ if v:version > 703 || v:version == 703 && has("patch541")
 endif
 
 " Some git wrappings
-map <leader>gw :!git aa %<cr><cr>
-map <leader>gc :!git commit<cr>
-map <leader>gs :!git status<cr>
+noremap <leader>gw :!git aa %<cr><cr>
+noremap <leader>gc :!git commit<cr>
+noremap <leader>gs :!git status<cr>
 
 " settings from thoughtbot dotfiles repo
 " Swap between two files
-map <leader><leader> <C-^>
+noremap <leader><leader> <C-^>
 
 " Speed up ctrl-e/ctrl-y
 nnoremap <C-e> 3<C-e>
@@ -414,24 +414,24 @@ nnoremap ' `
 nnoremap ` '
 
 " Map control-s to update, rather than write
-nmap <C-s> :update<CR>
-imap <C-s> :update<CR>
-vmap <C-s> :update<CR>
+nnoremap <C-s> :update<CR>
+inoremap <C-s> :update<CR>
+vnoremap <C-s> :update<CR>
 
 " Change directory to that of the current file
 " Taken from Dave Aitken http://www.github.com/actionshrimp
 " Tweaked to run lcd instead of cd
-map <leader>cd :lcd %:p:h<CR>:pwd<CR>
+noremap <leader>cd :lcd %:p:h<CR>:pwd<CR>
 
 " Remap the Q key
-map Q gqip
+noremap Q gqip
 
 " Expand %% to the current directory
 " http://vimcasts.org/e/14
 cnoremap %% <c-r>=expand('%:h') . '/'<cr>
 
 " Make the Y key work
-map Y y$
+noremap Y y$
 
 " Reselect visual block after indent/outdent
 vnoremap < <gv
@@ -457,10 +457,10 @@ inoremap <Left> <esc>:echo "Use h!"<cr>
 inoremap <Right> <esc>:echo "Use l!"<cr>
 
 " Remap the move-window keys
-map <C-h> <C-w>h
-map <C-j> <C-w>j
-map <C-k> <C-w>k
-map <C-l> <C-w>l
+noremap <C-h> <C-w>h
+noremap <C-j> <C-w>j
+noremap <C-k> <C-w>k
+noremap <C-l> <C-w>l
 
 " Nice interface to the buffer list
 nnoremap gb :buffers<cr>:b<space>
