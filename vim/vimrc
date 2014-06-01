@@ -317,9 +317,6 @@ autocmd InsertLeave * match ExtraWhitespace /\s\+$/
 
 set scrolloff=1
 
-" Highlight the current cursor line
-set cursorline
-
 " Nicer netrw style
 let g:netrw_liststyle = 3
 
