@@ -269,6 +269,8 @@ set nobackup
 set backupskip=/tmp/*,/private/tmp/*
 set writebackup
 set noswapfile
+set undofile
+set undodir=~/.vim/tmp/undo
 
 " GRB does these
 set winwidth=79
