@@ -67,4 +67,6 @@ tramp
 emacs/emacs.d/url
 emacs/emacs.d/eshell/*
 vim/vim/tmp/*
+vim/vim/tmp/undo/*
 !vim/vim/tmp/.gitkeep
+!vim/vim/tmp/undo/.gitkeep
