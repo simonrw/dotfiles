@@ -139,7 +139,8 @@ set smarttab
 set shell=bash
 scriptencoding utf-8
 
-set norelativenumber
+" Line numbering
+set relativenumber
 set nonumber
 
 " Do not use hlsearch
