@@ -143,7 +143,9 @@ scriptencoding utf-8
 
 " Line numbering
 set relativenumber
-set nonumber
+if v:version >= 704
+    set number
+endif
 
 " Do not use hlsearch
 set nohlsearch
