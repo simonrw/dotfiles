@@ -47,8 +47,6 @@ Plugin 'kien/ctrlp.vim'
 Plugin 'nelstrom/vim-markdown-folding'
 Plugin 'krisajenkins/vim-pipe'
 Plugin 'rking/ag.vim'
-Plugin 'kana/vim-textobj-user'
-Plugin 'kana/vim-textobj-indent'
 Plugin 'tomasr/molokai'
 
 " My plugins or forks
