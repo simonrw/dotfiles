@@ -17,7 +17,7 @@ function get_nr_jobs() {
 local green="%{$fg[green]%}"
 local red="%{$fg[red]%}"
 local yellow="%{$fg[yellow]%}"
-local blue="%{$fg[blue]%}"
+local blue="%{$fg[cyan]%}"
 local reset="%{$reset_color%}"
 
 PROMPT='
