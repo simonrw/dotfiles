@@ -217,19 +217,6 @@ function make-tmux-session() {
 
 }
 
-# Function to make a virtualenv out of the current directory
-# - also installs wheel
-function make-virtualenv() {
-    virtualenv .
-    type direnv >/dev/null 2>&1 && {
-    echo "source $(pwd)/bin/activate" > .envrc
-    direnv allow
-    } || {
-    source $(pwd)/bin/activate
-    }
-    pip install wheel
-}
-
 # Source the custom zshrc.local file in the system
 if [[ -f ${HOME}/.zshrc.local ]]; then
     source ${HOME}/.zshrc.local
