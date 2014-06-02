@@ -186,7 +186,6 @@ case $OSTYPE in
         ;;
 esac
 
-export CDPATH=.:${NGTS}:${WASP}:${HOME}
 export WASP="${work}/WASP"
 export NGTS="${work}/NGTS"
 alias work="cd ${work} && pwd && ls"
