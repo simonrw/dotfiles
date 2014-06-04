@@ -506,6 +506,7 @@ command! RenameFile call RenameFile()
 
 " }}}
 " {{{ Colour scheme
+let g:molokai_original = 1
 colorscheme molokai
 
 " Make it more obvious which paren I'm on
