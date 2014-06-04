@@ -1,3 +1,6 @@
+--python-kinds=-i
+--exclude=.direnv/virtualenv/*
+--exclude=venv/*
 --langdef=latex
 --langmap=latex:.tex
 --regex-latex=/^\\tableofcontents/TABLE OF CONTENTS/s,toc/
