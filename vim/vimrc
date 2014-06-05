@@ -506,8 +506,7 @@ command! RenameFile call RenameFile()
 
 " }}}
 " {{{ Colour scheme
-let g:molokai_original = 1
-colorscheme molokai
+colorscheme grb256
 
 " Make it more obvious which paren I'm on
 hi MatchParen cterm=none ctermbg=black ctermfg=yellow
