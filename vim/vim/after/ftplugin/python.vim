@@ -24,5 +24,6 @@ setlocal colorcolumn=80
 iabbrev #! #!/usr/bin/env python
 iabbrev coding # -*- coding: utf-8 -*-
 iabbrev inumpy import numpy as np
+iabbrev iplt import matplotlib.pyplot as plt
 iabbrev ifmain if __name__ == '__main__':
 iabbrev future from __future__ import division, print_function, absolute_import
