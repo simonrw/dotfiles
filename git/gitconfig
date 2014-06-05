@@ -31,6 +31,7 @@
     aap = add --all --patch
     oneline = log --oneline --decorate
     today = log --since="6am"
+    last = log -1
 [color]
     ui = auto
 [core]
