@@ -510,5 +510,8 @@ colorscheme grb256
 " Make it more obvious which paren I'm on
 hi MatchParen cterm=none ctermbg=black ctermfg=yellow
 
+" Decrease the colorcolumn brightness
+hi ColorColumn ctermbg=black
+
 "}}}
 " vim: foldmethod=marker
