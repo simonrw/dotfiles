@@ -3,7 +3,6 @@
         clojure-mode
         exec-path-from-shell
         python-mode
-        color-theme-solarized
         cider
         markdown-mode
         graphviz-dot-mode
@@ -31,9 +30,6 @@
 ; Set the environment variables from the shell
 (setq exec-path-from-shell-variables '("PATH" "MANPATH" "SHELL"))
 (exec-path-from-shell-initialize)
-
-; Set the colour scheme
-(load-theme 'solarized-dark t)
 
 ; Configure some plugins
 (setq multi-term-program "zsh")
