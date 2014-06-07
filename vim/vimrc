@@ -46,6 +46,7 @@ Plugin 'tpope/vim-eunuch'
 Plugin 'kien/ctrlp.vim'
 Plugin 'krisajenkins/vim-pipe'
 Plugin 'rking/ag.vim'
+Plugin 'sheerun/vim-polyglot'
 
 " My plugins or forks
 Plugin 'mindriot101/vim-pytest-runner'
