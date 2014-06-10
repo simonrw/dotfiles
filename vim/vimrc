@@ -41,6 +41,7 @@ Plugin 'tpope/vim-dispatch'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-git'
 Plugin 'tpope/vim-eunuch'
+Plugin 'tpope/vim-scriptease'
 
 " Custom plugins
 Plugin 'kien/ctrlp.vim'
@@ -48,6 +49,7 @@ Plugin 'krisajenkins/vim-pipe'
 Plugin 'rking/ag.vim'
 Plugin 'sheerun/vim-polyglot'
 Plugin 'paradigm/TextObjectify'
+Plugin 'junegunn/goyo.vim'
 
 " My plugins or forks
 Plugin 'mindriot101/vim-pytest-runner'
