@@ -1,7 +1,6 @@
 (setq package-list
       '(multi-term
         clojure-mode
-        exec-path-from-shell
         python-mode
         cider
         markdown-mode
@@ -26,10 +25,6 @@
 (dolist (package package-list)
   (unless (package-installed-p package)
     (package-install package)))
-
-; Set the environment variables from the shell
-(setq exec-path-from-shell-variables '("PATH" "MANPATH" "SHELL"))
-(exec-path-from-shell-initialize)
 
 ; Configure some plugins
 (setq multi-term-program "zsh")
