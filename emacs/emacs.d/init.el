@@ -2,6 +2,7 @@
       '(multi-term
         clojure-mode
         python-mode
+        evil
         cider
         markdown-mode
         graphviz-dot-mode
