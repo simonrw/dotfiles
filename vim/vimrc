@@ -48,7 +48,6 @@ Plugin 'kien/ctrlp.vim'
 Plugin 'krisajenkins/vim-pipe'
 Plugin 'rking/ag.vim'
 Plugin 'sheerun/vim-polyglot'
-Plugin 'paradigm/TextObjectify'
 Plugin 'junegunn/goyo.vim'
 
 " My plugins or forks
