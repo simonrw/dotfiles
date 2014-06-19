@@ -27,3 +27,4 @@ iabbrev inumpy import numpy as np
 iabbrev iplt import matplotlib.pyplot as plt
 iabbrev ifmain if __name__ == '__main__':
 iabbrev future from __future__ import division, print_function, absolute_import
+iabbrev ipyembed import IPython; IPython.embed(); exit()
