@@ -255,7 +255,7 @@ legend.fancybox      : True  # if True, use a rounded box for the
 
 ### FIGURE
 # See http://matplotlib.sourceforge.net/matplotlib.figure.html#Figure
-#figure.figsize   : 8, 6    # figure size in inches
+figure.figsize   : 11, 8    # figure size in inches
 figure.dpi       : 100      # figure dots per inch
 figure.facecolor : white    # figure facecolor; 0.75 is scalar gray
 figure.edgecolor : white   # figure edgecolor
