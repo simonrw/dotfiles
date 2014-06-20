@@ -75,3 +75,7 @@
 (global-set-key (kbd "C-o") 'other-window)
 ;; Re-enable hash key on mac os x
 (global-set-key (kbd "M-3") '(lambda () (interactive) (insert "#")))
+
+;; Use menlo font where possible
+(when (member "Menlo" (font-family-list))
+  (set-face-attribute 'default nil :font "Menlo"))
