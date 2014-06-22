@@ -22,6 +22,6 @@ local reset="%{$reset_color%}"
 
 PROMPT='
 %(?.$green.$red)>$reset '
-RPROMPT=''
+RPROMPT='$yellow%m$reset'
 
 # vim: ft=zsh
