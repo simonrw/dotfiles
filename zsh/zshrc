@@ -110,8 +110,6 @@ export WORDCHARS='*?[]~&;!$%^<>'
 alias py='python'
 alias ipy='ipython'
 alias pydoc='=python -m pydoc'
-alias vi='=vim'
-alias v=vi
 alias g='git'
 alias gst='=git st'
 alias gcm='=git commit -m'
