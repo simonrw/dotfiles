@@ -193,6 +193,21 @@ alias wasp="cd ${WASP} && pwd && ls"
 alias dotfiles="cd ${HOME}/dotfiles && pwd"
 alias dev="cd ${HOME}/Development && pwd && ls"
 
+function init-python() {
+    local readonly fname="$1"
+    cat >${fname} <<EOL
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+
+def main():
+    pass
+
+if __name__ == '__main__':
+    main()
+EOL
+    vim ${fname}
+}
+
 # Function to make a new tmux session at a variable location
 function make-tmux-session() {
     if [[ $# -gt 0 ]]; then
