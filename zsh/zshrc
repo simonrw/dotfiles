@@ -168,8 +168,6 @@ case $OSTYPE in
         alias open='xdg-open 2>/dev/null'
 
 
-        # Source some custom warwick code for astronomy
-        test -f ~/.warwick.zsh && source ~/.warwick.zsh
         ;;
     darwin*)
         export PATH=${PATH}:/usr/texbin:${GOPATH}/bin:/usr/local/sbin:/sbin:/usr/sbin:${HOME}/.cabal/bin
