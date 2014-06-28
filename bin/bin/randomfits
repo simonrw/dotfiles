@@ -1,0 +1,28 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+
+import random
+import fitsio
+import argparse
+import subprocess as sp
+
+def by_date(fname):
+    with fitsio.FITS(fname) as infile:
+        return infile[0].read_header()['mjd']
+
+def view_files(files):
+    cmd = map(str, ['ds9', ] + files)
+    sp.check_call(cmd)
+
+def main(args):
+    chosen = list(set([random.choice(args.filename)
+                       for _ in xrange(args.number)]))
+    chosen.sort(key=lambda f: by_date(f))
+    view_files(chosen)
+
+if __name__ == '__main__':
+    parser = argparse.ArgumentParser()
+    parser.add_argument('filename', nargs='+')
+    parser.add_argument('-n', '--number', default=10, type=int, required=False,
+                        help='Number of images to view')
+    main(parser.parse_args())
