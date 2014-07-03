@@ -50,6 +50,7 @@ Plugin 'krisajenkins/vim-pipe'
 Plugin 'rking/ag.vim'
 Plugin 'sheerun/vim-polyglot'
 Plugin 'junegunn/goyo.vim'
+Plugin 'TWiki-Syntax'
 
 " My plugins or forks
 Plugin 'mindriot101/vim-pytest-runner'
