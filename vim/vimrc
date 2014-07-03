@@ -483,6 +483,28 @@ nnoremap <leader>a :Ag
 " open/close folds
 nnoremap <space> za
 
+" ----------------------------------------------------------------------------
+" move to the window in the direction shown, or create a new split in that
+" direction taken from http://www.reddit.com/r/vim/comments/29rne6/what_are_your_keybinding_for_tabnew_split_and/cinxcsv
+" ----------------------------------------------------------------------------
+func! WinMove(key)
+    let t:curwin = winnr()
+    exec "wincmd ".a:key
+    if (t:curwin == winnr())
+        if (match(a:key,'[jk]'))
+            wincmd v
+        else
+            wincmd s
+        endif
+        exec "wincmd ".a:key
+    endif
+endfu
+
+nnoremap <silent> <C-h> :call WinMove('h')<cr>
+nnoremap <silent> <C-j> :call WinMove('j')<cr>
+nnoremap <silent> <C-k> :call WinMove('k')<cr>
+nnoremap <silent> <C-l> :call WinMove('l')<cr>
+
 " }}}
 " {{{ Searching
 " }}}
