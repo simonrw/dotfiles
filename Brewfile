@@ -22,7 +22,6 @@ install elixir
 install haskell-platform
 
 # Casks
-cask install iterm2
 cask install thunderbird
 cask install virtualbox
 cask install vagrant
