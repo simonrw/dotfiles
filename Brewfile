@@ -21,6 +21,9 @@ install erlang
 install elixir
 install haskell-platform
 
+# Javascript
+install node
+
 # Casks
 cask install thunderbird
 cask install virtualbox
