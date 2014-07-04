@@ -7,7 +7,7 @@ compinit
 
 
 # Emacs keybindings
-bindkey -v
+bindkey -e
 bindkey "^R" history-incremental-search-backward
 
 # Set up editor in command line
