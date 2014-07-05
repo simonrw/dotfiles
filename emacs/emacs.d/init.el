@@ -14,7 +14,6 @@
 	("marmalade" . "http://marmalade-repo.org/packages/")))
 
 (add-to-list 'custom-theme-load-path "~/.emacs.d/themes")
-(load-theme 'ir-black)
 
 (package-initialize)
 
