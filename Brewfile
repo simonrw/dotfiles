@@ -8,6 +8,7 @@ install zsh
 install htop-osx
 install gcc
 install ctags
+install emacs
 
 # Ruby related
 install ruby
@@ -32,6 +33,7 @@ cask install virtualbox
 cask install vagrant
 cask install caffeine
 # cask install xquartz
+cask install emacs
 
 # Science
 tap homebrew/science
