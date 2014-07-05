@@ -7,6 +7,7 @@ install vim
 install zsh
 install htop-osx
 install gcc
+install ctags
 
 # Ruby related
 install ruby
