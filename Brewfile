@@ -6,6 +6,7 @@ install git
 install vim
 install zsh
 install htop-osx
+install gcc
 
 # Ruby related
 install ruby
