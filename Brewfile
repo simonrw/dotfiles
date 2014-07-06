@@ -19,6 +19,8 @@ install ruby-install
 
 # Python related
 install python
+install python3
+install pypy
 
 # Exotic languages
 install erlang
