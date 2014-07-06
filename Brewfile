@@ -38,6 +38,7 @@ cask install caffeine
 # cask install xquartz
 cask install emacs
 cask install mendeley-desktop
+cask install steam
 
 # Science
 tap homebrew/science
