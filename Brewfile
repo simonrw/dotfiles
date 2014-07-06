@@ -39,6 +39,7 @@ cask install caffeine
 cask install emacs
 cask install mendeley-desktop
 cask install steam
+cask install x2goclient
 
 # Science
 tap homebrew/science
