@@ -9,6 +9,7 @@ install htop-osx
 install gcc
 install ctags
 install emacs
+install tree
 
 # Ruby related
 install ruby
