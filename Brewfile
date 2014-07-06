@@ -39,7 +39,6 @@ cask install caffeine
 cask install emacs
 cask install mendeley-desktop
 cask install steam
-cask install intel-power-gadget
 
 # Science
 tap homebrew/science
