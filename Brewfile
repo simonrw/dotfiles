@@ -44,6 +44,7 @@ cask install steam
 cask install x2goclient
 cask install fluid
 cask install spotify
+cask install skim
 
 # Science
 tap homebrew/science
