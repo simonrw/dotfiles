@@ -42,7 +42,6 @@ cask install mendeley-desktop
 cask install steam
 cask install x2goclient
 cask install fluid
-cask install skype
 cask install spotify
 
 # Science
