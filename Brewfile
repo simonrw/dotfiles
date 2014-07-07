@@ -44,6 +44,7 @@ cask install x2goclient
 cask install fluid
 cask install spotify
 cask install skim
+cask install spectacle
 
 # Science
 tap homebrew/science
