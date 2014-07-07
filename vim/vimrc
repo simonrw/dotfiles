@@ -51,6 +51,7 @@ Plugin 'rking/ag.vim'
 Plugin 'sheerun/vim-polyglot'
 Plugin 'junegunn/goyo.vim'
 Plugin 'TWiki-Syntax'
+Plugin 'ervandew/supertab'
 
 " My plugins or forks
 Plugin 'mindriot101/vim-pytest-runner'
@@ -111,6 +112,10 @@ augroup PythonTestRunner
     autocmd Filetype python let g:pytest_test_regexp = '\v\s*(.*def)\s+test_'
     autocmd Filetype python let g:pytest_command = "!py.test -x {test}"
 augroup END
+"}}}
+" {{{ supertab
+let g:SuperTabDefaultCompletionType = "context"
+let g:SuperTabRetainCompletionDuration = "completion"
 "}}}
 "}}}
 
@@ -369,18 +374,6 @@ nnoremap K <nop>
 
 " Mapping for closing all windows but this one
 nnoremap <leader>o :only<cr>
-
-" Multipurpose tab key from grb
-function! InsertTabWrapper()
-    let col = col('.') - 1
-    if !col || getline('.')[col - 1] !~ '\k'
-        return "\<tab>"
-    else
-        return "\<c-p>"
-    endif
-endfunction
-inoremap <tab> <c-r>=InsertTabWrapper()<cr>
-inoremap <s-tab> <c-n>
 
 " delete comment character when joining commented lines
 if v:version > 703 || v:version == 703 && has("patch541")
