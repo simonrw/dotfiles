@@ -40,6 +40,7 @@ cask install emacs
 cask install mendeley-desktop
 cask install steam
 cask install x2goclient
+cask install fluid
 
 # Science
 tap homebrew/science
