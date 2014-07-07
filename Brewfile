@@ -13,6 +13,11 @@ install tree
 install sshfs
 install graphviz
 
+# Databases
+install postgresql
+install mariadb
+install redis
+
 # Ruby related
 install ruby
 install chruby
