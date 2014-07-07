@@ -36,7 +36,7 @@ cask install thunderbird
 cask install virtualbox
 cask install vagrant
 cask install caffeine
-# cask install xquartz
+cask install xquartz
 cask install emacs
 cask install mendeley-desktop
 cask install steam
