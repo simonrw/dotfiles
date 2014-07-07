@@ -28,6 +28,7 @@ install pypy
 install erlang
 install elixir
 install haskell-platform
+install rust
 
 # Javascript
 install node
