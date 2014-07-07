@@ -10,6 +10,7 @@ install gcc
 install ctags
 install emacs
 install tree
+install sshfs
 
 # Ruby related
 install ruby
