@@ -11,6 +11,7 @@ install ctags
 install emacs
 install tree
 install sshfs
+install graphviz
 
 # Ruby related
 install ruby
