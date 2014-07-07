@@ -8,7 +8,7 @@ install zsh
 install htop-osx
 install gcc
 install ctags
-install emacs
+install --cocoa --srgb emacs
 install tree
 install sshfs
 install graphviz
@@ -38,7 +38,6 @@ cask install virtualbox
 cask install vagrant
 cask install caffeine
 cask install xquartz
-cask install emacs
 cask install mendeley-desktop
 cask install steam
 cask install x2goclient
