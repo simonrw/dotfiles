@@ -12,6 +12,8 @@ install --cocoa --srgb emacs
 install tree
 install sshfs
 install graphviz
+install tmux
+install reattach-to-user-namespace
 
 # Databases
 install postgresql
