@@ -25,6 +25,7 @@ install ruby
 install chruby
 install direnv
 install ruby-install
+install pow
 
 # Python related
 install python
