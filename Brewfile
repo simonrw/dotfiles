@@ -53,6 +53,7 @@ cask install fluid
 cask install spotify
 cask install skim
 cask install spectacle
+cask install usb-overdrive
 
 # Science
 tap homebrew/science
