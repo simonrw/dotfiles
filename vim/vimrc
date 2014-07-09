@@ -51,7 +51,6 @@ Plugin 'sheerun/vim-polyglot'
 Plugin 'junegunn/goyo.vim'
 Plugin 'TWiki-Syntax'
 Plugin 'ervandew/supertab'
-Plugin 'jnurmine/Zenburn'
 
 " My plugins or forks
 Plugin 'mindriot101/vim-pytest-runner'
