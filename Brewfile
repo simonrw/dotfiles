@@ -15,6 +15,8 @@ install graphviz
 install tmux
 install reattach-to-user-namespace
 install md5sha1sum
+install coreutils
+install freetype
 
 # Databases
 install postgresql
