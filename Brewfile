@@ -61,4 +61,8 @@ cask install usb-overdrive
 tap homebrew/science
 install cfitsio
 
+# My stuff
+tap mindriot101/alt
+install ds9
+
 # vim: ft=sh
