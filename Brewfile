@@ -64,5 +64,6 @@ install cfitsio
 # My stuff
 tap mindriot101/alt
 install ds9
+install cfitsio-examples
 
 # vim: ft=sh
