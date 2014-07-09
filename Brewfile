@@ -18,6 +18,11 @@ install md5sha1sum
 install coreutils
 install freetype
 
+# Gamdev
+install sdl2
+install sdl2_image
+
+
 # Databases
 install postgresql
 install mariadb
