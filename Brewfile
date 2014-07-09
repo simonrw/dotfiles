@@ -14,6 +14,7 @@ install sshfs
 install graphviz
 install tmux
 install reattach-to-user-namespace
+install md5sha1sum
 
 # Databases
 install postgresql
