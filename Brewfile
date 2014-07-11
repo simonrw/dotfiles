@@ -71,6 +71,7 @@ install cfitsio
 install wcslib
 install topcat
 install montage
+install wcstools
 
 # My stuff
 tap mindriot101/alt
