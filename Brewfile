@@ -18,6 +18,7 @@ install md5sha1sum
 install coreutils
 install freetype
 install watch
+install the_silver_searcher
 
 # Gamdev
 install sdl2
