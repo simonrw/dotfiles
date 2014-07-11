@@ -17,6 +17,7 @@ install reattach-to-user-namespace
 install md5sha1sum
 install coreutils
 install freetype
+install watch
 
 # Gamdev
 install sdl2
