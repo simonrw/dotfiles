@@ -67,6 +67,7 @@ cask install usb-overdrive
 # Science
 tap homebrew/science
 install cfitsio
+install wcslib
 
 # My stuff
 tap mindriot101/alt
