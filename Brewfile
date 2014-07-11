@@ -23,6 +23,10 @@ install watch
 install sdl2
 install sdl2_image
 
+# Docker
+install boot2docker
+install docker
+
 
 # Databases
 install postgresql
