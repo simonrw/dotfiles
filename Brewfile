@@ -68,6 +68,8 @@ cask install usb-overdrive
 tap homebrew/science
 install cfitsio
 install wcslib
+install topcat
+install montage
 
 # My stuff
 tap mindriot101/alt
