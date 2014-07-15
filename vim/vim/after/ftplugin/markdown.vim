@@ -1,6 +1,5 @@
 setlocal expandtab
 setlocal linebreak
-setlocal synmaxcol=1024
 setlocal sw=2
 
 " mappings to create headings of different sorts
