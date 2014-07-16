@@ -83,7 +83,7 @@ alias m=make
 alias irssi="TERM=screen-256color irssi"
 
 export GOPATH=${HOME}/Development/gocode
-export PATH=${HOME}/.bin:${PATH}:${HOME}/bin
+export PATH=${HOME}/.bin:${HOME}/.cabal/bin:${PATH}:${HOME}/bin
 
 export EDITOR=vim
 export VISUAL=${EDITOR}
