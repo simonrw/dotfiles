@@ -20,6 +20,8 @@ install freetype
 install watch
 install the_silver_searcher
 install wget
+install ghi
+install hub
 
 # Gamdev
 install sdl2
