@@ -72,6 +72,7 @@ cask install spotify
 cask install skim
 cask install spectacle
 cask install usb-overdrive
+cask install reaper
 
 # Science
 tap homebrew/science
