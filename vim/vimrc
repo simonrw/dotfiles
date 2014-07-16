@@ -78,6 +78,9 @@ let g:ctrlp_switch_buffer = 0
 " Use current working directory always
 let g:ctrlp_working_path_mode = 0
 
+" Open new files with <c-y> in same window
+let g:ctrlp_open_new_file = 'r'
+
 " Use silver searcher if available
 if executable('ag')
     " Let ctrlp use ag for files
