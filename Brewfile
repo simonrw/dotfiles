@@ -19,6 +19,7 @@ install coreutils
 install freetype
 install watch
 install the_silver_searcher
+install wget
 
 # Gamdev
 install sdl2
