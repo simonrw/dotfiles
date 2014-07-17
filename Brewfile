@@ -60,7 +60,6 @@ install rust
 install node
 
 # Casks
-cask install thunderbird
 cask install virtualbox
 cask install vagrant
 cask install caffeine
