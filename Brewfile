@@ -22,6 +22,7 @@ install the_silver_searcher
 install wget
 install ghi
 install hub
+install gawk
 
 # Gamdev
 install sdl2
