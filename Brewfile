@@ -61,6 +61,7 @@ install node
 
 # Casks
 cask install vlc
+cask install thunderbird
 cask install virtualbox
 cask install vagrant
 cask install caffeine
