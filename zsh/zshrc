@@ -118,6 +118,9 @@ alias es='exec $SHELL'
 alias lfc='listen-for-commands'
 alias sc='send-command'
 
+# SSH into the ngts ops machine
+alias ngtsops='ssh -t ngtshead.astro ssh ngtsops'
+
 # Update vim plugins
 alias vpi='=vim +VundleInstall +qa'
 alias vpu="=vim '+VundleInstall!'"
