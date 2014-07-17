@@ -60,6 +60,7 @@ install rust
 install node
 
 # Casks
+cask install vlc
 cask install virtualbox
 cask install vagrant
 cask install caffeine
