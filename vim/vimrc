@@ -52,6 +52,7 @@ Plugin 'junegunn/goyo.vim'
 Plugin 'TWiki-Syntax'
 Plugin 'ervandew/supertab'
 Plugin 'airblade/vim-gitgutter'
+Plugin 'kbarrette/mediummode'
 
 " My plugins or forks
 Plugin 'mindriot101/vim-pytest-runner'
