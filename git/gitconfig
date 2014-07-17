@@ -12,6 +12,7 @@
     sync = !git gpr && git push
     wdiff = diff --color-words
     ci = commit
+    c = commit -m
     q = quick
     # Quickly diff the upstream remote (assume origin)
     diffup = diff origin
