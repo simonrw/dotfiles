@@ -21,7 +21,7 @@ local blue="%{$fg[cyan]%}"
 local reset="%{$reset_color%}"
 
 PROMPT='
-%(?.$green.$red)>$reset '
+%(?.$green>$reset.$red%?>$reset) '
 RPROMPT='$yellow%m$reset'
 
 # vim: ft=zsh
