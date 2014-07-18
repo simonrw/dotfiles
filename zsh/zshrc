@@ -120,7 +120,7 @@ alias sc='send-command'
 
 # SSH into the ngts ops machine
 alias ngtsops='ssh -t ngtshead.astro ssh ngtsops'
-alias ngtshead="ssh ngtshead.astro exec zsh"
+alias ngtshead="ssh -t ngtshead.astro exec zsh"
 
 
 # Update vim plugins
