@@ -504,5 +504,8 @@ hi MatchParen cterm=none ctermbg=black ctermfg=yellow
 " Decrease the colorcolumn brightness
 hi ColorColumn ctermbg=black
 
+" Make git gutterline black background
+hi SignColumn ctermbg=none
+
 "}}}
 " vim: foldmethod=marker
