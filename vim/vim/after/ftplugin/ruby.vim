@@ -11,3 +11,6 @@ nmap <buffer> <leader>gM :CtrlP db/migrate<cr>
 nmap <buffer> <leader>gS :CtrlP spec<cr>
 
 let b:vimpipe_command="ruby"
+
+iabbrev #! #!/usr/bin/env ruby
+iabbrev coding # -*- coding: utf-8 -*-
