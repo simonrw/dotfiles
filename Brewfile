@@ -23,6 +23,7 @@ install wget
 install ghi
 install hub
 install gawk
+install dos2unix
 
 # Gamdev
 install sdl2
