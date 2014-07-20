@@ -75,6 +75,7 @@ cask install skim
 cask install spectacle
 cask install usb-overdrive
 cask install reaper
+cask install dropbox
 
 # Science
 tap homebrew/science
