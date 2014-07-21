@@ -37,7 +37,6 @@
     ui = auto
 [core]
     pager = less -FXRS
-    excludesfile = ~/.gitignore
     autocrlf = false
     safecrlf = true
     whitespace = fix

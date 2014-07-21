@@ -70,3 +70,4 @@ vim/vim/tmp/*
 vim/vim/tmp/undo/*
 !vim/vim/tmp/.gitkeep
 !vim/vim/tmp/undo/.gitkeep
+*.pyc
