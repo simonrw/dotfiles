@@ -24,6 +24,7 @@ install ghi
 install hub
 install gawk
 install dos2unix
+install ssh-copy-id
 
 # Gamdev
 install sdl2
