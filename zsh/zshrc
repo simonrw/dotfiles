@@ -159,15 +159,6 @@ case $OSTYPE in
         # Set up the module command
         function module() { eval `modulecmd zsh $*`; }
 
-        VIRTUALENV_DIR=${STORAGE}/PythonEnv
-        VIRTUALENV_SOURCE_FILE=${VIRTUALENV_DIR}/bin/activate
-        if [[ -f ${VIRTUALENV_SOURCE_FILE} ]]; then
-            # Set up the python environment
-            # Set the environment variable for only this env to disable the prompt
-            VIRTUAL_ENV_DISABLE_PROMPT=1 source ${VIRTUALENV_SOURCE_FILE}
-            # export PYTHONPATH=${VIRTUALENV_DIR}/lib/python2.7/site-packages:$PYTHONPATH
-        fi
-
         alias lsc='ls --color=auto'
         export work=${HOME}/work/
         alias open='xdg-open 2>/dev/null'
