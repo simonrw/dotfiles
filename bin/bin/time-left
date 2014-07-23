@@ -1,0 +1,53 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+
+from __future__ import division, print_function, absolute_import
+
+import datetime
+import argparse
+from dateutil.parser import parse
+import sys
+
+def print_finish_time(start_time, nimages, nimages_total):
+    now = datetime.datetime.now()
+    nseconds = (now - start_time).seconds
+
+    time_per_image = nseconds / nimages
+    print("Time per image: {:.2f} seconds".format(time_per_image))
+
+    total_seconds = time_per_image * nimages_total
+    finish_time = start_time + datetime.timedelta(seconds=total_seconds)
+    print("Predicted finish time: {}".format(finish_time))
+
+    
+
+def main(args):
+    try:
+        dt = parse(args.start_time)
+    except ValueError as err:
+        print('Error parsing date time string: {}'.format(args.start_time),
+              file=sys.stderr)
+        sys.exit(1)
+
+    nimages = args.nimages
+    ntotal_images = args.nimagestotal
+
+    print_finish_time(dt, nimages, ntotal_images)
+
+if __name__ == '__main__':
+    description = '''
+    Predict when an analysis should finish
+    '''
+    epilog = '''
+    Given the start time of an analysis, the number of files analysed and the number of files in
+    total, print the predicted finish time (assuming each file takes an equal amount of time to
+    analyse)
+    '''
+    parser = argparse.ArgumentParser(description=description, epilog=epilog)
+    parser.add_argument('-s', '--start-time', help='Start time',
+                        required=True)
+    parser.add_argument('-n', '--nimages', help='Number of images',
+                        required=True, type=int)
+    parser.add_argument('-N', '--nimagestotal', help='Total number of images to analyse',
+                        required=True, type=int)
+    main(parser.parse_args())
