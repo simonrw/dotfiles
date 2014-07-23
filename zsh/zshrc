@@ -60,24 +60,34 @@ function _tmux_attach() {
 # From GRB
 function mcd() { mkdir -p $1 && cd $1 }
 
-# Taken from http://sheerun.net/2014/03/21/how-to-boost-your-vim-productivity/ - quick switch back to vim
-fancy-ctrl-z () {
-  if [[ $#BUFFER -eq 0 ]]; then
-    fg
-    zle redisplay
-  else
-    zle push-input
-    zle clear-screen
-  fi
-}
-zle -N fancy-ctrl-z
-bindkey '^Z' fancy-ctrl-z
-
 # Alias some tmux commands
 alias ta=_tmux_attach
 alias tns="tmux new-session -s"
 alias tls="tmux ls"
 alias m=make
+
+# Function to make a new tmux session at a variable location
+function tnew() {
+    if [[ $# -gt 0 ]]; then
+        if [[ $# -gt 1 ]]; then
+            return
+        fi
+
+        DIRNAME="$1"
+        if [[ ! -d ${DIRNAME} ]]; then
+            mkdir ${DIRNAME}
+        fi
+
+    else
+        DIRNAME=$(pwd)
+    fi
+
+    cd $DIRNAME
+    TMUXNAME=$(basename `pwd`)
+    tns ${TMUXNAME}
+
+}
+
 
 # Run irssi with the correct TERM variable
 alias irssi="TERM=screen-256color irssi"
@@ -202,28 +212,6 @@ if __name__ == '__main__':
     main()
 EOL
     vim ${fname}
-}
-
-# Function to make a new tmux session at a variable location
-function make-tmux-session() {
-    if [[ $# -gt 0 ]]; then
-        if [[ $# -gt 1 ]]; then
-            return
-        fi
-
-        DIRNAME="$1"
-        if [[ ! -d ${DIRNAME} ]]; then
-            mkdir ${DIRNAME}
-        fi
-
-    else
-        DIRNAME=$(pwd)
-    fi
-
-    cd $DIRNAME
-    TMUXNAME=$(basename `pwd`)
-    tns ${TMUXNAME}
-
 }
 
 # Use anaconda if available
