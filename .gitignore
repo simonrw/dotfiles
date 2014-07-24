@@ -18,7 +18,6 @@ pip/pip/pip.log
 ipython/ipython/db
 emacs/emacs.d/elpa
 vim/vim/vim-addons
-emacs/emacs.d/.cask
 zsh/zsh/cache
 ipython/ipython/profile_nbserver/history.sqlite
 *.cache
