@@ -327,7 +327,7 @@ highlight ExtraWhitespace ctermbg=red guibg=red
 autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
 autocmd InsertLeave * match ExtraWhitespace /\s\+$/
 
-set scrolloff=5
+set scrolloff=1
 
 " Nicer netrw style
 let g:netrw_liststyle = 3
