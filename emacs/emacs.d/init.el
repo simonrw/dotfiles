@@ -62,3 +62,5 @@
 (evil-leader/set-leader ",")
 (evil-leader/set-key
   "," 'projectile-find-file)
+
+(require 'icomplete)
