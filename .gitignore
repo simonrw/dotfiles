@@ -70,3 +70,5 @@ vim/vim/tmp/undo/*
 !vim/vim/tmp/.gitkeep
 !vim/vim/tmp/undo/.gitkeep
 *.pyc
+emacs/emacs.d/*
+!emacs/emacs.d/init.el
