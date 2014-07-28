@@ -54,13 +54,12 @@
 (require 'projectile)
 (projectile-global-mode)
 
-(require 'evil)
-(evil-mode t)
-
-(require 'evil-leader)
-(global-evil-leader-mode)
-(evil-leader/set-leader ",")
-(evil-leader/set-key
-  "," 'projectile-find-file)
-
 (require 'icomplete)
+
+;; Use nicer buffer management
+(global-set-key (kbd "C-x C-b") 'ibuffer)
+
+;; Use ido mode
+(setq ido-enable-flex-matching t)
+(setq ido-everywhere t)
+(ido-mode 1)
