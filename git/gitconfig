@@ -5,7 +5,7 @@
     st = status
     co = checkout
     su = submodule update --init --recursive
-    gpr = pull --rebase
+    gpr = pull --rebase --prune
     pullff = pull --ff-only
     pushff = push --ff-only
     mergeff = merge --ff-only
@@ -18,7 +18,7 @@
     diffup = diff origin
 
     # Quickly interactive rebase with upstream
-    rebup = rebase -i origin/master
+    rebup = rebase -i origin/master --prune
 
     # Logging from Gary Bernhardt
     head = !git l -1
