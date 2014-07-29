@@ -3,6 +3,8 @@
   (require 'package)
   (add-to-list 'package-archives
 	       '("marmalade" . "http://marmalade-repo.org/packages/"))
+  (add-to-list 'package-archives
+               '("melpa" . "http://melpa.milkbox.net/packages/"))
   (package-initialize)
 
   (unless package-archive-contents
@@ -15,6 +17,7 @@
                         evil
                         evil-leader
                         cider
+                        helm
                         projectile
                         multi-term))
 
@@ -63,3 +66,7 @@
 (setq ido-enable-flex-matching t)
 (setq ido-everywhere t)
 (ido-mode 1)
+
+;; Helm
+(require 'helm-config)
+(helm-mode 1)
