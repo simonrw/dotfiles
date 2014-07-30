@@ -51,7 +51,6 @@ Plugin 'sheerun/vim-polyglot'
 Plugin 'junegunn/goyo.vim'
 Plugin 'TWiki-Syntax'
 Plugin 'airblade/vim-gitgutter'
-Plugin 'Raimondi/delimitMate'
 Plugin 'christoomey/vim-tmux-navigator'
 
 " My plugins or forks
