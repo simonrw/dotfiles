@@ -41,6 +41,7 @@ Plugin 'tpope/vim-projectionist'
 Plugin 'tpope/vim-eunuch'
 Plugin 'tpope/vim-scriptease'
 Plugin 'tpope/vim-vinegar'
+Plugin 'tpope/vim-surround'
 
 " Custom plugins
 Plugin 'kien/ctrlp.vim'
