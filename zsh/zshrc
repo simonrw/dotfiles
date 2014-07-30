@@ -122,11 +122,7 @@ alias ipy='ipython'
 alias pydoc='=python -m pydoc'
 alias g='git'
 alias gst='=git st'
-alias gcm='=git commit -m'
-alias gse='=git sync && exit'
 alias es='exec $SHELL'
-alias lfc='listen-for-commands'
-alias sc='send-command'
 
 # SSH into the ngts ops machine
 alias ngtsops='ssh -t ngtshead.astro ssh ngtsops'
