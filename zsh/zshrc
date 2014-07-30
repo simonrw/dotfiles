@@ -62,7 +62,7 @@ function mcd() { mkdir -p $1 && cd $1 }
 
 # Alias some tmux commands
 alias ta=_tmux_attach
-alias tns="tmux new-session -s"
+alias tns="tmux new-session -As"
 alias tls="tmux ls"
 alias m=make
 
