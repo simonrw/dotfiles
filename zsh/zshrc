@@ -127,7 +127,6 @@ alias es='exec $SHELL'
 alias v=vim
 
 # SSH into the ngts ops machine
-alias ngtsops='ssh -t ngtshead.astro ssh ngtsops'
 alias ngtshead="ssh -t ngtshead.astro exec zsh"
 
 
