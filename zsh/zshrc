@@ -208,6 +208,7 @@ def main():
 if __name__ == '__main__':
     main()
 EOL
+    chmod +x ${fname}
     vim ${fname}
 }
 
