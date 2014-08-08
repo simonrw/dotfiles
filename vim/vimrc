@@ -23,7 +23,6 @@ Plug 'kien/ctrlp.vim', { 'on': 'CtrlP' }
 Plug 'krisajenkins/vim-pipe'
 Plug 'rking/ag.vim', { 'on': 'Ag' }
 Plug 'sheerun/vim-polyglot'
-Plug 'junegunn/goyo.vim'
 Plug 'TWiki-Syntax', { 'for': 'twiki' }
 Plug 'airblade/vim-gitgutter'
 Plug 'christoomey/vim-tmux-navigator'
