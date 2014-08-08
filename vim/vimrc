@@ -19,18 +19,18 @@ Plug 'tpope/vim-vinegar'
 Plug 'tpope/vim-surround'
 
 " Custom plugins
-Plug 'kien/ctrlp.vim'
+Plug 'kien/ctrlp.vim', { 'on': 'CtrlP' }
 Plug 'krisajenkins/vim-pipe'
-Plug 'rking/ag.vim'
+Plug 'rking/ag.vim', { 'on': 'Ag' }
 Plug 'sheerun/vim-polyglot'
 Plug 'junegunn/goyo.vim'
-Plug 'TWiki-Syntax'
+Plug 'TWiki-Syntax', { 'for': 'twiki' }
 Plug 'airblade/vim-gitgutter'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'tommcdo/vim-exchange'
 
 " My plugins or forks
-Plug 'mindriot101/vim-pytest-runner'
+Plug 'mindriot101/vim-pytest-runner', { 'for': 'python' }
 
 call plug#end()
 " }}}
@@ -39,6 +39,7 @@ call plug#end()
 runtime macros/matchit.vim
 "}}}
 " {{{ ctrlp
+map <leader>f :CtrlP<cr>
 let g:ctrlp_map = "<leader>f"
 
 " Always open file in new buffer
