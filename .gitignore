@@ -2,7 +2,7 @@ ipython/ipython/profile_default/history.sqlite
 matplotlib/matplotlib/fontList.cache
 ipython/ipython/history
 vim/vim/spell
-vim/vim/bundle
+vim/vim/plugged
 *.swp
 ghc/ghc/ghci_history
 ghc/ghc/x86_64-*
