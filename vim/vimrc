@@ -1,6 +1,93 @@
 " {{{ Plugins
-call plug#begin('~/.vim/plugged')
+" {{{ Vim Plug
+call plug#begin('~/.vim/bundle')
+
+" tpope plugins, these deserve their own section
+Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-unimpaired'
+Plug 'tpope/vim-dispatch'
+Plug 'tpope/vim-projectionist'
+Plug 'tpope/vim-eunuch'
+Plug 'tpope/vim-scriptease'
+Plug 'tpope/vim-vinegar'
+Plug 'tpope/vim-surround'
+
+" Custom plugins
+Plug 'kien/ctrlp.vim'
+Plug 'krisajenkins/vim-pipe'
+Plug 'rking/ag.vim'
+Plug 'sheerun/vim-polyglot'
+Plug 'junegunn/goyo.vim'
+Plug 'TWiki-Syntax'
+Plug 'airblade/vim-gitgutter'
+Plug 'christoomey/vim-tmux-navigator'
+Plug 'tommcdo/vim-exchange'
+
+" My plugins or forks
+Plug 'mindriot101/vim-pytest-runner'
+
 call plug#end()
+" }}}
+" Plugin settings {{{
+" {{{ matchit
+runtime macros/matchit.vim
+"}}}
+" {{{ ctrlp
+let g:ctrlp_map = "<leader>f"
+
+" Always open file in new buffer
+let g:ctrlp_switch_buffer = 0
+
+" Use current working directory always
+let g:ctrlp_working_path_mode = 0
+
+" Open new files with <c-y> in same window
+let g:ctrlp_open_new_file = 'r'
+
+" Use silver searcher if available
+if executable('ag')
+    " Let ctrlp use ag for files
+    let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+
+    " Follow symlinks but not duplicates
+    let g:ctrlp_follow_symlinks = 1
+
+    " Change ctrlp style
+    let g:ctrlp_match_window = 'bottom,order:btt'
+
+    " Only remember a limited number of files
+    let g:ctrlp_mruf_max = 0
+
+    " Disable ag caching
+    let g:ctrlp_use_caching = 0
+endif
+
+let g:ctrlp_custom_ignore = 'venv/*'
+"}}}
+" {{{ markdown-folding
+let g:markdown_fold_style = 'stacked'
+"}}}
+" {{{ vim-pytest-runner
+augroup PythonTestRunner
+    autocmd!
+    autocmd Filetype python nmap <leader>ra :call RunAllTests()<cr>
+    autocmd Filetype python nmap <leader>rc :call RunNearestTest()<cr>
+    autocmd Filetype python nmap <leader>rf :call RunCurrentTestFile()<cr>
+    autocmd Filetype python nmap <leader>rl :call RunLastTest()<cr>
+    autocmd Filetype python let g:pytest_test_regexp = '\v\s*(.*def)\s+test_'
+    autocmd Filetype python let g:pytest_command = "!py.test -x {test}"
+augroup END
+"}}}
+" {{{ git-gutter
+" remove git gutter key mappings
+let g:gitgutter_map_keys = 0
+
+" Speed ups
+let g:gitgutter_realtime = 0
+let g:gitgutter_eager = 0
+"}}}
+"}}}
 " }}}
 " {{{ Settings
 """"""""""""""""""""
