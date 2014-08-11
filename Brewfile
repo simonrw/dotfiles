@@ -77,6 +77,7 @@ cask install spectacle
 cask install usb-overdrive
 cask install reaper
 cask install dropbox
+cask install limechat
 
 # Science
 tap homebrew/science
