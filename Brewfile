@@ -78,6 +78,7 @@ cask install usb-overdrive
 cask install reaper
 cask install dropbox
 cask install limechat
+cask install adium
 
 # Science
 tap homebrew/science
