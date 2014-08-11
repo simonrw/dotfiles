@@ -27,6 +27,7 @@ Plug 'TWiki-Syntax', { 'for': 'twiki' }
 Plug 'airblade/vim-gitgutter'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'tommcdo/vim-exchange'
+Plug 'mhinz/vim-tmuxify'
 
 " My plugins or forks
 Plug 'mindriot101/vim-pytest-runner', { 'for': 'python' }
@@ -91,6 +92,12 @@ let g:gitgutter_map_keys = 0
 " Speed ups
 let g:gitgutter_realtime = 0
 let g:gitgutter_eager = 0
+"}}}
+" {{{ vim-tmuxify
+let g:tmuxify_run = {
+    \ "python": "python %",
+    \ "bash": "bash %",
+\}
 "}}}
 "}}}
 " }}}
