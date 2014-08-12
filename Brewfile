@@ -25,6 +25,7 @@ install hub
 install gawk
 install dos2unix
 install ssh-copy-id
+install nmap
 
 # Gamdev
 install sdl2
