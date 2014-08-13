@@ -17,6 +17,7 @@ Plug 'tpope/vim-eunuch'
 Plug 'tpope/vim-scriptease'
 Plug 'tpope/vim-vinegar'
 Plug 'tpope/vim-surround'
+Plug 'tpope/vim-rsi'
 
 " Custom plugins
 Plug 'kien/ctrlp.vim', { 'on': 'CtrlP' }
