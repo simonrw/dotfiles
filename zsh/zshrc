@@ -89,6 +89,17 @@ function tnew() {
 
 }
 
+fancy-ctrl-z () {
+    if [[ $#BUFFER -eq 0 ]]; then
+        BUFFER="fg"
+        zle accept-line
+    else
+        zleush-input
+        zle clear-screen
+    fi
+}
+zle -N fancy-ctrl-z
+bindkey '^Z' fancy-ctrl-z
 
 # Run irssi with the correct TERM variable
 alias irssi="TERM=screen-256color irssi"
