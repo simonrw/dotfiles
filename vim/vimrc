@@ -342,6 +342,9 @@ set statusline+=%P
 "     MAPPINGS     "
 """"""""""""""""""""
 
+" Some common leader mappings
+nnoremap <leader>w :w<cr>
+
 " Paste toggling - allow for pasting from other sources with correct
 " formatting
 set pastetoggle=<leader>p
