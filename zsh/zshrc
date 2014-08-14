@@ -131,6 +131,7 @@ export WORDCHARS='*?[]~&;!$%^<>'
 
 alias ipy='ipython'
 alias p=python
+alias py=python
 alias pydoc='=python -m pydoc'
 alias g='git'
 alias gst='=git st'
