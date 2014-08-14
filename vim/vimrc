@@ -1,6 +1,6 @@
 " {{{ Init
 " Remap the leader key to comma
-let mapleader = "\<Space>"
+let mapleader=','
 let maplocalleader='\\'
 " }}}
 " {{{ Plugins
@@ -461,6 +461,9 @@ nnoremap <leader>ez :e ~/.zshrc<cr>
 
 " open Ag (note the space afterwards)
 nnoremap <leader>a :Ag 
+
+" open/close folds
+nnoremap <space> za
 
 " Default leader mapping to run current file,
 " with eunuch.vim this should basically work
