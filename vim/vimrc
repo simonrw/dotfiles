@@ -31,6 +31,7 @@ Plug 'christoomey/vim-tmux-navigator'
 Plug 'tommcdo/vim-exchange'
 Plug 'mhinz/vim-tmuxify'
 Plug 'michaeljsmith/vim-indent-object'
+Plug 'altercation/vim-colors-solarized'
 
 " My plugins or forks
 Plug 'mindriot101/vim-pytest-runner', { 'for': 'python' }
@@ -482,7 +483,8 @@ noremap <leader>t :w\|!./%<cr>
 """"""""""""""""""""
 " }}}
 " {{{ Colour scheme
-colorscheme grb256
+set background=dark
+colorscheme solarized
 
 " Make it more obvious which paren I'm on
 hi MatchParen cterm=none ctermbg=black ctermfg=yellow
