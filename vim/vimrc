@@ -277,8 +277,8 @@ set noequalalways
 " Enable the ruler
 set ruler
 
-" Always show the tab line
-set showtabline=2
+" Only show the tab line if multiple tabs
+set showtabline=1
 
 " Set some ignore patterns
 set wildignore+=*.aux,*.o,*.git,/tmp/*,*.so,*.swp,*.zip,venv,env,*.pyc
