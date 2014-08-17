@@ -103,6 +103,12 @@ let g:tmuxify_run = {
     \ "bash": "bash %",
 \}
 "}}}
+" {{{ vim-fugitive
+" Mappings
+noremap <leader>gw :Gwrite<cr>
+noremap <leader>gc :Gcommit<cr>
+noremap <leader>gs :Gstatus<cr>
+"}}}
 "}}}
 " }}}
 " {{{ Settings
@@ -377,11 +383,6 @@ inoremap <s-tab> <c-n>
 if v:version > 703 || v:version == 703 && has("patch541")
     set formatoptions+=j
 endif
-
-" Some git wrappings
-noremap <leader>gw :!git aa %<cr><cr>
-noremap <leader>gc :!git commit<cr>
-noremap <leader>gs :!git status<cr>
 
 " settings from thoughtbot dotfiles repo
 " Swap between two files
