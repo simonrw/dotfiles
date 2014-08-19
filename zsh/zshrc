@@ -2,6 +2,9 @@ export PATH=/usr/local/bin:${PATH}
 fpath=($HOME/.zsh/func $HOME/.zsh/completion $fpath)
 typeset -U fpath
 
+# Disable Ctrl-s freezing the terminal
+stty stop undef
+
 autoload -U compinit
 compinit
 

@@ -32,6 +32,7 @@ Plug 'tommcdo/vim-exchange'
 Plug 'mhinz/vim-tmuxify'
 Plug 'michaeljsmith/vim-indent-object'
 Plug 'altercation/vim-colors-solarized'
+Plug 'ivanov/vim-ipython'
 
 " My plugins or forks
 Plug 'mindriot101/vim-pytest-runner', { 'for': 'python' }
