@@ -81,6 +81,7 @@ cask install reaper
 cask install dropbox
 cask install limechat
 cask install adium
+cask install libreoffice
 
 # Science
 tap homebrew/science
