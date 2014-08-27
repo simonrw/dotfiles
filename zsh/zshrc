@@ -135,6 +135,7 @@ alias ipy='ipython'
 alias p=python
 alias py=python
 alias pydoc='=python -m pydoc'
+alias pylab='ipython --pylab'
 alias g='git'
 alias gst='=git st'
 alias es='exec $SHELL'
