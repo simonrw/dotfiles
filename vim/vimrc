@@ -31,7 +31,7 @@ Plug 'christoomey/vim-tmux-navigator'
 Plug 'tommcdo/vim-exchange'
 Plug 'mhinz/vim-tmuxify'
 Plug 'michaeljsmith/vim-indent-object'
-Plug 'ivanov/vim-ipython'
+Plug 'sjl/tslime.vim'
 
 " My plugins or forks
 Plug 'mindriot101/vim-pytest-runner', { 'for': 'python' }
@@ -108,6 +108,12 @@ let g:tmuxify_run = {
 noremap <leader>gw :Gwrite<cr>
 noremap <leader>gc :Gcommit<cr>
 noremap <leader>gs :Gstatus<cr>
+"}}}
+" {{{ tslime
+" Mappings
+vmap <C-c><C-c> <Plug>SendSelectionToTmux
+nmap <C-c><C-c> <Plug>NormalModeSendToTmux
+nmap <C-c>r <Plug>SetTmuxVars
 "}}}
 "}}}
 " }}}
