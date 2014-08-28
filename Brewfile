@@ -27,6 +27,7 @@ install dos2unix
 install ssh-copy-id
 install nmap
 install ffmpeg
+install imagemagick
 
 # Gamdev
 install sdl2
