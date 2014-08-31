@@ -24,8 +24,8 @@ c = get_config()
 # c.InteractiveShellApp.code_to_run = ''
 
 # lines of code to run at IPython startup.
-c.InteractiveShellApp.exec_lines = []
-c.InteractiveShellApp.exec_lines.append('%autoreload 2')
+# c.InteractiveShellApp.exec_lines = []
+# c.InteractiveShellApp.exec_lines.append('%autoreload 2')
 
 
 # Enable GUI event loop integration ('qt', 'wx', 'gtk', 'glut', 'pyglet',
@@ -44,7 +44,7 @@ c.InteractiveShellApp.exec_lines.append('%autoreload 2')
 #         'line_profiler_ext',
 #         'memory_profiler_ext',
 #         ]
-c.InteractiveShellApp.extensions = ['autoreload']
+# c.InteractiveShellApp.extensions = ['autoreload']
 
 # Run the module as a script.
 # c.InteractiveShellApp.module_to_run = ''
@@ -190,7 +190,7 @@ c.TerminalInteractiveShell.colors = 'Linux'
 # forces a full reload of modules whose code may have changed, which the default
 # reload() function does not.  When deep_reload is off, IPython will use the
 # normal reload(), but deep_reload will still be available as dreload().
-c.TerminalInteractiveShell.deep_reload = True
+# c.TerminalInteractiveShell.deep_reload = True
 
 # Number of lines of your screen, used to control printing of very long strings.
 # Strings longer than this number of lines will be sent through a pager instead
