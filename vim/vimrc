@@ -32,6 +32,8 @@ Plug 'tommcdo/vim-exchange'
 Plug 'mhinz/vim-tmuxify'
 Plug 'michaeljsmith/vim-indent-object'
 Plug 'sjl/tslime.vim'
+Plug 'ivanov/vim-ipython'
+Plug 'amdt/vim-niji'
 
 " My plugins or forks
 Plug 'mindriot101/vim-pytest-runner', { 'for': 'python' }
