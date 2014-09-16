@@ -70,6 +70,7 @@ cask install libreoffice
 cask install skype
 cask install firefox
 cask install thunderbird
+cask install gimp
 
 # Science
 tap homebrew/science
