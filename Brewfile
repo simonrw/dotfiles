@@ -67,6 +67,7 @@ cask install dropbox
 cask install limechat
 cask install adium
 cask install libreoffice
+cask install skype
 
 # Science
 tap homebrew/science
