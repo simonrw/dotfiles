@@ -193,7 +193,13 @@ case $OSTYPE in
         alias gview=mview
         alias -g awk=gawk
         alias lsc='ls -G'
-        export work=${HOME}/work/Warwick/PostDoc/
+
+        if [[ "$(hostname -s)" == "mbp15" ]]; then
+            export work=${HOME}/work
+        else
+            export work=${HOME}/work/Warwick/PostDoc/
+        fi
+
 
         # Configure chruby
         source /usr/local/opt/chruby/share/chruby/chruby.sh
