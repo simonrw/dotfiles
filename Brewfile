@@ -47,6 +47,7 @@ install elixir
 install ghc
 install cabal-install
 install rust
+install leiningen
 
 # Javascript
 install node
