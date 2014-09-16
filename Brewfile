@@ -44,7 +44,8 @@ install pypy
 # Exotic languages
 install erlang
 install elixir
-install haskell-platform
+install ghc
+install cabal-install
 install rust
 
 # Javascript
