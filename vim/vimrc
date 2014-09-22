@@ -47,6 +47,7 @@ runtime macros/matchit.vim
 "}}}
 " {{{ ctrlp
 map <leader>f :CtrlP<cr>
+map <leader>b :CtrlPBuffer<cr>
 let g:ctrlp_map = "<leader>f"
 
 " Always open file in new buffer
@@ -371,9 +372,6 @@ nnoremap <leader>w :w<cr>
 " Paste toggling - allow for pasting from other sources with correct
 " formatting
 set pastetoggle=<leader>p
-
-" Buffer management
-noremap <leader>b :ls<cr>:buffer
 
 " Disable the 'help' key
 nnoremap K <nop>
