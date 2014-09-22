@@ -85,4 +85,8 @@ install wcstools
 tap mindriot101/alt
 install ds9
 
+# head only recipes
+tap homebrew/headonly
+install git-hg
+
 # vim: ft=sh
