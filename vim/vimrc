@@ -34,6 +34,7 @@ Plug 'michaeljsmith/vim-indent-object'
 Plug 'sjl/tslime.vim'
 Plug 'ivanov/vim-ipython'
 Plug 'amdt/vim-niji'
+Plug 'tell-k/vim-autopep8'
 
 " My plugins or forks
 Plug 'mindriot101/vim-pytest-runner', { 'for': 'python' }
@@ -116,6 +117,11 @@ noremap <leader>gs :Gstatus<cr>
 vmap <C-c><C-c> <Plug>SendSelectionToTmux
 nmap <C-c><C-c> <Plug>NormalModeSendToTmux
 nmap <C-c>r <Plug>SetTmuxVars
+"}}}
+" {{{ vim-autopep8
+" Mappings
+autocmd FileType python map <buffer> <leader>y :call Autopep8()<cr>
+let g:autopep8_disable_show_diff=1
 "}}}
 "}}}
 " }}}
