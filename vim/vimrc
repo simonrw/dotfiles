@@ -476,7 +476,7 @@ nnoremap <leader>ev :e $MYVIMRC<cr>
 nnoremap <leader>ez :e ~/.zshrc<cr>
 
 " open Ag (note the space afterwards)
-nnoremap <leader>a :Ag 
+nnoremap <leader>a :Ag --ignore "*tags" 
 
 " open/close folds
 nnoremap <space> za
