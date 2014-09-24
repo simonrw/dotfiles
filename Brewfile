@@ -73,6 +73,7 @@ cask install firefox
 cask install thunderbird
 cask install gimp
 cask install steam
+cask install spectacle
 
 # Science
 tap homebrew/science
