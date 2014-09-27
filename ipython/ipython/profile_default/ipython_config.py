@@ -252,7 +252,7 @@ c.TerminalInteractiveShell.colors = 'Linux'
 # it is not applied if there are no more arguments on the line, and '2' for
 # 'full' autocall, where all callable objects are automatically called (even if
 # no arguments are present).
-c.TerminalInteractiveShell.autocall = 1
+c.TerminalInteractiveShell.autocall = 2
 
 # Save multi-line entries as one entry in readline history
 # c.TerminalInteractiveShell.multiline_history = True
