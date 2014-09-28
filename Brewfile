@@ -74,6 +74,7 @@ cask install thunderbird
 cask install gimp
 cask install steam
 cask install spectacle
+cask install flux
 
 # Science
 tap homebrew/science
