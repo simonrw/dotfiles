@@ -56,3 +56,7 @@
 
 (scroll-bar-mode -1)
 (tool-bar-mode -1)
+
+;; Make the hash key work for OSX
+(if (eq system-type 'darwin)
+    (global-set-key (kbd "M-3") '(lambda() (interactive) (insert "#"))))
