@@ -23,6 +23,7 @@ install ssh-copy-id
 install nmap
 install ffmpeg
 install imagemagick
+install trash
 
 # Docker
 install boot2docker
