@@ -92,4 +92,7 @@ install ds9
 tap homebrew/headonly
 install git-hg
 
+tap homebrew/dupes
+install homebrew/dupes/grep
+
 # vim: ft=sh
