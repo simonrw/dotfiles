@@ -69,6 +69,7 @@ alias ta=_tmux_attach
 alias tns="tmux new-session -As"
 alias tls="tmux ls"
 alias m=make
+alias lsc='ls --color=auto'
 
 # Function to make a new tmux session at a variable location
 function tnew() {
@@ -182,7 +183,6 @@ case $OSTYPE in
         # Set up the module command
         function module() { eval `modulecmd zsh $*`; }
 
-        alias lsc='ls --color=auto'
         export work=${HOME}/work/
         alias open='xdg-open 2>/dev/null'
 
@@ -193,7 +193,6 @@ case $OSTYPE in
         alias gvim=mvim
         alias gview=mview
         alias -g awk=gawk
-        alias lsc='ls -G'
 
         if [[ "$(hostname -s)" == "mbp15" ]]; then
             export work=${HOME}/work
