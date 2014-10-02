@@ -28,11 +28,8 @@ Plug 'TWiki-Syntax', { 'for': 'twiki' }
 Plug 'airblade/vim-gitgutter'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'tommcdo/vim-exchange'
-Plug 'mhinz/vim-tmuxify'
 Plug 'michaeljsmith/vim-indent-object'
 Plug 'sjl/tslime.vim'
-Plug 'ivanov/vim-ipython'
-Plug 'amdt/vim-niji'
 Plug 'tell-k/vim-autopep8'
 
 " My plugins or forks
