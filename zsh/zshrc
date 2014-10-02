@@ -141,7 +141,8 @@ alias g='git'
 alias gst='=git st'
 alias es='exec $SHELL'
 alias v=vim
-alias conda_local='conda create --yes -p ${PWD}/venv pip ipython'
+alias conda_local='conda create --yes -p ${PWD}/venv \
+                pip ipython numpy matplotlib scipy pandas'
 
 # SSH into the ngts ops machine
 alias ngtshead="ssh -t ngtshead.astro exec zsh"
