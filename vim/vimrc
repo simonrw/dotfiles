@@ -201,7 +201,6 @@ set laststatus=2
 " Necessary to show unicode glyphs
 set encoding=utf-8
 
-
 " make backspace behave nicely
 set backspace=indent,eol,start
 
@@ -274,7 +273,6 @@ set timeoutlen=500
 set nobackup
 set backupskip=/tmp/*,/private/tmp/*
 set writebackup
-set noswapfile
 set undofile
 set undodir=~/.vim/tmp/undo
 
