@@ -24,6 +24,7 @@ install nmap
 install ffmpeg
 install imagemagick
 install trash
+install hdf5
 
 # Docker
 install boot2docker
