@@ -142,6 +142,11 @@ set smarttab
 set shell=bash
 scriptencoding utf-8
 
+" Increase encryption protection
+if v:version > 703
+set cryptmethod=blowfish2
+endif
+
 " Line numbering
 set norelativenumber
 set nonumber
