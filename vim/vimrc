@@ -30,7 +30,7 @@ Plug 'christoomey/vim-tmux-navigator'
 Plug 'tommcdo/vim-exchange'
 Plug 'michaeljsmith/vim-indent-object'
 Plug 'sjl/tslime.vim'
-Plug 'tell-k/vim-autopep8'
+Plug 'tell-k/vim-autopep8', { 'for': 'python' }
 
 " My plugins or forks
 Plug 'mindriot101/vim-pytest-runner', { 'for': 'python' }
