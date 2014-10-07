@@ -20,7 +20,7 @@ Plug 'tpope/vim-rsi'
 Plug 'tpope/vim-fugitive'
 
 " Custom plugins
-Plug 'kien/ctrlp.vim', { 'on': 'CtrlP' }
+Plug 'kien/ctrlp.vim'
 Plug 'krisajenkins/vim-pipe'
 Plug 'rking/ag.vim', { 'on': 'Ag' }
 Plug 'sheerun/vim-polyglot'
