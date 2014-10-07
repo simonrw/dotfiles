@@ -16,6 +16,7 @@
     q = quick
     # Quickly diff the upstream remote (assume origin)
     diffup = diff origin
+    upsub = submodule foreach 'git checkout master && git pull'
 
     # Quickly interactive rebase with upstream
     rebup = rebase -i origin/master --prune
