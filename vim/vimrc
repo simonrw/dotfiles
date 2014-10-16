@@ -114,6 +114,7 @@ nmap <C-c>r <Plug>SetTmuxVars
 " Mappings
 autocmd FileType python map <buffer> <leader>y :call Autopep8()<cr>
 let g:autopep8_disable_show_diff=1
+let g:autopep8_max_line_length=99
 "}}}
 "}}}
 " }}}
