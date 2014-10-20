@@ -25,6 +25,7 @@ install ffmpeg
 install imagemagick
 install trash
 install hdf5
+install sextractor
 
 # Docker
 install boot2docker
