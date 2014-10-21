@@ -139,7 +139,7 @@ set shell=bash
 scriptencoding utf-8
 
 " Increase encryption protection
-if v:version > 703
+if v:version > 704
 set cryptmethod=blowfish2
 endif
 
