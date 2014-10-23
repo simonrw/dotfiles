@@ -26,6 +26,7 @@ install imagemagick
 install trash
 install hdf5
 install sextractor
+install par
 
 # Docker
 install boot2docker
