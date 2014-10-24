@@ -238,12 +238,15 @@ function init-python() {
 # -*- coding: utf-8 -*-
 
 from __future__ import division, print_function, absolute_import
+import argparse
 
-def main():
+
+def main(args):
     pass
 
 if __name__ == '__main__':
-    main()
+    parser = argparse.ArgumentParser()
+    main(parser.parse_args())
 EOL
     chmod +x ${fname}
     vim ${fname}
