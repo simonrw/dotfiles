@@ -181,7 +181,7 @@ case $OSTYPE in
         export BUILD_PREFIX="${STORAGE}/prefix"
         export PATH=${BUILD_PREFIX}/bin:${HOME}/.gem/ruby/1.8/bin:${PATH}
         export LD_LIBRARY_PATH=${BUILD_PREFIX}/lib:${LD_LIBRARY_PATH}
-        export LS_OPTIONS=--color=never
+        export LS_OPTIONS='--color=auto'
 
         # Set up the module command
         function module() { eval `modulecmd zsh $*`; }
