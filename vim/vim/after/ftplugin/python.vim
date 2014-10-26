@@ -1,4 +1,4 @@
-setlocal textwidth=79
+setlocal textwidth=99
 
 setlocal wrap
 
@@ -18,7 +18,7 @@ setlocal makeprg=flake8\ %\ --ignore=E501,E128,E123,E126,E261,E262
 let b:vimpipe_command="python"
 
 " Add the colourcolumn
-setlocal colorcolumn=80
+setlocal colorcolumn=100
 
 " Set some custom expansions, basically snippets but without plugins
 iabbrev #! #!/usr/bin/env python
