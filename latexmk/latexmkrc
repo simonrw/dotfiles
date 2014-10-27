@@ -1,0 +1,2 @@
+$pdflatex = 'pdflatex -synctex=1 -halt-on-error -shell-escape %O %S';
+$pdf_previewer = 'open -a skim %O %S';
