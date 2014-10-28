@@ -25,6 +25,7 @@ Plug 'rking/ag.vim', { 'on': 'Ag' }
 Plug 'tell-k/vim-autopep8', { 'for': 'python' }
 Plug 'sheerun/vim-polyglot'
 Plug 'christoomey/vim-tmux-navigator'
+Plug 'sjl/gundo.vim'
 
 " My plugins or forks
 Plug 'mindriot101/vim-pytest-runner', { 'for': 'python' }
@@ -115,6 +116,10 @@ nmap <C-c>r <Plug>SetTmuxVars
 autocmd FileType python map <buffer> <leader>y :call Autopep8()<cr>
 let g:autopep8_disable_show_diff=1
 let g:autopep8_max_line_length=99
+"}}}
+" {{{ gundo
+let g:gundo_preview_bottom = 1
+map <leader>G :GundoToggle<cr>
 "}}}
 "}}}
 " }}}
