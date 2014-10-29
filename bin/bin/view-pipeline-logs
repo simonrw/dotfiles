@@ -1,0 +1,71 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+
+
+import os
+import argparse
+import glob
+import subprocess as sp
+
+
+class Tmux(object):
+
+    def __init__(self, session_name):
+        self.session_name = session_name
+        self.create_session()
+
+    def create_session(self):
+        self.tmux_command('new-session', '-d', '-s', self.session_name)
+        return self
+
+    def view_jobs(self):
+        self.send_keys('exec watchjobs', 'C-m')
+        return self
+
+    def split_horizontally(self, *args):
+        self.session_command('split-window', '-h', *args)
+        return self
+
+    def split_vertically(self, *args):
+        self.session_command('split-window', '-v', *args)
+        return self
+
+    def send_keys(self, *args):
+        self.session_command('send-keys', *args)
+        return self
+
+    def attach(self):
+        self.session_command('attach-session')
+        return self
+
+    def session_command(self, command, *command_args):
+        self.tmux_command(command, '-t', self.session_name, *command_args)
+        return self
+
+    def tmux_command(self, *command_args):
+        cmd = ['tmux'] + map(str, command_args)
+        sp.check_call(cmd)
+        return self
+
+
+def main(args):
+    try:
+        errorfile = glob.glob('*.e{}'.format(args.actionid))[0]
+        outfile = glob.glob('*.o{}'.format(args.actionid))[0]
+    except IndexError:
+        raise RuntimeError("Cannot find log files for action {}".format(args.actionid))
+
+    jobname = 'job{}.{}'.format(os.path.splitext(outfile)[0], args.actionid).replace('.', '_')
+
+    if not os.path.isfile(errorfile) or not os.path.isfile(outfile):
+        raise RuntimeError("Cannot find log files")
+
+    Tmux(jobname).view_jobs()\
+        .split_vertically('tail -f {}'.format(errorfile))\
+        .split_horizontally('tail -f {}'.format(outfile))\
+        .attach()
+
+if __name__ == '__main__':
+    parser = argparse.ArgumentParser()
+    parser.add_argument('actionid', type=int)
+    main(parser.parse_args())
