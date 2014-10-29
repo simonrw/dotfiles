@@ -223,14 +223,6 @@ alias wasp="cd ${WASP} && pwd && ls"
 alias dotfiles="cd ${HOME}/dotfiles && pwd"
 alias dev="cd ${HOME}/Development && pwd && ls"
 
-function watchjobs() {
-    if [[ "$(hostname -s)" == "ngtshead" ]]; then
-        watch -n 1 qstat
-    else
-        ssh -t ngtshead.astro "watch -n 1 qstat"
-    fi
-}
-
 function init-python() {
     local readonly fname="$1"
     cat >${fname} <<EOL
