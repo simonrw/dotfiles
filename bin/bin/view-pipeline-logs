@@ -50,12 +50,12 @@ class Tmux(object):
 
 def main(args):
     try:
-        errorfile = glob.glob('*.e{}'.format(args.actionid))[0]
-        outfile = glob.glob('*.o{}'.format(args.actionid))[0]
+        errorfile = glob.glob('*.e{}'.format(args.jobid))[0]
+        outfile = glob.glob('*.o{}'.format(args.jobid))[0]
     except IndexError:
-        raise RuntimeError("Cannot find log files for action {}".format(args.actionid))
+        raise RuntimeError("Cannot find log files for job {}".format(args.jobid))
 
-    jobname = 'job{}.{}'.format(os.path.splitext(outfile)[0], args.actionid).replace('.', '_')
+    jobname = 'job{}.{}'.format(os.path.splitext(outfile)[0], args.jobid).replace('.', '_')
 
     if not os.path.isfile(errorfile) or not os.path.isfile(outfile):
         raise RuntimeError("Cannot find log files")
@@ -67,5 +67,5 @@ def main(args):
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
-    parser.add_argument('actionid', type=int)
+    parser.add_argument('jobid', type=int)
     main(parser.parse_args())
