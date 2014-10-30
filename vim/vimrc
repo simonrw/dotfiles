@@ -26,6 +26,7 @@ Plug 'tell-k/vim-autopep8', { 'for': 'python' }
 Plug 'sheerun/vim-polyglot'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'sjl/gundo.vim'
+Plug 'amdt/vim-niji'
 
 " My plugins or forks
 Plug 'mindriot101/vim-pytest-runner', { 'for': 'python' }
