@@ -10,7 +10,7 @@ def main(args):
     cmd = ['conda', 'create', '-p', full_path,
            '--yes', '--quiet',
            'python={}'.format(args.python),
-           'pip', 'ipython']
+           'pip', 'ipython', 'autopep8']
     cmd.extend(args.package)
     sp.check_call(map(str, cmd))
     
