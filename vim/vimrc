@@ -69,9 +69,6 @@ if executable('ag')
     let g:ctrlp_use_caching = 1
 endif
 
-" Make the window at the top
-let g:ctrlp_match_window = 'top,order: btt'
-
 let g:ctrlp_custom_ignore = '\v\~$|\.(o|swp|pyc|wav|mp3|ogg|blend)$|(^|[/\\])\.(hg|git|bzr)($|[/\\])|venv/*'
 "}}}
 " {{{ markdown-folding
