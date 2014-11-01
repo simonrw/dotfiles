@@ -156,8 +156,9 @@ endif
 set relativenumber
 set number
 
-" Do not use hlsearch
-set nohlsearch
+" Use hlsearch
+set hlsearch
+nmap <enter> :nohlsearch<cr>
 
 " Do not use more prompt
 set nomore
