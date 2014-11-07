@@ -1,0 +1,93 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+
+from __future__ import division, print_function, absolute_import
+import argparse
+from xml.dom.minidom import parseString
+import subprocess as sp
+from collections import namedtuple
+import datetime
+from getpass import getuser
+import sys
+import datetime
+
+
+def qstat(username=None):
+    username = username if username is not None else getuser()
+    cmd = ['qstat', '-u', username, '-xml']
+    stdout = sp.check_output(cmd)
+    return stdout
+
+
+class UnsupportedPythonVersion(RuntimeError):
+    pass
+
+
+def python_version_check():
+    v = sys.version_info
+    if v.major == 2:
+        if v.minor < 7:
+            raise UnsupportedPythonVersion("Python must be >= 2.7")
+
+
+class JobInfo(namedtuple('JobInfo', ['state', 'job_number', 'name', 'submission_time'])):
+
+    NODE_MAP = {
+        'state': 9,
+        'number': 1,
+        'name': 5,
+        'submission_time': 11,
+    }
+
+    @classmethod
+    def from_node(cls, node):
+        return cls(
+            cls.parse_job_state(node),
+            cls.parse_job_number(node),
+            cls.parse_job_name(node),
+            cls.parse_job_submission_time(node))
+
+    @classmethod
+    def parse_job_state(cls, node):
+        return node.childNodes[cls.NODE_MAP['state']].childNodes[0].nodeValue
+
+    @classmethod
+    def parse_job_number(cls, node):
+        return long(node.childNodes[cls.NODE_MAP['number']].childNodes[0].nodeValue)
+
+    @classmethod
+    def parse_job_name(cls, node):
+        return node.childNodes[cls.NODE_MAP['name']].childNodes[0].nodeValue
+
+    @classmethod
+    def parse_job_submission_time(cls, node):
+        time_string = node.childNodes[cls.NODE_MAP['submission_time']].childNodes[0].nodeValue
+        dt = datetime.datetime.strptime(time_string, '%Y-%m-%dT%H:%M:%S')
+        return dt
+
+    def __str__(self):
+        return '{name:64}{number:6} {state:6} | {submission_time}'.format(
+            name=self.name,
+            number=self.job_number,
+            state='({})'.format(self.state),
+            submission_time=self.submission_time)
+
+
+def main(args):
+    python_version_check()
+    xml_output = qstat(args.username)
+    dom = parseString(xml_output)
+    job_list = dom.firstChild.childNodes[3]
+
+    jobs = []
+    for node in job_list.childNodes:
+        if node.nodeName == 'job_list':
+            info = JobInfo.from_node(node)
+            jobs.append(info)
+
+    [print(job) for job in sorted(jobs, key=lambda job: job.job_number, reverse=True)]
+
+if __name__ == '__main__':
+    parser = argparse.ArgumentParser()
+    parser.add_argument('-u', '--username', help="Username to query")
+    main(parser.parse_args())
