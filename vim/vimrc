@@ -66,7 +66,7 @@ if executable('ag')
     let g:ctrlp_mruf_max = 0
 
     " Disable ag caching
-    let g:ctrlp_use_caching = 1
+    let g:ctrlp_use_caching = 0
 endif
 
 let g:ctrlp_custom_ignore = '\v\~$|\.(o|swp|pyc|wav|mp3|ogg|blend)$|(^|[/\\])\.(hg|git|bzr)($|[/\\])|venv/*'
