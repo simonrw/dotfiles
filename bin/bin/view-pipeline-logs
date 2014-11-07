@@ -63,8 +63,11 @@ def main(args):
     t = Tmux(jobname).view_jobs()\
         .split_vertically('tail -f {}'.format(errorfile))\
         .split_horizontally('tail -f {}'.format(outfile))
-    if not args.detatch:
+    if args.detatch:
+        print('Tmux session name: {name}'.format(name=jobname))
+    else:
         t.attach()
+
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
