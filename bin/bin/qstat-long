@@ -81,7 +81,7 @@ class JobInfo(namedtuple('JobInfo', ['state', 'job_number', 'name', 'submission_
 
 
     def render(self, width=100):
-        taken_chars = 29
+        taken_chars = 42
         return '{number:6} {name:{name_width}} {state:>4} {queue_name:6} | {submission_time:19}'.format(
             name_width=width - taken_chars,
             name=self.name,
