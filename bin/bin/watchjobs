@@ -5,9 +5,9 @@ set -e
 
 main() {
     if [[ "$(hostname -s)" == "ngtshead" ]]; then
-        watch -n 1 qstat -u sw
+        watch -n 1 qstat-long -u sw
     else
-        ssh -t ngtshead.astro "watch -n 1 qstat"
+        ssh -t ngtshead.astro "watch -n 1 qstat-long -u sw"
     fi
 }
 
