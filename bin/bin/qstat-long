@@ -31,13 +31,15 @@ def python_version_check():
             raise UnsupportedPythonVersion("Python must be >= 2.7")
 
 
-class JobInfo(namedtuple('JobInfo', ['state', 'job_number', 'name', 'submission_time'])):
+class JobInfo(namedtuple('JobInfo', ['state', 'job_number', 'name', 'submission_time',
+                                     'queue_name', ])):
 
     NODE_MAP = {
         'state': 9,
         'number': 1,
         'name': 5,
         'submission_time': 11,
+        'queue_name': 13,
     }
 
     @classmethod
@@ -46,34 +48,48 @@ class JobInfo(namedtuple('JobInfo', ['state', 'job_number', 'name', 'submission_
             cls.parse_job_state(node),
             cls.parse_job_number(node),
             cls.parse_job_name(node),
-            cls.parse_job_submission_time(node))
+            cls.parse_job_submission_time(node),
+            cls.parse_job_queue_name(node),
+        )
 
     @classmethod
     def parse_job_state(cls, node):
-        return node.childNodes[cls.NODE_MAP['state']].childNodes[0].nodeValue
+        return node.childNodes[cls.NODE_MAP['state']].firstChild.nodeValue
 
     @classmethod
     def parse_job_number(cls, node):
-        return long(node.childNodes[cls.NODE_MAP['number']].childNodes[0].nodeValue)
+        return long(node.childNodes[cls.NODE_MAP['number']].firstChild.nodeValue)
 
     @classmethod
     def parse_job_name(cls, node):
-        return node.childNodes[cls.NODE_MAP['name']].childNodes[0].nodeValue
+        return node.childNodes[cls.NODE_MAP['name']].firstChild.nodeValue
 
     @classmethod
     def parse_job_submission_time(cls, node):
-        time_string = node.childNodes[cls.NODE_MAP['submission_time']].childNodes[0].nodeValue
+        time_string = node.childNodes[cls.NODE_MAP['submission_time']].firstChild.nodeValue
         dt = datetime.datetime.strptime(time_string, '%Y-%m-%dT%H:%M:%S')
         return dt
 
+    @classmethod
+    def parse_job_queue_name(cls, node):
+        try:
+            queue_name = node.childNodes[cls.NODE_MAP['queue_name']].firstChild.nodeValue
+        except AttributeError:
+            return ''
+        else:
+            return queue_name.split('@')[-1].split('.')[0]
+
+
     def render(self, width=100):
-        taken_chars = 36
-        return '{number:6} {name:{name_width}} {state:>5} | {submission_time:19}'.format(
+        taken_chars = 29
+        return '{number:6} {name:{name_width}} {state:>4} {queue_name:6} | {submission_time:19}'.format(
             name_width=width - taken_chars,
             name=self.name,
             number=self.job_number,
-            state='({})'.format(self.state),
-            submission_time=str(self.submission_time))
+            state='{}'.format(self.state),
+            submission_time=str(self.submission_time),
+            queue_name=self.queue_name,
+        )
 
 
 def main(args):
