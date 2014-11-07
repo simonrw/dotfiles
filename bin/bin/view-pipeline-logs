@@ -60,12 +60,15 @@ def main(args):
     if not os.path.isfile(errorfile) or not os.path.isfile(outfile):
         raise RuntimeError("Cannot find log files")
 
-    Tmux(jobname).view_jobs()\
+    t = Tmux(jobname).view_jobs()\
         .split_vertically('tail -f {}'.format(errorfile))\
-        .split_horizontally('tail -f {}'.format(outfile))\
-        .attach()
+        .split_horizontally('tail -f {}'.format(outfile))
+    if not args.detatch:
+        t.attach()
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
     parser.add_argument('jobid', type=int)
+    parser.add_argument('-d', '--detatch', action='store_true', default=False,
+                        help='Detatch after creating')
     main(parser.parse_args())
