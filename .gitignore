@@ -72,3 +72,4 @@ vim/vim/tmp/undo/*
 *.pyc
 emacs/emacs.d/*
 !emacs/emacs.d/init.el
+*.DS_Store
