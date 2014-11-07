@@ -65,12 +65,14 @@ class JobInfo(namedtuple('JobInfo', ['state', 'job_number', 'name', 'submission_
         dt = datetime.datetime.strptime(time_string, '%Y-%m-%dT%H:%M:%S')
         return dt
 
-    def __str__(self):
-        return '{name:64}{number:6} {state:6} | {submission_time}'.format(
+    def render(self, width=100):
+        taken_chars = 36
+        return '{number:6} {name:{name_width}} {state:>5} | {submission_time:19}'.format(
+            name_width=width - taken_chars,
             name=self.name,
             number=self.job_number,
             state='({})'.format(self.state),
-            submission_time=self.submission_time)
+            submission_time=str(self.submission_time))
 
 
 def main(args):
@@ -85,9 +87,11 @@ def main(args):
             info = JobInfo.from_node(node)
             jobs.append(info)
 
-    [print(job) for job in sorted(jobs, key=lambda job: job.job_number, reverse=True)]
+    [print(job.render(width=args.width)) for job in
+     sorted(jobs, key=lambda job: job.job_number, reverse=True)]
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
     parser.add_argument('-u', '--username', help="Username to query")
+    parser.add_argument('-w', '--width', help='Screen width', default=100, type=int)
     main(parser.parse_args())
