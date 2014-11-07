@@ -10,6 +10,7 @@ import datetime
 from getpass import getuser
 import sys
 import datetime
+from itertools import groupby
 
 
 def qstat(username=None):
@@ -79,16 +80,20 @@ def main(args):
     python_version_check()
     xml_output = qstat(args.username)
     dom = parseString(xml_output)
-    job_list = dom.firstChild.childNodes[3]
+
+    job_list = dom.firstChild.childNodes
 
     jobs = []
-    for node in job_list.childNodes:
-        if node.nodeName == 'job_list':
-            info = JobInfo.from_node(node)
-            jobs.append(info)
+    for parent in job_list:
+        for node in parent.childNodes:
+            if node.nodeName == 'job_list':
+                info = JobInfo.from_node(node)
+                jobs.append(info)
 
-    [print(job.render(width=args.width)) for job in
-     sorted(jobs, key=lambda job: job.job_number, reverse=True)]
+    for k, g in groupby(jobs, key=lambda job: job.state):
+        for node in sorted(g, key=lambda job: job.job_number):
+            print(node.render(width=args.width))
+
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
