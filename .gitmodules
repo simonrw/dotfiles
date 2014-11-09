@@ -1,3 +1,6 @@
 [submodule "git-remote-hg"]
 	path = git-remote-hg
 	url = https://github.com/felipec/git-remote-hg.git
+[submodule "zsh/zsh/syntax-highlighting"]
+	path = zsh/zsh/syntax-highlighting
+	url = https://github.com/zsh-users/zsh-syntax-highlighting
