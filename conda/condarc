@@ -1,0 +1,3 @@
+channels:
+    - defaults
+    - http://conda.binstar.org/srwalker101
