@@ -265,3 +265,6 @@ eval "$(direnv hook $0)"
 
 # Finally source the theme
 source ${HOME}/.zsh/srwalker101.zsh-theme
+
+# ... and syntax highlighting
+source ${HOME}/.zsh/syntax-highlighting/zsh-syntax-highlighting.zsh
