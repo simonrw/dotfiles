@@ -155,7 +155,7 @@ set number
 
 " Use hlsearch
 set hlsearch
-nmap <enter> :nohlsearch<cr>
+nmap <space> :nohlsearch<cr>
 
 " Do not use more prompt
 set nomore
@@ -479,9 +479,6 @@ nnoremap <leader>ez :e ~/.zshrc<cr>
 
 " open Ag (note the space afterwards)
 nnoremap <leader>a :Ag --ignore "*tags" 
-
-" open/close folds
-nnoremap <space> za
 
 " Default leader mapping to run current file,
 " with eunuch.vim this should basically work
