@@ -192,7 +192,7 @@ case $OSTYPE in
 
         ;;
     darwin*)
-        export PATH=$(brew --prefix coreutils)/libexec/gnubin:${HOME}/local/bin:${PATH}:/usr/texbin:${GOPATH}/bin:/usr/local/sbin:/sbin:/usr/sbin:${HOME}/.cabal/bin
+        export PATH=$(brew --prefix gnu-tar)/libexec/gnubin:$(brew --prefix coreutils)/libexec/gnubin:${HOME}/local/bin:${PATH}:/usr/texbin:${GOPATH}/bin:/usr/local/sbin:/sbin:/usr/sbin:${HOME}/.cabal/bin
         alias gvim=mvim
         alias gview=mview
         alias -g awk=gawk
