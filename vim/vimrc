@@ -27,6 +27,7 @@ Plug 'sheerun/vim-polyglot'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'sjl/gundo.vim'
 Plug 'amdt/vim-niji'
+Plug 'junegunn/goyo.vim'
 
 " My plugins or forks
 Plug 'mindriot101/vim-pytest-runner', { 'for': 'python' }
@@ -121,6 +122,9 @@ let g:autopep8_max_line_length=99
 " {{{ gundo
 let g:gundo_preview_bottom = 1
 map <leader>G :GundoToggle<cr>
+"}}}
+" {{{ goyo
+let g:goyo_width = 100
 "}}}
 "}}}
 " }}}
