@@ -28,7 +28,6 @@
 
 (require-package 'multi-term)
 
-
 ;; replace tab characters
 (setq-default tab-width 4 indent-tabs-mode nil)
 
@@ -41,6 +40,14 @@
 ;; Make the hash key work for OSX
 (if (eq system-type 'darwin)
     (global-set-key (kbd "M-3") '(lambda() (interactive) (insert "#"))))
+
+;; Lisp navigation
+(progn
+  (require 'elisp-slime-nav)
+  (defun my-lisp-hook ()
+    (elisp-slime-nav-mode)
+    (turn-on-eldoc-mode))
+  (add-hook 'elisp-lisp-mode-hook 'my-lisp-hook))
 
 ;; Evil mode
 (require-package 'evil)
