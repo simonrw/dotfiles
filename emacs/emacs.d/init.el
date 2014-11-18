@@ -61,6 +61,9 @@
           (progn
             (lambda () (buffer-face-mode t))))
 
+;; ido mode
+(ido-mode)
+
 ;; Evil mode
 (require-package 'evil)
 (evil-mode t)
