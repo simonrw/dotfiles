@@ -88,3 +88,4 @@
 
 ;; Leader
 (evil-leader/set-leader ",")
+(evil-leader/set-key (kbd "f") 'fiplr-find-file)
