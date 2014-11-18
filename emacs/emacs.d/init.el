@@ -56,6 +56,10 @@
 (add-hook 'LaTeX-mode-hook 'flyspell-mode)
 (add-hook 'LaTeX-mode-hook 'LaTeX-math-mode)
 
+;; Adoc
+(add-hook 'adoc-mode-hook
+          (progn
+            (lambda () (buffer-face-mode t))))
 
 ;; Evil mode
 (require-package 'evil)
