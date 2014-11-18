@@ -34,7 +34,8 @@
 ;; Indent on new line
 (define-key global-map (kbd "RET") 'newline-and-indent)
 
-(scroll-bar-mode -1)
+(if (display-graphic-p)
+     (scroll-bar-mode -1))
 (tool-bar-mode -1)
 
 ;; Make the hash key work for OSX
