@@ -16,25 +16,6 @@
 ;; Themes
 (load-theme 'wombat t)
 
-;; Evil mode
-(require-package 'evil)
-(evil-mode t)
-
-(require-package 'evil-jumper)
-(require-package 'evil-indent-textobject)
-(require-package 'evil-surround)
-(require-package 'evil-matchit)
-(require-package 'evil-leader)
-
-(global-evil-matchit-mode t)
-(global-evil-surround-mode t)
-(setq evil-leader/in-all-states 1)
-(global-evil-leader-mode t)
-(setq evil-leader/in-all-states t)
-
-;; Leader
-(evil-leader/set-leader ",")
-
 ;; Smooth scrolling
 (require-package 'smooth-scrolling)
 (setq smooth-scroll-margin 5)
@@ -60,3 +41,22 @@
 ;; Make the hash key work for OSX
 (if (eq system-type 'darwin)
     (global-set-key (kbd "M-3") '(lambda() (interactive) (insert "#"))))
+
+;; Evil mode
+(require-package 'evil)
+(evil-mode t)
+
+(require-package 'evil-jumper)
+(require-package 'evil-indent-textobject)
+(require-package 'evil-surround)
+(require-package 'evil-matchit)
+(require-package 'evil-leader)
+
+(global-evil-matchit-mode t)
+(global-evil-surround-mode t)
+(setq evil-leader/in-all-states 1)
+(global-evil-leader-mode t)
+(setq evil-leader/in-all-states t)
+
+;; Leader
+(evil-leader/set-leader ",")
