@@ -71,6 +71,12 @@
 (require-package 'evil-matchit)
 (require-package 'evil-leader)
 
+;; Keyboard mappings
+(define-key evil-normal-state-map (kbd "C-h") 'evil-window-left)
+(define-key evil-normal-state-map (kbd "C-j") 'evil-window-down)
+(define-key evil-normal-state-map (kbd "C-k") 'evil-window-up)
+(define-key evil-normal-state-map (kbd "C-l") 'evil-window-right)
+
 (global-evil-matchit-mode t)
 (global-evil-surround-mode t)
 (setq evil-leader/in-all-states 1)
