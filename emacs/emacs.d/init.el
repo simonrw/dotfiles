@@ -49,6 +49,13 @@
     (turn-on-eldoc-mode))
   (add-hook 'elisp-lisp-mode-hook 'my-lisp-hook))
 
+;; Auctex
+(setq TeX-parse-self t)
+(add-hook 'LaTeX-mode-hook 'visual-line-mode)
+(add-hook 'LaTeX-mode-hook 'flyspell-mode)
+(add-hook 'LaTeX-mode-hook 'LaTeX-math-mode)
+
+
 ;; Evil mode
 (require-package 'evil)
 (evil-mode t)
