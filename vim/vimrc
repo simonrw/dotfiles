@@ -125,6 +125,24 @@ map <leader>G :GundoToggle<cr>
 "}}}
 " {{{ goyo
 let g:goyo_width = 100
+
+" Goyo callbacks
+function! s:goyo_enter()
+    if has('gui_running')
+        set background=light
+        colorscheme solarized
+    endif
+endfunction
+
+function! s:goyo_leave()
+    if has('gui_running')
+        set background=dark
+        colorscheme grb256
+    endif
+endfunction
+
+autocmd User GoyoEnter nested call <SID>goyo_enter()
+autocmd User GoyoLeave nested call <SID>goyo_leave()
 "}}}
 "}}}
 " }}}
