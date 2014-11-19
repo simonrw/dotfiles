@@ -400,6 +400,12 @@ set pastetoggle=<leader>p
 " Disable the 'help' key
 nnoremap K <nop>
 
+" Make line based movement more sane
+nnoremap j gj
+nnoremap k gk
+nnoremap gj j
+nnoremap gk k
+
 " Mapping for closing all windows but this one
 nnoremap <leader>o :only<cr>
 
