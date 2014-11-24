@@ -391,7 +391,7 @@ set statusline+=%P
 """"""""""""""""""""
 
 " Some common leader mappings
-nnoremap <leader>w :w<cr>
+nnoremap <leader>w :update<cr>
 
 " Paste toggling - allow for pasting from other sources with correct
 " formatting
