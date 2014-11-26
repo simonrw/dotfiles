@@ -521,6 +521,20 @@ noremap <leader>t :w\|!./%<cr>
 """"""""""""""""""""
 "       MISC       "
 """"""""""""""""""""
+
+" Strip trailing whitespace
+" http://stackoverflow.com/a/1618401/56711
+fun! <SID>StripTrailingWhitespaces()
+    let l = line(".")
+    let c = col(".")
+    %s/\s\+$//e
+    call cursor(l, c)
+endfun
+
+autocmd Filetype c,cpp,ruby,python autocmd BufWritePre :call <SID>StripTrailingWhitespaces()
+
+
+
 " }}}
 " {{{ Colour scheme
 colorscheme grb256
