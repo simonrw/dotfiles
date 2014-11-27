@@ -59,6 +59,12 @@
     (elisp-slime-nav-mode)
     (turn-on-eldoc-mode))
   (add-hook 'elisp-lisp-mode-hook 'my-lisp-hook))
+(require-package 'paredit)
+
+;; Clojure
+(require-package 'clojure-mode)
+(require-package 'cider)
+
 
 ;; Auctex
 (setq TeX-parse-self t)
