@@ -73,3 +73,4 @@ vim/vim/tmp/undo/*
 emacs/emacs.d/*
 !emacs/emacs.d/init.el
 *.DS_Store
+.bundle
