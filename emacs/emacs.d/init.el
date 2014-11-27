@@ -24,7 +24,8 @@
 (when window-system (set-exec-path-from-shell-PATH))
 
 ;; Themes
-(load-theme 'wombat t)
+(require-package 'ir-black-theme)
+(load-theme 'ir-black t)
 
 ;; Smooth scrolling
 (require-package 'smooth-scrolling)
