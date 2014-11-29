@@ -77,9 +77,10 @@ alias lsc='ls --color=auto'
 function vim_new_python() {
     filename="$1"
     if [[ "${filename##*.}" == "py" ]]; then
-        test -f "${filename}" || init-python "${filename}"
+        test -f "${filename}" && \vim "${@}" || init-python "${filename}"
+    else
+        \vim "${@}"
     fi
-    \vim "$@"
 }
 alias vim=vim_new_python
 
@@ -257,7 +258,7 @@ if __name__ == '__main__':
     main(parser.parse_args())
 EOL
     chmod +x ${fname}
-    vim ${fname}
+    \vim ${fname}
 }
 
 # Use anaconda if available
