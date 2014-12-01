@@ -69,13 +69,6 @@
 (require-package 'clojure-mode)
 (require-package 'cider)
 
-
-;; Auctex
-(setq TeX-parse-self t)
-(add-hook 'LaTeX-mode-hook 'visual-line-mode)
-(add-hook 'LaTeX-mode-hook 'flyspell-mode)
-(add-hook 'LaTeX-mode-hook 'LaTeX-math-mode)
-
 ;; Adoc
 (add-hook 'adoc-mode-hook
           (progn
