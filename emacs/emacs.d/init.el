@@ -23,6 +23,9 @@
     (setq exec-path (split-string path-from-shell path-separator))))
 (when window-system (set-exec-path-from-shell-PATH))
 
+;; ido-mode
+(ido-mode)
+
 ;; Themes
 (require-package 'ir-black-theme)
 (load-theme 'ir-black t)
