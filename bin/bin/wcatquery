@@ -1,0 +1,138 @@
+#!/usr/local/perl/bin/perl
+#
+# wcatquery: Mid-level query interface to WASP catalogue
+#
+# Richard West (richard.west@warwick.ac.uk) University of Warwick
+#
+# Version 0.1:  (22-Jun-2004) Initial release
+# Version 0.2:  (28-Jul-2004) Added --outfile and --query
+# Version 0.3:  (09-Aug-2004) Added support for intervening proxies
+# Version 0.31: (12-Aug-2004) Added timeout on connections to server
+# Version 0.32: (27-Aug-2004) Increased timeout
+# Version 0.33: (21-Oct-2004) Increased timeout (again!!!)
+# Version 0.34: (08-Aug-2005) Read results in chunks to prevent large
+#                             catalogues swamping memory
+# Version 0.35: (15-Sep-2005) Updates to fix issue with callback
+# Version 0.40: (05-Oct-2005) Added message-of-the-day feature
+# Version 0.50: (25-Jun-2008) Added %include functionality
+#                             Removed message-of-the-day feature
+#
+# Usage: wcatquery [--qryfile=<filename> --query=<query string>]
+#                  [--outfile=<output file>] [--verbose]
+#
+
+# Pragmata
+use strict qw(vars subs);
+use English;
+use warnings;
+
+# Import required packages
+use Getopt::Long;
+use LWP::UserAgent;
+
+# Some global stuff
+my $version="0.50";
+my $verbose=0;
+
+#
+my $server="wasp.warwick.ac.uk";
+
+#
+sub writeCallback {
+    my ($chunk, $obj, $proto)=@ARG;
+    print FILE $chunk;
+}
+
+# Entry point
+#
+my ($filename, $outfile, $clquery);
+GetOptions("qryfile=s" => \$filename,
+	   "query=s" => \$clquery,
+	   "outfile=s" => \$outfile,
+	   "verbose" => \$verbose,
+	   );
+print "wcatquery version ${version}\n" if $verbose;
+unless(defined $filename || defined $clquery) {
+    print "Usage: wcatquery [--qryfile=<filename> | --query=<query string>]\n";
+    print "                 [--outfile=<output file>] [--verbose]\n";
+    exit(1);
+}
+
+# Read the query file
+#
+my $filequery="";
+if(defined($filename)) {
+    open(FILE, "<$filename")
+	or die "Cannot open query file '$filename': $OS_ERROR\n";
+    $filequery=join("", <FILE>);
+    close(FILE);
+    print STDERR "Query file read successfully\n" if $verbose;
+}
+my $fullquery=$filequery.$clquery;
+
+# Parse the query looking for include statements
+my (@qrylist, $inc, $file);
+my $icnt=0;
+while($fullquery=~/(include\s+)([^ \'\"]+)/g) {
+    $icnt++;
+    ($inc, $file)=($1, $2);
+}
+die "Multiple include clauses in query" if $icnt>1;
+if($icnt) {
+    open(IFILE, "<$file") or
+	die "Cannot open include file $file";
+    print "Opened include file $file\n" if $verbose;
+    my $tquery;
+    while(my $line=<IFILE>) {
+	chomp($line);
+	next unless $line;
+	$line=~s/\t/ /g;
+	($tquery=$fullquery)=~s/$inc$file/$line/;
+	push(@qrylist, $tquery);
+    }
+    close(IFILE);
+} else {
+    push(@qrylist, $fullquery);
+}
+
+#
+my $form={'redirect' => 0};
+my $ua=new LWP::UserAgent;
+$ua->agent("wcatquery/$version");
+$ua->proxy('http', $ENV{'http_proxy'})
+    if defined $ENV{'http_proxy'};
+$ua->timeout(3600);
+
+# Open the output file
+#
+if(defined $outfile) {
+    open(FILE, ">$outfile");
+} else {
+    *FILE=*STDOUT;
+}
+
+# Send the raw query text to the server for compilation
+#
+foreach my $query (@qrylist) {
+    print "$query\n" if $verbose;
+    $$form{'query'}=$query;
+    my $resp=$ua->post("http://${server}/compilequery", $form);
+    unless($resp->header('Content-type')=~/text\/url/) {
+	print STDERR "The following errors were detected in the query:\n";
+	print STDERR $resp->content, "\n";
+	exit 1;
+    }
+    print STDERR "Query compiled\n" if $verbose;
+
+    # Now perform the query
+    #
+    my $url=$resp->content;
+    $url=~s/http:\/\/(.*?)\//http:\/\/${server}\//;
+    print STDERR "Compiled URL: $url\n" if $verbose;
+    my $req=new HTTP::Request(GET => $url);
+    my $out=$ua->request($req, \&writeCallback, 10*1024*1024);
+}
+
+# Close the output file
+close(FILE);
+print STDERR "Complete\n" if $verbose;

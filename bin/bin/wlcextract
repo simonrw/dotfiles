@@ -1,0 +1,142 @@
+#!/usr/local/perl/bin/perl
+#
+# wlcextract: Fetch WASP lightcurve(s) from the archive server
+#
+# Version 0.1:  (12-Jul-2004) Initial release
+# Version 0.2:  (27-Jul-2004) Tightened up error protocol
+# Version 0.3:  (28-Jul-2004) Added --metadata switch
+# Version 0.4:  (09-Aug-2004) Added support for proxies
+# Version 0.41: (12-Aug-2004) Added timeout on connection to server
+# Version 0.42: (27-Aug-2004) Increased timeout
+# Version 0.5:  (06-Dec-2004) Added test mode and date range filtering
+# Version 0.51: (05-Oct-2005) Added message-of-the-day
+# Version 0.55: (02-Jun-2008) Make the script less likely to die on error
+#                             Added retry function
+#
+# Usage: wlcextract [--object=<obj ID> | --file=<filename>] [--with-metadata]
+#                   [--verbose] [--outroot=<output root>] [--test]
+#                   [--daterange=<date range>] [--nocheck-motd]
+#
+
+# Pragmata
+use warnings;
+use English;
+
+# Import required packages
+use Getopt::Long;
+use LWP::UserAgent;
+
+# Some global stuff
+my $version="0.55";
+my $verbose=0;
+
+# Hostname of master data server
+my $server="wasp.warwick.ac.uk";
+
+# Entry point
+#
+my ($objid, $filename, $outroot, $daterange, $test);
+my $metadata=0;
+my $checkmotd=0;
+GetOptions("object=s" => \$objid,
+	   "file=s" => \$filename,
+	   "with-metadata" => \$metadata,
+	   "outroot=s" => \$outroot,
+	   "verbose" => \$verbose,
+	   "daterange=s" => \$daterange,
+	   "test" => \$test,
+	   "check-motd!" => \$checkmotd
+	   );
+print "wlcextract version ${version}\n" if $verbose;
+if((defined $objid) == (defined $filename)) {
+    print "Usage: wlcextract [--object=<obj ID> | --file=<filename>]\n";
+    print "                  [--verbose] [--outroot=<output root>]\n";
+    print "                  [--with-metadata] [--daterange=<date range>]\n";
+    print "                  [--nocheck-motd]\n";
+    exit 1;
+}
+
+#
+my ($mungeobjid, $outfile, $ua);
+my $queue=[];
+
+#
+my (@objlist);
+if(defined($objid)) {
+    push(@$queue, $objid);
+} else {
+    my $line;
+    open(FILE, "<$filename") or
+	die "Cannot open file '$filename' to retrieve object names: $OS_ERROR";
+    while($line=<FILE>) {
+	$line=~/(\dSWASP[ _]?J\d{6}\.\d{2}[-+]\d{6}\.\d)/ &&
+	    push(@$queue, $1);
+    }
+    close(FILE);
+}
+
+#
+$daterange="" unless defined $daterange;
+my $drenc=uc $daterange;
+$drenc=~s/[^0-9\:\-\;T]//g;
+$drenc=~s/;/%3b/g;
+
+# Create a user agent object
+#
+$ua=new LWP::UserAgent();
+$ua->agent("wlcextract/$version");
+$ua->proxy('http', $ENV{'http_proxy'})
+    if defined $ENV{'http_proxy'};
+$ua->timeout(1800);
+
+# Loop while there's more work to be done
+#
+my ($req, $resp, $retry);
+my $cnt=1;
+my $retrycnt=0;
+while(@$queue) {
+    $objid=shift(@$queue) unless $retry;
+
+    # Encode special characters in the object name
+    $objid=~s/SWASPJ/SWASP J/;
+    $objid=~s/SWASP_J/SWASP J/;
+    ($mungeobjid=$objid)=~s/\+/%2b/g;
+    $mungeobjid=~s/ /%20/g;
+    ($outfile=$objid)=~s/ //g;
+    $outfile=(defined($outroot))?"$outroot/$outfile.fits":"${outfile}.fits";
+
+    # Form URL, then perform HTTP request
+    my $url="http://${server}/lcextract\?objid=${mungeobjid}";
+    $url.="&metadata=1" if $metadata;
+    $url.="&test=1" if $test;
+    $url.="&daterange=$drenc" if $drenc;
+    $req=new HTTP::Request(GET => $url);
+    $resp=$ua->request($req, $outfile);
+
+    # Success
+    if($resp->header('Content-type') eq "application/x-fits") {
+	print STDERR "$objid OK after $retrycnt retries\n" if $retrycnt;
+	$retry=$retrycnt=0;
+    } else {
+	if(-e $outfile) { # Text file returned (contains an error message)
+	    open(FILE, "<$outfile");
+	    my $str=<FILE>;
+	    close(FILE);
+	    print STDERR "Error extracting data for $objid: $1 (no retry)\n"
+		if $str=~/^ERROR (.*)$/;
+	    unlink($outfile);
+	    $retry=$retrycnt=0;
+	} else { # No file returned
+	    $retry=($retrycnt<5);
+	    if($retry) {
+		print STDERR "Request for $objid returned no file (possible timeout, re-trying)\n";
+	    } else {
+		print STDERR "Request for $objid returned no file (giving up after $retrycnt retries)\n";
+	    }
+	    $retrycnt++;
+	}
+    }
+
+    #
+    $cnt++;
+}
