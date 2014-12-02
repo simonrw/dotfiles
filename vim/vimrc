@@ -538,7 +538,7 @@ autocmd Filetype c,cpp,ruby,python autocmd BufWritePre :call <SID>StripTrailingW
 
 " }}}
 " {{{ Colour scheme
-set background=light
+set background=dark
 colorscheme solarized
 
 " Make it more obvious which paren I'm on
