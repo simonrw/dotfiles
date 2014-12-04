@@ -29,6 +29,7 @@ Plug 'sjl/gundo.vim'
 Plug 'amdt/vim-niji'
 Plug 'junegunn/goyo.vim'
 Plug 'altercation/vim-colors-solarized'
+Plug 'hylang/vim-hy'
 
 " My plugins or forks
 Plug 'mindriot101/vim-pytest-runner', { 'for': 'python' }
