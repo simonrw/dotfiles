@@ -17,7 +17,6 @@ Plug 'tpope/vim-scriptease'
 Plug 'tpope/vim-vinegar'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-rsi'
-Plug 'tpope/vim-fugitive'
 
 " Custom plugins
 Plug 'kien/ctrlp.vim'
@@ -102,13 +101,6 @@ let g:tmuxify_run = {
     \ "python": "python %",
     \ "bash": "bash %",
 \}
-"}}}
-" {{{ vim-fugitive
-" Mappings
-noremap <leader>gw :Gwrite<cr>
-noremap <leader>gc :Gcommit<cr>
-noremap <leader>gs :Gstatus<cr>
-noremap <leader>gd :Gdiff<cr>
 "}}}
 " {{{ tslime
 " Mappings
