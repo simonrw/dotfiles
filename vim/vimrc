@@ -552,5 +552,9 @@ hi ColorColumn ctermbg=black
 " Make git gutterline black background
 hi SignColumn ctermbg=none
 
+" Cursorline and only show it in the active buffer
+set cursorline
+autocmd WinEnter * setlocal cursorline
+autocmd WinLeave * setlocal nocursorline
 "}}}
 " vim: foldmethod=marker
