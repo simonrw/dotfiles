@@ -27,8 +27,8 @@
 (ido-mode)
 
 ;; Themes
-(require-package 'color-theme-solarized)
-(load-theme 'solarized-light t)
+(require-package 'ir-black-theme)
+(load-theme 'ir-black t)
 
 ;; Smooth scrolling
 (require-package 'smooth-scrolling)

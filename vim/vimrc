@@ -27,7 +27,6 @@ Plug 'christoomey/vim-tmux-navigator'
 Plug 'sjl/gundo.vim'
 Plug 'amdt/vim-niji'
 Plug 'junegunn/goyo.vim'
-Plug 'altercation/vim-colors-solarized'
 Plug 'hylang/vim-hy'
 Plug 'vim-scripts/SWIG-syntax'
 
@@ -532,8 +531,7 @@ autocmd Filetype c,cpp,ruby,python autocmd BufWritePre :call <SID>StripTrailingW
 
 " }}}
 " {{{ Colour scheme
-set background=light
-colorscheme solarized
+colorscheme grb256
 
 " Make it more obvious which paren I'm on
 hi MatchParen cterm=none ctermbg=black ctermfg=yellow
