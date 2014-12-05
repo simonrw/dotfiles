@@ -73,17 +73,6 @@ alias tls="tmux ls"
 alias m=make
 alias lsc='ls --color=auto'
 
-# Function to run init-python if no python file exists
-function vim_new_python() {
-    filename="$1"
-    if [[ "${filename##*.}" == "py" ]]; then
-        test -f "${filename}" && \vim "${@}" || init-python "${filename}"
-    else
-        \vim "${@}"
-    fi
-}
-alias vim=vim_new_python
-
 # Function to make a new tmux session at a variable location
 function tnew() {
     if [[ $# -gt 0 ]]; then
