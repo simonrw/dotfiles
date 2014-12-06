@@ -255,12 +255,6 @@ if [[ -d ${HOME}/anaconda ]]; then
     export PATH=${HOME}/anaconda/bin:${PATH}
 fi
 
-# pythonpy completion
-if [[ -f ${HOME}/anaconda/bash_completion.d/pycompletion.sh ]]; then
-    bashcompinit
-    source ${HOME}/anaconda/bash_completion.d/pycompletion.sh
-fi
-
 # Source the custom zshrc.local file in the system
 if [[ -f ${HOME}/.zshrc.local ]]; then
     source ${HOME}/.zshrc.local
