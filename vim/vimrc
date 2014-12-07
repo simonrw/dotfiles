@@ -509,7 +509,7 @@ nnoremap <leader>a :Ag --ignore "*tags"
 " Default leader mapping to run current file,
 " with eunuch.vim this should basically work
 " once a shebang is in place
-noremap <leader>t :w\|!./%<cr>
+noremap <leader>t :update\|!./%<cr>
 
 " }}}
 " {{{ Searching
