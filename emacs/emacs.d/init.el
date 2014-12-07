@@ -104,6 +104,10 @@ directory to make multiple eshell windows easier."
   (insert "exit")
   (eshell-send-input)
   (delete-window))
+
+;; Haskell mode
+(require-package 'haskell-mode)
+(add-hook 'haskell-mode-hook 'turn-on-haskell-indentation)
                  
 
 ;; Evil mode
