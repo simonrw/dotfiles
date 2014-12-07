@@ -36,6 +36,9 @@
 (setq scroll-conservatively 9999
       scroll-preserve-screen-position t)
 
+;; Ansi term - colours
+(add-hook 'shell-mode-hook 'ansi-color-for-comint-mode-on)
+
 (require-package 'ag)
 
 (setq make-backup-files nil)
