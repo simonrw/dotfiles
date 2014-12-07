@@ -264,7 +264,7 @@ fi
 eval "$(direnv hook $0)"
 
 # Setup gh
-eval "$(gh alias -s)"
+eval "$(gh alias -s zsh)"
 
 # Finally source the theme
 source ${HOME}/.zsh/srwalker101.zsh-theme
