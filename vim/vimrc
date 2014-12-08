@@ -540,8 +540,9 @@ colorscheme grb256
 " Make it more obvious which paren I'm on
 hi MatchParen cterm=none ctermbg=black ctermfg=yellow
 
-" Decrease the colorcolumn brightness
-hi ColorColumn ctermbg=black
+" Overwrite the CursorLine colour from grb256 to the origial ir_black colour
+" to make errors show up correctly
+hi CursorLine     guifg=NONE        guibg=#121212     gui=NONE      ctermfg=NONE        ctermbg=NONE        cterm=BOLD
 
 " Make git gutterline black background
 hi SignColumn ctermbg=none
