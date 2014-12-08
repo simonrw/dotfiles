@@ -112,7 +112,6 @@ alias irssi="TERM=screen-256color irssi"
 
 export GOPATH=${HOME}/Development/gocode
 export PATH=${HOME}/.bin:${HOME}/.cabal/bin:${PATH}:${HOME}/bin
-export LC_CTYPE=utf-8
 
 export EDITOR=vim
 export VISUAL=${EDITOR}
