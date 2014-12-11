@@ -532,6 +532,9 @@ endfun
 
 autocmd Filetype c,cpp,ruby,python autocmd BufWritePre :call <SID>StripTrailingWhitespaces()
 
+" Disable syntax highlighting when opening a large file
+autocmd BufReadPre * if getfsize(expand("%")) > 10000000 | syntax clear | endif
+
 
 
 " }}}
