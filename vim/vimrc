@@ -17,6 +17,7 @@ Plug 'tpope/vim-scriptease'
 Plug 'tpope/vim-vinegar'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-rsi'
+Plug 'tpope/vim-jdaddy'
 
 " Custom plugins
 Plug 'kien/ctrlp.vim'
