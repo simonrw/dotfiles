@@ -466,10 +466,6 @@ inoremap <F1> <ESC>
 nnoremap <F1> <ESC>
 vnoremap <F1> <ESC>
 
-" Better search
-nnoremap / /\v
-vnoremap / /\v
-
 " Remove the arrow key functionality
 nnoremap <Up> :echo "Use k!"<cr>
 nnoremap <Down> :echo "Use j!"<cr>
