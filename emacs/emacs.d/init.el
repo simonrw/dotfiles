@@ -76,6 +76,10 @@
 (require-package 'clojure-mode)
 (require-package 'cider)
 
+(add-hook 'clojure-mode-hook 'enable-paredit-mode)
+(add-hook 'cider-mode-hook 'cider-turn-on-eldoc-mode)
+(setq cider-repl-pop-to-buffer-on-connect t)
+
 ;; Adoc
 (add-hook 'adoc-mode-hook
           (progn
