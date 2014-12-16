@@ -31,6 +31,7 @@ Plug 'junegunn/goyo.vim'
 Plug 'hylang/vim-hy'
 Plug 'vim-scripts/SWIG-syntax'
 Plug 'kien/rainbow_parentheses.vim'
+Plug 'Lokaltog/vim-easymotion'
 
 " My plugins or forks
 Plug 'mindriot101/vim-pytest-runner', { 'for': 'python' }
@@ -145,6 +146,9 @@ au VimEnter * RainbowParenthesesToggle
 au Syntax * RainbowParenthesesLoadRound
 au Syntax * RainbowParenthesesLoadSquare
 au Syntax * RainbowParenthesesLoadBraces
+"}}}
+" {{{ EasyMotion
+map <localleader> <Plug>(easymotion-prefix)
 "}}}
 "}}}
 " }}}
