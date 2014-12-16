@@ -113,6 +113,10 @@ directory to make multiple eshell windows easier."
   (eshell-send-input)
   (delete-window))
 
+;; ace-jump
+(require-package 'ace-jump-mode)
+(require 'ace-jump-mode)
+
 ;; Haskell mode
 (require-package 'haskell-mode)
 (add-hook 'haskell-mode-hook 'turn-on-haskell-indentation)
@@ -143,3 +147,4 @@ directory to make multiple eshell windows easier."
 ;; Leader
 (evil-leader/set-leader ",")
 (evil-leader/set-key (kbd "f") 'fiplr-find-file)
+(evil-leader/set-key (kbd "w") 'ace-jump-mode)
