@@ -23,6 +23,14 @@
     (setq exec-path (split-string path-from-shell path-separator))))
 (when window-system (set-exec-path-from-shell-PATH))
 
+;; Cleaner settings
+(add-hook 'after-init-hook '(lambda ()
+                              (when (fboundp 'menu-bar-mode) (menu-bar-mode -1))
+                              (when (fboundp 'tool-bar-mode) (tool-bar-mode -1))
+                              (when (fboundp 'scroll-bar-mode) (scroll-bar-mode -1))))
+(setq inhibit-splash-screen t)
+(setq make-backup-files nil)
+
 ;; ido-mode
 (ido-mode)
 
@@ -50,10 +58,6 @@
 
 ;; Indent on new line
 (define-key global-map (kbd "RET") 'newline-and-indent)
-
-(if (display-graphic-p)
-     (scroll-bar-mode -1))
-(tool-bar-mode -1)
 
 ;; Make the hash key work for OSX
 (if (eq system-type 'darwin)
