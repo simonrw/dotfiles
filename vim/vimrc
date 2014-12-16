@@ -30,6 +30,7 @@ Plug 'amdt/vim-niji'
 Plug 'junegunn/goyo.vim'
 Plug 'hylang/vim-hy'
 Plug 'vim-scripts/SWIG-syntax'
+Plug 'kien/rainbow_parentheses.vim'
 
 " My plugins or forks
 Plug 'mindriot101/vim-pytest-runner', { 'for': 'python' }
@@ -138,6 +139,12 @@ endfunction
 
 autocmd User GoyoEnter nested call <SID>goyo_enter()
 autocmd User GoyoLeave nested call <SID>goyo_leave()
+"}}}
+" {{{ rainbow-parentheses
+au VimEnter * RainbowParenthesesToggle
+au Syntax * RainbowParenthesesLoadRound
+au Syntax * RainbowParenthesesLoadSquare
+au Syntax * RainbowParenthesesLoadBraces
 "}}}
 "}}}
 " }}}
