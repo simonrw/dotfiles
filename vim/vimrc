@@ -150,6 +150,9 @@ au Syntax * RainbowParenthesesLoadBraces
 " {{{ EasyMotion
 map <localleader> <Plug>(easymotion-prefix)
 "}}}
+" {{{ vim-commentary
+let g:commentary_map_backslash = 0
+"}}}
 "}}}
 " }}}
 " {{{ Settings
