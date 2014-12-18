@@ -12,26 +12,18 @@ Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-dispatch'
-Plug 'tpope/vim-eunuch'
-Plug 'tpope/vim-scriptease'
-Plug 'tpope/vim-vinegar'
 Plug 'tpope/vim-surround'
-Plug 'tpope/vim-rsi'
-Plug 'tpope/vim-jdaddy'
 
 " Custom plugins
 Plug 'kien/ctrlp.vim'
 Plug 'rking/ag.vim', { 'on': 'Ag' }
 Plug 'tell-k/vim-autopep8', { 'for': 'python' }
-Plug 'sheerun/vim-polyglot'
 Plug 'christoomey/vim-tmux-navigator'
-Plug 'sjl/gundo.vim'
-Plug 'amdt/vim-niji'
-Plug 'junegunn/goyo.vim'
+Plug 'kien/rainbow_parentheses.vim'
+
+" Languages
 Plug 'hylang/vim-hy'
 Plug 'vim-scripts/SWIG-syntax'
-Plug 'kien/rainbow_parentheses.vim'
-Plug 'Lokaltog/vim-easymotion'
 
 " My plugins or forks
 Plug 'mindriot101/vim-pytest-runner', { 'for': 'python' }
