@@ -74,6 +74,8 @@ nmap <silent> <leader>ra :TestSuite<cr>
 nmap <silent> <leader>rc :TestNearest<cr>
 nmap <silent> <leader>rf :TestFile<cr>
 nmap <silent> <leader>rl :TestLast<cr>
+
+let g:test#runners = ['PyTest']
 "}}}
 " {{{ git-gutter
 " remove git gutter key mappings
