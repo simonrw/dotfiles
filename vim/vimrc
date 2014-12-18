@@ -509,6 +509,10 @@ nnoremap <leader>a :Ag --ignore "*tags"
 " once a shebang is in place
 noremap <leader>t :update\|!./%<cr>
 
+" Map :W to :w
+" http://stackoverflow.com/questions/3878692/aliasing-a-command-in-vim/3879737#3879737
+cnoreabbrev <expr> W ((getcmdtype() is# ':' && getcmdline() is# 'W')?('w'):('W'))
+
 " }}}
 " {{{ Searching
 " }}}
