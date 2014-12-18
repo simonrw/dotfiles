@@ -20,13 +20,11 @@ Plug 'rking/ag.vim', { 'on': 'Ag' }
 Plug 'tell-k/vim-autopep8', { 'for': 'python' }
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'kien/rainbow_parentheses.vim'
+Plug 'janko-m/vim-test'
 
 " Languages
 Plug 'hylang/vim-hy'
 Plug 'vim-scripts/SWIG-syntax'
-
-" My plugins or forks
-Plug 'mindriot101/vim-pytest-runner', { 'for': 'python' }
 
 call plug#end()
 " }}}
@@ -71,16 +69,11 @@ let g:ctrlp_custom_ignore = '\v\~$|\.(o|swp|pyc|wav|mp3|ogg|blend)$|(^|[/\\])\.(
 " {{{ markdown-folding
 let g:markdown_fold_style = 'stacked'
 "}}}
-" {{{ vim-pytest-runner
-augroup PythonTestRunner
-    autocmd!
-    autocmd Filetype python nmap <leader>ra :call RunAllTests()<cr>
-    autocmd Filetype python nmap <leader>rc :call RunNearestTest()<cr>
-    autocmd Filetype python nmap <leader>rf :call RunCurrentTestFile()<cr>
-    autocmd Filetype python nmap <leader>rl :call RunLastTest()<cr>
-    autocmd Filetype python let g:pytest_test_regexp = '\v\s*(.*def)\s+test_'
-    autocmd Filetype python let g:pytest_command = "!py.test -x {test} -m 'not wip'"
-augroup END
+" {{{ vim-test
+nmap <silent> <leader>ra :TestSuite<cr>
+nmap <silent> <leader>rc :TestNearest<cr>
+nmap <silent> <leader>rf :TestFile<cr>
+nmap <silent> <leader>rl :TestLast<cr>
 "}}}
 " {{{ git-gutter
 " remove git gutter key mappings
