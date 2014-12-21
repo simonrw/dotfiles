@@ -74,3 +74,4 @@ emacs/emacs.d/*
 !emacs/emacs.d/init.el
 *.DS_Store
 .bundle
+ipython/ipython/extensions/*
