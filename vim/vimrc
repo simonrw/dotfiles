@@ -23,6 +23,7 @@ Plug 'christoomey/vim-tmux-navigator'
 Plug 'kien/rainbow_parentheses.vim'
 Plug 'janko-m/vim-test'
 Plug 'airblade/vim-gitgutter'
+Plug 'scrooloose/syntastic'
 
 " Languages
 Plug 'hylang/vim-hy'
