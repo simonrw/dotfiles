@@ -13,6 +13,7 @@ Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-dispatch'
 Plug 'tpope/vim-surround'
+Plug 'tpope/vim-rsi'
 
 " Custom plugins
 Plug 'kien/ctrlp.vim'
