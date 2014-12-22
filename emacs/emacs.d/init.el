@@ -89,6 +89,13 @@
 (require-package 'company)
 (add-hook 'after-init-hook 'global-company-mode)
 
+;; Auctex
+(require-package 'auctex)
+(setq TeX-auto-save t)
+(setq TeX-parse-self t)
+(setq TeX-save-query nil)
+(setq TeX-PDF-mode t)
+
 ;; ido mode
 (ido-mode)
 
@@ -124,7 +131,6 @@ directory to make multiple eshell windows easier."
 ;; Haskell mode
 (require-package 'haskell-mode)
 (add-hook 'haskell-mode-hook 'turn-on-haskell-indentation)
-                 
 
 ;; Evil mode
 (require-package 'evil)
