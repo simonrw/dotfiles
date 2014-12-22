@@ -5,12 +5,15 @@ import argparse
 import os
 import subprocess as sp
 
+DEFAULT_PACKAGES = ['pip', 'ipython', 'numpy', 'seaborn', 'matplotlib']
+
 def main(args):
     full_path = os.path.realpath(args.path)
     cmd = ['conda', 'create', '-p', full_path,
            '--yes', '--quiet',
-           'python={}'.format(args.python),
-           'pip', 'ipython', 'numpy', 'seaborn', 'matplotlib']
+           'python={}'.format(args.python)]
+    # Add default packages
+    cmd.extend(DEFAULT_PACKAGES)
     cmd.extend(args.package)
     sp.check_call(map(str, cmd))
     
