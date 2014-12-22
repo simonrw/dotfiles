@@ -85,6 +85,10 @@
           (progn
             (lambda () (buffer-face-mode t))))
 
+;; Text completion
+(require-package 'company)
+(add-hook 'after-init-hook 'global-company-mode)
+
 ;; ido mode
 (ido-mode)
 
