@@ -139,6 +139,7 @@ alias p=python
 alias py=python
 alias pydoc='=python -m pydoc'
 alias pylab='ipython --pylab'
+alias clear-pycs='find ${PWD} -name "*.pyc" -delete'
 alias g='git'
 alias gst='=git st'
 alias es='exec $SHELL'
