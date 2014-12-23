@@ -12,3 +12,10 @@ use_ruby() {
     chruby $ver
 }
 
+use_conda() {
+    if [[ ! -d venv ]]; then
+        condaenv ./venv
+    fi
+
+    source activate ./venv
+}
