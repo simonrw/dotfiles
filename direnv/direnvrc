@@ -17,6 +17,11 @@ use_conda() {
         condaenv ./venv
     fi
 
+    if [[ -f .gitignore ]]; then
+        grep -q venv .gitignore || echo "venv" >> .gitignore
+    else
+        echo "venv" >> .gitignore
+    fi
     source activate ./venv
 }
 
