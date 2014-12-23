@@ -1,0 +1,24 @@
+#!/usr/bin/env bash
+# -*- coding: utf-8 -*-
+
+set -e
+
+FIFO_NAME=.cmds
+
+main() {
+    ensure_fifo
+    listen_for_jobs
+}
+
+ensure_fifo() {
+    test -p ${FIFO_NAME} || mkfifo ${FIFO_NAME}
+}
+
+listen_for_jobs() {
+    while true; do
+        sh -c "$(cat ${FIFO_NAME})" || true
+    done
+}
+
+main
+
