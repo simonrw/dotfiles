@@ -28,6 +28,7 @@ Plug 'scrooloose/syntastic'
 " Languages
 Plug 'hylang/vim-hy'
 Plug 'vim-scripts/SWIG-syntax'
+Plug 'sheerun/vim-polyglot'
 
 call plug#end()
 " }}}
