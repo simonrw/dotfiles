@@ -19,3 +19,5 @@ use_conda() {
 
     source activate ./venv
 }
+
+# vim: ft=sh
