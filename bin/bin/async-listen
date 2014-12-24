@@ -8,6 +8,7 @@ FIFO_NAME=.cmds
 main() {
     ensure_fifo
     listen_for_jobs
+    remove_fifo
 }
 
 ensure_fifo() {
@@ -18,6 +19,10 @@ listen_for_jobs() {
     while true; do
         sh -c "$(cat ${FIFO_NAME})" || true
     done
+}
+
+remove_fifo() {
+    test -p ${FIFO_NAME} && rm ${FIFO_NAME}
 }
 
 main
