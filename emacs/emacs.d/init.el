@@ -82,8 +82,11 @@
 (require-package 'clojure-mode)
 (require-package 'cider)
 
+(defun my/cider-mode-hooks ()
+  (cider-turn-on-eldoc-mode))
+
 (add-hook 'clojure-mode-hook 'enable-paredit-mode)
-(add-hook 'cider-mode-hook 'cider-turn-on-eldoc-mode)
+(add-hook 'cider-mode-hook 'my/cider-mode-hooks)
 (setq cider-repl-pop-to-buffer-on-connect t)
 
 ;; Adoc
