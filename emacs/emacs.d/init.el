@@ -89,6 +89,9 @@
 (add-hook 'cider-mode-hook 'my/cider-mode-hooks)
 (setq cider-repl-pop-to-buffer-on-connect t)
 
+;; magit
+(require-package 'magit)
+
 ;; Adoc
 (add-hook 'adoc-mode-hook
           (progn
