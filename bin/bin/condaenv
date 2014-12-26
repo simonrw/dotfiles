@@ -5,7 +5,7 @@ import argparse
 import os
 import subprocess as sp
 
-DEFAULT_PACKAGES = ['pip', 'ipython', 'numpy', 'seaborn', 'matplotlib']
+DEFAULT_PACKAGES = ['pip', 'pytest', 'ipython', 'numpy', 'seaborn', 'matplotlib']
 
 def main(args):
     full_path = os.path.realpath(args.path)
