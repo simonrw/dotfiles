@@ -28,6 +28,8 @@ Plug 'airblade/vim-gitgutter'
 Plug 'hylang/vim-hy'
 Plug 'vim-scripts/SWIG-syntax'
 Plug 'sheerun/vim-polyglot'
+Plug 'chase/vim-ansible-yaml'
+Plug 'mitsuhiko/vim-jinja'
 
 call plug#end()
 " }}}
