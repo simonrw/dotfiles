@@ -21,7 +21,7 @@ Plug 'rking/ag.vim', { 'on': 'Ag' }
 Plug 'tell-k/vim-autopep8', { 'for': 'python' }
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'kien/rainbow_parentheses.vim'
-Plug 'mindriot101/vim-test'
+Plug 'janko-m/vim-test'
 Plug 'airblade/vim-gitgutter'
 
 " Languages
@@ -77,6 +77,8 @@ nmap <silent> <leader>ra :TestSuite<cr>
 nmap <silent> <leader>rc :TestNearest<cr>
 nmap <silent> <leader>rf :TestFile<cr>
 nmap <silent> <leader>rl :TestLast<cr>
+
+let g:test#python#runner = 'pytest'
 "}}}
 " {{{ git-gutter
 " remove git gutter key mappings
