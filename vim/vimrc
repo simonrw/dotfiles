@@ -316,8 +316,8 @@ set scrolljump=10
 " Disable conceal
 set conceallevel=0
 
-" Open new split panes to bottom, which feels more natural
-set splitbelow
+" Open new split panes at the top
+set nosplitbelow
 set noequalalways
 
 " Enable the ruler
