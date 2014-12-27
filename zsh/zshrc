@@ -63,6 +63,14 @@ function _tmux_attach() {
     fi
 }
 
+# Function to read man pages
+function vman() {
+    vim \
+        -c "source \$VIMRUNTIME/ftplugin/man.vim" \
+        -c "Man $*" \
+        -c "set number relativenumber readonly|only"
+}
+
 # From GRB
 function mcd() { mkdir -p $1 && cd $1 }
 
