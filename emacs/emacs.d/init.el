@@ -1,26 +1,8 @@
-(require 'package)
-(setq package-archives '(("gnu" . "http://elpa.gnu.org/packages/")
-			 ("org" . "http://orgmode.org/elpa/")
-			 ("marmalade" . "http://marmalade-repo.org/packages/")
-			 ("melpa" . "http://melpa.org/packages/")))
+;; User details
+(setq user-full-name "Simon Walker")
+(setq user-email-address "s.r.walker101@googlemail.com")
 
-(package-initialize)
-
-(defun require-package (package)
-  (setq-default highlight-tabs t)
-  "Install a given package"
-  (unless (package-installed-p package)
-    (unless (assoc package package-archive-contents)
-      (package-refresh-contents))
-    (package-install package)))
-
-(require-package 'better-defaults)
-
-(set-face-attribute 'default nil
-                    :family "Inconsolata"
-                    :height 140
-                    :weight 'normal
-                    :width 'normal)
+;; Environment
 
 ;; Fix the PATH variable
 (defun set-exec-path-from-shell-PATH ()
@@ -28,145 +10,155 @@
     (setenv "PATH" path-from-shell)
     (setq exec-path (split-string path-from-shell path-separator))))
 (when window-system (set-exec-path-from-shell-PATH))
+(require 'cl)
 
-;; Cleaner settings
-(add-hook 'after-init-hook '(lambda ()
-                              (when (fboundp 'menu-bar-mode) (menu-bar-mode -1))
-                              (when (fboundp 'tool-bar-mode) (tool-bar-mode -1))
-                              (when (fboundp 'scroll-bar-mode) (scroll-bar-mode -1))))
-(setq inhibit-splash-screen t)
+;; Package management
+
+(load "package")
+(package-initialize)
+(add-to-list 'package-archives
+	     '("marmalade" . "http://marmalade-repo.org/packages/"))
+(add-to-list 'package-archives
+             '("melpa" . "http://melpa.milkbox.net/packages/") t)
+(setq package-archive-enable-alist '(("melpa" deft magit)))
+
+;; Default packages
+(defvar srwalker101/packages
+  '(haskell-mode
+    smex
+    ir-black-theme
+    markdown-mode
+    auto-complete
+    evil
+    evil-leader
+    magit
+    writegood-mode
+    clojure-mode))
+
+;; Install default packages
+
+(defun srwalker101/packages-installed-p ()
+  (loop for pkg in srwalker101/packages
+	when (not (package-installed-p pkg)) do (return nil)
+	finally (return t)))
+
+(unless (srwalker101/packages-installed-p)
+  (message "%s" "Refreshing package database...")
+  (package-refresh-contents)
+  (dolist (pkg srwalker101/packages)
+    (when (not (package-installed-p pkg))
+      (package-install pkg))))
+
+;; Start up options
+
+;; Font
+(set-face-attribute 'default nil
+                    :family "Inconsolata"
+                    :height 140
+                    :weight 'normal
+                    :width 'normal)
+
+;; Splash screen
+
+(setq inhibit-splash-screen t
+      initial-scratch-message nil)
+
+;; Scroll/tool/menu bars
+
+(scroll-bar-mode -1)
+(tool-bar-mode -1)
+(menu-bar-mode -1)
+
+;; Marking text
+
+(delete-selection-mode t)
+(transient-mark-mode t)
+(setq x-select-enable-clipboard t)
+
+;; Display settings
+(when window-system
+  (setq frame-title-format '(buffer-file-name "%f" ("%b"))))
+
+(setq-default indicate-empty-lines t)
+(when (not indicate-empty-lines)
+  (toggle-indicate-empty-lines))
+
+;; Indentation
+
+(setq tab-width 2
+      indent-tabs-mode nil)
+
+;; Backup files
+
 (setq make-backup-files nil)
 
-;; ido-mode
-(ido-mode)
+;; Alias yes and no
 
-;; Themes
-(require-package 'ir-black-theme)
-(load-theme 'ir-black t)
+(defalias 'yes-or-no-p 'y-or-n-p)
 
-;; Smooth scrolling
-(require-package 'smooth-scrolling)
-(setq smooth-scroll-margin 5)
-(setq scroll-conservatively 9999
-      scroll-preserve-screen-position t)
+;; Keybindings
 
-;; Ansi term - colours
-(add-hook 'shell-mode-hook 'ansi-color-for-comint-mode-on)
+(global-set-key (kbd "RET") 'newline-and-indent)
+(global-set-key (kbd "C-;") 'comment-or-uncomment-region)
+(global-set-key (kbd "M-/") 'hippie-expand)
+(global-set-key (kbd "C-+") 'text-scale-increase)
+(global-set-key (kbd "C--") 'text-scale-decrease)
+(global-set-key (kbd "C-c C-k") 'compile)
+(global-set-key (kbd "C-x g") 'magit-status)
 
-(require-package 'ag)
+;; Evil
 
-(setq make-backup-files nil)
+(require 'evil)
+(evil-mode t)
 
-(require-package 'multi-term)
+;; Evil leader
 
-;; replace tab characters
-(setq-default tab-width 4 indent-tabs-mode nil)
-
-;; Indent on new line
-(define-key global-map (kbd "RET") 'newline-and-indent)
+(require 'evil-leader)
+(evil-leader/set-leader ",")
 
 ;; Make the hash key work for OSX
 (if (eq system-type 'darwin)
     (global-set-key (kbd "M-3") '(lambda() (interactive) (insert "#"))))
 
-;; Lisp navigation
-(progn
-  (require 'elisp-slime-nav)
-  (defun my-lisp-hook ()
-    (elisp-slime-nav-mode)
-    (turn-on-eldoc-mode))
-  (add-hook 'elisp-lisp-mode-hook 'my-lisp-hook))
-(require-package 'paredit)
+;; Misc
 
-;; Clojure
-(require-package 'clojure-mode)
-(require-package 'cider)
+(setq echo-keystrokes 0.1
+      use-dialog-box nil
+      visible-bell t)
+(show-paren-mode t)
 
-(defun my/cider-mode-hooks ()
-  (cider-turn-on-eldoc-mode))
+;; Packages
 
-(add-hook 'clojure-mode-hook 'enable-paredit-mode)
-(add-hook 'cider-mode-hook 'my/cider-mode-hooks)
-(setq cider-repl-pop-to-buffer-on-connect t)
+;; Smex
 
-;; magit
-(require-package 'magit)
+(setq smex-save-file (expand-file-name ".smex-items" user-emacs-directory))
+(smex-initialize)
+(global-set-key (kbd "M-x") 'smex)
+(global-set-key (kbd "M-X") 'smex-major-mode-commands)
 
-;; Adoc
-(add-hook 'adoc-mode-hook
-          (progn
-            (lambda () (buffer-face-mode t))))
+;; Ido
 
-;; Text completion
-(require-package 'company)
-(add-hook 'after-init-hook 'global-company-mode)
+(ido-mode t)
+(setq ido-enable-flex-matching t
+      ido-use-virtual-buffers t)
 
-;; Auctex
-(require-package 'auctex)
-(setq TeX-auto-save t)
-(setq TeX-parse-self t)
-(setq TeX-save-query nil)
-(setq TeX-PDF-mode t)
+;; Auto-complete
 
-;; ido mode
-(ido-mode)
+(require 'auto-complete-config)
+(ac-config-default)
 
-;; Quick eshell running
-(defun eshell-here ()
-  "Opens a new shell in the directory associated with the
-current buffer's file. The eshell is renamed to match that
-directory to make multiple eshell windows easier."
-  (interactive)
-  (let* ((parent (if (buffer-file-name)
-                     (file-name-directory (buffer-file-name))
-                   default-directory))
-         (height (/ (window-total-height) 3))
-         (name (car (last (split-string parent "/" t)))))
-    (split-window-vertically (- height))
-    (other-window 1)
-    (eshell "new")
-    (rename-buffer (concat "*eshell: " name "*"))
-    (insert (concat "ls"))
-    (eshell-send-input)))
+;; Language settings
 
-(global-set-key (kbd "C-!") 'eshell-here)
+;; Markdown
 
-(defun eshell/x ()
-  (insert "exit")
-  (eshell-send-input)
-  (delete-window))
+(add-to-list 'auto-mode-alist '("\\.md$" . markdown-mode))
+(add-to-list 'auto-mode-alist '("\\.markdown$" . markdown-mode))
+(add-hook 'markdown-mode-hook
+	  (lambda ()
+	    (visual-line-mode t)
+	    (writegood-mode t)))
+(setq markdown-command "pandoc --smart --standalone -f markdown -t html")
 
-;; ace-jump
-(require-package 'ace-jump-mode)
-(require 'ace-jump-mode)
+;; Theme
 
-;; Haskell mode
-(require-package 'haskell-mode)
-(add-hook 'haskell-mode-hook 'turn-on-haskell-indentation)
-
-;; Evil mode
-(require-package 'evil)
-(evil-mode t)
-
-(require-package 'evil-jumper)
-(require-package 'evil-indent-textobject)
-(require-package 'evil-surround)
-(require-package 'evil-matchit)
-(require-package 'evil-leader)
-
-;; Keyboard mappings
-(define-key evil-normal-state-map (kbd "C-h") 'evil-window-left)
-(define-key evil-normal-state-map (kbd "C-j") 'evil-window-down)
-(define-key evil-normal-state-map (kbd "C-k") 'evil-window-up)
-(define-key evil-normal-state-map (kbd "C-l") 'evil-window-right)
-
-(global-evil-matchit-mode t)
-(global-evil-surround-mode t)
-(setq evil-leader/in-all-states 1)
-(global-evil-leader-mode t)
-(setq evil-leader/in-all-states t)
-
-;; Leader
-(evil-leader/set-leader ",")
-(evil-leader/set-key (kbd "f") 'fiplr-find-file)
-(evil-leader/set-key (kbd "w") 'ace-jump-mode)
+(load-theme 'wombat t)
