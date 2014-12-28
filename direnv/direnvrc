@@ -1,6 +1,6 @@
-source /usr/local/share/chruby/chruby.sh
-
 use_ruby() {
+    source /usr/local/share/chruby/chruby.sh
+
     local ver=$1
     if [[ -z $ver ]] && [[ -f .ruby-version ]]; then
         ver=$(cat .ruby-version)
