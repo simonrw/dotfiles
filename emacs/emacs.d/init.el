@@ -31,6 +31,7 @@
     auto-complete
     evil
     evil-leader
+    writeroom-mode
     magit
     writegood-mode
     clojure-mode))
