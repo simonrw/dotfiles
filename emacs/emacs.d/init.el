@@ -33,6 +33,7 @@
     evil-leader
     writeroom-mode
     magit
+    auctex
     writegood-mode
     clojure-mode))
 
@@ -148,6 +149,10 @@
 
 (require 'auto-complete-config)
 (ac-config-default)
+
+;; AucTeX
+
+(setq-default TeX-master nil) ; Query for master file
 
 ;; Language settings
 
