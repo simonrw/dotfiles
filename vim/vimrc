@@ -165,6 +165,9 @@ set shiftround
 set expandtab
 set smarttab
 set shell=bash
+
+" Necessary to show unicode glyphs
+set encoding=utf-8
 scriptencoding utf-8
 
 " Increase encryption protection
@@ -229,8 +232,6 @@ set cindent
 " Always show the status bar
 set laststatus=2
 
-" Necessary to show unicode glyphs
-set encoding=utf-8
 
 " make backspace behave nicely
 set backspace=indent,eol,start
