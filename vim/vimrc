@@ -2,6 +2,11 @@
 " Remap the leader key to comma
 let g:mapleader=','
 let g:maplocalleader='\\'
+
+augroup vimrc
+    autocmd!
+augroup END
+
 " }}}
 " {{{ Plugins
 " {{{ Vim Plug
@@ -104,7 +109,7 @@ nmap <C-c>r <Plug>SetTmuxVars
 "}}}
 " {{{ vim-autopep8
 " Mappings
-autocmd FileType python map <buffer> <leader>y :call Autopep8()<cr>
+autocmd vimrc FileType python map <buffer> <leader>y :call Autopep8()<cr>
 let g:autopep8_disable_show_diff=1
 let g:autopep8_max_line_length=99
 "}}}
@@ -130,14 +135,14 @@ function! s:goyo_leave()
     endif
 endfunction
 
-autocmd User GoyoEnter nested call <SID>goyo_enter()
-autocmd User GoyoLeave nested call <SID>goyo_leave()
+autocmd vimrc User GoyoEnter nested call <SID>goyo_enter()
+autocmd vimrc User GoyoLeave nested call <SID>goyo_leave()
 "}}}
 " {{{ rainbow-parentheses
-autocmd VimEnter * RainbowParenthesesToggle
-autocmd Syntax * RainbowParenthesesLoadRound
-autocmd Syntax * RainbowParenthesesLoadSquare
-autocmd Syntax * RainbowParenthesesLoadBraces
+autocmd vimrc VimEnter * RainbowParenthesesToggle
+autocmd vimrc Syntax * RainbowParenthesesLoadRound
+autocmd vimrc Syntax * RainbowParenthesesLoadSquare
+autocmd vimrc Syntax * RainbowParenthesesLoadBraces
 "}}}
 " {{{ EasyMotion
 map <localleader> <Plug>(easymotion-prefix)
@@ -333,25 +338,22 @@ set wildignore+=*.aux,*.o,*.git,/tmp/*,*.so,*.swp,*.zip,venv,env,*.pyc
 set switchbuf=useopen
 
 " Enable auto sourcing of vim config files
-augroup AutoloadVimrc
-    autocmd!
-    autocmd BufWritePost $MYVIMRC source $MYVIMRC
-    autocmd BufWritePost ~/dotfiles/vim/vimrc source ~/dotfiles/vim/vimrc
-augroup END
+autocmd vimrc BufWritePost $MYVIMRC source $MYVIMRC
+autocmd vimrc BufWritePost ~/dotfiles/vim/vimrc source ~/dotfiles/vim/vimrc
 
 " Jump back to last file position
-autocmd BufReadPost *
+autocmd vimrc BufReadPost *
     \ if line("'\"") > 1 && line("'\"") <= line("$") |
     \ exe "normal! g`\"" |
     \ endif
 
 " ... unless it's a git commit
-autocmd FileType gitcommit autocmd! bufEnter COMMIT_EDITMSG call setpos('.', [0, 1, 1, 0])
+autocmd vimrc FileType gitcommit autocmd! vimrc bufEnter COMMIT_EDITMSG call setpos('.', [0, 1, 1, 0])
 
 " Highlight trailing whitespace only in normal mode
 highlight ExtraWhitespace ctermbg=red guibg=red
-autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
-autocmd InsertLeave * match ExtraWhitespace /\s\+$/
+autocmd vimrc InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
+autocmd vimrc InsertLeave * match ExtraWhitespace /\s\+$/
 
 set scrolloff=1
 
@@ -537,10 +539,10 @@ fun! <SID>StripTrailingWhitespaces()
     call cursor(s:l, s:c)
 endfun
 
-autocmd Filetype c,cpp,ruby,python autocmd BufWritePre :call <SID>StripTrailingWhitespaces()
+autocmd vimrc Filetype c,cpp,ruby,python autocmd vimrc BufWritePre :call <SID>StripTrailingWhitespaces()
 
 " Disable syntax highlighting when opening a large file
-autocmd BufReadPre * if getfsize(expand("%")) > 10000000 | syntax clear | endif
+autocmd vimrc BufReadPre * if getfsize(expand("%")) > 10000000 | syntax clear | endif
 
 
 
@@ -560,7 +562,7 @@ hi SignColumn ctermbg=none
 
 " Cursorline and only show it in the active buffer
 set cursorline
-autocmd WinEnter * setlocal cursorline
-autocmd WinLeave * setlocal nocursorline
+autocmd vimrc WinEnter * setlocal cursorline
+autocmd vimrc WinLeave * setlocal nocursorline
 "}}}
 " vim: foldmethod=marker
