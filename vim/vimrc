@@ -1,7 +1,7 @@
 " {{{ Init
 " Remap the leader key to comma
-let mapleader=','
-let maplocalleader='\\'
+let g:mapleader=','
+let g:maplocalleader='\\'
 " }}}
 " {{{ Plugins
 " {{{ Vim Plug
@@ -417,8 +417,8 @@ nnoremap <leader>o :only<cr>
 
 " Multipurpose tab key from grb
 function! InsertTabWrapper()
-    let col = col('.') - 1
-    if !col || getline('.')[col - 1] !~ '\k'
+    let s:col = col('.') - 1
+    if !s:col || getline('.')[s:col - 1] !~ '\k'
         return "\<tab>"
     else
         return "\<c-p>"
@@ -531,10 +531,10 @@ cnoreabbrev <expr> W ((getcmdtype() is# ':' && getcmdline() is# 'W')?('w'):('W')
 " Strip trailing whitespace
 " http://stackoverflow.com/a/1618401/56711
 fun! <SID>StripTrailingWhitespaces()
-    let l = line(".")
-    let c = col(".")
+    let s:l = line(".")
+    let s:c = col(".")
     %s/\s\+$//e
-    call cursor(l, c)
+    call cursor(s:l, s:c)
 endfun
 
 autocmd Filetype c,cpp,ruby,python autocmd BufWritePre :call <SID>StripTrailingWhitespaces()
