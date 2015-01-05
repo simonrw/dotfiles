@@ -232,7 +232,6 @@ alias ngts="cd ${NGTS} && pwd && ls"
 alias wasp="cd ${WASP} && pwd && ls"
 alias dotfiles="cd ${HOME}/dotfiles && pwd"
 alias dev="cd ${HOME}/Development && pwd && ls"
-alias grep='grep --ignore-case --color'
 
 function init-python() {
     local readonly fname="$1"
