@@ -547,7 +547,7 @@ autocmd vimrc BufReadPre * if getfsize(expand("%")) > 10000000 | syntax clear | 
 
 
 " }}}
-" {{{ Colour scheme
+" {{{ Theming
 colorscheme grb256
 
 " Make it more obvious which paren I'm on
