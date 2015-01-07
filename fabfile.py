@@ -17,6 +17,12 @@ def sync_repos():
                 open_shell()
 
 
+def sync_vim_plugins():
+    with hide('stdout', 'stderr'):
+        lrun('vim +PlugInstall +qa')
+
+
 @task
 def update():
     sync_repos()
+    sync_vim_plugins()
