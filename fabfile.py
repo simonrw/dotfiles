@@ -8,6 +8,7 @@ def lrun(*args, **kwargs):
     return func(*args, **kwargs)
 
 
+@task
 def sync_repos():
     with cd('~/dotfiles'):
         lrun('git fetch origin')
@@ -17,6 +18,7 @@ def sync_repos():
                 open_shell()
 
 
+@task
 def sync_vim_plugins():
     with hide('stdout', 'stderr'):
         lrun('vim +PlugInstall +qa')
