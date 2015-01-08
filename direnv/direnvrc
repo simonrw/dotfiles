@@ -13,8 +13,13 @@ use_ruby() {
 }
 
 use_conda() {
+    local ver=$1
     if [[ ! -d venv ]]; then
-        condaenv ./venv
+        if [[ -z $ver ]]; then
+            condaenv ./venv
+        else
+            condaenv ./venv -p $ver
+        fi
     fi
 
     if [[ -f .gitignore ]]; then
