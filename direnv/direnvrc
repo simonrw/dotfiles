@@ -16,7 +16,7 @@ use_conda() {
     local ver=$1
     if [[ ! -d venv ]]; then
         if [[ -z $ver ]]; then
-            condaenv ./venv
+            condaenv ./venv -p 3
         else
             condaenv ./venv -p $ver
         fi
