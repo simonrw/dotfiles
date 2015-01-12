@@ -34,6 +34,7 @@
     oneline = log --oneline --decorate
     today = log --since="6am"
     last = log -1
+    unstage = reset HEAD
 [color]
     ui = auto
 [core]
