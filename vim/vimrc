@@ -92,6 +92,12 @@ let g:test#python#runner = 'pytest'
 " remove git gutter key mappings
 let g:gitgutter_map_keys = 0
 "}}}
+" {{{ fugitive
+nmap <leader>gd :Gdiff<cr>
+nmap <leader>gc :Gcommit<cr>
+nmap <leader>gw :Gwrite<cr>
+nmap <leader>gr :Gread<cr>
+"}}}
 " {{{ vim-tmuxify
 let g:tmuxify_run = {
     \ "python": "python %",
