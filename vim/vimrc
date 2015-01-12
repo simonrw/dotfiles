@@ -97,6 +97,7 @@ nmap <leader>gd :Gdiff<cr>
 nmap <leader>gc :Gcommit<cr>
 nmap <leader>gw :Gwrite<cr>
 nmap <leader>gr :Gread<cr>
+nmap <leader>gs :Gstatus<cr>
 "}}}
 " {{{ vim-tmuxify
 let g:tmuxify_run = {
