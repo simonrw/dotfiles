@@ -38,7 +38,7 @@
 [color]
     ui = auto
 [core]
-    pager = less -FXRS
+    pager = less -FXRSr
     autocrlf = false
     safecrlf = true
     whitespace = fix
