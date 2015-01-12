@@ -19,6 +19,7 @@ Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-dispatch'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-rsi'
+Plug 'tpope/vim-fugitive'
 
 " Custom plugins
 Plug 'kien/ctrlp.vim'
@@ -94,9 +95,6 @@ let g:gitgutter_map_keys = 0
 " Speed ups
 let g:gitgutter_realtime = 0
 let g:gitgutter_eager = 0
-
-nmap ]c :GitGutterNextHunk<cr>
-nmap [c :GitGutterPrevHunk<cr>
 "}}}
 " {{{ vim-tmuxify
 let g:tmuxify_run = {
