@@ -44,7 +44,7 @@
     whitespace = fix
     editor = vim
     mergeoptions = --no-ff
-	preloadindex = true
+    preloadindex = true
 [merge]
     tool = diffconflicts
     conflictstyle = diff3
@@ -57,9 +57,9 @@
 [branch]
     autosetuprebase = always
 [grep]
-	extendedRegexp = true
+    extendedRegexp = true
 [status]
-	short = 1
-	branch = 1
+    short = 1
+    branch = 1
 [init]
-	templatedir = ~/.gittemplate
+    templatedir = ~/.gittemplate
