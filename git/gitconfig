@@ -24,7 +24,7 @@
     # Logging from Gary Bernhardt
     head = !git l -1
     h = !git head
-    r = !git l -30
+    r = !git l -20
     ra = !git r --all
     l = log --graph --decorate --oneline
     la = log --graph --decorate --oneline --all
