@@ -20,6 +20,7 @@ Plug 'tpope/vim-dispatch'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-rsi'
 Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-git'
 
 " Custom plugins
 Plug 'kien/ctrlp.vim'
