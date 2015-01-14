@@ -97,8 +97,9 @@ nmap ]c :GitGutterNextHunk<cr>
 nmap [c :GitGutterPrevHunk<cr>
 "}}}
 " {{{ fugitive
+command! -bar -bang -nargs=* Gci :Gcommit<bang> -v <args>
 nmap <leader>gd :Gdiff<cr>
-nmap <leader>gc :Gcommit<cr>
+nmap <leader>gc :Gci<cr>
 nmap <leader>gw :Gwrite<cr>
 nmap <leader>gr :Gread<cr>
 nmap <leader>gs :Gstatus<cr>
