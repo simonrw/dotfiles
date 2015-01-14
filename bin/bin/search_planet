@@ -1,0 +1,34 @@
+#!/usr/bin/env bash
+set -e
+
+status() {
+    echo $*
+}
+
+error() {
+    status "$@" >&2
+    exit 1
+}
+
+verify_args() {
+    if [[ $# == 1 ]]; then
+        error "Program usage: $0 <planetname>"
+    fi
+}
+
+open_url() {
+    local planet_name="$1"
+    open "http://exoplanets.org/detail/${planet_name}"
+}
+
+sanitised_planet_name() {
+    planet_name="$*"
+    echo $planet_name | sed 's/ /_/g' | tr 'A-Z' 'a-z'
+}
+
+main() {
+    verify_args $*
+    open_url `sanitised_planet_name $*`
+}
+
+main "$@"
