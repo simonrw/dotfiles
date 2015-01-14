@@ -92,6 +92,9 @@ let g:test#python#runner = 'pytest'
 " {{{ git-gutter
 " remove git gutter key mappings
 let g:gitgutter_map_keys = 0
+
+nmap ]c :GitGutterNextHunk<cr>
+nmap [c :GitGutterPrevHunk<cr>
 "}}}
 " {{{ fugitive
 nmap <leader>gd :Gdiff<cr>
