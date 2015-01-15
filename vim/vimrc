@@ -1,6 +1,6 @@
 " {{{ Init
 " Remap the leader key to comma
-let g:mapleader=' '
+let g:mapleader=','
 let g:maplocalleader='\\'
 
 augroup vimrc
