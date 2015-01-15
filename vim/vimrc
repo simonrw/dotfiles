@@ -87,6 +87,7 @@ nmap <silent> <leader>rf :TestFile<cr>
 nmap <silent> <leader>rl :TestLast<cr>
 
 let g:test#python#runner = 'pytest'
+let g:test#python#pytest#options = '--exitfirst --quiet'
 "}}}
 " {{{ fugitive
 command! -bar -bang -nargs=* Gci :Gcommit<bang> -v <args>
