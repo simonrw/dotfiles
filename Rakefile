@@ -1,4 +1,4 @@
-$exclude_list = ['.git', 'osx', '.', '..', 'individual_files', '.bundle', 'git-remote-hg']
+$exclude_list = ['.git', 'osx', '.', '..', 'individual_files', '.bundle', 'git-remote-hg', 'plists']
 
 # Every subdirectory below this one should contain extra objects either files or directories which will get linked into ~
 # This function returns all of these
@@ -93,7 +93,7 @@ def individual_files
   files.each do |f|
     destination =  File.expand_path(File.join('~', '.' + f.split('/')[1..-1].join('/')))
     source = File.join(File.dirname(__FILE__), f)
-    unless File.exists? destination
+    unless File.exist? destination
       File.symlink(source, destination)
       puts "Linking #{destination}"
     else
@@ -102,10 +102,21 @@ def individual_files
   end
 end
 
+def install_plists
+  Dir["plists/*.plist"].each do |filename|
+    destination = File.expand_path(File.join('~', 'Library', 'LaunchAgents', File.basename(filename)))
+    unless File.symlink? destination
+      puts "Linking #{filename} => #{destination}"
+      File.symlink(filename, destination)
+    end
+  end
+end
+
 desc 'Links the respective files into the correct places'
 task :install, [:install_osx] do |t, args|
     add_links
     individual_files
+    OS.mac? && install_plists
     source_osx_file args[:install_osx], 'defaults.sh'
 end
 
