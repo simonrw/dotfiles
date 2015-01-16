@@ -104,10 +104,13 @@ end
 
 def install_plists
   Dir["plists/*.plist"].each do |filename|
+    source = File.join(File.dirname(__FILE__), filename)
     destination = File.expand_path(File.join('~', 'Library', 'LaunchAgents', File.basename(filename)))
     unless File.symlink? destination
-      puts "Linking #{filename} => #{destination}"
-      File.symlink(filename, destination)
+      puts "Linking #{source} => #{destination}"
+      File.symlink(source, destination)
+      puts "Activating #{File.basename(destination)}"
+      `launchctl load -w  -F #{destination}`
     end
   end
 end
