@@ -132,11 +132,11 @@ export LESS='-FXR'
 # Narrow that down to allow easier skipping through words via M-f and M-b.
 export WORDCHARS='*?[]~&;!$%^<>'
 
-alias ipy='ipython'
+alias ipy='ipython --profile=default'
 alias p=python
 alias py=python
 alias pydoc='=python -m pydoc'
-alias pylab='ipython --pylab'
+alias pylab='ipython --profile=pylab'
 alias clear-pycs='find ${PWD} -name "*.pyc" -delete'
 alias g='git'
 alias gst='=git st'
