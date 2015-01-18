@@ -22,7 +22,7 @@ c = get_config()
 
 # Pre-load matplotlib and numpy for interactive use, selecting a particular
 # matplotlib backend and loop integration.
-# c.InteractiveShellApp.pylab = None
+c.InteractiveShellApp.pylab = 'auto'
 
 # Configure matplotlib for interactive use with the default matplotlib backend.
 # c.InteractiveShellApp.matplotlib = None
@@ -107,7 +107,7 @@ c = get_config()
 # c.TerminalIPythonApp.module_to_run = ''
 
 # The Logging format template
-# c.TerminalIPythonApp.log_format = '[%(name)s]%(highlevel)s %(message)s'
+c.TerminalIPythonApp.log_format = '[%(asctime)s|%(name)s] %(message)s'
 
 # Suppress warning messages about legacy config files
 # c.TerminalIPythonApp.ignore_old_config = False
@@ -155,7 +155,7 @@ c = get_config()
 # c.TerminalIPythonApp.code_to_run = ''
 
 # Whether to display a banner upon starting IPython.
-# c.TerminalIPythonApp.display_banner = True
+c.TerminalIPythonApp.display_banner = False
 
 # Set the log level by value or name.
 # c.TerminalIPythonApp.log_level = 30
@@ -245,7 +245,7 @@ c = get_config()
 # it is not applied if there are no more arguments on the line, and '2' for
 # 'full' autocall, where all callable objects are automatically called (even if
 # no arguments are present).
-# c.TerminalInteractiveShell.autocall = 0
+c.TerminalInteractiveShell.autocall = 2
 
 # 
 # c.TerminalInteractiveShell.debug = False
