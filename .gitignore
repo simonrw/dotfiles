@@ -13,6 +13,9 @@ ipython/ipython/profile_nbserver/*
 !ipython/ipython/profile_nbserver/ipython_config.py
 ipython/ipython/profile_pylab/*
 !ipython/ipython/profile_pylab/ipython_config.py
+!ipython/ipython/profile_pylab/startup
+ipython/ipython/profile_pylab/startup/README
+!ipython/ipython/profile_pylab/startup/00-with-seaborn.py
 pip/pip/pip.log
 ipython/ipython/db
 emacs/emacs.d/elpa
