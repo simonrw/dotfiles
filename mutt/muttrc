@@ -1,0 +1,64 @@
+source ~/.mutt.d/ir_black.mutt
+
+# Global
+set sort = reverse-date-received
+set beep_new
+set pipe_decode
+set realname = "Simon Walker"
+set fast_reply
+set askcc
+set fcc_attach
+set forward_format = "Fwd: %s"
+set forward_decode
+set reply_to
+set include
+set forward_quote
+
+set pager_index_lines = 10
+set pager_context = 3
+set pager_stop
+set menu_scroll
+set tilde
+unset markers
+# autoview html email
+auto_view text/html
+alternative_order text/plain text/enriched text/html
+
+# IMAP
+set record="=Sent"
+set postponed="=Drafts"
+
+# offlineimap
+# set mbox_type=Maildir
+# set folder=$HOME/Mail
+# set spoolfile="+/Staff/INBOX"
+
+set from = "s.walker.2@warwick.ac.uk"
+unset record
+
+# Keybindings
+bind index <tab> sync-mailbox
+bind index gg first-entry
+bind index G last-entry
+bind index <space> collapse-thread
+bind index R group-reply
+bind index o imap-fetch-mail
+
+bind pager k previous-line
+bind pager j next-line
+bind pager gg top
+bind pager G bottom
+bind pager R group-reply
+bind attach <return> view-mailcap
+
+bind compose p postpone-message
+
+# macro index o "<shell-escape>offlineimap<enter>"
+
+# Contacts
+set query_command = "contacts -Sf '%eTOKEN%n' '%s' | gsed -e 's/TOKEN/\t/g'"
+bind editor <Tab> complete-query
+bind editor ^T complete
+
+# Account details
+source ~/.mutt.d/authentication.mutt

@@ -78,3 +78,4 @@ emacs/emacs.d/*
 .bundle
 ipython/ipython/extensions/*
 venv
+mutt/mutt.d/authentication.mutt
