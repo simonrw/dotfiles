@@ -80,3 +80,4 @@ ipython/ipython/extensions/*
 venv
 mutt/mutt.d/authentication.mutt
 mutt/mutt.d/passwords.gpg
+mutt/mutt.d/headers

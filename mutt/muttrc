@@ -29,6 +29,7 @@ alternative_order text/plain text/enriched text/html
 set record="=Sent"
 set postponed="=Drafts"
 set imap_idle
+set header_cache="~/.mutt.d/headers"
 
 # offlineimap
 # set mbox_type=Maildir
