@@ -1,3 +1,4 @@
+source "gpg2 -d ~/.mutt.d/passwords.gpg |"
 source ~/.mutt.d/ir_black.mutt
 
 # Global
