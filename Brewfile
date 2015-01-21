@@ -27,6 +27,7 @@ install trash
 install hdf5
 install sextractor
 install par
+install gpg2
 
 # Docker
 install boot2docker
