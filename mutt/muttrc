@@ -28,6 +28,7 @@ alternative_order text/plain text/enriched text/html
 # IMAP
 set record="=Sent"
 set postponed="=Drafts"
+set imap_idle
 
 # offlineimap
 # set mbox_type=Maildir
