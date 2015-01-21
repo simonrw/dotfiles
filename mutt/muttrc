@@ -14,6 +14,7 @@ set forward_decode
 set reply_to
 set include
 set forward_quote
+set text_flowed=yes
 
 set pager_index_lines = 10
 set pager_context = 3
@@ -58,10 +59,12 @@ bind compose p postpone-message
 
 # macro index o "<shell-escape>offlineimap<enter>"
 
-# Contacts
-set query_command = "contacts -Sf '%eTOKEN%n' '%s' | gsed -e 's/TOKEN/\t/g'"
-bind editor <Tab> complete-query
-bind editor ^T complete
+# Contacts
+set display_filter=~/.mutt.d/add-to-contacts.sh
+set alias_file=~/.mutt.d/aliases.txt
+set sort_alias=alias
+set reverse_alias=yes
+source $alias_file
 
 # Account details
 source ~/.mutt.d/authentication.mutt
