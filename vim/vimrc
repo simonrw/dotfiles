@@ -176,6 +176,8 @@ set shell=bash
 " Necessary to show unicode glyphs
 set encoding=utf-8
 scriptencoding utf-8
+set termencoding=utf-8
+set fileencoding=utf-8
 
 " Increase encryption protection
 if v:version > 704
