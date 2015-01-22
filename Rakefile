@@ -103,6 +103,10 @@ def individual_files
 end
 
 def install_plists
+  if ENV['TMUX']
+    puts "Running in a tmux session, loading plists will not work. Skipping this step"
+    return
+  end
   Dir["plists/*.plist"].each do |filename|
     source = File.join(File.dirname(__FILE__), filename)
     destination = File.expand_path(File.join('~', 'Library', 'LaunchAgents', File.basename(filename)))
