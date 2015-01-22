@@ -111,13 +111,13 @@
 
 ;; Evil
 
-(require 'evil)
-(evil-mode t)
+; (require 'evil)
+; (evil-mode t)
 
 ;; Evil leader
 
-(require 'evil-leader)
-(evil-leader/set-leader ",")
+; (require 'evil-leader)
+; (evil-leader/set-leader ",")
 
 ;; Make the hash key work for OSX
 (if (eq system-type 'darwin)
