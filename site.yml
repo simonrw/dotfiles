@@ -10,6 +10,9 @@
       - "{{ home }}/work/WASP"
       - "{{ home }}/work/NGTS"
 
+  - name: Install dotfiles
+    command: rake install
+
   - name: Tap the homebrew taps
     homebrew_tap: tap={{ item }} state=present
     with_items:
