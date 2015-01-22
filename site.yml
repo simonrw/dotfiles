@@ -3,14 +3,22 @@
   vars:
     home: /Users/{{ ansible_user_id }}
   tasks:
+  - name: Create project directories
+    file: path={{ item }} state=directory
+    with_items:
+      - "{{ home }}/Development/Forks"
+      - "{{ home }}/work/WASP"
+      - "{{ home }}/work/NGTS"
+
   - name: Tap the homebrew taps
-    homebrew_tap: tap={{ item }}
+    homebrew_tap: tap={{ item }} state=present
     with_items:
       - caskroom/cask
       - homebrew/science
       - mindriot101/alt
       - homebrew/headonly
       - homebrew/dupes
+      - neovim/neovim
 
   - name: Install homebrew packages
     homebrew: name={{ item }} state=present
@@ -41,6 +49,7 @@
       - sextractor
       - par
       - gpg2
+      - gh
 
       # Docker
       - boot2docker
@@ -67,7 +76,6 @@
       - node
       
       # Science
-      - cfitsio
       - wcslib
       - montage
       - wcstools
@@ -79,6 +87,12 @@
       - git-hg
 
       - grep
+
+  - name: Install cfitsio with examples
+    homebrew: name=cfitsio install_options=with-examples
+
+  - name: Install neovim head
+    homebrew: name=neovim state=head
 
   - name: Install casks
     homebrew_cask: name={{ item }} state=present
@@ -106,4 +120,20 @@
       - steam
       - spectacle
       - flux
+
+  - name: Start services at login
+    file: src=/usr/local/opt/{{ item }}/homebrew.mxcl.{{ item }}.plist path={{ home }}/Library/LaunchAgents/homebrew.mxcl.{{ item }}.plist state=link force=yes
+    with_items:
+      - mariadb
+      - nginx
+      - postgresql
+      - redis
+
+  - name: Setup launch agents for services
+    command: launchctl load {{ home }}/Library/LaunchAgents/homebrew.mxcl.{{ item }}.plist
+    with_items:
+      - mariadb
+      - nginx
+      - postgresql
+      - redis
 
