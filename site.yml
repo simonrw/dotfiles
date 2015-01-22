@@ -53,6 +53,7 @@
       - par
       - gpg2
       - gh
+      - mutt
 
       # Docker
       - boot2docker
