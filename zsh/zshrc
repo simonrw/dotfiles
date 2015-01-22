@@ -119,7 +119,7 @@ bindkey '^Z' fancy-ctrl-z
 alias irssi="TERM=screen-256color irssi"
 
 export GOPATH=${HOME}/Development/gocode
-export PATH=${HOME}/.bin:${HOME}/.cabal/bin:${PATH}:${HOME}/bin
+export PATH=${HOME}/.bin:${HOME}/.cabal/bin:${HOME}/.local/bin:${PATH}:${HOME}/bin
 
 export EDITOR=vim
 export VISUAL=${EDITOR}
@@ -193,7 +193,7 @@ case $OSTYPE in
 
         ;;
     darwin*)
-        export PATH=$(brew --prefix gnu-tar)/libexec/gnubin:$(brew --prefix coreutils)/libexec/gnubin:${HOME}/local/bin:${PATH}:/usr/texbin:${GOPATH}/bin:/usr/local/sbin:/sbin:/usr/sbin:${HOME}/.cabal/bin
+        export PATH=$(brew --prefix gnu-tar)/libexec/gnubin:$(brew --prefix coreutils)/libexec/gnubin:${PATH}:/usr/texbin:${GOPATH}/bin:/usr/local/sbin:/sbin:/usr/sbin:${HOME}/.cabal/bin
         alias gvim=mvim
         alias gview=mview
         alias -g awk=gawk
