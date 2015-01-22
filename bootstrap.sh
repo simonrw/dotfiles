@@ -1,0 +1,43 @@
+#!/usr/bin/env bash
+
+set -e
+
+command_exists() {
+    command -v $1 >/dev/null
+}
+
+ansible_exists() {
+    command_exists ansible-playbook
+}
+
+homebrew_exists() {
+    command_exists brew
+}
+
+bootstrap_ansible() {
+    brew install ansible
+}
+
+bootstrap_homebrew() {
+    true
+}
+
+provision() {
+    ansible-playbook -i hosts site.yml
+}
+
+install_ansible_if_required() {
+    `ansible_exists` && echo "Ansible found" || bootstrap_ansible
+}
+
+install_homebrew_if_required() {
+    `homebrew_exists` && echo "Homebrew found" || bootstrap_homebrew
+}
+
+main() {
+    install_homebrew_if_required
+    install_ansible_if_required
+    provision
+}
+
+main
