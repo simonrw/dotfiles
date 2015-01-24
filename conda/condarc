@@ -1,3 +1,5 @@
 channels:
     - defaults
     - http://conda.binstar.org/srwalker101
+
+always_yes: true
