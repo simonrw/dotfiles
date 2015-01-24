@@ -82,3 +82,7 @@ mutt/mutt.d/authentication.mutt
 mutt/mutt.d/passwords.gpg
 mutt/mutt.d/headers
 mutt/mutt.d/aliases.txt
+ipython/ipython/profile_sh/db/
+ipython/ipython/profile_sh/history.sqlite
+ipython/ipython/profile_sh/startup/README
+ipython/ipython/profile_sh/static/
