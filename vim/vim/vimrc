@@ -326,8 +326,9 @@ set scrolljump=10
 " Disable conceal
 set conceallevel=0
 
-" Open new split panes at the top
-set nosplitbelow
+" Open new split panes at the bottom
+set splitbelow
+set splitright
 set noequalalways
 
 " Enable the ruler
