@@ -47,11 +47,11 @@ try:
     options, args = parser.parse_args()
 
     if not len(args):
-        print(usage, file=sys.stderr)
+        print(usage, file=stderr)
         exit(1)
 
     if splitext(args[0])[-1] not in fileendings:
-        print("File must be an archive file", file=sys.stderr)
+        print("File must be an archive file", file=stderr)
         exit(1)
 
     if splitext(args[0])[-1] == ".zip":
