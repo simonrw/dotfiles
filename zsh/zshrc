@@ -181,8 +181,8 @@ case $OSTYPE in
         export BROWSER=firefox
         export STORAGE=/storage/astro2/`whoami`
         export BUILD_PREFIX="${STORAGE}/prefix"
-        export PATH=${BUILD_PREFIX}/bin:${HOME}/.gem/ruby/1.8/bin:${PATH}
-        export LD_LIBRARY_PATH=${BUILD_PREFIX}/lib:${LD_LIBRARY_PATH}
+        export PATH=${BUILD_PREFIX}/bin:${HOME}/.local/bin:${HOME}/.gem/ruby/1.8/bin:${PATH}
+        export LD_LIBRARY_PATH=${BUILD_PREFIX}/lib:${HOME}/.local/lib:${LD_LIBRARY_PATH}
         export LS_OPTIONS=--color=never
 
         # Set up the module command
