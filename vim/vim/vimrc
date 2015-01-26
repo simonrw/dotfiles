@@ -549,7 +549,8 @@ autocmd vimrc Filetype c,cpp,ruby,python autocmd vimrc BufWritePre :call <SID>St
 " Disable syntax highlighting when opening a large file
 autocmd vimrc BufReadPre * if getfsize(expand("%")) > 10000000 | syntax clear | endif
 
-
+" Diffs copy wrap from the global setting
+autocmd vimrc FilterWritePre * if &diff | setlocal wrap< | endif
 
 " }}}
 " {{{ Theming
