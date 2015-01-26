@@ -8,6 +8,7 @@ try:
     from subprocess import STDOUT, PIPE, Popen
     from sys import stderr, exit, argv
     from os.path import abspath, basename, splitext
+    import six
 
     def unzip(file, loc):
         p = Popen("unzip -l %s" % (file,), shell=True, stdout=PIPE, stderr=PIPE)
@@ -19,7 +20,7 @@ try:
                 print(words[-1])
         print("...")
 
-        answer = input("Continue [Y/n]? ")
+        answer = six.moves.input("Continue [Y/n]? ")
 
         if answer.upper() == "Y" or not answer:
             p = Popen("unzip -d %s %s" % (loc, file), shell=True, stdout=PIPE, stderr=PIPE)
@@ -69,7 +70,7 @@ try:
 
         print("...")
 
-    answer = input("Continue [Y/n]? ")
+    answer = six.moves.input("Continue [Y/n]? ")
 
     if answer.upper() == "Y" or not answer:
         unpack(abspath(args[0]), abspath(options.dir))
