@@ -1,0 +1,34 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+
+import time
+import argparse
+try:
+    import ds9
+except ImportError:
+    print('Program requires installation of ds9')
+    exit(1)
+try:
+    import IPython
+except ImportError:
+    print('Program requires IPython installation')
+    exit(1)
+
+def main(args):
+    d = ds9.ds9()
+    time.sleep(0.1)
+    d.set('file {}'.format(args.filename))
+    d.set('zoom to fit')
+    d.set('preserve scale yes')
+    d.set('preserve pan yes')
+
+    if args.zscale:
+        d.set('zscale')
+
+    IPython.embed(banner1='', header='DS9 instance in object `d`')
+
+if __name__ == '__main__':
+    parser = argparse.ArgumentParser()
+    parser.add_argument('filename')
+    parser.add_argument('--zscale', action='store_true')
+    main(parser.parse_args())
