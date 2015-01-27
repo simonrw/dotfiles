@@ -8,11 +8,25 @@ try:
 except ImportError:
     print('Program requires installation of ds9')
     exit(1)
+
 try:
     import IPython
 except ImportError:
     print('Program requires IPython installation')
     exit(1)
+try:
+    from astropy.io import fits as pyfits
+except ImportError:
+    try:
+        import pyfits
+    except ImportError:
+        has_fits = False
+    else:
+        has_fits = True
+
+else:
+    has_fits = True
+
 
 def main(args):
     d = ds9.ds9()
@@ -25,7 +39,12 @@ def main(args):
     if args.zscale:
         d.set('zscale')
 
-    IPython.embed(banner1='', header='DS9 instance in object `d`')
+    header = 'DS9 instance in object `d`'
+    if has_fits:
+        f = pyfits.open(args.filename)
+        header += '\npyfits instance in object `f`'
+
+    IPython.embed(banner1='', header=header)
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
