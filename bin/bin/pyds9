@@ -3,6 +3,7 @@
 
 import time
 import argparse
+import logging
 try:
     import ds9
 except ImportError:
@@ -28,13 +29,29 @@ else:
     has_fits = True
 
 
+logging.basicConfig(level=logging.INFO,
+                    format='%(asctime)s|%(name)s|%(levelname)s|%(message)s')
+logger = logging.getLogger('pyds9')
+
+def open_file(d, fname):
+    try:
+        d.set('file {}'.format(fname))
+    except ValueError as err:
+        if 'XPA$ERROR Unable to load fits' in str(err) and has_fits:
+            logger.exception(
+                'Cannot load fits file natively, using pyfits')
+            d.set_np2arr(pyfits.getdata(fname).astype(float))
+        else:
+            raise
+
+
+
 def main(args):
     d = ds9.ds9()
-    time.sleep(0.1)
-    d.set('file {}'.format(args.filename))
-    d.set('zoom to fit')
-    d.set('preserve scale yes')
+    time.sleep(0.5)
+    open_file(d, args.filename)
     d.set('preserve pan yes')
+    d.set('preserve scale yes')
 
     if args.zscale:
         d.set('zscale')
