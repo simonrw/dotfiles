@@ -27,8 +27,7 @@ auto_view text/html
 alternative_order text/plain text/enriched text/html
 
 # IMAP
-set record="=Sent"
-set postponed="=Drafts"
+set copy=yes
 set imap_idle
 set header_cache="~/.mutt.d/headers"
 
@@ -38,7 +37,6 @@ set header_cache="~/.mutt.d/headers"
 # set spoolfile="+/Staff/INBOX"
 
 set from = "s.walker.2@warwick.ac.uk"
-unset record
 
 # Keybindings
 bind index <tab> sync-mailbox
