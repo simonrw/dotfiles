@@ -26,8 +26,6 @@ Plug 'tpope/vim-git'
 Plug 'kien/ctrlp.vim'
 Plug 'rking/ag.vim', { 'on': 'Ag' }
 Plug 'tell-k/vim-autopep8', { 'for': 'python' }
-Plug 'christoomey/vim-tmux-navigator'
-Plug 'kien/rainbow_parentheses.vim'
 Plug 'janko-m/vim-test'
 
 " Languages
