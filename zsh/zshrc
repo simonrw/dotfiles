@@ -223,6 +223,8 @@ alias ngts="cd ${NGTS} && pwd && ls"
 alias wasp="cd ${WASP} && pwd && ls"
 alias dotfiles="cd ${HOME}/dotfiles && pwd"
 alias dev="cd ${HOME}/Development && pwd && ls"
+alias de='direnv edit .'
+alias da='direnv allow'
 
 function init-python() {
     local readonly fname="$1"
