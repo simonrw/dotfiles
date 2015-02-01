@@ -249,6 +249,14 @@ EOL
     \vim ${fname}
 }
 
+function init-3() {
+    echo "use conda 3" >> .envrc && direnv allow && init-python ./main.py
+}
+
+function init-2() {
+    echo "use conda 2" >> .envrc && direnv allow && init-python ./main.py
+}
+
 # Use anaconda if available
 if [[ -d ${HOME}/anaconda ]]; then
     export PATH=${HOME}/anaconda/bin:${PATH}
