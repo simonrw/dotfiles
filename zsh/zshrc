@@ -148,8 +148,10 @@ function conda_local() {
     conda create --yes -p ${PWD}/venv pip pytest ipython numpy matplotlib scipy pandas $* && source activate ./venv
 }
 
-# SSH into the ngts ops machine
-alias ngtshead="ssh -t ngtshead.astro exec zsh"
+# SSH into the ngts ops machine, allowing for custom ssh arguments
+function ngtshead() {
+    ssh -t ngtshead.astro $@ exec zsh
+}
 
 
 # Update vim plugins
