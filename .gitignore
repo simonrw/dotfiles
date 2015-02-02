@@ -67,6 +67,8 @@ mutt/mutt.d/passwords.gpg
 mutt/mutt.d/headers
 mutt/mutt.d/aliases.txt
 
+ipython/ipython/extensions
+ipython/ipython/cython
 # IPython - profile default
 # Keep static files
 !ipython/ipython/profile_default/static/custom/custom.css
@@ -77,6 +79,9 @@ mutt/mutt.d/aliases.txt
 ipython/ipython/profile_default/startup/README
 ipython/ipython/profile_default/security
 ipython/ipython/profile_default/history.sqlite
+ipython/ipython/profile_default/db
+ipython/ipython/profile_default/log
+ipython/ipython/profile_default/pid
 
 # IPython - profile nbserver
 # Keep static files
@@ -88,6 +93,9 @@ ipython/ipython/profile_default/history.sqlite
 ipython/ipython/profile_nbserver/startup/README
 ipython/ipython/profile_nbserver/security
 ipython/ipython/profile_nbserver/history.sqlite
+ipython/ipython/profile_nbserver/db
+ipython/ipython/profile_nbserver/log
+ipython/ipython/profile_nbserver/pid
 
 # IPython - profile pylab
 # Keep static files
@@ -99,6 +107,9 @@ ipython/ipython/profile_nbserver/history.sqlite
 ipython/ipython/profile_pylab/startup/README
 ipython/ipython/profile_pylab/security
 ipython/ipython/profile_pylab/history.sqlite
+ipython/ipython/profile_pylab/db
+ipython/ipython/profile_pylab/log
+ipython/ipython/profile_pylab/pid
 
 # IPython - profile sh
 # Keep static files
@@ -110,3 +121,6 @@ ipython/ipython/profile_pylab/history.sqlite
 ipython/ipython/profile_sh/startup/README
 ipython/ipython/profile_sh/security
 ipython/ipython/profile_sh/history.sqlite
+ipython/ipython/profile_sh/db
+ipython/ipython/profile_sh/log
+ipython/ipython/profile_sh/pid
