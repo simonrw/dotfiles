@@ -69,58 +69,16 @@ mutt/mutt.d/aliases.txt
 
 ipython/ipython/extensions
 ipython/ipython/cython
-# IPython - profile default
 # Keep static files
-!ipython/ipython/profile_default/static/custom/custom.css
-!ipython/ipython/profile_default/static/custom/custom.js
+!ipython/ipython/profile_*/static/custom/custom.css
+!ipython/ipython/profile_*/static/custom/custom.js
 # Keep startup files
-!ipython/ipython/profile_default/startup
-# Ignore the rest
-ipython/ipython/profile_default/startup/README
-ipython/ipython/profile_default/security
-ipython/ipython/profile_default/history.sqlite
-ipython/ipython/profile_default/db
-ipython/ipython/profile_default/log
-ipython/ipython/profile_default/pid
+!ipython/ipython/profile_*/startup
 
-# IPython - profile nbserver
-# Keep static files
-!ipython/ipython/profile_nbserver/static/custom/custom.css
-!ipython/ipython/profile_nbserver/static/custom/custom.js
-# Keep startup files
-!ipython/ipython/profile_nbserver/startup
 # Ignore the rest
-ipython/ipython/profile_nbserver/startup/README
-ipython/ipython/profile_nbserver/security
-ipython/ipython/profile_nbserver/history.sqlite
-ipython/ipython/profile_nbserver/db
-ipython/ipython/profile_nbserver/log
-ipython/ipython/profile_nbserver/pid
-
-# IPython - profile pylab
-# Keep static files
-!ipython/ipython/profile_pylab/static/custom/custom.css
-!ipython/ipython/profile_pylab/static/custom/custom.js
-# Keep startup files
-!ipython/ipython/profile_pylab/startup
-# Ignore the rest
-ipython/ipython/profile_pylab/startup/README
-ipython/ipython/profile_pylab/security
-ipython/ipython/profile_pylab/history.sqlite
-ipython/ipython/profile_pylab/db
-ipython/ipython/profile_pylab/log
-ipython/ipython/profile_pylab/pid
-
-# IPython - profile sh
-# Keep static files
-!ipython/ipython/profile_sh/static/custom/custom.css
-!ipython/ipython/profile_sh/static/custom/custom.js
-# Keep startup files
-!ipython/ipython/profile_sh/startup
-# Ignore the rest
-ipython/ipython/profile_sh/startup/README
-ipython/ipython/profile_sh/security
-ipython/ipython/profile_sh/history.sqlite
-ipython/ipython/profile_sh/db
-ipython/ipython/profile_sh/log
-ipython/ipython/profile_sh/pid
+ipython/ipython/profile_*/startup/README
+ipython/ipython/profile_*/security
+ipython/ipython/profile_*/history.sqlite
+ipython/ipython/profile_*/db
+ipython/ipython/profile_*/log
+ipython/ipython/profile_*/pid
