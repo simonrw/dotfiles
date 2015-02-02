@@ -30,7 +30,7 @@ div.text_cell {
 
 div.text_cell_render {
     font-family: "Crimson Text";
-    font-size: 12pt;
+    font-size: 14pt;
     line-height: 145%; /* added for some line spacing of text. */
 }
 
@@ -58,7 +58,11 @@ div.text_cell_render h3 {
 
 .rendered_html pre,
 .rendered_html code {
-    font-size: medium;
+    font-size: 12pt;
+}
+
+.rendered_html p {
+    text-align: left;
 }
 
 .rendered_html ol {
