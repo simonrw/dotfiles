@@ -26,9 +26,7 @@ local yellow="%{$fg[yellow]%}"
 local blue="%{$fg[cyan]%}"
 local reset="%{$reset_color%}"
 
-PROMPT='
-$blue%D|%*$reset
-$yellow$(suspended_count)$reset%(?.$green>$reset.$red%?>$reset) '
+PROMPT='$yellow$(suspended_count)$reset%(?.$green>$reset.$red%?>$reset) '
 RPROMPT='$yellow%m$reset'
 
 # vim: ft=zsh
