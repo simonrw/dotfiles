@@ -227,6 +227,7 @@ alias dotfiles="cd ${HOME}/dotfiles && pwd"
 alias dev="cd ${HOME}/Development && pwd && ls"
 alias de='direnv edit .'
 alias da='direnv allow'
+alias dr='direnv reload'
 
 function init-python() {
     local readonly fname="$1"
