@@ -2,15 +2,12 @@ setlocal iskeyword+=:
 setlocal sw=2
 setlocal wrap
 setlocal nolist
-setlocal linebreak
 setlocal cc=0
 setlocal nocursorcolumn
 setlocal conceallevel=0
-setlocal re=2
 syntax spell toplevel
 
 let g:tex_fold_enabled = 0
-
 
 " Example synctex command, for skim
 " map <silent> <Leader>ls :!~/Applications/Skim.app/Contents/SharedSupport/displayline -b -g <C-R>=line('.')<CR> "pdf-filename" "%:p" <CR>
@@ -20,7 +17,3 @@ nmap [r ?<C-R>=SectionRegex<cr><cr>
 nmap ]r /<C-R>=SectionRegex<cr><cr>
 vmap [r ?<C-R>=SectionRegex<cr><cr>
 vmap ]r /<C-R>=SectionRegex<cr><cr>
-
-" Show breaks in lines
-set breakindent
-let &showbreak = '> '
