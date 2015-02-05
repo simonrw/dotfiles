@@ -1,6 +1,9 @@
 setlocal iskeyword+=:
 setlocal sw=2
-setlocal wrap
+setlocal nowrap
+setlocal tw=80
+setlocal formatoptions+=tw
+setlocal formatprg=
 setlocal nolist
 setlocal cc=0
 setlocal nocursorcolumn
