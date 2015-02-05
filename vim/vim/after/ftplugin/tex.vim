@@ -20,3 +20,6 @@ nmap [r ?<C-R>=SectionRegex<cr><cr>
 nmap ]r /<C-R>=SectionRegex<cr><cr>
 vmap [r ?<C-R>=SectionRegex<cr><cr>
 vmap ]r /<C-R>=SectionRegex<cr><cr>
+
+" Default to running makefile
+nnoremap <leader>t :update\|:!make<cr>
