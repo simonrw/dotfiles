@@ -132,7 +132,7 @@ export LESS='-FXR'
 # Narrow that down to allow easier skipping through words via M-f and M-b.
 export WORDCHARS='*?[]~&;!$%^<>'
 
-alias ipy='ipython --profile=default'
+alias ipy=ipython
 alias ipysh='ipython --profile=sh'
 alias p=python
 alias py=python
