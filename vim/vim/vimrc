@@ -21,6 +21,7 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-rsi'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-git'
+Plug 'tpope/vim-eunuch'
 
 " Custom plugins
 Plug 'kien/ctrlp.vim'
