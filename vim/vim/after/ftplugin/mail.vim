@@ -1,2 +1,1 @@
-" Better formatting in mutt
-setlocal formatoptions+=aw
+setlocal formatoptions-=tc
