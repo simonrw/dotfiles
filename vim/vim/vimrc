@@ -25,8 +25,8 @@ Plug 'tpope/vim-eunuch'
 
 " Custom plugins
 Plug 'kien/ctrlp.vim'
-Plug 'rking/ag.vim', { 'on': 'Ag' }
-Plug 'tell-k/vim-autopep8', { 'for': 'python' }
+Plug 'rking/ag.vim'
+Plug 'tell-k/vim-autopep8'
 Plug 'janko-m/vim-test'
 
 " Languages
