@@ -32,7 +32,6 @@ Plug 'janko-m/vim-test'
 " Languages
 Plug 'hylang/vim-hy'
 Plug 'vim-scripts/SWIG-syntax'
-Plug 'sheerun/vim-polyglot'
 Plug 'chase/vim-ansible-yaml'
 Plug 'mitsuhiko/vim-jinja'
 Plug 'vim-scripts/TWiki-Syntax'
