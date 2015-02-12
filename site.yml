@@ -105,7 +105,6 @@
       - virtualbox
       - vagrant
       - caffeine
-      - xquartz
       - mendeley-desktop
       - x2goclient
       - fluid
