@@ -27,7 +27,6 @@
     homebrew: name={{ item }} state=present
     with_items:
       - git
-      - vim
       - zsh
       - htop-osx
       - gcc
@@ -94,6 +93,10 @@
 
   - name: Install cfitsio with examples
     homebrew: name=cfitsio install_options=with-examples
+
+  - name: Install vim with arguments
+    homebrew: name=vim state=latest install_options=override-system-vi
+
 
   - name: Install neovim head
     homebrew: name=neovim state=head
