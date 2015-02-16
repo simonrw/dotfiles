@@ -5,3 +5,7 @@ channels:
 always_yes: true
 
 binstar_upload: yes
+
+create_default_packages:
+  - pip
+  - ipython

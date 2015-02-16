@@ -13,7 +13,6 @@ def main(args):
            '--yes', '--quiet',
            'python={}'.format(args.python)]
     # Add default packages
-    cmd.extend(DEFAULT_PACKAGES)
     cmd.extend(args.package)
     sp.check_call(map(str, cmd))
     
