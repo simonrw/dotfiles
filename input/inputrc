@@ -1,2 +1,13 @@
 set show-all-if-ambiguous on
 set completion-ignore-case on
+
+set editing-mode emacs
+$if mode=vi
+    set keymap vi-command
+    "gg": beginning-of-history
+    "G": end-of-history
+    set keymap vi-insert
+    "C-p": history-search-backward
+    "C-a": beginning-of-line
+    "C-e": end-of-line
+$endif
