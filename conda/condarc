@@ -3,3 +3,5 @@ channels:
     - http://conda.binstar.org/srwalker101
 
 always_yes: true
+
+binstar_upload: yes
