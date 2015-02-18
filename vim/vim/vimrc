@@ -134,6 +134,10 @@ if v:version > 704
 set cryptmethod=blowfish2
 endif
 
+" Do not wrap long lines
+set nowrap
+set sidescroll=5
+
 " Line numbering
 set norelativenumber
 set nonumber
