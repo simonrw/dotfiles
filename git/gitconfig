@@ -62,5 +62,6 @@
 [status]
     short = 1
     branch = 1
+	submoduleSummary = true
 [init]
     templatedir = ~/.gittemplate
