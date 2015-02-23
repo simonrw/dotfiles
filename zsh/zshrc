@@ -79,6 +79,7 @@ alias ta=_tmux_attach
 alias tns="tmux new-session -As"
 alias tls="tmux ls"
 alias m=make
+alias lsc='ls --color=auto'
 
 # Function to make a new tmux session at a variable location
 function tnew() {
@@ -191,15 +192,14 @@ case $OSTYPE in
 
         export work=${HOME}/work/
         alias open='xdg-open 2>/dev/null'
-        alias lsc='ls --color=auto'
 
 
         ;;
     darwin*)
-        export PATH=${PATH}:/usr/texbin:${GOPATH}/bin:/usr/local/sbin:/sbin:/usr/sbin:${HOME}/.cabal/bin
+        export PATH=$(brew --prefix gnu-tar)/libexec/gnubin:$(brew --prefix coreutils)/libexec/gnubin:${PATH}:/usr/texbin:${GOPATH}/bin:/usr/local/sbin:/sbin:/usr/sbin:${HOME}/.cabal/bin
         alias gvim=mvim
         alias gview=mview
-        alias lsc='ls -G'
+        alias -g awk=gawk
 
         if [[ "$(hostname -s)" == "mbp15" ]]; then
             export work=${HOME}/work

@@ -35,10 +35,12 @@
       - graphviz
       - tmux
       - md5sha1sum
+      - coreutils
       - freetype
       - watch
       - the_silver_searcher
       - wget
+      - gawk
       - dos2unix
       - ssh-copy-id
       - nmap
