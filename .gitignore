@@ -66,6 +66,8 @@ mutt/mutt.d/authentication.mutt
 mutt/mutt.d/passwords.gpg
 mutt/mutt.d/headers
 mutt/mutt.d/aliases.txt
+vim/vim/backup/*
+!vim/vim/backup/.gitkeep
 
 ipython/ipython/extensions
 ipython/ipython/cython
