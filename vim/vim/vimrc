@@ -191,7 +191,6 @@ set cindent
 " Always show the status bar
 set laststatus=2
 
-
 " make backspace behave nicely
 set backspace=indent,eol,start
 
@@ -341,7 +340,6 @@ set statusline+=%-14.(%l,%c%V%)\
 
 " View position
 set statusline+=%P
-
 
 " }}}
 " {{{ Mappings
