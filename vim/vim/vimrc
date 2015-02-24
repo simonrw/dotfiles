@@ -121,7 +121,7 @@ set shiftwidth=4
 set shiftround
 set expandtab
 set smarttab
-set shell=bash
+set shell=/bin/sh
 
 " Necessary to show unicode glyphs
 set encoding=utf-8
