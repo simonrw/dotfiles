@@ -28,7 +28,6 @@ Plug 'kien/ctrlp.vim'
 Plug 'rking/ag.vim'
 Plug 'tell-k/vim-autopep8'
 Plug 'janko-m/vim-test'
-Plug 'wikitopian/hardmode'
 
 " Languages
 Plug 'hylang/vim-hy'
@@ -102,10 +101,6 @@ let g:autopep8_max_line_length=80
 "}}}
 " {{{ vim-commentary
 let g:commentary_map_backslash = 0
-"}}}
-" {{{ hardmode
-autocmd vimrc VimEnter,BufNewFile,BufReadPost * silent! call HardMode()
-nnoremap <leader>h <Esc>:call ToggleHardMode()<cr>
 "}}}
 "}}}
 " }}}
