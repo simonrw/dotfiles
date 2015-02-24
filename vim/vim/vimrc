@@ -244,6 +244,8 @@ set thesaurus+=~/thesaurus/mthesaur.txt
 " Handle the splat clipboard
 if has('unnamedplus')
     set clipboard=unnamedplus
+else
+    set clipboard=unnamed
 endif
 
 " source local vimrc files
