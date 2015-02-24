@@ -255,11 +255,11 @@ EOL
 }
 
 function init-3() {
-    echo "use conda 3" >> .envrc && direnv allow && init-python ./main.py
+    echo "use conda 3" >> .envrc && direnv allow && init-python ./main.py +qa
 }
 
 function init-2() {
-    echo "use conda 2" >> .envrc && direnv allow && init-python ./main.py
+    echo "use conda 2" >> .envrc && direnv allow && init-python ./main.py +qa
 }
 
 # Use anaconda if available
