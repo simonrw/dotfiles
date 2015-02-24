@@ -260,8 +260,10 @@ set ttimeout
 set ttimeoutlen=1
 set timeoutlen=500
 
-set nobackup
+set backup
 set backupskip=/tmp/*,/private/tmp/*
+set backupdir=~/.vim/tmp
+set directory=~/.vim/tmp
 set writebackup
 set undofile
 set undodir=~/.vim/tmp/undo
