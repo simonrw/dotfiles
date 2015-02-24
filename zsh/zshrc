@@ -251,7 +251,7 @@ if __name__ == '__main__':
     main(parser.parse_args())
 EOL
     chmod +x ${fname}
-    \vim ${fname}
+    \vim ${fname} "${@:2}"
 }
 
 function init-3() {
