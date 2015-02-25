@@ -194,6 +194,8 @@ case $OSTYPE in
         export work=${HOME}/work/
         alias open='xdg-open 2>/dev/null'
 
+        alias configurevim='./configure --prefix=$BUILD_PREFIX --with-features=huge --enable-pythoninterp --with-compiledby="Simon Walker" --disable-gui --without-x'
+
 
         ;;
     darwin*)
