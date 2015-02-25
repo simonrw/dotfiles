@@ -8,3 +8,5 @@ always_yes: true
 create_default_packages:
   - pip
   - ipython
+
+binstar_upload: yes
