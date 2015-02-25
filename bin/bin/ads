@@ -4,7 +4,10 @@
 import argparse
 import logging
 import webbrowser
-import urllib
+try:
+    from urllib.parse import quote
+except ImportError:
+    from urllib import quote
 
 logging.basicConfig(level=logging.INFO)
 
@@ -59,7 +62,7 @@ QUERY = ("http://adsabs.harvard.edu/cgi-bin/nph-abs_connect?db_key=AST"
 
 
 def author_list(authors):
-    return urllib.quote('^' + '\n'.join(authors))
+    return quote('^' + '\n'.join(authors))
 
 def main(args):
     if args.verbose:
