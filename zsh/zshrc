@@ -242,7 +242,8 @@ from __future__ import division, print_function, absolute_import
 import argparse
 import logging
 
-logging.basicConfig(level='DEBUG', format='%(asctime)s|%(name)s|%(levelname)s|%(message)s')
+logging.basicConfig(
+    level='DEBUG', format='%(asctime)s|%(name)s|%(levelname)s|%(message)s')
 logger = logging.getLogger(__name__)
 
 
