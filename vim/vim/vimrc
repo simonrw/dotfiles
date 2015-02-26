@@ -33,7 +33,7 @@ Plug 'janko-m/vim-test'
 Plug 'vim-scripts/SWIG-syntax'
 Plug 'chase/vim-ansible-yaml'
 Plug 'mitsuhiko/vim-jinja'
-Plug 'vim-scripts/TWiki-Syntax'
+Plug 'vim-scripts/TWiki-Syntax', { 'for': 'twiki' }
 Plug 'mustache/vim-mustache-handlebars', { 'for': 'html.handlebars' }
 
 call plug#end()
