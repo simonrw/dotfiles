@@ -30,7 +30,6 @@ Plug 'tell-k/vim-autopep8'
 Plug 'janko-m/vim-test'
 
 " Languages
-Plug 'hylang/vim-hy'
 Plug 'vim-scripts/SWIG-syntax'
 Plug 'chase/vim-ansible-yaml'
 Plug 'mitsuhiko/vim-jinja'
