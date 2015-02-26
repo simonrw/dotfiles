@@ -10,3 +10,6 @@
 [submodule "external/git-stree"]
 	path = external/git-stree
 	url = https://github.com/tdd/git-stree
+[submodule "external/serveit"]
+	path = external/serveit
+	url = https://github.com/garybernhardt/serveit
