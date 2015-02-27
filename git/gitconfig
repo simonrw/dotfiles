@@ -35,6 +35,7 @@
     today = log --since="6am"
     last = log -1
     unstage = reset HEAD
+	tidy = rebase -i @{upstream}
 [color]
     ui = auto
 [core]
