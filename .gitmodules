@@ -1,12 +1,6 @@
 [submodule "git-remote-hg"]
-	path = git-remote-hg
+	path = external/git-remote-hg
 	url = https://github.com/felipec/git-remote-hg.git
-[submodule "zsh/zsh/syntax-highlighting"]
-	path = zsh/zsh/syntax-highlighting
-	url = https://github.com/zsh-users/zsh-syntax-highlighting
-[submodule "tmux/tmux.d/tmux-powerline"]
-	path = tmux/tmux.d/tmux-powerline
-	url = https://github.com/erikw/tmux-powerline
 [submodule "external/git-stree"]
 	path = external/git-stree
 	url = https://github.com/tdd/git-stree
