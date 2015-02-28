@@ -24,10 +24,6 @@ div.input_area {
     background: rbga(0,0,0,0.5);
 }
 
-div.text_cell {
-    max-width: 105ex; /* instead of 100%, */
-}
-
 div.text_cell_render {
     font-family: "Crimson Text";
     font-size: 14pt;
