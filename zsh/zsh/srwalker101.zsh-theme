@@ -26,8 +26,12 @@ local yellow="%{$fg[yellow]%}"
 local blue="%{$fg[cyan]%}"
 local reset="%{$reset_color%}"
 
+function prompt_char() {
+    echo '→'
+}
+
 PROMPT='
-$yellow$(suspended_count)$reset%(?.$green>$reset.$red%?>$reset) '
+$yellow$(suspended_count)$reset%(?.$green$(prompt_char)$reset.$red%? $(prompt_char)$reset) '
 RPROMPT='$yellow%m$reset'
 
 # vim: ft=zsh
