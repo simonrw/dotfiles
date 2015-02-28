@@ -84,3 +84,4 @@ ipython/ipython/profile_*/history.sqlite
 ipython/ipython/profile_*/db
 ipython/ipython/profile_*/log
 ipython/ipython/profile_*/pid
+ipython/ipython/nbextensions/*
