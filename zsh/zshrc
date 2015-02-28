@@ -80,6 +80,8 @@ alias tns="tmux new-session -As"
 alias tls="tmux ls"
 alias m=make
 alias lsc='ls --color=auto'
+alias ll='ls -l'
+alias lr='ls -thor'
 
 # Function to make a new tmux session at a variable location
 function tnew() {
