@@ -179,13 +179,14 @@ function find_pi() {
     echo "Usage may require sudo password"
     sudo arp-scan --interface=`__active_interface` --localnet | grep b8:27:eb | awk '{print $1}'
 }
+export BUILD_PREFIX="${HOME}/.local"
+export PATH=${BUILD_PREFIX}/bin:${PATH}
 
 case $OSTYPE in
     linux*)
         export BROWSER=firefox
         export STORAGE=/storage/astro2/`whoami`
-        export BUILD_PREFIX="${HOME}/.local"
-        export PATH=${BUILD_PREFIX}/bin:${HOME}/.gem/ruby/1.8/bin:${PATH}
+        export PATH=${HOME}/.gem/ruby/1.8/bin:${PATH}
         export LD_LIBRARY_PATH=${BUILD_PREFIX}/lib:${LD_LIBRARY_PATH}
         export PKG_CONFIG_PATH=${BUILD_PREFIX}/lib/pkgconfig:${PKG_CONFIG_PATH}
         export LS_OPTIONS=--color=never
