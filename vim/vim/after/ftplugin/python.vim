@@ -35,5 +35,6 @@ function! AddImport()
     call AddImportString(import_text)
 endfunction
 
+nnoremap <leader>ii :call AddImport()<Cr>
 nnoremap <leader>in :call AddImportString("import numpy as np")<Cr>
 nnoremap <leader>im :call AddImportString("import matplotlib.pyplot as plt")<cr>
