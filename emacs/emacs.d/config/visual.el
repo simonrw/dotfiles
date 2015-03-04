@@ -10,12 +10,14 @@
 (setq inhibit-splash-screen t
       initial-scratch-message nil)
 
-;; Scroll/tool/menu bars
+(menu-bar-mode 0)
 
+;; Scroll/tool/menu bars
 (when window-system
-  (scroll-bar-mode -1)
-  (tool-bar-mode -1)
-  (menu-bar-mode -1))
+  (scroll-bar-mode 0)
+  (tool-bar-mode 0)
+  (menu-bar-mode 1))
+
 
 ;; Display settings
 (when window-system
