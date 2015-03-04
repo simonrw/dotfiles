@@ -57,8 +57,8 @@ vim/vim/tmp/undo/*
 !vim/vim/tmp/.gitkeep
 !vim/vim/tmp/undo/.gitkeep
 *.pyc
-emacs/emacs.d/*
-!emacs/emacs.d/config/*
+emacs/emacs.d/.emacs.d
+!emacs/emacs.d/config/*.el
 !emacs/emacs.d/init.el
 *.DS_Store
 .bundle
@@ -88,3 +88,8 @@ ipython/ipython/profile_*/pid
 ipython/ipython/nbextensions/*
 ipython/ipython/kernels
 ipython/ipython/profile_default/nbconfig
+emacs/emacs.d/.smex-items
+emacs/emacs.d/.sx/
+emacs/emacs.d/SessionDesktop.el
+emacs/emacs.d/ac-comphist.dat
+emacs/emacs.d/el-get/
