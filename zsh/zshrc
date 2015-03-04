@@ -123,7 +123,7 @@ alias irssi="TERM=screen-256color irssi"
 export GOPATH=${HOME}/Development/gocode
 export PATH=${HOME}/.bin:${HOME}/.cabal/bin:${PATH}:${HOME}/bin
 
-export EDITOR=emacs
+export EDITOR=vim
 export VISUAL=${EDITOR}
 export BIBINPUTS=${HOME}/work/central-bibliography:${BIBINPUTS}
 export LESS='-FXR'
@@ -144,7 +144,7 @@ alias clear-pycs='find ${PWD} -name "*.pyc" -delete'
 alias g='git'
 alias gst='=git st'
 alias es='exec $SHELL'
-alias vim=emacs
+alias v=vim
 
 function conda_local() {
     conda create --yes -p ${PWD}/venv pip pytest ipython numpy matplotlib scipy pandas $* && source activate ./venv
@@ -258,7 +258,7 @@ if __name__ == '__main__':
     main(parser.parse_args())
 EOL
     chmod +x ${fname}
-    \emacs ${fname} "${@:2}"
+    \vim ${fname} "${@:2}"
 }
 
 function init-3() {
