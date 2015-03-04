@@ -36,6 +36,8 @@ Plug 'chase/vim-ansible-yaml'
 Plug 'mitsuhiko/vim-jinja'
 Plug 'vim-scripts/TWiki-Syntax', { 'for': 'twiki' }
 Plug 'mustache/vim-mustache-handlebars', { 'for': 'html.handlebars' }
+Plug 'pangloss/vim-javascript'
+Plug 'mxw/vim-jsx'
 
 call plug#end()
 " }}}
