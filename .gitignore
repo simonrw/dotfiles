@@ -58,6 +58,7 @@ vim/vim/tmp/undo/*
 !vim/vim/tmp/undo/.gitkeep
 *.pyc
 emacs/emacs.d/*
+!emacs/emacs.d/config/*
 !emacs/emacs.d/init.el
 *.DS_Store
 .bundle

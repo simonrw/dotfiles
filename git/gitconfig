@@ -43,7 +43,7 @@
     autocrlf = false
     safecrlf = true
     whitespace = fix
-    editor = vim
+    editor = emacs
     mergeoptions = --no-ff
     preloadindex = true
 [merge]
