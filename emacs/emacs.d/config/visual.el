@@ -1,7 +1,7 @@
 ;; Font
 (set-face-attribute 'default nil
-                    :family "Inconsolata"
-                    :height 160
+                    :family "Menlo"
+                    :height 140
                     :weight 'normal
                     :width 'normal)
 
