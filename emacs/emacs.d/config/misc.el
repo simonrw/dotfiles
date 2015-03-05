@@ -27,3 +27,5 @@
       use-dialog-box nil
       visible-bell t)
 (show-paren-mode t)
+
+(setq tramp-default-method "ssh")
