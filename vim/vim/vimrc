@@ -29,6 +29,7 @@ Plug 'rking/ag.vim'
 Plug 'tell-k/vim-autopep8'
 Plug 'janko-m/vim-test'
 Plug 'jgdavey/tslime.vim'
+Plug 'christoomey/vim-tmux-navigator'
 
 " Languages
 Plug 'vim-scripts/SWIG-syntax'
