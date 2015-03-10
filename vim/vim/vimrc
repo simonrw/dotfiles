@@ -40,6 +40,7 @@ Plug 'vim-scripts/TWiki-Syntax', { 'for': 'twiki' }
 Plug 'mustache/vim-mustache-handlebars', { 'for': 'html.handlebars' }
 Plug 'pangloss/vim-javascript'
 Plug 'mxw/vim-jsx'
+Plug 'zah/nimrod.vim', { 'for': 'nim' }
 
 call plug#end()
 " }}}
