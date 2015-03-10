@@ -157,7 +157,6 @@ function ngtshead() {
 
 
 # Update vim plugins
-alias vpi='=vim +PlugUpgrade +PlugClean! +PlugInstall +qa'
 alias vpu='echo Use vpi'
 
 # Ruby aliases
