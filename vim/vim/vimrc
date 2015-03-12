@@ -155,8 +155,8 @@ set cryptmethod=blowfish2
 endif
 
 " Line numbering
-set norelativenumber
-set nonumber
+set relativenumber
+set number
 
 " Use hlsearch
 set hlsearch
