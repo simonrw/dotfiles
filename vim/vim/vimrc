@@ -68,12 +68,12 @@ let g:ctrlp_open_new_file = 'r'
 if executable('ag')
     " Let ctrlp use ag for files
     let g:ctrlp_user_command = 'ag %s -i --nocolor --nogroup --hidden
-        \ --ignore .git
-        \ --ignore .svn
-        \ --ignore .hg
-        \ --ignore .DS_Store
-        \ --ignore "**/*.pyc"
-        \ -g ""'
+                \ --ignore .git
+                \ --ignore .svn
+                \ --ignore .hg
+                \ --ignore .DS_Store
+                \ --ignore "**/*.pyc"
+                \ -g ""'
 
     " Follow symlinks but not duplicates
     let g:ctrlp_follow_symlinks = 1
@@ -154,7 +154,7 @@ set fileencoding=utf-8
 
 " Increase encryption protection
 if v:version > 704
-set cryptmethod=blowfish2
+    set cryptmethod=blowfish2
 endif
 
 " Line numbering
@@ -322,9 +322,9 @@ autocmd vimrc BufWritePost ~/dotfiles/vim/vimrc source ~/dotfiles/vim/vimrc
 
 " Jump back to last file position
 autocmd vimrc BufReadPost *
-    \ if line("'\"") > 1 && line("'\"") <= line("$") |
-    \ exe "normal! g`\"" |
-    \ endif
+            \ if line("'\"") > 1 && line("'\"") <= line("$") |
+            \ exe "normal! g`\"" |
+            \ endif
 
 " ... unless it's a git commit
 autocmd vimrc FileType gitcommit autocmd! vimrc bufEnter COMMIT_EDITMSG call setpos('.', [0, 1, 1, 0])
@@ -474,10 +474,10 @@ nnoremap gb :buffers<cr>:b<space>
 
 " Performance measurements
 nnoremap <silent> <leader>DD :profile start /tmp/profile.log
-    \ <bar> profile func *
-    \ <bar> profile file * <cr>
+            \ <bar> profile func *
+            \ <bar> profile file * <cr>
 nnoremap <silent> <leader>DQ :profile pause
-    \ <bar> noautocmd qall! <cr>
+            \ <bar> noautocmd qall! <cr>
 
 " Handy saving of text if a C-u is pressed
 inoremap <C-u> <C-g>u<C-u>
