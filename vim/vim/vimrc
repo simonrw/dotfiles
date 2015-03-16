@@ -3,6 +3,8 @@
 let g:mapleader=','
 let g:maplocalleader='\\'
 
+if &compatible | set nocompatible | endif
+
 augroup vimrc
     autocmd!
 augroup END
