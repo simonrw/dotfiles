@@ -112,6 +112,7 @@ nmap <leader>gc :Gci<cr>
 nmap <leader>gw :Gwrite<cr>
 nmap <leader>gr :Gread<cr>
 nmap <leader>gs :Gstatus<cr>
+nmap <leader>ga :Git amend<cr>
 "}}}
 " {{{ vim-autopep8
 " Mappings
