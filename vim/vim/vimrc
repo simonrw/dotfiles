@@ -99,22 +99,22 @@ endif
 
 "}}}
 " {{{ vim-test
-nmap <silent> <leader>ra :TestSuite<cr>
-nmap <silent> <leader>rc :TestNearest<cr>
-nmap <silent> <leader>rf :TestFile<cr>
-nmap <silent> <leader>rl :TestLast<cr>
+nnoremap <silent> <leader>ra :TestSuite<cr>
+nnoremap <silent> <leader>rc :TestNearest<cr>
+nnoremap <silent> <leader>rf :TestFile<cr>
+nnoremap <silent> <leader>rl :TestLast<cr>
 
 let g:test#python#runner = 'pytest'
 let g:test#python#pytest#options = '--exitfirst'
 "}}}
 " {{{ fugitive
 command! -bar -bang -nargs=* Gci :Gcommit<bang> -v <args>
-nmap <leader>gd :Gdiff<cr>
-nmap <leader>gc :Gci<cr>
-nmap <leader>gw :Gwrite<cr>
-nmap <leader>gr :Gread<cr>
-nmap <leader>gs :Gstatus<cr>
-nmap <leader>ga :Git amend<cr>
+nnoremap <leader>gd :Gdiff<cr>
+nnoremap <leader>gc :Gci<cr>
+nnoremap <leader>gw :Gwrite<cr>
+nnoremap <leader>gr :Gread<cr>
+nnoremap <leader>gs :Gstatus<cr>
+nnoremap <leader>ga :Git amend<cr>
 "}}}
 " {{{ vim-autopep8
 " Mappings
@@ -163,7 +163,7 @@ set nonumber
 
 " Use hlsearch
 set hlsearch
-nmap <space> :nohlsearch<cr>
+nnoremap <space> :nohlsearch<cr>
 
 " Do not use more prompt
 set nomore
