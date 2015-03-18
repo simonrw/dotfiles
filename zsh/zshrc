@@ -218,6 +218,8 @@ alias dr='direnv reload'
 
 function init-python() {
     local readonly fname="$1"
+    # Remove the filename from the arugment list
+    shift
     cat >${fname} <<EOL
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
@@ -239,7 +241,7 @@ if __name__ == '__main__':
     main(parser.parse_args())
 EOL
     chmod +x ${fname}
-    \vim ${fname} "${@:2}"
+    \vim ${fname} "${@}"
 }
 
 function init-3() {
