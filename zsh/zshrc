@@ -1,4 +1,4 @@
-export PATH=/usr/local/bin:${PATH}
+export PATH=${HOME}/anaconda/bin:${HOME}/.bin:${HOME}/.cabal/bin:/usr/local/bin:${PATH}:${HOME}/bin
 fpath=($HOME/.zsh/func $HOME/.zsh/completion $fpath)
 typeset -U fpath
 
@@ -121,7 +121,6 @@ bindkey '^Z' fancy-ctrl-z
 alias irssi="TERM=screen-256color irssi"
 
 export GOPATH=${HOME}/Development/gocode
-export PATH=${HOME}/.bin:${HOME}/.cabal/bin:${PATH}:${HOME}/bin
 
 export EDITOR=vim
 export VISUAL=${EDITOR}
@@ -164,13 +163,11 @@ alias bcb='bundle check; bundle install --binstubs .bundle/bin'
 alias be='bundle exec'
 
 export BUILD_PREFIX="${HOME}/.local"
-export PATH=${BUILD_PREFIX}/bin:${PATH}
 
 case $OSTYPE in
     linux*)
         export BROWSER=firefox
-        export STORAGE=/storage/astro2/`whoami`
-        export PATH=${HOME}/.gem/ruby/1.8/bin:${PATH}
+        export PATH=${PATH}:${HOME}/.gem/ruby/1.8/bin
         export LD_LIBRARY_PATH=${BUILD_PREFIX}/lib:${LD_LIBRARY_PATH}
         export PKG_CONFIG_PATH=${BUILD_PREFIX}/lib/pkgconfig:${PKG_CONFIG_PATH}
         export LS_OPTIONS=--color=never
@@ -186,7 +183,7 @@ case $OSTYPE in
 
         ;;
     darwin*)
-        export PATH=$(brew --prefix gnu-tar)/libexec/gnubin:$(brew --prefix coreutils)/libexec/gnubin:${PATH}:/usr/texbin:${GOPATH}/bin:/usr/local/sbin:/sbin:/usr/sbin:${HOME}/.cabal/bin
+        export PATH=${PATH}:$(brew --prefix gnu-tar)/libexec/gnubin:$(brew --prefix coreutils)/libexec/gnubin:/usr/texbin:${GOPATH}/bin:/usr/local/sbin:/sbin:/usr/sbin:${HOME}/.cabal/bin
         alias gvim=mvim
         alias gview=mview
         alias -g awk=gawk
@@ -252,11 +249,6 @@ function init-3() {
 function init-2() {
     echo "use conda 2" >> .envrc && direnv allow && init-python ./main.py +qa
 }
-
-# Use anaconda if available
-if [[ -d ${HOME}/anaconda ]]; then
-    export PATH=${HOME}/anaconda/bin:${PATH}
-fi
 
 # Source the custom zshrc.local file in the system
 if [[ -f ${HOME}/.zshrc.local ]]; then
