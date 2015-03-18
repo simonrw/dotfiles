@@ -1,12 +1,6 @@
-set nocindent
-set noautoindent
-set textwidth=68
-set fileencoding=utf-8
-set formatprg=
-
-" function <SID>ReformatMail()
-"     execute "normal! mmgg/-=-\<CR>jgqG'm"
-"     nohlsearch
-" endfunction
-
-" autocmd BufWritePost *.eml call <SID>ReformatMail()
+setlocal nocindent
+setlocal noautoindent
+setlocal textwidth=68
+setlocal fileencoding=utf-8
+setlocal formatprg=
+setlocal formatoptions+=t
