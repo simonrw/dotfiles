@@ -154,7 +154,7 @@ function conda_local() {
 function ngtshead() {
     ssh -t ngtshead.astro $@ exec zsh
 }
-
+alias ng=ngtshead
 
 # Update vim plugins
 alias vpu='echo Use vpi'
