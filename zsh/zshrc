@@ -51,7 +51,7 @@ HISTFILE=~/.zsh_history
 HISTSIZE=10000
 SAVEHIST=10000
 
-alias tmux='direnv exec / tmux -2'
+alias tmux='tmux -2'
 
 # Function to attach to a session. If the session is not specified then
 #just run `tmux attach`, otherwise add a -t flag
