@@ -1,0 +1,39 @@
+#!/usr/bin/env bash
+
+set -e
+
+DEPLOYROOT=~/work/NGTS/ngts-git
+
+error() {
+    echo $@ >&2
+    exit 1
+}
+
+verify_args() {
+    if [ "$#" != 1 ]; then
+        error "Usage: $0 <dir>"
+    fi
+}
+
+show_available() {
+    find ${DEPLOYROOT} -maxdepth 1 -type d | xargs -I {} basename {}
+}
+
+ensure_valid_dirname() {
+    if [ ! -d "$(result_path $1)" ]; then
+        error "Directory $(result_path $1) does not exist. Available directories: $(show_available)"
+    fi
+}
+
+result_path() {
+    echo "${DEPLOYROOT}/${1}"
+}
+
+main() {
+    verify_args "$@"
+    local readonly outdir="${1}"
+    ensure_valid_dirname "${outdir}"
+    git archive HEAD --format tgz | (cd $(result_path ${outdir}) && tar xvzf -)
+}
+
+main "$@"
