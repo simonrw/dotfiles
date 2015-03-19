@@ -330,6 +330,10 @@ set scrolloff=1
 " Nicer netrw style
 let g:netrw_liststyle = 3
 
+" Update current completion settings
+" use spelling if 'spell'
+set complete=.,w,b,u,t,i,kspell
+
 " }}}
 " {{{ Statusline
 
