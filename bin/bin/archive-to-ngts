@@ -16,7 +16,7 @@ verify_args() {
 }
 
 show_available() {
-    find ${DEPLOYROOT} -maxdepth 1 -type d | xargs -I {} basename {}
+    find -L ${DEPLOYROOT} -maxdepth 1 -type d | xargs -I {} basename {}
 }
 
 ensure_valid_dirname() {
