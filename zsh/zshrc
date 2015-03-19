@@ -163,6 +163,7 @@ alias bcb='bundle check; bundle install --binstubs .bundle/bin'
 alias be='bundle exec'
 
 export BUILD_PREFIX="${HOME}/.local"
+export MANPATH=${BUILD_PREFIX}/share/man:${MANPATH}
 
 case $OSTYPE in
     linux*)
