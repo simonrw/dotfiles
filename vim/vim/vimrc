@@ -42,6 +42,7 @@ Plug 'mustache/vim-mustache-handlebars', { 'for': 'html.handlebars' }
 Plug 'pangloss/vim-javascript'
 Plug 'mxw/vim-jsx'
 Plug 'zah/nimrod.vim', { 'for': 'nim' }
+Plug 'elzr/vim-json'
 
 call plug#end()
 " }}}
@@ -115,6 +116,9 @@ let g:autopep8_max_line_length=80
 "}}}
 " {{{ vim-commentary
 let g:commentary_map_backslash = 0
+"}}}
+" {{{ vim-json
+let g:vim_json_syntax_conceal = 0
 "}}}
 "}}}
 " }}}
