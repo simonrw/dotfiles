@@ -10,7 +10,7 @@ DEFAULT_PACKAGES = ['pip', 'ipython']
 def main(args):
     full_path = os.path.realpath(args.path)
     cmd = ['conda', 'create', '-p', full_path,
-           '--yes', '--quiet',
+           '--yes', '--quiet', '--offline', '--unknown',
            'python={}'.format(args.python)]
     # Add default packages
     cmd.extend(args.package)
