@@ -22,6 +22,7 @@ def sync_repos():
 def sync_vim_plugins():
     with hide('stdout', 'stderr'):
         lrun('~/.bin/vpi')
+        lrun('vim +PlugUpdate +qa')
 
 
 @task
