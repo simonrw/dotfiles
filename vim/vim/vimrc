@@ -33,6 +33,7 @@ Plug 'tell-k/vim-autopep8'
 Plug 'janko-m/vim-test'
 Plug 'jgdavey/tslime.vim'
 Plug 'christoomey/vim-tmux-navigator'
+Plug 'Wolfy87/vim-enmasse'
 
 " Languages
 Plug 'vim-scripts/SWIG-syntax'
