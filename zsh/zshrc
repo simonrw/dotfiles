@@ -155,9 +155,6 @@ function ngtshead() {
 }
 alias ng=ngtshead
 
-# Update vim plugins
-alias vpu='echo Use vpi'
-
 # Ruby aliases
 alias bcb='bundle check; bundle install --binstubs .bundle/bin'
 alias be='bundle exec'
