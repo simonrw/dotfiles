@@ -34,6 +34,8 @@ Plug 'janko-m/vim-test'
 Plug 'jgdavey/tslime.vim'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'Wolfy87/vim-enmasse'
+Plug 'kana/vim-textobj-user'
+Plug 'bps/vim-textobj-python'
 
 " Languages
 Plug 'vim-scripts/SWIG-syntax'
