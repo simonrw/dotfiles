@@ -161,11 +161,12 @@ alias be='bundle exec'
 
 export BUILD_PREFIX="${HOME}/.local"
 export MANPATH=${BUILD_PREFIX}/share/man:${MANPATH}
+export PATH=${BUILD_PREFIX}/bin:${PATH}
 
 case $OSTYPE in
     linux*)
         export BROWSER=firefox
-        export PATH=${BUILD_PREFIX}/bin:${PATH}:${HOME}/.gem/ruby/1.8/bin
+        export PATH=${PATH}:${HOME}/.gem/ruby/1.8/bin
         export LD_LIBRARY_PATH=${BUILD_PREFIX}/lib:${LD_LIBRARY_PATH}
         export PKG_CONFIG_PATH=${BUILD_PREFIX}/lib/pkgconfig:${PKG_CONFIG_PATH}
         export LS_OPTIONS=--color=never
