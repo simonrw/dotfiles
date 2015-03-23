@@ -7,3 +7,6 @@
 [submodule "external/serveit"]
 	path = external/serveit
 	url = https://github.com/garybernhardt/serveit
+[submodule "external/tmux-sensible"]
+	path = external/tmux-sensible
+	url = https://github.com/tmux-plugins/tmux-sensible
