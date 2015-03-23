@@ -36,6 +36,7 @@ Plug 'christoomey/vim-tmux-navigator'
 Plug 'Wolfy87/vim-enmasse'
 Plug 'kana/vim-textobj-user'
 Plug 'bps/vim-textobj-python'
+Plug 'tmux-plugins/vim-tmux-focus-events'
 
 " Languages
 Plug 'vim-scripts/SWIG-syntax'
