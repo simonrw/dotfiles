@@ -48,6 +48,7 @@ Plug 'pangloss/vim-javascript'
 Plug 'mxw/vim-jsx'
 Plug 'zah/nimrod.vim', { 'for': 'nim' }
 Plug 'elzr/vim-json'
+Plug 'chase/vim-ansible-yaml'
 
 call plug#end()
 " }}}
