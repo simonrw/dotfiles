@@ -28,6 +28,7 @@ function! AddImportString(import_text)
     execute "normal! O" . a:import_text . "\<esc>"
     execute "normal! 'm"
     execute "nohl"
+    execute "normal! zz"
 endfunction
 
 function! AddImport()
