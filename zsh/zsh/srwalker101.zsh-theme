@@ -6,15 +6,15 @@ echo ""
     fi
 }
 
-function get_load() {
+function __get_load() {
     uptime | awk '{print $(NF-2),$(NF-1),$(NF)}' | tr -d ' '
 }
 
-function get_nr_jobs() {
+function __get_nr_jobs() {
     jobs | wc -l | sed 's/ //g'
 }
 
-function suspended_count() {
+function __suspended_count() {
     if [[ -n $(jobs -s) ]]; then
         print '☰ '
     fi
@@ -26,12 +26,12 @@ local yellow="%{$fg[yellow]%}"
 local blue="%{$fg[cyan]%}"
 local reset="%{$reset_color%}"
 
-function prompt_char() {
+function __prompt_char() {
     echo '>'
 }
 
 PROMPT='
-$yellow$(suspended_count)$reset%(?.$green$(prompt_char)$reset.$red%? $(prompt_char)$reset) '
+$yellow$(__suspended_count)$reset%(?.$green$(__prompt_char)$reset.$red%? $(__prompt_char)$reset) '
 RPROMPT='$yellow%m$reset'
 
 # vim: ft=zsh
