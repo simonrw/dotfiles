@@ -27,7 +27,7 @@ local blue="%{$fg[cyan]%}"
 local reset="%{$reset_color%}"
 
 function prompt_char() {
-    echo '→'
+    echo '>'
 }
 
 PROMPT='
