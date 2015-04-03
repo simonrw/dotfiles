@@ -274,5 +274,8 @@ if [ $(which hub >/dev/null 2>&1) ]; then
   fi
 fi
 
+# Set up z
+. ${HOME}/dotfiles/external/z/z.sh
+
 # Finally source the theme
 source ${HOME}/.zsh/srwalker101.zsh-theme
