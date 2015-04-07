@@ -16,3 +16,4 @@
         (load-theme 'monokai t))
 (bundle multi-term)
 (bundle magit)
+(bundle cider)
