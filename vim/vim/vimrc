@@ -29,7 +29,6 @@ Plug 'tpope/vim-sleuth'
 " Custom plugins
 Plug 'kien/ctrlp.vim'
 Plug 'rking/ag.vim'
-Plug 'tell-k/vim-autopep8'
 Plug 'janko-m/vim-test'
 Plug 'jgdavey/tslime.vim'
 Plug 'christoomey/vim-tmux-navigator'
@@ -49,6 +48,9 @@ Plug 'zah/nimrod.vim', { 'for': 'nim' }
 Plug 'elzr/vim-json'
 Plug 'chase/vim-ansible-yaml'
 Plug 'wlangstroth/vim-racket'
+
+" My plugins
+Plug 'mindriot101/vim-yapf'
 
 call plug#end()
 " }}}
@@ -114,11 +116,9 @@ nnoremap <leader>gr :Gread<cr>
 nnoremap <leader>gs :Gstatus<cr>
 nnoremap <leader>ga :Git amend<cr>
 "}}}
-" {{{ vim-autopep8
+" {{{ vim-yapf
 " Mappings
-autocmd vimrc FileType python map <buffer> <leader>y :call Autopep8()<cr>
-let g:autopep8_disable_show_diff=1
-let g:autopep8_max_line_length=80
+autocmd vimrc FileType python map <buffer> <leader>y :call Yapf()<cr>
 "}}}
 " {{{ vim-commentary
 let g:commentary_map_backslash = 0
