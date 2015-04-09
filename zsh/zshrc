@@ -228,7 +228,7 @@ import argparse
 import logging
 
 logging.basicConfig(
-    level='DEBUG', format='%(asctime)s|%(name)s|%(levelname)s|%(message)s')
+    level='DEBUG', format='%(levelname)7s %(message)s')
 logger = logging.getLogger(__name__)
 
 
