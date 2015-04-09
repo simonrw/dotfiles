@@ -536,10 +536,6 @@ autocmd vimrc FilterWritePre * if &diff | setlocal wrap< | endif
 " {{{ Theming
 colorscheme grb256
 
-" Make the cursor change depending on which mode the editor is in
-let &t_SI = "\<ESC>]50;CursorShape=1\x7"
-let &t_EI = "\<ESC>]50;CursorShape=0\x7"
-
 " Make it more obvious which paren I'm on
 hi MatchParen cterm=none ctermbg=black ctermfg=yellow
 
