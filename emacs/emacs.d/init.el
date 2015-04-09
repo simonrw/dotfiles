@@ -25,3 +25,10 @@
 (dolist (p srw/my-packages)
   (when (not (package-installed-p p))
     (package-install p)))
+
+;; Theming
+(load-theme 'monokai t)
+
+(when (eq system-type 'darwin)
+  (set-face-attribute 'default nil :family "Menlo")
+  (set-face-attribute 'default nil :height 140))
