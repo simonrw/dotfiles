@@ -118,7 +118,7 @@ nnoremap <leader>ga :Git amend<cr>
 "}}}
 " {{{ vim-yapf
 " Mappings
-autocmd vimrc FileType python map <buffer> <leader>y :Yapf --style='{based_on_style: google, indent_width: 4}'<cr>
+autocmd vimrc FileType python map <buffer> <leader>y :Yapf --verify --style='{based_on_style: google, indent_width: 4}'<cr>
 "}}}
 " {{{ vim-commentary
 let g:commentary_map_backslash = 0
