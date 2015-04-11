@@ -5,7 +5,7 @@ import argparse
 import os
 import subprocess as sp
 
-DEFAULT_PACKAGES = ['pip', 'ipython']
+DEFAULT_PACKAGES = ['pip', 'ipython', 'yapf']
 
 def main(args):
     full_path = os.path.realpath(args.path)
