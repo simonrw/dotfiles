@@ -1,4 +1,4 @@
-setlocal textwidth=79
+setlocal textwidth=89
 
 setlocal wrap
 
@@ -12,7 +12,7 @@ setlocal nospell
 let b:vimpipe_command="python"
 
 " Add the colourcolumn
-setlocal colorcolumn=80
+setlocal colorcolumn=90
 
 " Set some custom expansions, basically snippets but without plugins
 iabbrev #! #!/usr/bin/env python
