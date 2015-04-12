@@ -257,12 +257,14 @@ if [[ -f ${HOME}/.zshrc.local ]]; then
 fi
 
 # Setup direnv
-_direnv_hook() {
-  eval "$(direnv export zsh)";
-}
-typeset -a precmd_functions
-if [[ -z $precmd_functions[(r)_direnv_hook] ]]; then
-  precmd_functions+=_direnv_hook;
+if type direnv >/dev/null; then
+    _direnv_hook() {
+    eval "$(direnv export zsh)";
+    }
+    typeset -a precmd_functions
+    if [[ -z $precmd_functions[(r)_direnv_hook] ]]; then
+    precmd_functions+=_direnv_hook;
+    fi
 fi
 
 
