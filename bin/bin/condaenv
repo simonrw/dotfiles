@@ -6,14 +6,16 @@ import os
 import subprocess as sp
 
 DEFAULT_PACKAGES = ['pip', 'ipython', 'yapf']
+CONDA_CHANNEL = 'http://conda.binstar.org/srwalker101'
 
 def main(args):
     full_path = os.path.realpath(args.path)
     cmd = ['conda', 'create', '-p', full_path,
-           '--yes', '--quiet', '--offline', '--unknown',
-           'python={}'.format(args.python)]
+            '-c', CONDA_CHANNEL, '--yes', '--quiet', '--offline',
+            '--unknown', 'python={}'.format(args.python)]
     # Add default packages
     cmd.extend(args.package)
+    cmd.extend(DEFAULT_PACKAGES)
     sp.check_call(map(str, cmd))
     
 
