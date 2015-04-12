@@ -31,4 +31,7 @@
 
 (when (eq system-type 'darwin)
   (set-face-attribute 'default nil :family "Menlo")
-  (set-face-attribute 'default nil :height 140))
+  (set-face-attribute 'default nil :height 140)
+
+  ;; Toggle fullscreen mode
+  (global-set-key [s-return] 'toggle-frame-fullscreen))
