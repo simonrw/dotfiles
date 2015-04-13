@@ -35,7 +35,6 @@ Plug 'christoomey/vim-tmux-navigator'
 Plug 'Wolfy87/vim-enmasse'
 Plug 'kana/vim-textobj-user'
 Plug 'bps/vim-textobj-python'
-Plug 'ajh17/VimCompletesMe'
 
 " Languages
 Plug 'vim-scripts/SWIG-syntax'
@@ -402,6 +401,18 @@ vnoremap gk k
 
 " Mapping for closing all windows but this one
 nnoremap <leader>o :only<cr>
+
+" Multipurpose tab key from grb
+function! InsertTabWrapper()
+    let s:col = col('.') - 1
+    if !s:col || getline('.')[s:col - 1] !~ '\k'
+        return "\<tab>"
+    else
+        return "\<c-p>"
+    endif
+endfunction
+inoremap <tab> <c-r>=InsertTabWrapper()<cr>
+inoremap <s-tab> <c-n>
 
 " delete comment character when joining commented lines
 if v:version > 703 || v:version == 703 && has("patch541")
