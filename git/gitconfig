@@ -11,7 +11,7 @@
     mergeff = merge --ff-only
     sync = !git gpr && git push
     wdiff = diff --color-words
-    ci = commit
+    ci = commit -v
     c = commit -m
     q = quick
     # Quickly diff the upstream remote (assume origin)
