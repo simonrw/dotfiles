@@ -9,6 +9,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 from collections import namedtuple
 import multiprocessing.dummy as mp
+import bz2
 
 plt.style.use('ggplot')
 
@@ -19,7 +20,11 @@ Data = namedtuple('Data', ['mjd', 'x', 'y', 'airmass'])
 
 
 def extract(fname):
-    header = fits.getheader(fname)
+    if fname.endswith('bz2'):
+        with bz2.BZ2File(fname) as uncompressed:
+            header = fits.getheader(uncompressed)
+    else:
+        header = fits.getheader(fname)
     if (header['imgclass'].lower() == 'science' and
         header['imgtype'].lower() == 'image'):
         return Data(header['mjd'], header['ag_errx'], header['ag_erry'],
