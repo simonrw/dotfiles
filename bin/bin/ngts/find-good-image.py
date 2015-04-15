@@ -50,7 +50,7 @@ def main(args):
     axes[0].plot(frame, x, '.', label='X')
     axes[0].plot(frame, y, '.', label='Y')
     axes[0].legend(loc='best')
-    axes[0].set_ylabel(r'Correction')
+    axes[0].set_ylabel(r'Correction / "')
 
     axes[1].plot(frame, airmass, '.')
     axes[1].set_ylabel(r'Airmass')
