@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+
+set -e
+
+main() {
+    if [[ "$(hostname)" = *ngtshead* ]]; then
+        watch qstat -u sw,rgw
+    else
+        ssh -t ngtshead.astro "watch qstat -u sw,rgw"
+    fi
+}
+
+main
