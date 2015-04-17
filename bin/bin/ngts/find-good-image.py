@@ -27,7 +27,7 @@ def extract(fname):
         header = fits.getheader(fname)
     if (header['imgclass'].lower() == 'science' and
         header['imgtype'].lower() == 'image'):
-        return Data(header['mjd'], header['ag_errx'], header['ag_erry'],
+        return Data(header['mjd'], header['ag_deltx'], header['ag_delty'],
                     header['airmass'])
 
 
