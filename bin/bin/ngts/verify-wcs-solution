@@ -43,7 +43,11 @@ def perform_skymatch(catalogue_name):
                         'find=best',])
         logger.info('Matching')
         logger.debug('CMD: %s', ' '.join(cmd))
-        sp.check_call(cmd)
+        try:
+            sp.check_call(cmd)
+        except OSError as err:
+            if 'No such file or directory' in str(err):
+                raise RuntimeError("Please install stilts (install-stilts)")
         tfile.seek(0)
 
         yield tfile.name

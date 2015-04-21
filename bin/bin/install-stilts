@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+
+set -e
+
+main() {
+    if [ -z ${BUILD_PREFIX} ]; then
+        echo "Build prefix not set, exiting" >&2
+        exit 1
+    fi
+
+    STILTS_BINNAME="${BUILD_PREFIX}/bin/stilts"
+    curl http://www.star.bris.ac.uk/~mbt/stilts/stilts.jar > ${BUILD_PREFIX}/bin/stilts.jar
+    curl http://www.star.bris.ac.uk/~mbt/stilts/stilts > ${STILTS_BINNAME}
+    chmod +x ${STILTS_BINNAME}
+}
+
+main
