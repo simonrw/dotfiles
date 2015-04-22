@@ -6,7 +6,7 @@ import os
 import subprocess as sp
 
 DEFAULT_PACKAGES = ['pip', 'ipython', 'yapf']
-CONDA_CHANNEL = 'http://conda.binstar.org/srwalker101'
+CONDA_CHANNEL = 'https://conda.binstar.org/srwalker101'
 
 def main(args):
     full_path = os.path.realpath(args.path)
