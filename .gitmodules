@@ -10,6 +10,3 @@
 [submodule "external/tmux-sensible"]
 	path = external/tmux-sensible
 	url = https://github.com/tmux-plugins/tmux-sensible
-[submodule "external/z"]
-	path = external/z
-	url = https://github.com/rupa/z
