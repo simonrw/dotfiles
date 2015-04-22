@@ -143,6 +143,13 @@
       - postgresql
       - redis
 
+  - name: Update some iTerm2 defaults
+    command: defaults write com.googlecode.iterm2 {{ item }}
+    with_items:
+      - OpenFileInNewWindows -bool true
+      - PinchToChangeFontSizeDisabled -bool true
+      - UseUnevenTabs -bool false
+
   - name: Announce completion
     osx_say: msg="Bootstrap complete" voice=Daniel
 
