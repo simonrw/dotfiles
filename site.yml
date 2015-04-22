@@ -143,3 +143,6 @@
       - postgresql
       - redis
 
+  - name: Announce completion
+    osx_say: msg="Bootstrap complete" voice=Daniel
+
