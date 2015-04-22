@@ -1,7 +1,11 @@
 ---
 - hosts: all
   vars:
+    miniconda_installer:
+      url: 'http://repo.continuum.io/miniconda'
+      file: 'Miniconda3-latest-MacOSX-x86_64.sh'
     home: /Users/{{ ansible_user_id }}
+    miniconda_path: "{{ home }}/anaconda"
   tasks:
   - name: Create project directories
     file: path={{ item }} state=directory
@@ -149,6 +153,17 @@
       - OpenFileInNewWindows -bool true
       - PinchToChangeFontSizeDisabled -bool true
       - UseUnevenTabs -bool false
+
+  - name: Download miniconda
+    get_url:
+      url={{ miniconda_installer.url }}/{{ miniconda_installer.file }}
+      dest=/tmp/{{ miniconda_installer.file }}
+      mode=0755
+
+  - name: Install miniconda
+    command:
+      /tmp/{{ miniconda_installer.file }} -b -p {{ miniconda_path }}
+      creates={{ miniconda_path }}
 
   - name: Announce completion
     osx_say: msg="Bootstrap complete" voice=Daniel
