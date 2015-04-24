@@ -57,6 +57,7 @@
       - gpg2
       - gh
       - mutt
+      - tig
 
       # Docker
       - boot2docker
