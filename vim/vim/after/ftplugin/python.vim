@@ -14,15 +14,6 @@ let b:vimpipe_command="python"
 " Add the colourcolumn
 setlocal colorcolumn=90
 
-" Set some custom expansions, basically snippets but without plugins
-iabbrev #! #!/usr/bin/env python
-iabbrev coding # -*- coding: utf-8 -*-
-iabbrev inumpy import numpy as np
-iabbrev iplt import matplotlib.pyplot as plt
-iabbrev ifmain if __name__ == '__main__':
-iabbrev future from __future__ import division, print_function, absolute_import
-iabbrev ipyembed import IPython; IPython.embed(); exit()
-
 function! AddImportString(import_text)
     execute "normal! mmgg/import\<cr>}"
     execute "normal! O" . a:import_text . "\<esc>"

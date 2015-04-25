@@ -34,6 +34,12 @@ Plug 'christoomey/vim-tmux-navigator'
 Plug 'Wolfy87/vim-enmasse'
 Plug 'kana/vim-textobj-user'
 Plug 'bps/vim-textobj-python'
+Plug 'MarcWeber/vim-addon-mw-utils'
+Plug 'tomtom/tlib_vim'
+Plug 'garbas/vim-snipmate'
+Plug 'honza/vim-snippets'
+
+
 
 " Languages
 Plug 'vim-scripts/SWIG-syntax'
@@ -125,6 +131,10 @@ let g:commentary_map_backslash = 0
 "}}}
 " {{{ vim-json
 let g:vim_json_syntax_conceal = 0
+"}}}
+" {{{ snipmate
+:imap <C-J> <Plug>snipMateNextOrTrigger
+:smap <C-J> <Plug>snipMateNextOrTrigger
 "}}}
 "}}}
 " }}}
