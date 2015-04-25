@@ -47,6 +47,7 @@ Plug 'zah/nimrod.vim', { 'for': 'nim' }
 Plug 'elzr/vim-json'
 Plug 'chase/vim-ansible-yaml'
 Plug 'wlangstroth/vim-racket'
+Plug 'rust-lang/rust.vim'
 
 " My plugins
 Plug 'mindriot101/vim-yapf'
