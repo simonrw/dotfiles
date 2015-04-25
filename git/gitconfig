@@ -34,6 +34,14 @@
     today = log --since="6am"
     last = log -1
     unstage = reset HEAD
+	switch = !legit switch \"$@\"
+	branches = !legit branches
+	sprout = !legit sprout \"$@\"
+	unpublish = !legit unpublish \"$@\"
+	harvest = !legit harvest \"$@\"
+	sync = !legit sync \"$@\"
+	publish = !legit publish \"$@\"
+	graft = !legit graft \"$@\"
 [color]
     ui = auto
 [core]
