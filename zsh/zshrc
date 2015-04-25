@@ -120,7 +120,7 @@ bindkey '^Z' fancy-ctrl-z
 # Run irssi with the correct TERM variable
 alias irssi="TERM=screen-256color irssi"
 
-export GOPATH=${HOME}/Development/gocode
+export GOPATH=${HOME}/dev/gocode
 
 export EDITOR=vim
 export VISUAL=${EDITOR}
