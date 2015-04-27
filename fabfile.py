@@ -26,6 +26,12 @@ def sync_vim_plugins():
 
 
 @task
+def push_changes():
+    local('git push origin master')
+
+
+@task
 def update():
+    push_changes()
     sync_repos()
     sync_vim_plugins()
