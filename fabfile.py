@@ -30,7 +30,7 @@ def push_changes():
     local('git push origin master')
 
 
-@task
+@task(default=True)
 def update():
     push_changes()
     sync_repos()
