@@ -31,6 +31,7 @@ Plug 'rking/ag.vim'
 Plug 'janko-m/vim-test'
 Plug 'jgdavey/tslime.vim'
 Plug 'christoomey/vim-tmux-navigator'
+Plug 'christoomey/vim-tmux-runner'
 Plug 'Wolfy87/vim-enmasse'
 Plug 'kana/vim-textobj-user'
 Plug 'bps/vim-textobj-python'
@@ -136,6 +137,12 @@ let g:vim_json_syntax_conceal = 0
 " {{{ snipmate
 :imap <C-J> <Plug>snipMateNextOrTrigger
 :smap <C-J> <Plug>snipMateNextOrTrigger
+"}}}
+" {{{ vim-tmux-runner
+" Better python settings
+let g:VtrStripLeadingWhitespace = 0
+let g:VtrClearEmptyLines = 0
+let g:VtrAppendNewline = 1
 "}}}
 "}}}
 " }}}
