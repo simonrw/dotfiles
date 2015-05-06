@@ -16,7 +16,8 @@ plt.style.use('ggplot')
 logging.basicConfig(level='DEBUG', format='%(levelname)7s %(message)s')
 logger = logging.getLogger(__name__)
 
-Data = namedtuple('Data', ['mjd', 'x', 'y', 'airmass'])
+KEYS = ['mjd', 'x_delta', 'y_delta', 'x_corr', 'y_corr', 'x_error', 'y_error',
+        'ag_apply', 'airmass']
 
 
 def extract(fname):
@@ -25,37 +26,63 @@ def extract(fname):
             header = fits.getheader(uncompressed)
     else:
         header = fits.getheader(fname)
+
     if (header['imgclass'].lower() == 'science' and
         header['imgtype'].lower() == 'image'):
-        return Data(header['mjd'], header['ag_deltx'], header['ag_delty'],
-                    header['airmass'])
+        return {
+            'mjd': header['mjd'],
+            'x_delta': header['ag_deltx'],
+            'y_delta': header['ag_delty'],
+            'x_corr': header['ag_corrx'],
+            'y_corr': header['ag_corry'],
+            'x_error': header['ag_errx'],
+            'y_error': header['ag_erry'],
+            'ag_apply': bool(header['ag_apply']),
+            'airmass': header['airmass'],
+        }
 
 
 def get_meta(files):
     pool = mp.Pool()
     extracted = list(filter(None, pool.map(extract, files)))
-    extracted.sort(key=lambda d: d.mjd)
+    extracted.sort(key=lambda d: d['mjd'])
 
-    x, y, airmass = list(map(np.array, [[getattr(row, key) for row in extracted]
-                                        for key in ['x', 'y', 'airmass']]))
-    return x, y, airmass
+    out = {key: np.asarray([row[key] for row in extracted]) for key in KEYS}
+    return out
 
 
 def main(args):
     logger.debug('%d files', len(args.filename))
-    x, y, airmass = get_meta(args.filename)
+    meta = get_meta(args.filename)
 
-    frame = np.arange(x.size)
-    fig, axes = plt.subplots(2, 1, sharex=True)
-    axes[0].plot(frame, x, '.', label='X')
-    axes[0].plot(frame, y, '.', label='Y')
-    axes[0].legend(loc='best')
-    axes[0].set_ylabel(r'Correction / "')
+    mjd0 = int(meta['mjd'].min())
+    mjd = meta['mjd'] - mjd0
+    frame = np.arange(mjd.size)
 
-    axes[1].plot(frame, airmass, '.')
-    axes[1].set_ylabel(r'Airmass')
+    fig, axes = plt.subplots(4, 1, sharex=True)
+    axes[0].plot(frame, meta['x_error'] + 1., '.', label=r'$X + 1$')
+    axes[0].plot(frame, meta['y_error'] - 1., '.', label=r'$Y - 1$')
+    axes[0].set_ylabel(r'Error / "')
+    axes[0].set_ylim(-5, 5)
 
-    axes[-1].set_xlabel(r'Frame number')
+    axes[1].plot(frame, meta['x_corr'] + 1., '.', label=r'$X + 1$')
+    axes[1].plot(frame, meta['y_corr'] - 1., '.', label=r'$Y - 1$')
+    axes[1].set_ylabel(r'Correction / "')
+    axes[1].set_ylim(-5, 5)
+
+    axes[2].plot(frame, meta['x_delta'], '.', label='X')
+    axes[2].plot(frame, meta['y_delta'], '.', label='Y')
+    axes[2].set_ylabel(r'Delta / "')
+
+    axes[-1].plot(frame, meta['airmass'], '.')
+    axes[-1].set_ylabel(r'Airmass')
+
+    for ax in axes[:-1]:
+        ax.legend(loc='best')
+        offset = 50
+        ax.set_xlim(-offset, frame.max() + offset)
+
+    axes[-1].set_xlabel('Frame')
     fig.tight_layout()
 
     if args.output is None:

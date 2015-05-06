@@ -27,7 +27,10 @@ function! AddImport()
     call AddImportString(import_text)
 endfunction
 
-nnoremap <leader>ii :call AddImport()<Cr>
-nnoremap <leader>in :call AddImportString("import numpy as np")<Cr>
-nnoremap <leader>im :call AddImportString("import matplotlib.pyplot as plt")<cr>
-nnoremap <leader>ia :call AddImportString("from astropy.io import fits")<cr>
+nnoremap cii :call AddImport()<Cr>
+nnoremap cin :call AddImportString("import numpy as np")<Cr>
+nnoremap cim :call AddImportString("import matplotlib.pyplot as plt")<cr>
+nnoremap cia :call AddImportString("from astropy.io import fits")<cr>
+
+" Make the colour column a nicer colour
+highlight ColorColumn ctermbg=0

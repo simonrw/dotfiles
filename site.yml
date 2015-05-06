@@ -10,7 +10,7 @@
   - name: Create project directories
     file: path={{ item }} state=directory
     with_items:
-      - "{{ home }}/Development/Forks"
+      - "{{ home }}/dev/forks"
       - "{{ home }}/work/WASP"
       - "{{ home }}/work/NGTS"
 
@@ -31,6 +31,7 @@
     homebrew: name={{ item }} state=present
     with_items:
       - git
+      - git-lfs
       - zsh
       - htop-osx
       - gcc

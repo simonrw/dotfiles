@@ -31,6 +31,7 @@ Plug 'rking/ag.vim'
 Plug 'janko-m/vim-test'
 Plug 'jgdavey/tslime.vim'
 Plug 'christoomey/vim-tmux-navigator'
+Plug 'christoomey/vim-tmux-runner'
 Plug 'Wolfy87/vim-enmasse'
 Plug 'kana/vim-textobj-user'
 Plug 'bps/vim-textobj-python'
@@ -115,7 +116,8 @@ let g:test#python#pytest#options = '--exitfirst'
 "}}}
 " {{{ fugitive
 command! -bar -bang -nargs=* Gci :Gcommit<bang> -v <args>
-nnoremap <leader>gd :Gdiff<cr>
+nnoremap <leader>gd :Gvdiff<cr>
+nnoremap <leader>gD :Gdiff<cr>
 nnoremap <leader>gc :Gci<cr>
 nnoremap <leader>gw :Gwrite<cr>
 nnoremap <leader>gr :Gread<cr>
@@ -135,6 +137,12 @@ let g:vim_json_syntax_conceal = 0
 " {{{ snipmate
 :imap <C-J> <Plug>snipMateNextOrTrigger
 :smap <C-J> <Plug>snipMateNextOrTrigger
+"}}}
+" {{{ vim-tmux-runner
+" Better python settings
+let g:VtrStripLeadingWhitespace = 0
+let g:VtrClearEmptyLines = 0
+let g:VtrAppendNewline = 1
 "}}}
 "}}}
 " }}}
@@ -389,13 +397,6 @@ set statusline+=%P
 "     MAPPINGS     "
 """"""""""""""""""""
 
-" Some common leader mappings
-nnoremap <leader>w :update<cr>
-
-" Paste toggling - allow for pasting from other sources with correct
-" formatting
-set pastetoggle=<leader>p
-
 " Disable the 'help' key
 nnoremap K <nop>
 
@@ -408,9 +409,6 @@ vnoremap j gj
 vnoremap k gk
 vnoremap gj j
 vnoremap gk k
-
-" Mapping for closing all windows but this one
-nnoremap <leader>o :only<cr>
 
 " Multipurpose tab key from grb
 function! InsertTabWrapper()
@@ -431,7 +429,7 @@ endif
 
 " settings from thoughtbot dotfiles repo
 " Swap between two files
-noremap <leader><leader> <C-^>
+noremap gl <C-^>
 
 " Speed up ctrl-e/ctrl-y
 nnoremap <C-e> 3<C-e>
@@ -445,11 +443,6 @@ nnoremap ` '
 nnoremap <C-s> :update<CR>
 inoremap <C-s> :update<CR>
 vnoremap <C-s> :update<CR>
-
-" Change directory to that of the current file
-" Taken from Dave Aitken http://www.github.com/actionshrimp
-" Tweaked to run lcd instead of cd
-noremap <leader>cd :lcd %:p:h<CR>:pwd<CR>
 
 " Remap the Q key
 noremap Q gqip
@@ -486,26 +479,16 @@ noremap <C-j> <C-w>j
 noremap <C-k> <C-w>k
 noremap <C-l> <C-w>l
 
-" Nice interface to the buffer list
-nnoremap gb :buffers<cr>:b<space>
-
-" Performance measurements
-nnoremap <silent> <leader>DD :profile start /tmp/profile.log
-            \ <bar> profile func *
-            \ <bar> profile file * <cr>
-nnoremap <silent> <leader>DQ :profile pause
-            \ <bar> noautocmd qall! <cr>
-
 " Handy saving of text if a C-u is pressed
 inoremap <C-u> <C-g>u<C-u>
 inoremap <C-w> <C-g>u<C-w>
 
 " Quick file editing
-nnoremap <leader>ev :tabe $MYVIMRC<cr>
-nnoremap <leader>ez :tabe ~/.zshrc<cr>
+nnoremap cv :tabe $MYVIMRC<cr>
+nnoremap cz :tabe ~/.zshrc<cr>
 
 " open Ag (note the space afterwards)
-nnoremap <leader>a :Ag --ignore "*tags" 
+nnoremap <leader>a :Ag! -i --ignore "*tags" 
 
 " Default leader mapping to run current file,
 " with eunuch.vim this should basically work

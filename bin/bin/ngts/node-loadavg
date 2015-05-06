@@ -1,0 +1,19 @@
+#!/home/sw/anaconda/bin/python
+# -*- coding: utf-8 -*-
+
+from fabric.api import *
+
+env.hosts = ['ngts{:02d}'.format(i) for i in range(1, 12)] + ['ngtshead']
+
+@parallel
+def uptime():
+    return run('cat /proc/loadavg')
+
+if __name__ == '__main__':
+    with hide('everything'):
+        output = execute(uptime)
+
+    keys = sorted(output.keys())
+    for key in keys:
+        print('{key}: {uptime}'.format(key=key,
+            uptime=output[key]))
