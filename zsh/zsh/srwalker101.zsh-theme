@@ -16,7 +16,7 @@ function __get_nr_jobs() {
 
 function __suspended_count() {
     if [[ -n $(jobs -s) ]]; then
-        print '☰ '
+        print '= '
     fi
 }
 
