@@ -143,6 +143,7 @@ let g:vim_json_syntax_conceal = 0
 let g:VtrStripLeadingWhitespace = 0
 let g:VtrClearEmptyLines = 0
 let g:VtrAppendNewline = 1
+let g:VtrOrientation = 'h'
 "}}}
 "}}}
 " }}}
