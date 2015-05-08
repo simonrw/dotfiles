@@ -9,6 +9,7 @@
     pullff = pull --ff-only
     pushff = push --ff-only
     mergeff = merge --ff-only
+    sync = !git gpr && git push
     wdiff = diff --color-words
     ci = commit -v
     c = commit -m
@@ -34,14 +35,6 @@
     today = log --since="6am"
     last = log -1
     unstage = reset HEAD
-	switch = !legit switch \"$@\"
-	branches = !legit branches
-	sprout = !legit sprout \"$@\"
-	unpublish = !legit unpublish \"$@\"
-	harvest = !legit harvest \"$@\"
-	sync = !legit sync \"$@\"
-	publish = !legit publish \"$@\"
-	graft = !legit graft \"$@\"
 [color]
     ui = auto
 [core]
