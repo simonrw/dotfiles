@@ -205,6 +205,7 @@ esac
 
 export WASP="${work}/WASP"
 export NGTS="${work}/NGTS"
+export ZLP="${NGTS}/pipeline/ZLP"
 alias work="cd ${work} && pwd && ls"
 alias ngts="cd ${NGTS} && pwd && ls"
 alias wasp="cd ${WASP} && pwd && ls"
