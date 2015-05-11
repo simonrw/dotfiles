@@ -17,15 +17,19 @@ logging.basicConfig(level='DEBUG', format='%(levelname)7s %(message)s')
 logger = logging.getLogger(__name__)
 
 KEYS = ['mjd', 'x_delta', 'y_delta', 'x_corr', 'y_corr', 'x_error', 'y_error',
-        'ag_apply', 'airmass']
+        'ag_apply', 'airmass', 'med_frame']
 
 
 def extract(fname):
     if fname.endswith('bz2'):
         with bz2.BZ2File(fname) as uncompressed:
-            header = fits.getheader(uncompressed)
+            with fits.open(uncompressed) as infile:
+                header = infile[0].header
+                med_image = np.median(infile[0].data)
     else:
-        header = fits.getheader(fname)
+        with fits.open(fname) as infile:
+            header = infile[0].header
+            med_image = np.median(infile[0].data)
 
     if (header['imgclass'].lower() == 'science' and
         header['imgtype'].lower() == 'image'):
@@ -38,6 +42,7 @@ def extract(fname):
             'x_error': header['ag_errx'],
             'y_error': header['ag_erry'],
             'ag_apply': bool(header['ag_apply']),
+            'med_frame': med_image,
             'airmass': header['airmass'],
         }
 
@@ -59,7 +64,7 @@ def main(args):
     mjd = meta['mjd'] - mjd0
     frame = np.arange(mjd.size)
 
-    fig, axes = plt.subplots(4, 1, sharex=True)
+    fig, axes = plt.subplots(5, 1, sharex=True)
     axes[0].plot(frame, meta['x_error'] + 1., '.', label=r'$X + 1$')
     axes[0].plot(frame, meta['y_error'] - 1., '.', label=r'$Y - 1$')
     axes[0].set_ylabel(r'Error / "')
@@ -73,6 +78,9 @@ def main(args):
     axes[2].plot(frame, meta['x_delta'], '.', label='X')
     axes[2].plot(frame, meta['y_delta'], '.', label='Y')
     axes[2].set_ylabel(r'Delta / "')
+
+    axes[-2].plot(frame, meta['med_frame'], '.')
+    axes[-2].set_ylabel(r'Frame median')
 
     axes[-1].plot(frame, meta['airmass'], '.')
     axes[-1].set_ylabel(r'Airmass')
