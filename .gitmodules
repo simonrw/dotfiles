@@ -13,3 +13,6 @@
 [submodule "external/conda-zsh-completion"]
 	path = external/conda-zsh-completion
 	url = https://github.com/esc/conda-zsh-completion
+[submodule "external/p"]
+	path = external/p
+	url = https://github.com/chrismdp/p
