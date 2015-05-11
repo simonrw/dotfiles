@@ -57,6 +57,9 @@ def get_meta(files):
 
 
 def main(args):
+    if args.output is not None:
+        plt.switch_backend('Agg')
+
     logger.debug('%d files', len(args.filename))
     meta = get_meta(args.filename)
 
