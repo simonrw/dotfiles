@@ -16,3 +16,6 @@
 [submodule "external/p"]
 	path = external/p
 	url = https://github.com/chrismdp/p
+[submodule "external/fabric-zsh-autocomplete"]
+	path = external/fabric-zsh-autocomplete
+	url = https://github.com/vhbit/fabric-zsh-autocomplete
