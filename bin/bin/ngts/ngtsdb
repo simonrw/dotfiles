@@ -3,7 +3,7 @@
 set -e
 
 main() {
-    mysql -u sw -h ngtsdb "$@"
+    mysql -t -u sw -h ngtsdb "$@"
 }
 
 main "$@"
