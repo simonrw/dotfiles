@@ -135,7 +135,6 @@ export WORDCHARS='*?[]~&;!$%^<>'
 
 alias ipy=ipython
 alias ipysh='ipython --profile=sh'
-alias p=python
 alias py=python
 alias pydoc='=python -m pydoc'
 alias pylab='ipython --profile=pylab'
@@ -206,6 +205,7 @@ esac
 
 export WASP="${work}/WASP"
 export NGTS="${work}/NGTS"
+export ZLP="${NGTS}/pipeline/ZLP"
 alias work="cd ${work} && pwd && ls"
 alias ngts="cd ${NGTS} && pwd && ls"
 alias wasp="cd ${WASP} && pwd && ls"
