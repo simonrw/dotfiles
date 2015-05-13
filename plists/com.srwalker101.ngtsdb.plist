@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+  <key>Label</key>
+  <string>com.srwalker101.ngtsdb</string>
+
+  <key>ProgramArguments</key>
+  <array>
+    <string>/Users/simon/work/NGTS/update-dev-database/update-dev-database.sh</string>
+  </array>
+
+  <key>Nice</key>
+  <integer>1</integer>
+
+  <key>StartCalendarInterval</key>
+  <dict>
+      <key>Hour</key>
+      <integer>8</integer>
+      <key>Hour</key>
+      <integer>12</integer>
+      <key>Hour</key>
+      <integer>17</integer>
+  </dict>
+
+  <key>RunAtLoad</key>
+  <false/>
+
+  <key>StandardErrorPath</key>
+  <string>/Users/simon/var/log/com.srwalker101.ngtsdb.stderr</string>
+
+  <key>StandardOutPath</key>
+  <string>/Users/simon/var/log/com.srwalker101.ngtsdb.stdout</string>
+</dict>
+</plist>
