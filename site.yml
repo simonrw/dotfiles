@@ -13,6 +13,7 @@
       - "{{ home }}/dev/forks"
       - "{{ home }}/work/WASP"
       - "{{ home }}/work/NGTS"
+      - "{{ home }}/var/log"
 
   - name: Install dotfiles
     command: rake install
