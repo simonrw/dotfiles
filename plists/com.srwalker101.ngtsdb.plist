@@ -27,9 +27,9 @@
   <false/>
 
   <key>StandardErrorPath</key>
-  <string>/Users/simon/var/log/com.srwalker101.ngtsdb.stderr</string>
+  <string>/Users/simon/var/log/com.srwalker101.ngtsdb.stderr.log</string>
 
   <key>StandardOutPath</key>
-  <string>/Users/simon/var/log/com.srwalker101.ngtsdb.stdout</string>
+  <string>/Users/simon/var/log/com.srwalker101.ngtsdb.stdout.log</string>
 </dict>
 </plist>
