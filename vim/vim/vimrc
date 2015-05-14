@@ -313,9 +313,6 @@ set writebackup
 set undofile
 set undodir=~/.vim/tmp/undo
 
-" GRB does these
-set winwidth=79
-
 " Enable scrolljump
 set scrolljump=10
 
