@@ -82,6 +82,7 @@ alias m=make
 alias lsc='ls --color=auto'
 alias ll='ls -lh'
 alias lr='ls -thor'
+alias man1='man 1'
 
 # Function to make a new tmux session at a variable location
 function tnew() {
