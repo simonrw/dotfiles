@@ -47,14 +47,16 @@
     mergeoptions = --no-ff
     preloadindex = true
 [merge]
-    tool = diffconflicts
-    conflictstyle = diff3
+    tool = splice
 [push]
     default = simple
 [mergetool "diffconflicts"]
     cmd = "diffconflicts vim $BASE $LOCAL $REMOTE $MERGED"
     trustExitCode = true
     keepBackup = false
+[mergetool "splice"]
+    cmd = "vim $BASE $LOCAL $REMOTE $MERGED -c 'SpliceInit'"
+    trustExitCode = true
 [branch]
     autosetuprebase = always
 [grep]
