@@ -50,6 +50,10 @@
     tool = splice
 [push]
     default = simple
+[diff]
+    algorithm = histogram
+[difftool "opendiff"]
+    path = opendiff
 [mergetool "diffconflicts"]
     cmd = "diffconflicts vim $BASE $LOCAL $REMOTE $MERGED"
     trustExitCode = true
