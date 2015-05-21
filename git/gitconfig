@@ -39,7 +39,6 @@
     ui = auto
 [core]
     abbrev = 12
-    pager = less -FXRSr
     autocrlf = false
     safecrlf = true
     whitespace = fix
