@@ -117,8 +117,7 @@ let g:test#python#pytest#options = '--exitfirst'
 "}}}
 " {{{ fugitive
 command! -bar -bang -nargs=* Gci :Gcommit<bang> -v <args>
-nnoremap <leader>gd :Gvdiff<cr>
-nnoremap <leader>gD :Gdiff<cr>
+nnoremap <leader>gd :Gdiff<cr>
 nnoremap <leader>gc :Gci<cr>
 nnoremap <leader>gw :Gwrite<cr>
 nnoremap <leader>gr :Gread<cr>
