@@ -40,6 +40,7 @@ Plug 'tomtom/tlib_vim'
 Plug 'garbas/vim-snipmate'
 Plug 'honza/vim-snippets'
 Plug 'sjl/splice.vim'
+Plug 'reedes/vim-pencil'
 
 
 
@@ -143,6 +144,13 @@ let g:vim_json_syntax_conceal = 0
 let g:VtrStripLeadingWhitespace = 0
 let g:VtrClearEmptyLines = 0
 let g:VtrAppendNewline = 1
+"}}}
+" {{{ vim-pencil
+let g:pencil#wrapModeDefault = 'soft'
+
+autocmd vimrc FileType markdown,mkd call pencil#init()
+autocmd vimrc FileType rst call pencil#init()
+autocmd vimrc FileType text call pencil#init()
 "}}}
 "}}}
 " }}}
