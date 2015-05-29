@@ -126,7 +126,7 @@ export GOPATH=${HOME}/dev/gocode
 export EDITOR=vim
 export VISUAL=${EDITOR}
 export BIBINPUTS=${HOME}/work/central-bibliography:${BIBINPUTS}
-export LESS='-FR'
+export LESS='-FXR'
 
 # Taken from grb's zshrc
 
