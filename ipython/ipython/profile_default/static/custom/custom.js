@@ -1,5 +1,6 @@
-// Hide the toolbar by default
-$([IPython.events]).on('notebook_loaded.Notebook', function(){
-    $('div#maintoolbar').hide();
-    IPython.layout_manager.do_resize();
+require(['base/js/namespace', 'base/js/events'], function(IPython, events) {
+  events.on('app_initialized.NotebookApp', function() {
+    IPython.CodeCell.options_default.cm_config.autoCloseBrackets = false;
+  });
 });
+
