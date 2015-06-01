@@ -164,7 +164,7 @@ c.TerminalIPythonApp.log_format = '[%(asctime)s|%(name)s] %(message)s'
 # c.TerminalInteractiveShell.show_rewritten_input = True
 
 # Set the color scheme (NoColor, Linux, or LightBG).
-# c.TerminalInteractiveShell.colors = 'Linux'
+c.TerminalInteractiveShell.colors = 'Linux'
 
 # Autoindent IPython code entered interactively.
 # c.TerminalInteractiveShell.autoindent = True
@@ -312,6 +312,7 @@ c.TerminalInteractiveShell.autocall = 0
 # c.PromptManager.in_template = 'In [\\#]: '
 
 #
+# c.PromptManager.color_scheme = 'Linux'
 # c.PromptManager.color_scheme = 'Linux'
 
 #------------------------------------------------------------------------------

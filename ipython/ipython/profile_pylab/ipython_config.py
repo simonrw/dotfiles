@@ -261,6 +261,8 @@ c.TerminalInteractiveShell.autocall = 2
 
 # Set the color scheme (NoColor, Linux, or LightBG).
 # c.TerminalInteractiveShell.colors = 'LightBG'
+c.TerminalInteractiveShell.colors = 'Linux'
+
 
 # 
 # c.TerminalInteractiveShell.readline_remove_delims = '-/~'
