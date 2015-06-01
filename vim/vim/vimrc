@@ -175,6 +175,9 @@ set expandtab
 set smarttab
 set shell=/bin/sh
 
+" Set cursor line
+set cursorline
+
 " Necessary to show unicode glyphs
 set encoding=utf-8
 scriptencoding utf-8
