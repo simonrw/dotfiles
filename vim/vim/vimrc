@@ -536,7 +536,7 @@ autocmd vimrc FilterWritePre * if &diff | setlocal wrap< | endif
 " }}}
 " {{{ Theming
 set background=dark
-colorscheme lucius
+colorscheme grb256
 
 " Make it more obvious which paren I'm on
 hi MatchParen cterm=none ctermbg=black ctermfg=yellow
