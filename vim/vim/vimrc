@@ -41,7 +41,7 @@ Plug 'garbas/vim-snipmate'
 Plug 'honza/vim-snippets'
 Plug 'sjl/splice.vim'
 Plug 'reedes/vim-pencil'
-
+Plug 'altercation/vim-colors-solarized'
 
 
 " Languages
