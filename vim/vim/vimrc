@@ -516,6 +516,9 @@ cnoreabbrev <expr> W ((getcmdtype() is# ':' && getcmdline() is# 'W')?('w'):('W')
 "       MISC       "
 """"""""""""""""""""
 
+" Set netrw style to 'long'
+let g:netrw_liststyle=1
+
 " Strip trailing whitespace
 " http://stackoverflow.com/a/1618401/56711
 fun! <SID>StripTrailingWhitespaces()
