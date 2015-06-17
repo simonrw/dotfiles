@@ -42,6 +42,8 @@ Plug 'honza/vim-snippets'
 Plug 'sjl/splice.vim'
 Plug 'reedes/vim-pencil'
 Plug 'altercation/vim-colors-solarized'
+Plug 'airblade/vim-gitgutter'
+Plug 'embear/vim-localvimrc'
 
 
 " Languages
