@@ -19,3 +19,7 @@ set visualbell
 
 " Set width
 set columns=100
+
+" Theming
+set background=dark
+colorscheme solarized
