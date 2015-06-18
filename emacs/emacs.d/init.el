@@ -19,6 +19,7 @@
                           idle-highlight-mode
                           find-file-in-project
                           multi-term
+                          color-theme-solarized
                           monokai-theme
                           ir-black-theme))
 
@@ -27,11 +28,12 @@
     (package-install p)))
 
 ;; Theming
-(load-theme 'monokai t)
+(set-frame-parameter nil 'background-mode 'dark)
+(load-theme 'solarized t)
 
 (when (eq system-type 'darwin)
   (set-face-attribute 'default nil :family "Menlo")
-  (set-face-attribute 'default nil :height 140)
+  (set-face-attribute 'default nil :height 160)
 
   ;; Toggle fullscreen mode
   (global-set-key [s-return] 'toggle-frame-fullscreen))
