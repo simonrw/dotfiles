@@ -21,6 +21,7 @@
                           multi-term
                           color-theme-solarized
                           monokai-theme
+                          markdown-mode
                           ir-black-theme))
 
 (dolist (p srw/my-packages)
@@ -29,6 +30,7 @@
 
 ;; Theming
 (set-frame-parameter nil 'background-mode 'dark)
+
 (load-theme 'solarized t)
 
 (when (eq system-type 'darwin)
@@ -36,4 +38,9 @@
   (set-face-attribute 'default nil :height 160)
 
   ;; Toggle fullscreen mode
-  (global-set-key [s-return] 'toggle-frame-fullscreen))
+  (global-set-key [s-return] 'toggle-frame-fullscreen)
+
+  ;; Swap command and meta
+  (setq ns-alternate-modifier 'super)
+  (setq ns-command-modifier 'meta))
+
