@@ -154,6 +154,11 @@ autocmd vimrc FileType markdown,mkd call pencil#init()
 autocmd vimrc FileType rst call pencil#init()
 autocmd vimrc FileType text call pencil#init()
 "}}}
+" {{{ vim-localvimrc
+
+" Disable asking about local vimrc files
+let g:localvimrc_ask = '0'
+"}}}
 "}}}
 " }}}
 " {{{ Settings
