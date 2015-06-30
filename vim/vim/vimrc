@@ -27,7 +27,6 @@ Plug 'tpope/vim-eunuch'
 
 " Custom plugins
 Plug 'kien/ctrlp.vim'
-Plug 'rking/ag.vim'
 Plug 'janko-m/vim-test'
 Plug 'jgdavey/tslime.vim'
 Plug 'christoomey/vim-tmux-navigator'
@@ -375,6 +374,11 @@ let g:netrw_liststyle = 3
 " use spelling if 'spell'
 set complete=.,w,b,u,t,i,kspell
 
+" Use ag as grepprg
+if executable('ag')
+    set grepprg=ag\ --nogroup\ --nocolor\ --ignore-case
+endif
+
 " }}}
 " {{{ Statusline
 
@@ -498,8 +502,10 @@ inoremap <C-w> <C-g>u<C-w>
 nnoremap cv :tabe $MYVIMRC<cr>
 nnoremap cz :tabe ~/.zshrc<cr>
 
-" open Ag (note the space afterwards)
-nnoremap <leader>a :Ag! -i --ignore "*tags" 
+" open Ag
+command! -nargs=+ -complete=file -bar Ag silent! grep! <args>|cwindow|redraw!
+
+nnoremap <leader>a :Ag<space>
 
 " Default leader mapping to run current file,
 " with eunuch.vim this should basically work
@@ -509,6 +515,9 @@ noremap <leader>t :update\|!./%<cr>
 " Map :W to :w
 " http://stackoverflow.com/questions/3878692/aliasing-a-command-in-vim/3879737#3879737
 cnoreabbrev <expr> W ((getcmdtype() is# ':' && getcmdline() is# 'W')?('w'):('W'))
+
+" Bind K to grep word under cursor
+nnoremap <silent> K :grep! "\b<C-R><C-W>\b"<cr><cr>\|:copen<Cr>
 
 " }}}
 " {{{ Searching
