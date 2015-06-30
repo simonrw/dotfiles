@@ -18,6 +18,10 @@ _copywatcher() {
     echo /home/sw/.local/bin/tmux attach -t copy
 }
 
+_diskusage() {
+    echo watch -n 3600 'df -h'
+}
+
 node-loadavg() {
     ngtshead-term "$(_node-loadavg)"
 }
@@ -28,4 +32,8 @@ watchjobs() {
 
 copywatcher() {
     ngtshead-term "$(_copywatcher)"
+}
+
+diskusage() {
+    ngtshead-term "$(_diskusage)"
 }
