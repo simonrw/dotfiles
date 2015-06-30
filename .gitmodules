@@ -19,3 +19,6 @@
 [submodule "external/fabric-zsh-autocomplete"]
 	path = external/fabric-zsh-autocomplete
 	url = https://github.com/vhbit/fabric-zsh-autocomplete
+[submodule "external/tpm"]
+	path = external/tpm
+	url = https://github.com/tmux-plugins/tpm
