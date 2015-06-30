@@ -20,6 +20,8 @@ URxvt*color6: #9DFFFF
 URxvt*color14: #00FFFF
 URxvt*color7: #EEEEEE
 URxvt*color15: #FFFFFF
+URxvt*font: xft:Bitstream Vera Sans Mono:size=10
+URxvt.scrollBar: false
 
 ! Solarized color scheme for the X Window System
 ! !
@@ -92,5 +94,3 @@ URxvt*color15: #FFFFFF
 /* *color14:                 S_base1 */
 /* *color15:                 S_base3 */
 /* ! */
-/* URxvt*font: xft:Bitstream Vera Sans Mono:size=10 */
-/* URxvt.scrollBar: false */
