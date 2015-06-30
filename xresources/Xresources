@@ -1,9 +1,7 @@
 /* IR black theme */
-URxvt*foreground: white
-URxvt*background: black
-
 URxvt.background: #131313
 URxvt.foreground: #F2F2F2
+
 URxvt*color0: #4E4E4E
 URxvt*color8: #555555
 URxvt*color1: #FF6C60
@@ -20,6 +18,7 @@ URxvt*color6: #9DFFFF
 URxvt*color14: #00FFFF
 URxvt*color7: #EEEEEE
 URxvt*color15: #FFFFFF
+
 URxvt*font: xft:Bitstream Vera Sans Mono:size=10
 URxvt.scrollBar: false
 
