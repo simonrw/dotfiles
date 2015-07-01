@@ -11,7 +11,7 @@ compinit
 autoload -U bashcompinit
 
 # Emacs keybindings
-bindkey -e
+bindkey -v
 bindkey "^R" history-incremental-search-backward
 
 # Set up editor in command line
