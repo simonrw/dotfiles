@@ -1,5 +1,5 @@
+source ~/.mutt.d/solarized_light.muttrc
 source "gpg2 -d ~/.mutt.d/passwords.gpg |"
-source ~/.mutt.d/ir_black.mutt
 
 # Global
 set sort = reverse-date-received
