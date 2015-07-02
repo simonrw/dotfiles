@@ -2,7 +2,8 @@ source ~/.mutt.d/solarized_light.muttrc
 source "gpg2 -d ~/.mutt.d/passwords.gpg |"
 
 # Global
-set sort = reverse-date-received
+set sort = threads
+set sort_aux = reverse-last-date-received
 set beep_new
 set pipe_decode
 set realname = "Simon Walker"
