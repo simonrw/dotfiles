@@ -174,7 +174,8 @@ case $OSTYPE in
 
         alias configurevim='./configure --prefix=$BUILD_PREFIX --with-features=huge --enable-pythoninterp --with-compiledby="Simon Walker" --disable-gui --without-x'
 
-
+        # Set up directory colours
+        eval "$(dircolors -b ~/.dircolors/solarized-light.txt)"
         ;;
     darwin*)
         export PATH=/usr/texbin:${GOPATH}/bin:/usr/local/sbin:/sbin:/usr/sbin:${HOME}/.cabal/bin:${PATH}
