@@ -63,6 +63,7 @@ bind attach <return> view-mailcap
 bind compose p postpone-message
 
 # macro index o "<shell-escape>offlineimap<enter>"
+macro pager \Cu "|urlview<enter>" "call urlview to open links"
 
 # Contacts
 set display_filter=~/.mutt.d/add-to-contacts.sh
