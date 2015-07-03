@@ -1,4 +1,4 @@
-setlocal textwidth=89
+setlocal textwidth=79
 
 setlocal wrap
 
@@ -12,7 +12,7 @@ setlocal nospell
 let b:vimpipe_command="python"
 
 " Add the colourcolumn
-setlocal colorcolumn=90
+setlocal colorcolumn=80
 
 function! AddImportString(import_text)
     execute "normal! mmgg/import\<cr>}"
