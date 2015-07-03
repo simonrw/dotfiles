@@ -212,7 +212,7 @@ set autowrite
 let g:is_posix = 1
 
 " Shorten the paren matching flash time
-set matchtime=3
+set matchtime=1
 
 " Set history settings
 set history=250
