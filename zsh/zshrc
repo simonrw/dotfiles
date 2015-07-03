@@ -197,6 +197,9 @@ case $OSTYPE in
         unalias run-help
         autoload run-help
         HELPDIR=/usr/local/share/zsh/helpfiles
+
+        # Set up directory colours
+        eval "$(gdircolors ~/.dircolors/solarized-light.txt)"
         ;;
 esac
 
