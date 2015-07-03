@@ -2,6 +2,8 @@ source ~/.mutt.d/solarized_light.muttrc
 source "gpg2 -d ~/.mutt.d/passwords.gpg |"
 
 # Global
+set wait_key = no
+set quit
 set sort = threads
 set sort_aux = reverse-last-date-received
 set beep_new
@@ -16,6 +18,8 @@ set reply_to
 set include
 set forward_quote
 set text_flowed=yes
+
+set attribution = "On %d, %n wrote:"
 
 set pager_index_lines = 10
 set pager_context = 3
