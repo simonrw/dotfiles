@@ -320,13 +320,16 @@ set ttimeout
 set ttimeoutlen=1
 set timeoutlen=500
 
-set backup
-set backupskip=/tmp/*,/private/tmp/*
-set backupdir=~/.vim/tmp
-set directory=~/.vim/tmp
-set writebackup
+" Swaps, undos and backups
 set undofile
+set noswapfile
+set backup
+set writebackup
+" --------
+set backupskip=/tmp/*,/private/tmp/*
 set undodir=~/.vim/tmp/undo
+set backupdir=~/.vim/tmp/backup
+set directory=~/.vim/tmp/swap
 
 " Enable scrolljump
 set scrolljump=10
