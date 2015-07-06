@@ -58,6 +58,7 @@ Plug 'elzr/vim-json'
 Plug 'chase/vim-ansible-yaml'
 Plug 'wlangstroth/vim-racket'
 Plug 'rust-lang/rust.vim'
+Plug 'elixir-lang/vim-elixir'
 
 " My plugins
 Plug 'mindriot101/vim-yapf'
