@@ -43,6 +43,8 @@ Plug 'reedes/vim-pencil'
 Plug 'altercation/vim-colors-solarized'
 Plug 'airblade/vim-gitgutter'
 Plug 'embear/vim-localvimrc'
+Plug 'junegunn/goyo.vim'
+Plug 'junegunn/limelight.vim'
 
 
 " Languages
@@ -157,6 +159,31 @@ autocmd vimrc FileType text call pencil#init()
 " Persist yes/no answers
 let g:localvimrc_persistent=2
 "}}}
+" {{{ Goyo
+function! s:goyo_enter()
+  silent !tmux set status off
+  set nocursorline
+  set scrolloff=999
+  if has("gui_running")
+      LimeLight
+  endif
+endfunction
+
+function! s:goyo_leave()
+  silent !tmux set status on
+  set scrolloff=1
+  set cursorline
+  if has("gui_running")
+      LimeLight!
+  endif
+endfunction
+
+autocmd! User GoyoEnter nested call <SID>goyo_enter()
+autocmd! User GoyoLeave nested call <SID>goyo_leave()
+
+nnoremap gG :Goyo<Cr>
+"}}}
+" }}}
 " }}}
 " {{{ Settings
 """"""""""""""""""""
