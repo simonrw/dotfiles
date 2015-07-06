@@ -154,7 +154,6 @@ autocmd vimrc FileType rst call pencil#init()
 autocmd vimrc FileType text call pencil#init()
 "}}}
 " {{{ vim-localvimrc
-"}}}
 " Persist yes/no answers
 let g:localvimrc_persistent=2
 "}}}
