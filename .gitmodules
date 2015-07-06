@@ -22,3 +22,6 @@
 [submodule "external/tpm"]
 	path = external/tpm
 	url = https://github.com/tmux-plugins/tpm
+[submodule "external/git-latexdiff"]
+	path = external/git-latexdiff
+	url = https://gitlab.com/git-latexdiff/git-latexdiff.git
