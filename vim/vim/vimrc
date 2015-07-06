@@ -45,6 +45,7 @@ Plug 'airblade/vim-gitgutter'
 Plug 'embear/vim-localvimrc'
 Plug 'junegunn/goyo.vim'
 Plug 'junegunn/limelight.vim'
+Plug 'editorconfig/editorconfig-vim'
 
 
 " Languages
@@ -186,6 +187,9 @@ autocmd! User GoyoEnter nested call <SID>goyo_enter()
 autocmd! User GoyoLeave nested call <SID>goyo_leave()
 
 nnoremap gG :Goyo<Cr>
+"}}}
+" {{{ editorconfig
+let g:EditorConfig_exclude_patterns = ['fugitive://.*']
 "}}}
 " }}}
 " }}}
