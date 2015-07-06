@@ -164,6 +164,8 @@ function! s:goyo_enter()
   silent !tmux set status off
   set nocursorline
   set scrolloff=999
+  set noshowmode
+  set noshowcmd
   if has("gui_running")
       LimeLight
   endif
@@ -173,6 +175,8 @@ function! s:goyo_leave()
   silent !tmux set status on
   set scrolloff=1
   set cursorline
+  set showmode
+  set showcmd
   if has("gui_running")
       LimeLight!
   endif
