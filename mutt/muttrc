@@ -18,6 +18,7 @@ set reply_to
 set include
 set forward_quote
 set text_flowed=yes
+set send_charset="utf-8"
 
 set attribution = "On %d, %n wrote:"
 
