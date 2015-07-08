@@ -161,31 +161,6 @@ autocmd vimrc FileType text call pencil#init()
 let g:localvimrc_persistent=2
 "}}}
 " {{{ Goyo
-function! s:goyo_enter()
-  set nocursorline
-  set scrolloff=999
-  set noshowmode
-  set noshowcmd
-  set linebreak
-  if has("gui_running")
-      LimeLight
-  endif
-endfunction
-
-function! s:goyo_leave()
-  set scrolloff=1
-  set cursorline
-  set showmode
-  set showcmd
-  set nolinebreak
-  if has("gui_running")
-      LimeLight!
-  endif
-endfunction
-
-autocmd! User GoyoEnter nested call <SID>goyo_enter()
-autocmd! User GoyoLeave nested call <SID>goyo_leave()
-
 nnoremap gG :Goyo<Cr>
 "}}}
 " {{{ editorconfig
