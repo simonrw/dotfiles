@@ -162,7 +162,6 @@ let g:localvimrc_persistent=2
 "}}}
 " {{{ Goyo
 function! s:goyo_enter()
-  silent !tmux set status off
   set nocursorline
   set scrolloff=999
   set noshowmode
@@ -173,7 +172,6 @@ function! s:goyo_enter()
 endfunction
 
 function! s:goyo_leave()
-  silent !tmux set status on
   set scrolloff=1
   set cursorline
   set showmode
