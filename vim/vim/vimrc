@@ -166,6 +166,7 @@ function! s:goyo_enter()
   set scrolloff=999
   set noshowmode
   set noshowcmd
+  set linebreak
   if has("gui_running")
       LimeLight
   endif
@@ -176,6 +177,7 @@ function! s:goyo_leave()
   set cursorline
   set showmode
   set showcmd
+  set nolinebreak
   if has("gui_running")
       LimeLight!
   endif
