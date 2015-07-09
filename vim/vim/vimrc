@@ -172,7 +172,7 @@ map rd :Dispatch<space>
 map rD :Dispatch!<space>
 "}}}
 " {{{ vim-togglelist
-map coq :call ToggleQuickfixList()<Cr>
+nnoremap coq :call ToggleQuickfixList()<Cr>
 "}}}
 " }}}
 " }}}
