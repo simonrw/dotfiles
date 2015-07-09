@@ -46,6 +46,7 @@ Plug 'embear/vim-localvimrc'
 Plug 'junegunn/goyo.vim'
 Plug 'junegunn/limelight.vim'
 Plug 'editorconfig/editorconfig-vim'
+Plug 'milkypostman/vim-togglelist'
 
 
 " Languages
@@ -169,6 +170,9 @@ let g:EditorConfig_exclude_patterns = ['fugitive://.*']
 " {{{ dispatch
 map rd :Dispatch<space>
 map rD :Dispatch!<space>
+"}}}
+" {{{ vim-togglelist
+map coq :call ToggleQuickfixList()<Cr>
 "}}}
 " }}}
 " }}}
