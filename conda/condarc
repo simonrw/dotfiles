@@ -1,6 +1,6 @@
 channels:
     - defaults
-    - https://conda.binstar.org/srwalker101
+    - https://conda.anaconda.org/srwalker101
     - binstar
 
 always_yes: true
