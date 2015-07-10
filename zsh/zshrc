@@ -173,9 +173,6 @@ case $OSTYPE in
         alias open='xdg-open 2>/dev/null'
 
         alias configurevim='./configure --prefix=$BUILD_PREFIX --with-features=huge --enable-pythoninterp --with-compiledby="Simon Walker" --disable-gui --without-x'
-
-        # Set up directory colours
-        eval "$(dircolors -b ~/.dircolors/solarized-light.txt)"
         ;;
     darwin*)
         export PATH=/usr/texbin:${GOPATH}/bin:/usr/local/sbin:/sbin:/usr/sbin:${HOME}/.cabal/bin:${PATH}
@@ -198,9 +195,6 @@ case $OSTYPE in
         unalias run-help
         autoload run-help
         HELPDIR=/usr/local/share/zsh/helpfiles
-
-        # Set up directory colours
-        eval "$(gdircolors ~/.dircolors/solarized-light.txt)"
         ;;
 esac
 
