@@ -1,4 +1,4 @@
-source ~/.mutt.d/solarized_light.muttrc
+source ~/.mutt.d/ir_black.mutt
 source "gpg2 -d ~/.mutt.d/passwords.gpg |"
 
 # Global
