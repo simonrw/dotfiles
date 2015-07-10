@@ -6,8 +6,9 @@ require(['base/js/namespace', 'base/js/events'], function(IPython, events) {
         // Wrap lines
         IPython.Cell.options_default.cm_config.lineWrapping = true;
 
-        // Hide the toolbar
+        // Hide the toolbar and header bar
         $('div#maintoolbar').hide();
+        $('div#header-container').hide();
     });
 });
 
