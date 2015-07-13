@@ -3,13 +3,17 @@
 
 import argparse
 import os
+import sys
 import subprocess as sp
 
 NOTES_DIR = os.path.realpath(os.path.join(os.path.expanduser('~'), 'notes'))
 
 
 def edit(filename, editor):
-    cmd = ['open', filename, '-a', editor]
+    if sys.platform.lower() == 'darwin':
+        cmd = ['open', filename, '-a', editor]
+    else:
+        cmd = [editor, filename]
     sp.check_call(cmd)
 
 
