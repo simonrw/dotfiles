@@ -9,9 +9,8 @@ NOTES_DIR = os.path.realpath(
         os.path.join(os.path.expanduser('~'),
         'notes'))
 
-def edit(filename):
-    editor = os.environ.get('VISUAL', 'vim')
-    cmd = [editor, filename]
+def edit(filename, editor):
+    cmd = ['open', filename, '-a', editor]
     sp.check_call(cmd)
 
 def main(args):
@@ -20,9 +19,11 @@ def main(args):
     parent_dirs = os.path.dirname(file_path)
     if not os.path.isdir(parent_dirs):
         os.makedirs(parent_dirs)
-    edit(file_path)
+    edit(file_path, args.editor)
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
     parser.add_argument('stub')
+    parser.add_argument('-e', '--editor', required=False,
+            default='macvim')
     main(parser.parse_args())
