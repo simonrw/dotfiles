@@ -5,9 +5,13 @@
   <key>Label</key>
   <string>com.srwalker101.ngtsdb</string>
 
+  <key>WorkingDirectory</key>
+  <string>/Users/simon/work/NGTS/update-dev-database</string>
+
   <key>ProgramArguments</key>
   <array>
-    <string>/Users/simon/work/NGTS/update-dev-database/update-dev-database.sh</string>
+      <string>/usr/local/bin/fab</string>
+      <string>update</string>
   </array>
 
   <key>Nice</key>
@@ -17,10 +21,8 @@
   <dict>
       <key>Hour</key>
       <integer>8</integer>
-      <key>Hour</key>
-      <integer>12</integer>
-      <key>Hour</key>
-      <integer>17</integer>
+      <key>Weekday</key>
+      <integer>1</integer>
   </dict>
 
   <key>RunAtLoad</key>
