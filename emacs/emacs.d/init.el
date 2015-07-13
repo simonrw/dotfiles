@@ -57,7 +57,7 @@
 (load-theme 'solarized t)
 
 (when (eq system-type 'darwin)
-  (set-face-attribute 'default nil :family "Menlo")
+  (set-face-attribute 'default nil :family "Inconsolata")
   (set-face-attribute 'default nil :height 160)
 
   ;; Toggle fullscreen mode
