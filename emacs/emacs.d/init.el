@@ -2,10 +2,8 @@
 
 (require 'package)
 (add-to-list 'package-archives
-             '("melpa" . "http://melpa.org/packages/") t)
-
+             '("melpa-stable" . "http://stable.melpa.org/packages/"))
 (when (< emacs-major-version 24)
-  ;; For important compatibility libraries
   (add-to-list 'package-archives
                '("gnu" . "http://elpa.gnu.org/packages/")))
 (package-initialize)
@@ -19,14 +17,30 @@
                           idle-highlight-mode
                           find-file-in-project
                           multi-term
+                          evil
                           color-theme-solarized
                           monokai-theme
                           markdown-mode
                           ir-black-theme))
 
+(defun require-package (package &optional min-version no-refresh)
+  "Install a given package, optionally requiring min-version."
+  (if (package-installed-p package min-version)
+      t
+    (if (or (assoc package package-archive-contents) no-refresh)
+        (package-install package)
+      (progn
+        (package-refresh-contents)
+        (require-package package min-version t)))))
+
 (dolist (p srw/my-packages)
-  (when (not (package-installed-p p))
-    (package-install p)))
+  (require-package p))
+
+;; Evil mode
+(setq vil-search-module 'evil-search
+      evil-want-C-U-scroll t
+      evil-want-C-w-in-emacs-state t)
+(evil-mode t)
 
 ;; Theming
 (set-frame-parameter nil 'background-mode 'dark)
