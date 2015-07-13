@@ -6,7 +6,7 @@ main() {
     if [[ "$(hostname)" = *ngtshead* ]]; then
         watch qstat -u sw,rgw,philipp
     else
-        ssh -t ngtshead.astro "watch qstat -u sw,rgw,philipp"
+        ssh -t ngtshead "watch qstat -u sw,rgw,philipp"
     fi
 }
 

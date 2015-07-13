@@ -3,7 +3,7 @@ ssh-term() {
 }
 
 ngtshead-term() {
-    ssh-term ngtshead.astro "$*"
+    ssh-term ngtshead "$*"
 }
 
 _node-loadavg() {
