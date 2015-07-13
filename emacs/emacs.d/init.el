@@ -17,7 +17,11 @@
                           idle-highlight-mode
                           find-file-in-project
                           multi-term
+                          ; Evil packages
                           evil
+                          evil-commentary
+                          evil-leader
+                          ; Themes
                           color-theme-solarized
                           monokai-theme
                           markdown-mode
@@ -40,6 +44,9 @@
 (setq vil-search-module 'evil-search
       evil-want-C-U-scroll t
       evil-want-C-w-in-emacs-state t)
+(evil-commentary-mode)
+(global-evil-leader-mode)
+(evil-leader/set-leader ",")
 (evil-mode t)
 
 ;; Theming
