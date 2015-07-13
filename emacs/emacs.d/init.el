@@ -45,7 +45,7 @@
 ;; Theming
 (set-frame-parameter nil 'background-mode 'dark)
 
-(load-theme 'solarized t)
+(load-theme 'ir-black t)
 
 (when (eq system-type 'darwin)
   (set-face-attribute 'default nil :family "Menlo")
@@ -58,3 +58,17 @@
   (setq ns-alternate-modifier 'super)
   (setq ns-command-modifier 'meta))
 
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(custom-safe-themes
+   (quote
+    ("7ceb8967b229c1ba102378d3e2c5fef20ec96a41f615b454e0dc0bfa1d326ea6" default))))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
