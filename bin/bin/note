@@ -5,25 +5,31 @@ import argparse
 import os
 import subprocess as sp
 
-NOTES_DIR = os.path.realpath(
-        os.path.join(os.path.expanduser('~'),
-        'notes'))
+NOTES_DIR = os.path.realpath(os.path.join(os.path.expanduser('~'), 'notes'))
+
 
 def edit(filename, editor):
     cmd = ['open', filename, '-a', editor]
     sp.check_call(cmd)
 
+
+def touch(filename):
+    if not os.path.isfile(filename):
+        with open(filename, 'w'):
+            pass
+
+
 def main(args):
-    file_path = '{}.md'.format(
-            os.path.join(NOTES_DIR, *args.stub.split('/')))
+    file_path = '{}.md'.format(os.path.join(NOTES_DIR, *args.stub.split('/')))
     parent_dirs = os.path.dirname(file_path)
     if not os.path.isdir(parent_dirs):
         os.makedirs(parent_dirs)
+    touch(file_path)
     edit(file_path, args.editor)
+
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
     parser.add_argument('stub')
-    parser.add_argument('-e', '--editor', required=False,
-            default='macvim')
+    parser.add_argument('-e', '--editor', required=False, default='macvim')
     main(parser.parse_args())
