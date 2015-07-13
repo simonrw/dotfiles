@@ -54,8 +54,7 @@
 
 ;; Theming
 (set-frame-parameter nil 'background-mode 'dark)
-
-(load-theme 'ir-black t)
+(load-theme 'solarized t)
 
 (when (eq system-type 'darwin)
   (set-face-attribute 'default nil :family "Menlo")
