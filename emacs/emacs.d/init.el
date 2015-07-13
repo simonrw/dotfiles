@@ -40,6 +40,8 @@
 (dolist (p srw/my-packages)
   (require-package p))
 
+(define-key global-map (kbd "RET") 'newline-and-indent)
+
 ;; Evil mode
 (setq vil-search-module 'evil-search
       evil-want-C-U-scroll t
