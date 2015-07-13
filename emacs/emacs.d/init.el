@@ -17,6 +17,7 @@
                           idle-highlight-mode
                           find-file-in-project
                           multi-term
+                          web-mode
                           ; Evil packages
                           evil
                           evil-commentary
