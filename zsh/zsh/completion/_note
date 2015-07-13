@@ -1,0 +1,2 @@
+#compdef note
+compadd $(find -L ~/notes -name '*.md' | cut -f 5- -d / | sed 's/.md$//g')
