@@ -540,7 +540,7 @@ noremap <leader>t :update\|!./%<cr>
 cnoreabbrev <expr> W ((getcmdtype() is# ':' && getcmdline() is# 'W')?('w'):('W'))
 
 " Bind K to grep word under cursor
-nnoremap <silent> K :grep! "\b<C-R><C-W>\b"<cr><cr>\|:copen<Cr>
+nnoremap <silent> K :grep! "<C-R><C-W>"<cr><cr>\|:copen<Cr>
 
 " }}}
 " {{{ Searching
