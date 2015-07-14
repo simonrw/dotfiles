@@ -21,6 +21,7 @@
                           ; Evil packages
                           evil
                           evil-commentary
+                          evil-matchit
                           evil-leader
                           ; Themes
                           color-theme-solarized
@@ -50,6 +51,9 @@
 (evil-commentary-mode)
 (global-evil-leader-mode)
 (evil-leader/set-leader ",")
+(require 'evil-matchit)
+(global-evil-matchit-mode 1)
+;; Finally enable evil mode
 (evil-mode t)
 
 (when (eq system-type 'darwin)
