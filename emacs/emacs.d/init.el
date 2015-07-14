@@ -65,7 +65,10 @@
 
   ;; Swap command and meta
   (setq ns-alternate-modifier 'super)
-  (setq ns-command-modifier 'meta))
+  (setq ns-command-modifier 'meta)
+
+  ;; Allow hash command
+  (global-set-key (kbd "s-3") '(lambda () (interactive) (insert "#"))))
 
 
 ;; Theming
