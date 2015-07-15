@@ -21,7 +21,7 @@ def build_job_mapping(lines):
 
 def main():
     command = ['tmux', 'ls']
-    lines = sp.check_output(command).split('\n')
+    lines = sp.check_output(command).decode('utf-8').split('\n')
     job_mapping = build_job_mapping(lines)
     for line in sorted(job_mapping, key=lambda row: row['time']):
         print(line['text'])
