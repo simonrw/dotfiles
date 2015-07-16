@@ -176,6 +176,9 @@ map rD :Dispatch!<space>
 " {{{ vim-togglelist
 nnoremap coq :call ToggleQuickfixList()<Cr>
 "}}}
+" {{{ vimtex
+let g:vimtex_fold_enabled = 0
+"}}}
 " }}}
 " }}}
 " {{{ Settings
