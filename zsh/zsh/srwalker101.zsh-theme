@@ -30,8 +30,7 @@ function __prompt_char() {
     echo '>'
 }
 
-PROMPT=$'\n$blue%~$reset
-$yellow$(__suspended_count)$reset%(?.$green$(__prompt_char)$reset.$red%? $(__prompt_char)$reset) '
-RPROMPT='$yellow%m$reset'
+PROMPT=$'\n$yellow$(__suspended_count)$reset%(?.$green$(__prompt_char)$reset.$red%? $(__prompt_char)$reset) '
+RPROMPT=$'$blue%3~$reset@$yellow%m$reset'
 
 # vim: ft=zsh
