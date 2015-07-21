@@ -31,6 +31,7 @@
       - homebrew/headonly
       - homebrew/dupes
       - neovim/neovim
+      - universal-ctags/universal-ctags
 
   - name: Install homebrew packages
     homebrew: name={{ item }} state=present
@@ -40,7 +41,6 @@
       - zsh
       - htop-osx
       - gcc
-      - ctags
       - tree
       - graphviz
       - tmux
@@ -109,9 +109,11 @@
   - name: Install vim with arguments
     homebrew: name=vim state=latest install_options=override-system-vi
 
-
   - name: Install neovim head
     homebrew: name=neovim state=head
+
+  - name: Install universal ctags head
+    homebrew: name=universal-ctags state=head
 
   - name: Install casks
     homebrew_cask: name={{ item }} state=present
