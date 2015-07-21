@@ -14,6 +14,7 @@
     ci = commit -v
     c = commit -m
     q = quick
+    edit = "!vim `git ls-files -m`"
     # Quickly diff the upstream remote (assume origin)
     diffup = diff origin
     upsub = submodule foreach 'git checkout master && git pull'
