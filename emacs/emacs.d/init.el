@@ -18,6 +18,7 @@
                           find-file-in-project
                           multi-term
                           web-mode
+                          haskell-mode
                           ; Evil packages
                           evil
                           evil-commentary
