@@ -64,7 +64,6 @@
       - gh
       - mutt
       - tig
-      - legit
 
       # Docker
       - boot2docker
