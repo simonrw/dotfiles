@@ -73,5 +73,4 @@
 
 
 ;; Theming
-(set-frame-parameter nil 'background-mode 'dark)
-(load-theme 'solarized t)
+(load-theme 'wombat t)
