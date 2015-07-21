@@ -140,39 +140,12 @@
       - spectacle
       - flux
 
-  - name: Start services at login
-    file: src=/usr/local/opt/{{ item }}/homebrew.mxcl.{{ item }}.plist path={{ home }}/Library/LaunchAgents/homebrew.mxcl.{{ item }}.plist state=link force=yes
-    with_items:
-      - mariadb
-      - nginx
-      - postgresql
-      - redis
-
-  - name: Setup launch agents for services
-    command: launchctl load {{ home }}/Library/LaunchAgents/homebrew.mxcl.{{ item }}.plist
-    with_items:
-      - mariadb
-      - nginx
-      - postgresql
-      - redis
-
   - name: Update some iTerm2 defaults
     command: defaults write com.googlecode.iterm2 {{ item }}
     with_items:
       - OpenFileInNewWindows -bool true
       - PinchToChangeFontSizeDisabled -bool true
       - UseUnevenTabs -bool false
-
-  - name: Download miniconda
-    get_url:
-      url={{ miniconda_installer.url }}/{{ miniconda_installer.file }}
-      dest=/tmp/{{ miniconda_installer.file }}
-      mode=0755
-
-  - name: Install miniconda
-    command:
-      /tmp/{{ miniconda_installer.file }} -b -p {{ miniconda_path }}
-      creates={{ miniconda_path }}
 
   - name: Announce completion
     osx_say: msg="Bootstrap complete" voice=Daniel
