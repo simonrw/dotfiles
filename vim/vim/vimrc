@@ -178,6 +178,7 @@ nnoremap coq :call ToggleQuickfixList()<Cr>
 "}}}
 " {{{ vimtex
 let g:vimtex_fold_enabled = 0
+let g:vimtex_view_general_options = "@pdf -a skim"
 "}}}
 " }}}
 " }}}
