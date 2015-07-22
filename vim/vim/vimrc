@@ -218,9 +218,8 @@ endif
 set norelativenumber
 set nonumber
 
-" Use hlsearch
-set hlsearch
-nnoremap <space> :nohlsearch<cr>
+" Do not use hlsearch
+set nohlsearch
 
 " Do not use more prompt
 set nomore
