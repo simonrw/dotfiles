@@ -2,6 +2,7 @@ channels:
     - defaults
     - https://conda.anaconda.org/srwalker101
     - binstar
+    - astropy
 
 always_yes: true
 
