@@ -1,6 +1,6 @@
 channels:
     - defaults
-    - https://conda.anaconda.org/srwalker101
+    - srwalker101
     - binstar
     - astropy
 
