@@ -42,6 +42,7 @@
       - htop-osx
       - gcc
       - tree
+      - gnu-tar
       - graphviz
       - tmux
       - md5sha1sum
