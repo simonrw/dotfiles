@@ -6,5 +6,5 @@ try:
 except ImportError:
     print('Cannot load seaborn')
 else:
-    sns.set(style='white', context='talk')
+    sns.set(style='ticks', context='talk')
     print('Done')
