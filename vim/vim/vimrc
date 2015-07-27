@@ -350,9 +350,6 @@ set undodir=~/.vim/tmp/undo
 set backupdir=~/.vim/tmp/backup
 set directory=~/.vim/tmp/swap
 
-" Enable scrolljump
-set scrolljump=10
-
 " Disable conceal
 set conceallevel=0
 
@@ -390,7 +387,7 @@ highlight ExtraWhitespace ctermbg=red guibg=red
 autocmd vimrc InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
 autocmd vimrc InsertLeave * match ExtraWhitespace /\s\+$/
 
-set scrolloff=1
+set scrolloff=3
 
 " Nicer netrw style
 let g:netrw_liststyle = 3
