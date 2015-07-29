@@ -26,7 +26,7 @@ Plug 'tpope/vim-eunuch'
 Plug 'tpope/vim-fireplace'
 
 " Custom plugins
-Plug 'kien/ctrlp.vim'
+Plug 'ctrlpvim/ctrlp.vim'
 Plug 'janko-m/vim-test'
 Plug 'jgdavey/tslime.vim'
 Plug 'christoomey/vim-tmux-navigator'
