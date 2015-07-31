@@ -59,7 +59,7 @@
 
 (when (eq system-type 'darwin)
   (set-face-attribute 'default nil :family "Inconsolata")
-  (set-face-attribute 'default nil :height 160)
+  (set-face-attribute 'default nil :height 180)
 
   ;; Toggle fullscreen mode
   (global-set-key [s-return] 'toggle-frame-fullscreen)
