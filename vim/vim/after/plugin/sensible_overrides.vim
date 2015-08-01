@@ -7,3 +7,5 @@ set complete+=kspell
 " remove the ruler
 set noruler
 
+" Set the shell
+set shell=/bin/sh
