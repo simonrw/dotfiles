@@ -15,22 +15,20 @@ augroup END
 call plug#begin('~/.vim/bundle')
 
 " tpope plugins, these deserve their own section
+" start with vim-sensible
+Plug 'tpope/vim-sensible'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-dispatch'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-fugitive'
-Plug 'tpope/vim-git'
 Plug 'tpope/vim-eunuch'
-Plug 'tpope/vim-fireplace'
 
 " Custom plugins
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'janko-m/vim-test'
-Plug 'jgdavey/tslime.vim'
 Plug 'christoomey/vim-tmux-navigator'
-Plug 'christoomey/vim-tmux-runner'
 Plug 'Wolfy87/vim-enmasse'
 Plug 'kana/vim-textobj-user'
 Plug 'bps/vim-textobj-python'
@@ -38,19 +36,12 @@ Plug 'MarcWeber/vim-addon-mw-utils'
 Plug 'tomtom/tlib_vim'
 Plug 'garbas/vim-snipmate'
 Plug 'honza/vim-snippets'
-Plug 'sjl/splice.vim'
-Plug 'reedes/vim-pencil'
-Plug 'altercation/vim-colors-solarized'
 Plug 'airblade/vim-gitgutter'
-Plug 'embear/vim-localvimrc'
-Plug 'junegunn/goyo.vim'
-Plug 'junegunn/limelight.vim'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'milkypostman/vim-togglelist'
 
 
 " Languages
-Plug 'vim-scripts/SWIG-syntax'
 Plug 'chase/vim-ansible-yaml'
 Plug 'mitsuhiko/vim-jinja'
 Plug 'vim-scripts/TWiki-Syntax', { 'for': 'twiki' }
@@ -58,12 +49,8 @@ Plug 'mustache/vim-mustache-handlebars', { 'for': 'html.handlebars' }
 Plug 'pangloss/vim-javascript', { 'for': 'javascript' }
 Plug 'mxw/vim-jsx'
 Plug 'zah/nimrod.vim', { 'for': 'nim' }
-Plug 'elzr/vim-json', { 'for': 'json' }
-Plug 'wlangstroth/vim-racket'
-Plug 'rust-lang/rust.vim'
+Plug 'rust-lang/rust.vim', { 'for': 'rust' }
 Plug 'elixir-lang/vim-elixir', { 'for': 'elixir' }
-Plug 'lervag/vimtex'
-Plug 'hylang/vim-hy'
 
 " My plugins
 Plug 'mindriot101/vim-yapf'
@@ -71,9 +58,6 @@ Plug 'mindriot101/vim-yapf'
 call plug#end()
 " }}}
 " Plugin settings {{{
-" {{{ matchit
-runtime macros/matchit.vim
-"}}}
 " {{{ ctrlp
 map <leader>f :CtrlP<cr>
 map <leader>b :CtrlPBuffer<cr>
@@ -152,17 +136,6 @@ let g:VtrStripLeadingWhitespace = 0
 let g:VtrClearEmptyLines = 0
 let g:VtrAppendNewline = 1
 "}}}
-" {{{ vim-pencil
-let g:pencil#wrapModeDefault = 'soft'
-
-autocmd vimrc FileType markdown,mkd call pencil#init()
-autocmd vimrc FileType rst call pencil#init()
-autocmd vimrc FileType text call pencil#init()
-"}}}
-" {{{ vim-localvimrc
-" Persist yes/no answers
-let g:localvimrc_persistent=2
-"}}}
 " {{{ Goyo
 nnoremap gG :Goyo<Cr>
 "}}}
@@ -187,27 +160,12 @@ let g:vimtex_view_general_options = "@pdf -a skim"
 "     SETTINGS     "
 """"""""""""""""""""
 
-filetype plugin on
-
-" turn syntax highlighting on
-if (&t_Co > 2 || has("gui_running")) && !exists("syntax_on")
-    syntax on
-endif
-
 " set up some nice tab defaults
 set tabstop=4
 set softtabstop=4
 set shiftwidth=4
 set shiftround
 set expandtab
-set smarttab
-set shell=/bin/sh
-
-" Necessary to show unicode glyphs
-set encoding=utf-8
-scriptencoding utf-8
-set termencoding=utf-8
-set fileencoding=utf-8
 
 " Increase encryption protection
 if v:version > 704
@@ -233,18 +191,8 @@ let g:is_posix = 1
 " Shorten the paren matching flash time
 set matchtime=1
 
-" Set history settings
-set history=250
-set undolevels=100
-
 " Do not jump to the start of line when indenting
 set nostartofline
-
-" reload all file changes automatically
-set autoread
-
-" set incremental search
-set incsearch
 
 " set case options for searching
 set ignorecase
@@ -254,24 +202,9 @@ set smartcase
 " http://www.shallowsky.com/linux/noaltscreen.html
 set t_ti= t_te=
 
-" From Steve Losh
-" iTerm2 is currently slow as ball at rendering the nice unicode lines, so for now I'll just use ascii pipes.  They're ugly but at least I won't want to kill myself when trying to move around a file.
-set fillchars=diff:⣿,vert:│
-set fillchars=diff:⣿,vert:\|
-
-" show command as it's typed
-set showcmd
-
 " nice file formatting
-set autoindent
 set smartindent
 set cindent
-
-" Never show status bar
-set laststatus=0
-
-" make backspace behave nicely
-set backspace=indent,eol,start
 
 " Join lines with 1 space instead of 2
 set nojoinspaces
@@ -293,11 +226,7 @@ set ttyfast
 " Enable folding
 set foldenable
 
-" Support file types in this order
-set fileformats=unix,mac,dos
-
 " Change the way tab autocompletion works
-set wildmenu
 set wildmode=longest,list:longest
 
 " Disable escape keys which makes vim more responsive
@@ -311,9 +240,6 @@ set lazyredraw
 
 " Match parens when highlighting them
 set showmatch
-
-" Thesaurus
-set thesaurus+=~/thesaurus/mthesaur.txt
 
 " Handle the splat clipboard
 if has('unnamedplus')
@@ -333,12 +259,6 @@ set formatprg=par
 " Configure 'Press enter to continue' messages
 set shortmess=atI
 
-" Time out on key codes but not mappings
-set notimeout
-set ttimeout
-set ttimeoutlen=1
-set timeoutlen=500
-
 " Swaps, undos and backups
 set undofile
 set noswapfile
@@ -353,14 +273,6 @@ set directory=~/.vim/tmp/swap
 " Disable conceal
 set conceallevel=0
 
-" Open new split panes at the bottom
-set splitbelow
-set splitright
-set noequalalways
-
-" Enable the ruler
-set ruler
-
 " Never show the tab line
 set showtabline=0
 
@@ -368,10 +280,6 @@ set showtabline=0
 set wildignore+=*.aux,*.o,*.git,/tmp/*,*.so,*.swp,*.zip,venv,env,*.pyc
 
 set switchbuf=useopen
-
-" Enable auto sourcing of vim config files
-autocmd vimrc BufWritePost $MYVIMRC source $MYVIMRC
-autocmd vimrc BufWritePost ~/dotfiles/vim/vimrc source ~/dotfiles/vim/vimrc
 
 " Jump back to last file position
 autocmd vimrc BufReadPost *
@@ -382,19 +290,8 @@ autocmd vimrc BufReadPost *
 " ... unless it's a git commit
 autocmd vimrc FileType gitcommit autocmd! vimrc bufEnter COMMIT_EDITMSG call setpos('.', [0, 1, 1, 0])
 
-" Highlight trailing whitespace only in normal mode
-highlight ExtraWhitespace ctermbg=red guibg=red
-autocmd vimrc InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
-autocmd vimrc InsertLeave * match ExtraWhitespace /\s\+$/
-
-set scrolloff=3
-
 " Nicer netrw style
 let g:netrw_liststyle = 3
-
-" Update current completion settings
-" use spelling if 'spell'
-set complete=.,w,b,u,t,i,kspell
 
 " Use ag as grepprg
 if executable('ag')
@@ -406,27 +303,6 @@ endif
 
 " Set up statusline
 set statusline=
-
-" Buffer number and pipe character with spaces
-set statusline+=%-3.3n\ 
-
-" Filename relative to opening path
-set statusline+=%f\ 
-
-" Status markers
-set statusline+=%h%m%r%q
-
-" End of left section, start right section
-set statusline+=%=
-
-" File type
-set statusline+=%y\ 
-
-" Cursor position
-set statusline+=%-14.(%l,%c%V%)\ 
-
-" View position
-set statusline+=%P
 
 " }}}
 " {{{ Mappings
@@ -458,11 +334,6 @@ function! InsertTabWrapper()
 endfunction
 inoremap <tab> <c-r>=InsertTabWrapper()<cr>
 inoremap <s-tab> <c-n>
-
-" delete comment character when joining commented lines
-if v:version > 703 || v:version == 703 && has("patch541")
-    set formatoptions+=j
-endif
 
 " settings from thoughtbot dotfiles repo
 " Swap between two files
@@ -542,30 +413,11 @@ cnoreabbrev <expr> W ((getcmdtype() is# ':' && getcmdline() is# 'W')?('w'):('W')
 nnoremap <silent> K :grep! "<C-R><C-W>"<cr><cr>\|:copen<Cr>
 
 " }}}
-" {{{ Searching
-" }}}
 " {{{ Misc
 
 """"""""""""""""""""
 "       MISC       "
 """"""""""""""""""""
-
-" Set netrw style to 'long'
-let g:netrw_liststyle=1
-
-" Strip trailing whitespace
-" http://stackoverflow.com/a/1618401/56711
-fun! <SID>StripTrailingWhitespaces()
-    let s:l = line(".")
-    let s:c = col(".")
-    %s/\s\+$//e
-    call cursor(s:l, s:c)
-endfun
-
-autocmd vimrc Filetype c,cpp,ruby,python autocmd vimrc BufWritePre :call <SID>StripTrailingWhitespaces()
-
-" Disable syntax highlighting when opening a large file
-autocmd vimrc BufReadPre * if getfsize(expand("%")) > 10000000 | syntax clear | endif
 
 " Diffs copy wrap from the global setting
 autocmd vimrc FilterWritePre * if &diff | setlocal wrap< | endif
