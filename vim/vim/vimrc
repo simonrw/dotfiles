@@ -267,8 +267,8 @@ set autoindent
 set smartindent
 set cindent
 
-" Always show the status bar
-set laststatus=2
+" Never show status bar
+set laststatus=0
 
 " make backspace behave nicely
 set backspace=indent,eol,start
@@ -361,8 +361,8 @@ set noequalalways
 " Enable the ruler
 set ruler
 
-" Only show the tab line if multiple tabs
-set showtabline=1
+" Never show the tab line
+set showtabline=0
 
 " Set some ignore patterns
 set wildignore+=*.aux,*.o,*.git,/tmp/*,*.so,*.swp,*.zip,venv,env,*.pyc
