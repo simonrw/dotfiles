@@ -141,10 +141,6 @@ nnoremap gG :Goyo<Cr>
 " {{{ editorconfig
 let g:EditorConfig_exclude_patterns = ['fugitive://.*']
 "}}}
-" {{{ dispatch
-map rd :Dispatch<space>
-map rD :Dispatch!<space>
-"}}}
 " {{{ vim-togglelist
 nnoremap coq :call ToggleQuickfixList()<Cr>
 "}}}
@@ -403,10 +399,6 @@ nnoremap <leader>a :Ag<space>
 " with eunuch.vim this should basically work
 " once a shebang is in place
 noremap <leader>t :update\|!./%<cr>
-
-" Map :W to :w
-" http://stackoverflow.com/questions/3878692/aliasing-a-command-in-vim/3879737#3879737
-cnoreabbrev <expr> W ((getcmdtype() is# ':' && getcmdline() is# 'W')?('w'):('W'))
 
 " Bind K to grep word under cursor
 nnoremap <silent> K :grep! "<C-R><C-W>"<cr><cr>\|:copen<Cr>
