@@ -31,6 +31,5 @@ function __prompt_char() {
 }
 
 PROMPT=$'\n$yellow$(__suspended_count)$reset%(?.$green$(__prompt_char)$reset.$red%? $(__prompt_char)$reset) '
-RPROMPT=$'$yellow%m$reset'
 
 # vim: ft=zsh
