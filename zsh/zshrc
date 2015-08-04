@@ -144,6 +144,7 @@ alias pylab='ipython --profile=pylab'
 alias clear-pycs='find ${PWD} -name "*.pyc" -delete'
 alias g='git'
 alias gst='=git st'
+alias ga='g aa'
 alias es='exec $SHELL'
 alias v=vim
 
