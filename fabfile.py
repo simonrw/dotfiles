@@ -1,6 +1,7 @@
 from fabric.api import *
 
 env.use_ssh_config = True
+env.forward_agent = True
 
 
 def lrun(*args, **kwargs):
