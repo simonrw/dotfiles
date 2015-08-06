@@ -1,5 +1,6 @@
 --python-kinds=-i
 --exclude=.direnv/virtualenv/*
+--exclude=.tox/*
 --exclude=venv/*
 --langdef=latex
 --langmap=latex:.tex
