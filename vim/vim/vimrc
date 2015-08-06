@@ -309,6 +309,12 @@ set statusline=
 " Disable the 'help' key
 nnoremap K <nop>
 
+" There must be a better way
+inoremap <esc> <nop>
+
+" Quick escape key
+inoremap kj <esc>
+
 " Make line based movement more sane
 nnoremap j gj
 nnoremap k gk
