@@ -270,7 +270,7 @@ set directory=~/.vim/tmp/swap
 set conceallevel=0
 
 " Never show the tab line
-set showtabline=0
+set showtabline=1
 
 " Set some ignore patterns
 set wildignore+=*.aux,*.o,*.git,/tmp/*,*.so,*.swp,*.zip,venv,env,*.pyc
