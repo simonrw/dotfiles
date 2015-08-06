@@ -1,5 +1,5 @@
 source ~/.mutt.d/ir_black.mutt
-source "gpg2 -d ~/.mutt.d/passwords.gpg |"
+source "gpg -d ~/.mutt.d/passwords.gpg |"
 
 # Global
 set wait_key = no
