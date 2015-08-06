@@ -27,6 +27,11 @@ def initialise_file(filename, title):
             outfile.write(make_title(title) + '\n')
 
 
+def _compile(file_path, compile_to):
+    cmd = ['pandoc', '-f', 'markdown_github', '-t', compile_to, file_path]
+    sp.check_call(cmd)
+
+
 def main(args):
     title = (os.path.basename(args.stub).capitalize().replace('_', ' ')
              .replace('-', ' '))
@@ -35,11 +40,17 @@ def main(args):
     if not os.path.isdir(parent_dirs):
         os.makedirs(parent_dirs)
     initialise_file(file_path, title=title)
-    edit(file_path, args.editor)
+    if args._compile:
+        _compile(file_path, args.compile_to)
+    else:
+        edit(file_path, args.editor)
 
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
     parser.add_argument('stub')
     parser.add_argument('-e', '--editor', required=False, default='macvim')
+    parser.add_argument('-c', '--compile', action='store_true',
+            dest='_compile')
+    parser.add_argument('-t', '--compile-to', required=False, default='html')
     main(parser.parse_args())
