@@ -163,6 +163,9 @@ set shiftwidth=4
 set shiftround
 set expandtab
 
+" Decrease timeout length which leaving insert mode
+set timeoutlen=400
+
 " Increase encryption protection
 if v:version > 704
     set cryptmethod=blowfish2
