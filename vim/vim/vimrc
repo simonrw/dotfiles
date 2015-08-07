@@ -39,6 +39,7 @@ Plug 'honza/vim-snippets'
 Plug 'airblade/vim-gitgutter'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'milkypostman/vim-togglelist'
+Plug 'easymotion/vim-easymotion'
 
 
 " Languages
@@ -148,6 +149,16 @@ nnoremap coq :call ToggleQuickfixList()<Cr>
 " {{{ vimtex
 let g:vimtex_fold_enabled = 0
 let g:vimtex_view_general_options = "@pdf -a skim"
+"}}}
+" {{{ vim-easymotion
+" Disable default mappings
+let g:EasyMotion_do_mapping = 0
+
+" Make smart case sensitive mode
+let g:EasyMotion_smartcase = 1
+
+" Set prefix to gs
+nmap gs <Plug>(easymotion-s)
 "}}}
 " }}}
 " }}}
