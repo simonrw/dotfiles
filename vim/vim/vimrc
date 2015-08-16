@@ -255,6 +255,8 @@ set showmatch
 " Handle the splat clipboard
 if has('unnamedplus')
     set clipboard=unnamedplus
+else
+    set clipboard=unnamed
 endif
 
 " source local vimrc files
