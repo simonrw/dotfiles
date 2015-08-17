@@ -86,6 +86,7 @@ alias ll='ls -lh'
 alias lr='ls -thor'
 alias man1='man 1'
 alias o='open'
+alias gs='g st'
 
 # Function to make a new tmux session at a variable location
 function tnew() {
