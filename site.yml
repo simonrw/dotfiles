@@ -151,3 +151,8 @@
   - name: Announce completion
     osx_say: msg="Bootstrap complete" voice=Daniel
 
+  - name: Ensure sudoers file is valid
+    lineinfile: dest=/etc/sudoers state=present regexp="^Defaults tty_tickets"
+      validate='visudo -cf %s' insertafter='Defaultsenv_keep += "HOME MAIL"'
+      line="Defaults tty_tickets"
+    become: yes
