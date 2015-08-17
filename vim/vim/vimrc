@@ -98,6 +98,9 @@ if executable('ag')
     let g:ctrlp_use_caching = 0
 endif
 
+" Add ctrlp extensions
+let g:ctrlp_extensions = ['tag', 'buffertag', 'quickfix']
+
 let g:ctrlp_custom_ignore = '\v\~$|\.(o|swp|pyc|wav|mp3|ogg|blend)$|(^|[/\\])\.(hg|git|bzr)($|[/\\])|venv/*'
 "}}}
 " {{{ vim-test
