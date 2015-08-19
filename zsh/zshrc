@@ -55,7 +55,6 @@ HISTSIZE=10000
 SAVEHIST=10000
 
 alias tmux='tmux -2'
-alias vim=nvim
 
 # Function to attach to a session. If the session is not specified then
 #just run `tmux attach`, otherwise add a -t flag
@@ -185,6 +184,7 @@ case $OSTYPE in
     darwin*)
         export PATH=/usr/texbin:${GOPATH}/bin:/usr/local/sbin:/sbin:/usr/sbin:${HOME}/.cabal/bin:${PATH}
         alias gvim=mvim
+        alias vim=nvim
         alias gview=mview
         alias -g awk=gawk
         alias ls=$(brew --prefix coreutils)/libexec/gnubin/ls
