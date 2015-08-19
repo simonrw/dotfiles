@@ -402,11 +402,13 @@ inoremap <F1> <ESC>
 nnoremap <F1> <ESC>
 vnoremap <F1> <ESC>
 
-" Remove the arrow key functionality
-nnoremap <Up> :echo "Use k!"<cr>
-nnoremap <Down> :echo "Use j!"<cr>
-nnoremap <Left> :echo "Use h!"<cr>
-nnoremap <Right> :echo "Use l!"<cr>
+" Let the arrow keys resize the window in normal mode
+" https://github.com/martin-svk/dot-files/blob/master/vim/nvimrc#L413
+nnoremap <silent> <Up> :resize +1<cr>
+nnoremap <silent> <Down> :resize -1<cr>
+nnoremap <silent> <Left> :vertical resize -1<cr>
+nnoremap <silent> <Right> :vertical resize +1<cr>
+
 inoremap <Up> <esc>:echo "Use k!"<cr>
 inoremap <Down> <esc>:echo "Use j!"<cr>
 inoremap <Left> <esc>:echo "Use h!"<cr>
