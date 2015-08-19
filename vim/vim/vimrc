@@ -28,6 +28,7 @@ Plug 'tpope/vim-eunuch'
 " Custom plugins
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'janko-m/vim-test'
+Plug 'christoomey/vim-tmux-runner'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'Wolfy87/vim-enmasse'
 Plug 'kana/vim-textobj-user'
