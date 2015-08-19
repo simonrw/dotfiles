@@ -9,3 +9,10 @@ set noruler
 
 " Set the shell
 set shell=/bin/sh
+
+" neovim handles ESC keys as alt+key, set this to solve the problem
+"
+if has('nvim')
+    set ttimeout
+    set ttimeoutlen=0
+endif
