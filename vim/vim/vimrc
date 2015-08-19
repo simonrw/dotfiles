@@ -49,12 +49,7 @@ Plug 'sheerun/vim-polyglot'
 Plug 'chase/vim-ansible-yaml'
 Plug 'mitsuhiko/vim-jinja'
 Plug 'vim-scripts/TWiki-Syntax', { 'for': 'twiki' }
-Plug 'mustache/vim-mustache-handlebars', { 'for': 'html.handlebars' }
-Plug 'pangloss/vim-javascript', { 'for': 'javascript' }
-Plug 'mxw/vim-jsx'
 Plug 'zah/nimrod.vim', { 'for': 'nim' }
-Plug 'rust-lang/rust.vim', { 'for': 'rust' }
-Plug 'elixir-lang/vim-elixir', { 'for': 'elixir' }
 
 " My plugins
 Plug 'mindriot101/vim-yapf'
