@@ -159,6 +159,7 @@ function ngtshead() {
     ssh -t ngtshead $@ exec zsh
 }
 alias ng=ngtshead
+alias ng-astro='ssh -t ngtshead-astro exec zsh'
 
 export BUILD_PREFIX="${HOME}/.local"
 export MANPATH=${BUILD_PREFIX}/share/man:${MANPATH}
