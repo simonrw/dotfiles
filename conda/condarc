@@ -8,5 +8,4 @@ always_yes: true
 
 create_default_packages:
   - pip
-  - ipython
   - pytest
