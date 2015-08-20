@@ -451,6 +451,14 @@ function! QuickfixFilenames()
 endfunction
 
 " }}}
+" {{{ Neovim
+
+""""""""""""""""""""
+"       Neovim     "
+""""""""""""""""""""
+
+let g:python_host_prog = '/usr/local/bin/python'
+" }}}
 " {{{ Theming
 set background=dark
 colorscheme srw256
