@@ -1,0 +1,2 @@
+#compdef tswitch
+compadd $(tmux ls | cut -d : -f 1)
