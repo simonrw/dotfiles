@@ -460,7 +460,16 @@ endfunction
 "       Neovim     "
 """"""""""""""""""""
 
-let g:python_host_prog = '/usr/local/bin/python'
+" Neovim only...
+if has('nvim')
+
+    let g:python_host_prog = '/usr/local/bin/python'
+
+    " Hack to allow <c-h> to work properly
+    nmap <BS> <C-W>h
+
+ endif
+
 " }}}
 " {{{ Theming
 set background=dark
