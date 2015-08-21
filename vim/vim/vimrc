@@ -41,7 +41,7 @@ Plug 'honza/vim-snippets'
 Plug 'airblade/vim-gitgutter'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'milkypostman/vim-togglelist'
-
+Plug 'benekastah/neomake'
 
 " Languages
 Plug 'sheerun/vim-polyglot'
