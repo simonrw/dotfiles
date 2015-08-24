@@ -18,7 +18,10 @@ def edit(filename, editor):
 
 
 def make_title(text):
-    return '# {}'.format(text)
+    number_of_underlines = len(text)
+    return '{text}\n{underlines}'.format(
+        text=text,
+        underlines='=' * number_of_underlines)
 
 
 def initialise_file(filename, title):
