@@ -157,10 +157,13 @@ function conda_local() {
 
 # SSH into the ngts ops machine, allowing for custom ssh arguments
 function ngtshead() {
-    ssh -t ngtshead $@ exec zsh
+    if ifconfig | grep -q 'inet 137.205'; then
+        ssh -t ngtshead $@ exec zsh
+    else
+        ssh -t ngtshead.astro $@ exec zsh
+    fi
 }
 alias ng=ngtshead
-alias ng-astro='ssh -t ngtshead-astro exec zsh'
 
 export BUILD_PREFIX="${HOME}/.local"
 export MANPATH=${BUILD_PREFIX}/share/man:${MANPATH}
