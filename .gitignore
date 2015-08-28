@@ -99,3 +99,4 @@ emacs/emacs.d/SessionDesktop.el
 emacs/emacs.d/ac-comphist.dat
 emacs/emacs.d/el-get/
 vim/vim/autoload/plug.vim.old
+jupyter/jupyter/migrated
