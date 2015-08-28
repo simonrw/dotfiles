@@ -30,7 +30,11 @@ function __prompt_char() {
     echo '>'
 }
 
-PROMPT=$'\n$yellow$(__suspended_count)$reset%(?.$green$(__prompt_char)$reset.$red$(__prompt_char)$reset) '
+function hr() {
+    printf '%*s\n' "${COLUMNS:-$(tput cols)}" '' | tr ' ' -
+}
+
+PROMPT=$'%F{0}$(hr)$reset$yellow$(__suspended_count)$reset%(?.$green$(__prompt_char)$reset.$red$(__prompt_char)$reset) '
 RPROMPT=$'$blue%m$reset'
 
 # vim: ft=zsh
