@@ -34,7 +34,7 @@ homebrew_packages:
 - hdf5
 - sextractor
 - par
-- gpg2
+- gpg
 - gh
 - mutt
 - tig
@@ -93,8 +93,8 @@ homebrew_casks:
 - libreoffice
 - skype
 - firefox
-- google-chrome
-- thunderbird
+- google-chrome-canary
+- thunderbird-beta
 - gimp
 - steam
 - spectacle
