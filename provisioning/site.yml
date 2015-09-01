@@ -1,0 +1,13 @@
+---
+- hosts: all
+  vars:
+  - miniconda_installer:
+      url: 'http://repo.continuum.io/miniconda'
+      file: 'Miniconda-latest-MacOSX-x86_64.sh'
+  - home: /Users/{{ ansible_user_id }}
+  - miniconda_path: "{{ home }}/anaconda"
+
+  roles:
+  - common
+  - { role: macosx, when: ansible_distribution == "MacOSX" }
+

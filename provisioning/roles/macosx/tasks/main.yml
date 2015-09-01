@@ -1,0 +1,131 @@
+- name: Tap the homebrew taps
+  homebrew_tap: tap={{ item }} state=present
+  with_items:
+    - caskroom/cask
+    - homebrew/science
+    - mindriot101/alt
+    - homebrew/headonly
+    - homebrew/dupes
+    - neovim/neovim
+    - universal-ctags/universal-ctags
+
+- name: Install homebrew packages
+  homebrew: name={{ item }} state=present
+  with_items:
+    - git
+    - git-lfs
+    - zsh
+    - htop-osx
+    - gcc
+    - tree
+    - gnu-tar
+    - graphviz
+    - tmux
+    - md5sha1sum
+    - coreutils
+    - freetype
+    - watch
+    - the_silver_searcher
+    - wget
+    - gawk
+    - dos2unix
+    - ssh-copy-id
+    - nmap
+    - ffmpeg
+    - imagemagick
+    - trash
+    - hdf5
+    - sextractor
+    - par
+    - gpg2
+    - gh
+    - mutt
+    - tig
+
+    # Docker
+    - boot2docker
+    - docker
+
+    # Databases
+    - postgresql
+    - mariadb
+    - redis
+
+    # Ruby related
+    - chruby
+    - ruby-install
+    - direnv
+
+    # Exotic languages
+    - erlang
+    - elixir
+    - ghc
+    - cabal-install
+    - leiningen
+
+    # Javascript
+    - node
+    
+    # Science
+    - wcslib
+    - montage
+    - wcstools
+
+    # My stuff
+    - ds9
+
+    # Head only recipes
+    - git-hg
+
+    - grep
+
+- name: Install cfitsio with examples
+  homebrew: name=cfitsio install_options=with-examples
+
+- name: Install vim with arguments
+  homebrew: name=vim state=latest install_options=override-system-vi
+
+- name: Install neovim head
+  homebrew: name=neovim state=head
+
+- name: Install universal ctags head
+  homebrew: name=universal-ctags state=head
+
+- name: Install casks
+  homebrew_cask: name={{ item }} state=present
+  with_items:
+    - vlc
+    - virtualbox
+    - vagrant
+    - caffeine
+    - mendeley-desktop
+    - x2goclient
+    - fluid
+    - skim
+    - usb-overdrive
+    - reaper
+    - dropbox
+    - limechat
+    - adium
+    - libreoffice
+    - skype
+    - firefox
+    - google-chrome
+    - thunderbird
+    - gimp
+    - steam
+    - spectacle
+    - flux
+
+- name: Update some iTerm2 defaults
+  command: defaults write com.googlecode.iterm2 {{ item }}
+  with_items:
+    - OpenFileInNewWindows -bool true
+    - PinchToChangeFontSizeDisabled -bool true
+    - UseUnevenTabs -bool false
+
+- name: Ensure sudoers file is valid
+  lineinfile: dest=/etc/sudoers state=present regexp="^Defaults tty_tickets"
+    validate='visudo -cf %s' insertafter='Defaultsenv_keep += "HOME MAIL"'
+    line="Defaults tty_tickets"
+  become: yes

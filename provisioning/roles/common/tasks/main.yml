@@ -1,0 +1,15 @@
+---
+- name: Create project directories
+  file: path={{ item }} state=directory
+  with_items:
+    - "{{ home }}/dev/forks"
+    - "{{ home }}/work/WASP"
+    - "{{ home }}/work/NGTS"
+    - "{{ home }}/Library/Logs/custom"
+    - "{{ home }}/var"
+
+- name: Ensure log dir link is created
+  file: path={{ home }}/var/log state=link src={{ home }}/Library/Logs/custom
+
+- name: Install dotfiles
+  command: rake install
