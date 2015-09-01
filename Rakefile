@@ -1,4 +1,4 @@
-$exclude_list = ['.git', 'external', 'osx', '.', '..', 'individual_files', '.DS_Store', '.bundle', 'git-remote-hg', 'plists', 'colours']
+$exclude_list = ['.git', 'external', 'osx', '.', '..', 'individual_files', '.DS_Store', '.bundle', 'git-remote-hg', 'plists', 'colours', 'provisioning']
 
 # Every subdirectory below this one should contain extra objects either files or directories which will get linked into ~
 # This function returns all of these
