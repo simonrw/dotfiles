@@ -1,0 +1,101 @@
+---
+homebrew_taps:
+- caskroom/cask
+- homebrew/science
+- mindriot101/alt
+- homebrew/headonly
+- homebrew/dupes
+- neovim/neovim
+- universal-ctags/universal-ctags
+
+homebrew_packages:
+- git
+- git-lfs
+- zsh
+- htop-osx
+- gcc
+- tree
+- gnu-tar
+- graphviz
+- tmux
+- md5sha1sum
+- coreutils
+- freetype
+- watch
+- the_silver_searcher
+- wget
+- gawk
+- dos2unix
+- ssh-copy-id
+- nmap
+- ffmpeg
+- imagemagick
+- trash
+- hdf5
+- sextractor
+- par
+- gpg2
+- gh
+- mutt
+- tig
+
+# Docker
+- boot2docker
+- docker
+
+# Databases
+- postgresql
+- mariadb
+- redis
+
+# Ruby related
+- chruby
+- ruby-install
+- direnv
+
+# Exotic languages
+- erlang
+- elixir
+- ghc
+- cabal-install
+- leiningen
+
+# Javascript
+- node
+
+# Science
+- wcslib
+- montage
+- wcstools
+
+# My stuff
+- ds9
+
+# Head only recipes
+- git-hg
+
+- grep
+
+homebrew_casks:
+- vlc
+- virtualbox
+- vagrant
+- caffeine
+- mendeley-desktop
+- x2goclient
+- fluid
+- skim
+- usb-overdrive
+- reaper
+- dropbox
+- limechat
+- adium
+- libreoffice
+- skype
+- firefox
+- google-chrome
+- thunderbird
+- gimp
+- steam
+- spectacle
+- flux
