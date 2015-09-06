@@ -31,6 +31,7 @@ nnoremap cii :call AddImport()<Cr>
 nnoremap cin :call AddImportString("import numpy as np")<Cr>
 nnoremap cim :call AddImportString("import matplotlib.pyplot as plt")<cr>
 nnoremap cia :call AddImportString("from astropy.io import fits")<cr>
+nnoremap cis :call AddImportString("import seaborn as sns")<cr>
 
 " Make the colour column a nicer colour
 highlight ColorColumn ctermbg=0
