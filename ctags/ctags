@@ -2,6 +2,7 @@
 --exclude=.direnv/virtualenv/*
 --exclude=.tox/*
 --exclude=venv/*
+--exclude=.vagrant
 --langdef=latex
 --langmap=latex:.tex
 --regex-latex=/^\\tableofcontents/TABLE OF CONTENTS/s,toc/
