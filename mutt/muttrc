@@ -34,7 +34,7 @@ alternative_order text/plain text/enriched text/html
 
 # IMAP
 set copy=yes
-set imap_idle
+set imap_idle = no
 set header_cache="~/.mutt.d/headers"
 
 # offlineimap
