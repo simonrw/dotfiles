@@ -61,8 +61,6 @@ bind pager G bottom
 bind pager R group-reply
 bind attach <return> view-mailcap
 
-bind compose p postpone-message
-
 # macro index o "<shell-escape>offlineimap<enter>"
 macro pager \Cu "|urlview<enter>" "call urlview to open links"
 
