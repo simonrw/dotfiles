@@ -19,11 +19,6 @@
                           multi-term
                           web-mode
                           haskell-mode
-                          ; Evil packages
-                          evil
-                          evil-commentary
-                          evil-matchit
-                          evil-leader
                           ; Themes
                           color-theme-solarized
                           monokai-theme
@@ -44,18 +39,6 @@
   (require-package p))
 
 (define-key global-map (kbd "RET") 'newline-and-indent)
-
-;; Evil mode
-(setq vil-search-module 'evil-search
-      evil-want-C-U-scroll t
-      evil-want-C-w-in-emacs-state t)
-(evil-commentary-mode)
-(global-evil-leader-mode)
-(evil-leader/set-leader ",")
-(require 'evil-matchit)
-(global-evil-matchit-mode 1)
-;; Finally enable evil mode
-(evil-mode t)
 
 (when (eq system-type 'darwin)
   (set-face-attribute 'default nil :family "Inconsolata")
