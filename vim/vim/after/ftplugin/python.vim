@@ -5,6 +5,9 @@ setlocal wrap
 " Python autocompletion !
 setlocal omnifunc=pythoncomplete#Complete
 
+" Highlight trailing characters and other bad whitespace
+set list
+
 " Disable spelling
 setlocal nospell
 
