@@ -1,7 +1,5 @@
 setlocal textwidth=79
 
-setlocal wrap
-
 " Python autocompletion !
 setlocal omnifunc=pythoncomplete#Complete
 
