@@ -259,7 +259,9 @@ set secure
 set spelllang=en_gb
 
 " Better formatting
-set formatprg=par
+if executable('par')
+    set formatprg=par
+endif
 
 " Configure 'Press enter to continue' messages
 set shortmess=atI
