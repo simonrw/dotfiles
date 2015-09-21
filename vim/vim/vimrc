@@ -170,8 +170,8 @@ set expandtab
 " Decrease timeout length which leaving insert mode
 set timeoutlen=400
 
-" Disable wrapping
-set nowrap
+" Nice line breaks
+set linebreak
 
 " Increase encryption protection
 if v:version > 704
