@@ -160,11 +160,7 @@ function conda_local() {
 
 # SSH into the ngts ops machine, allowing for custom ssh arguments
 function ngtshead() {
-    if ifconfig | grep -q 'inet 137.205'; then
-        ssh -t ngtshead $@ exec zsh
-    else
-        ssh -t ngtshead.astro $@ exec zsh
-    fi
+    ssh -t ngtshead $@ exec zsh
 }
 alias ng=ngtshead
 
