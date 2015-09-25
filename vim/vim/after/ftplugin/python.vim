@@ -34,5 +34,10 @@ nnoremap cim :call AddImportString("import matplotlib.pyplot as plt")<cr>
 nnoremap cia :call AddImportString("from astropy.io import fits")<cr>
 nnoremap cis :call AddImportString("import seaborn as sns")<cr>
 
+" Allow linting with make plugin
+set makeprg=pylint\ --reports=n\ --output-format=parseable\ %:p
+set errorformat=%f:%l:\ %m
+nnoremap <leader>x :update\|:Make<cr>
+
 " Make the colour column a nicer colour
 highlight ColorColumn ctermbg=0
