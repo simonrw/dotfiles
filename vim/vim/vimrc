@@ -100,10 +100,10 @@ let g:ctrlp_extensions = ['tag', 'buffertag', 'quickfix']
 let g:ctrlp_custom_ignore = '\v\~$|\.(o|swp|pyc|wav|mp3|ogg|blend)$|(^|[/\\])\.(hg|git|bzr)($|[/\\])|venv/*'
 "}}}
 " {{{ vim-test
-nnoremap <silent> <leader>ra :TestSuite<cr>
-nnoremap <silent> <leader>rc :TestNearest<cr>
-nnoremap <silent> <leader>rf :TestFile<cr>
-nnoremap <silent> <leader>rl :TestLast<cr>
+nnoremap <silent> ta :TestSuite<cr>
+nnoremap <silent> tc :TestNearest<cr>
+nnoremap <silent> tf :TestFile<cr>
+nnoremap <silent> tl :TestLast<cr>
 
 let g:test#python#runner = 'pytest'
 let g:test#python#pytest#options = '--exitfirst'
