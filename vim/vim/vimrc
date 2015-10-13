@@ -217,6 +217,9 @@ set nojoinspaces
 " Highlight the current line
 set cursorline
 
+" Line numbering
+set relativenumber
+
 " Disable all bells
 set novisualbell
 set noerrorbells
