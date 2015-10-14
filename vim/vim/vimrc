@@ -214,9 +214,6 @@ set cindent
 " Join lines with 1 space instead of 2
 set nojoinspaces
 
-" Highlight the current line
-set cursorline
-
 " Disable all bells
 set novisualbell
 set noerrorbells
