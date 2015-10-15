@@ -2,7 +2,7 @@ URxvt*font: xft:Bitstream Vera Sans Mono:size=10
 URxvt.scrollBar: false
 
 /* IR black theme */
-URxvt.background: #131313
+/*URxvt.background: #131313
 URxvt.foreground: #F2F2F2
 
 URxvt*color0: #4E4E4E
@@ -20,7 +20,7 @@ URxvt*color13: #FF00FF
 URxvt*color6: #9DFFFF
 URxvt*color14: #00FFFF
 URxvt*color7: #EEEEEE
-URxvt*color15: #FFFFFF
+URxvt*color15: #FFFFFF*/
 
 ! Solarized color scheme for the X Window System
 ! !
