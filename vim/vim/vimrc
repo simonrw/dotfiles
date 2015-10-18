@@ -153,6 +153,9 @@ let g:vimtex_view_general_options = "@pdf -a skim"
 " {{{ vim-markdown
 let g:markdown_fenced_languages = ['python', 'sh']
 "}}}
+" {{{ vim-gutentags
+let g:gutentags_cache_dir='~/.tags'
+"}}}
 " }}}
 " }}}
 " {{{ Settings
