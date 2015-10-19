@@ -344,6 +344,9 @@ set statusline+=%P
 " Disable the 'help' key
 nnoremap K <nop>
 
+" Add mapping for copying all file contents into the system buffer
+nnoremap cp :0,$y+<Cr>
+
 " Make line based movement more sane
 nnoremap j gj
 nnoremap k gk
