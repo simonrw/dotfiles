@@ -1,9 +1,3 @@
-channels:
-    - defaults
-    - srwalker101
-    - binstar
-    - astropy
-
 always_yes: true
 
 create_default_packages:

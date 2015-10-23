@@ -5,19 +5,13 @@ import argparse
 import os
 import subprocess as sp
 
-DEFAULT_PACKAGES = ['pip', 'ipython', 'yapf']
-CONDA_CHANNEL = 'https://conda.binstar.org/srwalker101'
-
 def main(args):
     full_path = os.path.realpath(args.path)
     cmd = ['conda', 'create', '-p', full_path,
-            '-c', CONDA_CHANNEL, '--yes', '--quiet',
-            'python={}'.format(args.python)]
+            '--yes', '--quiet', 'python={}'.format(args.python)]
     # Add default packages
     cmd.extend(args.package)
-    cmd.extend(DEFAULT_PACKAGES)
     sp.check_call(map(str, cmd))
-    
 
 
 if __name__ == '__main__':
