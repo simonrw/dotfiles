@@ -190,8 +190,10 @@ case $OSTYPE in
         export PATH=/usr/texbin:${GOPATH}/bin:/usr/local/sbin:/sbin:/usr/sbin:${HOME}/.cabal/bin:${PATH}
         alias gvim=mvim
         alias gview=mview
-        alias -g awk=gawk
-        alias ls=$(brew --prefix coreutils)/libexec/gnubin/ls
+
+        # Add GNU coreutils to PATH
+        PATH="$(brew --prefix coreutils)/libexec/gnubin:$(brew --prefix gnu-tar)/libexec/gnubin:$(brew --prefix gnu-sed)/libexec/gnubin:${PATH}"
+        MANPATH="$(brew --prefix coreutils)/libexec/gnuman:${MANPATH}"
 
         if [[ "$(hostname -s)" == "mbp15" ]]; then
             export work=${HOME}/work
