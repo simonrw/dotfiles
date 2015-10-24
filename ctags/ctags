@@ -1,6 +1,8 @@
 --python-kinds=-i
 --exclude=.direnv/virtualenv/*
 --exclude=.tox/*
+--exclude=*.fits
+--exclude=*.fz
 --exclude=venv/*
 --exclude=.vagrant
 --langdef=latex
