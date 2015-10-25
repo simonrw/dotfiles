@@ -195,7 +195,7 @@ case $OSTYPE in
         PATH="$(brew --prefix coreutils)/libexec/gnubin:$(brew --prefix gnu-tar)/libexec/gnubin:$(brew --prefix gnu-sed)/libexec/gnubin:${PATH}"
         MANPATH="$(brew --prefix coreutils)/libexec/gnuman:${MANPATH}"
 
-        if [[ "$(hostname -s)" == "mbp15" ]]; then
+        if [[ "$(hostname -s)" == "lordran" ]]; then
             export work=${HOME}/work
         else
             export work=${HOME}/work/Warwick/PostDoc/
