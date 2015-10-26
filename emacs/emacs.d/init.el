@@ -44,6 +44,10 @@
   (set-face-attribute 'default nil :family "Source Code Pro")
   (set-face-attribute 'default nil :height 180)
 
+  ;; Add homebrew installed packages to load-path
+  (let ((default-directory "/usr/local/share/emacs/site-lisp/"))
+    (normal-top-level-add-subdirs-to-load-path))
+
   ;; Toggle fullscreen mode
   (global-set-key [s-return] 'toggle-frame-fullscreen)
 
