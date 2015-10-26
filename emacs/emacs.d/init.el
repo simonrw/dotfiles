@@ -41,7 +41,7 @@
 (define-key global-map (kbd "RET") 'newline-and-indent)
 
 (when (eq system-type 'darwin)
-  (set-face-attribute 'default nil :family "Inconsolata")
+  (set-face-attribute 'default nil :family "Source Code Pro")
   (set-face-attribute 'default nil :height 180)
 
   ;; Toggle fullscreen mode
