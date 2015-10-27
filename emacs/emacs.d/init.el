@@ -58,6 +58,9 @@
   ;; Allow hash command
   (global-set-key (kbd "s-3") '(lambda () (interactive) (insert "#"))))
 
+;; Evil mode
+(evil-mode)
+
 
 ;; Theming
 (load-theme 'wombat t)
