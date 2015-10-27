@@ -46,6 +46,7 @@ Plug 'ludovicchabant/vim-gutentags'
 
 " Languages
 Plug 'hdima/python-syntax'
+Plug 'vim-scripts/indentpython.vim'
 Plug 'sheerun/vim-polyglot'
 Plug 'chase/vim-ansible-yaml'
 Plug 'mitsuhiko/vim-jinja'
