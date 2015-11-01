@@ -5,6 +5,8 @@
 --exclude=*.fz
 --exclude=venv/*
 --exclude=.vagrant
+--exclude=node_modules
+--exclude=bower_components
 --langdef=latex
 --langmap=latex:.tex
 --regex-latex=/^\\tableofcontents/TABLE OF CONTENTS/s,toc/
