@@ -159,10 +159,13 @@ function conda_local() {
 }
 
 # SSH into the ngts ops machine, allowing for custom ssh arguments
-function ngtshead() {
+function ng() {
     ssh -t ngtshead $@ exec zsh
 }
-alias ng=ngtshead
+
+function ng.astro() {
+    ssh -t ngtshead.astro $@ exec zsh
+}
 
 export BUILD_PREFIX="${HOME}/.local"
 export MANPATH=${BUILD_PREFIX}/share/man:${MANPATH}
