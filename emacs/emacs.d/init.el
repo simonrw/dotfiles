@@ -41,8 +41,8 @@
 (define-key global-map (kbd "RET") 'newline-and-indent)
 
 (when (eq system-type 'darwin)
-  (set-face-attribute 'default nil :family "Source Code Pro")
-  (set-face-attribute 'default nil :height 180)
+  (set-face-attribute 'default nil :family "Hack")
+  (set-face-attribute 'default nil :height 140)
 
   ;; Add homebrew installed packages to load-path
   (let ((default-directory "/usr/local/share/emacs/site-lisp/"))
