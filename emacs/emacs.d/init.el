@@ -20,7 +20,6 @@
                           web-mode
                           haskell-mode
                           ; Themes
-                          color-theme-solarized
                           monokai-theme
                           markdown-mode
                           ir-black-theme))
