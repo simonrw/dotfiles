@@ -286,13 +286,5 @@ if type direnv >/dev/null; then
 fi
 
 
-# Setup hub
-if type hub >/dev/null; then
-  alias git=hub
-  if type compdef > /dev/null; then
-        compdef hub=git
-  fi
-fi
-
 # Finally source the theme
 source ${HOME}/.zsh/srwalker101.zsh-theme
