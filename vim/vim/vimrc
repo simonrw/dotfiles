@@ -53,9 +53,6 @@ Plug 'mitsuhiko/vim-jinja'
 Plug 'vim-scripts/TWiki-Syntax', { 'for': 'twiki' }
 Plug 'zah/nimrod.vim', { 'for': 'nim' }
 
-" My plugins
-Plug 'mindriot101/vim-yapf'
-
 call plug#end()
 " }}}
 " Plugin settings {{{
@@ -120,7 +117,6 @@ nnoremap <leader>ga :Gcommit -v --amend<cr>
 "}}}
 " {{{ vim-yapf
 " Mappings
-autocmd vimrc FileType python map <buffer> <leader>y :Yapf --verify --style='{based_on_style: google, indent_width: 4, column_limit: 79}'<cr>
 "}}}
 " {{{ vim-commentary
 let g:commentary_map_backslash = 0
@@ -444,6 +440,9 @@ noremap <leader>t :update\|!./%<cr>
 
 " Bind K to grep word under cursor
 nnoremap <silent> K :grep! "<C-R><C-W>"<cr><cr>\|:copen<Cr>
+
+" Run yapf for python files
+autocmd vimrc FileType python nnoremap <buffer> <leader>y :%!yapf --verify --style='{based_on_style: google, indent_width: 4, column_limit: 79}'<cr>
 
 " }}}
 " {{{ Misc
