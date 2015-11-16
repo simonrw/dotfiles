@@ -230,6 +230,10 @@ alias da='direnv allow'
 alias dr='direnv reload'
 alias par-ds='ssh par-ds'
 
+function mutt() {
+    (cd ${HOME}/Downloads && =mutt)
+}
+
 function init-python() {
     local readonly fname="$1"
     # Remove the filename from the arugment list
