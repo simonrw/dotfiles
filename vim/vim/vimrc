@@ -163,11 +163,11 @@ set shiftwidth=4
 set shiftround
 set expandtab
 
+" no line wrapping
+set nowrap
+
 " Decrease timeout length which leaving insert mode
 set timeoutlen=400
-
-" Nice line breaks
-set linebreak
 
 " Increase encryption protection
 if v:version > 704
