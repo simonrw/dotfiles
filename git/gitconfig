@@ -73,8 +73,8 @@
     short = 1
     branch = 1
 	submoduleSummary = true
-; [init]
-;     templatedir = ~/.gittemplate
+[init]
+    templatedir = ~/.gittemplate
 [pull]
 	rebase = preserve
 [filter "lfs"]
