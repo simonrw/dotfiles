@@ -1,5 +1,6 @@
 --python-kinds=-i
 --exclude=.direnv/virtualenv/*
+--exclude=*env/*
 --exclude=.tox/*
 --exclude=*.fits
 --exclude=*.fz
