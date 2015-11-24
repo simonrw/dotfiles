@@ -175,8 +175,8 @@ if v:version > 704
 endif
 
 " Line numbering
-set norelativenumber
-set nonumber
+set relativenumber
+set number
 
 " Do not use hlsearch
 set nohlsearch
