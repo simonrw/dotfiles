@@ -57,77 +57,10 @@ HISTFILE=~/.zsh_history
 HISTSIZE=10000
 SAVEHIST=10000
 
-alias tmux='tmux -2'
 
-# Function to attach to a session. If the session is not specified then
-#just run `tmux attach`, otherwise add a -t flag
-function _tmux_attach() {
-    if [ $1 ]; then
-        tmux attach -t $1
-    else
-        tmux attach
-    fi
-}
 
-# Function to read man pages
-function vman() {
-    vim \
-        -c "source \$VIMRUNTIME/ftplugin/man.vim" \
-        -c "Man $*" \
-        -c "set number relativenumber readonly|only"
-}
 
-# From GRB
-function mcd() { mkdir -p $1 && cd $1 }
 
-# Alias some tmux commands
-alias ta=_tmux_attach
-alias tns="tmux new-session -As"
-alias tsw=tswitch
-alias m=make
-alias lsc='ls --color=auto'
-alias ll='ls -lh'
-alias lr='ls -thor'
-alias man1='man 1'
-alias o='open'
-alias gs='g st'
-
-# Function to make a new tmux session at a variable location
-function tnew() {
-    if [[ $# -gt 0 ]]; then
-        if [[ $# -gt 1 ]]; then
-            return
-        fi
-
-        DIRNAME="$1"
-        if [[ ! -d ${DIRNAME} ]]; then
-            mkdir ${DIRNAME}
-        fi
-
-    else
-        DIRNAME=$(pwd)
-    fi
-
-    cd $DIRNAME
-    TMUXNAME=$(basename `pwd`)
-    tns ${TMUXNAME}
-
-}
-
-fancy-ctrl-z () {
-    if [[ $#BUFFER -eq 0 ]]; then
-        BUFFER="fg"
-        zle accept-line
-    else
-        zleush-input
-        zle clear-screen
-    fi
-}
-zle -N fancy-ctrl-z
-bindkey '^Z' fancy-ctrl-z
-
-# Run irssi with the correct TERM variable
-alias irssi="TERM=screen-256color irssi"
 
 export GOPATH=${HOME}/dev/gocode
 
@@ -142,136 +75,17 @@ export LESS='-FXR'
 # Narrow that down to allow easier skipping through words via M-f and M-b.
 export WORDCHARS='*?[]~&;!$%^<>'
 
-alias ipy=ipython
-alias ipysh='ipython --profile=sh'
-alias py=python
-alias pydoc='=python -m pydoc'
-alias pylab='ipython --profile=pylab'
-alias clear-pycs='find ${PWD} -name "*.pyc" -delete'
-alias g='git'
-alias gst='=git st'
-alias ga='g aa'
-alias es='exec $SHELL'
-alias v=vim
-
-function conda_local() {
-    conda create --yes -p ${PWD}/venv pip pytest ipython numpy matplotlib scipy pandas $* && source activate ./venv
-}
-
-# SSH into the ngts ops machine, allowing for custom ssh arguments
-function ng() {
-    ssh -t ngtshead $@ exec zsh
-}
-
-function ng.astro() {
-    ssh -t ngtshead.astro $@ exec zsh
-}
 
 export BUILD_PREFIX="${HOME}/.local"
 export MANPATH=${BUILD_PREFIX}/share/man:${MANPATH}
 export PATH=${BUILD_PREFIX}/bin:${PATH}
 
-case $OSTYPE in
-    linux*)
-        export BROWSER=firefox
-        export PATH=${PATH}:${HOME}/.gem/ruby/1.8/bin
-        export LD_LIBRARY_PATH=${BUILD_PREFIX}/lib:${LD_LIBRARY_PATH}
-        export PKG_CONFIG_PATH=${BUILD_PREFIX}/lib/pkgconfig:${PKG_CONFIG_PATH}
-        export LS_OPTIONS=--color=never
-
-        # Set up the module command
-        function module() { eval `modulecmd zsh $*`; }
-
-        export work=${HOME}/work/
-        alias open='xdg-open 2>/dev/null'
-        alias pbcopy='xsel --clipboard --input'
-        alias pbpaste='xsel --clipboard --output'
-
-        alias configurevim='./configure --prefix=$BUILD_PREFIX --with-features=huge --enable-pythoninterp --with-compiledby="Simon Walker" --disable-gui --without-x'
-        ;;
-    darwin*)
-        export PATH=/Library/TeX/texbin:${GOPATH}/bin:/usr/local/sbin:/sbin:/usr/sbin:${HOME}/.cabal/bin:${PATH}
-        alias gvim=mvim
-        alias gview=mview
-
-        # Add GNU coreutils to PATH
-        PATH="/usr/local/opt/coreutils/libexec/gnubin:/usr/local/opt/gnu-tar/libexec/gnubin:/usr/local/opt/gnu-sed/libexec/gnubin:${PATH}"
-        MANPATH="/usr/local/opt/coreutils/libexec/gnuman:${MANPATH}"
-
-        if [[ "$(hostname -s)" == "lordran" ]]; then
-            export work=${HOME}/work
-        else
-            export work=${HOME}/work/Warwick/PostDoc/
-        fi
-
-
-        # Configure chruby
-        source /usr/local/opt/chruby/share/chruby/chruby.sh
-
-        # Set up online help
-        unalias run-help
-        autoload run-help
-        HELPDIR=/usr/local/share/zsh/helpfiles
-        ;;
-esac
 
 export WASP="${work}/WASP"
 export NGTS="${work}/NGTS"
 export ZLP="${NGTS}/pipeline/ZLP"
 export LOGDIR="${HOME}/var/log"
 export TREE_CHARSET=ascii               # For rendering with the `tree` command
-alias work="cd ${work} && pwd && ls"
-alias ngts="cd ${NGTS} && pwd && ls"
-alias wasp="cd ${WASP} && pwd && ls"
-alias dotfiles="cd ${HOME}/dotfiles && pwd"
-alias dev="cd ${HOME}/dev && pwd && ls"
-alias de='direnv edit .'
-alias da='direnv allow'
-alias dr='direnv reload'
-alias par-ds='ssh par-ds'
-
-function mutt() {
-    (cd ${HOME}/Downloads && =mutt)
-}
-
-function init-python() {
-    local readonly fname="$1"
-    # Remove the filename from the arugment list
-    shift
-    cat >${fname} <<EOL
-#!/usr/bin/env python
-# -*- coding: utf-8 -*-
-
-from __future__ import division, print_function, absolute_import
-import argparse
-import logging
-
-logging.basicConfig(
-    level='INFO', format='[%(asctime)s] %(levelname)8s %(message)s')
-logger = logging.getLogger(__name__)
-
-
-def main(args):
-    if args.verbose:
-        logger.setLevel('DEBUG')
-    logger.debug(args)
-
-if __name__ == '__main__':
-    parser = argparse.ArgumentParser()
-    parser.add_argument('-v', '--verbose', action='store_true')
-    main(parser.parse_args())
-EOL
-    chmod +x ${fname}
-    \vim ${fname} "${@}"
-}
-
-function init-3() {
-    echo "use conda 3" >> .envrc && direnv allow && init-python ./main.py +qa
-}
-
-function init-2() {
-    echo "use conda 2" >> .envrc && direnv allow && init-python ./main.py +qa
-}
 
 # Source the custom zshrc.local file in the system
 if [[ -f ${HOME}/.zshrc.local ]]; then
@@ -288,6 +102,11 @@ if type direnv >/dev/null; then
     precmd_functions+=_direnv_hook;
     fi
 fi
+
+# source external zsh setup files
+for file in ~/.zsh/setup/*.zsh; do
+    source $file
+done
 
 
 # Finally source the theme
