@@ -53,6 +53,7 @@
     default = simple
 [diff]
     algorithm = histogram
+    tool = opendiff
 [difftool "opendiff"]
     path = opendiff
 [mergetool "diffconflicts"]
