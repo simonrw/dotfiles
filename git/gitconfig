@@ -51,6 +51,7 @@
     tool = splice
 [push]
     default = simple
+    followTags = true
 [diff]
     algorithm = histogram
     tool = opendiff
