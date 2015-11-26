@@ -28,7 +28,7 @@ local reset="%{$reset_color%}"
 local grey="%{$fg[black]%}"
 
 function __prompt_char() {
-    echo '$'
+    echo '>'
 }
 
 function hr() {
