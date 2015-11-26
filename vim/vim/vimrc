@@ -302,6 +302,9 @@ if executable('ag')
     set grepprg=ag\ --nogroup\ --nocolor\ --ignore-case
 endif
 
+" Use two spaces after full stop if joining lines with sentences
+set joinspaces
+
 " }}}
 " {{{ Statusline
 " Set up statusline
