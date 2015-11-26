@@ -4,9 +4,9 @@ set go=
 " Use console popups
 set go+=c
 
-" if mac use the monaco font
+" if mac use the Hack font
 if has("macunix")
-    set gfn=Source\ Code\ Pro:h14
+    set gfn=Hack:h14
 else
     set gfn=Bitstream\ Vera\ Sans\ Mono\ 10
 endif
