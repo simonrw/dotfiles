@@ -178,8 +178,8 @@ endif
 set relativenumber
 set number
 
-" Do not use hlsearch
-set nohlsearch
+" Use hlsearch
+set hlsearch
 
 " Do not use more prompt
 set nomore
@@ -336,6 +336,9 @@ set statusline+=%P
 
 " Disable the 'help' key
 nnoremap K <nop>
+
+" Cause space to turn of hlsearch
+nnoremap <space> :nohlsearch<cr>
 
 " Add mapping for copying all file contents into the system buffer
 nnoremap cp :0,$y+<Cr>
