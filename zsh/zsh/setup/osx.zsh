@@ -9,11 +9,8 @@ case $OSTYPE in
         PATH="/usr/local/opt/coreutils/libexec/gnubin:/usr/local/opt/gnu-tar/libexec/gnubin:/usr/local/opt/gnu-sed/libexec/gnubin:${PATH}"
         MANPATH="/usr/local/opt/coreutils/libexec/gnuman:${MANPATH}"
 
-        if [[ "$(hostname -s)" == "lordran" ]]; then
-            export work=${HOME}/work
-        else
-            export work=${HOME}/work/Warwick/PostDoc/
-        fi
+        export work=${HOME}/work
+        export NGTS=${work}/NGTS
 
 
         # Configure chruby
