@@ -152,6 +152,16 @@ let g:vimtex_view_general_options = "@pdf -a skim"
 " {{{ vim-markdown
 let g:markdown_fenced_languages = ['python', 'sh']
 "}}}
+" {{{ vim-pencil
+let g:pencil#wrapModeDefault = 'soft'
+
+augroup pencil
+    autocmd!
+    autocmd FileType markdown,mkd call pencil#init()
+    autocmd FileType text         call pencil#init()
+    autocmd FileType mail         call pencil#init()
+augroup END
+"}}}
 " }}}
 " }}}
 " {{{ Settings
