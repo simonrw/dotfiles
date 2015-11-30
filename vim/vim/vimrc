@@ -42,6 +42,8 @@ Plug 'airblade/vim-gitgutter'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'milkypostman/vim-togglelist'
 Plug 'benekastah/neomake'
+Plug 'reedes/vim-pencil'
+
 
 " Languages
 Plug 'hdima/python-syntax'
