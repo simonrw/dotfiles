@@ -30,4 +30,8 @@ alias dev="cd ${HOME}/dev && pwd && ls"
 alias de='direnv edit .'
 alias da='direnv allow'
 alias dr='direnv reload'
+
+# NGTS aliases
 alias par-ds='ssh par-ds'
+alias ngts_ops='ngtsdb ngts_ops'
+alias ngts_pipe='ngtsdb ngts_pipe'
