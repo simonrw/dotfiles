@@ -4,9 +4,9 @@ set -e
 
 main() {
     if [[ "$(hostname)" = *ngtshead* ]]; then
-        watch qstat -u sw,rgw,philipp
+        watch qstat -u '\*'
     else
-        ssh -t ngtshead "watch qstat -u sw,rgw,philipp"
+        ssh -t ngtshead "watch qstat -u '\*'"
     fi
 }
 
