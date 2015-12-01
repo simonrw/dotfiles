@@ -188,8 +188,8 @@ if v:version > 704
 endif
 
 " Line numbering
-set relativenumber
-set number
+set norelativenumber
+set nonumber
 
 " Use hlsearch
 set hlsearch
