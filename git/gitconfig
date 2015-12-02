@@ -49,6 +49,7 @@
     preloadindex = true
 [merge]
     tool = splice
+    conflictstyle = "diff3"
 [push]
     default = simple
     followTags = true
