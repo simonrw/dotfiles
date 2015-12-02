@@ -109,3 +109,17 @@ function init-2() {
 function jn() {
     jupyter notebook --no-browser $@
 }
+
+# Get server SSL certificate fingerprint in MD5, SHA1 and SHA256.
+# Note that OpenSSL doesn't support IPv6 at time of writing (2015-01-13).
+function serversslcertfp () {
+    SSSLCFFN=$(openssl s_client -showcerts -connect $1 < /dev/null)
+    # To see all validity information
+    echo "$SSSLCFFN"
+    # For getting the fingerprints
+    echo "$SSSLCFFN" | openssl x509 -md5 -fingerprint -noout
+    echo "$SSSLCFFN" | openssl x509 -sha1 -fingerprint -noout
+    echo "$SSSLCFFN" | openssl x509 -sha256 -fingerprint -noout
+    echo "$SSSLCFFN" | openssl x509 -sha512 -fingerprint -noout
+    unset SSSLCFFN
+}
