@@ -44,6 +44,7 @@ Plug 'editorconfig/editorconfig-vim'
 Plug 'milkypostman/vim-togglelist'
 Plug 'benekastah/neomake'
 Plug 'reedes/vim-pencil'
+Plug 'reedes/vim-wordy'
 
 
 " Languages
@@ -162,6 +163,8 @@ augroup pencil
     autocmd FileType mail         call pencil#init({'wrap': 'hard'})
     autocmd FileType twiki        call pencil#init()
 augroup END
+"}}}
+" {{{ vim-wordy
 "}}}
 " }}}
 " }}}
@@ -341,6 +344,8 @@ set statusline+=%y\
 
 " Cursor position
 set statusline+=%-14.(%l,%c%V%)\ 
+
+set statusline+=%{PencilMode()}\ 
 
 " View position
 set statusline+=%P
