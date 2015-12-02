@@ -159,7 +159,8 @@ augroup pencil
     autocmd!
     autocmd FileType markdown,mkd call pencil#init()
     autocmd FileType text         call pencil#init()
-    autocmd FileType mail         call pencil#init()
+    autocmd FileType mail         call pencil#init({'wrap': 'hard'})
+    autocmd FileType twiki        call pencil#init()
 augroup END
 "}}}
 " }}}
