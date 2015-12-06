@@ -14,6 +14,7 @@ case $OSTYPE in
         alias open='xdg-open 2>/dev/null'
         alias pbcopy='xsel --clipboard --input'
         alias pbpaste='xsel --clipboard --output'
+        alias lsc='ls --color=auto'
 
         alias configurevim='./configure --prefix=$BUILD_PREFIX --with-features=huge --enable-pythoninterp --with-compiledby="Simon Walker" --disable-gui --without-x'
         ;;

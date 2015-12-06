@@ -4,7 +4,6 @@ alias ta=_tmux_attach
 alias tns="tmux new-session -As"
 alias tsw=tswitch
 alias m=make
-alias lsc='ls --color=auto'
 alias ll='ls -lh'
 alias lr='ls -thor'
 alias man1='man 1'
