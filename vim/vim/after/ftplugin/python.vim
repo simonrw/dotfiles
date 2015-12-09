@@ -41,3 +41,7 @@ nnoremap <leader>x :update\|:Make<cr>
 
 " Make the colour column a nicer colour
 highlight ColorColumn ctermbg=0
+
+" Run autopep8 for python files
+nnoremap <buffer> <leader>y :%!autopep8 -<cr>
+

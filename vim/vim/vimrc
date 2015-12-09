@@ -461,10 +461,6 @@ noremap <leader>t :update\|!./%<cr>
 
 " Bind K to grep word under cursor
 nnoremap <silent> K :grep! "<C-R><C-W>"<cr><cr>\|:copen<Cr>
-
-" Run yapf for python files
-autocmd vimrc FileType python nnoremap <buffer> <leader>y :%!yapf --verify --style='{based_on_style: google, indent_width: 4, column_limit: 79}'<cr>
-
 " }}}
 " {{{ Misc
 
