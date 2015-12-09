@@ -180,8 +180,9 @@ set shiftwidth=4
 set shiftround
 set expandtab
 
-" no line wrapping
-set nowrap
+" line wrapping
+set wrap
+set linebreak
 
 " Decrease timeout length which leaving insert mode
 set timeoutlen=400
