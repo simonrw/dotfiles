@@ -14,21 +14,20 @@ use_ruby() {
 
 use_conda() {
     local ver=$1
-    local envdir=env
-    if [[ ! -d $envdir ]]; then
+    if [[ ! -d venv ]]; then
         if [[ -z $ver ]]; then
-            condaenv $envdir -p 3
+            condaenv ./venv -p 3
         else
-            condaenv $envdir -p $ver
+            condaenv ./venv -p $ver
         fi
     fi
 
     if [[ -f .gitignore ]]; then
-        grep -q $envdir .gitignore || echo "$envdir" >> .gitignore
+        grep -q venv .gitignore || echo "venv" >> .gitignore
     else
-        echo "$envdir" >> .gitignore
+        echo "venv" >> .gitignore
     fi
-    source activate ./$envdir
+    source activate ./venv
 }
 
 # vim: ft=sh
