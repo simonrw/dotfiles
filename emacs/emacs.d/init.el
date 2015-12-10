@@ -20,6 +20,7 @@
                           web-mode
                           haskell-mode
                           ; Themes
+                          solarized-theme
                           monokai-theme
                           markdown-mode
                           ir-black-theme))
@@ -62,4 +63,4 @@
 (setq-default tab-width 4 indent-tabs-mode t)
 
 ;; Theming
-(load-theme 'wombat t)
+(load-theme 'solarized t)
