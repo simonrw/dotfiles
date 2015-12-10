@@ -123,3 +123,12 @@ function serversslcertfp () {
     echo "$SSSLCFFN" | openssl x509 -sha512 -fingerprint -noout
     unset SSSLCFFN
 }
+
+# Stop opening emacs in a tmux session
+function emacs() {
+    if [[ ! -z ${TMUX} ]]; then
+        echo "Running emacs from within tmux is insane. Use =emacs if you're sure" >&2
+    else
+        =emacs $*
+    fi
+}
