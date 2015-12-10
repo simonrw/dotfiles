@@ -109,6 +109,10 @@ nnoremap <silent> tf :TestFile<cr>
 nnoremap <silent> tl :TestLast<cr>
 
 let g:test#python#runner = 'pytest'
+
+if has('nvim')
+    let test#strategy = 'neovim'
+endif
 "}}}
 " {{{ fugitive
 nnoremap <leader>gc :Gcommit -v<cr>
