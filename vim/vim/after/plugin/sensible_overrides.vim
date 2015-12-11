@@ -16,3 +16,7 @@ if has('nvim')
     set ttimeout
     set ttimeoutlen=0
 endif
+
+
+" Hide last status line if only one window
+set laststatus=1
