@@ -101,7 +101,7 @@ endif
 " Add ctrlp extensions
 let g:ctrlp_extensions = ['tag', 'buffertag', 'quickfix']
 
-let g:ctrlp_custom_ignore = '\v\~$|\.(o|swp|pyc|wav|mp3|ogg|blend)$|(^|[/\\])\.(hg|git|bzr)($|[/\\])|venv/*'
+let g:ctrlp_custom_ignore = '\v\~$|\.(o|swp|pyc|wav|mp3|ogg|blend|fits|bz2)$|(^|[/\\])\.(hg|git|bzr)($|[/\\])|venv/*'
 "}}}
 " {{{ vim-test
 nnoremap <silent> ta :TestSuite<cr>
