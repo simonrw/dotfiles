@@ -3,8 +3,10 @@
 --exclude=*env/*
 --exclude=.tox/*
 --exclude=*.fits
+--exclude=*.fits.bz2
 --exclude=*.fz
 --exclude=venv/*
+--exclude=*.json
 --exclude=.vagrant
 --exclude=node_modules
 --exclude=bower_components
