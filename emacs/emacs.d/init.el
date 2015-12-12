@@ -52,5 +52,5 @@
 (set-buffer-file-coding-system 'utf-8)
 
 ;; Theming
-(setq frame-background-mode 'dark)
+(setq frame-background-mode 'light)
 (load-theme 'solarized t)
