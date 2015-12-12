@@ -47,6 +47,10 @@
 (setq-default c-basic-offset 4 c-default-style "linux")
 (setq-default tab-width 4 indent-tabs-mode t)
 
+;; Make sure everything is in utf-8
+(set-language-environment "UTF-8")
+(set-buffer-file-coding-system 'utf-8)
+
 ;; Theming
 (setq frame-background-mode 'dark)
 (load-theme 'solarized t)
