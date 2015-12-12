@@ -1,42 +1,31 @@
 ;; Packages
-
 (require 'package)
+
 (add-to-list 'package-archives
-             '("melpa-stable" . "http://stable.melpa.org/packages/"))
-(when (< emacs-major-version 24)
-  (add-to-list 'package-archives
-               '("gnu" . "http://elpa.gnu.org/packages/")))
+	     '("melpa" . "http://melpa.org/packages/") t)
+
 (package-initialize)
+(when (not package-archive-contents)
+  (package-refresh-contents))
 
-;; Install packages
-(defvar srw/my-packages '(better-defaults
-                          paredit
-                          magit
-                          smex
-                          ido-ubiquitous
-                          idle-highlight-mode
-                          find-file-in-project
-                          multi-term
-                          web-mode
-                          haskell-mode
-                          ; Themes
-                          solarized-theme
-                          monokai-theme
-                          markdown-mode
-                          ir-black-theme))
+(defvar srw/my-packages
+  '(better-defaults
+    flycheck ;; syntax checker
+    py-autopep8
+    ein
+    markdown-mode
+    multi-term
+	color-theme-solarized
+    material-theme))
 
-(defun require-package (package &optional min-version no-refresh)
-  "Install a given package, optionally requiring min-version."
-  (if (package-installed-p package min-version)
-      t
-    (if (or (assoc package package-archive-contents) no-refresh)
-        (package-install package)
-      (progn
-        (package-refresh-contents)
-        (require-package package min-version t)))))
+(mapc #'(lambda (package)
+	  (unless (package-installed-p package)
+	    (package-install package)))
+      srw/my-packages)
 
-(dolist (p srw/my-packages)
-  (require-package p))
+;; Settings
+(setq inhibit-startup-message t)
+(setq visible-bell nil)
 
 (define-key global-map (kbd "RET") 'newline-and-indent)
 
@@ -51,10 +40,6 @@
   ;; Toggle fullscreen mode
   (global-set-key [s-return] 'toggle-frame-fullscreen)
 
-  ;; Swap command and meta
-  (setq ns-alternate-modifier 'super)
-  (setq ns-command-modifier 'meta)
-
   ;; Allow hash command
   (global-set-key (kbd "s-3") '(lambda () (interactive) (insert "#"))))
 
@@ -63,4 +48,5 @@
 (setq-default tab-width 4 indent-tabs-mode t)
 
 ;; Theming
+(setq frame-background-mode 'dark)
 (load-theme 'solarized t)
