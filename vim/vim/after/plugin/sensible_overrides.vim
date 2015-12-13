@@ -11,8 +11,10 @@ set noruler
 set shell=/bin/sh
 
 " neovim handles ESC keys as alt+key, set this to solve the problem
-"
 if has('nvim')
     set ttimeout
     set ttimeoutlen=0
 endif
+
+" Set the minimum window width to 79
+set winwidth=79
