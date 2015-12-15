@@ -15,6 +15,7 @@
     ein
     markdown-mode
     multi-term
+	clojure-mode
 	color-theme-solarized
     material-theme))
 
