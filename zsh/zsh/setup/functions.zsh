@@ -135,5 +135,5 @@ function emacs() {
 
 # Function to add timestamps to all output
 function add_timestamps() {
-    awk '{print "["strftime()"]: "$0}'
+    awk '{print strftime("[%Y/%m/%d %H:%M:%S]: ")$0}'
 }
