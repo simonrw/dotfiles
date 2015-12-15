@@ -10,7 +10,7 @@
     pullff = pull --ff-only
     pushff = push --ff-only
     mergeff = merge --ff-only
-    sync = !git gpr && git push
+    sync = !git pr && git push
     wdiff = diff --color-words
     ci = commit -v
     c = commit -m
