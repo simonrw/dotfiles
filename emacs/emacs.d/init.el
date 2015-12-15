@@ -42,7 +42,7 @@
   (global-set-key [s-return] 'toggle-frame-fullscreen)
 
   ;; Allow hash command
-  (global-set-key (kbd "s-3") '(lambda () (interactive) (insert "#"))))
+  (global-set-key (kbd "M-3") '(lambda () (interactive) (insert "#"))))
 
 ;; Language specifics
 (setq-default c-basic-offset 4 c-default-style "linux")
