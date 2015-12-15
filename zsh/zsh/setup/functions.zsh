@@ -132,3 +132,8 @@ function emacs() {
         =emacs $*
     fi
 }
+
+# Function to add timestamps to all output
+function add_timestamps() {
+    awk '{print "["strftime()"]: "$0}'
+}
