@@ -3,5 +3,8 @@ setlocal syntax=cpp11
 
 " Only write when necessary
 nnoremap :w :up
+nnoremap :wq :wq
+nnoremap :wa :wa
+nnoremap :wqa :wqa
 
 map <silent> <leader>y :0,$!clang-format<cr>
