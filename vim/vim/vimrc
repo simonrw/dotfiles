@@ -185,8 +185,9 @@ set shiftwidth=4
 set shiftround
 set expandtab
 
-" Show the cursor line
-set cursorline
+" Do not show the cursor line
+set nocursorline
+set nocursorcolumn
 
 " line wrapping
 set wrap
