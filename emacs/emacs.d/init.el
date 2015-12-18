@@ -53,4 +53,7 @@
 (set-buffer-file-coding-system 'utf-8)
 
 ;; Theming
-(load-theme 'material t)
+(if (display-graphic-p)
+	(progn
+	  (load-theme 'ir-black t))
+  (load-theme 'material t))
