@@ -13,6 +13,7 @@
     flycheck ;; syntax checker
     py-autopep8
     ein
+	smex
     markdown-mode
     multi-term
 	clojure-mode
@@ -55,6 +56,12 @@
 ;; Make sure everything is in utf-8
 (set-language-environment "UTF-8")
 (set-buffer-file-coding-system 'utf-8)
+
+;; Smex
+(autoload 'smex "smex"
+  "Smex is a M-x enhancement for Emacs")
+
+(global-set-key (kbd "M-x") 'smex)
 
 ;; Theming
 ;; Function to determine if we're running in graphics mode or not
