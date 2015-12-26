@@ -19,6 +19,7 @@
 	cider
 	paredit
 	color-theme-solarized
+	magit
     material-theme))
 
 (mapc #'(lambda (package)
