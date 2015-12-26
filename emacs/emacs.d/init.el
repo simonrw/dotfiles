@@ -55,7 +55,7 @@
 (set-buffer-file-coding-system 'utf-8)
 
 ;; Theming
-(if (display-graphic-p)
-	(progn
-	  (load-theme 'ir-black t))
-  (load-theme 'material t))
+;; Function to determine if we're running in graphics mode or not
+;; (if (display-graphic-p))
+
+(load-theme 'material t)
