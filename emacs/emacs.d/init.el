@@ -57,6 +57,9 @@
 (set-language-environment "UTF-8")
 (set-buffer-file-coding-system 'utf-8)
 
+;; Use auto-complete mode always
+(global-auto-complete-mode)
+
 ;; Smex
 (autoload 'smex "smex"
   "Smex is a M-x enhancement for Emacs")
