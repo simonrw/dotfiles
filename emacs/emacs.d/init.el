@@ -16,6 +16,7 @@
     markdown-mode
     multi-term
 	clojure-mode
+	auto-complete
 	cider
 	paredit
 	color-theme-solarized
