@@ -69,6 +69,9 @@
 ;; Compile bindings
 (global-set-key (kbd "C-c C-k") 'compile)
 
+;; Add line numbers
+(global-linum-mode)
+
 ;; Theming
 ;; Function to determine if we're running in graphics mode or not
 ;; (if (display-graphic-p))
