@@ -124,15 +124,6 @@ function serversslcertfp () {
     unset SSSLCFFN
 }
 
-# Stop opening emacs in a tmux session
-function emacs() {
-    if [[ ! -z ${TMUX} ]]; then
-        echo "Running emacs from within tmux is insane. Use =emacs if you're sure" >&2
-    else
-        =emacs $*
-    fi
-}
-
 # Function to add timestamps to all output
 function add_timestamps() {
     awk '{print strftime("[%Y/%m/%d %H:%M:%S]: ")$0}'
