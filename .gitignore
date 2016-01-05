@@ -101,3 +101,4 @@ emacs/emacs.d/el-get/
 vim/vim/autoload/plug.vim.old
 jupyter/jupyter/migrated
 emacs/emacs.d/smex-items
+mutt/mutt.d/account*

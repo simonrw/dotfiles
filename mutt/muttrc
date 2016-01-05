@@ -42,8 +42,6 @@ set header_cache="~/.mutt.d/headers"
 # set folder=$HOME/Mail
 # set spoolfile="+/Staff/INBOX"
 
-set from = "s.walker.2@warwick.ac.uk"
-
 # Keybindings
 bind index <tab> sync-mailbox
 bind index gg first-entry
@@ -71,12 +69,16 @@ set sort_alias=alias
 set reverse_alias=yes
 source $alias_file
 
-# Account details
-source ~/.mutt.d/authentication.mutt
-
 # GPG details
 source ~/.gpgrc
 set pgp_use_gpg_agent = yes
 set pgp_sign_as = B62EE752
 set pgp_timeout = 3600
 set crypt_autosign = no
+
+# Default configuation
+source ~/.mutt.d/account.work
+
+# Keyboard shortcuts for switching accounts
+macro index <f4> '<sync-mailbox><enter-command>source ~/.mutt.d/account.work<enter><change-folder>!<enter>'
+macro index <f5> '<sync-mailbox><enter-command>source ~/.mutt.d/account.gmail<enter><change-folder>!<enter>'
