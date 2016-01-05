@@ -71,6 +71,7 @@
 
 ;; Add line numbers
 (global-linum-mode)
+(setq linum-format "%d ")
 
 ;; Theming
 ;; Function to determine if we're running in graphics mode or not
