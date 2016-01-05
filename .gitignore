@@ -72,6 +72,7 @@ emacs/emacs.d/.emacs.d
 venv
 mutt/mutt.d/authentication.mutt
 mutt/mutt.d/passwords.gpg
+mutt/mutt.d/passwords*
 mutt/mutt.d/headers
 mutt/mutt.d/aliases.txt
 
