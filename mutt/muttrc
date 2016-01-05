@@ -80,5 +80,5 @@ set crypt_autosign = no
 source ~/.mutt.d/account.work
 
 # Keyboard shortcuts for switching accounts
-macro index <f4> '<sync-mailbox><enter-command>source ~/.mutt.d/account.work<enter><change-folder>!<enter>'
-macro index <f5> '<sync-mailbox><enter-command>source ~/.mutt.d/account.gmail<enter><change-folder>!<enter>'
+macro index gw '<sync-mailbox><enter-command>source ~/.mutt.d/account.work<enter><change-folder>!<enter>'
+macro index gG '<sync-mailbox><enter-command>source ~/.mutt.d/account.gmail<enter><change-folder>!<enter>'
