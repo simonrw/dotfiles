@@ -36,6 +36,9 @@
 (define-key global-map (kbd "RET") 'newline-and-indent)
 (global-visual-line-mode t)
 
+;; Hooks
+(add-hook 'markdown-mode-hook
+		  (auto-fill-mode))
 
 (when (eq system-type 'darwin)
   (set-face-attribute 'default nil :family "Hack")
