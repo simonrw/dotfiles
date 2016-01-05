@@ -73,6 +73,9 @@
 (global-linum-mode)
 (setq linum-format "%d ")
 
+;; Edit mutt emails in mail mode
+(add-to-list 'auto-mode-alist '("/mutt" . mail-mode))
+
 ;; Theming
 ;; Function to determine if we're running in graphics mode or not
 ;; (if (display-graphic-p))

@@ -49,7 +49,7 @@ def main(args):
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
     parser.add_argument('stub')
-    parser.add_argument('-e', '--editor', required=False, default='macvim')
+    parser.add_argument('-e', '--editor', required=False, default='emacs')
     parser.add_argument('-c', '--compile', action='store_true',
             dest='_compile')
     parser.add_argument('-t', '--compile-to', required=False, default='html')
