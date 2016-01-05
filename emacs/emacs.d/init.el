@@ -34,6 +34,8 @@
 (setq visible-bell nil)
 
 (define-key global-map (kbd "RET") 'newline-and-indent)
+(global-visual-line-mode t)
+
 
 (when (eq system-type 'darwin)
   (set-face-attribute 'default nil :family "Hack")
