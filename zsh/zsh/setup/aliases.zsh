@@ -31,9 +31,6 @@ alias da='direnv allow'
 alias dr='direnv reload'
 alias grep='grep --color=auto'
 
-# Stop vim once and for all
-alias vim=emacs
-
 # NGTS aliases
 alias par-ds='ssh par-ds'
 alias ngts_ops='ngtsdb ngts_ops'

@@ -12,9 +12,6 @@
 - name: Install vim with arguments
   homebrew: name=vim state=latest install_options=override-system-vi
 
-- name: Install emacs with arguments
-  homebrew: name=emacs state=latest install_options=with-cocoa
-
 - name: Install scamp from source
   homebrew: name=scamp install_options=build-from-source
 
