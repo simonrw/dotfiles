@@ -82,4 +82,7 @@
 ;; Function to determine if we're running in graphics mode or not
 ;; (if (display-graphic-p))
 
-(load-theme 'material t)
+(load-theme 'solarized t)
+(set-variable 'frame-background-mode 'light)
+(set-terminal-parameter nil 'background-mode 'light)
+(enable-theme 'solarized)
