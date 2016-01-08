@@ -1,6 +1,10 @@
 URxvt*font: xft:Bitstream Vera Sans Mono:size=10
 URxvt.scrollBar: false
 
+// Use alt key as meta key
+URxvt*metaSendsEscape: true
+URxvt*modifier: super
+
 /* IR black theme */
 /* 
 URxvt.background: #131313
