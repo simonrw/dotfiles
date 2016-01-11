@@ -63,6 +63,8 @@ function ng.astro() {
 }
 
 function mutt() {
+    echo "Do not check your emails. Sleeping for 10 seconds"
+    sleep 10
     (cd ${HOME}/Downloads && =mutt)
 }
 
