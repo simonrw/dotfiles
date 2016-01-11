@@ -30,6 +30,7 @@ alias de='direnv edit .'
 alias da='direnv allow'
 alias dr='direnv reload'
 alias grep='grep --color=auto'
+alias email=mutt
 
 # NGTS aliases
 alias par-ds='ssh par-ds'
