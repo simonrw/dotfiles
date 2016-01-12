@@ -130,3 +130,12 @@ function serversslcertfp () {
 function add_timestamps() {
     awk '{print strftime("[%Y/%m/%d %H:%M:%S]: ")$0}'
 }
+
+# Function to lock the screen
+function lockscreen() {
+    case $OSTYPE in
+        darwin*)
+            /System/Library/CoreServices/Menu\ Extras/User.menu/Contents/Resources/CGSession -suspend
+            ;;
+    esac
+}
