@@ -38,6 +38,7 @@ homebrew_packages:
 - gh
 - mutt
 - tig
+- w3m
 
 # Docker
 - boot2docker
