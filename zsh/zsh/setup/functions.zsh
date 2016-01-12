@@ -63,8 +63,9 @@ function ng.astro() {
 }
 
 function mutt() {
-    echo "Do not check your emails. Sleeping for 10 seconds"
-    sleep 10
+    echo "Locking screen to stop you checking emails"
+    sleep 2
+    lockscreen
     (cd ${HOME}/Downloads && =mutt)
 }
 
