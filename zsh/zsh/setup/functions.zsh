@@ -62,13 +62,6 @@ function ng.astro() {
     ssh -t ngtshead.astro $@ exec zsh
 }
 
-function mutt() {
-    echo "Locking screen to stop you checking emails"
-    sleep 2
-    lockscreen
-    (cd ${HOME}/Downloads && =mutt)
-}
-
 function init-python() {
     local readonly fname="$1"
     # Remove the filename from the arugment list
