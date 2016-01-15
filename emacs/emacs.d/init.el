@@ -22,7 +22,9 @@
 	paredit
 	color-theme-solarized
 	magit
+	ansible
     material-theme))
+
 
 (mapc #'(lambda (package)
 	  (unless (package-installed-p package)
