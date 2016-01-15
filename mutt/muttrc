@@ -63,7 +63,7 @@ bind attach <return> view-mailcap
 macro pager \Cu "|urlview<enter>" "call urlview to open links"
 
 # Contacts
-set display_filter=~/.mutt.d/add-to-contacts.sh
+# set display_filter=~/.mutt.d/add-to-contacts.sh
 set alias_file=~/.mutt.d/aliases.txt
 set sort_alias=alias
 set reverse_alias=yes
