@@ -29,7 +29,9 @@ alias de='direnv edit .'
 alias da='direnv allow'
 alias dr='direnv reload'
 alias grep='grep --color=auto'
-alias email=mutt
+alias mutt='echo "Use either mutt-gmail or mutt-work"'
+alias mutt-gmail='=mutt -n -F ~/.mutt.d/startup-gmail.mutt'
+alias mutt-work='=mutt -n -F ~/.mutt.d/startup-work.mutt'
 
 # NGTS aliases
 alias par-ds='ssh par-ds'
