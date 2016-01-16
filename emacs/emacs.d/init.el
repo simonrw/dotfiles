@@ -76,9 +76,9 @@
 ;; Compile bindings
 (global-set-key (kbd "C-c C-k") 'compile)
 
-;; Add line numbers
-(global-linum-mode)
-(setq linum-format "%d ")
+;; Make sure line numbers are not on
+(global-linum-mode 0)
+
 
 ;; Theming
 ;; Function to determine if we're running in graphics mode or not
