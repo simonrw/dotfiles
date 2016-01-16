@@ -20,7 +20,6 @@
 	auto-complete
 	cider
 	paredit
-	color-theme-solarized
 	magit
 	ansible
     material-theme))
@@ -86,7 +85,5 @@
 ;; Function to determine if we're running in graphics mode or not
 ;; (if (display-graphic-p))
 
-(load-theme 'solarized t)
-(set-variable 'frame-background-mode 'light)
-(set-terminal-parameter nil 'background-mode 'light)
-(enable-theme 'solarized)
+(load-theme 'ir-black t)
+

@@ -6,7 +6,6 @@ URxvt*metaSendsEscape: true
 URxvt*modifier: super
 
 /* IR black theme */
-/* 
 URxvt.background: #131313
 URxvt.foreground: #F2F2F2
 
@@ -26,7 +25,6 @@ URxvt*color6: #9DFFFF
 URxvt*color14: #00FFFF
 URxvt*color7: #EEEEEE
 URxvt*color15: #FFFFFF
-*/
 
 ! Solarized color scheme for the X Window System
 ! !
@@ -35,6 +33,7 @@ URxvt*color15: #FFFFFF
 !
 ! ! Common
 
+/* 
 #define S_yellow        #b58900
 #define S_orange        #cb4b16
 #define S_red           #dc322f
@@ -100,3 +99,4 @@ URxvt*color12:                 S_base0
 URxvt*color13:                 S_violet
 URxvt*color14:                 S_base1
 URxvt*color15:                 S_base3
+*/
