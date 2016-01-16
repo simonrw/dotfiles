@@ -32,6 +32,13 @@ unset markers
 auto_view text/html
 alternative_order text/plain text/enriched text/html
 
+# Headers
+ignore *
+unignore from: to: cc: date: subject:
+unhdr_order *
+hdr_order from: to: cc: date: subject:
+
+
 # IMAP
 set copy=yes
 set imap_idle = no
