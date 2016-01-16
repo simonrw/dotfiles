@@ -79,6 +79,8 @@
 ;; Make sure line numbers are not on
 (global-linum-mode 0)
 
+;; Stop any bells
+(setq ring-bell-function 'ignore)
 
 ;; Theming
 ;; Function to determine if we're running in graphics mode or not
