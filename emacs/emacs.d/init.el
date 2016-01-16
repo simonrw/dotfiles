@@ -43,7 +43,7 @@
 		  (auto-fill-mode))
 
 (when (eq system-type 'darwin)
-  (set-face-attribute 'default nil :family "Hack")
+  (set-face-attribute 'default nil :family "Source Code Pro")
   (set-face-attribute 'default nil :height 140)
 
   ;; Add homebrew installed packages to load-path
