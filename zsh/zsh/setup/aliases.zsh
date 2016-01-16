@@ -32,6 +32,8 @@ alias grep='grep --color=auto'
 alias mutt='echo "Use either mutt-gmail or mutt-work"'
 alias email-gmail='=mutt -n -F ~/.mutt.d/startup-gmail.mutt'
 alias email-work='=mutt -n -F ~/.mutt.d/startup-work.mutt'
+alias eg=email-gmail
+alias ew=email-work
 
 # NGTS aliases
 alias par-ds='ssh par-ds'
