@@ -40,7 +40,7 @@ setlocal errorformat=%f:%l:\ %m
 nnoremap <leader>x :update\|:Make<cr>
 
 " Make the colour column a nicer colour
-highlight ColorColumn ctermbg=7
+highlight ColorColumn ctermbg=0
 
 " Run autopep8 for python files
 nnoremap <buffer> <leader>y mm\|:%!autopep8 -<cr>\|'m
