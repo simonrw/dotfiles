@@ -22,8 +22,7 @@
 	paredit
 	magit
 	ansible
-    material-theme))
-
+	ir-black-theme))
 
 (mapc #'(lambda (package)
 	  (unless (package-installed-p package)
