@@ -7,4 +7,4 @@ nnoremap :wq :wq
 nnoremap :wa :wa
 nnoremap :wqa :wqa
 
-map <silent> <leader>y :0,$!clang-format<cr>
+map <silent> <leader>y mm:0,$!clang-format<cr>'m
