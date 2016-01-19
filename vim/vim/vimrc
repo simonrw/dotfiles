@@ -513,6 +513,7 @@ colorscheme grb256
 
 " Make it more obvious which paren I'm on
 hi MatchParen cterm=none ctermbg=black ctermfg=yellow
+hi ColorColumn ctermbg=0
 
 " Make git gutterline black background
 hi SignColumn ctermbg=none
