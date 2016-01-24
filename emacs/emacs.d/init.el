@@ -43,7 +43,7 @@
 
 (when (eq system-type 'darwin)
   (set-face-attribute 'default nil :family "Source Code Pro")
-  (set-face-attribute 'default nil :height 140)
+  (set-face-attribute 'default nil :height 170)
 
   ;; Add homebrew installed packages to load-path
   (let ((default-directory "/usr/local/share/emacs/site-lisp/"))
