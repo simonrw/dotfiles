@@ -41,7 +41,7 @@ hdr_order from: to: cc: date: subject:
 
 # IMAP
 set copy=yes
-set imap_idle = no
+set imap_idle = yes
 set header_cache="~/.mutt.d/headers"
 
 # offlineimap
