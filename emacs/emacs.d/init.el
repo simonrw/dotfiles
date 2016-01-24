@@ -22,6 +22,7 @@
 	paredit
 	magit
 	ansible
+	jinja2-mode
 	ir-black-theme))
 
 (mapc #'(lambda (package)
