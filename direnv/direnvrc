@@ -15,20 +15,21 @@ use_ruby() {
 use_conda() {
     local ver=$1
     local env_dir=venv
-    if [[ ! -d $env_dir ]]; then
-        if [[ -z $ver ]]; then
-            condaenv ./$env_dir -p 3
-        else
-            condaenv ./$env_dir -p $ver
-        fi
-    fi
+    local env_name="$(basename "${PWD}")"
+    local root_env_path=${HOME}/anaconda/envs
 
-    if [[ -f .gitignore ]]; then
-        grep -q $env_dir .gitignore || echo "$env_dir" >> .gitignore
+    if [[ -d $env_dir ]]; then
+        source activate ./$env_dir
     else
-        echo "$env_dir" >> .gitignore
+        if [[ ! -d ${root_env_path}/${env_name} ]]; then
+            if [[ -z $ver ]]; then
+                condaenv -p 3
+            else
+                condaenv -p $ver
+            fi
+        fi
+        source activate $(basename ${PWD})
     fi
-    source activate ./$env_dir
 }
 
 # vim: ft=sh
