@@ -10,6 +10,3 @@
 
 - name: Ensure log dir link is created
   file: path={{ home }}/var/log state=link src={{ home }}/Library/Logs/custom
-
-- name: Install dotfiles
-  command: rake install

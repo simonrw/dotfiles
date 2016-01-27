@@ -23,7 +23,7 @@ bootstrap_homebrew() {
 }
 
 provision() {
-    ansible-playbook -i hosts site.yml
+    ansible-playbook -i hosts provisioning/site.yml --ask-become-pass
 }
 
 install_ansible_if_required() {

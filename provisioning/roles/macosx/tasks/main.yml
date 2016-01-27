@@ -15,9 +15,6 @@
 - name: Install scamp from source
   homebrew: name=scamp install_options=build-from-source
 
-- name: Install neovim head
-  homebrew: name=neovim state=head
-
 - name: Install universal ctags head
   homebrew: name=universal-ctags state=head
 

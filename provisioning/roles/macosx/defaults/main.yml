@@ -10,18 +10,14 @@ homebrew_taps:
 
 homebrew_packages:
 - git
-- git-lfs
 - zsh
 - htop-osx
 - gcc
 - tree
-- gnu-tar
 - graphviz
 - tmux
 - md5sha1sum
 - coreutils
-- freetype
-- watch
 - the_silver_searcher
 - wget
 - gawk
@@ -31,18 +27,18 @@ homebrew_packages:
 - ffmpeg
 - imagemagick
 - trash
-- hdf5
-- sextractor
 - par
 - gpg
-- gh
 - mutt
-- tig
 - w3m
+- direnv
+- grep
+- ansible
 
 # Docker
-- boot2docker
 - docker
+- docker-machine
+- docker-compose
 
 # Databases
 - postgresql
@@ -52,31 +48,18 @@ homebrew_packages:
 # Ruby related
 - chruby
 - ruby-install
-- direnv
 
 # Exotic languages
 - erlang
 - elixir
-- ghc
-- cabal-install
 - leiningen
 
 # Javascript
 - node
 
-# Science
-- wcslib
-- montage
-- wcstools
-- sextractor
-
 # My stuff
 - ds9
 
-# Head only recipes
-- git-hg
-
-- grep
 
 homebrew_casks:
 - vlc
@@ -84,20 +67,11 @@ homebrew_casks:
 - vagrant
 - caffeine
 - mendeley-desktop
-- x2goclient
-- fluid
 - skim
-- usb-overdrive
-- reaper
 - dropbox
 - limechat
-- adium
-- libreoffice
 - skype
 - firefox
-- google-chrome-canary
-- thunderbird-beta
 - gimp
 - steam
 - spectacle
-- flux
