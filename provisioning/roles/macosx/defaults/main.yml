@@ -62,16 +62,29 @@ homebrew_packages:
 
 
 homebrew_casks:
-- vlc
-- virtualbox
-- vagrant
 - caffeine
-- mendeley-desktop
-- skim
 - dropbox
-- limechat
-- skype
+- elm-platform
 - firefox
+- garmin-express
 - gimp
-- steam
+- gpgtools
+- keyboard-cleaner
+- limechat
+- puppet
+- saoimage-ds9
+- mendeley-desktop
+- mactex
+- macvim
+- iterm2
+- skim
+- skype
+- transmission
 - spectacle
+- steam
+- vagrant
+- virtualbox
+- zoomus
+- omnidisksweeper
+- vlc
+- osxfuse
