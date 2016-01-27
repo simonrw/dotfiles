@@ -6,8 +6,8 @@ import os
 import subprocess as sp
 
 def main(args):
-    stub = os.path.basename(os.getcwd())
-    cmd = ['conda', 'create', '-n', stub,
+    full_path = os.path.realpath(args.path)
+    cmd = ['conda', 'create', '-p', full_path,
             '--yes', '--quiet', 'python={}'.format(args.python)]
     # Add default packages
     cmd.extend(args.package)
@@ -16,7 +16,8 @@ def main(args):
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
+    parser.add_argument('path')
     parser.add_argument('package', nargs='*')
-    parser.add_argument('-p', '--python', help='Python version', default=3,
+    parser.add_argument('-p', '--python', help='Python version', default=2,
                         required=False)
     main(parser.parse_args())
