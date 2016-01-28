@@ -55,6 +55,7 @@ homebrew_packages:
 - erlang
 - elixir
 - leiningen
+- nim
 
 # Javascript
 - node
