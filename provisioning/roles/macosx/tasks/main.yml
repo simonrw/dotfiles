@@ -1,22 +1,34 @@
 - name: Tap the homebrew taps
   homebrew_tap: tap={{ item }} state=present
+  tags:
+    - packaging
   with_items: homebrew_taps
 
 - name: Install homebrew packages
   homebrew: name={{ item }} state=present
+  tags:
+    - packaging
   with_items: homebrew_packages
 
 - name: Install cfitsio with examples
   homebrew: name=cfitsio install_options=with-examples
+  tags:
+    - packaging
 
 - name: Install vim with arguments
   homebrew: name=vim state=latest install_options=override-system-vi
+  tags:
+    - packaging
 
 - name: Install universal ctags head
   homebrew: name=universal-ctags state=head
+  tags:
+    - packaging
 
 - name: Install casks
   homebrew_cask: name={{ item }} state=present
+  tags:
+    - packaging
   with_items: homebrew_casks
 
 - name: Update some iTerm2 defaults
