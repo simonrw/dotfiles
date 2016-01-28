@@ -78,7 +78,7 @@ export WORDCHARS='*?[]~&;!$%^<>'
 
 export BUILD_PREFIX="${HOME}/.local"
 export MANPATH=${BUILD_PREFIX}/share/man:${MANPATH}
-export PATH=${BUILD_PREFIX}/bin:${PATH}
+export PATH=${BUILD_PREFIX}/bin:${PATH}:${HOME}/.nimble/bin
 
 
 export WASP="${work}/WASP"
