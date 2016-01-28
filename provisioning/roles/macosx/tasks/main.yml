@@ -20,6 +20,11 @@
   tags:
     - packaging
 
+- name: Install emacs with arguments
+  homebrew: name=emacs state=latest install_options=with-cocoa,with-imagemagick
+  tags:
+    - packaging
+
 - name: Install universal ctags head
   homebrew: name=universal-ctags state=head
   tags:
