@@ -29,7 +29,8 @@ nnoremap cii :call AddImport()<Cr>
 nnoremap cin :call AddImportString("import numpy as np")<Cr>
 nnoremap cim :call AddImportString("import matplotlib.pyplot as plt")<cr>
 nnoremap cia :call AddImportString("from astropy.io import fits")<cr>
-nnoremap cis :call AddImportString("import seaborn as sns")<cr>
+nnoremap cis :call AddImportString("import sys")<cr>
+nnoremap cio :call AddImportString("import os")<cr>
 
 " Allow linting with make plugin
 setlocal makeprg=pylint\ --reports=n\ --output-format=parseable\ %:p
