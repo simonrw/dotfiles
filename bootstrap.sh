@@ -19,7 +19,7 @@ bootstrap_ansible() {
 }
 
 bootstrap_homebrew() {
-    true
+    /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 }
 
 provision() {
