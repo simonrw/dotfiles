@@ -12,9 +12,6 @@
 - name: Install vim with arguments
   homebrew: name=vim state=latest install_options=override-system-vi
 
-- name: Install scamp from source
-  homebrew: name=scamp install_options=build-from-source
-
 - name: Install universal ctags head
   homebrew: name=universal-ctags state=head
 
