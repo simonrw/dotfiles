@@ -11,6 +11,7 @@ homebrew_taps:
 homebrew_packages:
 - ansible
 - coreutils
+- curl
 - direnv
 - dos2unix
 - fabric
@@ -21,13 +22,16 @@ homebrew_packages:
 - gpg
 - graphviz
 - grep
+- heroku-toolbelt
 - htop-osx
 - imagemagick
+- jq
 - md5sha1sum
 - mutt
 - nmap
 - openssh
 - par
+- reattach-to-user-namespace
 - ssh-copy-id
 - the_silver_searcher
 - tmux
@@ -71,6 +75,7 @@ homebrew_casks:
 - firefox
 - garmin-express
 - gimp
+- google-chrome
 - gpgtools
 - iterm2
 - keyboard-cleaner
