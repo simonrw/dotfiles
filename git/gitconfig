@@ -47,6 +47,7 @@
     editor = vim
     mergeoptions = --no-ff
     preloadindex = true
+	excludesfile = ~/.gitignore_global
 [merge]
     tool = splice
     conflictstyle = "diff3"
