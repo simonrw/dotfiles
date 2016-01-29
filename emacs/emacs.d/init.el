@@ -81,9 +81,13 @@
 ;; Stop any bells
 (setq ring-bell-function 'ignore)
 
+;; Mouse control (BAD!)
+(setq mouse-wheel-scroll-amount '(2 ((shift) . 1)))
+(setq mouse-wheel-progressive-speed nil)
+(setq mouse-wheel-follow-mouse 't)
+
 ;; Theming
 ;; Function to determine if we're running in graphics mode or not
 ;; (if (display-graphic-p))
 
 (load-theme 'ir-black t)
-
