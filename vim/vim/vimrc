@@ -101,7 +101,7 @@ endif
 " Add ctrlp extensions
 let g:ctrlp_extensions = ['tag', 'buffertag', 'quickfix']
 
-let g:ctrlp_custom_ignore = '\v\~$|\.(o|swp|pyc|wav|mp3|ogg|blend|fits|bz2)$|(^|[/\\])\.(hg|git|bzr)($|[/\\])|venv/*'
+let g:ctrlp_custom_ignore = '\v\~$|\.(o|swp|pyc|wav|mp3|ogg|blend|fits|bz2)$|(^|[/\\])\.(hg|git|bzr)($|[/\\])|.venv/*'
 "}}}
 " {{{ vim-test
 nnoremap <silent> ta :TestSuite<cr>
@@ -304,7 +304,7 @@ set conceallevel=0
 set showtabline=1
 
 " Set some ignore patterns
-set wildignore+=*.aux,*.o,*.git,/tmp/*,*.so,*.swp,*.zip,venv,env,*.pyc
+set wildignore+=*.aux,*.o,*.git,/tmp/*,*.so,*.swp,*.zip,.venv,env,*.pyc
 
 set switchbuf=useopen
 

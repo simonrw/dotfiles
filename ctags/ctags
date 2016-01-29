@@ -5,7 +5,7 @@
 --exclude=*.fits
 --exclude=*.fits.bz2
 --exclude=*.fz
---exclude=venv/*
+--exclude=.venv/*
 --exclude=*.json
 --exclude=.vagrant
 --exclude=node_modules
