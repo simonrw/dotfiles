@@ -35,6 +35,7 @@ alias email-work='=mutt -n -F ~/.mutt.d/startup-work.mutt'
 alias eg=email-gmail
 alias ew=email-work
 alias sqlite3='rlwrap =sqlite3'
+alias hn='hn --keep-open'
 
 # NGTS aliases
 alias par-ds='ssh par-ds'
