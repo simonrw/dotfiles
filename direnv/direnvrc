@@ -14,7 +14,7 @@ use_ruby() {
 
 use_conda() {
     local ver=$1
-    local env_dir=.venv
+    local env_dir=venv
     if [[ ! -d $env_dir ]]; then
         if [[ -z $ver ]]; then
             condaenv ./$env_dir -p 3
