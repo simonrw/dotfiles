@@ -66,6 +66,10 @@ homebrew_packages:
 # Javascript
 - node
 
+# Astronomy
+- wcslib
+- wcstools
+
 # My stuff
 - ds9
 
