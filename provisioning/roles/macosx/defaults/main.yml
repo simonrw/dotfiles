@@ -32,6 +32,7 @@ homebrew_packages:
 - openssh
 - par
 - reattach-to-user-namespace
+- rlwrap
 - ssh-copy-id
 - tclap
 - the_silver_searcher
