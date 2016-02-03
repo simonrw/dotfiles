@@ -88,6 +88,5 @@
 
 ;; Theming
 ;; Function to determine if we're running in graphics mode or not
-;; (if (display-graphic-p))
-
-(load-theme 'ir-black t)
+(if (display-graphic-p)
+    (load-theme 'ir-black t))
