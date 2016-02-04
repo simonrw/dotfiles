@@ -1,7 +1,6 @@
-setlocal textwidth=79
-
-" Python autocompletion !
-setlocal omnifunc=pythoncomplete#Complete
+" Disable wrapping
+setlocal textwidth=0
+set nowrap
 
 " Disable spelling
 setlocal nospell
@@ -10,7 +9,7 @@ setlocal nospell
 let b:vimpipe_command="python"
 
 " Add the colourcolumn
-setlocal colorcolumn=80
+setlocal colorcolumn=90
 
 function! AddImportString(import_text)
     execute "normal! mmgg/import\<cr>}"
