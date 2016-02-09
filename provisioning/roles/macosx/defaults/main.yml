@@ -25,12 +25,15 @@ homebrew_packages:
 - heroku-toolbelt
 - htop-osx
 - imagemagick
+- irssi
 - jq
 - md5sha1sum
 - mutt
+- ngircd
 - nmap
 - openssh
 - par
+- pdsh
 - reattach-to-user-namespace
 - rlwrap
 - ssh-copy-id
@@ -40,6 +43,7 @@ homebrew_packages:
 - trash
 - tree
 - w3m
+- weechat
 - wget
 - zsh
 
