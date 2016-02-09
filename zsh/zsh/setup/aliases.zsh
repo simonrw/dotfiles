@@ -32,8 +32,10 @@ alias grep='grep --color=auto'
 alias mutt='echo "Use either mutt-gmail or mutt-work"'
 alias email-gmail='=mutt -n -F ~/.mutt.d/startup-gmail.mutt'
 alias email-work='=mutt -n -F ~/.mutt.d/startup-work.mutt'
+alias email-ngtsops='=mutt -n -F ~/.mutt.d/startup-ngtsops.mutt'
 alias eg=email-gmail
 alias ew=email-work
+alias en=email-ngtsops
 alias sqlite3='rlwrap =sqlite3'
 alias hn='hn --keep-open'
 
