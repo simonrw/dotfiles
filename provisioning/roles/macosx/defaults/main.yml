@@ -19,6 +19,7 @@ homebrew_packages:
 - gawk
 - gcc
 - git
+- gnu-sed
 - gpg
 - graphviz
 - grep
