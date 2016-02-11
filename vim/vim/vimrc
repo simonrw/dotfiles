@@ -48,6 +48,7 @@ Plug 'altercation/vim-colors-solarized'
 Plug 'godlygeek/tabular'
 Plug 'jamessan/vim-gnupg'
 Plug 'airblade/vim-gitgutter'
+Plug 'editorconfig/editorconfig-vim'
 
 
 " Languages
