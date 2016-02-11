@@ -10,6 +10,7 @@ homebrew_taps:
 
 homebrew_packages:
 - ansible
+- binutils
 - coreutils
 - curl
 - direnv
