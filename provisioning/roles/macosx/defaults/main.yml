@@ -25,7 +25,7 @@ homebrew_packages:
 - graphviz
 - grep
 - heroku-toolbelt
-- htop-osx
+- htop
 - imagemagick
 - irssi
 - jq
