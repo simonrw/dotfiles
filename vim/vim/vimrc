@@ -192,6 +192,9 @@ set nocursorcolumn
 set wrap
 set linebreak
 
+" Show commands as they're being typed
+set showcmd
+
 " Decrease timeout length which leaving insert mode
 set timeoutlen=400
 
