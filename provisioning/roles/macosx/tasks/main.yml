@@ -48,3 +48,12 @@
     validate='visudo -cf %s' insertafter='Defaultsenv_keep += "HOME MAIL"'
     line="Defaults tty_tickets"
   become: yes
+
+- name: Copy sshd template
+  template:
+    src: sshd_config
+    dest: /etc/ssh/sshd_config
+    owner: root
+    group: wheel
+    mode: u=rw,g=r,o=r
+  become: yes
