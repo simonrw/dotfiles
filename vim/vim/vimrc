@@ -42,7 +42,6 @@ Plug 'honza/vim-snippets'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'milkypostman/vim-togglelist'
 Plug 'benekastah/neomake'
-Plug 'reedes/vim-pencil'
 Plug 'reedes/vim-wordy'
 Plug 'altercation/vim-colors-solarized'
 Plug 'godlygeek/tabular'
@@ -156,17 +155,6 @@ let g:vimtex_view_general_options = "@pdf -a skim"
 "}}}
 " {{{ vim-markdown
 let g:markdown_fenced_languages = ['python', 'sh']
-"}}}
-" {{{ vim-pencil
-let g:pencil#wrapModeDefault = 'hard'
-
-augroup pencil
-    autocmd!
-    autocmd FileType markdown,mkd call pencil#init()
-    autocmd FileType text         call pencil#init()
-    autocmd FileType mail         call pencil#init({'wrap': 'hard'})
-    autocmd FileType twiki        call pencil#init()
-augroup END
 "}}}
 " {{{ vim-wordy
 "}}}
