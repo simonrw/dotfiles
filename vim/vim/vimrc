@@ -189,8 +189,7 @@ set nocursorline
 set nocursorcolumn
 
 " line wrapping
-set wrap
-set linebreak
+set nowrap
 
 " Show commands as they're being typed
 set showcmd
