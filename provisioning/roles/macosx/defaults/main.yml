@@ -36,6 +36,7 @@ homebrew_packages:
 - openssh
 - pandoc
 - par
+- parallel
 - pdsh
 - reattach-to-user-namespace
 - rlwrap
@@ -107,6 +108,7 @@ homebrew_casks:
 - skim
 - skype
 - spectacle
+- spotify
 - steam
 - thunderbird
 - transmission

@@ -20,6 +20,9 @@
   tags:
     - packaging
 
+- name: Install gnuplot with arguments
+  homebrew: name=gnuplot state=latest install_options=with-x11,with-cairo,with-wxmac,with-aquaterm
+
 - name: Install emacs with arguments
   homebrew: name=emacs state=latest install_options=with-cocoa,with-imagemagick
   tags:
