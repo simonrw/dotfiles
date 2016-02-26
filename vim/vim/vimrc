@@ -348,8 +348,6 @@ set statusline+=%y\
 " Cursor position
 set statusline+=%-14.(%l,%c%V%)\ 
 
-set statusline+=%{PencilMode()}\ 
-
 " View position
 set statusline+=%P
 
