@@ -48,6 +48,7 @@ Plug 'godlygeek/tabular'
 Plug 'jamessan/vim-gnupg'
 Plug 'airblade/vim-gitgutter'
 Plug 'editorconfig/editorconfig-vim'
+Plug 'tweekmonster/braceless.vim'
 
 
 " Languages
@@ -157,6 +158,9 @@ let g:vimtex_view_general_options = "@pdf -a skim"
 let g:markdown_fenced_languages = ['python', 'sh']
 "}}}
 " {{{ vim-wordy
+"}}}
+" {{{ braceless
+autocmd FileType python BracelessEnable +indent
 "}}}
 " }}}
 " }}}
