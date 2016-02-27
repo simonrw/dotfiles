@@ -119,3 +119,6 @@ homebrew_casks:
 - virtualbox
 - vlc
 - zoomus
+
+npm_packages:
+- react-native-cli
