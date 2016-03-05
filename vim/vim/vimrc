@@ -58,6 +58,7 @@ Plug 'chase/vim-ansible-yaml'
 Plug 'mitsuhiko/vim-jinja'
 Plug 'vim-scripts/TWiki-Syntax', { 'for': 'twiki' }
 Plug 'zah/nimrod.vim', { 'for': 'nim' }
+Plug 'wlangstroth/vim-racket'
 
 call plug#end()
 " }}}
