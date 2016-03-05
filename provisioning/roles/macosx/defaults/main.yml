@@ -122,3 +122,7 @@ homebrew_casks:
 
 npm_packages:
 - react-native-cli
+
+pip_packages:
+- dtags
+- autopep8
