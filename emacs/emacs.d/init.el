@@ -72,6 +72,9 @@
 
 (global-set-key (kbd "M-x") 'smex)
 
+;; Open files in an existing frame instead of a new frame each time
+(setq ns-pop-up-frames nil)
+
 ;; Compile bindings
 (global-set-key (kbd "C-c C-k") 'compile)
 
