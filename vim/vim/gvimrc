@@ -6,7 +6,7 @@ set go+=c
 
 " if mac use the Hack font
 if has("macunix")
-    set gfn=Source\ Code\ Pro\ Medium:h14
+    set gfn=Source\ Code\ Pro\ Medium:h12
 else
     set gfn=Bitstream\ Vera\ Sans\ Mono\ 10
 endif
