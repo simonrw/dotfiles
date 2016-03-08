@@ -126,3 +126,9 @@ npm_packages:
 pip_packages:
 - dtags
 - autopep8
+
+homebrew_services:
+- mariadb
+- postgresql
+- nginx
+- redis
