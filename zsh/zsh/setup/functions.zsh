@@ -75,7 +75,7 @@ import argparse
 import logging
 
 logging.basicConfig(
-    level='INFO', format='[%(asctime)s] %(levelname)8s %(message)s')
+    level='INFO', format='%(asctime)s : %(message)s')
 logger = logging.getLogger(__name__)
 
 
