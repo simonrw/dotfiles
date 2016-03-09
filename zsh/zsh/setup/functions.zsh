@@ -16,6 +16,12 @@ function vman() {
         -c "set number relativenumber readonly|only"
 }
 
+# Function to set terminal title
+function title() {
+    local readonly text="$1"
+    printf "\033]0;${text}\007"
+}
+
 # From GRB
 function mcd() { mkdir -p $1 && cd $1 }
 
