@@ -508,11 +508,11 @@ if has('nvim')
 set background=dark
 colorscheme srw256
 
-" Make it more obvious which paren I'm on
-hi MatchParen cterm=none ctermbg=black ctermfg=yellow
-hi ColorColumn ctermbg=0
+" Function to show syntax group under cursor
+map <F10> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<'
+            \ . synIDattr(synID(line("."),col("."),0),"name") . "> lo<"
+            \ . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>
 
-" Make git gutterline black background
-hi SignColumn ctermbg=none
+
 "}}}
 " vim: foldmethod=marker
