@@ -49,6 +49,8 @@ Plug 'jamessan/vim-gnupg'
 Plug 'airblade/vim-gitgutter'
 Plug 'editorconfig/editorconfig-vim'
 
+" Themes
+Plug 'robertmeta/nofrils'
 
 " Languages
 Plug 'hdima/python-syntax'
@@ -504,7 +506,7 @@ if has('nvim')
 " }}}
 " {{{ Theming
 set background=dark
-colorscheme srw256
+colorscheme nofrils-dark
 
 " Make it more obvious which paren I'm on
 hi MatchParen cterm=none ctermbg=black ctermfg=yellow
