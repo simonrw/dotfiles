@@ -506,7 +506,7 @@ if has('nvim')
 " }}}
 " {{{ Theming
 set background=dark
-colorscheme nofrils-dark
+colorscheme srw256
 
 " Make it more obvious which paren I'm on
 hi MatchParen cterm=none ctermbg=black ctermfg=yellow
