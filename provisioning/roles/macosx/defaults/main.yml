@@ -82,6 +82,7 @@ homebrew_packages:
 - wcslib
 - wcstools
 - montage
+- sextractor
 
 # My stuff
 - ds9
