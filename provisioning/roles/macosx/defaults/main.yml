@@ -119,6 +119,7 @@ homebrew_casks:
 - vagrant
 - virtualbox
 - vlc
+- wireshark
 - zoomus
 
 npm_packages:
