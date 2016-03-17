@@ -139,3 +139,14 @@ function lockscreen() {
             ;;
     esac
 }
+
+function build-movie() {
+    local dirname="$1"
+    local output="$2"
+
+    local fulloutpath="$(readlink -f ${output})"
+
+    echo "Rendering movie out of pngs in ${dirname} to ${fulloutpath}"
+    
+    (cd ${dirname} && mencoder 'mf://*.png' -mf w=800:h=600:fps=30:type=png -ovc x264 -x264encopts crf=18:nofast_pskip:nodct_decimate:nocabac:global_header:threads=12 -of lavf -lavfopts format=mp4 -o "${fulloutpath}")
+}
