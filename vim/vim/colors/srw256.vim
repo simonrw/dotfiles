@@ -1,2 +1,2 @@
 " Based on
-runtime colors/grb256.vim
+runtime colors/nofrils-dark.vim
