@@ -4,3 +4,4 @@ create_default_packages:
   - pip
   - pytest
   - ipython
+  - nomkl
