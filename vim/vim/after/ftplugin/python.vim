@@ -8,9 +8,6 @@ setlocal nospell
 " Set the vim-pipe command
 let b:vimpipe_command="python"
 
-" Add the colourcolumn
-setlocal colorcolumn=90
-
 function! AddImportString(import_text)
     execute "normal! mmgg/import\<cr>}"
     execute "normal! O" . a:import_text . "\<esc>"
@@ -35,9 +32,6 @@ nnoremap cio :call AddImportString("import os")<cr>
 setlocal makeprg=pylint\ --reports=n\ --output-format=parseable\ %:p
 setlocal errorformat=%f:%l:\ %m
 nnoremap <leader>x :update\|:Make<cr>
-
-" Make the colour column a nicer colour
-highlight ColorColumn ctermbg=0
 
 " Run autopep8 for python files
 nnoremap <buffer> <leader>y mm\|:%!autopep8 --max-line-length 90 -<cr>\|'m
