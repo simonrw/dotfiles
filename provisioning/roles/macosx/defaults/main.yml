@@ -48,6 +48,7 @@ homebrew_packages:
 - tmux
 - trash
 - tree
+- urlview
 - w3m
 - watch
 - weechat
