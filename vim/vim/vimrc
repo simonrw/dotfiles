@@ -32,35 +32,14 @@ Plug 'ctrlpvim/ctrlp.vim'
 Plug 'janko-m/vim-test'
 Plug 'christoomey/vim-tmux-runner'
 Plug 'Wolfy87/vim-enmasse'
-Plug 'kana/vim-textobj-user'
-Plug 'kana/vim-textobj-indent'
-Plug 'bps/vim-textobj-python'
-Plug 'MarcWeber/vim-addon-mw-utils'
-Plug 'tomtom/tlib_vim'
-Plug 'garbas/vim-snipmate'
-Plug 'honza/vim-snippets'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'milkypostman/vim-togglelist'
-Plug 'benekastah/neomake'
-Plug 'reedes/vim-wordy'
-Plug 'altercation/vim-colors-solarized'
-Plug 'godlygeek/tabular'
-Plug 'jamessan/vim-gnupg'
 Plug 'airblade/vim-gitgutter'
-Plug 'editorconfig/editorconfig-vim'
-
-" Themes
-Plug 'robertmeta/nofrils'
 
 " Languages
-Plug 'hdima/python-syntax'
 Plug 'vim-scripts/indentpython.vim'
-Plug 'sheerun/vim-polyglot'
-Plug 'chase/vim-ansible-yaml'
 Plug 'mitsuhiko/vim-jinja'
 Plug 'vim-scripts/TWiki-Syntax', { 'for': 'twiki' }
-Plug 'zah/nimrod.vim', { 'for': 'nim' }
-Plug 'wlangstroth/vim-racket'
 
 call plug#end()
 " }}}
@@ -124,18 +103,8 @@ nnoremap <leader>gr :Gread<cr>
 nnoremap <leader>gs :Gstatus<cr>
 nnoremap <leader>ga :Gcommit -v --amend<cr>
 "}}}
-" {{{ vim-yapf
-" Mappings
-"}}}
 " {{{ vim-commentary
 let g:commentary_map_backslash = 0
-"}}}
-" {{{ vim-json
-let g:vim_json_syntax_conceal = 0
-"}}}
-" {{{ snipmate
-:imap <C-J> <Plug>snipMateNextOrTrigger
-:smap <C-J> <Plug>snipMateNextOrTrigger
 "}}}
 " {{{ vim-tmux-runner
 " Better python settings
@@ -143,23 +112,14 @@ let g:VtrStripLeadingWhitespace = 0
 let g:VtrClearEmptyLines = 0
 let g:VtrAppendNewline = 1
 "}}}
-" {{{ Goyo
-nnoremap gG :Goyo<Cr>
-"}}}
 " {{{ editorconfig
 let g:EditorConfig_exclude_patterns = ['fugitive://.*']
 "}}}
 " {{{ vim-togglelist
 nnoremap coq :call ToggleQuickfixList()<Cr>
 "}}}
-" {{{ vimtex
-let g:vimtex_fold_enabled = 0
-let g:vimtex_view_general_options = "@pdf -a skim"
-"}}}
 " {{{ vim-markdown
 let g:markdown_fenced_languages = ['python', 'sh']
-"}}}
-" {{{ vim-wordy
 "}}}
 " }}}
 " }}}
