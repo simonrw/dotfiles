@@ -35,11 +35,13 @@ homebrew_packages:
 - mutt
 - ngircd
 - nmap
+- offlineimap
 - openssh
 - pandoc
 - par
 - parallel
 - pdsh
+- rdiff-backup
 - reattach-to-user-namespace
 - rlwrap
 - ssh-copy-id
