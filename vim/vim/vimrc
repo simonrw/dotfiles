@@ -40,6 +40,7 @@ Plug 'airblade/vim-gitgutter'
 Plug 'vim-scripts/indentpython.vim'
 Plug 'mitsuhiko/vim-jinja'
 Plug 'vim-scripts/TWiki-Syntax', { 'for': 'twiki' }
+Plug 'fatih/vim-nginx'
 
 call plug#end()
 " }}}
