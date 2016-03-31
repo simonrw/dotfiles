@@ -38,9 +38,15 @@ def run(*cmd):
 @contextmanager
 def source_detect(image_filename):
     logger.info('source_detect')
+
+    with fitsio.FITS(image_filename) as infile:
+        image_hdu = infile[0]
+        dims = image_hdu.get_info()['dims']
+        scaling_factor = dims[0] / 2048
+
     with tempfile.NamedTemporaryFile(suffix='.fits') as outfile:
-        run('imcore', image_filename, 'noconf', outfile.name, 2, 5, '--noell',
-            '--filtfwhm', 1.8)
+        run('imcore', image_filename, 'noconf', outfile.name, 2 * scaling_factor, 5,
+            '--noell', '--filtfwhm', 1.8 * scaling_factor)
         outfile.seek(0)
 
         yield outfile.name
