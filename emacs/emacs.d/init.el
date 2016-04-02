@@ -59,6 +59,15 @@
 (setq-default c-basic-offset 4 c-default-style "linux")
 (setq-default tab-width 4 indent-tabs-mode t)
 
+;; Org mode settings
+(define-key global-map "\C-cl" 'org-store-link)
+(define-key global-map "\C-ca" 'org-agenda)
+(setq org-log-done t)
+
+(setq org-agenda-files (list "~/org/ngts.org"
+							 "~/org/home.org"))
+
+
 ;; Make sure everything is in utf-8
 (set-language-environment "UTF-8")
 (set-buffer-file-coding-system 'utf-8)
