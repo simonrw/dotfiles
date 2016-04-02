@@ -44,6 +44,7 @@ Plug 'vim-scripts/indentpython.vim'
 Plug 'mitsuhiko/vim-jinja'
 Plug 'vim-scripts/TWiki-Syntax', { 'for': 'twiki' }
 Plug 'fatih/vim-nginx'
+Plug 'rosstimson/bats.vim'
 
 " Colour schemes
 Plug 'chriskempson/base16-vim'
@@ -129,6 +130,7 @@ nnoremap coq :call ToggleQuickfixList()<Cr>
 let g:markdown_fenced_languages = ['python', 'sh']
 "}}}
 " }}}
+"
 " }}}
 " {{{ Settings
 """"""""""""""""""""
