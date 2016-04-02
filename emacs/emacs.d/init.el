@@ -20,6 +20,7 @@
 	auto-complete
 	cider
 	paredit
+	base16-theme
 	magit
 	ansible
 	jinja2-mode
@@ -101,4 +102,4 @@
 ;; Theming
 ;; Function to determine if we're running in graphics mode or not
 (if (display-graphic-p)
-    (load-theme 'ir-black t))
+    (load-theme 'base16-tomorrow-dark t))
