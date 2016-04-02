@@ -26,7 +26,6 @@ Plug 'tpope/vim-sensible'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-fireplace'
-Plug 'tpope/vim-speeddating' " Used for orgmode
 
 " Custom plugins
 Plug 'ctrlpvim/ctrlp.vim'
@@ -37,7 +36,6 @@ Plug 'editorconfig/editorconfig-vim'
 Plug 'milkypostman/vim-togglelist'
 Plug 'airblade/vim-gitgutter'
 Plug 'nelstrom/vim-markdown-folding'
-Plug 'jceb/vim-orgmode'
 
 " Languages
 Plug 'vim-scripts/indentpython.vim'
