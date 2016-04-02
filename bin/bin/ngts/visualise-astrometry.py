@@ -158,6 +158,8 @@ def visualise_matchfile(matchfile, sources_file, histogram, doughnut):
                xpix=1024,
                ypix=1024,
                size=5,
+               ymin=0,
+               ymax=10,
                )
 
 
