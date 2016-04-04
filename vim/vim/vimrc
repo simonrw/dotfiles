@@ -43,6 +43,7 @@ Plug 'mitsuhiko/vim-jinja'
 Plug 'vim-scripts/TWiki-Syntax', { 'for': 'twiki' }
 Plug 'fatih/vim-nginx'
 Plug 'rosstimson/bats.vim'
+Plug 'elixir-lang/vim-elixir'
 
 " Colour schemes
 Plug 'chriskempson/base16-vim'
