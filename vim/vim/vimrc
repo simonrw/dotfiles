@@ -44,6 +44,7 @@ Plug 'vim-scripts/TWiki-Syntax', { 'for': 'twiki' }
 Plug 'fatih/vim-nginx'
 Plug 'rosstimson/bats.vim'
 Plug 'elixir-lang/vim-elixir'
+Plug 'rust-lang/rust.vim'
 
 " Colour schemes
 Plug 'chriskempson/base16-vim'
