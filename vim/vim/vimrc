@@ -335,9 +335,6 @@ nnoremap K <nop>
 " Cause space to turn of hlsearch
 nnoremap <space> :nohlsearch<cr>
 
-" Enter toggles folds
-nnoremap <enter> :normal zA<cr>
-
 " Add mapping for copying all file contents into the system buffer
 nnoremap cp :0,$y+<Cr>
 
