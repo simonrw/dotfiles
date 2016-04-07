@@ -16,9 +16,10 @@ unsetopt multios
 
 autoload -U bashcompinit
 
-# Emacs keybindings
+# Vi keybindings
 bindkey -v
 bindkey "^R" history-incremental-search-backward
+bindkey -v '^?' backward-delete-char
 
 # Set up editor in command line
 autoload edit-command-line
