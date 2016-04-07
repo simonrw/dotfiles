@@ -5,7 +5,7 @@ case $OSTYPE in
         export PATH=${PATH}:${HOME}/.gem/ruby/1.8/bin
         export LD_LIBRARY_PATH=${BUILD_PREFIX}/lib:${LD_LIBRARY_PATH}
         export PKG_CONFIG_PATH=${BUILD_PREFIX}/lib/pkgconfig:${PKG_CONFIG_PATH}
-        alias ls='ls --color=auto'
+        export __LS_COMMAND=ls
 
         # Set up the module command
         function module() { eval `modulecmd zsh $*`; }

@@ -4,7 +4,7 @@ case $OSTYPE in
         export PATH=/Library/TeX/texbin:${GOPATH}/bin:/usr/local/sbin:/sbin:/usr/sbin:${HOME}/.cabal/bin:${PATH}
         alias gvim=mvim
         alias gview=mview
-        alias ls='gls --color=auto'
+        export __LS_COMMAND=gls
 
         export work=${HOME}/work
         export NGTS=${work}/NGTS
