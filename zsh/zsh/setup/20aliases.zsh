@@ -3,7 +3,8 @@ alias ta=_tmux_attach
 alias tns="tmux new-session -As"
 alias tsw=tswitch
 alias m=make
-alias ls="${__LS_COMMAND} --color=auto --literal --tabsize 0"
+alias ls="${__LS_COMMAND} --color=never --literal --tabsize 0"
+alias lsc="${__LS_COMMAND} --color=auto --literal --tabsize 0"
 alias ll='ls -lh'
 alias lr='ls -thor'
 alias man1='man 1'
