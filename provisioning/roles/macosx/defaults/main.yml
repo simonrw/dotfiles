@@ -35,6 +35,7 @@ homebrew_packages:
 - jq
 - md5sha1sum
 - mutt
+- neovim
 - ngircd
 - nmap
 - offlineimap
