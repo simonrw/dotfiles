@@ -42,6 +42,6 @@ vmap <leader>t :VtrSendLines<cr>
 " Quick shortcuts for inserting common python lines
 iabbrev #! #!/usr/bin/env python
 \<CR># -*- coding: utf-8 -*-
-iabbrev ipy import IPython; IPython.embed(); exit()
+iabbrev ipy import IPython; IPython.embed(); exit(1)
 iabbrev ifmain if __name__ == '__main__':
 iabbrev future from __future__ import absolute_import, division, print_function
