@@ -467,6 +467,8 @@ if has('nvim')
 
     let g:python_host_prog = '/usr/local/bin/python'
 
+    set shell=/usr/local/bin/zsh
+
     " Hack to allow <c-h> to work properly
     nmap <BS> <C-W>h
 
