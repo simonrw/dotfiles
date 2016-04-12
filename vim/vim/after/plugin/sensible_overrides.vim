@@ -7,13 +7,13 @@ set complete+=kspell
 " remove the ruler
 set noruler
 
-" Set the shell
-set shell=/bin/sh
-
 " neovim handles ESC keys as alt+key, set this to solve the problem
 if has('nvim')
     set ttimeout
     set ttimeoutlen=0
+else
+    " Set the shell
+    set shell=/bin/sh
 endif
 
 " Set the minimum window width to 79

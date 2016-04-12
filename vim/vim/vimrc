@@ -472,6 +472,9 @@ if has('nvim')
     " Hack to allow <c-h> to work properly
     nmap <BS> <C-W>h
 
+    " Pytest python runner
+    let g:test#strategy = 'neovim'
+
  endif
 
 " }}}
