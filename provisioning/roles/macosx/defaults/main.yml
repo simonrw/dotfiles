@@ -13,6 +13,7 @@ homebrew_packages:
 - ansible
 - bats
 - binutils
+- colordiff
 - coreutils
 - curl
 - direnv
