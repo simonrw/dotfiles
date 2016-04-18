@@ -23,6 +23,7 @@ bootstrap_homebrew() {
 }
 
 provision() {
+    echo "Root password may be needed to alter system plists"
     ansible-playbook -i hosts provisioning/site.yml --ask-become-pass "$@"
 }
 
