@@ -5,7 +5,7 @@
   with_items: "{{ homebrew_taps }}"
 
 - name: Install homebrew packages
-  homebrew: name={{ item }} state=present
+  homebrew: name={{ item }} state=latest
   tags:
     - packaging
   with_items: "{{ homebrew_packages }}"
