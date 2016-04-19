@@ -56,6 +56,7 @@ homebrew_packages:
 - trash
 - tree
 - urlview
+- vnstat
 - w3m
 - watch
 - weechat
