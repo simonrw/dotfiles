@@ -129,6 +129,9 @@ nnoremap coq :call ToggleQuickfixList()<Cr>
 " {{{ vim-markdown
 let g:markdown_fenced_languages = ['python', 'sh']
 "}}}
+" {{{ gitgutter
+let g:gitgutter_enabled = 0
+"}}}
 " }}}
 "
 " }}}
