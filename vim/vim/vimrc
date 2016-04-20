@@ -425,8 +425,8 @@ inoremap <C-u> <C-g>u<C-u>
 inoremap <C-w> <C-g>u<C-w>
 
 " Quick file editing
-nnoremap cv :tabe $MYVIMRC<cr>
-nnoremap cz :tabe ~/.zshrc<cr>
+nnoremap cv :vsplit $MYVIMRC<cr>
+nnoremap cz :vsplit ~/.zshrc<cr>
 
 " open Ag
 command! -nargs=+ -complete=file -bar Ag silent! grep! <args>|cwindow|redraw!
