@@ -348,6 +348,9 @@ vnoremap k gk
 vnoremap gj j
 vnoremap gk k
 
+" Add mapping to toggle the git gutter
+nnoremap cog :GitGutterToggle<Cr>
+
 " Multipurpose tab key from grb
 function! InsertTabWrapper()
     let s:col = col('.') - 1
