@@ -351,6 +351,9 @@ vnoremap k gk
 vnoremap gj j
 vnoremap gk k
 
+" Fuzzy find tags
+nnoremap gt :CtrlPTag<Cr>
+
 " Add mapping to toggle the git gutter
 nnoremap cog :GitGutterToggle<Cr>
 
