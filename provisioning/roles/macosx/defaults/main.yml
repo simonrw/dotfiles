@@ -32,6 +32,7 @@ homebrew_packages:
 - grep
 - heroku-toolbelt
 - htop
+- httpie
 - imagemagick
 - irssi
 - jq
@@ -128,6 +129,7 @@ homebrew_casks:
 - steam
 - thunderbird
 - transmission
+- unofficialwhatsapp
 - usb-overdrive
 - vagrant
 - virtualbox
