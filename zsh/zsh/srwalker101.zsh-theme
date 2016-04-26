@@ -28,14 +28,14 @@ local reset="%{$reset_color%}"
 local grey="%{$fg[black]%}"
 
 function __prompt_char() {
-    echo '$'
+    echo '|'
 }
 
 function hr() {
     printf '%*s\n' "${COLUMNS:-$(tput cols)}" '' | tr ' ' -
 }
 
-PROMPT=$'$yellow$(__suspended_count)$reset%(?.$green$(__prompt_char)$reset.$red$(__prompt_char)$reset) '
+PROMPT=$'$green$(__prompt_char)$reset '
 RPROMPT=$'$blue%m$reset'
 
 # vim: ft=zsh
