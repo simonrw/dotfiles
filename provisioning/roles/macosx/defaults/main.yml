@@ -38,6 +38,7 @@ homebrew_packages:
 - irssi
 - jq
 - md5sha1sum
+- mosh
 - mutt
 - neovim
 - ngircd
