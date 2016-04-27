@@ -17,6 +17,9 @@ case $OSTYPE in
         unalias run-help
         autoload run-help
         HELPDIR=/usr/local/share/zsh/helpfiles
+
+        # Set up autojump
+        [[ -s $(brew --prefix)/etc/profile.d/autojump.sh ]] && . $(brew --prefix)/etc/profile.d/autojump.sh
         ;;
 esac
 

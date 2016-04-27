@@ -11,6 +11,7 @@ homebrew_taps:
 
 homebrew_packages:
 - ansible
+- autojump
 - bats
 - binutils
 - colordiff
