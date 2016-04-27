@@ -20,6 +20,17 @@
     diffup = diff origin
     upsub = submodule foreach 'git checkout master && git pull'
 
+    # Taken from http://gggritso.com/human-git-aliases
+    branches = branch -a
+    tags = tag
+    stashes = stash list
+    unstage = reset -q HEAD --
+    discard = checkout --
+    amend = commit --amend
+    precommit = diff --cached --diff-algorithm=minimal -w
+    pre = !git precommit
+
+
     # Quickly interactive rebase with upstream
     rebup = rebase -i origin/master --prune
 
@@ -30,7 +41,7 @@
     ra = !git r --all
     l = log --graph --decorate --oneline
     la = log --graph --decorate --oneline --all
-    dc = diff --cached
+    dc = !git precommit
     aa = add --all
     aap = add --all --patch
     oneline = log --oneline --decorate
