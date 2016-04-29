@@ -23,6 +23,7 @@ homebrew_packages:
 - exercism
 - fabric
 - ffmpeg
+- fzf
 - gawk
 - gcc
 - git
