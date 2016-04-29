@@ -14,9 +14,11 @@ def sync_repos():
     with cd('~/dotfiles'):
         lrun('git fetch origin')
         with settings(warn_only=True):
+            lrun('git stash -q')
             result = lrun('git merge --ff-only origin/master')
             if result.failed:
                 open_shell()
+            lrun('git stash pop -q')
 
 
 @task
