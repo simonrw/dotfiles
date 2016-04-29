@@ -40,6 +40,7 @@ alias ew=email-work
 alias en=email-ngtsops
 alias sqlite3='rlwrap =sqlite3'
 alias hn='hn --keep-open'
+alias tf='ta $(tls | cut -d : -f 1 | fzf --tac)'
 
 # NGTS aliases
 alias par-ds='ssh par-ds'
