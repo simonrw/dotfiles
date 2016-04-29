@@ -373,10 +373,10 @@ endfunction
 inoremap <tab> <c-r>=InsertTabWrapper()<cr>
 inoremap <s-tab> <c-n>
 
-" settings from thoughtbot dotfiles repo
 " Swap between two files
-noremap gl <C-^>
+nnoremap <BS> <C-^>
 
+" settings from thoughtbot dotfiles repo
 " Speed up ctrl-e/ctrl-y
 nnoremap <C-e> 3<C-e>
 nnoremap <C-y> 3<C-y>
