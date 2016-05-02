@@ -1,4 +1,5 @@
 # Aliases
+alias tmux='tmux -2'
 alias ta=_tmux_attach
 alias tns="tmux new-session -As"
 alias tsw=tswitch
