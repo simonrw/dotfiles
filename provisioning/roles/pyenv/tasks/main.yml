@@ -1,10 +1,24 @@
 ---
+- name: Get pyenv
+  git:
+    repo: https://github.com/yyuu/pyenv.git
+    dest: "{{ pyenv_dir }}"
+    force: yes
+
+- name: Get pyenv-virtualenv
+  git:
+    repo: https://github.com/yyuu/pyenv-virtualenv.git
+    dest: "{{ pyenv_dir }}/plugins/pyenv-virtualenv"
+    force: yes
+
 - name: Install python versions
-  command: pyenv install {{ item }} creates="{{ home }}/.pyenv/versions/{{ item }}"
+  shell: "PYTHON_CONFIGURE_OPTS=--enable-unicode=ucs2 PIP_INDEX_URL= {{ pyenv_dir }}/bin/pyenv install {{ item }} creates={{ pyenv_dir }}/versions/{{ item }}"
   with_items:
     - miniconda3-latest
     - pypy-5.1
+    - 2.6.9
     - 2.7.11
+    - 3.3.6
     - 3.4.4
     - 3.5.1
 
