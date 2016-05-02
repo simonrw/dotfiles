@@ -16,8 +16,4 @@ case $OSTYPE in
         alias pbpaste='xsel --clipboard --output'
 
         alias configurevim='./configure --prefix=$BUILD_PREFIX --with-features=huge --enable-pythoninterp --with-compiledby="Simon Walker" --disable-gui --without-x'
-        [[ -s ${HOME}/.autojump/etc/profile.d/autojump.sh ]] && source ${HOME}/.autojump/etc/profile.d/autojump.sh
-
-            autoload -U compinit && compinit -u
-        ;;
 esac
