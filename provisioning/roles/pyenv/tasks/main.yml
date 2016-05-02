@@ -12,8 +12,6 @@
     force: yes
   with_items: "{{ pyenv_plugins }}"
 
-
-
 - name: Install python versions
   shell: "PYTHON_CONFIGURE_OPTS=--enable-unicode=ucs2 PIP_INDEX_URL= {{ pyenv_dir }}/bin/pyenv install {{ item }} creates={{ pyenv_dir }}/versions/{{ item }}"
   with_items:
@@ -24,6 +22,4 @@
     - 3.3.6
     - 3.4.4
     - 3.5.1
-
-
-
+  ignore_errors: yes
