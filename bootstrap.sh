@@ -23,8 +23,15 @@ bootstrap_homebrew() {
 }
 
 provision() {
-    echo "Root password may be needed to alter system plists"
-    ansible-playbook -i hosts provisioning/site.yml --ask-become-pass "$@"
+    case $OSTYPE in
+        linux*)
+            ansible-playbook -i hosts provisioning/site.yml
+            ;;
+        darwin*)
+            echo "Root password may be needed to alter system plists"
+            ansible-playbook -i hosts provisioning/site.yml --ask-become-pass "$@"
+            ;;
+    esac
 }
 
 install_ansible_if_required() {
@@ -36,8 +43,12 @@ install_homebrew_if_required() {
 }
 
 main() {
-    install_homebrew_if_required
-    install_ansible_if_required
+    case $OSTYPE in
+        darwin*)
+            install_homebrew_if_required
+            install_ansible_if_required
+            ;;
+    esac
     provision "$@"
 }
 
