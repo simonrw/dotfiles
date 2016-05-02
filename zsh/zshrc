@@ -1,3 +1,11 @@
+PROFILE_STARTUP=false
+if [[ "$PROFILE_STARTUP" == true ]]; then
+    # http://zsh.sourceforge.net/Doc/Release/Prompt-Expansion.html
+    PS4=$'%D{%M%S%.} %N:%i> '
+    exec 3>&2 2>$HOME/tmp/startlog.$$
+    setopt xtrace prompt_subst
+fi
+
 export PATH=${HOME}/anaconda/bin:${HOME}/.bin:${HOME}/.bin/ngts:${HOME}/.cabal/bin:/usr/local/bin:${PATH}:${HOME}/bin
 fpath=($HOME/.zsh/func $HOME/.zsh/completion $fpath)
 typeset -U fpath
@@ -115,3 +123,8 @@ command -v dtags > /dev/null 2>&1 && . <(dtags shell zsh)
 
 # Finally source the theme
 source ${HOME}/.zsh/srwalker101.zsh-theme
+
+if [[ "$PROFILE_STARTUP" == true ]]; then
+    unsetopt xtrace
+    exec 2>&3 3>&-
+fi
