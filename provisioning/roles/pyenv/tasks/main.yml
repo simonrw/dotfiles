@@ -5,11 +5,14 @@
     dest: "{{ pyenv_dir }}"
     force: yes
 
-- name: Get pyenv-virtualenv
+- name: Get pyenv plugins
   git:
-    repo: https://github.com/yyuu/pyenv-virtualenv.git
-    dest: "{{ pyenv_dir }}/plugins/pyenv-virtualenv"
+    repo: "https://github.com/yyuu/pyenv-{{ item }}.git"
+    dest: "{{ pyenv_dir }}/plugins/pyenv-{{ item }}"
     force: yes
+  with_items: "{{ pyenv_plugins }}"
+
+
 
 - name: Install python versions
   shell: "PYTHON_CONFIGURE_OPTS=--enable-unicode=ucs2 PIP_INDEX_URL= {{ pyenv_dir }}/bin/pyenv install {{ item }} creates={{ pyenv_dir }}/versions/{{ item }}"
