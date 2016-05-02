@@ -142,7 +142,6 @@ npm_packages:
 - react-native-cli
 
 pip_packages:
-- dtags
 - autopep8
 
 homebrew_services:

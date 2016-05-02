@@ -117,10 +117,6 @@ for file in ~/.zsh/setup/*.zsh; do
     source $file
 done
 
-# Set up dtags
-command -v dtags > /dev/null 2>&1 && . <(dtags shell zsh)
-
-
 # Finally source the theme
 source ${HOME}/.zsh/srwalker101.zsh-theme
 
