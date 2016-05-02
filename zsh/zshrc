@@ -117,6 +117,11 @@ for file in ~/.zsh/setup/*.zsh; do
     source $file
 done
 
+# Set up misc extra commands
+export PYENV_VIRTUALENV_DISABLE_PROMPT=1
+if which pyenv > /dev/null; then eval "$(command pyenv init -)"; fi
+if which pyenv-virtualenv-init > /dev/null; then eval "$(command pyenv virtualenv-init -)"; fi
+
 # Finally source the theme
 source ${HOME}/.zsh/srwalker101.zsh-theme
 

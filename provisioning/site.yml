@@ -5,5 +5,6 @@
 
   roles:
   - common
-  - { role: macosx, when: ansible_distribution == "MacOSX" }
+  - { role: macosx, when: ansible_distribution == "MacOSX", tags: ['macosx']}
+  - { role: pyenv, tags: ['pyenv'] }
 

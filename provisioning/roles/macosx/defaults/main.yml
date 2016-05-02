@@ -47,6 +47,8 @@ homebrew_packages:
 - par
 - parallel
 - pdsh
+- pyenv
+- pyenv-virtualenv
 - rdiff-backup
 - reattach-to-user-namespace
 - rlwrap

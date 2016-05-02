@@ -1,0 +1,12 @@
+---
+- name: Install python versions
+  command: pyenv install {{ item }} creates="{{ home }}/.pyenv/versions/{{ item }}"
+  with_items:
+    - miniconda3-latest
+    - pypy-5.1
+    - 2.7.11
+    - 3.4.4
+    - 3.5.1
+
+
+
