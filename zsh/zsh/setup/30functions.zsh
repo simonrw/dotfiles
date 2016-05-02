@@ -99,14 +99,6 @@ EOL
     \vim ${fname} "${@}"
 }
 
-function init-3() {
-    echo "use conda 3" >> .envrc && direnv allow && init-python ./main.py +qa
-}
-
-function init-2() {
-    echo "use conda 2" >> .envrc && direnv allow && init-python ./main.py +qa
-}
-
 # Function to start jupyter notebook
 function jn() {
     jupyter notebook --no-browser $@

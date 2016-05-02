@@ -139,9 +139,6 @@ homebrew_casks:
 npm_packages:
 - react-native-cli
 
-pip_packages:
-- autopep8
-
 homebrew_services:
 - mariadb
 - postgresql

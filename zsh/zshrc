@@ -6,7 +6,7 @@ if [[ "$PROFILE_STARTUP" == true ]]; then
     setopt xtrace prompt_subst
 fi
 
-export PATH=${HOME}/anaconda/bin:${HOME}/.bin:${HOME}/.bin/ngts:${HOME}/.cabal/bin:/usr/local/bin:${PATH}:${HOME}/bin
+export PATH=${HOME}/.bin:${HOME}/.bin/ngts:${HOME}/.cabal/bin:/usr/local/bin:${PATH}:${HOME}/bin
 fpath=($HOME/.zsh/func $HOME/.zsh/completion $fpath)
 typeset -U fpath
 

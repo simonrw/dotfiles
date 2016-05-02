@@ -12,23 +12,4 @@ use_ruby() {
     chruby $ver
 }
 
-use_conda() {
-    local ver=$1
-    local env_dir=venv
-    if [[ ! -d $env_dir ]]; then
-        if [[ -z $ver ]]; then
-            condaenv ./$env_dir -p 3
-        else
-            condaenv ./$env_dir -p $ver
-        fi
-    fi
-
-    if [[ -f .gitignore ]]; then
-        grep -q $env_dir .gitignore || echo "$env_dir" >> .gitignore
-    else
-        echo "$env_dir" >> .gitignore
-    fi
-    source activate ./$env_dir
-}
-
 # vim: ft=sh
