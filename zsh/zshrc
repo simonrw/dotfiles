@@ -24,8 +24,8 @@ unsetopt multios
 
 autoload -U bashcompinit
 
-# Vi keybindings
-bindkey -v
+# Emacs keybindings
+bindkey -e
 bindkey "^R" history-incremental-search-backward
 bindkey -v '^?' backward-delete-char
 
