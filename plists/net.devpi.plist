@@ -6,7 +6,7 @@
 	<string>net.devpi</string>
 	<key>ProgramArguments</key>
 	<array>
-		<string>/Users/simon/anaconda/envs/devpi/bin/devpi-server</string>
+        <string>/Users/simon/.pyenv/versions/devpi/bin/devpi-server</string>
 		<string>--port</string>
 		<string>3141</string>
 	</array>
