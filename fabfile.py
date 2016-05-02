@@ -18,7 +18,7 @@ def sync_repos():
             result = lrun('git merge --ff-only origin/master')
             if result.failed:
                 open_shell()
-            lrun('git stash pop -q')
+            lrun('git stash pop -q 2>/dev/null || true')
 
 
 @task
