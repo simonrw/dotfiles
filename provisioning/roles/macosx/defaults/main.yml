@@ -5,7 +5,6 @@ homebrew_taps:
 - mindriot101/alt
 - homebrew/headonly
 - homebrew/dupes
-- neovim/neovim
 - universal-ctags/universal-ctags
 - homebrew/services
 
@@ -40,7 +39,6 @@ homebrew_packages:
 - md5sha1sum
 - mosh
 - mutt
-- neovim
 - ngircd
 - nmap
 - offlineimap
