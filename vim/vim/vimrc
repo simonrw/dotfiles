@@ -48,7 +48,6 @@ Plug 'rust-lang/rust.vim'
 
 " Colour schemes
 Plug 'chriskempson/base16-vim'
-Plug 'reedes/vim-colors-pencil'
 
 call plug#end()
 " }}}
@@ -494,7 +493,7 @@ if has('nvim')
 " }}}
 " {{{ Theming
 set background=light
-colorscheme pencil
+colorscheme github
 
 " Function to show syntax group under cursor
 map <F10> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<'
