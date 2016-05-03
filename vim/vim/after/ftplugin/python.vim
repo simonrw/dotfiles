@@ -1,3 +1,7 @@
+" Enable the colour column
+setlocal colorcolumn=80
+
+
 " Disable spelling
 setlocal nospell
 
