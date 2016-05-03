@@ -1,7 +1,7 @@
 setlocal expandtab
 setlocal linebreak
 setlocal shiftwidth=4
-setlocal textwidth=72
+setlocal textwidth=0
 
 " mappings to create headings of different sorts
 map <leader>m1 ^I# <esc>w
