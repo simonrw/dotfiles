@@ -28,3 +28,6 @@
 [submodule "external/git-standup"]
 	path = external/git-standup
 	url = https://github.com/kamranahmedse/git-standup
+[submodule "external/fzf"]
+	path = external/fzf
+	url = https://github.com/junegunn/fzf
