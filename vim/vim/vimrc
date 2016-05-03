@@ -147,12 +147,13 @@ set shiftwidth=4
 set shiftround
 set expandtab
 
+" No wrapping by default
+set textwidth=0
+set nowrap
+
 " Do not show the cursor line
 set nocursorline
 set nocursorcolumn
-
-" line wrapping
-set nowrap
 
 " Show commands as they're being typed
 set showcmd

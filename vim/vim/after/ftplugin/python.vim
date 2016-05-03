@@ -1,7 +1,3 @@
-" Disable wrapping
-setlocal textwidth=0
-set nowrap
-
 " Disable spelling
 setlocal nospell
 
