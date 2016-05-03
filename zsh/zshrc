@@ -78,6 +78,9 @@ export VISUAL=${EDITOR}
 export BIBINPUTS=${HOME}/work/central-bibliography:${BIBINPUTS}
 export LESS='-FXR'
 
+# Set up fzf
+export FZF_DEFAULT_OPTS="--color light"
+
 # Taken from grb's zshrc
 
 # By default, zsh considers many characters part of a word (e.g., _ and -).
