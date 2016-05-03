@@ -1,1 +1,0 @@
-../../../external/fzf/shell/completion.zsh
