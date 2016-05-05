@@ -38,11 +38,9 @@ Plug 'nelstrom/vim-markdown-folding'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --no-update-rc --no-completion --key-bindings' }
 
 " Languages
-Plug 'vim-scripts/indentpython.vim'
 Plug 'mitsuhiko/vim-jinja'
-Plug 'vim-scripts/TWiki-Syntax', { 'for': 'twiki' }
+Plug 'vim-scripts/TWiki-Syntax'
 Plug 'fatih/vim-nginx'
-Plug 'rosstimson/bats.vim'
 Plug 'elixir-lang/vim-elixir'
 Plug 'rust-lang/rust.vim'
 
