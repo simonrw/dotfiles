@@ -17,8 +17,6 @@ function __get_nr_jobs() {
 function __suspended_count() {
     if [[ -n $(jobs -s) ]]; then
         print '= '
-    else
-        print '  '
     fi
 }
 
@@ -37,7 +35,7 @@ function hr() {
     printf '%*s\n' "${COLUMNS:-$(tput cols)}" '' | tr ' ' -
 }
 
-PROMPT=$'\n$red$(__suspended_count)$green$(__prompt_char)$reset '
+PROMPT=$'\n$yellow$(__suspended_count)$green$(__prompt_char)$reset '
 RPROMPT=$'$blue%m$reset'
 
 # vim: ft=zsh
