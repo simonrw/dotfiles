@@ -28,7 +28,6 @@ Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-fireplace'
 
 " Custom plugins
-Plug 'ctrlpvim/ctrlp.vim'
 Plug 'janko-m/vim-test'
 Plug 'christoomey/vim-tmux-runner'
 Plug 'Wolfy87/vim-enmasse'
@@ -36,6 +35,7 @@ Plug 'editorconfig/editorconfig-vim'
 Plug 'milkypostman/vim-togglelist'
 Plug 'airblade/vim-gitgutter'
 Plug 'nelstrom/vim-markdown-folding'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --no-update-rc --no-completion --key-bindings' }
 
 " Languages
 Plug 'vim-scripts/indentpython.vim'
@@ -52,49 +52,6 @@ Plug 'chriskempson/base16-vim'
 call plug#end()
 " }}}
 " Plugin settings {{{
-" {{{ ctrlp
-map <leader>f :CtrlP<cr>
-map <leader>b :CtrlPBuffer<cr>
-let g:ctrlp_map = "<leader>f"
-
-" Always open file in new buffer
-let g:ctrlp_switch_buffer = 0
-
-" Use current working directory always
-let g:ctrlp_working_path_mode = 0
-
-" Open new files with <c-y> in same window
-let g:ctrlp_open_new_file = 'r'
-
-" Use silver searcher if available
-if executable('ag')
-    " Let ctrlp use ag for files
-    let g:ctrlp_user_command = 'ag %s -i --nocolor --nogroup --hidden
-                \ --ignore .git
-                \ --ignore .svn
-                \ --ignore .hg
-                \ --ignore .DS_Store
-                \ --ignore "**/*.pyc"
-                \ -g ""'
-
-    " Follow symlinks but not duplicates
-    let g:ctrlp_follow_symlinks = 1
-
-    " Change ctrlp style
-    let g:ctrlp_match_window = 'bottom,order:btt'
-
-    " Only remember a limited number of files
-    let g:ctrlp_mruf_max = 0
-
-    " Disable ag caching
-    let g:ctrlp_use_caching = 0
-endif
-
-" Add ctrlp extensions
-let g:ctrlp_extensions = ['tag', 'buffertag', 'quickfix']
-
-let g:ctrlp_custom_ignore = '\v\~$|\.(o|swp|pyc|wav|mp3|ogg|blend|fits|bz2)$|(^|[/\\])\.(hg|git|bzr)($|[/\\])|.venv/*'
-"}}}
 " {{{ vim-test
 nnoremap <silent> ta :TestSuite<cr>
 nnoremap <silent> tc :TestNearest<cr>
@@ -131,6 +88,11 @@ let g:markdown_fenced_languages = ['python', 'sh']
 "}}}
 " {{{ gitgutter
 let g:gitgutter_enabled = 1
+"}}}
+" {{{ fzf
+set rtp+=~/.fzf
+
+nnoremap <leader>f :FZF<cr>
 "}}}
 " }}}
 "
