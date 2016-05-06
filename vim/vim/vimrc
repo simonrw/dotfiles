@@ -98,7 +98,8 @@ nnoremap <leader>F :FZF<cr>
 nnoremap <leader>f :GitFiles<cr>
 nnoremap gb :Buffers<cr>
 nnoremap gt :Tags<cr>
-nnoremap gl :Lines<cr>
+nnoremap gL :Lines<cr>
+nnoremap gl :BLines<cr>
 "}}}
 " }}}
 "
