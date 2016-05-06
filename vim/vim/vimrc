@@ -261,6 +261,10 @@ endif
 " Use two spaces after full stop if joining lines with sentences
 set joinspaces
 
+" Scroll sideways one character at a time, like most other editors
+" rather than half a screen.
+set sidescroll=1
+
 " }}}
 " {{{ Statusline
 " Set up statusline
