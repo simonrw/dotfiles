@@ -91,10 +91,11 @@ let g:gitgutter_enabled = 1
 " {{{ fzf
 set rtp+=~/.fzf
 
-nnoremap <leader>f :FZF<cr>
+nnoremap <leader>F :FZF<cr>
 "}}}
 " {{{ fzf.vim
 " fzf mappings
+nnoremap <leader>f :GitFiles<cr>
 nnoremap gb :Buffers<cr>
 nnoremap gt :Tags<cr>
 nnoremap gl :Lines<cr>
