@@ -36,6 +36,7 @@ Plug 'milkypostman/vim-togglelist'
 Plug 'airblade/vim-gitgutter'
 Plug 'nelstrom/vim-markdown-folding'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --no-update-rc --no-completion --key-bindings' }
+Plug 'junegunn/fzf.vim'
 
 " Languages
 Plug 'mitsuhiko/vim-jinja'
@@ -91,6 +92,12 @@ let g:gitgutter_enabled = 1
 set rtp+=~/.fzf
 
 nnoremap <leader>f :FZF<cr>
+"}}}
+" {{{ fzf.vim
+" fzf mappings
+nnoremap gb :Buffers<cr>
+nnoremap gt :Tags<cr>
+nnoremap gl :Lines<cr>
 "}}}
 " }}}
 "
@@ -315,9 +322,6 @@ vnoremap j gj
 vnoremap k gk
 vnoremap gj j
 vnoremap gk k
-
-" Fuzzy find tags
-nnoremap gt :CtrlPTag<Cr>
 
 " Search with fancy regex search by default
 nnoremap / /\v
