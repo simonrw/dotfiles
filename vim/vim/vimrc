@@ -100,6 +100,7 @@ nnoremap gb :Buffers<cr>
 nnoremap gt :Tags<cr>
 nnoremap gL :Lines<cr>
 nnoremap gl :BLines<cr>
+nnoremap <leader>a :Ag<cr>
 "}}}
 " }}}
 "
@@ -405,11 +406,6 @@ inoremap <C-w> <C-g>u<C-w>
 " Quick file editing
 nnoremap cv :vsplit $MYVIMRC<cr>
 nnoremap cz :vsplit ~/.zshrc<cr>
-
-" open Ag
-command! -nargs=+ -complete=file -bar Ag silent! grep! <args>|cwindow|redraw!
-
-nnoremap <leader>a :Ag<space>
 
 " Default leader mapping to run current file,
 " with eunuch.vim this should basically work
