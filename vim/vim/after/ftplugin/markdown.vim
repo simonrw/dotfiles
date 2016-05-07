@@ -1,6 +1,4 @@
-setlocal expandtab
 setlocal linebreak
-setlocal shiftwidth=4
 setlocal textwidth=0
 
 " mappings to create headings of different sorts

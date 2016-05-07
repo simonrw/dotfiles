@@ -5,9 +5,6 @@ setlocal colorcolumn=80
 " Disable spelling
 setlocal nospell
 
-" Set the vim-pipe command
-let b:vimpipe_command="python"
-
 function! AddImportString(import_text)
     execute "normal! mmgg/import\<cr>}"
     execute "normal! O" . a:import_text . "\<esc>"
