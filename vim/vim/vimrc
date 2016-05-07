@@ -39,6 +39,7 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --no-update-rc --no-com
 Plug 'junegunn/fzf.vim'
 
 " Languages
+Plug 'vim-scripts/indentpython.vim'
 Plug 'mitsuhiko/vim-jinja'
 Plug 'vim-scripts/TWiki-Syntax'
 Plug 'fatih/vim-nginx'
