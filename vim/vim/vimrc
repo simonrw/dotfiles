@@ -217,11 +217,6 @@ set secure
 " Enable british spelling
 set spelllang=en_gb
 
-" Better formatting
-if executable('par')
-    set formatprg=par
-endif
-
 " Configure 'Press enter to continue' messages
 set shortmess=atI
 
