@@ -25,3 +25,12 @@ gco() {
     fzf-tmux -- --no-hscroll --ansi +m -d "\t" -n 2) || return
     git checkout $(echo "$target" | awk '{print $2}')
 }
+
+# fcs - get git commit sha
+# example usage: git rebase -i `fcs`
+gsha() {
+  local commits commit
+  commits=$(git log --all --color=always --pretty=oneline --abbrev-commit --reverse) &&
+  commit=$(echo "$commits" | fzf --tac +s +m -e --ansi --reverse) &&
+  echo -n $(echo "$commit" | sed "s/ .*//")
+}
