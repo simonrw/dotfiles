@@ -19,3 +19,6 @@ set visualbell
 
 " Set width
 set columns=100
+
+" Finally change the colour scheme, as ir_black is not very nice in gui mode
+colorscheme base16-tomorrow
