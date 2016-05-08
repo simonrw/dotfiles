@@ -122,6 +122,10 @@ set expandtab
 set textwidth=0
 set nowrap
 
+" Despite not wrapping, in case I activate it somehow make
+" sure we wrap in between words rather than at any point
+set linebreak
+
 " Do not show the cursor line
 set nocursorline
 set nocursorcolumn
