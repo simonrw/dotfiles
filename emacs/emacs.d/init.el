@@ -12,7 +12,7 @@
   '(better-defaults
     flycheck ;; syntax checker
     py-autopep8
-    ein
+	yaml-mode
 	smex
     markdown-mode
     multi-term
