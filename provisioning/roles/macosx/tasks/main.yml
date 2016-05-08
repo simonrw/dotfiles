@@ -32,7 +32,7 @@
     - packaging
 
 - name: Install vim with arguments
-  homebrew: name=vim state=latest install_options=override-system-vi
+  homebrew: name=vim state=head install_options=override-system-vi
   tags:
     - packaging
 
