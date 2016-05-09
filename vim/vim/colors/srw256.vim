@@ -1,5 +1,7 @@
 " Based on
-runtime colors/grb256.vim
+runtime colors/github.vim " colors/grb256.vim
 
 " Make the colour column a little bit more subtle
-highlight ColorColumn ctermbg=237
+" Dark background: 237
+" Light background: 15
+highlight ColorColumn ctermbg=15

@@ -459,7 +459,7 @@ if has('nvim')
 
 " }}}
 " {{{ Theming
-set background=dark
+set background=light
 colorscheme srw256
 
 " Function to show syntax group under cursor
