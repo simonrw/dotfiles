@@ -37,6 +37,7 @@ Plug 'airblade/vim-gitgutter'
 Plug 'nelstrom/vim-markdown-folding'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --no-update-rc --no-completion --key-bindings' }
 Plug 'junegunn/fzf.vim'
+Plug 'reedes/vim-pencil'
 
 " Languages
 Plug 'vim-scripts/indentpython.vim'
@@ -102,6 +103,21 @@ nnoremap gt :Tags<cr>
 nnoremap gL :Lines<cr>
 nnoremap gl :BLines<cr>
 nnoremap <leader>a :Ag<cr>
+"}}}
+" {{{ vim-pencil
+let g:pencil#wrapModeDefault = 'hard'
+
+augroup pencil
+    autocmd!
+    autocmd FileType markdown,mkd call pencil#init()
+    autocmd FileType asciidoc call pencil#init()
+    autocmd FileType txt call pencil#init()
+    autocmd FileType email call pencil#init()
+    autocmd FileType rst call pencil#init()
+augroup END
+
+" Join sentences with two spaces rather than one
+let g:pencil#joinspaces = 1
 "}}}
 " }}}
 "
