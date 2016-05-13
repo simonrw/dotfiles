@@ -113,7 +113,7 @@ augroup pencil
     autocmd FileType markdown,mkd call pencil#init()
     autocmd FileType asciidoc call pencil#init()
     autocmd FileType txt call pencil#init()
-    autocmd FileType email call pencil#init()
+    autocmd FileType mail call pencil#init()
     autocmd FileType rst call pencil#init()
 augroup END
 
