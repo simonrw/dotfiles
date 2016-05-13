@@ -49,6 +49,7 @@ Plug 'rust-lang/rust.vim'
 
 " Colour schemes
 Plug 'chriskempson/base16-vim'
+Plug 'altercation/vim-colors-solarized'
 
 call plug#end()
 " }}}
