@@ -15,6 +15,8 @@
 	yaml-mode
 	smex
     markdown-mode
+	adoc-mode
+	fzf
     multi-term
 	clojure-mode
 	auto-complete
@@ -23,6 +25,8 @@
 	base16-theme
 	magit
 	ansible
+	evil
+	evil-leader
 	jinja2-mode
 	ir-black-theme))
 
@@ -76,6 +80,17 @@
 ;; Use auto-complete mode always
 (global-auto-complete-mode)
 
+;; Use evil mode always
+(global-evil-leader-mode)
+(evil-mode t)
+(evil-leader/set-leader ",")
+(evil-leader/set-key "f" 'fzf)
+
+;; Set up fzf
+;; Add the fzf dir to the PATH
+(setenv "PATH" (concat "/Users/simon/.fzf/bin:" (getenv "PATH")))
+(setq exec-path (append '("/Users/simon/.fzf/bin") exec-path))
+
 ;; Smex
 (autoload 'smex "smex"
   "Smex is a M-x enhancement for Emacs")
@@ -100,6 +115,4 @@
 (setq mouse-wheel-follow-mouse 't)
 
 ;; Theming
-;; Function to determine if we're running in graphics mode or not
-(if (display-graphic-p)
-    (load-theme 'base16-tomorrow-dark t))
+(load-theme 'base16-tomorrow-dark t)
