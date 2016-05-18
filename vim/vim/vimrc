@@ -140,6 +140,11 @@ set expandtab
 set textwidth=0
 set nowrap
 
+" Set EVERYTHING to utf8
+set termencoding=utf-8
+set encoding=utf-8
+set fileencodings=utf-8
+
 " Despite not wrapping, in case I activate it somehow make
 " sure we wrap in between words rather than at any point
 set linebreak
