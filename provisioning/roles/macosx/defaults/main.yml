@@ -84,7 +84,6 @@ homebrew_packages:
 - leiningen
 - nim
 - haskell-stack
-- multirust
 
 # Javascript
 - node
