@@ -371,6 +371,11 @@ inoremap <s-tab> <c-n>
 " Swap between two files
 nnoremap <BS> <C-^>
 
+" Nicer way to open up splits
+" https://www.reddit.com/r/vim/comments/4jyw8o/how_i_vim_andy_stewart_aka_airblade/d3ayzox
+nnoremap <expr><silent> \| !v:count ? "<C-W>v<C-W><Right>" : '\|'
+nnoremap <expr><silent> _  !v:count ? "<C-W>s<C-W><Down>"  : '_'
+
 " settings from thoughtbot dotfiles repo
 " Speed up ctrl-e/ctrl-y
 nnoremap <C-e> 3<C-e>
