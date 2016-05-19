@@ -91,8 +91,11 @@
 
 ;; Set up fzf
 ;; Add the fzf dir to the PATH
-(setenv "PATH" (concat "/Users/simon/.fzf/bin:" (getenv "PATH")))
-(setq exec-path (append '("/Users/simon/.fzf/bin") exec-path))
+;; (setenv "PATH" (concat
+				;; (getenv "HOME") "/.fzf/bin:" (getenv "PATH")))
+;; (setq exec-path
+	  ;; (append
+	   ;; '((concat (getenv "HOME") "/.fzf/bin") exec-path)))
 
 ;; Smex
 (autoload 'smex "smex"
