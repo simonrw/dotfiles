@@ -329,6 +329,8 @@ set statusline+=%P
 """"""""""""""""""""
 "     MAPPINGS     "
 """"""""""""""""""""
+" Make Y fit in with D and C
+nnoremap Y y$
 
 " Disable the 'help' key
 nnoremap K <nop>
