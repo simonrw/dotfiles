@@ -46,6 +46,9 @@
 (add-hook 'markdown-mode-hook
 		  (auto-fill-mode))
 
+;; Disable blinking cursor
+(blink-cursor-mode 0)
+
 (when (eq system-type 'darwin)
   (set-face-attribute 'default nil :family "Source Code Pro")
   (set-face-attribute 'default nil :height 140)
