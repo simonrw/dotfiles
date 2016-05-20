@@ -106,6 +106,9 @@ nnoremap gL :Lines<cr>
 nnoremap gl :BLines<cr>
 nnoremap <leader>a :Ag<cr>
 "}}}
+" {{{ rust.vim
+let g:rustfmt_autosave = 1
+"}}}
 " }}}
 "
 " }}}
