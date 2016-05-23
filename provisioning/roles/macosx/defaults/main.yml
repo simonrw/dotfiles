@@ -138,6 +138,7 @@ homebrew_casks:
 
 npm_packages:
 - react-native-cli
+- nativefier
 
 homebrew_services:
 - mariadb
