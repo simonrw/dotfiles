@@ -20,5 +20,8 @@ set visualbell
 " Set width
 set columns=100
 
+" Always set 256 color mode
+set t_Co=256
+
 " Finally change the colour scheme, as ir_black is not very nice in gui mode
-colorscheme base16-tomorrow
+colorscheme dracula
