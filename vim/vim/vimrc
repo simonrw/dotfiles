@@ -37,6 +37,7 @@ Plug 'nelstrom/vim-markdown-folding'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --no-update-rc --no-completion --key-bindings' }
 Plug 'junegunn/fzf.vim'
 Plug 'wellle/targets.vim'
+Plug 'racer-rust/vim-racer'
 
 " Languages
 Plug 'vim-scripts/indentpython.vim'
