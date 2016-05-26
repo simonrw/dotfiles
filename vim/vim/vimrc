@@ -83,7 +83,7 @@ let g:EditorConfig_exclude_patterns = ['fugitive://.*']
 nnoremap coq :call ToggleQuickfixList()<Cr>
 "}}}
 " {{{ vim-markdown
-let g:markdown_fenced_languages = ['python', 'sh']
+let g:markdown_fenced_languages = ['python', 'sh', 'rust']
 "}}}
 " {{{ fzf
 set rtp+=~/.fzf
