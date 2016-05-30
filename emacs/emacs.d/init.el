@@ -77,6 +77,11 @@
 (setq org-agenda-files (list "~/org/ngts.org"
 							 "~/org/home.org"))
 
+(org-babel-do-load-languages
+ 'org-babel-load-languages
+ '((python . t)))
+
+
 
 ;; Make sure everything is in utf-8
 (set-language-environment "UTF-8")
