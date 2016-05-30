@@ -131,4 +131,4 @@
 (setq mouse-wheel-follow-mouse 't)
 
 ;; Theming
-(load-theme 'dracula t)
+(load-theme 'ir-black t)
