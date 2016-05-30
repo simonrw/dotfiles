@@ -115,6 +115,9 @@ if type direnv >/dev/null; then
     fi
 fi
 
+# Disable cowsay for ansible
+export ANSIBLE_NOCOWS=1
+
 # source external zsh setup files
 for file in ~/.zsh/setup/*.zsh; do
     source $file
