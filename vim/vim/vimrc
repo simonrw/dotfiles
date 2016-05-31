@@ -48,6 +48,9 @@ Plug 'elixir-lang/vim-elixir'
 Plug 'rust-lang/rust.vim'
 Plug 'cespare/vim-toml'
 
+" Colour schemes
+Plug 'sickill/vim-monokai'
+
 call plug#end()
 " }}}
 " Plugin settings {{{
