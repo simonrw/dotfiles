@@ -13,7 +13,6 @@
     flycheck ;; syntax checker
     py-autopep8
 	yaml-mode
-	solarized-theme
 	smex
     markdown-mode
 	adoc-mode
@@ -132,4 +131,4 @@
 (setq mouse-wheel-follow-mouse 't)
 
 ;; Theming
-(load-theme 'solarized-light t)
+(load-theme 'ir-black t)
