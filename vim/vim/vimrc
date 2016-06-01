@@ -51,6 +51,7 @@ Plug 'cespare/vim-toml'
 " Colour schemes
 Plug 'sickill/vim-monokai'
 Plug 'dracula/vim', { 'as': 'dracula' }
+Plug 'altercation/vim-colors-solarized'
 
 call plug#end()
 " }}}
@@ -476,8 +477,8 @@ if has('nvim')
 
 " }}}
 " {{{ Theming
-set background=dark
-colorscheme srw256
+set background=light
+colorscheme solarized
 
 " Function to show syntax group under cursor
 map <F10> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<'
