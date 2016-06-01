@@ -50,6 +50,7 @@ Plug 'cespare/vim-toml'
 
 " Colour schemes
 Plug 'sickill/vim-monokai'
+Plug 'dracula/vim', { 'as': 'dracula' }
 
 call plug#end()
 " }}}
