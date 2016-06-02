@@ -61,11 +61,11 @@ bindkey '^Z' fancy-ctrl-z
 
 # SSH into the ngts ops machine, allowing for custom ssh arguments
 function ng() {
-    ssh -t ngtshead $@ exec zsh
+    ssh -t ngtshead $@ exec /home/sw/.local/bin/zsh
 }
 
 function ng.astro() {
-    ssh -t ngtshead.astro $@ exec zsh
+    ssh -t ngtshead.astro $@ exec /home/sw/.local/bin/zsh
 }
 
 function init-python() {
