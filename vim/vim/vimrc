@@ -346,18 +346,6 @@ nnoremap ? ?\v
 " Add mapping to toggle the git gutter
 nnoremap cog :GitGutterToggle<Cr>
 
-" Multipurpose tab key from grb
-function! InsertTabWrapper()
-    let s:col = col('.') - 1
-    if !s:col || getline('.')[s:col - 1] !~ '\k'
-        return "\<tab>"
-    else
-        return "\<c-p>"
-    endif
-endfunction
-inoremap <tab> <c-r>=InsertTabWrapper()<cr>
-inoremap <s-tab> <c-n>
-
 " Swap between two files
 nnoremap <BS> <C-^>
 
