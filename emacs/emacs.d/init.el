@@ -132,4 +132,4 @@
 (setq mouse-wheel-follow-mouse 't)
 
 ;; Theming
-(load-theme 'solarized-light t)
+(load-theme 'base16-tomorrow-dark t)
