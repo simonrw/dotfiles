@@ -466,7 +466,7 @@ if has('nvim')
 " }}}
 " {{{ Theming
 set background=dark
-colorscheme srw256
+colorscheme dracula
 
 " Function to show syntax group under cursor
 map <F10> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<'
