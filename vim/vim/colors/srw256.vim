@@ -5,3 +5,6 @@ runtime colors/grb256.vim
 " Dark background: 237
 " Light background: 15
 highlight ColorColumn ctermbg=237
+
+" Make rust documtnation a little more muted
+highlight rustCommentLineDoc ctermfg=137
