@@ -25,4 +25,4 @@ set t_Co=256
 
 " Finally change the colour scheme, as ir_black is not very nice in gui mode
 set background=dark
-colorscheme dracula
+colorscheme srw256
