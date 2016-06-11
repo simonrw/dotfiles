@@ -8,3 +8,7 @@ highlight ColorColumn ctermbg=237
 
 " Make rust documtnation a little more muted
 highlight rustCommentLineDoc ctermfg=137
+
+" Custom background colour
+hi Normal guibg=#282828
+hi NonText guibg=#282828
