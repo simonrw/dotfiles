@@ -52,6 +52,7 @@ Plug 'cespare/vim-toml'
 Plug 'sickill/vim-monokai'
 Plug 'dracula/vim', { 'as': 'dracula' }
 Plug 'altercation/vim-colors-solarized'
+Plug 'acarapetis/vim-colors-github'
 
 call plug#end()
 " }}}
