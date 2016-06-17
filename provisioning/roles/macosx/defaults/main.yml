@@ -104,6 +104,7 @@ homebrew_packages:
 
 
 homebrew_casks:
+- blender
 - caffeine
 - dropbox
 - elm-platform
