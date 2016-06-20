@@ -10,7 +10,6 @@ alias ll='ls -lh'
 alias lr='ls -thor'
 alias man1='man 1'
 alias o='open'
-alias gs='g st'
 alias irssi="TERM=screen-256color irssi"
 alias ipy=ipython
 alias ipysh='ipython --profile=sh'
@@ -19,8 +18,6 @@ alias pydoc='=python -m pydoc'
 alias pylab='ipython --profile=pylab'
 alias clear-pycs='find ${PWD} -name "*.pyc" -delete'
 alias g='git'
-alias gst='=git st'
-alias ga='g aa'
 alias es='exec $SHELL'
 alias v=vim
 alias work="cd ${work} && pwd && ls"
