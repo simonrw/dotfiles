@@ -133,6 +133,7 @@ if which pyenv-virtualenv-init > /dev/null; then eval "$(command pyenv virtualen
 export PATH=${PATH}:${HOME}/.cargo/bin
 export CARGO_HOME=${HOME}/.cargo
 export RUST_SRC_PATH=${HOME}/.cargo/rust-src/src
+export RUST_NEW_ERROR_FORMAT=true
 
 # Finally source the theme
 source ${HOME}/.zsh/srwalker101.zsh-theme
