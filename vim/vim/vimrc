@@ -48,6 +48,7 @@ Plug 'fatih/vim-nginx'
 Plug 'elixir-lang/vim-elixir'
 Plug 'rust-lang/rust.vim'
 Plug 'cespare/vim-toml'
+Plug 'peter-edge/vim-capnp'
 
 " Colour schemes
 Plug 'sickill/vim-monokai'
