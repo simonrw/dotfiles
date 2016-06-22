@@ -38,7 +38,6 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --no-update-rc --no-com
 Plug 'junegunn/fzf.vim'
 Plug 'wellle/targets.vim'
 Plug 'racer-rust/vim-racer'
-Plug 'scrooloose/syntastic'
 
 " Languages
 Plug 'vim-scripts/indentpython.vim'
@@ -111,12 +110,6 @@ nnoremap <leader>a :Ag<cr>
 let g:rustfmt_autosave = 0
 let g:rustfmt_fail_silently = 1
 let g:rust_folding = 0
-"}}}
-" {{{ syntastic
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
 "}}}
 " }}}
 "
