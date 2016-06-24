@@ -126,7 +126,24 @@ done
 # Set up misc extra commands
 export PYENV_VIRTUALENV_DISABLE_PROMPT=1
 export PATH=${HOME}/.pyenv/bin:${PATH}
-if which pyenv > /dev/null; then eval "$(command pyenv init -)"; fi
+
+# Set up pyenv manually to stop slow shell startup
+export PATH="/Users/simon/.pyenv/shims:${PATH}"
+export PYENV_SHELL=sh
+pyenv() {
+  local command
+  command="$1"
+  if [ "$#" -gt 0 ]; then
+    shift
+  fi
+
+  case "$command" in
+  activate|deactivate|rehash|shell)
+    eval "$(pyenv "sh-$command" "$@")";;
+  *)
+    command pyenv "$command" "$@";;
+  esac
+}
 if which pyenv-virtualenv-init > /dev/null; then eval "$(command pyenv virtualenv-init -)"; fi
 
 # Set up rustup
