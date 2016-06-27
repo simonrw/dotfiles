@@ -144,7 +144,10 @@ pyenv() {
     command pyenv "$command" "$@";;
   esac
 }
-if which pyenv-virtualenv-init > /dev/null; then eval "$(command pyenv virtualenv-init -)"; fi
+
+if [[ -f ${HOME}/.pyenv/plugins/pyenv-virtualenv/bin/pyenv-virtualenv-init ]]; then
+    eval "$(command pyenv virtualenv-init -)"
+fi
 
 # Set up rustup
 export PATH=${PATH}:${HOME}/.cargo/bin
