@@ -130,9 +130,9 @@ set shiftwidth=4
 set shiftround
 set expandtab
 
-" No wrapping by default
+" Wrapping by default
 set textwidth=0
-set nowrap
+set wrap
 
 " Set EVERYTHING to utf8
 set termencoding=utf-8
