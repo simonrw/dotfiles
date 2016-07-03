@@ -30,7 +30,6 @@ homebrew_packages:
 - git
 - git-lfs
 - gnu-sed
-- gpg
 - graphviz
 - grep
 - heroku-toolbelt
@@ -107,25 +106,19 @@ homebrew_casks:
 - blender
 - caffeine
 - dropbox
-- elm-platform
 - firefox
-- garmin-express
 - gimp
 - google-chrome
 - gpgtools
-- iterm2-beta
+- iterm2
 - jadengeller-helium
 - keyboard-cleaner
-- launchcontrol
 - limechat
 - mactex
 - macvim
 - mendeley-desktop
 - messenger
 - omnidisksweeper
-- osxfuse
-- plotdigitizer
-- puppet
 - saoimage-ds9
 - skim
 - skype
@@ -145,6 +138,7 @@ homebrew_casks:
 npm_packages:
 - react-native-cli
 - nativefier
+- brunch
 
 homebrew_services:
 - mariadb
