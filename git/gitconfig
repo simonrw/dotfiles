@@ -67,7 +67,7 @@
     ui = auto
 [core]
     abbrev = 12
-    autocrlf = false
+	autocrlf = input
     safecrlf = true
     whitespace = fix
     editor = vim
