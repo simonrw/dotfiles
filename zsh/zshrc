@@ -130,6 +130,7 @@ export PATH=${HOME}/.pyenv/bin:${PATH}
 # Set up pyenv manually to stop slow shell startup
 export PATH="/Users/simon/.pyenv/shims:${PATH}"
 export PYENV_SHELL=sh
+source "${HOME}/.pyenv/libexec/../completions/pyenv.zsh"
 pyenv() {
   local command
   command="$1"
