@@ -8,7 +8,7 @@ import subprocess as sp
 def main(args):
     full_path = os.path.realpath(args.path)
     cmd = ['conda', 'create', '-p', full_path,
-            '--yes', '--quiet', 'python={}'.format(args.python)]
+            '--yes', '--quiet', 'python={0}'.format(args.python)]
     # Add default packages
     cmd.extend(args.package)
     sp.check_call(map(str, cmd))
