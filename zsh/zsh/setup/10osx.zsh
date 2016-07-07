@@ -11,7 +11,7 @@ case $OSTYPE in
 
 
         # Configure chruby
-        source /usr/local/opt/chruby/share/chruby/chruby.sh
+        # source /usr/local/opt/chruby/share/chruby/chruby.sh
 
         # Set up online help
         unalias run-help

@@ -17,7 +17,7 @@ REPORTTIME=10
 stty stop undef
 
 autoload -U compinit
-compinit
+# compinit
 
 # Disable non-standard implicit tee/cat behaviour
 unsetopt multios
@@ -105,15 +105,15 @@ if [[ -f ${HOME}/.zshrc.local ]]; then
 fi
 
 # Setup direnv
-if type direnv >/dev/null; then
-    _direnv_hook() {
-    eval "$(direnv export zsh)";
-    }
-    typeset -a precmd_functions
-    if [[ -z $precmd_functions[(r)_direnv_hook] ]]; then
-    precmd_functions+=_direnv_hook;
-    fi
-fi
+# if type direnv >/dev/null; then
+#     _direnv_hook() {
+#     eval "$(direnv export zsh)";
+#     }
+#     typeset -a precmd_functions
+#     if [[ -z $precmd_functions[(r)_direnv_hook] ]]; then
+#     precmd_functions+=_direnv_hook;
+#     fi
+# fi
 
 # Disable cowsay for ansible
 export ANSIBLE_NOCOWS=1
@@ -128,10 +128,10 @@ export PYENV_VIRTUALENV_DISABLE_PROMPT=1
 export PATH=${HOME}/.pyenv/bin:${PATH}
 
 # Set up pyenv manually to stop slow shell startup
-eval "$(command pyenv init -)"
-if [[ -f ${HOME}/.pyenv/plugins/pyenv-virtualenv/bin/pyenv-virtualenv-init ]]; then
-    eval "$(command pyenv virtualenv-init -)"
-fi
+# eval "$(command pyenv init -)"
+# if [[ -f ${HOME}/.pyenv/plugins/pyenv-virtualenv/bin/pyenv-virtualenv-init ]]; then
+#     eval "$(command pyenv virtualenv-init -)"
+# fi
 
 # Set up rustup
 export PATH=${PATH}:${HOME}/.cargo/bin
