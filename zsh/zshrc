@@ -122,6 +122,12 @@ done
 export PYENV_VIRTUALENV_DISABLE_PROMPT=1
 export PATH=${HOME}/.pyenv/bin:${PATH}
 
+# Shim to set up pyenv
+pyenv() {
+    echo "Setting up pyenv for this shell"
+    eval "$(command pyenv init -)"
+}
+
 # Set up pyenv manually to stop slow shell startup
 # eval "$(command pyenv init -)"
 # if [[ -f ${HOME}/.pyenv/plugins/pyenv-virtualenv/bin/pyenv-virtualenv-init ]]; then
