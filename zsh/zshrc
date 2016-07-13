@@ -99,11 +99,6 @@ export ZLP="${NGTS}/pipeline/ZLP"
 export LOGDIR="${HOME}/var/log"
 export TREE_CHARSET=ascii               # For rendering with the `tree` command
 
-# Source the custom zshrc.local file in the system
-if [[ -f ${HOME}/.zshrc.local ]]; then
-    source ${HOME}/.zshrc.local
-fi
-
 # Setup direnv
 # if type direnv >/dev/null; then
 #     _direnv_hook() {
@@ -141,6 +136,11 @@ export RUST_NEW_ERROR_FORMAT=true
 
 # Finally source the theme
 source ${HOME}/.zsh/srwalker101.zsh-theme
+
+# Source the custom zshrc.local file in the system
+if [[ -f ${HOME}/.zshrc.local ]]; then
+    source ${HOME}/.zshrc.local
+fi
 
 if [[ "$PROFILE_STARTUP" == true ]]; then
     unsetopt xtrace
