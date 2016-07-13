@@ -49,6 +49,7 @@ Plug 'elixir-lang/vim-elixir'
 Plug 'rust-lang/rust.vim'
 Plug 'cespare/vim-toml'
 Plug 'peter-edge/vim-capnp'
+Plug 'Superbil/llvm.vim'
 
 " Colour schemes
 Plug 'sickill/vim-monokai'
