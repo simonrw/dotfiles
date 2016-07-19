@@ -26,7 +26,6 @@ Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-fireplace'
-Plug 'tpope/vim-sleuth'
 
 " Custom plugins
 Plug 'janko-m/vim-test'
@@ -38,7 +37,6 @@ Plug 'junegunn/fzf.vim'
 Plug 'racer-rust/vim-racer'
 
 " Languages
-Plug 'vim-scripts/indentpython.vim'
 Plug 'mitsuhiko/vim-jinja'
 Plug 'vim-scripts/TWiki-Syntax'
 Plug 'fatih/vim-nginx'
