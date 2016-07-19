@@ -16,13 +16,13 @@ call plug#begin('~/.vim/bundle')
 
 " tpope plugins, these deserve their own section
 " start with vim-sensible
+Plug 'tpope/vim-sensible'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-dispatch'
 Plug 'tpope/vim-eunuch'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-markdown'
 Plug 'tpope/vim-repeat'
-Plug 'tpope/vim-sensible'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-fireplace'
@@ -33,11 +33,8 @@ Plug 'janko-m/vim-test'
 Plug 'christoomey/vim-tmux-runner'
 Plug 'Wolfy87/vim-enmasse'
 Plug 'editorconfig/editorconfig-vim'
-Plug 'milkypostman/vim-togglelist'
-Plug 'nelstrom/vim-markdown-folding'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --no-update-rc --no-completion --key-bindings' }
 Plug 'junegunn/fzf.vim'
-Plug 'wellle/targets.vim'
 Plug 'racer-rust/vim-racer'
 
 " Languages
@@ -49,13 +46,6 @@ Plug 'elixir-lang/vim-elixir'
 Plug 'rust-lang/rust.vim'
 Plug 'cespare/vim-toml'
 Plug 'peter-edge/vim-capnp'
-Plug 'Superbil/llvm.vim'
-
-" Colour schemes
-Plug 'sickill/vim-monokai'
-Plug 'dracula/vim', { 'as': 'dracula' }
-Plug 'altercation/vim-colors-solarized'
-Plug 'acarapetis/vim-colors-github'
 
 call plug#end()
 " }}}
