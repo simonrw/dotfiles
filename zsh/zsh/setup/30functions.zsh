@@ -142,3 +142,16 @@ function build-movie() {
     
     (cd ${dirname} && mencoder 'mf://*.png' -mf w=800:h=600:fps=30:type=png -ovc x264 -x264encopts crf=18:nofast_pskip:nodct_decimate:nocabac:global_header:threads=12 -of lavf -lavfopts format=mp4 -o "${fulloutpath}")
 }
+
+# Function to source the virtual environment in the current directory
+function sourceenv() {
+    if [[ -f venv/bin/conda ]]; then
+        # Conda environment
+        # Ensure the pyenv alias has loaded
+        pyenv 2>&1 >/dev/null;
+        source $(pyenv which activate) ${PWD}/venv
+    else
+        # Normal python environment
+        source ${PWD}/venv/bin/activate
+    fi
+}

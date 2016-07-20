@@ -39,8 +39,6 @@ alias en=email-ngtsops
 alias sqlite3='rlwrap =sqlite3'
 alias hn='hn --keep-open'
 
-alias sourceenv='pyenv 2>&1 >/dev/null && source $(pyenv which activate) ${PWD}/venv'
-
 # NGTS aliases
 alias par-ds='ssh par-ds'
 alias ngts_ops='ngtsdb ngts_ops'
