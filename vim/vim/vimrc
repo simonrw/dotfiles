@@ -37,6 +37,7 @@ Plug 'junegunn/fzf.vim'
 Plug 'racer-rust/vim-racer'
 
 " Languages
+Plug 'vim-scripts/indentpython.vim'
 Plug 'mitsuhiko/vim-jinja'
 Plug 'vim-scripts/TWiki-Syntax'
 Plug 'fatih/vim-nginx'
