@@ -68,6 +68,10 @@ function ng.astro() {
     ssh -t ngtshead.astro $@ exec /home/sw/.local/bin/zsh
 }
 
+function ng.pi() {
+    ssh -t ngtshead.pi $@ exec /home/sw/.local/bin/zsh
+}
+
 function init-python() {
     local readonly fname="$1"
     # Remove the filename from the arugment list
