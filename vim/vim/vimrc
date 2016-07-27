@@ -36,6 +36,10 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --no-update-rc --no-com
 Plug 'junegunn/fzf.vim'
 Plug 'racer-rust/vim-racer'
 
+"" Indentation
+Plug 'kana/vim-textobj-user'
+Plug 'bps/vim-textobj-python'
+
 " Languages
 Plug 'vim-scripts/indentpython.vim'
 Plug 'mitsuhiko/vim-jinja'
