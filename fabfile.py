@@ -15,6 +15,7 @@ def sync_repos(remote_name='origin', branch_name='master'):
         lrun('git fetch {}'.format(remote_name))
         with settings(warn_only=True):
             lrun('git stash -q')
+            lrun('git checkout {}'.format(branch_name))
             result = lrun('git merge --ff-only {}/{}'.format(
                 remote_name, branch_name
             ))
