@@ -1,5 +1,5 @@
 " Enable the colour column
-setlocal colorcolumn=80
+setlocal colorcolumn=91
 
 
 " Disable spelling
