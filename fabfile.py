@@ -10,12 +10,14 @@ def lrun(*args, **kwargs):
 
 
 @task
-def sync_repos():
+def sync_repos(remote_name='origin', branch_name='master'):
     with cd('~/dotfiles'):
-        lrun('git fetch origin')
+        lrun('git fetch {}'.format(remote_name))
         with settings(warn_only=True):
             lrun('git stash -q')
-            result = lrun('git merge --ff-only origin/master')
+            result = lrun('git merge --ff-only {}/{}'.format(
+                remote_name, branch_name
+            ))
             if result.failed:
                 open_shell()
             lrun('git stash pop -q 2>/dev/null || true')
@@ -31,12 +33,12 @@ def sync_vim_plugins():
 
 @task
 @serial
-def push_changes():
-    local('git push origin master')
+def push_changes(remote_name='origin', branch_name='master'):
+    local('git push {} {}'.format(remote_name, branch_name))
 
 
 @task(default=True)
-def update():
-    push_changes()
-    sync_repos()
+def update(remote_name='origin', branch_name='master'):
+    push_changes(remote_name=remote_name, branch_name=branch_name)
+    sync_repos(remote_name=remote_name, branch_name=branch_name)
     sync_vim_plugins()
