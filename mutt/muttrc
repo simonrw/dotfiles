@@ -1,4 +1,4 @@
-source ~/.mutt.d/ir_black.mutt
+source ~/.mutt.d/light_theme.mutt
 source "gpg -d ~/.mutt.d/passwords.gpg |"
 
 # Global

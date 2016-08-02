@@ -50,6 +50,9 @@ Plug 'rust-lang/rust.vim'
 Plug 'cespare/vim-toml'
 Plug 'peter-edge/vim-capnp'
 
+" Colour schemes
+Plug 'acarapetis/vim-colors-github'
+
 call plug#end()
 " }}}
 " Plugin settings {{{
@@ -465,7 +468,7 @@ if has('nvim')
 
 " }}}
 " {{{ Theming
-set background=dark
+set background=light
 colorscheme srw256
 
 " Function to show syntax group under cursor
