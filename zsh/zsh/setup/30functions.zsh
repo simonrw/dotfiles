@@ -81,7 +81,6 @@ function init-python() {
 # -*- coding: utf-8 -*-
 
 from __future__ import division, print_function, absolute_import
-import argparse
 import logging
 
 logging.basicConfig(
@@ -95,6 +94,7 @@ def main(args):
     logger.debug(args)
 
 if __name__ == '__main__':
+    import argparse
     parser = argparse.ArgumentParser()
     parser.add_argument('-v', '--verbose', action='store_true')
     main(parser.parse_args())
