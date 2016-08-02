@@ -152,7 +152,7 @@ function sourceenv() {
     if [[ -f venv/bin/conda ]]; then
         # Conda environment
         # Ensure the pyenv alias has loaded
-        pyenv 2>&1 >/dev/null;
+        pyenv >/dev/null 2>&1
         source $(pyenv which activate) ${PWD}/venv
     else
         # Normal python environment
