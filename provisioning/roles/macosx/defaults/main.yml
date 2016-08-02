@@ -43,6 +43,7 @@ homebrew_packages:
 - mutt
 - ncdu
 - ngircd
+- ngrep
 - nmap
 - offlineimap
 - openssh
