@@ -40,6 +40,7 @@ homebrew_packages:
 - jq
 - md5sha1sum
 - mosh
+- multitail
 - mutt
 - ncdu
 - ngircd
