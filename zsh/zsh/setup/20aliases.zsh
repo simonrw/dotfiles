@@ -39,6 +39,11 @@ alias en=email-ngtsops
 alias sqlite3='rlwrap =sqlite3'
 alias hn='hn --keep-open'
 
+# If hub exists, run this instead of git
+if command -v hub >/dev/null 2>/dev/null; then
+    alias git=hub
+fi
+
 # NGTS aliases
 alias par-ds='ssh par-ds'
 alias ngts_ops='ngtsdb ngts_ops'
