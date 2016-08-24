@@ -19,6 +19,8 @@ set include
 set forward_quote
 set text_flowed=yes
 set send_charset="utf-8"
+set edit_headers=yes
+set use_from=yes
 
 set attribution = "On %d, %n wrote:"
 
