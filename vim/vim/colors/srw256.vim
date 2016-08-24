@@ -14,5 +14,5 @@ hi Normal guibg=#282828
 hi NonText guibg=#282828
 
 " Highlight trailing whitespace
-highlight ExtraWhitespace ctermbg=red guibg=red
+highlight ExtraWhitespace ctermbg=237 guibg=red
 autocmd Syntax * syn match ExtraWhitespace /\s\+$/
