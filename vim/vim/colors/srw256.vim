@@ -12,3 +12,7 @@ highlight rustCommentLineDoc ctermfg=137
 " Custom background colour
 hi Normal guibg=#282828
 hi NonText guibg=#282828
+
+" Highlight trailing whitespace
+highlight ExtraWhitespace ctermbg=red guibg=red
+autocmd Syntax * syn match ExtraWhitespace /\s\+$/
