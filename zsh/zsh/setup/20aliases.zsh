@@ -40,7 +40,7 @@ alias sqlite3='rlwrap =sqlite3'
 alias hn='hn --keep-open'
 
 # If hub exists, run this instead of git
-if command -v hub >/dev/null 2>/dev/null; then
+if has_executable hub; then
     alias git=hub
 fi
 
