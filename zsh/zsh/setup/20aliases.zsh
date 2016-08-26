@@ -44,6 +44,11 @@ if has_executable hub; then
     alias git=hub
 fi
 
+# Use nvim where possible
+if has_executable nvim; then
+    alias vim=nvim
+fi
+
 # NGTS aliases
 alias par-ds='ssh par-ds'
 alias ngts_ops='ngtsdb ngts_ops'
