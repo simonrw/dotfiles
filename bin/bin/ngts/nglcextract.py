@@ -21,6 +21,7 @@ Required information:
 from __future__ import absolute_import, division, print_function
 import argparse
 from collections import namedtuple
+import socket
 import fitsio
 import pymysql
 import os
@@ -32,6 +33,9 @@ import sys
 logging.basicConfig(level=logging.INFO, stream=sys.stderr,
                     format='%(name)s [%(levelname)s] (%(asctime)s): %(msg)s')
 logger = logging.getLogger(os.path.basename(sys.argv[0]))
+
+if 'ngts' not in socket.gethostname():
+    logger.warning('Not running on an ngts machine. May not work correctly')
 
 ObjectDescriptionBase = namedtuple(
     'ObjectDescriptionBase',
