@@ -28,6 +28,8 @@
 	ansible
 	editorconfig
 	jinja2-mode
+	rust-mode
+	company
 	ir-black-theme))
 
 (mapc #'(lambda (package)
@@ -118,6 +120,16 @@
 (setq mouse-wheel-scroll-amount '(2 ((shift) . 1)))
 (setq mouse-wheel-progressive-speed nil)
 (setq mouse-wheel-follow-mouse 't)
+
+;; Set up rust and racer
+(setq racer-rust-src-path "~/.cargo/rust-src/src/")
+(add-hook 'rust-mode-hook #'racer-mode)
+(add-hook 'racer-mode-hook #'eldoc-mode)
+(add-hook 'racer-mode-hook (lambda ()
+							 #'company-mode
+							 (define-key rust-mode-map (kbd "TAB") #'company-indent-or-complete-common)
+							 (setq company-tooltip-align-annotations t)))
+
 
 ;; Theming
 (load-theme 'ir-black t)
