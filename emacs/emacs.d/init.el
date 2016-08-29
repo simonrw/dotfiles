@@ -27,6 +27,9 @@
 	magit
 	ansible
 	editorconfig
+	evil
+	evil-leader
+	evil-commentary
 	jinja2-mode
 	rust-mode
 	company
@@ -89,6 +92,15 @@
 
 ;; Use auto-complete mode always
 (global-auto-complete-mode)
+
+;; Use evil mode always
+(global-evil-leader-mode)
+(evil-mode t)
+(evil-leader/set-leader ",")
+(evil-leader/set-key "f" 'fzf)
+
+;; Evil commentary
+(evil-commentary-mode)
 
 ;; Set up fzf
 ;; Add the fzf dir to the PATH
