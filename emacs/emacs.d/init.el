@@ -15,10 +15,12 @@
 	yaml-mode
 	solarized-theme
 	smex
+	vimrc-mode
     markdown-mode
 	adoc-mode
 	fzf
     multi-term
+	molokai-theme
 	clojure-mode
 	auto-complete
 	cider
@@ -32,8 +34,7 @@
 	evil-commentary
 	jinja2-mode
 	rust-mode
-	company
-	ir-black-theme))
+	company))
 
 (mapc #'(lambda (package)
 	  (unless (package-installed-p package)
@@ -90,9 +91,6 @@
 (set-language-environment "UTF-8")
 (set-buffer-file-coding-system 'utf-8)
 
-;; Use auto-complete mode always
-(global-auto-complete-mode)
-
 ;; Use evil mode always
 (global-evil-leader-mode)
 (evil-mode t)
@@ -133,15 +131,5 @@
 (setq mouse-wheel-progressive-speed nil)
 (setq mouse-wheel-follow-mouse 't)
 
-;; Set up rust and racer
-(setq racer-rust-src-path "~/.cargo/rust-src/src/")
-(add-hook 'rust-mode-hook #'racer-mode)
-(add-hook 'racer-mode-hook #'eldoc-mode)
-(add-hook 'racer-mode-hook (lambda ()
-							 #'company-mode
-							 (define-key rust-mode-map (kbd "TAB") #'company-indent-or-complete-common)
-							 (setq company-tooltip-align-annotations t)))
-
-
 ;; Theming
-(load-theme 'ir-black t)
+(load-theme 'molokai t)
