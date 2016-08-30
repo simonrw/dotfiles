@@ -13,7 +13,7 @@
     flycheck ;; syntax checker
     py-autopep8
 	yaml-mode
-	solarized-theme
+	color-theme-solarized
 	smex
 	vimrc-mode
     markdown-mode
@@ -132,4 +132,4 @@
 (setq mouse-wheel-follow-mouse 't)
 
 ;; Theming
-(load-theme 'molokai t)
+(load-theme 'solarized t)

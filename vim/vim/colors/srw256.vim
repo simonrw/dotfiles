@@ -1,5 +1,5 @@
 " Based on
-runtime colors/molokai.vim
+runtime colors/solarized.vim
 
 " Make the colour column a little bit more subtle
 " Dark background: 237
