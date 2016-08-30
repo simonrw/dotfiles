@@ -351,11 +351,6 @@ nnoremap cog :GitGutterToggle<Cr>
 " Swap between two files
 nnoremap <BS> <C-^>
 
-" Nicer way to open up splits
-" https://www.reddit.com/r/vim/comments/4jyw8o/how_i_vim_andy_stewart_aka_airblade/d3ayzox
-nnoremap <expr><silent> \| !v:count ? "<C-W>v<C-W><Right>" : '\|'
-nnoremap <expr><silent> _  !v:count ? "<C-W>s<C-W><Down>"  : '_'
-
 " settings from thoughtbot dotfiles repo
 " Speed up ctrl-e/ctrl-y
 nnoremap <C-e> 3<C-e>
@@ -364,14 +359,6 @@ nnoremap <C-y> 3<C-y>
 " Swap the mark keys
 nnoremap ' `
 nnoremap ` '
-
-" Map control-s to update, rather than write
-nnoremap <C-s> :update<CR>
-inoremap <C-s> :update<CR>
-vnoremap <C-s> :update<CR>
-
-" Remap the Q key
-noremap Q gqip
 
 " Expand %% to the current directory
 " http://vimcasts.org/e/14
@@ -388,13 +375,6 @@ vnoremap > >gv
 inoremap <F1> <ESC>
 nnoremap <F1> <ESC>
 vnoremap <F1> <ESC>
-
-" Let the arrow keys resize the window in normal mode
-" https://github.com/martin-svk/dot-files/blob/master/vim/nvimrc#L413
-nnoremap <silent> <Up> :resize +1<cr>
-nnoremap <silent> <Down> :resize -1<cr>
-nnoremap <silent> <Left> :vertical resize -1<cr>
-nnoremap <silent> <Right> :vertical resize +1<cr>
 
 inoremap <Up> <esc>:echo "Use k!"<cr>
 inoremap <Down> <esc>:echo "Use j!"<cr>
