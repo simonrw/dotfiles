@@ -38,6 +38,7 @@ homebrew_packages:
 - imagemagick
 - irssi
 - jq
+- keybase
 - md5sha1sum
 - mosh
 - multitail
@@ -114,6 +115,7 @@ homebrew_casks:
 - gpgtools
 - iterm2
 - jadengeller-helium
+- keybase
 - keyboard-cleaner
 - limechat
 - lumen
