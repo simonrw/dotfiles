@@ -200,7 +200,7 @@ def main(args):
     else:
         sysrem_tag = tag
 
-    with pymysql.connect(user='sw', host='ngtsdb', db='ngts_pipe') as cursor:
+    with pymysql.connect(host='ngtsdb', db='ngts_pipe') as cursor:
         file_mapping = fetch_file_locations(
             cursor=cursor,
             field=args.field,
