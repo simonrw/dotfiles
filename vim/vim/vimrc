@@ -36,6 +36,7 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --no-update-rc --no-com
 Plug 'junegunn/fzf.vim'
 Plug 'racer-rust/vim-racer'
 Plug 'neomake/neomake'
+Plug 'maralla/validator.vim'
 
 "" Indentation
 Plug 'kana/vim-textobj-user'
