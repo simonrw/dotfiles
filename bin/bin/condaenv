@@ -8,16 +8,13 @@ import subprocess as sp
 def main(args):
     full_path = os.path.realpath(args.path)
     cmd = ['conda', 'create', '-p', full_path,
-            '--yes', '--quiet', 'python={0}'.format(args.python)]
-    # Add default packages
+            '--yes', '--quiet']
     cmd.extend(args.package)
     sp.check_call(map(str, cmd))
 
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
-    parser.add_argument('path')
+    parser.add_argument('-p', '--path', required=False, default='venv')
     parser.add_argument('package', nargs='*')
-    parser.add_argument('-p', '--python', help='Python version', default=2,
-                        required=False)
     main(parser.parse_args())
