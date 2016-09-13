@@ -159,3 +159,13 @@ function sourceenv() {
         source ${PWD}/venv/bin/activate
     fi
 }
+
+# Expose the current directory using a python webserver
+# - handles importing http.server or SimpleHTTPServer
+function webshare() {
+    if has_executable python3; then
+        python3 -m http.server $*
+    else
+        python2 -m SimpleHTTPServer $*
+    fi
+}
