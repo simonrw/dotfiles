@@ -26,7 +26,7 @@ nnoremap cio :call AddImportString("import os")<cr>
 nnoremap cif :call AddImportString("import fitsio")<cr>
 
 " Allow linting with make plugin
-setlocal makeprg=pylint\ --reports=n\ --output-format=parseable\ %:p
+setlocal makeprg=flake8\ %:p
 setlocal errorformat=%f:%l:\ %m
 nnoremap <leader>x :update\|:Make<cr>
 
