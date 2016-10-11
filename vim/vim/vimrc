@@ -50,6 +50,7 @@ Plug 'elixir-lang/vim-elixir'
 Plug 'rust-lang/rust.vim'
 Plug 'cespare/vim-toml'
 Plug 'peter-edge/vim-capnp'
+Plug 'lambdatoast/elm.vim'
 
 call plug#end()
 " }}}
