@@ -149,6 +149,7 @@ function build-movie() {
 
 # Function to source the virtual environment in the current directory
 function sourceenv() {
+    local readonly _SRW_OLD_PS1="${PS1}"
     if [[ -f venv/bin/conda ]]; then
         # Conda environment
         # Ensure the pyenv alias has loaded
@@ -158,6 +159,7 @@ function sourceenv() {
         # Normal python environment
         source ${PWD}/venv/bin/activate
     fi
+    export PS1="${_SRW_OLD_PS1}"
 }
 
 # Expose the current directory using a python webserver
