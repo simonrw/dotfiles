@@ -1,6 +1,7 @@
 ---
 homebrew_taps:
 - caskroom/cask
+- caskroom/fonts
 - homebrew/science
 - mindriot101/alt
 - homebrew/headonly
@@ -139,6 +140,10 @@ homebrew_casks:
 - whatsapp
 - wireshark
 - zoomus
+
+# Fonts
+- font-inconsolata
+- font-inconsolata-dz
 
 npm_packages:
 - react-native-cli
