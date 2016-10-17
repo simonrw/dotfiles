@@ -394,10 +394,10 @@ inoremap <C-w> <C-g>u<C-w>
 nnoremap cv :vsplit $MYVIMRC<cr>
 nnoremap cz :vsplit ~/.zshrc<cr>
 
-" Default leader mapping to run current file,
+" Default mapping to run current file,
 " with eunuch.vim this should basically work
 " once a shebang is in place
-noremap <leader>t :update\|!./%<cr>
+noremap <cr> :update\|!./%<cr>
 
 " Bind K to grep word under cursor
 nnoremap <silent> K :grep! "<C-R><C-W>"<cr><cr>\|:copen<Cr>
