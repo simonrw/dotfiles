@@ -27,7 +27,7 @@ nnoremap cif :call AddImportString("import fitsio")<cr>
 
 " Allow linting with make plugin
 setlocal makeprg=flake8\ %:p
-setlocal errorformat=%f:%l:\ %m
+setlocal errorformat=%f:%l:%c: %t%n %m
 nnoremap <leader>x :update\|:Make<cr>
 
 " Run autopep8 for python files
