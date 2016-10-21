@@ -44,10 +44,7 @@ Plug 'bps/vim-textobj-python'
 Plug 'vim-scripts/indentpython.vim'
 Plug 'mitsuhiko/vim-jinja'
 Plug 'vim-scripts/TWiki-Syntax'
-Plug 'fatih/vim-nginx'
-Plug 'rust-lang/rust.vim'
-Plug 'cespare/vim-toml'
-Plug 'lambdatoast/elm.vim'
+Plug 'sheerun/vim-polyglot'
 
 call plug#end()
 " }}}
