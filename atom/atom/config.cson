@@ -1,0 +1,28 @@
+"*":
+  core:
+    disabledPackages: [
+      "Hydrogen"
+      "atomic-emacs"
+    ]
+    telemetryConsent: "no"
+    themes: [
+      "atom-dark-ui"
+      "base16-tomorrow-dark-theme"
+    ]
+  editor:
+    fontFamily: "Inconsolata-dz"
+    invisibles: {}
+    showLineNumbers: false
+    softWrap: true
+    tabLength: 4
+  "exception-reporting":
+    userId: "f0854859-5bc9-9a55-26cc-7254a8a5c965"
+  metrics:
+    userId: "a968852dcee208d7a6d502ed563a32b15ac1141a"
+  racer:
+    racerBinPath: "/Users/simon/.cargo/bin/racer"
+    rustSrcPath: "/Users/simon/.cargo/rust-src/src"
+  "tool-bar":
+    visible: false
+  welcome:
+    showOnStartup: false

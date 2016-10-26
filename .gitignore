@@ -105,3 +105,6 @@ emacs/emacs.d/smex-items
 mutt/mutt.d/account*
 mutt/mutt.d/startup*.mutt
 provisioning/site.retry
+atom/atom/.apm
+atom/atom/blob-store
+atom/atom/packages
