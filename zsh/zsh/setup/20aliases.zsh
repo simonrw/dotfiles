@@ -50,3 +50,7 @@ alias par-ds='ssh par-ds'
 alias ngts_ops='ngtsdb ngts_ops'
 alias ngts_pipe='ngtsdb ngts_pipe'
 alias irc='ssh -t raspberrypi tmux attach -t irc'
+
+if has_executable rg; then
+    alias ag=rg
+fi
