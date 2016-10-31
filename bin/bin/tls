@@ -19,9 +19,17 @@ def build_job_mapping(lines):
                     'text': line,
                     }
 
+def check_output(command):
+    p = sp.Popen(command, stdout=sp.PIPE)
+    stdout, stderr = p.communicate()
+    if p.returncode != 0:
+        raise RuntimeError("Command %s failed with return code %d" % (command, p.returncode))
+    return stdout
+
+
 def main():
     command = ['tmux', 'ls']
-    lines = sp.check_output(command).decode('utf-8').split('\n')
+    lines = check_output(command).decode('utf-8').split('\n')
     job_mapping = build_job_mapping(lines)
     for line in sorted(job_mapping, key=lambda row: row['time']):
         print(line['text'])
