@@ -271,8 +271,10 @@ autocmd vimrc FileType gitcommit autocmd! vimrc bufEnter COMMIT_EDITMSG call set
 let g:netrw_liststyle = 3
 
 " Use ag as grepprg
-if executable('ag')
-    set grepprg=ag\ --nogroup\ --nocolor\ --ignore-case
+if executable('rg')
+    set grepprg=rg
+elseif executable('ag')
+    set grepprg=ag\ --nogroup\ --nocolor
 endif
 
 " Use two spaces after full stop if joining lines with sentences
