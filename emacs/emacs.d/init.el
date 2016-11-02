@@ -30,7 +30,8 @@
 	jinja2-mode
 	rust-mode
 	company
-	ir-black-theme))
+	color-theme-solarized))
+	
 
 (mapc #'(lambda (package)
 	  (unless (package-installed-p package)
@@ -132,4 +133,4 @@
 
 
 ;; Theming
-(load-theme 'ir-black t)
+(load-theme 'solarized-light t)
