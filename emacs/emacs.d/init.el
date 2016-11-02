@@ -53,7 +53,7 @@
 (blink-cursor-mode 0)
 
 (when (eq system-type 'darwin)
-  (set-face-attribute 'default nil :family "Source Code Pro")
+  (set-face-attribute 'default nil :family "Inconsolata")
   (set-face-attribute 'default nil :height 140)
 
   ;; Add homebrew installed packages to load-path
