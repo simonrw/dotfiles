@@ -46,9 +46,6 @@ Plug 'mitsuhiko/vim-jinja'
 Plug 'vim-scripts/TWiki-Syntax'
 Plug 'sheerun/vim-polyglot'
 
-" Themes
-Plug 'altercation/vim-colors-solarized'
-
 call plug#end()
 " }}}
 " Plugin settings {{{
@@ -274,7 +271,9 @@ autocmd vimrc FileType gitcommit autocmd! vimrc bufEnter COMMIT_EDITMSG call set
 let g:netrw_liststyle = 3
 
 " Use ag as grepprg
-if executable('ag')
+if executable('rg')
+    set grepprg=rg
+elseif executable('ag')
     set grepprg=ag\ --nogroup\ --nocolor
 endif
 
@@ -476,8 +475,8 @@ if has('nvim')
 
 " }}}
 " {{{ Theming
-set background=light
-colorscheme solarized
+set background=dark
+colorscheme srw256
 
 " Function to show syntax group under cursor
 map <F10> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<'
