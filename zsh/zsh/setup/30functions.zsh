@@ -143,7 +143,7 @@ function build-movie() {
     local fulloutpath="$(readlink -f ${output})"
 
     echo "Rendering movie out of pngs in ${dirname} to ${fulloutpath}"
-    
+
     (cd ${dirname} && mencoder 'mf://*.png' -mf w=800:h=600:fps=30:type=png -ovc x264 -x264encopts crf=18:nofast_pskip:nodct_decimate:nocabac:global_header:threads=12 -of lavf -lavfopts format=mp4 -o "${fulloutpath}")
 }
 
@@ -153,7 +153,18 @@ function sourceenv() {
         # Conda environment
         # Ensure the pyenv alias has loaded
         pyenv >/dev/null 2>&1
+
+        # This does not work with ag, so see if grep has been aliased
+        set +e
+        alias | \grep -q 'grep=ag'
+        grep_aliased="$?"
+        if [ $grep_aliased ]; then
+            unalias grep
+        fi
         source $(pyenv which activate) ${PWD}/venv
+        if [ $grep_aliased ]; then
+            alias grep=ag
+        fi
     else
         # Normal python environment
         source ${PWD}/venv/bin/activate
