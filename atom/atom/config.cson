@@ -10,7 +10,7 @@
       "base16-tomorrow-dark-theme"
     ]
   editor:
-    fontFamily: "Inconsolata-dz"
+    fontFamily: "Source Code Pro"
     invisibles: {}
     preferredLineLength: 72
     showLineNumbers: false
