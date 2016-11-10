@@ -84,14 +84,14 @@ from __future__ import division, print_function, absolute_import
 import logging
 
 logging.basicConfig(
-    level='INFO', format='%(asctime)s : %(message)s')
+    level=logging.INFO, format='%(asctime)s : %(message)s')
 logger = logging.getLogger(__name__)
 
 
 def main(args):
     if args.verbose:
         logger.setLevel('DEBUG')
-    logger.debug(args)
+    logger.debug('%s', args)
 
 if __name__ == '__main__':
     import argparse
