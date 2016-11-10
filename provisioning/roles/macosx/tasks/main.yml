@@ -32,9 +32,18 @@
     - packaging
 
 - name: Install vim with arguments
-  homebrew: name=vim state=head install_options=override-system-vi
+  homebrew: name=vim install_options=override-system-vi
   tags:
     - packaging
+
+- name: Install and force link packages and link
+  homebrew:
+    name: "{{ item }}"
+    state: linked
+  tags:
+    - packaging
+  with_items:
+    - curl
 
 - name: Install gnuplot with arguments
   homebrew: name=gnuplot state=latest install_options=with-x11,with-cairo,with-wxmac,with-aquaterm
@@ -62,6 +71,14 @@
   tags:
     - packaging
   with_items: "{{ npm_packages }}"
+
+- name: Install pip packages
+  pip:
+    name: "{{ item }}"
+    executable: /usr/local/bin/pip
+  with_items: "{{ pip_packages }}"
+  tags:
+    - packaging
 
 - name: Update some iTerm2 defaults
   command: defaults write com.googlecode.iterm2 {{ item }}

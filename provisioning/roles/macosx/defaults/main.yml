@@ -12,15 +12,11 @@ homebrew_taps:
 
 homebrew_packages:
 - ansible
-- bats
 - binutils
 - cargo-completion
 - clang-format
-- colordiff
 - coreutils
-- curl
-- direnv
-- doctl
+# - curl         Custom install step
 - dos2unix
 - editorconfig
 - exercism
@@ -32,21 +28,16 @@ homebrew_packages:
 - git-lfs
 - gnu-sed
 - graphviz
-- grep
-- heroku-toolbelt
 - htop
-- httpie
 - imagemagick
 - irssi
 - jq
 - keybase
 - md5sha1sum
-- mosh
 - multitail
 - mutt
 - ncdu
 - ngircd
-- ngrep
 - nmap
 - offlineimap
 - openssh
@@ -54,7 +45,6 @@ homebrew_packages:
 - par
 - parallel
 - pdsh
-- rdiff-backup
 - reattach-to-user-namespace
 - rlwrap
 - ssh-copy-id
@@ -64,7 +54,6 @@ homebrew_packages:
 - trash
 - tree
 - urlview
-- vnstat
 - w3m
 - watch
 - weechat
@@ -81,10 +70,6 @@ homebrew_packages:
 - postgresql
 - mariadb
 - redis
-
-# Ruby related
-- chruby
-- ruby-install
 
 # Exotic languages
 - erlang
@@ -107,10 +92,9 @@ homebrew_packages:
 
 
 homebrew_casks:
-- blender
 - caffeine
 - dropbox
-- firefox
+- firefoxnightly
 - gimp
 - google-chrome
 - gpgtools
@@ -119,7 +103,6 @@ homebrew_casks:
 - keybase
 - keyboard-cleaner
 - limechat
-- lumen
 - mactex
 - macvim
 - mendeley-desktop
@@ -131,9 +114,7 @@ homebrew_casks:
 - spectacle
 - spotify
 - steam
-- thunderbird
 - transmission
-- usb-overdrive
 - vagrant
 - virtualbox
 - vlc
@@ -155,3 +136,6 @@ homebrew_services:
 - postgresql
 - nginx
 - redis
+
+pip_packages:
+- "git+https://github.com/mindriot101/pip-available-versions#egg=pip_available_versions"
