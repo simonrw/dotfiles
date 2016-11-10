@@ -2,7 +2,6 @@
 case $OSTYPE in
     linux*)
         export BROWSER=firefox
-        export PATH=${PATH}:${HOME}/.gem/ruby/1.8/bin
         export LD_LIBRARY_PATH=${BUILD_PREFIX}/lib:${LD_LIBRARY_PATH}
         export PKG_CONFIG_PATH=${BUILD_PREFIX}/lib/pkgconfig:${PKG_CONFIG_PATH}
         export __LS_COMMAND=ls

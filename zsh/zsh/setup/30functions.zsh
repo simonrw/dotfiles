@@ -47,18 +47,6 @@ function tnew() {
 
 }
 
-function fancy-ctrl-z () {
-    if [[ $#BUFFER -eq 0 ]]; then
-        BUFFER="fg"
-        zle accept-line
-    else
-        zleush-input
-        zle clear-screen
-    fi
-}
-zle -N fancy-ctrl-z
-bindkey '^Z' fancy-ctrl-z
-
 # SSH into the ngts ops machine, allowing for custom ssh arguments
 function ng() {
     ssh -t ngtshead $@ exec /home/sw/.local/bin/zsh

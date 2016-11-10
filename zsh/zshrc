@@ -96,17 +96,6 @@ export ZLP="${NGTS}/pipeline/ZLP"
 export LOGDIR="${HOME}/var/log"
 export TREE_CHARSET=ascii               # For rendering with the `tree` command
 
-# Setup direnv
-# if type direnv >/dev/null; then
-#     _direnv_hook() {
-#     eval "$(direnv export zsh)";
-#     }
-#     typeset -a precmd_functions
-#     if [[ -z $precmd_functions[(r)_direnv_hook] ]]; then
-#     precmd_functions+=_direnv_hook;
-#     fi
-# fi
-
 # Disable cowsay for ansible
 export ANSIBLE_NOCOWS=1
 
@@ -130,12 +119,6 @@ pyenv() {
     echo "Setting up pyenv for this shell"
     eval "$(command pyenv init -)"
 }
-
-# Set up pyenv manually to stop slow shell startup
-# eval "$(command pyenv init -)"
-# if [[ -f ${HOME}/.pyenv/plugins/pyenv-virtualenv/bin/pyenv-virtualenv-init ]]; then
-#     eval "$(command pyenv virtualenv-init -)"
-# fi
 
 # Finally source the theme
 source ${HOME}/.zsh/srwalker101.zsh-theme
