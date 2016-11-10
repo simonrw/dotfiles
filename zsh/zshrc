@@ -16,9 +16,6 @@ REPORTTIME=10
 # Disable Ctrl-s freezing the terminal
 stty stop undef
 
-autoload -U compinit
-compinit
-
 # Disable non-standard implicit tee/cat behaviour
 unsetopt multios
 
