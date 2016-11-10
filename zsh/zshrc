@@ -60,12 +60,8 @@ zstyle ':completion:*' use-cache on
 
 
 HISTFILE=~/.zsh_history
-HISTSIZE=999999999
+HISTSIZE=10000
 SAVEHIST=$HISTSIZE
-
-
-
-
 
 
 export GOPATH=${HOME}/dev/gocode
