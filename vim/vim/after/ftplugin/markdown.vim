@@ -1,5 +1,5 @@
 setlocal linebreak
-setlocal textwidth=0
+setlocal textwidth=72
 
 " mappings to create headings of different sorts
 map <leader>m1 ^I# <esc>w
