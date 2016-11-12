@@ -78,7 +78,7 @@ logger = logging.getLogger(__name__)
 
 def main(args):
     if args.verbose:
-        logger.setLevel('DEBUG')
+        logger.setLevel(logging.DEBUG)
     logger.debug('%s', args)
 
 if __name__ == '__main__':
