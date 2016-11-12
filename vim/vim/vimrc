@@ -470,6 +470,9 @@ if has('nvim')
     " Pytest python runner
     let g:test#strategy = 'neovim'
 
+    " Overwrite some mappings
+    noremap <leader>t :update\|:term ./%<cr>
+
  endif
 
 " }}}
