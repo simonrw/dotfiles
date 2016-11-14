@@ -111,10 +111,7 @@ export PYENV_VIRTUALENV_DISABLE_PROMPT=1
 export PATH=${HOME}/.pyenv/bin:${PATH}
 
 # Shim to set up pyenv
-pyenv() {
-    echo "Setting up pyenv for this shell"
-    eval "$(command pyenv init -)"
-}
+eval "$(command pyenv init - --no-rehash)"
 
 # Finally source the theme
 source ${HOME}/.zsh/srwalker101.zsh-theme

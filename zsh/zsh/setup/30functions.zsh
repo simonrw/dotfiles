@@ -139,8 +139,6 @@ function build-movie() {
 function sourceenv() {
     if [[ -f venv/bin/conda ]]; then
         # Conda environment
-        # Ensure the pyenv alias has loaded
-        pyenv >/dev/null 2>&1
 
         # This does not work with ag, so see if grep has been aliased
         set +e
