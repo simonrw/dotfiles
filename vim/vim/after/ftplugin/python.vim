@@ -43,6 +43,4 @@ iabbrev ipy import IPython; IPython.embed(); exit(1)
 iabbrev ifmain if __name__ == '__main__':
 iabbrev future from __future__ import absolute_import, division, print_function
 
-if has('nvim')
-    autocmd BufWritePost *.py Neomake!
-endif
+autocmd BufWritePost *.py Neomake!
