@@ -40,11 +40,6 @@ alias sqlite3='rlwrap =sqlite3'
 alias hn='hn --keep-open'
 alias f=fg
 
-# If hub exists, run this instead of git
-if has_executable hub; then
-    alias git=hub
-fi
-
 # NGTS aliases
 alias par-ds='ssh par-ds'
 alias ngts_ops='ngtsdb ngts_ops'
