@@ -478,10 +478,6 @@ if has('nvim')
 
     " Overwrite some mappings
     noremap <leader>t :update\|:T ./%<cr>
-
-    " Run neomake over files
-    autocmd vimrc BufWritePost * :Neomake!
-
  endif
 
 " }}}
