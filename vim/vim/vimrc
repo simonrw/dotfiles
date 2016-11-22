@@ -112,10 +112,6 @@ let g:rustfmt_autosave = 0
 let g:rustfmt_fail_silently = 1
 let g:rust_folding = 0
 "}}}
-" {{{ neoterm
-let g:neoterm_position = "vertical"
-let g:neoterm_size = "72"
-"}}}
 " }}}
 "
 " }}}
