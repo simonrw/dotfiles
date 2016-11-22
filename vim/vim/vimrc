@@ -474,7 +474,7 @@ if has('nvim')
     set shell=/usr/local/bin/zsh
 
     " Overwrite some mappings
-    noremap <leader>t :update\|:T ./%<cr>
+    noremap <leader>t :update\|:T %<cr>
  endif
 
 " }}}
