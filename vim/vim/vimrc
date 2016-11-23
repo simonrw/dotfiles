@@ -47,9 +47,6 @@ Plug 'mitsuhiko/vim-jinja'
 Plug 'vim-scripts/TWiki-Syntax'
 Plug 'sheerun/vim-polyglot'
 
-" Themes
-Plug 'endel/vim-github-colorscheme'
-
 call plug#end()
 " }}}
 " Plugin settings {{{
@@ -482,8 +479,8 @@ if has('nvim')
 
 " }}}
 " {{{ Theming
-set background=light
-colorscheme github
+set background=dark
+colorscheme srw256
 
 " Function to show syntax group under cursor
 map <F10> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<'
