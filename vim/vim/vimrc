@@ -495,13 +495,16 @@ endfunction
 " Neovim only...
 if has('nvim')
 
-    let g:python_host_prog = '/usr/local/bin/python'
-    let g:python3_host_prog = '/usr/local/bin/python3'
+    if hostname() =~? "ngts"
+        let g:python_host_prog = '/usr/bin/python2'
+        let g:python3_host_prog = '/home/sw/.pyenv/versions/miniconda3-latest/bin/python'
+        set shell=/home/sw/.local/bin/zsh
+    else
+        let g:python_host_prog = '/usr/local/bin/python'
+        let g:python3_host_prog = '/usr/local/bin/python3'
+        set shell=/usr/local/bin/zsh
+    endif
 
-    set shell=/usr/local/bin/zsh
-
-    " Overwrite some mappings
-    noremap <leader>t :update\|:T %<cr>
  endif
 
 " }}}
