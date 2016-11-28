@@ -5,7 +5,8 @@ hs.hotkey.bind({"cmd", "alt", "ctrl"}, "w", function()
     hs.notify.new({title="Hammerspoon", informativeText="Hello world"}):send()
 end)
 
-hs.hotkey.bind({"cmd", "alt", "ctrl"}, "Left", function()
+-- Window manipulation
+hs.hotkey.bind({'cmd', 'alt', 'ctrl'}, 'Left', function()
     local win = hs.window.focusedWindow()
     local f = win:frame()
     local screen = win:screen()
@@ -18,7 +19,7 @@ hs.hotkey.bind({"cmd", "alt", "ctrl"}, "Left", function()
     win:setFrame(f)
 end)
 
-hs.hotkey.bind({"cmd", "alt", "ctrl"}, "Right", function()
+hs.hotkey.bind({'cmd', 'alt', 'ctrl'}, 'Right', function()
     local win = hs.window.focusedWindow()
     local f = win:frame()
     local screen = win:screen()
@@ -31,7 +32,7 @@ hs.hotkey.bind({"cmd", "alt", "ctrl"}, "Right", function()
     win:setFrame(f)
 end)
 
-hs.hotkey.bind({"cmd", "alt", "ctrl"}, "f", function()
+hs.hotkey.bind({'cmd', 'alt', 'ctrl'}, 'f', function()
     local win = hs.window.focusedWindow()
     local f = win:frame()
     local screen = win:screen()
@@ -47,7 +48,7 @@ end)
 -- constant holding the window enlargement/shrinkage factor
 WINDOW_SIZE_CHANGE = 10
 
-hs.hotkey.bind({"cmd", "alt", "ctrl"}, "-", function()
+hs.hotkey.bind({'cmd', 'alt', 'ctrl'}, '-', function()
     local win = hs.window.focusedWindow()
     local f = win:frame()
 
@@ -58,7 +59,7 @@ hs.hotkey.bind({"cmd", "alt", "ctrl"}, "-", function()
     win:setFrame(f)
 end)
 
-hs.hotkey.bind({"cmd", "alt", "ctrl"}, "=", function()
+hs.hotkey.bind({'cmd', 'alt', 'ctrl'}, '=', function()
     local win = hs.window.focusedWindow()
     local f = win:frame()
 
@@ -70,10 +71,10 @@ hs.hotkey.bind({"cmd", "alt", "ctrl"}, "=", function()
 end)
 
 -- Reload the config on file change
-hs.pathwatcher.new(os.getenv("HOME") .. "/.hammerspoon/", function(files)
+hs.pathwatcher.new(os.getenv('HOME') .. '/.hammerspoon/', function(files)
     doReload = false
     for _,file in pairs(files) do
-        if file:sub(-4) == ".lua" then
+        if file:sub(-4) == '.lua' then
             doReload = true
         end
     end
@@ -81,4 +82,4 @@ hs.pathwatcher.new(os.getenv("HOME") .. "/.hammerspoon/", function(files)
         hs.reload()
     end
 end):start()
-hs.alert.show("Config reloaded")
+hs.alert.show('Config reloaded')
