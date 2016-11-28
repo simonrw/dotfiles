@@ -1,3 +1,6 @@
+-- Disable all window animations when changing
+hs.window.animationDuration = 0
+
 hs.hotkey.bind({"cmd", "alt", "ctrl"}, "w", function()
     hs.notify.new({title="Hammerspoon", informativeText="Hello world"}):send()
 end)
