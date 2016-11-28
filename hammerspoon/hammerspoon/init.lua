@@ -68,7 +68,7 @@ hs.hotkey.bind({'cmd', 'alt', 'ctrl'}, 'f', function()
 end)
 
 -- constant holding the window enlargement/shrinkage factor
-WINDOW_SIZE_CHANGE = 10
+WINDOW_SIZE_CHANGE = 20
 
 hs.hotkey.bind({'cmd', 'alt', 'ctrl'}, '-', function()
     local win = hs.window.focusedWindow()
