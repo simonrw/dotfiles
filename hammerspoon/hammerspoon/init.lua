@@ -1,8 +1,16 @@
 -- Disable all window animations when changing
 hs.window.animationDuration = 0
 
-hs.hotkey.bind({"cmd", "alt", "ctrl"}, "w", function()
-    hs.notify.new({title="Hammerspoon", informativeText="Hello world"}):send()
+-- Application launchers
+
+-- Terminal
+hs.hotkey.bind({'cmd', 'alt'}, 't', function()
+    hs.application.launchOrFocus('iTerm')
+end)
+
+-- Browser
+hs.hotkey.bind({'cmd', 'alt'}, 'c', function()
+    hs.application.launchOrFocus('Google Chrome')
 end)
 
 -- Window manipulation
