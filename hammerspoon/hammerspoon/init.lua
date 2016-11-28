@@ -14,6 +14,20 @@ hs.hotkey.bind({'cmd', 'alt'}, 'c', function()
 end)
 
 -- Window manipulation
+
+hs.hotkey.bind({'cmd', 'alt', 'ctrl'}, 'c', function()
+    local win = hs.window.focusedWindow()
+    local f = win:frame()
+    local screen = win:screen()
+    local screenFrame = screen:frame()
+
+    f.x = (screenFrame.w / 2) - (f.w / 2)
+    f.y = (screenFrame.h / 2) - (f.h / 2)
+    f.w = f.w
+    f.h = f.h
+    win:setFrame(f)
+end)
+
 hs.hotkey.bind({'cmd', 'alt', 'ctrl'}, 'Left', function()
     local win = hs.window.focusedWindow()
     local f = win:frame()
