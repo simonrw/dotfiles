@@ -92,7 +92,6 @@ homebrew_packages:
 
 
 homebrew_casks:
-- caffeine
 - dropbox
 - firefoxnightly
 - gimp
