@@ -1,6 +1,10 @@
 -- Disable all window animations when changing
 hs.window.animationDuration = 0
 
+-- constant holding the window enlargement/shrinkage factor
+WINDOW_SIZE_CHANGE = 20
+
+
 -- Application launchers
 
 -- Terminal
@@ -60,15 +64,12 @@ hs.hotkey.bind({'cmd', 'alt', 'ctrl'}, 'f', function()
     local screen = win:screen()
     local max = screen:frame()
 
-    f.x = max.x
-    f.y = max.y
-    f.w = max.w
-    f.h = max.h
+    f.x = max.x + WINDOW_SIZE_CHANGE
+    f.y = max.y + WINDOW_SIZE_CHANGE
+    f.w = max.w - WINDOW_SIZE_CHANGE / 2
+    f.h = max.h - WINDOW_SIZE_CHANGE / 2
     win:setFrame(f)
 end)
-
--- constant holding the window enlargement/shrinkage factor
-WINDOW_SIZE_CHANGE = 20
 
 hs.hotkey.bind({'cmd', 'alt', 'ctrl'}, '-', function()
     local win = hs.window.focusedWindow()
