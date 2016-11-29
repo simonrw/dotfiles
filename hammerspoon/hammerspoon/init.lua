@@ -93,26 +93,6 @@ hs.hotkey.bind({'cmd', 'alt', 'ctrl'}, '=', function()
     win:setFrame(f)
 end)
 
--- TESTING
-
-local caffeine = hs.menubar.new()
-function setCaffeineDisplay(state)
-    if state then
-        caffeine:setIcon('caffeine-icons/active@2x.png')
-    else
-        caffeine:setIcon('caffeine-icons/inactive@2x.png')
-    end
-end
-
-function caffeineClicked()
-    setCaffeineDisplay(hs.caffeinate.toggle('displayIdle'))
-end
-
-if caffeine then
-    caffeine:setClickCallback(caffeineClicked)
-    setCaffeineDisplay(hs.caffeinate.get('displayIdle'))
-end
-
 -- Reload the config on file change
 hs.pathwatcher.new(os.getenv('HOME') .. '/.hammerspoon/', function(files)
     doReload = false
