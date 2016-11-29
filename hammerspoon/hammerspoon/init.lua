@@ -64,10 +64,10 @@ hs.hotkey.bind({'cmd', 'alt', 'ctrl'}, 'f', function()
     local screen = win:screen()
     local max = screen:frame()
 
-    f.x = max.x + WINDOW_SIZE_CHANGE
-    f.y = max.y + WINDOW_SIZE_CHANGE
-    f.w = max.w - WINDOW_SIZE_CHANGE / 2
-    f.h = max.h - WINDOW_SIZE_CHANGE / 2
+    f.x = max.x + WINDOW_SIZE_CHANGE / 2
+    f.y = max.y + WINDOW_SIZE_CHANGE / 2
+    f.w = max.w - WINDOW_SIZE_CHANGE
+    f.h = max.h - WINDOW_SIZE_CHANGE
     win:setFrame(f)
 end)
 
