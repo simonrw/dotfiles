@@ -40,6 +40,7 @@ hs.hotkey.bind({'cmd', 'alt', 'ctrl'}, 'c', function()
     win:setFrame(f)
 end)
 
+-- Move window to left half
 hs.hotkey.bind({'cmd', 'alt', 'ctrl'}, 'Left', function()
     local win = hs.window.focusedWindow()
     local f = win:frame()
@@ -53,6 +54,7 @@ hs.hotkey.bind({'cmd', 'alt', 'ctrl'}, 'Left', function()
     win:setFrame(f)
 end)
 
+-- Move window to the right half
 hs.hotkey.bind({'cmd', 'alt', 'ctrl'}, 'Right', function()
     local win = hs.window.focusedWindow()
     local f = win:frame()
@@ -66,6 +68,7 @@ hs.hotkey.bind({'cmd', 'alt', 'ctrl'}, 'Right', function()
     win:setFrame(f)
 end)
 
+-- Maximise window
 hs.hotkey.bind({'cmd', 'alt', 'ctrl'}, 'f', function()
     local win = hs.window.focusedWindow()
     local f = win:frame()
@@ -79,6 +82,7 @@ hs.hotkey.bind({'cmd', 'alt', 'ctrl'}, 'f', function()
     win:setFrame(f)
 end)
 
+-- Make window smaller
 hs.hotkey.bind({'cmd', 'alt', 'ctrl'}, '-', function()
     local win = hs.window.focusedWindow()
     local f = win:frame()
@@ -90,6 +94,7 @@ hs.hotkey.bind({'cmd', 'alt', 'ctrl'}, '-', function()
     win:setFrame(f)
 end)
 
+-- Make window larger
 hs.hotkey.bind({'cmd', 'alt', 'ctrl'}, '=', function()
     local win = hs.window.focusedWindow()
     local f = win:frame()
