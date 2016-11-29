@@ -60,7 +60,11 @@ let g:test#python#runner = 'pytest'
 if $TMUX != ''
     let test#strategy = "vtr"
 else
-    let test#strategy = "basic"
+    if has('nvim')
+        let test#strategy = "neovim"
+    else
+        let test#strategy = "basic"
+    endif
 endif
 "}}}
 " {{{ fugitive
