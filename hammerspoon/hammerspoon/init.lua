@@ -14,7 +14,7 @@ end)
 
 -- Browser
 hs.hotkey.bind({'cmd', 'alt'}, 'c', function()
-    hs.application.launchOrFocus('FirefoxDeveloperEdition')
+    hs.application.launchOrFocus('Google Chrome')
 end)
 
 -- Window manipulation
@@ -38,10 +38,10 @@ hs.hotkey.bind({'cmd', 'alt', 'ctrl'}, 'Left', function()
     local screen = win:screen()
     local max = screen:frame()
 
-    f.x = max.x
-    f.y = max.y
-    f.w = max.w / 2
-    f.h = max.h
+    f.x = max.x + WINDOW_SIZE_CHANGE / 2
+    f.y = max.y + WINDOW_SIZE_CHANGE / 2
+    f.w = max.w / 2 - WINDOW_SIZE_CHANGE / 2
+    f.h = max.h - WINDOW_SIZE_CHANGE
     win:setFrame(f)
 end)
 
@@ -52,9 +52,9 @@ hs.hotkey.bind({'cmd', 'alt', 'ctrl'}, 'Right', function()
     local max = screen:frame()
 
     f.x = max.x + (max.w / 2)
-    f.y = max.y
-    f.w = max.w / 2
-    f.h = max.h
+    f.y = max.y + WINDOW_SIZE_CHANGE / 2
+    f.w = max.w / 2 - WINDOW_SIZE_CHANGE / 2
+    f.h = max.h - WINDOW_SIZE_CHANGE
     win:setFrame(f)
 end)
 
