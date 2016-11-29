@@ -1,9 +1,6 @@
 -- Disable all window animations when changing
 hs.window.animationDuration = 0
 
--- constant holding the window enlargement/shrinkage factor
-WINDOW_SIZE_CHANGE = 20
-
 
 -- Application launchers
 
@@ -19,6 +16,17 @@ end)
 
 -- Window manipulation
 
+-- constant holding the window enlargement/shrinkage factor
+WINDOW_SIZE_CHANGE = 20
+
+-- Move window to the next screen
+hs.hotkey.bind({'cmd', 'alt', 'ctrl'}, 'o', function()
+    local win = hs.window.focusedWindow()
+    local nextScreen = win:screen():next()
+    win:moveToScreen(nextScreen)
+end)
+
+-- Center window
 hs.hotkey.bind({'cmd', 'alt', 'ctrl'}, 'c', function()
     local win = hs.window.focusedWindow()
     local f = win:frame()
