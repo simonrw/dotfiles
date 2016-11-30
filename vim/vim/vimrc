@@ -87,6 +87,9 @@ let g:VtrAppendNewline = 1
 
 nnoremap <leader>v :VtrAttachToPane<cr>
 
+" Create shorter 'V' command which is easier to type
+command! -nargs=? V call VtrSendCommand(<f-args>)
+
 "}}}
 " {{{ editorconfig
 let g:EditorConfig_exclude_patterns = ['fugitive://.*']
