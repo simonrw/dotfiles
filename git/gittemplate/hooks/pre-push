@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+# -*- coding: utf-8 -*-
+
+set -e
+
+echo "Running tests before push"
+
+# XXX Running tox?
+# ./venv/bin/tox
+
+# XXX Running pytest?
+# ./venv/bin/pytest
+
+# XXX Running cargo?
+# cargo test
