@@ -496,7 +496,7 @@ endfunction
 " Function to run clang format over code, with my
 " style customisations
 function! ClangFormat()
-    call Preserve('0,$!clang-format -style="{BasedOnStyle: LLVM, IndentWidth: 4}"')
+    call Preserve('0,$!clang-format -style="{BasedOnStyle: LLVM, IndentWidth: 4, SortIncludes: false}"')
 endfunction
 
 " }}}
