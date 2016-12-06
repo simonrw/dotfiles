@@ -50,6 +50,7 @@ hs.hotkey.bind({'cmd', 'alt', 'ctrl'}, 'Left', function()
     f.x = max.x + WINDOW_SIZE_CHANGE / 2
     f.y = max.y + WINDOW_SIZE_CHANGE / 2
     f.w = max.w / 2 - WINDOW_SIZE_CHANGE / 2
+
     f.h = max.h - WINDOW_SIZE_CHANGE
     win:setFrame(f)
 end)
@@ -104,6 +105,13 @@ hs.hotkey.bind({'cmd', 'alt', 'ctrl'}, '=', function()
     f.x = f.x - WINDOW_SIZE_CHANGE / 2
     f.y = f.y - WINDOW_SIZE_CHANGE / 2
     win:setFrame(f)
+end)
+
+-- Switch focused
+-- Set the hint style
+hs.hints.style = 'vimperator'
+hs.hotkey.bind({'cmd', 'ctrl'}, 'e', function()
+    hs.hints.windowHints()
 end)
 
 -- Reload the config on file change
