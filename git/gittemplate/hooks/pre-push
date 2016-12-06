@@ -5,6 +5,8 @@ set -e
 
 echo "Running tests before push"
 
+echo "*** NO TESTS SET UP YET ***"
+
 # XXX Running tox?
 # ./venv/bin/tox
 
