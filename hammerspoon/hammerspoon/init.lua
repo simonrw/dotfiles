@@ -110,7 +110,7 @@ end)
 -- Switch focused
 -- Set the hint style
 hs.hints.style = 'vimperator'
-hs.hotkey.bind({'cmd', 'ctrl'}, 'e', function()
+hs.hotkey.bind({'cmd', 'shift'}, 'Space', function()
     hs.hints.windowHints()
 end)
 
