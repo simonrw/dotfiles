@@ -50,6 +50,6 @@ if has_executable ag; then
     alias grep=ag
 fi
 
-if has_executable nvim; then
-    alias vim=nvim
+if has_executable emacs; then
+    alias vim='emacs -nw'
 fi
