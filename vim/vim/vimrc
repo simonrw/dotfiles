@@ -57,6 +57,7 @@ nnoremap <silent> tf :TestFile<cr>
 nnoremap <silent> tl :TestLast<cr>
 
 let g:test#python#runner = 'pytest'
+let g:test#python#pytest#executable = 'pytest'
 
 if $TMUX != ''
     let test#strategy = "vtr"
