@@ -17,7 +17,9 @@ REPORTTIME=10
 stty stop undef
 
 autoload -U compinit
-compinit
+if [[ ! "$(hostname -s)" =~ "ngts" ]]; then
+    compinit
+fi
 
 # Disable non-standard implicit tee/cat behaviour
 unsetopt multios
