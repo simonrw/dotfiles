@@ -114,6 +114,24 @@ hs.hotkey.bind({'cmd', 'shift'}, 'Space', function()
     hs.hints.windowHints()
 end)
 
+-- Change brightnesses
+current_brightness = hs.screen.mainScreen():getBrightness()
+brightness_change = 0.2
+function handleWindowChange(name, notify_type, application)
+    if notify_type == hs.application.watcher.activated then
+        if name == 'iTerm2' then
+            current_brightness = hs.screen.mainScreen():getBrightness()
+            local new_brightness = math.max(math.min(current_brightness + brightness_change, 1.0), 0.0)
+            hs.screen.mainScreen():setBrightness(new_brightness)
+        else
+            hs.screen.mainScreen():setBrightness(current_brightness)
+        end
+    end
+end
+
+watcher = hs.application.watcher.new(handleWindowChange)
+watcher:start()
+
 -- Reload the config on file change
 hs.pathwatcher.new(os.getenv('HOME') .. '/.hammerspoon/', function(files)
     doReload = false
