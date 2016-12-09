@@ -28,6 +28,7 @@ Plug 'tpope/vim-unimpaired'
 
 " Custom plugins
 Plug 'Wolfy87/vim-enmasse'
+Plug 'christoomey/vim-sort-motion'
 Plug 'christoomey/vim-tmux-runner'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'janko-m/vim-test'
@@ -39,6 +40,7 @@ Plug 'racer-rust/vim-racer'
 
 "" Indentation
 Plug 'bps/vim-textobj-python'
+Plug 'kana/vim-textobj-indent'
 Plug 'kana/vim-textobj-user'
 
 " Languages
