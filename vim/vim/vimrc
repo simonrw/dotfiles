@@ -15,37 +15,37 @@ augroup END
 call plug#begin('~/.vim/bundle')
 
 " tpope plugins, these deserve their own section
-Plug 'tpope/vim-sensible'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-dispatch'
 Plug 'tpope/vim-eunuch'
+Plug 'tpope/vim-fireplace'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-markdown'
 Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-sensible'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
-Plug 'tpope/vim-fireplace'
 
 " Custom plugins
-Plug 'janko-m/vim-test'
-Plug 'christoomey/vim-tmux-runner'
 Plug 'Wolfy87/vim-enmasse'
+Plug 'christoomey/vim-tmux-runner'
 Plug 'editorconfig/editorconfig-vim'
+Plug 'janko-m/vim-test'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --no-update-rc --no-completion --key-bindings' }
 Plug 'junegunn/fzf.vim'
-Plug 'racer-rust/vim-racer'
-Plug 'neomake/neomake'
 Plug 'kassio/neoterm'
+Plug 'neomake/neomake'
+Plug 'racer-rust/vim-racer'
 
 "" Indentation
-Plug 'kana/vim-textobj-user'
 Plug 'bps/vim-textobj-python'
+Plug 'kana/vim-textobj-user'
 
 " Languages
-Plug 'vim-scripts/indentpython.vim'
 Plug 'mitsuhiko/vim-jinja'
-Plug 'vim-scripts/TWiki-Syntax'
 Plug 'sheerun/vim-polyglot'
+Plug 'vim-scripts/TWiki-Syntax'
+Plug 'vim-scripts/indentpython.vim'
 
 call plug#end()
 " }}}
