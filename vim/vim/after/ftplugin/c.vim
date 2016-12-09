@@ -1,4 +1,4 @@
 if executable('clang-format')
-    autocmd BufWritePre <buffer> silent call ClangFormat()
+    nnoremap <leader>y :call ClangFormat()<Cr>
 endif
 
