@@ -11,7 +11,7 @@ end)
 
 -- Browser
 hs.hotkey.bind({'cmd', 'alt'}, 'c', function()
-    hs.application.launchOrFocus('Google Chrome')
+    hs.application.launchOrFocus('FirefoxDeveloperEdition')
 end)
 
 -- Window manipulation
