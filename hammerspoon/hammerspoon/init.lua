@@ -116,7 +116,7 @@ end)
 
 -- Change brightnesses
 current_brightness = hs.screen.mainScreen():getBrightness()
-brightness_change = 0.2
+brightness_change = 0.1
 function handleWindowChange(name, notify_type, application)
     if notify_type == hs.application.watcher.activated then
         if name == 'iTerm2' then
