@@ -149,6 +149,32 @@ if caffeine then
     setCaffeineDisplay(hs.caffeinate.get("displayIdle"))
 end
 
+function changeScreenResolution(target)
+    local screen = hs.screen.find("Color LCD")
+    if not screen:setMode(target.width, target.height, target.scale) then
+        hs.alert.show('Could not set screen mode to: ' .. hs.inspect.inspect(target))
+    end
+end
+
+-- Change screen resolution
+hs.hotkey.bind({'cmd', 'ctrl', 'alt'}, 'Up', function()
+    local target = {
+        width = 1680,
+        height = 1050,
+        scale = 2.0,
+    }
+    changeScreenResolution(target)
+end)
+
+hs.hotkey.bind({'cmd', 'ctrl', 'alt'}, 'Down', function()
+    local screen = hs.screen.find("Color LCD")
+    local target = {
+        width = 1440,
+        height = 900,
+        scale = 2.0,
+    }
+    changeScreenResolution(target)
+end)
 
 watcher = hs.application.watcher.new(handleWindowChange)
 watcher:start()
