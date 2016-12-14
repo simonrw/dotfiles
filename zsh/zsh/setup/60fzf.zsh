@@ -37,8 +37,5 @@ gsha() {
   echo -n $(echo "$commit" | sed "s/ .*//")
 }
 
-# Configure how fzf finds files with ctrl-T
-export FZF_CTRL_T_COMMAND="git ls-files"
-
 # Bind ctrl-f to find using default fzf command, in addition to ctrl-t
 bindkey '^F' fzf-file-widget
