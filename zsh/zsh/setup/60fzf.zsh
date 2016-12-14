@@ -36,3 +36,6 @@ gsha() {
   commit=$(echo "$commits" | fzf --tac +s +m -e --ansi --reverse) &&
   echo -n $(echo "$commit" | sed "s/ .*//")
 }
+
+# Configure how fzf finds files with ctrl-T
+export FZF_CTRL_T_COMMAND="git ls-files"
