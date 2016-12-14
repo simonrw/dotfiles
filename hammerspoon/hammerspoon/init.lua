@@ -17,7 +17,8 @@ end)
 -- Window manipulation
 
 -- constant holding the window enlargement/shrinkage factor
-WINDOW_SIZE_CHANGE = 0
+WINDOW_SIZE_CHANGE = 20
+WINDOW_BORDER = 0
 
 -- Move window to the next screen
 hs.hotkey.bind({'cmd', 'alt', 'ctrl'}, 'o', function()
@@ -47,11 +48,10 @@ hs.hotkey.bind({'cmd', 'alt', 'ctrl'}, 'Left', function()
     local screen = win:screen()
     local max = screen:frame()
 
-    f.x = max.x + WINDOW_SIZE_CHANGE / 2
-    f.y = max.y + WINDOW_SIZE_CHANGE / 2
-    f.w = max.w / 2 - WINDOW_SIZE_CHANGE / 2
-
-    f.h = max.h - WINDOW_SIZE_CHANGE
+    f.x = max.x + WINDOW_BORDER / 2
+    f.y = max.y + WINDOW_BORDER / 2
+    f.w = max.w / 2 - WINDOW_BORDER / 2
+    f.h = max.h - WINDOW_BORDER
     win:setFrame(f)
 end)
 
@@ -63,9 +63,9 @@ hs.hotkey.bind({'cmd', 'alt', 'ctrl'}, 'Right', function()
     local max = screen:frame()
 
     f.x = max.x + (max.w / 2)
-    f.y = max.y + WINDOW_SIZE_CHANGE / 2
-    f.w = max.w / 2 - WINDOW_SIZE_CHANGE / 2
-    f.h = max.h - WINDOW_SIZE_CHANGE
+    f.y = max.y + WINDOW_BORDER / 2
+    f.w = max.w / 2 - WINDOW_BORDER / 2
+    f.h = max.h - WINDOW_BORDER
     win:setFrame(f)
 end)
 
@@ -76,10 +76,10 @@ hs.hotkey.bind({'cmd', 'alt', 'ctrl'}, 'f', function()
     local screen = win:screen()
     local max = screen:frame()
 
-    f.x = max.x + WINDOW_SIZE_CHANGE / 2
-    f.y = max.y + WINDOW_SIZE_CHANGE / 2
-    f.w = max.w - WINDOW_SIZE_CHANGE
-    f.h = max.h - WINDOW_SIZE_CHANGE
+    f.x = max.x + WINDOW_BORDER / 2
+    f.y = max.y + WINDOW_BORDER / 2
+    f.w = max.w - WINDOW_BORDER
+    f.h = max.h - WINDOW_BORDER
     win:setFrame(f)
 end)
 
