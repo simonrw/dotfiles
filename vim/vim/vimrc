@@ -49,6 +49,10 @@ Plug 'sheerun/vim-polyglot'
 Plug 'vim-scripts/TWiki-Syntax'
 Plug 'vim-scripts/indentpython.vim'
 
+" Colour schemes
+Plug 'altercation/vim-colors-solarized'
+Plug 'sickill/vim-monokai'
+
 call plug#end()
 " }}}
 " Plugin settings {{{
