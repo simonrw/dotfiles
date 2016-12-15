@@ -36,6 +36,3 @@ gsha() {
   commit=$(echo "$commits" | fzf --tac +s +m -e --ansi --reverse) &&
   echo -n $(echo "$commit" | sed "s/ .*//")
 }
-
-# Bind ctrl-f to find using default fzf command, in addition to ctrl-t
-bindkey '^F' fzf-file-widget
