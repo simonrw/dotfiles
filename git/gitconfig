@@ -67,13 +67,13 @@
     ui = auto
 [core]
     abbrev = 12
-	autocrlf = input
+    autocrlf = input
     safecrlf = true
     whitespace = fix
     editor = vim
     mergeoptions = --no-ff
     preloadindex = true
-	excludesfile = ~/.gitignore_global
+    excludesfile = ~/.gitignore_global
 [merge]
     tool = splice
     conflictstyle = "diff3"
@@ -81,7 +81,7 @@
     default = simple
     followTags = true
 [diff]
-    algorithm = histogram
+    algorithm = patience
     tool = opendiff
 [difftool "opendiff"]
     path = opendiff
@@ -102,12 +102,12 @@
 [status]
     short = 1
     branch = 1
-	submoduleSummary = true
+    submoduleSummary = true
 [init]
     templatedir = ~/.gittemplate
 [pull]
-	rebase = preserve
+    rebase = preserve
 [filter "lfs"]
-	clean = git-lfs clean %f
-	smudge = git-lfs smudge %f
-	required = true
+    clean = git-lfs clean %f
+    smudge = git-lfs smudge %f
+    required = true
