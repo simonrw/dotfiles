@@ -69,7 +69,7 @@ if $TMUX != ''
     let test#strategy = "vtr"
 else
     if has('nvim')
-        let test#strategy = "neovim"
+        let test#strategy = "neoterm"
     else
         let test#strategy = "basic"
     endif
