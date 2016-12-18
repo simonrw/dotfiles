@@ -31,6 +31,9 @@ function handleWindowChange(name, notify_type, application)
     end
 end
 
+-- watcher = hs.application.watcher.new(handleWindowChange)
+-- watcher:start()
+
 -- Emulate caffeine
 local caffeine = hs.menubar.new()
 function setCaffeineDisplay(state)
@@ -77,9 +80,6 @@ hs.hotkey.bind({'cmd', 'ctrl', 'alt'}, 'Down', function()
     }
     changeScreenResolution(target)
 end)
-
-watcher = hs.application.watcher.new(handleWindowChange)
-watcher:start()
 
 -- Reload the config on file change
 hs.pathwatcher.new(os.getenv('HOME') .. '/.hammerspoon/', function(files)
