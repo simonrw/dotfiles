@@ -51,8 +51,7 @@ hs.hotkey.bind({'cmd', 'alt', 'ctrl'}, 'Right', function()
     win:setFrame(f)
 end)
 
--- Maximise window
-hs.hotkey.bind({'cmd', 'alt', 'ctrl'}, 'f', function()
+function maximizeWindow()
     local win = hs.window.focusedWindow()
     local f = win:frame()
     local screen = win:screen()
@@ -63,7 +62,10 @@ hs.hotkey.bind({'cmd', 'alt', 'ctrl'}, 'f', function()
     f.w = max.w - WINDOW_BORDER
     f.h = max.h - WINDOW_BORDER
     win:setFrame(f)
-end)
+end
+
+-- Maximise window
+hs.hotkey.bind({'cmd', 'alt', 'ctrl'}, 'f', maximizeWindow)
 
 -- Make window smaller
 hs.hotkey.bind({'cmd', 'alt', 'ctrl'}, '-', function()
