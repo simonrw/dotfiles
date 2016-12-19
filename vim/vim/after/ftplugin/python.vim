@@ -42,5 +42,3 @@ iabbrev #! #!/usr/bin/env python
 iabbrev ipy import IPython; IPython.embed(); exit(1)
 iabbrev ifmain if __name__ == '__main__':
 iabbrev future from __future__ import absolute_import, division, print_function
-
-autocmd BufWritePost *.py Neomake!

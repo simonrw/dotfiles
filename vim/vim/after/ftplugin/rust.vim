@@ -12,4 +12,3 @@ else
     nnoremap <leader>r :update\|:!cargo run<Cr>
     nnoremap <leader>x :update\|:!cargo check<Cr>
 endif
-autocmd! BufWritePost *.rs Neomake! cargo

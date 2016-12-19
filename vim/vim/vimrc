@@ -35,7 +35,6 @@ Plug 'janko-m/vim-test'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --no-update-rc --no-completion --key-bindings' }
 Plug 'junegunn/fzf.vim'
 Plug 'kassio/neoterm'
-Plug 'neomake/neomake'
 Plug 'racer-rust/vim-racer'
 
 "" Indentation
