@@ -81,18 +81,6 @@ hs.hotkey.bind({'cmd', 'ctrl', 'alt'}, 'Down', function()
     changeScreenResolution(target)
 end)
 
--- Function to maximise iterm if loaded. This replaces the default key mapping
--- of Cmd+enter, which has to be ignored by iTerm2
-hs.hotkey.bind({'cmd'}, 'Return', function()
-    local win = hs.window.focusedWindow()
-    local app = win:application()
-    local name = app:name()
-
-    if name == 'iTerm2' then
-        maximizeWindow()
-    end
-end)
-
 -- Reload the config on file change
 hs.pathwatcher.new(os.getenv('HOME') .. '/.hammerspoon/', function(files)
     doReload = false
