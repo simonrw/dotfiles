@@ -1,1 +1,5 @@
+export BUILD_PREFIX="${HOME}/.local"
+export MANPATH=${BUILD_PREFIX}/share/man:${MANPATH}
+export PATH=${BUILD_PREFIX}/bin:${HOME}/.bin:/usr/local/bin:${PATH}:${HOME}/.nimble/bin:${HOME}/.cargo/bin:${HOME}/.bin/ngts:${HOME}/.cabal/bin
+
 skip_global_compinit=1
