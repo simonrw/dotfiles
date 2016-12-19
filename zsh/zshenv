@@ -1,10 +1,1 @@
-export BUILD_PREFIX="${HOME}/.local"
-export MANPATH=${BUILD_PREFIX}/share/man:${MANPATH}
-export PATH=${BUILD_PREFIX}/bin:${HOME}/.bin:/usr/local/bin:${PATH}:${HOME}/.nimble/bin:${HOME}/.cargo/bin:${HOME}/.bin/ngts:${HOME}/.cabal/bin
-
-# Source the custom zshenv.local file in the system
-if [[ -f ${HOME}/.zshenv.local ]]; then
-    source ${HOME}/.zshenv.local
-fi
-
 skip_global_compinit=1

@@ -6,6 +6,7 @@ if [[ "$PROFILE_STARTUP" == true ]]; then
     setopt xtrace prompt_subst
 fi
 
+export PATH=${HOME}/.bin:${HOME}/.bin/ngts:${HOME}/.cabal/bin:/usr/local/bin:${PATH}:${HOME}/bin
 fpath=($HOME/.zsh/func $HOME/.zsh/completion $fpath)
 typeset -U fpath
 
@@ -85,6 +86,11 @@ export FZF_DEFAULT_OPTS="--color dark --tac --ansi --no-mouse --tabstop 4 --inli
 export WORDCHARS='*?[]~&;!$%^<>'
 
 
+export BUILD_PREFIX="${HOME}/.local"
+export MANPATH=${BUILD_PREFIX}/share/man:${MANPATH}
+export PATH=${BUILD_PREFIX}/bin:${PATH}:${HOME}/.nimble/bin
+
+
 export WASP="${work}/WASP"
 export NGTS="${work}/NGTS"
 export ZLP="${NGTS}/pipeline/ZLP"
@@ -95,6 +101,7 @@ export TREE_CHARSET=ascii               # For rendering with the `tree` command
 export ANSIBLE_NOCOWS=1
 
 # Set up rustup
+export PATH=${PATH}:${HOME}/.cargo/bin
 export CARGO_HOME=${HOME}/.cargo
 export RUST_SRC_PATH=${HOME}/.cargo/rust-src/src
 export RUST_NEW_ERROR_FORMAT=true
