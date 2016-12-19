@@ -166,3 +166,12 @@ function webshare() {
         python2 -m SimpleHTTPServer $*
     fi
 }
+
+# USE EMACS!
+function vim() {
+    echo "Use emacs"
+}
+
+function nvim() {
+    echo "Use emacs"
+}
