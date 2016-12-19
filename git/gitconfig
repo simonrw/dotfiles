@@ -70,7 +70,7 @@
     autocrlf = input
     safecrlf = true
     whitespace = fix
-    editor = emacsclient
+    editor = vim
     mergeoptions = --no-ff
     preloadindex = true
     excludesfile = ~/.gitignore_global

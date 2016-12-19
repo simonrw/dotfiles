@@ -70,7 +70,7 @@ SAVEHIST=$HISTSIZE
 
 export GOPATH=${HOME}/dev/gocode
 
-export EDITOR=emacs
+export EDITOR=vim
 export VISUAL=${EDITOR}
 export BIBINPUTS=${HOME}/work/central-bibliography:${BIBINPUTS}
 export LESS='-FXR'
