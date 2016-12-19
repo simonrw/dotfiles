@@ -9,9 +9,9 @@ function __spacemacs_installed() {
 
 if [[ ! -d ~/.emacs.d ]]; then
     __install_spacemacs
-fi
-
-if ! __spacemacs_installed; then
-    __install_spacemacs
+else
+    if ! __spacemacs_installed; then
+        __install_spacemacs 2>/dev/null || echo "Cannot install spacemacs. Perhaps ~/.emacs.d already exists and is not a spacemacs installation?"
+    fi
 fi
 
