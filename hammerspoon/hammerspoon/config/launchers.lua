@@ -9,7 +9,7 @@ hs.hotkey.bind({'cmd', 'alt'}, 'c', function()
 end)
 
 -- Hammerspoon window
-hs.hotkey.bind({'cmd', 'alt'}, 'h', function()
+hs.hotkey.bind({'cmd', 'shift', 'alt'}, 'h', function()
     hs.application.launchOrFocus('Hammerspoon')
 end)
 
