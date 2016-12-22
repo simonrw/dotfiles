@@ -49,15 +49,27 @@ function tnew() {
 
 # SSH into the ngts ops machine, allowing for custom ssh arguments
 function ng() {
-    ssh -t ngtshead $@ exec /home/sw/.local/bin/zsh
+    if [[ $# == 0 ]]; then
+        ssh -t ngtshead exec /home/sw/.local/bin/zsh
+    else
+        ssh -t ngtshead $@
+    fi
 }
 
 function ng.astro() {
-    ssh -t ngtshead.astro $@ exec /home/sw/.local/bin/zsh
+    if [[ $# == 0 ]]; then
+        ssh -t ngtshead.astro exec /home/sw/.local/bin/zsh
+    else
+        ssh -t ngtshead.astro $@
+    fi
 }
 
 function ng.pi() {
-    ssh -t ngtshead.pi $@ exec /home/sw/.local/bin/zsh
+    if [[ $# == 0 ]]; then
+        ssh -t ngtshead.pi exec /home/sw/.local/bin/zsh
+    else
+        ssh -t ngtshead.pi $@
+    fi
 }
 
 function init-python() {
