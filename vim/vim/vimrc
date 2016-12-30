@@ -51,7 +51,6 @@ Plug 'vim-scripts/indentpython.vim'
 " Colour schemes
 Plug 'altercation/vim-colors-solarized'
 Plug 'sickill/vim-monokai'
-Plug 'jonathanfilip/vim-lucius'
 
 call plug#end()
 " }}}
