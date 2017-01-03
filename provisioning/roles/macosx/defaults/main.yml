@@ -16,7 +16,6 @@ homebrew_packages:
 - cargo-completion
 - clang-format
 - coreutils
-# - curl         Custom install step
 - dos2unix
 - editorconfig
 - exercism
@@ -54,6 +53,7 @@ homebrew_packages:
 - trash
 - tree
 - urlview
+- vim
 - w3m
 - watch
 - weechat

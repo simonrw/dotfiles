@@ -31,11 +31,6 @@
   tags:
     - packaging
 
-- name: Install vim with arguments
-  homebrew: name=vim install_options=override-system-vi
-  tags:
-    - packaging
-
 - name: Install and force link packages and link
   homebrew:
     name: "{{ item }}"
