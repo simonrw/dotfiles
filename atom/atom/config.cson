@@ -14,8 +14,6 @@
     invisibles: {}
     preferredLineLength: 72
     showLineNumbers: false
-    softWrap: true
-    softWrapAtPreferredLineLength: true
     tabLength: 4
   "exception-reporting":
     userId: "f0854859-5bc9-9a55-26cc-7254a8a5c965"
