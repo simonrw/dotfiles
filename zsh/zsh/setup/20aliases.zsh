@@ -51,5 +51,9 @@ if has_executable ag; then
 fi
 
 if has_executable nvim; then
-    alias vim=nvim
+    if has_executable vimr; then
+        alias vim=vimr
+    else
+        alias vim=nvim
+    fi
 fi
