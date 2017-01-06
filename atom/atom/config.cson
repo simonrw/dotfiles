@@ -19,6 +19,8 @@
     userId: "f0854859-5bc9-9a55-26cc-7254a8a5c965"
   metrics:
     userId: "a968852dcee208d7a6d502ed563a32b15ac1141a"
+  "proto-repl":
+    leinPath: "/usr/local/bin/lein"
   racer:
     racerBinPath: "/Users/simon/.cargo/bin/racer"
     rustSrcPath: "/Users/simon/.cargo/rust-src/src"
