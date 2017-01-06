@@ -5,7 +5,7 @@ end)
 
 -- Browser
 hs.hotkey.bind({'cmd', 'alt'}, 'c', function()
-    hs.application.launchOrFocus('FirefoxDeveloperEdition')
+    hs.application.launchOrFocus('Safari')
 end)
 
 -- Hammerspoon window
