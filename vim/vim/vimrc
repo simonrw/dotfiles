@@ -52,7 +52,6 @@ Plug 'vim-scripts/indentpython.vim'
 " Colour schemes
 Plug 'altercation/vim-colors-solarized'
 Plug 'sickill/vim-monokai'
-Plug 'nanotech/jellybeans.vim'
 
 call plug#end()
 " }}}
@@ -117,7 +116,7 @@ nnoremap <leader>F :FZF<cr>
 " fzf mappings
 nnoremap <leader>f :GitFiles<cr>
 nnoremap gb :Buffers<cr>
-nnoremap gs :Tags<cr>
+nnoremap gt :Tags<cr>
 nnoremap gL :Lines<cr>
 nnoremap gl :BLines<cr>
 nnoremap <leader>a :Ag<cr>

@@ -1,5 +1,5 @@
 " Based on
-runtime colors/jellybeans.vim
+runtime colors/grb256.vim
 
 " Make the colour column a little bit more subtle
 " Dark background: 237
