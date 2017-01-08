@@ -28,7 +28,7 @@ def sync_repos(remote_name='origin', branch_name='master'):
 def sync_vim_plugins():
     with hide('stdout', 'stderr'):
         lrun('~/.bin/vpi')
-        lrun('vim +PlugUpdate +qa')
+        lrun('vim +PlugUpdate! +qa')
         lrun('vim +PlugClean +qa')
 
 

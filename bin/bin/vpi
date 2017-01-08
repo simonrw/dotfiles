@@ -3,7 +3,7 @@
 set -e
 
 main() {
-    \vim +PlugUpgrade +PlugClean! +PlugInstall +qa
+    \vim +PlugClean! +PlugInstall! +qa
 }
 
 main
