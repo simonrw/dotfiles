@@ -32,7 +32,7 @@ Plug 'christoomey/vim-sort-motion'
 Plug 'christoomey/vim-tmux-runner'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'janko-m/vim-test'
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --no-update-rc --no-completion --key-bindings' }
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': 'yes \| ./install --no-update-rc --no-completion --key-bindings' }
 Plug 'junegunn/fzf.vim'
 Plug 'kassio/neoterm'
 Plug 'racer-rust/vim-racer'
