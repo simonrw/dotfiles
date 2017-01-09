@@ -8,6 +8,11 @@ hs.hotkey.bind({'cmd', 'alt'}, 'c', function()
     hs.application.launchOrFocus('Safari')
 end)
 
+-- Email
+hs.hotkey.bind({'cmd', 'alt'}, 'e', function()
+    hs.application.launchOrFocus('Mail')
+end)
+
 -- Hammerspoon window
 hs.hotkey.bind({'cmd', 'shift', 'alt'}, 'h', function()
     hs.application.launchOrFocus('Hammerspoon')
