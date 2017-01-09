@@ -116,7 +116,7 @@ nnoremap <leader>F :FZF<cr>
 " fzf mappings
 nnoremap <leader>f :GitFiles<cr>
 nnoremap gb :Buffers<cr>
-nnoremap gt :Tags<cr>
+nnoremap gs :Tags<cr>
 nnoremap gL :Lines<cr>
 nnoremap gl :BLines<cr>
 nnoremap <leader>a :Ag<cr>
