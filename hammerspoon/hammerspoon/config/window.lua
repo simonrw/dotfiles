@@ -67,6 +67,15 @@ end
 -- Maximise window
 hs.hotkey.bind({'cmd', 'alt', 'ctrl'}, 'f', maximizeWindow)
 
+-- If the application is iTerm2, then maximise the window
+hs.hotkey.bind({'cmd'}, 'return', function()
+    local win = hs.window.focusedWindow()
+    local name = win:application():name()
+    if name == "iTerm2" then
+        maximizeWindow()
+    end
+end)
+
 -- Make window smaller
 hs.hotkey.bind({'cmd', 'alt', 'ctrl'}, '-', function()
     local win = hs.window.focusedWindow()
