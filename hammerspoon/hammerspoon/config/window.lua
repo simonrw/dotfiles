@@ -67,24 +67,6 @@ end
 -- Maximise window
 hs.hotkey.bind({'cmd', 'alt', 'ctrl'}, 'f', maximizeWindow)
 
--- If the application is iTerm2, then maximise the window
-iterm_fullscreen_handler = hs.hotkey.new({'cmd'}, 'return', maximizeWindow)
-
-watcher = hs.application.watcher.new(function(name, notify_type, application)
-
-    if notify_type ~= hs.application.watcher.activated then
-        return
-    end
-
-    if name == "iTerm2" then
-        iterm_fullscreen_handler:enable()
-    else
-        iterm_fullscreen_handler:disable()
-    end
-end)
-watcher:start()
-
-
 -- Make window smaller
 hs.hotkey.bind({'cmd', 'alt', 'ctrl'}, '-', function()
     local win = hs.window.focusedWindow()
