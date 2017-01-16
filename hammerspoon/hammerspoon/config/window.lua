@@ -65,7 +65,7 @@ function maximizeWindow()
 end
 
 -- Maximise window
-hs.hotkey.bind({'cmd', 'alt', 'ctrl'}, 'f', maximizeWindow)
+-- hs.hotkey.bind({'cmd', 'alt', 'ctrl'}, 'f', maximizeWindow)
 
 -- Make window smaller
 hs.hotkey.bind({'cmd', 'alt', 'ctrl'}, '-', function()
