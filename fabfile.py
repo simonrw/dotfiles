@@ -22,6 +22,7 @@ def sync_repos(remote_name='origin', branch_name='master'):
             if result.failed:
                 open_shell()
             lrun('git stash pop -q 2>/dev/null || true')
+            lrun('git submodule update --init --recursive')
 
 
 @task
