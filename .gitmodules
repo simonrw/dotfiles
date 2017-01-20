@@ -1,6 +1,3 @@
-[submodule "git-remote-hg"]
-	path = external/git-remote-hg
-	url = https://github.com/fingolfin/git-remote-hg.git
 [submodule "external/git-stree"]
 	path = external/git-stree
 	url = https://github.com/tdd/git-stree
