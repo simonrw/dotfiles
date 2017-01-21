@@ -134,6 +134,9 @@ let g:rust_folding = 0
 "     SETTINGS     "
 """"""""""""""""""""
 
+" enable the mouse
+set mouse=a
+
 " set up some nice tab defaults
 set tabstop=4
 set softtabstop=4
