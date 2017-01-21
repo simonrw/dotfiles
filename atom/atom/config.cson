@@ -15,6 +15,7 @@
     preferredLineLength: 72
     showLineNumbers: false
     tabLength: 4
+    tabType: "soft"
   "exception-reporting":
     userId: "f0854859-5bc9-9a55-26cc-7254a8a5c965"
   metrics:
