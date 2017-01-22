@@ -49,3 +49,7 @@ alias irc='ssh -t raspberrypi tmux attach -t irc'
 if has_executable ag; then
     alias grep=ag
 fi
+
+if has_executable hub; then
+    alias git=hub
+fi
