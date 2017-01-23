@@ -53,3 +53,7 @@ fi
 if has_executable hub; then
     alias git=hub
 fi
+
+if has_executable nvim; then
+    alias vim=nvim
+fi
