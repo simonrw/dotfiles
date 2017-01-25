@@ -149,7 +149,7 @@ function build-movie() {
 
 # Function to source the virtual environment in the current directory
 function sourceenv() {
-    if [[ -f venv/bin/conda ]]; then
+    if [[ -f .venv/bin/conda ]]; then
         # Conda environment
 
         # This does not work with ag, so see if grep has been aliased
@@ -159,13 +159,14 @@ function sourceenv() {
         if [ $grep_aliased ]; then
             unalias grep
         fi
-        source $(pyenv which activate) ${PWD}/venv
+
+        source $(pyenv which activate) ${PWD}/.venv
         if [ $grep_aliased ]; then
             alias grep=ag
         fi
     else
         # Normal python environment
-        source ${PWD}/venv/bin/activate
+        source ${PWD}/.venv/bin/activate
     fi
 }
 
