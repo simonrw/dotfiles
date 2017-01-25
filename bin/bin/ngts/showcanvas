@@ -1,0 +1,30 @@
+#!/usr/bin/env python
+
+import glob
+import argparse
+import subprocess as sp
+import os
+import sys
+
+parser = argparse.ArgumentParser()
+parser.add_argument('-F', '--field', required=True)
+parser.add_argument('-O', '--obj-id', required=True, type=int)
+args = parser.parse_args()
+
+root_dir = '/home/dbayliss/CANVAS3/output/candidates'
+files_path = os.path.join(root_dir, args.field)
+if not os.path.isdir(files_path):
+    print('Cannot find directory for field {}'.format(args.field),
+          file=sys.stderr)
+    sys.exit(1)
+files = glob.iglob(os.path.join(files_path, 'TEST18*.png'))
+
+files = [filename for filename in files
+         if '{:06d}'.format(args.obj_id) in filename]
+if len(files) > 1:
+    print('Ambiguous: {}'.format(files), file=sys.stderr)
+elif len(files) == 0:
+    print('Cannot find file', file=sys.stderr)
+else:
+    sp.check_call(['xv', files[0]])
+
