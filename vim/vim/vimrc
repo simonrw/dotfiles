@@ -30,7 +30,6 @@ Plug 'tpope/vim-unimpaired'
 Plug 'Wolfy87/vim-enmasse'
 Plug 'christoomey/vim-sort-motion'
 Plug 'christoomey/vim-tmux-runner'
-Plug 'christoomey/vim-tmux-navigator'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'janko-m/vim-test'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': 'yes \| ./install --no-update-rc --no-completion --key-bindings' }
