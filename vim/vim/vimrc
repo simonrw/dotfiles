@@ -174,7 +174,7 @@ if v:version > 704
 endif
 
 " Line numbering
-set relativenumber
+set norelativenumber
 set nonumber
 
 " Use hlsearch
