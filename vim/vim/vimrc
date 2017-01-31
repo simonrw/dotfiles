@@ -16,7 +16,7 @@ call plug#begin('~/.vim/bundle')
 
 call plug#end()
 
-set background=dark
+set background=light
 
 if has('nvim')
 
