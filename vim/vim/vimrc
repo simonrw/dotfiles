@@ -19,7 +19,8 @@ Plug 'cespare/vim-toml'
 
 call plug#end()
 
-set background=light
+set incsearch
+set background=dark
 set mouse=a
 
 if has('nvim')
