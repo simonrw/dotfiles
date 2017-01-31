@@ -21,6 +21,7 @@ call plug#end()
 
 set incsearch
 set background=dark
+colorscheme srw256
 set mouse=a
 
 if has('nvim')
