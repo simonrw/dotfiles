@@ -12,6 +12,7 @@
 (defvar srw/my-packages
   '(better-defaults
 	rust-mode
+	toml-mode
 	molokai-theme))
 
 (mapc #'(lambda (package)
@@ -72,7 +73,7 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(package-selected-packages (quote (rust-mode molokai-theme better-defaults))))
+ '(package-selected-packages (quote (toml-mode rust-mode molokai-theme better-defaults))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
