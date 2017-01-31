@@ -1,1 +1,0 @@
-/Users/simon/.vim/after/ftplugin/javascript.vim
