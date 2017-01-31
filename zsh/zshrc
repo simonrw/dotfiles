@@ -77,7 +77,7 @@ export BIBINPUTS=${HOME}/work/central-bibliography:${BIBINPUTS}
 export LESS='-FXR'
 
 # Set up fzf
-export FZF_DEFAULT_OPTS="--color dark --tac --ansi --no-mouse --tabstop 4 --inline-info"
+export FZF_DEFAULT_OPTS="--color dark --tac --ansi --no-mouse --tabstop 4 --inline-info --tiebreak=begin,length"
 
 # Taken from grb's zshrc
 
