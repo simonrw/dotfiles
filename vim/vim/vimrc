@@ -14,9 +14,13 @@ augroup END
 "  Vim Plug
 call plug#begin('~/.vim/bundle')
 
+Plug 'rust-lang/rust.vim'
+Plug 'cespare/vim-toml'
+
 call plug#end()
 
 set background=light
+set mouse=a
 
 if has('nvim')
 
