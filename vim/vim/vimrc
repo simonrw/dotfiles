@@ -14,15 +14,70 @@ augroup END
 "  Vim Plug
 call plug#begin('~/.vim/bundle')
 
+Plug 'tpope/vim-unimpaired'
 Plug 'rust-lang/rust.vim'
 Plug 'cespare/vim-toml'
+Plug 'christoomey/vim-tmux-runner'
 
 call plug#end()
 
+set ignorecase
+set smartcase
+set tabstop=4
+set expandtab
+set shiftwidth=4
 set incsearch
 set background=dark
 colorscheme srw256
 set mouse=a
+set smartindent
+set cindent
+set report=0
+set noesckeys
+set hidden
+set lazyredraw
+set shortmess=atI
+set wildignore+=*.aux,*.o,*.git,/tmp/*,*.so,*.swp,*.zip,.venv,env,*.pyc
+set switchbuf=useopen
+set softtabstop=4
+set shiftround
+
+" Search with fancy regex search by default
+nnoremap / /\v
+nnoremap ? ?\v
+
+" Swap the mark keys
+nnoremap ' `
+nnoremap ` '
+
+" Reselect visual block after indent/outdent
+vnoremap < <gv
+vnoremap > >gv
+
+if executable('ag')
+    set grepprg=ag\ --nogroup\ --nocolor
+endif
+
+nnoremap <space> :nohlsearch<cr>
+
+" Configure vim tmux runner
+let g:VtrStripLeadingWhitespace = 0
+let g:VtrClearEmptyLines = 0
+let g:VtrAppendNewline = 1
+
+nnoremap <leader>v :VtrAttachToPane<cr>
+
+" Create shorter 'V' command which is easier to type
+command! -nargs=? V call VtrSendCommand(<f-args>)
+
+" Remap the move-window keys
+noremap <C-h> <C-w>h
+noremap <C-j> <C-w>j
+noremap <C-k> <C-w>k
+noremap <C-l> <C-w>l
+
+" Change the way tab autocompletion works
+set wildmode=longest,list:longest
 
 if has('nvim')
 
