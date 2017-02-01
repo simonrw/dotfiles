@@ -41,6 +41,8 @@ set wildignore+=*.aux,*.o,*.git,/tmp/*,*.so,*.swp,*.zip,.venv,env,*.pyc
 set switchbuf=useopen
 set softtabstop=4
 set shiftround
+set noshowmatch
+set matchtime=0
 
 " Search with fancy regex search by default
 nnoremap / /\v
