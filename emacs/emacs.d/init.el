@@ -12,8 +12,7 @@
 (defvar srw/my-packages
   '(better-defaults
 	rust-mode
-	toml-mode
-	molokai-theme))
+	toml-mode))
 
 (mapc #'(lambda (package)
 	  (unless (package-installed-p package)
@@ -58,6 +57,9 @@
 ;; Make sure line numbers are not on
 (global-linum-mode 0)
 
+;; Always use spaces
+(setq-default indent-tabs-mode nil)
+
 ;; Stop any bells
 (setq ring-bell-function 'ignore)
 
@@ -67,12 +69,18 @@
 (setq mouse-wheel-follow-mouse 't)
 
 ;; Theming
-(load-theme 'molokai t)
+(load-theme 'wombat t)
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(ansi-color-faces-vector
+   [default default default italic underline success warning error])
+ '(custom-enabled-themes (quote (wombat)))
+ '(custom-safe-themes
+   (quote
+    ("b571f92c9bfaf4a28cb64ae4b4cdbda95241cd62cf07d942be44dc8f46c491f4" default)))
  '(package-selected-packages (quote (toml-mode rust-mode molokai-theme better-defaults))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
