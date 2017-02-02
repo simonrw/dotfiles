@@ -9,8 +9,13 @@ hs.hotkey.bind({'cmd', 'alt'}, 'c', function()
 end)
 
 -- Email
-hs.hotkey.bind({'cmd', 'alt'}, 'e', function()
+hs.hotkey.bind({'cmd', 'alt'}, 'm', function()
     hs.application.launchOrFocus('Mail')
+end)
+
+-- Atom
+hs.hotkey.bind({'cmd', 'alt'}, 'e', function()
+    hs.application.launchOrFocus('Atom')
 end)
 
 hs.hotkey.bind({'cmd', 'alt'}, 'n', function()
@@ -22,4 +27,3 @@ end)
 hs.hotkey.bind({'cmd', 'shift', 'alt'}, 'h', function()
     hs.application.launchOrFocus('Hammerspoon')
 end)
-
