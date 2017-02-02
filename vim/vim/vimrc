@@ -45,6 +45,7 @@ set softtabstop=4
 set shiftround
 set noshowmatch
 set matchtime=0
+set tags=.git/tags,tags;/
 
 " Search with fancy regex search by default
 nnoremap / /\v
