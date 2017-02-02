@@ -18,6 +18,8 @@ Plug 'tpope/vim-unimpaired'
 Plug 'rust-lang/rust.vim'
 Plug 'cespare/vim-toml'
 Plug 'christoomey/vim-tmux-runner'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': 'yes \| ./install --no-update-rc --no-completion --key-bindings' }
+Plug 'junegunn/fzf.vim'
 
 call plug#end()
 
@@ -61,6 +63,15 @@ if executable('ag')
 endif
 
 nnoremap <space> :nohlsearch<cr>
+
+" FZF
+set rtp+=~/.fzf
+nnoremap <leader>f :GitFiles<cr>
+nnoremap gb :Buffers<cr>
+nnoremap gs :Tags<cr>
+nnoremap gL :Lines<cr>
+nnoremap gl :BLines<cr>
+nnoremap <leader>a :Ag<cr>
 
 " Configure vim tmux runner
 let g:VtrStripLeadingWhitespace = 0
