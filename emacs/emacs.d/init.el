@@ -12,6 +12,10 @@
 (defvar srw/my-packages
   '(better-defaults
 	rust-mode
+    magit
+    cargo
+    flycheck
+    flycheck-rust
 	toml-mode))
 
 (mapc #'(lambda (package)
@@ -43,6 +47,9 @@
 ;; Language specifics
 (setq-default c-basic-offset 4 c-default-style "linux")
 (setq-default tab-width 4 indent-tabs-mode t)
+
+(add-hook 'rust-mode-hook 'cargo-minor-mode)
+(add-hook 'flycheck-mode-hook #'flycheck-rust-setup)
 
 ;; Make sure everything is in utf-8
 (set-language-environment "UTF-8")
@@ -81,7 +88,9 @@
  '(custom-safe-themes
    (quote
     ("b571f92c9bfaf4a28cb64ae4b4cdbda95241cd62cf07d942be44dc8f46c491f4" default)))
- '(package-selected-packages (quote (toml-mode rust-mode molokai-theme better-defaults))))
+ '(package-selected-packages
+   (quote
+    (magit flycheck-rust flycheck cargo toml-mode rust-mode molokai-theme better-defaults))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
