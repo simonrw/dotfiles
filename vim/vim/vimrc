@@ -82,6 +82,9 @@ nnoremap <leader>a :Ag<cr>
 " Deoplete
 let g:deoplete#enable_at_startup = 1
 
+" deoplete-rust
+let g:deoplete#sources#rust#racer_binary = "/Users/simon/.cargo/bin/racer"
+
 " Configure vim tmux runner
 let g:VtrStripLeadingWhitespace = 0
 let g:VtrClearEmptyLines = 0
