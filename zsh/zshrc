@@ -103,6 +103,8 @@ export ANSIBLE_NOCOWS=1
 # Set up rustup
 export PATH=${PATH}:${HOME}/.cargo/bin
 export CARGO_HOME=${HOME}/.cargo
+# Support incremental builds
+export CARGO_INCREMENTAL=1
 export RUST_SRC_PATH=${HOME}/.cargo/rust-src/src
 export RUST_NEW_ERROR_FORMAT=true
 
