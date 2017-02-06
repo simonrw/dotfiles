@@ -20,6 +20,8 @@ Plug 'cespare/vim-toml'
 Plug 'christoomey/vim-tmux-runner'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': 'yes \| ./install --no-update-rc --no-completion --key-bindings' }
 Plug 'junegunn/fzf.vim'
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+Plug 'sebastianmarkow/deoplete-rust'
 
 call plug#end()
 
@@ -74,6 +76,9 @@ nnoremap gs :FzfTags<cr>
 nnoremap gL :FzfLines<cr>
 nnoremap gl :FzfBLines<cr>
 nnoremap <leader>a :Ag<cr>
+
+" Deoplete
+let g:deoplete#enable_at_startup = 1
 
 " Configure vim tmux runner
 let g:VtrStripLeadingWhitespace = 0
