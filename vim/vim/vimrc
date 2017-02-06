@@ -67,11 +67,12 @@ nnoremap <space> :nohlsearch<cr>
 
 " FZF
 set rtp+=~/.fzf
-nnoremap <leader>f :GitFiles<cr>
-nnoremap gb :Buffers<cr>
-nnoremap gs :Tags<cr>
-nnoremap gL :Lines<cr>
-nnoremap gl :BLines<cr>
+let g:fzf_command_prefix = 'Fzf'
+nnoremap <leader>f :FzfGitFiles<cr>
+nnoremap gb :FzfBuffers<cr>
+nnoremap gs :FzfTags<cr>
+nnoremap gL :FzfLines<cr>
+nnoremap gl :FzfBLines<cr>
 nnoremap <leader>a :Ag<cr>
 
 " Configure vim tmux runner
