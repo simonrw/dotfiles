@@ -55,6 +55,9 @@ set tags=.git/tags,tags;/
 nnoremap / /\v
 nnoremap ? ?\v
 
+" Add mapping for copying all file contents into the system buffer
+nnoremap cp :0,$y+<Cr>
+
 " Swap the mark keys
 nnoremap ' `
 nnoremap ` '
