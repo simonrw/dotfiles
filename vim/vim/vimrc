@@ -121,7 +121,10 @@ if has('nvim')
 
 endif
 
-set termguicolors
+if has('termguicolors')
+    set termguicolors
+endif
+
 let ayucolor="light"
 colorscheme ayu
 
