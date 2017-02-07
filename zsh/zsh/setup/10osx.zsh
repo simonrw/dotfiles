@@ -6,7 +6,7 @@ case $OSTYPE in
         alias sed=gsed
         alias gview=mview
         alias indent=gindent
-        export __LS_COMMAND=ls
+        alias lsc="ls -G"
 
         export work=${HOME}/work
         export NGTS=${work}/NGTS
