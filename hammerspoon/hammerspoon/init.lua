@@ -61,24 +61,47 @@ function changeScreenResolution(target)
     end
 end
 
+function getWindowMode()
+    local screen = hs.screen.find("Color LCD")
+    return screen:currentMode()
+end
+
+function nextMode(direction)
+    local currentMode = getWindowMode()
+    if direction == 'up' then
+        if currentMode.w == 1440 then
+            return {width = 1680, height = 1050, scale = 2.0}
+        elseif currentMode.w == 1680 then
+            return {width = 1920, height = 1200, scale = 2.0}
+        else
+            return nil
+        end
+    elseif direction == 'down' then
+        if currentMode.w == 1920 then
+            return {width = 1680, height = 1050, scale = 2.0}
+        elseif currentMode.w == 1680 then
+            return {width = 1440, height = 900, scale = 2.0}
+        else
+            return nil
+        end
+    end
+
+    return nil
+end
+
 -- Change screen resolution
 hs.hotkey.bind({'cmd', 'ctrl', 'alt'}, 'Up', function()
-    local target = {
-        width = 1680,
-        height = 1050,
-        scale = 2.0,
-    }
-    changeScreenResolution(target)
+    local target = nextMode('up')
+    if target then
+        changeScreenResolution(target)
+    end
 end)
 
 hs.hotkey.bind({'cmd', 'ctrl', 'alt'}, 'Down', function()
-    local screen = hs.screen.find("Color LCD")
-    local target = {
-        width = 1440,
-        height = 900,
-        scale = 2.0,
-    }
-    changeScreenResolution(target)
+    local target = nextMode('down')
+    if target then
+        changeScreenResolution(target)
+    end
 end)
 
 -- Reload the config on file change
