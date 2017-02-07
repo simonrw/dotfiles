@@ -17,6 +17,10 @@ hs.hotkey.bind({'cmd', 'alt'}, 'n', function()
     hs.application.launchOrFocus('Notational Velocity')
 end)
 
+hs.hotkey.bind({'cmd', 'alt'}, 's', function()
+    hs.application.launchOrFocus('Sublime Text')
+end)
+
 -- Hammerspoon window
 hs.hotkey.bind({'cmd', 'shift', 'alt'}, 'h', function()
     hs.application.launchOrFocus('Hammerspoon')
