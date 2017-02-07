@@ -125,7 +125,7 @@ if has('termguicolors')
     set termguicolors
 endif
 
-let ayucolor="light"
+let ayucolor="mirage"
 colorscheme ayu
 
 " vim: foldmethod=marker
