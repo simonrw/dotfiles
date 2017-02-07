@@ -25,6 +25,7 @@ Plug 'sebastianmarkow/deoplete-rust'
 Plug 'zchee/deoplete-jedi'
 Plug 'neomake/neomake'
 Plug 'kassio/neoterm'
+Plug 'ayu-theme/ayu-vim'
 
 call plug#end()
 
@@ -34,8 +35,6 @@ set tabstop=4
 set expandtab
 set shiftwidth=4
 set incsearch
-set background=dark
-colorscheme srw256
 set mouse=a
 set smartindent
 set cindent
@@ -122,4 +121,9 @@ if has('nvim')
 
 endif
 
+set termguicolors
+let ayucolor="light"
+colorscheme ayu
+
 " vim: foldmethod=marker
+
