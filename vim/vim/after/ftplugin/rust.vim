@@ -1,1 +1,4 @@
-autocmd! BufWritePost *.rs Neomake
+augroup rust_neomake
+    autocmd!
+    autocmd! BufWritePost *.rs Neomake! cargo
+augroup END
