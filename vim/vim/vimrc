@@ -14,18 +14,27 @@ augroup END
 "  Vim Plug
 call plug#begin('~/.vim/bundle')
 
-Plug 'tpope/vim-unimpaired'
-Plug 'rust-lang/rust.vim'
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+Plug 'ayu-theme/ayu-vim'
 Plug 'cespare/vim-toml'
 Plug 'christoomey/vim-tmux-runner'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': 'yes \| ./install --no-update-rc --no-completion --key-bindings' }
 Plug 'junegunn/fzf.vim'
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-Plug 'sebastianmarkow/deoplete-rust'
-Plug 'zchee/deoplete-jedi'
-Plug 'neomake/neomake'
 Plug 'kassio/neoterm'
-Plug 'ayu-theme/ayu-vim'
+Plug 'neomake/neomake'
+Plug 'rust-lang/rust.vim'
+Plug 'sebastianmarkow/deoplete-rust'
+Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-dispatch'
+Plug 'tpope/vim-eunuch'
+Plug 'tpope/vim-fireplace'
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-markdown'
+Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-sensible'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-unimpaired'
+Plug 'zchee/deoplete-jedi'
 
 call plug#end()
 
@@ -81,6 +90,16 @@ nnoremap gs :FzfTags<cr>
 nnoremap gL :FzfLines<cr>
 nnoremap gl :FzfBLines<cr>
 nnoremap <leader>a :Ag<cr>
+
+" Fugitive
+nnoremap <leader>gc :Gcommit -v<cr>
+nnoremap <leader>gd :Gdiff<cr>
+nnoremap <leader>gw :Gwrite<cr>
+nnoremap <leader>gr :Gread<cr>
+nnoremap <leader>gs :Gstatus<cr>
+nnoremap <leader>ga :Gcommit -v --amend<cr>
+
+let g:commentary_map_backslash = 0
 
 " Deoplete
 let g:deoplete#enable_at_startup = 1
