@@ -15,6 +15,7 @@ augroup END
 call plug#begin('~/.vim/bundle')
 
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+Plug 'ayu-theme/ayu-vim'
 Plug 'cespare/vim-toml'
 Plug 'christoomey/vim-tmux-runner'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': 'yes \| ./install --no-update-rc --no-completion --key-bindings' }
@@ -142,7 +143,8 @@ if has('termguicolors')
     set termguicolors
 endif
 
-colorscheme srw256
+let ayucolor="mirage"
+colorscheme ayu
 
 " vim: foldmethod=marker
 
