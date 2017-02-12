@@ -34,6 +34,7 @@ Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
 Plug 'zchee/deoplete-jedi'
+Plug 'sbdchd/neoformat'
 
 call plug#end()
 
@@ -124,6 +125,9 @@ noremap <C-l> <C-w>l
 
 " Change the way tab autocompletion works
 set wildmode=longest,list:longest
+
+" Neoformat
+let g:neoformat_only_msg_on_error = 1
 
 if has('nvim')
 
