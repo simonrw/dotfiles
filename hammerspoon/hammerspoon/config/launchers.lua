@@ -21,6 +21,10 @@ hs.hotkey.bind({'cmd', 'alt'}, 's', function()
     hs.application.launchOrFocus('Skype')
 end)
 
+hs.hotkey.bind({'cmd', 'alt', 'ctrl'}, 'i', function()
+    hs.application.launchOrFocus('LimeChat')
+end)
+
 -- Hammerspoon window
 hs.hotkey.bind({'cmd', 'shift', 'alt'}, 'h', function()
     hs.application.launchOrFocus('Hammerspoon')
