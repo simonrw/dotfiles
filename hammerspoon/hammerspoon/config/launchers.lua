@@ -18,7 +18,7 @@ hs.hotkey.bind({'cmd', 'alt'}, 'n', function()
 end)
 
 hs.hotkey.bind({'cmd', 'alt'}, 's', function()
-    hs.application.launchOrFocus('Sublime Text')
+    hs.application.launchOrFocus('Skype')
 end)
 
 -- Hammerspoon window
