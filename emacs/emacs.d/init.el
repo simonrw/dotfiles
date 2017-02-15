@@ -16,6 +16,7 @@
     py-autopep8
 	yaml-mode
 	solarized-theme
+    dracula-theme
 	smex
     markdown-mode
     clang-format
@@ -128,24 +129,4 @@
 
 
 ;; Theming
-(load-theme 'wombat t)
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(ansi-color-faces-vector
-   [default default default italic underline success warning error])
- '(custom-enabled-themes (quote (wombat)))
- '(custom-safe-themes
-   (quote
-    ("b571f92c9bfaf4a28cb64ae4b4cdbda95241cd62cf07d942be44dc8f46c491f4" default)))
- '(package-selected-packages
-   (quote
-    (magit flycheck-rust flycheck cargo toml-mode rust-mode molokai-theme better-defaults))))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- )
+(load-theme 'dracula t)
