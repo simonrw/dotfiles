@@ -16,6 +16,8 @@
 	solarized-theme
 	smex
     markdown-mode
+    clang-format
+    cmake-mode
 	adoc-mode
 	fzf
     multi-term
