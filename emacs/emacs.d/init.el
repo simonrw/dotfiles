@@ -11,6 +11,8 @@
 (defvar srw/my-packages
   '(better-defaults
     flycheck ;; syntax checker
+    flycheck-rust
+    cargo
     py-autopep8
 	yaml-mode
 	solarized-theme
