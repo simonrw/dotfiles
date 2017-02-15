@@ -10,9 +10,6 @@
 [submodule "external/conda-zsh-completion"]
 	path = external/conda-zsh-completion
 	url = https://github.com/esc/conda-zsh-completion
-[submodule "external/p"]
-	path = external/p
-	url = https://github.com/chrismdp/p
 [submodule "external/fabric-zsh-autocomplete"]
 	path = external/fabric-zsh-autocomplete
 	url = https://github.com/vhbit/fabric-zsh-autocomplete
@@ -22,6 +19,3 @@
 [submodule "external/git-latexdiff"]
 	path = external/git-latexdiff
 	url = https://gitlab.com/git-latexdiff/git-latexdiff.git
-[submodule "external/git-standup"]
-	path = external/git-standup
-	url = https://github.com/kamranahmedse/git-standup
