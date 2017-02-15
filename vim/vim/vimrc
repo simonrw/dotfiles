@@ -39,6 +39,7 @@ Plug 'sbdchd/neoformat'
 
 call plug#end()
 
+set noswapfile
 set ignorecase
 set smartcase
 set tabstop=4
