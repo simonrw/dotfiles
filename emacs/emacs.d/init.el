@@ -132,4 +132,4 @@
 
 
 ;; Theming
-(load-theme 'ir-black t)
+(load-theme 'wombat t)
