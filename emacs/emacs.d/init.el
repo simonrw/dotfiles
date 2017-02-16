@@ -34,6 +34,7 @@
 	editorconfig
 	jinja2-mode
 	rust-mode
+    racer
 	company
 	ir-black-theme))
 
@@ -77,7 +78,9 @@
 (setq-default c-basic-offset 4 c-default-style "linux")
 (setq-default tab-width 4 indent-tabs-mode t)
 
+;; Set up rust
 (add-hook 'rust-mode-hook 'cargo-minor-mode)
+(add-hook 'rust-mode-hook 'flycheck-mode)
 (add-hook 'flycheck-mode-hook #'flycheck-rust-setup)
 
 ;; Make sure everything is in utf-8
@@ -125,10 +128,10 @@
 (setq racer-rust-src-path "~/.cargo/rust-src/src/")
 (add-hook 'rust-mode-hook #'racer-mode)
 (add-hook 'racer-mode-hook #'eldoc-mode)
-(add-hook 'racer-mode-hook (lambda ()
-							 #'company-mode
-							 (define-key rust-mode-map (kbd "TAB") #'company-indent-or-complete-common)
-							 (setq company-tooltip-align-annotations t)))
+(add-hook 'racer-mode-hook #'company-mode)
+(require 'rust-mode)
+(define-key rust-mode-map (kbd "TAB") #'company-indent-or-complete-common)
+(setq company-tooltip-align-annotations t)
 
 
 ;; Theming
