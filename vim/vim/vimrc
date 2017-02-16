@@ -150,10 +150,10 @@ if has('nvim')
 endif
 
 if has('termguicolors')
-    set termguicolors
+    set notermguicolors
 endif
 
-colorscheme dracula
+colorscheme srw256
 
 " vim: foldmethod=marker
 

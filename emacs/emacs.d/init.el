@@ -132,4 +132,4 @@
 
 
 ;; Theming
-(load-theme 'dracula t)
+(load-theme 'ir-black t)
