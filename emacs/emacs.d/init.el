@@ -56,6 +56,9 @@
 ;; Disable blinking cursor
 (blink-cursor-mode 0)
 
+;; Use ssh for tramp instead of scp
+(setq tramp-default-method "ssh")
+
 (when (eq system-type 'darwin)
   (set-face-attribute 'default nil :family "Source Code Pro")
   (set-face-attribute 'default nil :height 140)
