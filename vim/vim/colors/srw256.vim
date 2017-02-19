@@ -1,3 +1,7 @@
+if has('termguicolors')
+    set notermguicolors
+endif
+
 " Based on
 runtime colors/grb256.vim
 
