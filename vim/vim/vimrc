@@ -50,7 +50,9 @@ set mouse=a
 set smartindent
 set cindent
 set report=0
-set noesckeys
+if !has('nvim')
+    set noesckeys
+endif
 set hidden
 set lazyredraw
 set shortmess=atI
