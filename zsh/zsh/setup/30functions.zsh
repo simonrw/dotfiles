@@ -176,3 +176,29 @@ function webshare() {
         python2 -m SimpleHTTPServer $*
     fi
 }
+
+function mount-ngtshead() {
+    local readonly mountdir=/tmp/ngtshead
+
+    # Check if the directory is already mounted
+    if [[ $(ps aux | grep -i sftp | grep -v grep | grep ngtshead) ]]; then
+        echo "Already mounted"
+        true
+    else
+        echo "Mounting ngtshead home dir at ${mountdir}"
+        test -d ${mountdir} || mkdir -p ${mountdir}
+        sshfs -o allow_other,defer_permissions ngtshead.astro:/home/sw ${mountdir}
+    fi
+}
+
+function unmount-ngtshead() {
+    local readonly mountdir=/tmp/ngtshead
+
+    # Check if the directory is already mounted
+    if [[ $(ps aux | grep -i sftp | grep -v grep | grep ngtshead) ]]; then
+        echo "Unmounting ${mountdir}"
+        umount ${mountdir}
+    else
+        echo "Not mounted"
+    fi
+}
