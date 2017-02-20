@@ -12,7 +12,7 @@ alias ipy=ipython
 alias ipysh='ipython --profile=sh'
 alias py=python
 alias pydoc='=python -m pydoc'
-alias pylab='ipython --profile=pylab'
+alias pylab='ipython --pylab'
 alias clear-pycs='find ${PWD} -name "*.pyc" -delete'
 alias g='git'
 alias es='exec $SHELL'
