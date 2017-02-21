@@ -130,6 +130,26 @@ noremap <C-l> <C-w>l
 " Change the way tab autocompletion works
 set wildmode=longest,list:longest
 
+" Add mapping to open/close the quickfix list
+" Taken from this plugin:
+" https://github.com/drmingdrmer/vim-toggle-quickfix/blob/master/plugin/toggle-quickfix.vim
+if exists("g:__QUICKFIX_TOGGLE_jfklds__")
+    finish
+endif
+let g:__QUICKFIX_TOGGLE_jfklds__ = 1
+
+fun! s:QuickfixToggle()
+
+    let nr = winnr("$")
+    cwindow
+    let nr2 = winnr("$")
+    if nr == nr2
+        cclose
+    endif
+
+endfunction
+nnoremap coq :call <SID>QuickfixToggle()<cr>
+
 " Neoformat
 let g:neoformat_only_msg_on_error = 1
 
