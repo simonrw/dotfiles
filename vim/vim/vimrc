@@ -14,7 +14,6 @@ augroup END
 "  Vim Plug
 call plug#begin('~/.vim/bundle')
 
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'autozimu/LanguageClient-neovim', { 'do': ':UpdateRemotePlugins' }
 Plug 'dracula/vim'
 Plug 'cespare/vim-toml'
@@ -24,7 +23,6 @@ Plug 'junegunn/fzf.vim'
 Plug 'kassio/neoterm'
 Plug 'neomake/neomake'
 Plug 'rust-lang/rust.vim'
-Plug 'sebastianmarkow/deoplete-rust'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-dispatch'
 Plug 'tpope/vim-eunuch'
@@ -34,7 +32,6 @@ Plug 'tpope/vim-markdown'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
-Plug 'zchee/deoplete-jedi'
 Plug 'sbdchd/neoformat'
 
 call plug#end()
@@ -104,15 +101,6 @@ nnoremap <leader>gs :Gstatus<cr>
 nnoremap <leader>ga :Gcommit -v --amend<cr>
 
 let g:commentary_map_backslash = 0
-
-" Deoplete
-let g:deoplete#enable_at_startup = 1
-
-" deoplete-rust
-let g:deoplete#sources#rust#racer_binary = "/Users/simon/.cargo/bin/racer"
-
-" deoplete-jedi
-let g:deoplete#sources#jedi#show_docstring = 1
 
 " Configure vim tmux runner
 let g:VtrStripLeadingWhitespace = 0
