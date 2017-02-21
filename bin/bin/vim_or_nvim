@@ -1,0 +1,22 @@
+#!/usr/bin/env bash
+
+set -e
+
+has_executable() {
+    if [[ $# != 1 ]]; then
+        echo "has_executable requires one argument" >&2
+        return 1
+    fi
+
+    command -v $1 >/dev/null 2>/dev/null
+}
+
+main() {
+    if has_executable nvim; then
+        nvim "$@"
+    else
+        vim "$@"
+    fi
+}
+
+main "$@"
