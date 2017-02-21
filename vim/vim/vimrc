@@ -18,6 +18,7 @@ Plug 'autozimu/LanguageClient-neovim', { 'do': ':UpdateRemotePlugins' }
 Plug 'dracula/vim'
 Plug 'cespare/vim-toml'
 Plug 'christoomey/vim-tmux-runner'
+Plug 'Valloric/python-indent'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': 'yes \| ./install --no-update-rc --no-completion --key-bindings' }
 Plug 'junegunn/fzf.vim'
 Plug 'kassio/neoterm'
