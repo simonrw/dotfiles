@@ -111,6 +111,9 @@ let g:deoplete#enable_at_startup = 1
 " deoplete-rust
 let g:deoplete#sources#rust#racer_binary = "/Users/simon/.cargo/bin/racer"
 
+" deoplete-jedi
+let g:deoplete#sources#jedi#show_docstring = 1
+
 " Configure vim tmux runner
 let g:VtrStripLeadingWhitespace = 0
 let g:VtrClearEmptyLines = 0
