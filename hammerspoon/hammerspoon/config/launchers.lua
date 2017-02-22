@@ -9,9 +9,9 @@ hs.hotkey.bind({'cmd', 'alt'}, 'c', function()
 end)
 
 -- Email
-hs.hotkey.bind({'cmd', 'alt'}, 'e', function()
-    hs.application.launchOrFocus('Mail')
-end)
+-- hs.hotkey.bind({'cmd', 'alt'}, 'e', function()
+--     hs.application.launchOrFocus('Mail')
+-- end)
 
 hs.hotkey.bind({'cmd', 'alt'}, 'n', function()
     hs.application.launchOrFocus('Notational Velocity')
