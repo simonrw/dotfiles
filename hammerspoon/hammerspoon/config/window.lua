@@ -1,6 +1,7 @@
 -- constant holding the window enlargement/shrinkage factor
 local WINDOW_SIZE_CHANGE = 16
 local WINDOW_BORDER = 0
+local FULLSCREEN_BORDER = 64
 
 -- Move window to the next screen
 hs.hotkey.bind({'cmd', 'alt', 'ctrl'}, 'o', function()
@@ -57,15 +58,15 @@ function maximizeWindow()
     local screen = win:screen()
     local max = screen:frame()
 
-    f.x = max.x + WINDOW_BORDER / 2
-    f.y = max.y + WINDOW_BORDER / 2
-    f.w = max.w - WINDOW_BORDER
-    f.h = max.h - WINDOW_BORDER
+    f.x = max.x + FULLSCREEN_BORDER / 2
+    f.y = max.y + FULLSCREEN_BORDER / 2
+    f.w = max.w - FULLSCREEN_BORDER
+    f.h = max.h - FULLSCREEN_BORDER
     win:setFrame(f)
 end
 
 -- Maximise window
--- hs.hotkey.bind({'cmd', 'alt', 'ctrl'}, 'f', maximizeWindow)
+hs.hotkey.bind({'cmd', 'alt', 'ctrl'}, 'f', maximizeWindow)
 
 -- Make window smaller
 hs.hotkey.bind({'cmd', 'alt', 'ctrl'}, '-', function()
