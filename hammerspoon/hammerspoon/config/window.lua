@@ -1,7 +1,7 @@
 -- constant holding the window enlargement/shrinkage factor
 local WINDOW_SIZE_CHANGE = 16
 local WINDOW_BORDER = 0
-local FULLSCREEN_BORDER = 64
+local FULLSCREEN_BORDER = 0
 
 -- Move window to the next screen
 hs.hotkey.bind({'cmd', 'alt', 'ctrl'}, 'o', function()
