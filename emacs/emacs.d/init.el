@@ -13,10 +13,10 @@
     flycheck ;; syntax checker
     flycheck-rust
     cargo
+    evil
     py-autopep8
 	yaml-mode
 	solarized-theme
-    dracula-theme
 	smex
     markdown-mode
     clang-format
@@ -78,6 +78,9 @@
 (setq-default c-basic-offset 4 c-default-style "linux")
 (setq-default tab-width 4 indent-tabs-mode t)
 
+;; Set up Python
+(add-hook 'python-mode-hook 'flycheck-mode)
+
 ;; Set up rust
 (add-hook 'rust-mode-hook 'cargo-minor-mode)
 (add-hook 'rust-mode-hook 'flycheck-mode)
@@ -133,6 +136,23 @@
 (define-key rust-mode-map (kbd "TAB") #'company-indent-or-complete-common)
 (setq company-tooltip-align-annotations t)
 
+;; Set up evil mode
+(require 'evil)
+(evil-mode 1)
 
 ;; Theming
-(load-theme 'dracula t)
+(load-theme 'wombat t)
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(package-selected-packages
+   (quote
+    (evil-visual-mark-mode yaml-mode typescript-mode toml-mode solarized-theme smex racer quelpa py-autopep8 paredit multi-term molokai-theme markdown-mode magit lua-mode jinja2-mode ir-black-theme helm-core fzf flycheck-rust editorconfig dracula-theme company cmake-mode clang-format cider cargo better-defaults base16-theme ansible adoc-mode ac-ispell))))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
