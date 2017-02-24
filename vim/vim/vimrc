@@ -47,6 +47,7 @@ set expandtab
 set shiftwidth=4
 set incsearch
 set mouse=a
+set linebreak
 set smartindent
 set cindent
 set report=0
@@ -84,6 +85,9 @@ if executable('ag')
 endif
 
 nnoremap <space> :nohlsearch<cr>
+
+" Neoterm
+let g:neoterm_use_relative_path = 1
 
 " FZF
 set rtp+=~/.fzf
