@@ -13,7 +13,6 @@
     flycheck ;; syntax checker
     flycheck-rust
     cargo
-    evil
     py-autopep8
 	yaml-mode
 	solarized-theme
@@ -135,10 +134,6 @@
 (require 'rust-mode)
 (define-key rust-mode-map (kbd "TAB") #'company-indent-or-complete-common)
 (setq company-tooltip-align-annotations t)
-
-;; Set up evil mode
-(require 'evil)
-(evil-mode 1)
 
 ;; Theming
 (load-theme 'wombat t)
