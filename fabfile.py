@@ -42,4 +42,3 @@ def push_changes(remote_name='origin', branch_name='master'):
 @task(default=True)
 def update(remote_name='origin', branch_name='master'):
     sync_repos(remote_name=remote_name, branch_name=branch_name)
-    sync_vim_plugins()
