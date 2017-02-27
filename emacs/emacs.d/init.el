@@ -35,12 +35,20 @@
 	rust-mode
     racer
 	company
+    exec-path-from-shell
 	ir-black-theme))
 
 (mapc #'(lambda (package)
 	  (unless (package-installed-p package)
 	    (package-install package)))
       srw/my-packages)
+
+;; Set up the path variable
+;; Configure the startup to not check my terrible
+;; .zshrc file
+(setq exec-path-from-shell-check-startup-files nil)
+(when (memq window-system '(mac ns))
+  (exec-path-from-shell-initialize))
 
 ;; Settings
 (setq inhibit-startup-message t)
