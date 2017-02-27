@@ -60,6 +60,7 @@
 ;; Hooks
 (add-hook 'markdown-mode-hook
 		  (auto-fill-mode))
+(add-hook 'c++-mode-hook 'flycheck-mode)
 
 ;; Disable blinking cursor
 (blink-cursor-mode 0)
@@ -145,17 +146,3 @@
 
 ;; Theming
 (load-theme 'wombat t)
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(package-selected-packages
-   (quote
-    (evil-visual-mark-mode yaml-mode typescript-mode toml-mode solarized-theme smex racer quelpa py-autopep8 paredit multi-term molokai-theme markdown-mode magit lua-mode jinja2-mode ir-black-theme helm-core fzf flycheck-rust editorconfig dracula-theme company cmake-mode clang-format cider cargo better-defaults base16-theme ansible adoc-mode ac-ispell))))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- )
