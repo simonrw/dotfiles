@@ -120,6 +120,7 @@
 
 ;; Compile bindings
 (global-set-key (kbd "C-c C-k") 'compile)
+(global-set-key (kbd "C-c C-r") 'recompile)
 
 ;; Make sure line numbers are not on
 (global-linum-mode 0)
