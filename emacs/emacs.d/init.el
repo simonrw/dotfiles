@@ -15,7 +15,6 @@
     cargo
     py-autopep8
 	yaml-mode
-	solarized-theme
 	smex
     markdown-mode
     clang-format
@@ -27,7 +26,6 @@
 	auto-complete
 	cider
 	paredit
-	base16-theme
 	magit
 	ansible
 	editorconfig
@@ -35,8 +33,7 @@
 	rust-mode
     racer
 	company
-    exec-path-from-shell
-	ir-black-theme))
+    exec-path-from-shell))
 
 (mapc #'(lambda (package)
 	  (unless (package-installed-p package)
