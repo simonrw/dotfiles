@@ -75,7 +75,7 @@
     preloadindex = true
     excludesfile = ~/.gitignore_global
 [merge]
-    tool = splice
+    tool = ediff
     conflictstyle = "diff3"
 [push]
     default = simple
@@ -92,6 +92,8 @@
 [mergetool "splice"]
     cmd = "vim $BASE $LOCAL $REMOTE $MERGED -c 'SpliceInit'"
     trustExitCode = true
+[mergetool "ediff"]
+    cmd = emacs --eval \"(ediff-merge-files-with-ancestor \\\"$LOCAL\\\" \\\"$REMOTE\\\"    \\\"$BASE\\\" nil \\\"$MERGED\\\")\"
 [fetch]
     # Always prune when fetching and pulling
     prune = 1
