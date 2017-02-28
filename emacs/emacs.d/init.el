@@ -145,5 +145,11 @@
 (define-key rust-mode-map (kbd "TAB") #'company-indent-or-complete-common)
 (setq company-tooltip-align-annotations t)
 
+;; Set up backups
+(setq backup-directory-alist
+      `((".*" . ,temporary-file-directory)))
+(setq atuo-save-file-name-transforms
+      `((".*" ,temporary-file-directory t)))
+
 ;; Theming
 (load-theme 'wombat t)
