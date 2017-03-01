@@ -57,7 +57,7 @@ endif
 set hidden
 set lazyredraw
 set shortmess=atI
-set wildignore+=*.aux,*.o,*.git,/tmp/*,*.so,*.swp,*.zip,.venv,env,*.pyc
+set wildignore+=*.aux,*.o,*.git,/tmp/*,*.so,*.swp,*.zip,venv,.venv,env,*.pyc
 set switchbuf=useopen
 set softtabstop=4
 set shiftround

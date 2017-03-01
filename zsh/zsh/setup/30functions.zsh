@@ -163,7 +163,7 @@ function sourceenv() {
         source $(pyenv which activate) ${PWD}/venv
     else
         # Normal python environment
-        source ${PWD}/.venv/bin/activate
+        source ${PWD}/venv/bin/activate
     fi
 }
 
