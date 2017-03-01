@@ -12,9 +12,7 @@ has_executable() {
 }
 
 main() {
-    if has_executable vimr; then
-        vimr "$@"
-    elif has_executable nvim; then
+    if has_executable nvim; then
         nvim "$@"
     else
         vim "$@"
