@@ -24,7 +24,6 @@
 	fzf
     multi-term
 	clojure-mode
-	auto-complete
 	cider
 	paredit
 	magit
@@ -58,7 +57,6 @@
 ;; Hooks
 (add-hook 'markdown-mode-hook
 		  (auto-fill-mode))
-(add-hook 'c++-mode-hook 'flycheck-mode)
 
 ;; Disable blinking cursor
 (blink-cursor-mode 0)
@@ -98,8 +96,8 @@
 (set-language-environment "UTF-8")
 (set-buffer-file-coding-system 'utf-8)
 
-;; Use auto-complete mode always
-(global-auto-complete-mode)
+;; Disable word wrap (truncating lines in emacs speak)
+(set-default 'truncate-lines nil)
 
 ;; Set up fzf
 ;; Add the fzf dir to the PATH
