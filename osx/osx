@@ -185,6 +185,10 @@ defaults write NSGlobalDomain AppleShowAllExtensions -bool true
 # Finder: show path bar
 # defaults write com.apple.finder ShowPathbar -bool true
 
+# Finder: Show dialog boxes quicker
+# source: http://www.defaults-write.com/increase-the-speed-of-os-x-dialogs-boxes/
+defaults write NSGlobalDomain NSWindowResizeTime 0.05
+
 # Finder: allow text selection in Quick Look
 defaults write com.apple.finder QLEnableTextSelection -bool true
 
