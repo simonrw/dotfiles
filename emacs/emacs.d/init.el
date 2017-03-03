@@ -84,13 +84,12 @@
 (setq-default c-basic-offset 4 c-default-style "linux")
 (setq-default tab-width 4 indent-tabs-mode t)
 
-;; Set up Python
-(add-hook 'python-mode-hook 'flycheck-mode)
-
 ;; Set up rust
 (add-hook 'rust-mode-hook 'cargo-minor-mode)
-(add-hook 'rust-mode-hook 'flycheck-mode)
 (add-hook 'flycheck-mode-hook #'flycheck-rust-setup)
+
+;; Strip trailing whitespace for all files
+(add-hook 'before-save-hook 'delete-trailing-whitespace)
 
 ;; Enable dumb jump
 (dumb-jump-mode)
