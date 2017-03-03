@@ -151,6 +151,9 @@ fun! s:QuickfixToggle()
 endfunction
 nnoremap coq :call <SID>QuickfixToggle()<cr>
 
+" Bind K to grep word under cursor
+nnoremap <silent> K :grep! "<C-R><C-W>"<cr><cr>\|:copen<Cr>
+
 " Neoformat
 let g:neoformat_only_msg_on_error = 1
 
