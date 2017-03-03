@@ -13,6 +13,7 @@
     flycheck ;; syntax checker
     flycheck-rust
     cargo
+    evil
     py-autopep8
 	yaml-mode
     dumb-jump
@@ -39,6 +40,9 @@
 	  (unless (package-installed-p package)
 	    (package-install package)))
       srw/my-packages)
+
+(require 'evil)
+(evil-mode t)
 
 ;; Set up the path variable
 ;; Configure the startup to not check my terrible

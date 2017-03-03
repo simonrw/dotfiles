@@ -109,3 +109,4 @@ atom/atom/.apm
 atom/atom/blob-store
 atom/atom/packages
 emacs/emacs.d/request
+emacs/emacs.d/newsticker
