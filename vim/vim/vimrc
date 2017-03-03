@@ -80,7 +80,9 @@ nnoremap ` '
 vnoremap < <gv
 vnoremap > >gv
 
-if executable('ag')
+if executable('rg')
+    set grepprg=rg\ --color\ never\ --vimgrep
+elseif executable('ag')
     set grepprg=ag\ --nogroup\ --nocolor
 endif
 
