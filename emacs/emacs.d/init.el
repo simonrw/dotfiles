@@ -15,6 +15,7 @@
     cargo
     py-autopep8
 	yaml-mode
+    dumb-jump
 	smex
     markdown-mode
     clang-format
@@ -90,6 +91,9 @@
 (add-hook 'rust-mode-hook 'cargo-minor-mode)
 (add-hook 'rust-mode-hook 'flycheck-mode)
 (add-hook 'flycheck-mode-hook #'flycheck-rust-setup)
+
+;; Enable dumb jump
+(dumb-jump-mode)
 
 ;; Make sure everything is in utf-8
 (set-language-environment "UTF-8")
