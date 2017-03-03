@@ -4,3 +4,4 @@
 venv
 # Emacs swap files
 \#*\#
+.tramp_history
