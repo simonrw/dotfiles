@@ -153,5 +153,14 @@
 (setq atuo-save-file-name-transforms
       `((".*" ,temporary-file-directory t)))
 
+;; Enable automatically wrapping search
+;; Taken from https://stackoverflow.com/a/287067/56711
+(defadvice isearch-repeat (after isearch-no-fail activate)
+  (unless isearch-success
+    (ad-disable-advice 'isearch-repeat 'after 'isearch-no-fail)
+    (ad-activate 'isearch-repeat)
+    (isearch-repeat (if isearch-forward 'forward))
+    (ad-enable-advice 'isearch-repeat 'after 'isearch-no-fail)
+    (ad-activate 'isearch-repeat)))
 ;; Theming
 (load-theme 'wombat t)
