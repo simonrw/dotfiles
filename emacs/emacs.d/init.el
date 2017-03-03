@@ -41,9 +41,6 @@
 	    (package-install package)))
       srw/my-packages)
 
-(require 'evil)
-(evil-mode t)
-
 ;; Set up the path variable
 ;; Configure the startup to not check my terrible
 ;; .zshrc file
