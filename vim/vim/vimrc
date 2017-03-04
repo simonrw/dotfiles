@@ -188,6 +188,9 @@ colorscheme lucius
 " Light background: 15
 highlight ColorColumn ctermbg=237 guibg=#494949
 
+" Make the search result a little less jarring
+highlight Search guibg=none gui=underline
+
 " Highlight trailing whitespace
 highlight ExtraWhitespace ctermbg=237 guibg=#333333
 autocmd Syntax * syn match ExtraWhitespace /\s\+$/
