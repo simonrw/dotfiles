@@ -59,6 +59,9 @@
 (add-hook 'markdown-mode-hook
 		  (auto-fill-mode))
 
+;; Require evil, but do not activate it yet
+(require 'evil)
+
 ;; Disable blinking cursor
 (blink-cursor-mode 0)
 
