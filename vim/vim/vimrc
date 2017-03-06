@@ -36,6 +36,7 @@ Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
 Plug 'sbdchd/neoformat'
+Plug 'vim-scripts/TWiki-Syntax'
 
 call plug#end()
 
