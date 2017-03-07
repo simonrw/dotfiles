@@ -47,7 +47,7 @@
 
 
 # arrow or bar used to indicate the current item in a menu
-  color   indicator    brightred         black
+  color   indicator    red         black
 # mode lines used to display info about the mailbox or message
   color   status       green             default
 # thread tree drawn in the message index and attachment menu

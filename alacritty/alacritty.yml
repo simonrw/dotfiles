@@ -47,7 +47,7 @@ render_timer: false
 colors:
   # Default colors
   primary:
-    background: '0x000000'
+    background: '0x232323'
     foreground: '0xeaeaea'
 
   # Normal colors
