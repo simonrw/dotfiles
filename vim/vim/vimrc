@@ -36,6 +36,10 @@ Plug 'tpope/vim-unimpaired'
 
 call plug#end()
 
+" Disable backspace as it's an anti-pattern
+set backspace=
+set nonumber
+set relativenumber
 set noswapfile
 set ignorecase
 set smartcase
