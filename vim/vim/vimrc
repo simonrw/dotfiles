@@ -68,8 +68,9 @@ set tags=.git/tags,tags;/
 set nowrap
 
 " Search with fancy regex search by default
-nnoremap / /\v
-nnoremap ? ?\v
+nnoremap / :FzfBLines<Cr>
+" nnoremap / /\v
+" nnoremap ? ?\v
 
 " Add mapping for copying all file contents into the system buffer
 nnoremap cp :0,$y+<Cr>
@@ -101,7 +102,7 @@ nnoremap gb :FzfBuffers<cr>
 nnoremap gs :FzfTags<cr>
 nnoremap gL :FzfLines<cr>
 nnoremap gl :FzfBLines<cr>
-nnoremap <leader>a :Ag<cr>
+nnoremap <leader>a :FzfAg<cr>
 
 " Fugitive
 nnoremap <leader>gc :Gcommit -v<cr>
