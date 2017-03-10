@@ -45,6 +45,8 @@ alias irc='ssh -t raspberrypi tmux attach -t irc'
 
 if has_executable nvim; then
     alias vim=nvim
+    alias view='nvim -R'
+    alias vimdiff='nvim -d'
 fi
 
 if has_executable rg; then
