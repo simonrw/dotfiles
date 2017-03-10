@@ -160,11 +160,6 @@ nnoremap <silent> K :grep! "<C-R><C-W>"<cr><cr>\|:copen<Cr>
 let g:neoformat_only_msg_on_error = 1
 
 if has('nvim')
-
-    let g:LanguageClient_serverCommands = {
-                \ 'rust': ['cargo', 'run', '--release', '--manifest-path ~/.rustup/rls/Cargo.toml'],
-                \ }
-
 	if hostname() =~? "ngts"
 		let g:python_host_prog = '/home/sw/.pyenv/versions/2.7.11/bin/python'
 		let g:python3_host_prog = '/home/sw/.pyenv/versions/miniconda3-latest/bin/python'
