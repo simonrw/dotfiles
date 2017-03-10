@@ -175,7 +175,8 @@ if has('termguicolors')
     set termguicolors
 endif
 
-colorscheme lucius
+colorscheme default
+set background=dark
 
 " Customise the colour scheme a little
 
