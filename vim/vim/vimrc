@@ -67,9 +67,8 @@ set tags=.git/tags,tags;/
 set nowrap
 
 " Search with fancy regex search by default
-nnoremap / :FzfBLines<Cr>
-" nnoremap / /\v
-" nnoremap ? ?\v
+nnoremap / /\v
+nnoremap ? ?\v
 
 " Add mapping for copying all file contents into the system buffer
 nnoremap cp :0,$y+<Cr>
