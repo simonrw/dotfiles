@@ -166,6 +166,7 @@ function sourceenv() {
         source ${PWD}/venv/bin/activate
     fi
 }
+alias se=sourceenv
 
 # Expose the current directory using a python webserver
 # - handles importing http.server or SimpleHTTPServer
