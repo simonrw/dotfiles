@@ -36,7 +36,7 @@ Plug 'tpope/vim-unimpaired'
 
 call plug#end()
 
-" Disable backspace as it's an anti-pattern
+set ttimeoutlen=0
 set nonumber
 set norelativenumber
 set noswapfile
