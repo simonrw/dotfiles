@@ -185,7 +185,7 @@ colorscheme lucius
 highlight ColorColumn ctermbg=237 guibg=#494949
 
 " Make the search result a little less jarring
-highlight Search guibg=none gui=underline
+highlight Search guibg=none gui=underline guifg=none
 
 " Highlight trailing whitespace
 highlight ExtraWhitespace ctermbg=237 guibg=#333333
