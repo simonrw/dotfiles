@@ -88,10 +88,6 @@ nnoremap E $
 nnoremap $ <nop>
 nnoremap ^ <nop>
 
-" map jk to escape, and disable escape
-inoremap jk <esc>
-inoremap <esc> <nop>
-
 " Add mapping for copying all file contents into the system buffer
 nnoremap cp :0,$y+<Cr>
 
