@@ -117,6 +117,7 @@ let g:neoterm_use_relative_path = 1
 set rtp+=~/.fzf
 let g:fzf_command_prefix = 'Fzf'
 nnoremap <leader>f :FzfGitFiles<cr>
+nnoremap <leader>F :FzfFiles<cr>
 nnoremap gb :FzfBuffers<cr>
 nnoremap gs :FzfTags<cr>
 nnoremap gL :FzfLines<cr>
