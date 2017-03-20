@@ -59,6 +59,7 @@ set hidden
 set lazyredraw
 set shortmess=atI
 set wildignore+=*.aux,*.o,*.git,/tmp/*,*.so,*.swp,*.zip,venv,.venv,env,*.pyc
+set wildmenu
 set switchbuf=useopen
 set softtabstop=4
 set shiftround
@@ -66,10 +67,26 @@ set noshowmatch
 set matchtime=0
 set tags=.git/tags,tags;/
 set nowrap
+set modelines=1
+
+" Configure backups
+set backup
+set backupdir=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
+set backupskip=/tmp/*,/private/tmp/*
+set directory=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
+set writebackup
+
 
 " Search with fancy regex search by default
 nnoremap / /\v
 nnoremap ? ?\v
+
+" Use more useful beginning and end of line commands
+nnoremap B ^
+nnoremap E $
+
+nnoremap $ <nop>
+nnoremap ^ <nop>
 
 " map jk to escape, and disable escape
 inoremap jk <esc>
