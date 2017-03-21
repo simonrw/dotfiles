@@ -19,6 +19,7 @@
     dumb-jump
 	smex
     markdown-mode
+    php-mode
     clang-format
     cmake-mode
 	adoc-mode
