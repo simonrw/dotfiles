@@ -431,6 +431,13 @@ defaults write com.google.Chrome AppleEnableSwipeNavigateWithScrolls -bool true
 defaults write com.google.Chrome DisablePrintPreview -bool true
 
 ###############################################################################
+# Sublime text                                                                #
+###############################################################################
+
+# Enable key repeat
+defaults write com.sublimetext.3 ApplePressAndHoldEnabled -bool false
+
+###############################################################################
 # Kill/restart affected applications                                          #
 ###############################################################################
 
