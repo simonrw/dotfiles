@@ -6,5 +6,3 @@ if empty(cargo_toml_path)
 else
     compiler cargo
 endif
-
-autocmd! BufWritePost *.rs Neomake! cargo
