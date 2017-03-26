@@ -80,9 +80,9 @@ set undofile
 nnoremap / /\v
 nnoremap ? ?\v
 
-" Use more useful beginning and end of line commands
-nnoremap B ^
-nnoremap E $
+" Move down by screen lines
+nnoremap j gj
+nnoremap k gk
 
 nnoremap $ <nop>
 nnoremap ^ <nop>
