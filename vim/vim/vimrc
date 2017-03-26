@@ -15,11 +15,9 @@ augroup END
 call plug#begin('~/.vim/bundle')
 
 " Language plugins
-Plug 'cespare/vim-toml'
 Plug 'Valloric/python-indent'
-Plug 'rust-lang/rust.vim'
 Plug 'vim-scripts/TWiki-Syntax'
-Plug 'tpope/vim-markdown'
+Plug 'sheerun/vim-polyglot'
 
 " Other plugins
 Plug 'christoomey/vim-tmux-runner'
