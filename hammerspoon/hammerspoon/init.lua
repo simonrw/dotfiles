@@ -34,26 +34,6 @@ end
 -- watcher = hs.application.watcher.new(handleWindowChange)
 -- watcher:start()
 
--- Emulate caffeine
-local caffeine = hs.menubar.new()
-function setCaffeineDisplay(state)
-    local result
-    if state then
-        result = caffeine:setIcon("caffeine-icons/active@2x.png")
-    else
-        result = caffeine:setIcon("caffeine-icons/inactive@2x.png")
-    end
-end
-
-function caffeineClicked()
-    setCaffeineDisplay(hs.caffeinate.toggle("displayIdle"))
-end
-
-if caffeine then
-    caffeine:setClickCallback(caffeineClicked)
-    setCaffeineDisplay(hs.caffeinate.get("displayIdle"))
-end
-
 function changeScreenResolution(target)
     local screen = hs.screen.find("Color LCD")
     if not screen:setMode(target.width, target.height, target.scale) then
