@@ -1,4 +1,13 @@
 "  Init
+
+if has('autocmd')
+    filetype plugin indent on
+endif
+
+if has('syntax') && !exists('g:syntax_on')
+    syntax enable
+endif
+
 " Remap the leader key to comma
 let g:mapleader=','
 let g:maplocalleader='\\'
@@ -23,7 +32,6 @@ Plug 'sheerun/vim-polyglot'
 Plug 'christoomey/vim-tmux-runner'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': 'yes \| ./install --no-update-rc --no-completion --key-bindings' }
 Plug 'junegunn/fzf.vim'
-Plug 'tpope/vim-sensible'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-rsi'
 Plug 'tpope/vim-eunuch'
@@ -34,7 +42,49 @@ Plug 'tpope/vim-unimpaired'
 
 call plug#end()
 
+" Sensible vim settings
+set autoindent
+set backspace=indent,eol,start
+set complete-=i
+set smarttab
+set nrformats-=octal
+set ttimeout
 set ttimeoutlen=0
+set incsearch
+set laststatus=2
+set ruler
+set wildmenu
+if !&scrolloff
+    set scrolloff=1
+endif
+if !&sidescrolloff
+    set sidescrolloff=5
+endif
+set display+=lastline
+set encoding=utf-8
+if v:version > 703 || v:version == 703 && has('patch541')
+    set formatoptions+=j " Delete comment character when joining commented lines
+endif
+set autoread
+if &history < 1000
+    set history=1000
+endif
+if &tabpagemax < 50
+    set tabpagemax=50
+endif
+if !empty(&viminfo)
+    set viminfo^=!
+endif
+set sessionoptions-=options
+if &t_Co == 8 && $TERM !~# '^linux\|^Eterm'
+    set t_Co=16
+endif
+if !exists('g:loaded_matchit') && findfile('plugin/matchit.vim', &rtp) ==# ''
+    runtime! macros/matchit.vim
+endif
+inoremap <C-U> <C-G>u<C-U>
+
+" Additional settings
 set nonumber
 set norelativenumber
 set noswapfile
@@ -44,7 +94,6 @@ set smartcase
 set tabstop=4
 set expandtab
 set shiftwidth=4
-set incsearch
 set mouse=a
 set linebreak
 set smartindent
@@ -57,7 +106,6 @@ set hidden
 set lazyredraw
 set shortmess=atI
 set wildignore+=*.aux,*.o,*.git,/tmp/*,*.so,*.swp,*.zip,venv,.venv,env,*.pyc
-set wildmenu
 set switchbuf=useopen
 set softtabstop=4
 set shiftround
