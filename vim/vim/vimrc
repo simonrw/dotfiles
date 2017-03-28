@@ -90,9 +90,6 @@ nnoremap ? ?\v
 nnoremap j gj
 nnoremap k gk
 
-nnoremap $ <nop>
-nnoremap ^ <nop>
-
 " Add mapping for copying all file contents into the system buffer
 nnoremap cp :0,$y+<Cr>
 
