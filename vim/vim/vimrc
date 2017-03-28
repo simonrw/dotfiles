@@ -64,7 +64,7 @@ set shiftround
 set noshowmatch
 set matchtime=0
 set tags=.git/tags,tags;/
-set nowrap
+set wrap
 set modelines=1
 set showtabline=2  " Always show tabs
 
