@@ -181,7 +181,7 @@ function mount-ngtshead() {
     local readonly mountdir=/tmp/ngtshead
 
     # Check if the directory is already mounted
-    if [[ $(ps aux | grep -i sftp | grep -v grep | grep ngtshead) ]]; then
+    if ps aux | grep -i sftp | grep -v grep | grep ngtshead; then
         echo "Already mounted"
         true
     else
@@ -195,7 +195,7 @@ function unmount-ngtshead() {
     local readonly mountdir=/tmp/ngtshead
 
     # Check if the directory is already mounted
-    if [[ $(ps aux | grep -i sftp | grep -v grep | grep ngtshead) ]]; then
+    if ps aux | grep -i sftp | grep -v grep | grep ngtshead; then
         echo "Unmounting ${mountdir}"
         umount ${mountdir}
     else
