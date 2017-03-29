@@ -226,6 +226,9 @@ nnoremap coq :call <SID>QuickfixToggle()<cr>
 nnoremap <silent> K :grep! "<C-R><C-W>"<cr><cr>\|:copen<Cr>
 
 
+" Put cursor back to last position
+autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g`\"" | endif
+
 if has('nvim')
 	if hostname() =~? "ngts"
 		let g:python_host_prog = '/home/sw/.pyenv/versions/2.7.11/bin/python'
