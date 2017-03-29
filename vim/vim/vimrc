@@ -86,7 +86,7 @@ inoremap <C-U> <C-G>u<C-U>
 
 " Additional settings
 set nonumber
-set norelativenumber
+set relativenumber
 set noswapfile
 set ignorecase
 set showcmd
