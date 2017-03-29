@@ -44,7 +44,6 @@ function tnew() {
     cd $DIRNAME
     TMUXNAME=$(basename `pwd`)
     tns ${TMUXNAME}
-
 }
 
 # SSH into the ngts ops machine, allowing for custom ssh arguments

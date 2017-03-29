@@ -1,6 +1,6 @@
 # Aliases
 alias ta=_tmux_attach
-alias tns="tmux new-session -As"
+alias tns="tmux new-session -A -n '' -s"
 alias tsw=tswitch
 alias m=make
 alias ll='ls -lh'
