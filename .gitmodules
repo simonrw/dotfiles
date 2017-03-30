@@ -19,3 +19,6 @@
 [submodule "external/git-latexdiff"]
 	path = external/git-latexdiff
 	url = https://gitlab.com/git-latexdiff/git-latexdiff.git
+[submodule "external/latexrun"]
+	path = external/latexrun
+	url = https://github.com/aclements/latexrun
