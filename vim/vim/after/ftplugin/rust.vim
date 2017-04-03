@@ -6,3 +6,5 @@ if empty(cargo_toml_path)
 else
     compiler cargo
 endif
+
+hi rustCommentLineDoc guifg=#EABB9D
