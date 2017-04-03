@@ -27,6 +27,7 @@ call plug#begin('~/.vim/bundle')
 Plug 'Valloric/python-indent'
 Plug 'vim-scripts/TWiki-Syntax'
 Plug 'sheerun/vim-polyglot'
+Plug 'cstrahan/vim-capnp'
 
 " Other plugins
 Plug 'christoomey/vim-tmux-runner'
