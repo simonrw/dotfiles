@@ -250,20 +250,3 @@ endif
 
 set background=dark
 colorscheme srw256
-
-" Customise the colour scheme a little
-
-" Make the colour column a little bit more subtle
-" Dark background: 237
-" Light background: 15
-highlight ColorColumn ctermbg=237 guibg=#494949
-
-" Make the search result a little less jarring
-highlight Search guibg=NONE gui=underline guifg=NONE
-
-" Highlight trailing whitespace
-highlight ExtraWhitespace ctermbg=237 guibg=#333333
-autocmd Syntax * syn match ExtraWhitespace /\s\+$/
-
-" vim: foldmethod=marker
-
