@@ -93,4 +93,12 @@ hs.hotkey.bind({'cmd', 'alt', 'ctrl'}, '=', function()
     win:setFrame(f)
 end)
 
+-- Make window a nice size for a large terminal without taking up the entire screen
+hs.hotkey.bind({'cmd', 'alt', 'ctrl', 'shift'}, '=', function()
+    local win = hs.window.focusedWindow()
+    local f = win:frame()
 
+    f.w = 1420 -- 235
+    f.h = 1005 -- 65
+    win:setFrame(f)
+end)
