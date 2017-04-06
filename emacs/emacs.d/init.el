@@ -10,24 +10,15 @@
 
 (defvar srw/my-packages
   '(better-defaults
-    flycheck ;; syntax checker
-    flycheck-rust
     cargo
     evil
-    py-autopep8
+    graphviz-dot-mode
 	yaml-mode
-    dumb-jump
-	smex
     markdown-mode
     php-mode
-    clang-format
     cmake-mode
 	adoc-mode
-	fzf
-    multi-term
 	clojure-mode
-	cider
-	paredit
 	magit
 	ansible
 	editorconfig
@@ -35,7 +26,8 @@
 	rust-mode
     racer
 	company
-    exec-path-from-shell))
+    exec-path-from-shell
+    ggtags))
 
 (mapc #'(lambda (package)
 	  (unless (package-installed-p package)
@@ -60,8 +52,11 @@
 (add-hook 'markdown-mode-hook
 		  (auto-fill-mode))
 
-;; Require evil, but do not activate it yet
+;; Enable gtags
+(ggtags-mode 1)
+
 (require 'evil)
+(evil-mode)
 
 ;; Disable blinking cursor
 (blink-cursor-mode 0)
@@ -71,7 +66,7 @@
 
 (when (eq system-type 'darwin)
   (set-face-attribute 'default nil :family "Source Code Pro")
-  (set-face-attribute 'default nil :height 140)
+  (set-face-attribute 'default nil :height 120)
 
   ;; Add homebrew installed packages to load-path
   (let ((default-directory "/usr/local/share/emacs/site-lisp/"))
@@ -165,3 +160,17 @@
     (ad-activate 'isearch-repeat)))
 ;; Theming
 (load-theme 'wombat t)
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(package-selected-packages
+   (quote
+    (graphviz-dot-mode dot-mode ggtags yaml-mode toml-mode smex racer py-autopep8 php-mode paredit multi-term markdown-mode magit magic-latex-buffer latex-unicode-math-mode latex-preview-pane latex-pretty-symbols latex-math-preview latex-extra jinja2-mode fzf flycheck-rust exec-path-from-shell evil editorconfig dumb-jump company cmake-mode clang-format cider cargo better-defaults auctex-latexmk ansible adoc-mode))))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
