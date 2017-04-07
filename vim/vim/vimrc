@@ -117,7 +117,7 @@ set matchtime=0
 set tags=.git/tags,tags;/
 set wrap
 set modelines=1
-set showtabline=2  " Always show tabs
+set showtabline=1  " Only show tabs when there is more than one file
 set hlsearch
 
 " Prevent Vim from clobbering the scrollback buffer. See
