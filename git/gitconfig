@@ -15,6 +15,9 @@
     # -- always run command at the root of the git repo
     exec = ! exec
 
+    # Taken from https://blog.scottnonnenberg.com/better-git-configuration/
+    prune = fetch --prune
+
 
     # Other aliases
     ff = !"f() { git merge --ff-only origin/$(git branch-name); }; f"
@@ -77,12 +80,20 @@
 [merge]
     tool = splice
     conflictstyle = "diff3"
+    # Only allow fast forward merges unless "--no-ff" is passed
+    ff = only
+[transfer]
+    fsckobjects = true
 [push]
     default = simple
     followTags = true
 [diff]
     algorithm = patience
-    tool = opendiff
+    tool = icdiff
+[difftool]
+    prompt = false
+[difftool "icdiff"]
+    cmd = icdiff --line-numbers $LOCAL $REMOTE
 [difftool "opendiff"]
     path = opendiff
 [mergetool "diffconflicts"]
