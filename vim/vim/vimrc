@@ -237,8 +237,14 @@ function! SynStack()
 endfunc
 
 
-" Put cursor back to last position
-autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g`\"" | endif
+" Jump back to last file position
+autocmd vimrc BufReadPost *
+            \ if line("'\"") > 1 && line("'\"") <= line("$") |
+            \ exe "normal! g`\"" |
+            \ endif
+
+" ... unless it's a git commit
+autocmd vimrc FileType gitcommit autocmd! vimrc bufEnter COMMIT_EDITMSG call setpos('.', [0, 1, 1, 0])
 
 if has('nvim')
 	if hostname() =~? "ngts"
