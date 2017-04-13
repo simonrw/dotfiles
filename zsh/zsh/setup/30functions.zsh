@@ -202,3 +202,8 @@ function unmount-ngtshead() {
         echo "Not mounted"
     fi
 }
+
+# Speed up git completion
+__git_files () {
+    _wanted files expl 'local files' _files
+}
