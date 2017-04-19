@@ -10,8 +10,8 @@
 
 (defvar srw/my-packages
   '(better-defaults
+    ;; Languages
     cargo
-    evil
     graphviz-dot-mode
 	yaml-mode
     markdown-mode
@@ -19,11 +19,15 @@
     cmake-mode
 	adoc-mode
 	clojure-mode
-	magit
 	ansible
-	editorconfig
 	jinja2-mode
+
+    ;; Other plugins
 	rust-mode
+	magit
+	editorconfig
+    helm
+    evil
     racer
 	company
     exec-path-from-shell
@@ -56,7 +60,13 @@
 (ggtags-mode 1)
 
 (require 'evil)
-(evil-mode)
+
+;; Load helm
+(require 'helm-config)
+(helm-mode 1)
+(global-set-key (kbd "M-x") #'helm-M-x)
+(global-set-key (kbd "C-x r b") #'helm-filtered-bookmarks)
+(global-set-key (kbd "C-x C-f") #'helm-find-files)
 
 ;; Disable blinking cursor
 (blink-cursor-mode 0)
@@ -167,7 +177,7 @@
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-    (graphviz-dot-mode dot-mode ggtags yaml-mode toml-mode smex racer py-autopep8 php-mode paredit multi-term markdown-mode magit magic-latex-buffer latex-unicode-math-mode latex-preview-pane latex-pretty-symbols latex-math-preview latex-extra jinja2-mode fzf flycheck-rust exec-path-from-shell evil editorconfig dumb-jump company cmake-mode clang-format cider cargo better-defaults auctex-latexmk ansible adoc-mode))))
+    (helm skewer-mode graphviz-dot-mode dot-mode ggtags yaml-mode toml-mode smex racer py-autopep8 php-mode paredit multi-term markdown-mode magit magic-latex-buffer latex-unicode-math-mode latex-preview-pane latex-pretty-symbols latex-math-preview latex-extra jinja2-mode fzf flycheck-rust exec-path-from-shell evil editorconfig dumb-jump company cmake-mode clang-format cider cargo better-defaults auctex-latexmk ansible adoc-mode))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
