@@ -33,6 +33,7 @@ Plug 'cstrahan/vim-capnp'
 Plug 'christoomey/vim-tmux-runner'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': 'yes \| ./install --no-update-rc --no-completion --key-bindings' }
 Plug 'junegunn/fzf.vim'
+Plug 'kana/vim-arpeggio'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-rhubarb'
 Plug 'tpope/vim-dispatch'
@@ -87,6 +88,10 @@ if !exists('g:loaded_matchit') && findfile('plugin/matchit.vim', &rtp) ==# ''
     runtime! macros/matchit.vim
 endif
 inoremap <C-U> <C-G>u<C-U>
+
+" Leave insert mode with Arpeggio chord
+inoremap <Esc> <nop>
+call arpeggio#map('i', '', 0, 'jk', '<Esc>')
 
 " Additional settings
 set nonumber
