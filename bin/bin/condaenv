@@ -14,7 +14,15 @@ def main(args):
 
 
 if __name__ == '__main__':
-    parser = argparse.ArgumentParser()
-    parser.add_argument('-p', '--path', required=False, default='venv')
+    DEFAULT_PATH = os.path.realpath(
+        os.path.join(
+            os.getcwd(), 'venv'
+        )
+    )
+    parser = argparse.ArgumentParser(
+        formatter_class=argparse.ArgumentDefaultsHelpFormatter)
+    parser.add_argument('-p', '--path', required=False,
+                        default=DEFAULT_PATH,
+                        help='Path to create environment at')
     parser.add_argument('package', nargs='*')
     main(parser.parse_args())
