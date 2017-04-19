@@ -89,10 +89,6 @@ if !exists('g:loaded_matchit') && findfile('plugin/matchit.vim', &rtp) ==# ''
 endif
 inoremap <C-U> <C-G>u<C-U>
 
-" Leave insert mode with Arpeggio chord
-inoremap <Esc> <nop>
-call arpeggio#map('i', '', 0, 'jk', '<Esc>')
-
 " Additional settings
 set nonumber
 set relativenumber
