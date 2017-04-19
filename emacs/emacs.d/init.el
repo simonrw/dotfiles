@@ -25,6 +25,7 @@
     ;; Other plugins
 	rust-mode
 	magit
+    magithub
 	editorconfig
     helm
     evil
@@ -63,10 +64,10 @@
 
 ;; Load helm
 (require 'helm-config)
-(helm-mode 1)
 (global-set-key (kbd "M-x") #'helm-M-x)
 (global-set-key (kbd "C-x r b") #'helm-filtered-bookmarks)
 (global-set-key (kbd "C-x C-f") #'helm-find-files)
+(helm-mode 1)
 
 ;; Disable blinking cursor
 (blink-cursor-mode 0)
@@ -109,20 +110,6 @@
 ;; Disable word wrap (truncating lines in emacs speak)
 (set-default 'truncate-lines nil)
 
-;; Set up fzf
-;; Add the fzf dir to the PATH
-;; (setenv "PATH" (concat
-				;; (getenv "HOME") "/.fzf/bin:" (getenv "PATH")))
-;; (setq exec-path
-	  ;; (append
-	   ;; '((concat (getenv "HOME") "/.fzf/bin") exec-path)))
-
-;; Smex
-(autoload 'smex "smex"
-  "Smex is a M-x enhancement for Emacs")
-
-(global-set-key (kbd "M-x") 'smex)
-
 ;; Open files in an existing frame instead of a new frame each time
 (setq ns-pop-up-frames nil)
 
@@ -153,6 +140,9 @@
 (define-key rust-mode-map (kbd "TAB") #'company-indent-or-complete-common)
 (setq company-tooltip-align-annotations t)
 
+;; Enable magithub
+(require 'magithub)
+
 ;; Set up backups
 (setq backup-directory-alist
       `((".*" . ,temporary-file-directory)))
@@ -168,6 +158,7 @@
     (isearch-repeat (if isearch-forward 'forward))
     (ad-enable-advice 'isearch-repeat 'after 'isearch-no-fail)
     (ad-activate 'isearch-repeat)))
+
 ;; Theming
 (load-theme 'wombat t)
 (custom-set-variables
@@ -177,7 +168,7 @@
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-    (helm skewer-mode graphviz-dot-mode dot-mode ggtags yaml-mode toml-mode smex racer py-autopep8 php-mode paredit multi-term markdown-mode magit magic-latex-buffer latex-unicode-math-mode latex-preview-pane latex-pretty-symbols latex-math-preview latex-extra jinja2-mode fzf flycheck-rust exec-path-from-shell evil editorconfig dumb-jump company cmake-mode clang-format cider cargo better-defaults auctex-latexmk ansible adoc-mode))))
+    (magithub helm skewer-mode graphviz-dot-mode dot-mode ggtags yaml-mode toml-mode smex racer py-autopep8 php-mode paredit multi-term markdown-mode magit magic-latex-buffer latex-unicode-math-mode latex-preview-pane latex-pretty-symbols latex-math-preview latex-extra jinja2-mode fzf flycheck-rust exec-path-from-shell evil editorconfig dumb-jump company cmake-mode clang-format cider cargo better-defaults auctex-latexmk ansible adoc-mode))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
