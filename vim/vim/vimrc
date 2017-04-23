@@ -89,7 +89,7 @@ endif
 inoremap <C-U> <C-G>u<C-U>
 
 " Additional settings
-set nonumber
+set number
 set relativenumber
 set noswapfile
 set ignorecase
