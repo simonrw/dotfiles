@@ -73,7 +73,7 @@
     autocrlf = input
     safecrlf = true
     whitespace = fix
-    editor = vim_or_nvim
+    editor = vim
     mergeoptions = --no-ff
     preloadindex = true
     excludesfile = ~/.gitignore_global
