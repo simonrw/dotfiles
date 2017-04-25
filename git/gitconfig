@@ -80,8 +80,6 @@
 [merge]
     tool = splice
     conflictstyle = "diff3"
-    # Only allow fast forward merges unless "--no-ff" is passed
-    ff = only
 [transfer]
     fsckobjects = true
 [push]
