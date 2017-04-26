@@ -43,6 +43,7 @@ Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-sleuth'
+Plug 'takac/vim-hardtime'
 
 call plug#end()
 
@@ -208,6 +209,12 @@ nnoremap <leader>t :w\|:!./%<cr>
 
 " Change the way tab autocompletion works
 set wildmode=longest,list:longest
+
+" Configure hard-time
+let g:hardtime_default_on = 1
+let g:hardtime_ignore_quickfix = 1
+let g:hardtime_allow_different_key = 1
+let g:hardtime_maxcount = 2
 
 " Add mapping to open/close the quickfix list
 " Taken from this plugin:
