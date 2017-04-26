@@ -1,7 +1,7 @@
 function grep
-	if command -s rg
+	if command -sq rg
 		rg $argv
-	else if command -s ag
+	else if command -sq ag
 		ag $argv
 	else
 		grep $argv
