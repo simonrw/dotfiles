@@ -44,6 +44,7 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-sleuth'
 Plug 'takac/vim-hardtime'
+Plug 'justmao945/vim-clang'
 
 call plug#end()
 
