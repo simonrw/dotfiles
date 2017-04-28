@@ -1,3 +1,3 @@
 function ls
-	command ls --color=never $argv
+	command ls --literal $argv
 end

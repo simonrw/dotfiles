@@ -1,3 +1,3 @@
 function lsc
-	command ls --color=auto $argv
+	command ls --color=auto --literal $argv
 end
