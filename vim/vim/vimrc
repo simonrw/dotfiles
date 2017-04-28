@@ -24,7 +24,6 @@ augroup END
 call plug#begin('~/.vim/bundle')
 
 " Language plugins
-Plug 'Valloric/python-indent'
 Plug 'vim-scripts/TWiki-Syntax'
 Plug 'sheerun/vim-polyglot'
 Plug 'cstrahan/vim-capnp'
@@ -44,6 +43,7 @@ Plug 'tpope/vim-sleuth'
 Plug 'takac/vim-hardtime'
 Plug 'justmao945/vim-clang'
 Plug 'djmoch/vim-makejob'
+Plug 'janko-m/vim-test'
 
 call plug#end()
 
