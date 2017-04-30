@@ -278,3 +278,6 @@ endif
 
 set background=dark
 colorscheme lucius
+
+" Customise colour scheme
+highlight Search guibg=NONE gui=underline guifg=NONE
