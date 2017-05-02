@@ -40,8 +40,6 @@ Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-sleuth'
-Plug 'takac/vim-hardtime'
-Plug 'justmao945/vim-clang'
 Plug 'djmoch/vim-makejob'
 Plug 'janko-m/vim-test'
 
@@ -90,8 +88,8 @@ endif
 inoremap <C-U> <C-G>u<C-U>
 
 " Additional settings
-set number
-set relativenumber
+set nonumber
+set norelativenumber
 set noswapfile
 set ignorecase
 set showcmd
