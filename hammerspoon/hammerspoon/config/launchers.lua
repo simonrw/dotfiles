@@ -8,11 +8,6 @@ hs.hotkey.bind({'cmd', 'alt'}, 'c', function()
     hs.application.launchOrFocus('FirefoxDeveloperEdition')
 end)
 
--- Email
-hs.hotkey.bind({'cmd', 'alt'}, 'e', function()
-    hs.application.launchOrFocus('Mail')
-end)
-
 -- Notational velocity
 hs.hotkey.bind({'cmd', 'alt'}, 'n', function()
     hs.application.launchOrFocus('Notational Velocity')
