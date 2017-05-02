@@ -4,7 +4,7 @@ source "gpg -d ~/.mutt.d/passwords.gpg |"
 # Global
 set wait_key = no
 set quit
-set sort = reverse-date-sent
+set sort = threads
 set sort_aux = reverse-last-date-received
 set beep_new
 set pipe_decode
