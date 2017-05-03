@@ -75,11 +75,11 @@ macro pager \Cu "|urlview<enter>" "call urlview to open links"
 
 # Contacts
 # set display_filter=~/.mutt.d/add-to-contacts.sh
-set query_command="/usr/local/bin/lbdbq '%s' 2>/dev/null"
-# set alias_file=~/.mutt.d/aliases.txt
-# set sort_alias=alias
-# set reverse_alias=yes
-# source $alias_file
+# set query_command="/usr/local/bin/lbdbq '%s' 2>/dev/null"
+set alias_file=~/.mutt.d/aliases.txt
+set sort_alias=alias
+set reverse_alias=yes
+source $alias_file
 
 # GPG details
 source ~/.gpgrc
