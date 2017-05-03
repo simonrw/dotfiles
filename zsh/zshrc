@@ -97,6 +97,8 @@ export ZLP="${NGTS}/pipeline/ZLP"
 export LOGDIR="${HOME}/var/log"
 export TREE_CHARSET=ascii               # For rendering with the `tree` command
 
+export EMAIL=s.r.walker101@googlemail.com
+
 # Disable cowsay for ansible
 export ANSIBLE_NOCOWS=1
 

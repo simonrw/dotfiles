@@ -1,5 +1,7 @@
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
+export FZF_DEFAULT_COMMAND=rg
+
 fs() {
     local session
     session=$(tmux list-sessions -F "#{session_name}" | \
@@ -35,4 +37,16 @@ gsha() {
   commits=$(git log --all --color=always --pretty=oneline --abbrev-commit --reverse) &&
   commit=$(echo "$commits" | fzf --tac +s +m -e --ansi --reverse) &&
   echo -n $(echo "$commit" | sed "s/ .*//")
+}
+
+function fpass() {
+  if ! lpass status -q; then
+    lpass login $EMAIL
+  fi
+
+  if ! lpass status -q; then
+    exit
+  fi
+
+  lpass ls | fzf-tmux | grep -oE '\d+' | xargs lpass show -c --password
 }
