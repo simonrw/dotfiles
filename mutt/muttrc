@@ -21,6 +21,7 @@ set text_flowed=yes
 set send_charset="utf-8"
 set edit_headers=yes
 set use_from=yes
+set mailcap_path = "~/.mutt.d/mailcap"
 
 set attribution = "On %d, %n wrote:"
 
@@ -30,6 +31,7 @@ set pager_stop
 set menu_scroll
 set tilde
 unset markers
+#
 # autoview html email
 auto_view text/html
 alternative_order text/plain text/enriched text/html
