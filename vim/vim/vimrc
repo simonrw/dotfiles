@@ -114,11 +114,13 @@ set softtabstop=4
 set shiftround
 set noshowmatch
 set matchtime=0
-set tags=.git/tags,tags;/
+set tags=.git/tags,./tags,tags,/
 set nowrap
 set modelines=1
 set showtabline=1  " Only show tabs when there is more than one file
-set hlsearch
+set nohlsearch
+set textwidth=80  " By default wrap at 80 characters
+set nocursorline
 
 " Prevent Vim from clobbering the scrollback buffer. See
 " http://www.shallowsky.com/linux/noaltscreen.html
@@ -269,8 +271,8 @@ if has('nvim')
 endif
 
 if has('termguicolors')
-	 let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
-	 let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+    let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+    let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
     set termguicolors
 endif
 
@@ -278,4 +280,4 @@ set background=dark
 colorscheme lucius
 
 " Customise colour scheme
-highlight Search guibg=NONE gui=underline guifg=NONE
+" highlight Search guibg=NONE gui=underline guifg=NONE
