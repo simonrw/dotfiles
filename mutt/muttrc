@@ -22,6 +22,7 @@ set send_charset="utf-8"
 set edit_headers=yes
 set use_from=yes
 set mailcap_path = "~/.mutt.d/mailcap"
+set mark_old = no  # do not mark old unread emails differently from unread emails
 
 set attribution = "On %d, %n wrote:"
 
@@ -62,6 +63,7 @@ bind index R group-reply
 bind index o imap-fetch-mail
 bind index P previous-unread
 bind index N next-unread
+bind index U toggle-new
 
 bind pager k previous-line
 bind pager j next-line

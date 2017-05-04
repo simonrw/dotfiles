@@ -79,5 +79,6 @@
 
 # Received colors
 color index      blue                default     ~F  # flagged
-color index      brightred           white       ~N  # new
+color index      brightred           default       ~N  # new
+color index      brightred           default       ~O  # old
 
