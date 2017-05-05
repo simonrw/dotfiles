@@ -25,7 +25,6 @@ alias dev="cd ${HOME}/dev && pwd && ls"
 alias de='direnv edit .'
 alias da='direnv allow'
 alias dr='direnv reload'
-alias grep='grep --color=auto'
 alias mutt='echo "Use either mutt-gmail or mutt-work"'
 alias email-gmail='=mutt -n -F ~/.mutt.d/startup-gmail.mutt'
 alias email-work='=mutt -n -F ~/.mutt.d/startup-work.mutt'
@@ -44,5 +43,9 @@ alias ngts_pipe='ngtsdb ngts_pipe'
 alias irc='ssh -t raspberrypi tmux attach -t irc'
 
 if has_executable rg; then
-    alias ag=rg
+    alias grep=rg
+elif has_executable ag; then
+    alias grep=ag
+else
+    alias grep='grep --color=auto'
 fi
