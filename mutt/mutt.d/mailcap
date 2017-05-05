@@ -1,4 +1,5 @@
 text/html; mutt-view-attachment %s -t html
+text/html; w3m -I %{charset} -T text/html; copiousoutput;
 application/pdf; open %s;
 image/png; open %s;
 video/mp4; open %s;
