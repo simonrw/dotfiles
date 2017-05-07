@@ -48,5 +48,5 @@ function fpass() {
     exit
   fi
 
-  lpass ls | fzf-tmux | grep -oE '\d+' | xargs lpass show -c --password
+  lpass ls | fzf-tmux | =grep -oE '\d+' | xargs lpass show -c --password
 }
