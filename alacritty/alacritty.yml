@@ -59,7 +59,7 @@ colors:
     blue:    '0x7aa6da'
     magenta: '0xc397d8'
     cyan:    '0x70c0ba'
-    white:   '0x424242'
+    white:   '0xf5f5f5'
 
   # Bright colors
   bright:
@@ -70,7 +70,7 @@ colors:
     blue:    '0x7aa6da'
     magenta: '0xb77ee0'
     cyan:    '0x54ced6'
-    white:   '0x2a2a2a'
+    white:   '0xffffff'
 
 # Colors (Solarized Dark)
 # colors:
