@@ -49,3 +49,8 @@ elif has_executable ag; then
 else
     alias grep='grep --color=auto'
 fi
+
+if has_executable hub; then
+    alias git=hub
+    alias g=hub
+fi
