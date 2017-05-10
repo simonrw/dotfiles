@@ -207,3 +207,15 @@ function unmount-ngtshead() {
 __git_files () {
     _wanted files expl 'local files' _files
 }
+
+# Functions to load mutt. They change the current directory to the download
+# directory so that any attachments are automatically saved there
+function email-gmail() {
+    (cd ~/Downloads
+    =mutt -n -F ~/.mutt.d/startup-gmail.mutt)
+}
+
+function email-work() {
+    (cd ~/Downloads
+    =mutt -n -F ~/.mutt.d/startup-work.mutt)
+}

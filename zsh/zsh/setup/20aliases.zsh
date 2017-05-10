@@ -25,13 +25,9 @@ alias dev="cd ${HOME}/dev && pwd && ls"
 alias de='direnv edit .'
 alias da='direnv allow'
 alias dr='direnv reload'
-alias mutt='echo "Use either mutt-gmail or mutt-work"'
-alias email-gmail='=mutt -n -F ~/.mutt.d/startup-gmail.mutt'
-alias email-work='=mutt -n -F ~/.mutt.d/startup-work.mutt'
-alias email-ngtsops='=mutt -n -F ~/.mutt.d/startup-ngtsops.mutt'
-alias eg=email-gmail
-alias ew=email-work
-alias en=email-ngtsops
+alias mutt='echo "Use either email-gmail or email-work"'
+alias eg=email-gmail  # defined in 30functions.zsh
+alias ew=email-work   # defined in 30functions.zsh
 alias sqlite3='rlwrap =sqlite3'
 alias hn='hn --keep-open'
 alias f=fg
