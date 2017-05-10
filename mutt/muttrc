@@ -70,6 +70,7 @@ bind pager j next-line
 bind pager gg top
 bind pager G bottom
 bind pager R group-reply
+bind pager A group-reply
 bind attach <return> view-mailcap
 
 # macro index o "<shell-escape>offlineimap<enter>"
