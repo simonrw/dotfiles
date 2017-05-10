@@ -30,13 +30,6 @@ alias eg=email-gmail  # defined in 30functions.zsh
 alias ew=email-work   # defined in 30functions.zsh
 alias sqlite3='rlwrap =sqlite3'
 alias hn='hn --keep-open'
-alias f=fg
-
-# NGTS aliases
-alias par-ds='ssh par-ds'
-alias ngts_ops='ngtsdb ngts_ops'
-alias ngts_pipe='ngtsdb ngts_pipe'
-alias irc='ssh -t raspberrypi tmux attach -t irc'
 
 if has_executable rg; then
     alias grep=rg
