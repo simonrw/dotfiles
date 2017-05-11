@@ -9,6 +9,8 @@ import tempfile
 import logging
 import shutil
 
+SUPPORTED_FILETYPES = ['html', 'jpg', 'png', 'pdf', 'mp4']
+
 logging.basicConfig()
 logger = logging.getLogger('view-attachment')
 
@@ -31,7 +33,8 @@ def open_attachment(filename, filetype, temp_stub='mutt.{filetype}'):
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
     parser.add_argument('filename')
-    parser.add_argument('-t', '--type', required=True, choices=['html'])
+    parser.add_argument('-t', '--type', required=True,
+                        choices=SUPPORTED_FILETYPES)
     parser.add_argument('-v', '--verbose', action='store_true', default=False)
     args = parser.parse_args()
 
