@@ -32,6 +32,7 @@ Plug 'cstrahan/vim-capnp'
 Plug 'christoomey/vim-tmux-runner'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': 'yes \| ./install --no-update-rc --no-completion --key-bindings' }
 Plug 'junegunn/fzf.vim'
+Plug 'junegunn/vim-easy-align'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-rhubarb'
 Plug 'tpope/vim-rsi'
@@ -209,6 +210,10 @@ nnoremap <leader>t :w\|:!./%<cr>
 
 " Change the way tab autocompletion works
 set wildmode=longest,list:longest
+
+" Configure vim-easy-align
+xmap ga <Plug>(EasyAlign)
+nmap ga <Plug>(EasyAlign)
 
 " Configure hard-time
 let g:hardtime_default_on = 1
