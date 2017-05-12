@@ -111,3 +111,4 @@ atom/atom/packages
 emacs/emacs.d/request
 emacs/emacs.d/newsticker
 emacs/emacs.d/*.eld
+mutt/mutt.d/messages
