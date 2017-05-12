@@ -8,3 +8,6 @@ else
 endif
 
 hi rustCommentLineDoc guifg=#EABB9D
+
+nnoremap <leader>t :update\|:make! check --color always<cr>
+nnoremap <leader>r :update\|:make! run --color always<cr>
