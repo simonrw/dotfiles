@@ -121,7 +121,7 @@ set nowrap
 set modelines=1
 set showtabline=1  " Only show tabs when there is more than one file
 set nohlsearch
-set textwidth=80  " By default wrap at 80 characters
+set textwidth=0  " disable hard wrapping
 set nocursorline
 
 " Prevent Vim from clobbering the scrollback buffer. See
