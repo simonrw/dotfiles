@@ -41,7 +41,6 @@ Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-sleuth'
-Plug 'takac/vim-hardtime'
 Plug 'djmoch/vim-makejob'
 Plug 'janko-m/vim-test'
 
@@ -215,12 +214,6 @@ set wildmode=longest,list:longest
 " Configure vim-easy-align
 xmap ga <Plug>(EasyAlign)
 nmap ga <Plug>(EasyAlign)
-
-" Configure hard-time
-let g:hardtime_default_on = 1
-let g:hardtime_ignore_quickfix = 1
-let g:hardtime_allow_different_key = 0
-let g:hardtime_maxcount = 1
 
 " Add mapping to open/close the quickfix list
 " Taken from this plugin:
