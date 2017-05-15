@@ -34,7 +34,7 @@ hs.hotkey.bind({'cmd', 'alt', 'ctrl'}, 'Left', function()
 
     f.x = max.x + WINDOW_BORDER / 2
     f.y = max.y + WINDOW_BORDER / 2
-    f.w = LEFTRIGHT_FRACTION * max.w
+    f.w = LEFTRIGHT_FRACTION * max.w - WINDOW_BORDER / 2
     f.h = max.h - WINDOW_BORDER
     win:setFrame(f)
 end)
