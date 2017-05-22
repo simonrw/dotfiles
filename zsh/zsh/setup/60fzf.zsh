@@ -1,7 +1,5 @@
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-export FZF_DEFAULT_COMMAND=rg
-
 fs() {
     local session
     session=$(tmux list-sessions -F "#{session_name}" | \
