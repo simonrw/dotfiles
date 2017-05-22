@@ -44,6 +44,11 @@ Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-sleuth'
 Plug 'djmoch/vim-makejob'
 Plug 'janko-m/vim-test'
+Plug 'frankier/neovim-colors-solarized-truecolor-only'
+Plug 'w0rp/ale'
+if has('nvim')
+    Plug 'kassio/neoterm'
+endif
 
 call plug#end()
 
@@ -279,8 +284,8 @@ if has('termguicolors')
     set termguicolors
 endif
 
-set background=dark
-colorscheme lucius
+set background=light
+colorscheme solarized
 
 " Customise colour scheme
 " highlight Search guibg=NONE gui=underline guifg=NONE
