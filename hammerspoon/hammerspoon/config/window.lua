@@ -2,7 +2,7 @@
 local WINDOW_SIZE_CHANGE = 16
 local WINDOW_BORDER = 20
 local FULLSCREEN_BORDER = WINDOW_BORDER
-local LEFTRIGHT_FRACTION = 1. / 1.61803398875 -- golden ratio reciprocal
+local LEFTRIGHT_FRACTION = 0.55
 
 -- Move window to the next screen
 hs.hotkey.bind({'cmd', 'alt', 'ctrl'}, 'o', function()
