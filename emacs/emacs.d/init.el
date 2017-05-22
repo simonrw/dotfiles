@@ -26,7 +26,6 @@
     ;; Other plugins
 	rust-mode
 	magit
-    magithub
     projectile
 	editorconfig
     helm
@@ -145,9 +144,6 @@
 
 ;; Set up company mode
 (add-hook 'after-init-hook 'global-company-mode)
-
-;; Enable magithub
-(require 'magithub)
 
 ;; Set up backups
 (setq backup-directory-alist
