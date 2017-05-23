@@ -265,6 +265,12 @@ autocmd vimrc BufReadPost *
 " ... unless it's a git commit
 autocmd vimrc FileType gitcommit autocmd! vimrc bufEnter COMMIT_EDITMSG call setpos('.', [0, 1, 1, 0])
 
+" ALE configuration
+nmap <silent> <Up> <nop>
+nmap <silent> <Down> <nop>
+nmap <silent> <Up> <Plug>(ale_previous)
+nmap <silent> <Down> <Plug>(ale_next)
+
 if has('nvim')
 	if hostname() =~? "ngts"
 		let g:python_host_prog = '/home/sw/.pyenv/versions/2.7.11/bin/python'
