@@ -9,6 +9,6 @@ endif
 
 hi rustCommentLineDoc guifg=#EABB9D
 
-nnoremap <leader>t :update\|:!cargo check<cr>
-nnoremap <leader>r :update\|:!cargo run<cr>
-nnoremap <leader>w :update\|:!cargo test<cr>
+nnoremap <leader>t :update\|:Make check<cr>
+nnoremap <leader>r :update\|:Make run<cr>
+nnoremap <leader>w :update\|:Make test<cr>
