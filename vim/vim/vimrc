@@ -220,6 +220,7 @@ nnoremap <leader>t :w\|:!./%<cr>
 set wildmode=longest,list:longest
 
 " Configure vim-easy-align
+vmap <Enter> <Plug>(EasyAlign)
 xmap ga <Plug>(EasyAlign)
 nmap ga <Plug>(EasyAlign)
 
