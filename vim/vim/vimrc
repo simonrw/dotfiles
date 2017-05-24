@@ -272,6 +272,7 @@ nmap <silent> <Up> <Plug>(ale_previous)
 nmap <silent> <Down> <Plug>(ale_next)
 
 if has('nvim')
+    set guicursor=
 	if hostname() =~? "ngts"
 		let g:python_host_prog = '/home/sw/.pyenv/versions/2.7.11/bin/python'
 		let g:python3_host_prog = '/home/sw/.pyenv/versions/miniconda3-latest/bin/python'
