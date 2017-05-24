@@ -9,6 +9,12 @@ endif
 
 hi rustCommentLineDoc guifg=#EABB9D
 
-nnoremap <leader>t :update\|:Make check<cr>
-nnoremap <leader>r :update\|:Make run<cr>
-nnoremap <leader>w :update\|:Make test<cr>
+if has('nvim')
+    nnoremap <leader>t :update\|:T cargo check<cr>
+    nnoremap <leader>r :update\|:T cargo run<cr>
+    nnoremap <leader>w :update\|:T cargo test<cr>
+else
+    nnoremap <leader>t :update\|:Make check<cr>
+    nnoremap <leader>r :update\|:Make run<cr>
+    nnoremap <leader>w :update\|:Make test<cr>
+endif
