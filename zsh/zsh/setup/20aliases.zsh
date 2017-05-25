@@ -30,6 +30,8 @@ alias eg=email-gmail  # defined in 30functions.zsh
 alias ew=email-work   # defined in 30functions.zsh
 alias sqlite3='rlwrap =sqlite3'
 alias hn='hn --keep-open'
+alias ls="ls --color=never --literal --tabsize 0"
+alias lsc="ls --color=auto --literal --tabsize 0"
 
 if has_executable rg; then
     alias grep=rg

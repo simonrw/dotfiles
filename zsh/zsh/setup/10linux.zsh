@@ -13,8 +13,6 @@ case $OSTYPE in
         alias pbcopy='xsel --clipboard --input'
         alias pbpaste='xsel --clipboard --output'
 
-        alias ls="ls --color=never --literal --tabsize 0"
-        alias lsc="ls --color=auto --literal --tabsize 0"
 
         alias configurevim='./configure --prefix=$BUILD_PREFIX --with-features=huge --enable-pythoninterp --with-compiledby="Simon Walker" --disable-gui --without-x'
 esac
