@@ -225,24 +225,36 @@ xmap ga <Plug>(EasyAlign)
 nmap ga <Plug>(EasyAlign)
 
 " Add mapping to open/close the quickfix list
-" Taken from this plugin:
-" https://github.com/drmingdrmer/vim-toggle-quickfix/blob/master/plugin/toggle-quickfix.vim
-if exists("g:__QUICKFIX_TOGGLE_jfklds__")
-    finish
-endif
-let g:__QUICKFIX_TOGGLE_jfklds__ = 1
-
-fun! s:QuickfixToggle()
-
-    let nr = winnr("$")
-    cwindow
-    let nr2 = winnr("$")
-    if nr == nr2
-        cclose
-    endif
-
+" Taken from: http://vim.wikia.com/wiki/Toggle_to_open_or_close_the_quickfix_window
+function! GetBufferList()
+  redir =>buflist
+  silent! ls!
+  redir END
+  return buflist
 endfunction
-nnoremap coq :call <SID>QuickfixToggle()<cr>
+
+function! ToggleList(bufname, pfx)
+  let buflist = GetBufferList()
+  for bufnum in map(filter(split(buflist, '\n'), 'v:val =~ "'.a:bufname.'"'), 'str2nr(matchstr(v:val, "\\d\\+"))')
+    if bufwinnr(bufnum) != -1
+      exec(a:pfx.'close')
+      return
+    endif
+  endfor
+  if a:pfx == 'l' && len(getloclist(0)) == 0
+      echohl ErrorMsg
+      echo "Location List is Empty."
+      return
+  endif
+  let winnr = winnr()
+  exec(a:pfx.'open')
+  if winnr() != winnr
+    wincmd p
+  endif
+endfunction
+
+" nmap <silent> <leader>l :call ToggleList("Location List", 'l')<CR>
+nmap <silent> Q :call ToggleList("Quickfix List", 'c')<CR>
 
 " Bind K to grep word under cursor
 nnoremap <silent> K :grep! "<C-R><C-W>"<cr><cr>\|:copen<Cr>
