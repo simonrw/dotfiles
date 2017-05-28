@@ -104,7 +104,7 @@ set smartcase
 set tabstop=4
 set expandtab
 set shiftwidth=4
-set mouse=  " Disable the mouse
+set mouse=a
 set linebreak
 set smartindent
 set cindent
