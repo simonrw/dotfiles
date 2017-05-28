@@ -64,7 +64,7 @@
     aa = add --all
     aap = add --all --patch
     oneline = log --oneline --decorate
-    today = log --since="6am"
+    today = diff @{yesterday}..
     last = log -1
     unstage = reset HEAD
 [color]
