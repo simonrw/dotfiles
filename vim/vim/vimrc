@@ -183,8 +183,8 @@ nnoremap <leader>f :FzfGitFiles<cr>
 nnoremap <leader>F :FzfFiles<cr>
 nnoremap gb :FzfBuffers<cr>
 nnoremap gs :FzfTags<cr>
-nnoremap gL :FzfLines<cr>
-nnoremap gl :FzfBLines<cr>
+nnoremap gl :FzfLines<cr>
+nnoremap gL :FzfBLines<cr>
 nnoremap <leader>a :FzfAg<cr>
 
 " Fugitive
