@@ -214,7 +214,7 @@ noremap <C-k> <C-w>k
 noremap <C-l> <C-w>l
 
 " Default handler to run the current file
-nnoremap <leader>t :w\|:!./%<cr>
+nnoremap <leader>t :update\|:T %<cr>
 
 " Change the way tab autocompletion works
 set wildmode=longest,list:longest
