@@ -278,8 +278,9 @@ autocmd vimrc BufReadPost *
             \ exe "normal! g`\"" |
             \ endif
 
-" ... unless it's a git commit
+" ... unless it's a git message editing
 autocmd vimrc FileType gitcommit autocmd! vimrc bufEnter COMMIT_EDITMSG call setpos('.', [0, 1, 1, 0])
+autocmd vimrc FileType gitcommit autocmd! vimrc bufEnter TAG_EDITMSG call setpos('.', [0, 1, 1, 0])
 
 " ALE configuration
 nmap <silent> <Up> <nop>
