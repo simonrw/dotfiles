@@ -259,6 +259,10 @@ nmap <silent> Q :call ToggleList("Quickfix List", 'c')<CR>
 " Bind K to grep word under cursor
 nnoremap <silent> K :grep! "<C-R><C-W>"<cr><cr>\|:copen<Cr>
 
+if has('nvim')
+  nnoremap TT :Ttoggle<cr>
+endif
+
 " Function to get the current syntax group under the cursor
 function! SynStack()
     if !exists("*synstack")
