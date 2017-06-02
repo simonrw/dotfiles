@@ -22,3 +22,6 @@
 [submodule "external/latexrun"]
 	path = external/latexrun
 	url = https://github.com/aclements/latexrun
+[submodule "external/FlameGraph"]
+	path = external/FlameGraph
+	url = https://github.com/brendangregg/FlameGraph

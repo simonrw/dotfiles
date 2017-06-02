@@ -1,0 +1,1 @@
+/Users/simon/dotfiles/external/FlameGraph/stackcollapse.pl
