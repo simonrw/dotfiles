@@ -283,10 +283,6 @@ autocmd vimrc FileType gitcommit autocmd! vimrc bufEnter COMMIT_EDITMSG call set
 autocmd vimrc FileType gitcommit autocmd! vimrc bufEnter TAG_EDITMSG call setpos('.', [0, 1, 1, 0])
 
 " ALE configuration
-nmap <silent> <Up> <nop>
-nmap <silent> <Down> <nop>
-nmap <silent> <Up> <Plug>(ale_previous)
-nmap <silent> <Down> <Plug>(ale_next)
 
 if has('nvim')
 	if hostname() =~? "ngts"
