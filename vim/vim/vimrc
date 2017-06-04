@@ -295,6 +295,8 @@ if has('nvim')
 		set shell=/usr/local/bin/zsh
 	endif
 
+    " configure terinal commands
+    tnoremap <Esc> <C-\><C-n>
 endif
 
 if has('termguicolors')
