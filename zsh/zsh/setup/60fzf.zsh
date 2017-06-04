@@ -1,3 +1,6 @@
+# Set up fzf
+export FZF_DEFAULT_OPTS="--color light --tac --ansi --no-mouse --tabstop 4 --inline-info --tiebreak=begin,length"
+
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 fs() {

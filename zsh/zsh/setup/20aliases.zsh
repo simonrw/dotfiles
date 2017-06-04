@@ -35,6 +35,7 @@ alias lsc="ls --color=auto --literal --tabsize 0"
 
 if has_executable rg; then
     alias grep=rg
+    alias ag=rg
 elif has_executable ag; then
     alias grep=ag
 else
