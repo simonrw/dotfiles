@@ -305,8 +305,8 @@ if has('termguicolors')
     set termguicolors
 endif
 
-set background=light
-colorscheme solarized
+set background=dark
+colorscheme lucius
 
 " Customise colour scheme
 " highlight Search guibg=NONE gui=underline guifg=NONE
