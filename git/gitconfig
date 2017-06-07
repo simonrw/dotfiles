@@ -79,7 +79,7 @@
     preloadindex = true
     excludesfile = ~/.gitignore_global
 [merge]
-    tool = splice
+    tool = vimdiff
     conflictstyle = "diff3"
 [transfer]
     fsckobjects = true
