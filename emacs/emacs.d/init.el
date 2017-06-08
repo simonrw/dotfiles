@@ -73,10 +73,9 @@
 ;; Get correct path from system shell
 (use-package exec-path-from-shell
   :init
-  (customize-set-variable 'exec-path-from-shell-arguments nil)
+  (setq exec-path-from-shell-check-startup-files nil)
   :config
   (exec-path-from-shell-initialize)
-  (exec-path-from-shell-copy-env "PATH")
   (exec-path-from-shell-copy-env "RUST_SRC_PATH"))
 
 ;; Editorconfig
