@@ -23,7 +23,7 @@
 (setq ring-bell-function 'ignore)
 
 ;; If computer specific file exists, source it
-(setq custom-file "~/.emacsrc.local")
+(setq custom-file "~/.emacs.d/custom.el")
 (when (file-exists-p custom-file)
   (load custom-file))
 
