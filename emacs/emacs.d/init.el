@@ -121,6 +121,9 @@
 	 ("\\.markdown\\'" . markdown-mode))
   :init (setq markdown-command "multimarkdown"))
 
+(use-package csharp-mode
+  :mode (("\\.cs\\'" . csharp-mode)))
+
 (use-package rust-mode
   :mode "\\.rs\\'"
   :config

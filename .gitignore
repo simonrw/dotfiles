@@ -10,13 +10,8 @@ emacs/emacs.d/elpa
 vim/vim/vim-addons
 zsh/zsh/cache
 *.cache
-emacs/emacs.d/auto-save-list/*
-emacs/emacs.d/backups/*
-emacs/!emacs.d/backups/.gitkeep
-emacs/emacs.d/elpa/*
-emacs/!emacs.d/elpa/.gitkeep
-emacs/emacs.d/places
-emacs/emacs.d/tramp
+emacs/emacs.d/*
+!emacs/emacs.d/init.el
 **/#*#
 **/.#*
 
