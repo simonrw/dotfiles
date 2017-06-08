@@ -130,6 +130,17 @@
     :init
     (add-hook 'flycheck-mode-hook #'flycheck-rust-setup)))
 
+(use-package lsp-mode
+  :init
+  (add-hook 'prog-mode-hook 'lsp-mode)
+  :config
+  (use-package lsp-flycheck
+    :ensure f ; comes with lsp mode
+    :after flycheck))
+
+(use-package lsp-rust
+  :after lsp-mode)
+
 (use-package racer
   :commands racer-mode
   :diminish racer-mode
