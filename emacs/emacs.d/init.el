@@ -81,14 +81,13 @@
 
 ;; Editorconfig
 (use-package editorconfig
-  :diminish ""
   :config
   (editorconfig-mode 1))
 
-;; ido
-(use-package ido
-  :config
-  (ido-mode t))
+;; Helm
+(use-package helm
+  :bind (("M-x" . helm-M-x)
+         ("C-x b" . helm-buffers-list)))
 
 ;; fzf
 (use-package fzf
@@ -97,8 +96,7 @@
 ;; flycheck
 (use-package flycheck
   :commands global-flycheck-mode
-  :diminish " ⓕ"
-  :init
+   :init
   (add-hook 'after-init-hook #'global-flycheck-mode))
 
 ;; Magit
@@ -126,6 +124,9 @@
 
 (use-package rust-mode
   :mode "\\.rs\\'"
+  :bind (("C-c C-t" . cargo-process-check)
+         ("C-c C-w" . cargo-process-test)
+         ("C-c C-r" . cargo-process-run))
   :config
   (setq rust-format-on-save t)
   (use-package flycheck-rust
@@ -134,20 +135,8 @@
     :init
     (add-hook 'flycheck-mode-hook #'flycheck-rust-setup)))
 
-(use-package lsp-mode
-  :init
-  (add-hook 'prog-mode-hook 'lsp-mode)
-  :config
-  (use-package lsp-flycheck
-    :ensure f ; comes with lsp mode
-    :after flycheck))
-
-(use-package lsp-rust
-  :after lsp-mode)
-
 (use-package racer
   :commands racer-mode
-  :diminish racer-mode
   :init
   (add-hook 'rust-mode-hook 'racer-mode)
   :bind (:map rust-mode-map
@@ -178,6 +167,22 @@
 	    (font-lock-add-keywords nil
 				    '(("\\<\\(FIXME\\):" 1 font-lock-warning-face t)))))
 
+;; Python
+(use-package elpy
+  :commands elpy-enable
+  :init
+  (with-eval-after-load 'python
+    (elpy-enable))
+  :config
+  (setq-default flycheck-flake8-maximum-line-length 100)
+  (setq elpy-rpc-backend "jedi")
+  (setq elpy-modules (delq 'elpy-module-flymake elpy-modules)))
+
+(use-package ein
+  :defer t)
+
+;; Lua
+(use-package lua-mode)
 
 ;; Theming
 (load-theme 'wombat t)
