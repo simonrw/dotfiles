@@ -74,6 +74,7 @@
 (use-package exec-path-from-shell
   :init
   (setq exec-path-from-shell-check-startup-files nil)
+  (setq exec-path-from-shell-arguments '("-l" "-i"))
   :config
   (exec-path-from-shell-initialize)
   (exec-path-from-shell-copy-env "RUST_SRC_PATH"))
