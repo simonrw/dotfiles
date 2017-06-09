@@ -215,7 +215,14 @@ noremap <C-k> <C-w>k
 noremap <C-l> <C-w>l
 
 " Default handler to run the current file
-nnoremap <cr> :update\|:T %<cr>
+function! HandleEnter()
+  if &buftype ==# 'quickfix'
+    execute "normal! \<cr>"
+  else
+    execute "normal :silent :update\|:T %\<CR>"
+  endif
+endfunction
+nnoremap <silent> <cr> :call HandleEnter()<cr>
 
 " Change the way tab autocompletion works
 set wildmode=longest,list:longest
