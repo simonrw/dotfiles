@@ -215,14 +215,16 @@ noremap <C-k> <C-w>k
 noremap <C-l> <C-w>l
 
 " Default handler to run the current file
-function! HandleEnter()
+function! HandleEnter(cmd)
   if &buftype ==# 'quickfix'
-    execute "normal! \<cr>"
+    silent execute "normal! \<cr>"
   else
-    execute "normal :silent :update\|:T %\<CR>"
+    silent execute "normal! :silent :update" . a:cmd . "\<CR>"
   endif
 endfunction
-nnoremap <silent> <cr> :call HandleEnter()<cr>
+
+" Default version where only the file is saved
+nnoremap <silent> <cr> :call HandleEnter("")<cr>
 
 " Change the way tab autocompletion works
 set wildmode=longest,list:longest
