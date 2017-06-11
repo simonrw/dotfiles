@@ -216,7 +216,7 @@ noremap <C-l> <C-w>l
 
 " Default handler to run the current file
 function! HandleEnter(cmd)
-  if &buftype ==# 'quickfix'
+  if &buftype ==# 'quickfix' || &buftype ==# 'nofile'
     silent execute "normal! \<cr>"
   else
     silent execute "normal! :silent :update" . a:cmd . "\<CR>"
