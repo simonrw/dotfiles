@@ -187,5 +187,12 @@
 ;; Theming
 (load-theme 'wombat t)
 
+(defun post-load-stuff ()
+  (interactive)
+  (toggle-frame-maximized))
+
+(add-hook 'window-setup-hook 'post-load-stuff t)
+
+
 (provide 'init)
 ;;; init.el ends here
