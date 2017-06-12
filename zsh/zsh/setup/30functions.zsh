@@ -219,3 +219,8 @@ function email-work() {
     (cd ~/Downloads
     =mutt -n -F ~/.mutt.d/startup-work.mutt)
 }
+
+# Edit my todo list in editor
+function todo() {
+    $EDITOR ${HOME}/Desktop/todo.txt
+}
