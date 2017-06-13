@@ -26,8 +26,6 @@ alias de='direnv edit .'
 alias da='direnv allow'
 alias dr='direnv reload'
 alias mutt='echo "Use either email-gmail or email-work"'
-alias eg=email-gmail  # defined in 30functions.zsh
-alias ew=email-work   # defined in 30functions.zsh
 alias sqlite3='rlwrap =sqlite3'
 alias hn='hn --keep-open'
 alias ls="ls --color=never --literal --tabsize 0"
