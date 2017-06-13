@@ -319,6 +319,9 @@ if has('nvim')
 		set shell=/usr/local/bin/zsh
 	endif
 
+    " Stop changing the cursor type
+    set guicursor=
+
     " configure terinal commands
     tnoremap <Esc> <C-\><C-n>
 endif
