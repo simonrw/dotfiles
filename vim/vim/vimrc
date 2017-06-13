@@ -144,6 +144,12 @@ set undodir=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
 set writebackup
 set undofile
 
+" Better breaking
+set breakindent
+set showbreak=\\\\\
+
+" Improve speed of syntax highlighting
+set synmaxcol=200
 
 " Search with fancy regex search by default
 nnoremap / /\v
@@ -290,6 +296,17 @@ autocmd vimrc BufReadPost *
 " ... unless it's a git message editing
 autocmd vimrc FileType gitcommit autocmd! vimrc bufEnter COMMIT_EDITMSG call setpos('.', [0, 1, 1, 0])
 autocmd vimrc FileType gitcommit autocmd! vimrc bufEnter TAG_EDITMSG call setpos('.', [0, 1, 1, 0])
+
+" Automatically resize splits when window is resized
+autocmd vimrc VimResized * wincmd =
+
+" Automatically save the current file
+" NOTE: this plays havoc with other commands run on file leave
+augroup AutoSaveAndRead
+  autocmd!
+  autocmd TextChanged,InsertLeave,FocusLost * silent! wall
+  autocmd CursorHold * silent! checktime
+augroup END
 
 if has('nvim')
 	if hostname() =~? "ngts"
