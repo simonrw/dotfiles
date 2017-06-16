@@ -300,14 +300,6 @@ autocmd vimrc FileType gitcommit autocmd! vimrc bufEnter TAG_EDITMSG call setpos
 " Automatically resize splits when window is resized
 autocmd vimrc VimResized * wincmd =
 
-" Automatically save the current file
-" NOTE: this plays havoc with other commands run on file leave
-augroup AutoSaveAndRead
-  autocmd!
-  autocmd TextChanged,InsertLeave,FocusLost * silent! wall
-  autocmd CursorHold * silent! checktime
-augroup END
-
 if has('nvim')
 	if hostname() =~? "ngts"
 		let g:python_host_prog = '/home/sw/.pyenv/versions/2.7.11/bin/python'
