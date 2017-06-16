@@ -49,6 +49,7 @@ Plug 'frankier/neovim-colors-solarized-truecolor-only'
 if has('nvim')
     Plug 'kassio/neoterm'
 endif
+Plug 'jamessan/vim-gnupg'
 
 call plug#end()
 
