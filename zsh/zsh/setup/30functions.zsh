@@ -210,10 +210,11 @@ __git_files () {
 
 # Functions to load mutt. They change the current directory to the download
 # directory so that any attachments are automatically saved there
-function email() {
+function mutt() {
     (cd ~/Downloads
     =mutt -n -F ~/.mutt.d/startup-fastmail.mutt)
 }
+alias email=mutt
 
 # Edit my todo list in editor
 function todo() {

@@ -25,7 +25,6 @@ alias dev="cd ${HOME}/dev && pwd && ls"
 alias de='direnv edit .'
 alias da='direnv allow'
 alias dr='direnv reload'
-alias mutt='echo "Use either email-gmail or email-work"'
 alias sqlite3='rlwrap =sqlite3'
 alias hn='hn --keep-open'
 alias ls="ls --color=never --literal --tabsize 0"
