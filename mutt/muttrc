@@ -89,6 +89,10 @@ bind attach <return> view-mailcap
 # macro index o "<shell-escape>offlineimap<enter>"
 macro pager \Cu "|urlview<enter>" "call urlview to open links"
 
+# Function to switch to gmail
+macro index gi "<change-folder> =INBOX/<enter>" "Go to inbox"
+macro index gG "<change-folder> =INBOX/GMail/<enter>" "Go to GMail"
+
 # Contacts
 # set display_filter=~/.mutt.d/add-to-contacts.sh
 # set query_command="/usr/local/bin/lbdbq '%s' 2>/dev/null"
