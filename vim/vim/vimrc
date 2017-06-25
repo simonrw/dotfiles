@@ -147,7 +147,7 @@ set undofile
 
 " Better breaking
 set breakindent
-set showbreak=\\\\\
+let &showbreak='↣'
 
 " Improve speed of syntax highlighting
 set synmaxcol=200
