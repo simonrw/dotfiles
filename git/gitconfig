@@ -19,6 +19,10 @@
     # Taken from https://blog.scottnonnenberg.com/better-git-configuration/
     prune = fetch --prune
 
+    # Taken from http://www.theodo.fr/blog/2017/06/git-game-advanced-git-aliases/
+    # Ignore whatever is passed
+    ignore = "!f() { echo \"$1\" >> .gitignore; }; f"
+    unpushed = log @{u}..
 
     # Other aliases
     ff = !"f() { git merge --ff-only origin/$(git branch-name); }; f"
