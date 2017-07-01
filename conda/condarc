@@ -4,3 +4,6 @@ create_default_packages:
   - pip
   - pytest
   - ipython
+channels:
+  - conda-forge
+  - defaults
