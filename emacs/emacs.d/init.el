@@ -184,15 +184,17 @@
 ;; Lua
 (use-package lua-mode)
 
+;; Evil mode (Woo vim!)
+(use-package evil
+  :config
+  (evil-mode t))
+
+(use-package zoom-frm)
+
 ;; Theming
-(load-theme 'wombat t)
-
-(defun post-load-stuff ()
-  (interactive)
-  (toggle-frame-maximized))
-
-(add-hook 'window-setup-hook 'post-load-stuff t)
-
+(use-package solarized-theme
+  :config
+  (load-theme 'solarized-dark))
 
 (provide 'init)
 ;;; init.el ends here
