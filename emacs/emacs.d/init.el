@@ -171,6 +171,13 @@
 	    (font-lock-add-keywords nil
 				    '(("\\<\\(FIXME\\):" 1 font-lock-warning-face t)))))
 
+;; Erlang languages
+(use-package erlang)
+(use-package elixir-mode
+  :config
+  (use-package alchemist))
+
+
 ;; Python
 (use-package elpy
   :commands elpy-enable
