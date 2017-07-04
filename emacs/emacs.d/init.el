@@ -198,9 +198,9 @@
 ;; Evil mode (Woo vim!)
 (use-package evil
   :config
-  (evil-mode t))
-
-(use-package zoom-frm)
+  (evil-mode t)
+  (use-package evil-nerd-commenter)
+  (use-package evil-magit))
 
 ;; Theming
 (use-package solarized-theme
