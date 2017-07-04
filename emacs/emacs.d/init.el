@@ -18,6 +18,10 @@
 (setq tramp-default-method "sshx")
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
 
+;; Enable nicer window moving
+(when (fboundp 'windmove-default-keybindings)
+  (windmove-default-keybindings))
+
 ;; Disable visual bell
 (setq visible-bell nil)
 (setq ring-bell-function 'ignore)
