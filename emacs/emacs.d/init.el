@@ -88,11 +88,6 @@
   :config
   (editorconfig-mode 1))
 
-;; Helm
-(use-package helm
-  :bind (("M-x" . helm-M-x)
-         ("C-x b" . helm-buffers-list)))
-
 ;; fzf
 (use-package fzf
   :commands fzf)
@@ -201,6 +196,11 @@
   (evil-mode t)
   (use-package evil-nerd-commenter)
   (use-package evil-magit))
+
+;; Ivy completion
+(use-package ivy
+  :config
+  (ivy-mode 1))
 
 ;; Theming
 (use-package solarized-theme
