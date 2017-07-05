@@ -9,4 +9,4 @@ let g:ale_linters = {
     \ 'python': ['flake8']
     \}
 
-nnoremap <silent> <cr> :call HandleEnter("\|T %")<cr>
+" nnoremap <silent> <cr> :call HandleEnter("\|T %")<cr>
