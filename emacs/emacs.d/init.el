@@ -207,9 +207,7 @@
   (ivy-mode 1))
 
 ;; Theming
-(use-package solarized-theme
-  :config
-  (load-theme 'solarized-dark))
+(load-theme 'wombat)
 
 (provide 'init)
 ;;; init.el ends here

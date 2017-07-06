@@ -45,7 +45,6 @@ Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-sleuth'
 Plug 'djmoch/vim-makejob'
 Plug 'janko-m/vim-test'
-Plug 'lifepillar/vim-solarized8'
 if has('nvim')
     Plug 'kassio/neoterm'
 endif
@@ -193,20 +192,6 @@ nnoremap gs :FzfTags<cr>
 nnoremap gl :FzfLines<cr>
 nnoremap gL :FzfBLines<cr>
 nnoremap <leader>a :FzfAg<cr>
-let g:fzf_colors =
-\ { 'fg':      ['fg', 'Normal'],
-  \ 'bg':      ['bg', 'Normal'],
-  \ 'hl':      ['fg', 'Comment'],
-  \ 'fg+':     ['fg', 'CursorLine', 'CursorColumn', 'Normal'],
-  \ 'bg+':     ['bg', 'CursorLine', 'CursorColumn'],
-  \ 'hl+':     ['fg', 'Statement'],
-  \ 'info':    ['fg', 'PreProc'],
-  \ 'prompt':  ['fg', 'Conditional'],
-  \ 'pointer': ['fg', 'Exception'],
-  \ 'marker':  ['fg', 'Keyword'],
-  \ 'spinner': ['fg', 'Label'],
-  \ 'header':  ['fg', 'Comment'] }
-
 
 " Fugitive
 nnoremap <leader>gc :Gcommit -v<cr>
@@ -340,7 +325,7 @@ if has('termguicolors')
 endif
 
 set background=dark
-colorscheme solarized8_dark
+colorscheme srw256
 
 " Customise colour scheme
 " highlight Search guibg=NONE gui=underline guifg=NONE
