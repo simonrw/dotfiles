@@ -195,6 +195,10 @@
   :config
   (evil-mode t)
   (use-package evil-nerd-commenter)
+  (use-package evil-leader
+    :config
+    (global-evil-leader-mode)
+    (evil-leader/set-leader ","))
   (use-package evil-magit))
 
 ;; Ivy completion
