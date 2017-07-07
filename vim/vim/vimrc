@@ -325,7 +325,7 @@ if has('termguicolors')
 endif
 
 set background=dark
-colorscheme srw256
+colorscheme lucius
 
 " Customise colour scheme
 " highlight Search guibg=NONE gui=underline guifg=NONE
