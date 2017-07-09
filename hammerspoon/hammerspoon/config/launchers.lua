@@ -5,7 +5,7 @@ end)
 
 -- Browser
 hs.hotkey.bind({'cmd', 'alt'}, 'c', function()
-    hs.application.launchOrFocus('FirefoxNightly')
+    hs.application.launchOrFocus('FirefoxDeveloperEdition')
 end)
 
 -- Notational velocity
