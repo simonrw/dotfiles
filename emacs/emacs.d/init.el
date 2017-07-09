@@ -206,6 +206,8 @@
   :config
   (ivy-mode 1))
 
+(use-package cider)
+
 ;; Theming
 (load-theme 'wombat)
 
