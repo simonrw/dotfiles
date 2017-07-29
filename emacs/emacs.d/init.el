@@ -90,7 +90,8 @@
 
 ;; fzf
 (use-package fzf
-  :commands fzf)
+  :commands fzf
+  :ensure t)
 
 ;; flycheck
 (use-package flycheck
@@ -190,19 +191,9 @@
 ;; Lua
 (use-package lua-mode)
 
-;; Evil mode (Woo vim!)
-; (use-package evil
-;   :config
-;   (evil-mode t)
-;   (use-package evil-nerd-commenter)
-;   (use-package evil-leader
-;     :config
-;     (global-evil-leader-mode)
-;     (evil-leader/set-leader ","))
-;   (use-package evil-magit))
-
 ;; Ivy completion
 (use-package ivy
+  :ensure t
   :config
   (ivy-mode 1))
 
@@ -234,7 +225,10 @@
   (delete-window))
 
 ;; Theming
-(load-theme 'wombat)
+(use-package zenburn-theme
+  :ensure t
+  :config
+  (load-theme 'zenburn t))
 
 (provide 'init)
 ;;; init.el ends here
