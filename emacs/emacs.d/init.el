@@ -74,6 +74,21 @@
     (setq-default mac-emulate-three-button-mouse t)
     (global-set-key (kbd "M-`") 'other-frame)))
 
+;; Try packages without installing them
+(use-package try
+  :ensure t)
+
+;; Show available keys on pause
+(use-package which-key
+  :ensure t
+  :config
+  (which-key-mode))
+
+(use-package org-bullets
+  :ensure t
+  :config
+  (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1))))
+
 ;; Get correct path from system shell
 (use-package exec-path-from-shell
   :init
@@ -105,22 +120,12 @@
   :config
   (setq magit-diff-refine-hunk t))
 
-;; Completion
-(use-package company
-  :init
-  (add-hook 'after-init-hook 'global-company-mode)
-  :config
-  (setq company-tooltip-align-annotations t))
-
 ;; Markdown
 (use-package markdown-mode
   :mode (("README\\.md\\'" . gfm-mode)
 	 ("\\.md\\'" . markdown-mode)
 	 ("\\.markdown\\'" . markdown-mode))
   :init (setq markdown-command "multimarkdown"))
-
-(use-package csharp-mode
-  :mode (("\\.cs\\'" . csharp-mode)))
 
 (use-package rust-mode
   :mode "\\.rs\\'"
@@ -143,13 +148,7 @@
 	      ("M-." . racer-find-definition))
   :config
   (setq racer-rust-src-path "~/.cargo/rust-src/src")
-  (racer-turn-on-eldoc)
-  (use-package company-racer
-    :config
-    (add-to-list 'company-backends 'company-racer)
-    (setq company-tooltip-align-annotations t)
-    :bind (:map rust-mode-map
-		("M-." . racer-find-definition))))
+  (racer-turn-on-eldoc))
 
 (use-package cargo
   :commands cargo-minor-mode
@@ -167,12 +166,26 @@
 	    (font-lock-add-keywords nil
 				    '(("\\<\\(FIXME\\):" 1 font-lock-warning-face t)))))
 
+(use-package irony
+  :init
+  (add-hook 'c++-mode-hook 'irony-mode)
+  (add-hook 'c-mode-hook 'irony-mode)
+  (add-hook 'objc-mode-hook 'irony-mode)
+  (add-hook 'irony-mode-hook 'irony-cdb-autosetup-compile-options))
+
 ;; Erlang languages
 (use-package erlang)
 (use-package elixir-mode
   :config
   (use-package alchemist))
 
+;; Autocomplete
+(use-package auto-complete
+  :ensure t
+  :init
+  (progn
+    (ac-config-default)
+    (global-auto-complete-mode t)))
 
 ;; Python
 (use-package elpy
@@ -194,8 +207,36 @@
 ;; Ivy completion
 (use-package ivy
   :ensure t
+  :bind (("C-x b" . ivy-switch-buffer)
+         ("C-c C-r" . ivy-resume))
+  :diminish (ivy-mode)
   :config
-  (ivy-mode 1))
+  (ivy-mode 1)
+  (setq ivy-display-style 'fancy))
+
+(use-package counsel
+  :ensure t)
+
+(use-package swiper
+  :ensure t
+  :config
+  (progn
+    (setq ivy-use-virtual-buffers t)
+    (global-set-key "\C-s" 'swiper)
+    (global-set-key (kbd "M-x") 'counsel-M-x)
+    (global-set-key (kbd "C-x C-f") 'counsel-find-file)
+    (global-set-key (kbd "<f1> f") 'counsel-describe-function)
+    (global-set-key (kbd "<f1> v") 'counsel-describe-variable)
+    (global-set-key (kbd "<f1> l") 'counsel-load-library)
+    (global-set-key (kbd "<f2> i") 'counsel-info-lookup-symbol)
+    (global-set-key (kbd "<f2> u") 'counsel-unicode-char)
+    (global-set-key (kbd "C-c g") 'counsel-git)
+    (global-set-key (kbd "C-c j") 'counsel-git-grep)
+    (global-set-key (kbd "C-c k") 'counsel-ag)
+    (global-set-key (kbd "C-x l") 'counsel-locate)
+    (global-set-key (kbd "C-S-o") 'counsel-rhythmbox)
+    (define-key read-expression-map (kbd "C-r") 'counsel-expression-history)
+    ))
 
 (use-package cider)
 
