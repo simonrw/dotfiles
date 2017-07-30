@@ -8,6 +8,7 @@
   (when (fboundp m) (funcall m -1)))
 (show-paren-mode 1)
 (prefer-coding-system 'utf-8)
+(fset 'yes-or-no-p 'y-or-n-p)
 (set-language-environment "UTF-8")
 (set-buffer-file-coding-system 'utf-8)
 (set-default 'truncate-lines nil)
@@ -57,6 +58,8 @@
 
   (setq mac-option-modifier 'meta)
   (setq mac-command-modifier 'meta)
+
+  (menu-bar-mode t)
 
   (if (boundp 'mac-auto-operator-composition-mode)
       (mac-auto-operator-composotion-mode))
@@ -110,8 +113,9 @@
 
 ;; flycheck
 (use-package flycheck
+  :ensure t
   :commands global-flycheck-mode
-   :init
+  :init
   (add-hook 'after-init-hook #'global-flycheck-mode))
 
 ;; Magit
