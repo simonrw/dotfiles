@@ -170,6 +170,9 @@
 	    (font-lock-add-keywords nil
 				    '(("\\<\\(FIXME\\):" 1 font-lock-warning-face t)))))
 
+(use-package cmake-mode
+  :mode (("CMakeLists.txt" . cmake-mode)))
+
 (use-package irony
   :init
   (add-hook 'c++-mode-hook 'irony-mode)
@@ -199,6 +202,8 @@
     (elpy-enable))
   :config
   (setq-default flycheck-flake8-maximum-line-length 100)
+  (setq-default python-shell-interpreter "ipython"
+                python-shell-interpreter-args "--simple-prompt --pprint")
   (setq elpy-rpc-backend "jedi")
   (setq elpy-modules (delq 'elpy-module-flymake elpy-modules)))
 
