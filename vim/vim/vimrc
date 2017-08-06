@@ -208,8 +208,8 @@ nnoremap <leader>ga :Gcommit -v --amend<cr>
 let g:commentary_map_backslash = 0
 
 " Configure vim tmux runner
-let g:VtrStripLeadingWhitespace = 0
-let g:VtrClearEmptyLines = 0
+let g:VtrStripLeadingWhitespace = 1
+let g:VtrClearEmptyLines = 1
 let g:VtrAppendNewline = 1
 
 nnoremap <leader>v :VtrAttachToPane<cr>
