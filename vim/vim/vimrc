@@ -232,7 +232,7 @@ function! HandleEnter(cmd)
 endfunction
 
 " Default version where only the file is saved
-" nnoremap <silent> <cr> :call HandleEnter("")<cr>
+nnoremap <silent> <cr> :call HandleEnter("")<cr>
 
 " Change the way tab autocompletion works
 set wildmode=longest,list:longest
