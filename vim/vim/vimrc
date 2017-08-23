@@ -27,6 +27,7 @@ call plug#begin('~/.vim/bundle')
 Plug 'vim-scripts/TWiki-Syntax'
 Plug 'sheerun/vim-polyglot'
 Plug 'cstrahan/vim-capnp'
+Plug 'fatih/vim-go'
 
 " Other plugins
 Plug 'christoomey/vim-tmux-runner'
