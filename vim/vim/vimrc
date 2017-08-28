@@ -50,7 +50,6 @@ if has('nvim')
     Plug 'kassio/neoterm'
 endif
 Plug 'jamessan/vim-gnupg'
-Plug 'jnurmine/Zenburn'
 
 call plug#end()
 
@@ -323,7 +322,7 @@ if has('nvim')
 endif
 
 set background=dark
-colorscheme zenburn
+colorscheme lucius
 
 " Customise colour scheme
 " highlight Search guibg=NONE gui=underline guifg=NONE
