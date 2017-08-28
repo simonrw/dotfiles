@@ -26,6 +26,7 @@ EXCLUDE_LIST = [
     'provisioning',
     'dircolors',
     'emacs',
+    'testing',
 ]
 
 
