@@ -57,7 +57,7 @@ call plug#end()
 set autoindent
 set backspace=indent,eol,start
 set complete-=i
-set smarttab
+set nosmarttab
 set nrformats-=octal
 set ttimeout
 set ttimeoutlen=0
