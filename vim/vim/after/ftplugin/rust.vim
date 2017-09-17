@@ -12,4 +12,4 @@ else
 endif
 
 hi rustCommentLineDoc guifg=#EABB9D
-
+let g:rustfmt_autosave = 1
