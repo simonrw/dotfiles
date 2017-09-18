@@ -30,6 +30,9 @@ Plug 'cstrahan/vim-capnp'
 Plug 'fatih/vim-go'
 
 " Other plugins
+" Rust
+Plug 'racer-rust/vim-racer'
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'christoomey/vim-tmux-runner'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': 'yes \| ./install --no-update-rc --no-completion --key-bindings' }
 Plug 'junegunn/fzf.vim'
