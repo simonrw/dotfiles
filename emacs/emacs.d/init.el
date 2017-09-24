@@ -1,5 +1,9 @@
 ;;; Init file
 
+(setq site-lisp-dir
+      (expand-file-name "site-lisp" user-emacs-directory))
+(add-to-list 'load-path site-lisp-dir)
+
 ;;; Defaults
 (blink-cursor-mode 0)
 (setq inhibit-splash-screen t)
@@ -226,6 +230,10 @@
 (use-package counsel
   :ensure t)
 
+(use-package evil
+  :config
+  (evil-mode t))
+
 (use-package swiper
   :ensure t
   :config
@@ -279,6 +287,16 @@
   :ensure t
   :config
   (load-theme 'zenburn t))
+
+(org-babel-do-load-languages
+ 'org-babel-load-languages
+ '((emacs-lisp . t)
+   (R . t)
+   (ruby . t)
+   (rust . t)
+   (python . t)))
+
+
 
 (provide 'init)
 ;;; init.el ends here
