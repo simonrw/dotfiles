@@ -33,6 +33,7 @@ Plug 'fatih/vim-go'
 " Rust
 Plug 'racer-rust/vim-racer'
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+Plug 'zchee/deoplete-jedi'
 Plug 'christoomey/vim-tmux-runner'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': 'yes \| ./install --no-update-rc --no-completion --key-bindings' }
 Plug 'junegunn/fzf.vim'
@@ -323,6 +324,9 @@ if has('nvim')
     " configure terinal commands
     tnoremap <Esc> <C-\><C-n>
 endif
+
+let g:deoplete#enable_at_startup = 1
+let g:deoplete#disable_auto_complete = 0
 
 set background=dark
 colorscheme lucius
