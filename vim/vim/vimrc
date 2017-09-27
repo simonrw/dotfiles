@@ -48,6 +48,7 @@ Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-sleuth'
 Plug 'djmoch/vim-makejob'
 Plug 'janko-m/vim-test'
+Plug 'vimwiki/vimwiki'
 if has('nvim')
     Plug 'kassio/neoterm'
 endif
@@ -323,6 +324,7 @@ if has('nvim')
     tnoremap <Esc> <C-\><C-n>
 endif
 
+let g:vimwiki_list = [{'path': '~/vimwiki', 'path_html': '/tmp/vimwiki_html'}]
 
 set background=dark
 colorscheme lucius
