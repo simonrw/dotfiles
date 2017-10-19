@@ -24,7 +24,6 @@ augroup END
 call plug#begin('~/.vim/bundle')
 
 " Language plugins
-Plug 'vim-scripts/TWiki-Syntax'
 Plug 'sheerun/vim-polyglot'
 Plug 'cstrahan/vim-capnp'
 Plug 'fatih/vim-go'
