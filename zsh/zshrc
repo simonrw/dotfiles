@@ -78,6 +78,8 @@ export LESS='-FXR'
 
 # Set up fzf
 export FZF_DEFAULT_OPTS="--color dark --tac --ansi --no-mouse --tabstop 4 --inline-info --tiebreak=begin,length"
+export FZF_DEFAULT_COMMAND='rg --files --no-ignore --hidden --follow -g "!{.git,venv,node_modules}/*" 2> /dev/null'
+export FZF_CTRL_T_COMMAND="${FZF_DEFAULT_COMMAND}"
 
 # Taken from grb's zshrc
 
