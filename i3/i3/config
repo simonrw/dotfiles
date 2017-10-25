@@ -18,7 +18,7 @@ exec_always xmodmap ~/.xmodmap
 font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
 
 # Set the window borders small
-new_window 1pixel
+new_window pixel 1
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
