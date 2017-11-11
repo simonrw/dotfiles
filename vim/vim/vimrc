@@ -23,36 +23,18 @@ augroup END
 "  Vim Plug
 call plug#begin('~/.vim/bundle')
 
-" Language plugins
-Plug 'sheerun/vim-polyglot'
-Plug 'cstrahan/vim-capnp'
-Plug 'fatih/vim-go'
-
 " Other plugins
-" Rust
-Plug 'racer-rust/vim-racer'
 Plug 'christoomey/vim-tmux-runner'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': 'yes \| ./install --no-update-rc --no-completion --key-bindings' }
 Plug 'junegunn/fzf.vim'
-Plug 'junegunn/vim-easy-align'
 Plug 'tpope/vim-dispatch'
 Plug 'tpope/vim-vinegar'
 Plug 'radenling/vim-dispatch-neovim'
 Plug 'tpope/vim-commentary'
-Plug 'tpope/vim-rhubarb'
-Plug 'tpope/vim-rsi'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
-Plug 'tpope/vim-sleuth'
-Plug 'djmoch/vim-makejob'
-Plug 'janko-m/vim-test'
-Plug 'vimwiki/vimwiki'
-if has('nvim')
-    Plug 'kassio/neoterm'
-endif
-Plug 'jamessan/vim-gnupg'
 
 call plug#end()
 
@@ -182,25 +164,6 @@ endif
 
 nnoremap <space> :nohlsearch<cr>
 
-" vim-markdown
-let g:markdown_fenced_languages = ['html', 'python', 'bash=sh', 'perl']
-
-" vim-test
-nnoremap <silent> tf :update\|:TestFile<Cr>
-nnoremap <silent> tl :update\|:TestLast<Cr>
-nnoremap <silent> tc :update\|:TestNearest<Cr>
-
-" FZF
-set rtp+=~/.fzf
-let g:fzf_command_prefix = 'Fzf'
-nnoremap <leader>f :FzfGitFiles<cr>
-nnoremap <leader>F :FzfFiles<cr>
-nnoremap gb :FzfBuffers<cr>
-nnoremap gs :FzfTags<cr>
-nnoremap gl :FzfLines<cr>
-nnoremap gL :FzfBLines<cr>
-nnoremap <leader>a :FzfAg<cr>
-
 " Fugitive
 nnoremap <leader>gc :Gcommit -v<cr>
 nnoremap <leader>gd :Gdiff<cr>
@@ -227,25 +190,8 @@ noremap <C-j> <C-w>j
 noremap <C-k> <C-w>k
 noremap <C-l> <C-w>l
 
-" Default handler to run the current file
-function! HandleEnter(cmd)
-  if &buftype ==# 'quickfix' || &buftype ==# 'nofile'
-    silent execute "normal! \<cr>"
-  else
-    silent execute "normal! :silent :update" . a:cmd . "\<CR>"
-  endif
-endfunction
-
-" Default version where only the file is saved
-nnoremap <silent> <cr> :call HandleEnter("")<cr>
-
 " Change the way tab autocompletion works
 set wildmode=longest,list:longest
-
-" Configure vim-easy-align
-vmap <Enter> <Plug>(EasyAlign)
-xmap ga <Plug>(EasyAlign)
-nmap ga <Plug>(EasyAlign)
 
 " Add mapping to open/close the quickfix list
 " Taken from: http://vim.wikia.com/wiki/Toggle_to_open_or_close_the_quickfix_window
@@ -286,50 +232,19 @@ if has('nvim')
   nnoremap TT :Ttoggle<cr>
 endif
 
-" Function to get the current syntax group under the cursor
-function! SynStack()
-    if !exists("*synstack")
-        return
-    endif
-    echo map(synstack(line('.'), col('.')), 'synIDattr(v:val, "name")')
-endfunc
-
-
-" Jump back to last file position
-autocmd vimrc BufReadPost *
-            \ if line("'\"") > 1 && line("'\"") <= line("$") |
-            \ exe "normal! g`\"" |
-            \ endif
-
-" ... unless it's a git message editing
-autocmd vimrc FileType gitcommit autocmd! vimrc bufEnter COMMIT_EDITMSG call setpos('.', [0, 1, 1, 0])
-autocmd vimrc FileType gitcommit autocmd! vimrc bufEnter TAG_EDITMSG call setpos('.', [0, 1, 1, 0])
-
 " Automatically resize splits when window is resized
 autocmd vimrc VimResized * wincmd =
 
 if has('nvim')
-	if hostname() =~? "ngts"
-		let g:python_host_prog = '/home/sw/.pyenv/versions/2.7.11/bin/python'
-		let g:python3_host_prog = '/home/sw/.pyenv/versions/miniconda3-latest/bin/python'
-		set shell=/home/sw/.local/bin/zsh
-	else
-		let g:python_host_prog = '/usr/local/bin/python'
-		let g:python3_host_prog = '/usr/local/bin/python3'
-		set shell=zsh
-	endif
-
-    " Stop changing the cursor type
-    set guicursor=
+      let g:python_host_prog = '/usr/local/bin/python'
+      let g:python3_host_prog = '/usr/local/bin/python3'
+      set shell=zsh
 
     " configure terinal commands
     tnoremap <Esc> <C-\><C-n>
 endif
 
-let g:vimwiki_list = [{'path': '~/vimwiki', 'path_html': '/tmp/vimwiki_html'}]
-
 set background=dark
-colorscheme lucius
 
 " Customise colour scheme
 " highlight Search guibg=NONE gui=underline guifg=NONE
