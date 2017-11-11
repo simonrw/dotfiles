@@ -164,6 +164,17 @@ endif
 
 nnoremap <space> :nohlsearch<cr>
 
+" FZF
+set rtp+=~/.fzf
+let g:fzf_command_prefix = 'Fzf'
+nnoremap <leader>f :FzfGitFiles<cr>
+nnoremap <leader>F :FzfFiles<cr>
+nnoremap gb :FzfBuffers<cr>
+nnoremap gs :FzfTags<cr>
+nnoremap gl :FzfLines<cr>
+nnoremap gL :FzfBLines<cr>
+nnoremap <leader>a :FzfAg<cr>
+
 " Fugitive
 nnoremap <leader>gc :Gcommit -v<cr>
 nnoremap <leader>gd :Gdiff<cr>
