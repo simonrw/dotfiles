@@ -230,10 +230,6 @@
 (use-package counsel
   :ensure t)
 
-(use-package evil
-  :config
-  (evil-mode t))
-
 (use-package swiper
   :ensure t
   :config
