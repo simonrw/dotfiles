@@ -57,6 +57,9 @@
 
 (setq use-package-always-ensure t)
 
+(setq indent-tabs-mode nil)
+(setq-default tab-width 4)
+
 ;;; OSX
 (when (eq system-type 'darwin)
 
@@ -205,6 +208,7 @@
   (with-eval-after-load 'python
     (elpy-enable))
   :config
+  (highlight-indentation-mode nil)
   (setq-default flycheck-flake8-maximum-line-length 100)
   (setq-default python-shell-interpreter "ipython"
                 python-shell-interpreter-args "--simple-prompt --pprint")
@@ -279,10 +283,10 @@
   (delete-window))
 
 ;; Theming
-(use-package zenburn-theme
+(use-package monokai-theme
   :ensure t
   :config
-  (load-theme 'zenburn t))
+  (load-theme 'monokai t))
 
 (org-babel-do-load-languages
  'org-babel-load-languages
