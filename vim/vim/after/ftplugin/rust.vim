@@ -6,9 +6,8 @@ if empty(cargo_toml_path)
     " nnoremap <leader>t :update\|:Make<cr>
 else
     compiler cargo
-    " nnoremap <leader>t :update\|:Make check<cr>
-    " nnoremap <leader>r :update\|:terminal cargo run<cr>
-    " nnoremap <leader>w :update\|:Make test<cr>
+    nnoremap <leader>t :update\|:Make check<cr>
+    nnoremap <leader>r :update\|:Start cargo run<cr>
 endif
 
 hi rustCommentLineDoc guifg=#EABB9D
