@@ -11,20 +11,6 @@ hs.hotkey.bind({'cmd', 'alt', 'ctrl'}, 'o', function()
     win:moveToScreen(nextScreen)
 end)
 
--- Center window
-hs.hotkey.bind({'cmd', 'alt', 'ctrl'}, 'c', function()
-    local win = hs.window.focusedWindow()
-    local f = win:frame()
-    local screen = win:screen()
-    local screenFrame = screen:frame()
-
-    f.x = (screenFrame.w / 2) - (f.w / 2)
-    f.y = (screenFrame.h / 2) - (f.h / 2)
-    f.w = f.w
-    f.h = f.h
-    win:setFrame(f)
-end)
-
 -- Move window to left two thirds
 hs.hotkey.bind({'cmd', 'alt', 'ctrl'}, 'Left', function()
     local win = hs.window.focusedWindow()
@@ -65,40 +51,3 @@ function maximizeWindow()
     f.h = max.h - FULLSCREEN_BORDER
     win:setFrame(f)
 end
-
--- Maximise window
-hs.hotkey.bind({'cmd', 'alt', 'ctrl'}, 'f', maximizeWindow)
-
--- Make window smaller
-hs.hotkey.bind({'cmd', 'alt', 'ctrl'}, '-', function()
-    local win = hs.window.focusedWindow()
-    local f = win:frame()
-
-    f.w = f.w - WINDOW_SIZE_CHANGE
-    f.h = f.h - WINDOW_SIZE_CHANGE
-    f.x = f.x + WINDOW_SIZE_CHANGE / 2
-    f.y = f.y + WINDOW_SIZE_CHANGE / 2
-    win:setFrame(f)
-end)
-
--- Make window larger
-hs.hotkey.bind({'cmd', 'alt', 'ctrl'}, '=', function()
-    local win = hs.window.focusedWindow()
-    local f = win:frame()
-
-    f.w = f.w + WINDOW_SIZE_CHANGE
-    f.h = f.h + WINDOW_SIZE_CHANGE
-    f.x = f.x - WINDOW_SIZE_CHANGE / 2
-    f.y = f.y - WINDOW_SIZE_CHANGE / 2
-    win:setFrame(f)
-end)
-
--- Make window a nice size for a large terminal without taking up the entire screen
-hs.hotkey.bind({'cmd', 'alt', 'ctrl', 'shift'}, '=', function()
-    local win = hs.window.focusedWindow()
-    local f = win:frame()
-
-    f.w = 1420 -- 235
-    f.h = 1005 -- 65
-    win:setFrame(f)
-end)
