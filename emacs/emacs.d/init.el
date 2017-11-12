@@ -19,8 +19,6 @@
 (setq mouse-wheel-scroll-amount '(1 ((shift) . 5)))
 (setq mouse-wheel-progressive-speed nil)
 (setq mouse-wheel-follow-mouse t)
-(setq default-show-trailing-whitespace t)
-(setq tramp-default-method "sshx")
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
 
 ;; Enable nicer window moving
@@ -31,7 +29,7 @@
 (setq visible-bell nil)
 (setq ring-bell-function 'ignore)
 
-;; If computer specific file exists, source it
+;; If computer specific file exists, source it (any settings changed by M-x customize)
 (setq custom-file "~/.emacs.d/custom.el")
 (when (file-exists-p custom-file)
   (load custom-file))
@@ -50,10 +48,6 @@
 (unless (package-installed-p 'use-package)
   (package-refresh-contents)
   (package-install 'use-package))
-
-(eval-when-compile
-  (require 'use-package)
-  (use-package cl))
 
 (setq use-package-always-ensure t)
 
@@ -84,20 +78,11 @@
     (setq-default mac-emulate-three-button-mouse t)
     (global-set-key (kbd "M-`") 'other-frame)))
 
-;; Try packages without installing them
-(use-package try
-  :ensure t)
-
 ;; Show available keys on pause
 (use-package which-key
   :ensure t
   :config
   (which-key-mode))
-
-(use-package org-bullets
-  :ensure t
-  :config
-  (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1))))
 
 ;; Get correct path from system shell
 (use-package exec-path-from-shell
@@ -112,18 +97,6 @@
 (use-package editorconfig
   :config
   (editorconfig-mode 1))
-
-;; fzf
-(use-package fzf
-  :commands fzf
-  :ensure t)
-
-;; flycheck
-(use-package flycheck
-  :ensure t
-  :commands global-flycheck-mode
-  :init
-  (add-hook 'after-init-hook #'global-flycheck-mode))
 
 ;; Magit
 (use-package magit
@@ -180,108 +153,6 @@
 (use-package cmake-mode
   :mode (("CMakeLists.txt" . cmake-mode)))
 
-(use-package irony
-  :init
-  (add-hook 'c++-mode-hook 'irony-mode)
-  (add-hook 'c-mode-hook 'irony-mode)
-  (add-hook 'objc-mode-hook 'irony-mode)
-  (add-hook 'irony-mode-hook 'irony-cdb-autosetup-compile-options))
-
-;; Erlang languages
-(use-package erlang)
-(use-package elixir-mode
-  :config
-  (use-package alchemist))
-
-;; Autocomplete
-(use-package auto-complete
-  :ensure t
-  :init
-  (progn
-    (ac-config-default)
-    (global-auto-complete-mode t)))
-
-;; Python
-(use-package elpy
-  :commands elpy-enable
-  :init
-  (with-eval-after-load 'python
-    (elpy-enable))
-  :config
-  (highlight-indentation-mode nil)
-  (setq-default flycheck-flake8-maximum-line-length 100)
-  (setq-default python-shell-interpreter "ipython"
-                python-shell-interpreter-args "--simple-prompt --pprint")
-  (setq elpy-rpc-backend "jedi")
-  (setq elpy-modules (delq 'elpy-module-flymake elpy-modules)))
-
-(use-package ein
-  :defer t)
-
-;; Lua
-(use-package lua-mode)
-
-;; Ivy completion
-(use-package ivy
-  :ensure t
-  :bind (("C-x b" . ivy-switch-buffer)
-         ("C-c C-r" . ivy-resume))
-  :diminish (ivy-mode)
-  :config
-  (ivy-mode 1)
-  (setq ivy-display-style 'fancy))
-
-(use-package counsel
-  :ensure t)
-
-(use-package swiper
-  :ensure t
-  :config
-  (progn
-    (setq ivy-use-virtual-buffers t)
-    (global-set-key "\C-s" 'swiper)
-    (global-set-key (kbd "M-x") 'counsel-M-x)
-    (global-set-key (kbd "C-x C-f") 'counsel-find-file)
-    (global-set-key (kbd "<f1> f") 'counsel-describe-function)
-    (global-set-key (kbd "<f1> v") 'counsel-describe-variable)
-    (global-set-key (kbd "<f1> l") 'counsel-load-library)
-    (global-set-key (kbd "<f2> i") 'counsel-info-lookup-symbol)
-    (global-set-key (kbd "<f2> u") 'counsel-unicode-char)
-    (global-set-key (kbd "C-c g") 'counsel-git)
-    (global-set-key (kbd "C-c j") 'counsel-git-grep)
-    (global-set-key (kbd "C-c k") 'counsel-ag)
-    (global-set-key (kbd "C-x l") 'counsel-locate)
-    (global-set-key (kbd "C-S-o") 'counsel-rhythmbox)
-    (define-key read-expression-map (kbd "C-r") 'counsel-expression-history)
-    ))
-
-(use-package cider)
-
-;; Use emacs shell
-(defun eshell-here ()
-  "Opens a new eshell in the current buffers cwd."
-  (interactive)
-  (let* ((parent (if (buffer-file-name)
-                     (file-name-directory (buffer-file-name))
-                   default-directory))
-         (height (/ (window-total-height) 3))
-         (name (car (last (split-string parent "/" t)))))
-    (split-window-vertically (- height))
-    (other-window 1)
-    (eshell "new")
-    (rename-buffer (concat "*eshell: " name "*"))
-    (insert (concat "ls"))
-    (eshell-send-input)))
-
-(global-set-key (kbd "C-!") 'eshell-here)
-
-(defun eshell/x ()
-  "Close the eshell from eshell."
-  (interactive)
-  (insert "exit")
-  (eshell-send-input)
-  (delete-window))
-
 ;; Theming
 (use-package monokai-theme
   :ensure t
@@ -295,8 +166,6 @@
    (ruby . t)
    (rust . t)
    (python . t)))
-
-
 
 (provide 'init)
 ;;; init.el ends here
