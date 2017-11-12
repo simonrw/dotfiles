@@ -117,22 +117,7 @@
          ("C-c C-w" . cargo-process-test)
          ("C-c C-r" . cargo-process-run))
   :config
-  (setq rust-format-on-save t)
-  (use-package flycheck-rust
-    :after flycheck
-    :commands flycheck-rust-setup
-    :init
-    (add-hook 'flycheck-mode-hook #'flycheck-rust-setup)))
-
-(use-package racer
-  :commands racer-mode
-  :init
-  (add-hook 'rust-mode-hook 'racer-mode)
-  :bind (:map rust-mode-map
-	      ("M-." . racer-find-definition))
-  :config
-  (setq racer-rust-src-path "~/.cargo/rust-src/src")
-  (racer-turn-on-eldoc))
+  (setq rust-format-on-save t))
 
 (use-package cargo
   :commands cargo-minor-mode
