@@ -7,7 +7,6 @@ endif
 if has('syntax') && !exists('g:syntax_on')
     syntax enable
 endif
-
 " Remap the leader key to comma
 let g:mapleader=','
 let g:maplocalleader='\\'
@@ -18,7 +17,7 @@ augroup vimrc
     autocmd!
 augroup END
 
-" 
+"
 "  Plugins
 "  Vim Plug
 call plug#begin('~/.vim/bundle')
@@ -30,11 +29,14 @@ Plug 'junegunn/fzf.vim'
 Plug 'tpope/vim-dispatch'
 Plug 'tpope/vim-vinegar'
 Plug 'radenling/vim-dispatch-neovim'
+Plug 'leafgarland/typescript-vim'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
+Plug 'janko-m/vim-test'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
+Plug 'ElmCast/elm-vim'
 
 call plug#end()
 
@@ -175,6 +177,11 @@ nnoremap gl :FzfLines<cr>
 nnoremap gL :FzfBLines<cr>
 nnoremap <leader>a :FzfAg<cr>
 
+" vim-test
+nnoremap <silent> tf :update\|:TestFile<Cr>
+nnoremap <silent> tl :update\|:TestLast<Cr>
+nnoremap <silent> tc :update\|:TestNearest<Cr>
+
 " Fugitive
 nnoremap <leader>gc :Gcommit -v<cr>
 nnoremap <leader>gd :Gdiff<cr>
@@ -243,6 +250,8 @@ if has('nvim')
   nnoremap TT :Ttoggle<cr>
 endif
 
+nnoremap <leader>ev :e ~/.vim/vimrc<cr>
+
 " Automatically resize splits when window is resized
 autocmd vimrc VimResized * wincmd =
 
@@ -256,6 +265,7 @@ if has('nvim')
 endif
 
 set background=dark
+colorscheme lucius
 
 " Customise colour scheme
 " highlight Search guibg=NONE gui=underline guifg=NONE
