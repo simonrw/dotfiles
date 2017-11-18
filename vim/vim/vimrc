@@ -37,8 +37,11 @@ Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
 Plug 'ElmCast/elm-vim'
+Plug 'sheerun/vim-polyglot'
 
 call plug#end()
+
+let polyglot_disabled = ['elm']
 
 " Sensible vim settings
 set autoindent
