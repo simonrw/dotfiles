@@ -255,6 +255,17 @@ endif
 
 nnoremap <leader>ev :e ~/.vim/vimrc<cr>
 
+" Default handler to save the current file
+function! HandleEnter()
+  if &buftype ==# 'quickfix' || &buftype ==# 'nofile'
+    silent execute "normal! \<cr>"
+  else
+    silent execute "normal! :silent :update\<CR>"
+  endif
+endfunction
+
+nnoremap <silent> <cr> :call HandleEnter()<cr>
+
 " Automatically resize splits when window is resized
 autocmd vimrc VimResized * wincmd =
 
