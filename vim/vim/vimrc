@@ -253,7 +253,7 @@ if has('nvim')
   nnoremap TT :Ttoggle<cr>
 endif
 
-nnoremap <leader>ev :e ~/.vim/vimrc<cr>
+nnoremap <leader>ev :tabe ~/.vim/vimrc<cr>
 
 " Default handler to save the current file
 function! HandleEnter()
