@@ -279,7 +279,7 @@ if has('nvim')
 endif
 
 set background=dark
-colorscheme lucius
+colorscheme srw256
 
 " Customise colour scheme
 " highlight Search guibg=NONE gui=underline guifg=NONE
