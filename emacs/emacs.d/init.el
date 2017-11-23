@@ -139,10 +139,18 @@
   :mode (("CMakeLists.txt" . cmake-mode)))
 
 ;; Theming
-(use-package monokai-theme
+(use-package dracula-theme
   :ensure t
   :config
-  (load-theme 'monokai t))
+  (load-theme 'dracula t))
+
+(use-package evil
+  :config
+  (evil-mode t))
+
+(load "server")
+(unless (eq (server-running-p) t)
+  (server-start))
 
 (org-babel-do-load-languages
  'org-babel-load-languages
@@ -151,6 +159,19 @@
    (ruby . t)
    (rust . t)
    (python . t)))
+
+(require 'ido)
+(setq ido-enable-flex-matching t)
+(setq ido-everywhere t)
+(ido-mode 1)
+
+(setq org-startup-indented t)
+(setq org-startup-folded "showall")
+(setq org-directory "~/Dropbox/org")
+
+(defun todo ()
+  (interactive)
+  (find-file (concat org-directory "/todo.org")))
 
 (provide 'init)
 ;;; init.el ends here
