@@ -220,3 +220,12 @@ alias email=mutt
 function todo() {
     $EDITOR ${HOME}/Desktop/todo.txt
 }
+
+function lb() {
+    LOGBOOK_DIR=${HOME}/logbook
+    if [ ! -d ${LOGBOOK_DIR} ]; then
+        mkdir -p ${LOGBOOK_DIR}
+    fi
+
+    vim ${LOGBOOK_DIR}/$(date '+%Y-%m-%d').md
+}
