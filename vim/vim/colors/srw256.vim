@@ -2,6 +2,8 @@
 
 runtime colors/grb256.vim
 
+let g:colors_name = "srw256"
+
 " Make the colour column a little bit more subtle
 " Dark background: 237
 " Light background: 15
