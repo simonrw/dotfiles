@@ -144,10 +144,6 @@
   :config
   (load-theme 'dracula t))
 
-(use-package evil
-  :config
-  (evil-mode t))
-
 (load "server")
 (unless (eq (server-running-p) t)
   (server-start))
@@ -168,6 +164,15 @@
 (setq org-startup-indented t)
 (setq org-startup-folded "showall")
 (setq org-directory "~/Dropbox/org")
+
+(use-package evil
+  :ensure t
+  :config
+  (evil-mode t))
+
+(use-package evil-surround
+  :config
+  (global-evil-surround-mode t))
 
 (defun todo ()
   (interactive)
