@@ -38,6 +38,8 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
 Plug 'ElmCast/elm-vim'
 Plug 'sheerun/vim-polyglot'
+Plug 'tpope/vim-eunuch'
+Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
 
 call plug#end()
 
