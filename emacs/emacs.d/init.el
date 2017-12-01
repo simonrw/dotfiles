@@ -174,6 +174,8 @@
   :config
   (global-evil-surround-mode t))
 
+(use-package elixir-mode)
+
 (defun todo ()
   (interactive)
   (find-file (concat org-directory "/todo.org")))
