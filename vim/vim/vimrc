@@ -189,6 +189,7 @@ nnoremap <leader>a :FzfAg<cr>
 nnoremap <silent> tf :update\|:TestFile<Cr>
 nnoremap <silent> tl :update\|:TestLast<Cr>
 nnoremap <silent> tc :update\|:TestNearest<Cr>
+let test#strategy = 'vtr'
 
 " Fugitive
 nnoremap <leader>gc :Gcommit -v<cr>
