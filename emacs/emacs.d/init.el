@@ -164,6 +164,11 @@
 (setq org-startup-indented t)
 (setq org-startup-folded "showall")
 (setq org-directory "~/Dropbox/org")
+(org-babel-do-load-languages
+ 'org-babel-load-languages
+ '((plantuml . t)))
+
+(setq org-plantuml-jar-path "/usr/local/opt/plantuml/libexec/plantuml.jar")
 
 (use-package evil
   :ensure t
