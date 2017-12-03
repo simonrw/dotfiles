@@ -164,6 +164,8 @@ function sourceenv() {
         # Normal python environment
         source ${PWD}/venv/bin/activate
     fi
+
+    rehash
 }
 alias se=sourceenv
 
