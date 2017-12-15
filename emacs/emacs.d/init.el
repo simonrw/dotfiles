@@ -179,11 +179,15 @@
   :config
   (global-evil-surround-mode t))
 
+(use-package go-mode)
+
 (use-package elixir-mode)
 
 (defun todo ()
   (interactive)
   (find-file (concat org-directory "/todo.org")))
+
+(global-visual-line-mode t)
 
 (provide 'init)
 ;;; init.el ends here
