@@ -40,6 +40,7 @@ Plug 'ElmCast/elm-vim'
 Plug 'sheerun/vim-polyglot'
 Plug 'tpope/vim-eunuch'
 Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
+Plug 'w0rp/ale'
 if has('nvim')
     Plug 'kassio/neoterm'
 endif
