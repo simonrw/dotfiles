@@ -1,6 +1,6 @@
 -- Terminal
 hs.hotkey.bind({'cmd', 'alt'}, 't', function()
-    hs.application.launchOrFocus('iTerm2')
+    hs.application.launchOrFocus('iTerm')
 end)
 
 -- Browser
