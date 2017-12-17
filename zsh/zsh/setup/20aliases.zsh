@@ -27,3 +27,8 @@ if has_executable hub; then
     alias g=hub
 fi
 
+if has_executable nvim; then
+    alias vi=nvim
+    alias vim=nvim
+fi
+
