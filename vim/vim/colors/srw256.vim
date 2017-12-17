@@ -31,3 +31,8 @@ highlight Search guibg=NONE gui=underline guifg=NONE
 " Highlight trailing whitespace
 highlight ExtraWhitespace ctermbg=237 guibg=#333333
 autocmd Syntax * syn match ExtraWhitespace /\s\+$/
+
+" Handle ALE highlighting
+hi SpellBad  term=reverse ctermfg=15 ctermbg=0 gui=bold guifg=white guibg=#FF6C60 guisp=Red
+hi SpellCap  term=reverse ctermfg=15 ctermbg=0 gui=undercurl guisp=Blue
+hi Error     term=reverse ctermfg=15 ctermbg=0 gui=undercurl guisp=#FF6C60
