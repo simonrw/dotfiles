@@ -51,6 +51,3 @@ function maximizeWindow()
     f.h = max.h - FULLSCREEN_BORDER
     win:setFrame(f)
 end
-
--- Maximise window
-hs.hotkey.bind({'cmd', 'alt', 'ctrl'}, 'f', maximizeWindow)
