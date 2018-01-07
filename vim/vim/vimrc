@@ -9,6 +9,9 @@ Plug 'junegunn/fzf.vim'
 call plug#end()
 
 set ttimeoutlen=0
+set shiftwidth=4
+set tabstop=4
+set expandtab
 
 " FZF
 set rtp+=~/.fzf
