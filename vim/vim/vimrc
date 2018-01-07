@@ -11,6 +11,7 @@ call plug#end()
 set ttimeoutlen=0
 set shiftwidth=4
 set tabstop=4
+set smartcase
 set expandtab
 
 " FZF
