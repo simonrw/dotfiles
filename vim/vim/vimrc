@@ -14,6 +14,8 @@ set tabstop=4
 set smartcase
 set expandtab
 
+nnoremap <space> :nohl<cr>
+
 " FZF
 set rtp+=~/.fzf
 let g:fzf_command_prefix = 'Fzf'
