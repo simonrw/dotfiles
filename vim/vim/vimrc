@@ -39,3 +39,5 @@ if has('nvim')
 
     autocmd TermOpen * startinsert
 endif
+
+set background=dark
