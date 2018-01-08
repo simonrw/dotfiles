@@ -37,5 +37,5 @@ if has('nvim')
 	tnoremap <M-[> <Esc>
 	tnoremap <C-v><Esc> <Esc>
 
-	autocmd BufWinEnter,WinEnter term://* startinsert
+    autocmd TermOpen * startinsert
 endif
