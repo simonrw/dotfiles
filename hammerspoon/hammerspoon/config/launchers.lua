@@ -13,8 +13,8 @@ hs.hotkey.bind({'cmd', 'alt'}, 'n', function()
     hs.application.launchOrFocus('Notational Velocity')
 end)
 
-hs.hotkey.bind({'cmd', 'alt'}, 's', function()
-    hs.application.launchOrFocus('Skype')
+hs.hotkey.bind({'cmd', 'alt'}, 'e', function()
+    hs.application.launchOrFocus('Mail')
 end)
 
 hs.hotkey.bind({'cmd', 'alt', 'ctrl'}, 'i', function()
