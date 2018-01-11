@@ -8,6 +8,7 @@ Plug 'junegunn/fzf.vim'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-vinegar'
 Plug 'tpope/vim-unimpaired'
+Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-rsi'
 
 call plug#end()
@@ -19,6 +20,14 @@ set smartcase
 set expandtab
 
 nnoremap <space> :nohl<cr>
+nnoremap <C-h> <C-w><C-h>
+nnoremap <C-j> <C-w><C-j>
+nnoremap <C-k> <C-w><C-k>
+nnoremap <C-l> <C-w><C-l>
+
+if executable('rg')
+    set grepprg=rg\ --vimgrep
+endif
 
 " FZF
 set rtp+=~/.fzf
