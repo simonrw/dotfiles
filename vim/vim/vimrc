@@ -10,6 +10,7 @@ Plug 'tpope/vim-vinegar'
 Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-rsi'
+Plug 'christoomey/vim-tmux-runner'
 
 call plug#end()
 
@@ -39,6 +40,17 @@ nnoremap gs :FzfTags<cr>
 nnoremap gl :FzfLines<cr>
 nnoremap gL :FzfBLines<cr>
 nnoremap <leader>a :FzfAg<cr>
+
+" Configure vim tmux runner
+let g:VtrStripLeadingWhitespace = 1
+let g:VtrClearEmptyLines = 1
+let g:VtrAppendNewline = 1
+
+nnoremap <leader>v :VtrAttachToPane<cr>
+
+" Create shorter 'V' command which is easier to type
+command! -nargs=? V call VtrSendCommand(<f-args>)
+
 
 " Configure neovim's terminal mode
 if has('nvim')
