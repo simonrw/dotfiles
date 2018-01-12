@@ -19,6 +19,8 @@ set shiftwidth=4
 set tabstop=4
 set smartcase
 set expandtab
+set smartcase
+set ignorecase
 
 nnoremap <space> :nohl<cr>
 nnoremap <C-h> <C-w><C-h>
