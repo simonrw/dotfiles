@@ -9,8 +9,12 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-vinegar'
 Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-rsi'
 Plug 'christoomey/vim-tmux-runner'
+Plug 'elixir-editors/vim-elixir'
+Plug 'ElmCast/elm-vim'
+Plug 'janko-m/vim-test'
 
 call plug#end()
 
@@ -48,10 +52,24 @@ let g:VtrStripLeadingWhitespace = 1
 let g:VtrClearEmptyLines = 1
 let g:VtrAppendNewline = 1
 
+" Configure vim test
+nnoremap <silent> tf :update\|:TestFile<Cr>
+nnoremap <silent> tl :update\|:TestLast<Cr>
+nnoremap <silent> tc :update\|:TestNearest<Cr>
+
 nnoremap <leader>v :VtrAttachToPane<cr>
 
 " Create shorter 'V' command which is easier to type
 command! -nargs=? V call VtrSendCommand(<f-args>)
+
+" Configure vim fugitive
+nnoremap <leader>gc :Gcommit -v<cr>
+nnoremap <leader>gd :Gdiff<cr>
+nnoremap <leader>gw :Gwrite<cr>
+nnoremap <leader>gr :Gread<cr>
+nnoremap <leader>gs :Gstatus<cr>
+nnoremap <leader>ga :Gcommit -v --amend<cr>
+
 
 
 " Configure neovim's terminal mode
