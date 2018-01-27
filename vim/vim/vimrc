@@ -9,12 +9,16 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-vinegar'
 Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-eunuch'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-rsi'
 Plug 'christoomey/vim-tmux-runner'
 Plug 'elixir-editors/vim-elixir'
 Plug 'ElmCast/elm-vim'
 Plug 'janko-m/vim-test'
+Plug 'w0rp/ale'
+Plug 'cespare/vim-toml'
+Plug 'tikhomirov/vim-glsl'
 
 call plug#end()
 
@@ -25,12 +29,15 @@ set smartcase
 set expandtab
 set smartcase
 set ignorecase
+set hidden
+set tags+=.git/tags
 
 nnoremap <space> :nohl<cr>
 nnoremap <C-h> <C-w><C-h>
 nnoremap <C-j> <C-w><C-j>
 nnoremap <C-k> <C-w><C-k>
 nnoremap <C-l> <C-w><C-l>
+nnoremap cp mmgg"+yG'm
 
 if executable('rg')
     set grepprg=rg\ --vimgrep
@@ -56,6 +63,7 @@ let g:VtrAppendNewline = 1
 nnoremap <silent> tf :update\|:TestFile<Cr>
 nnoremap <silent> tl :update\|:TestLast<Cr>
 nnoremap <silent> tc :update\|:TestNearest<Cr>
+let test#python#runner = 'pytest'
 
 nnoremap <leader>v :VtrAttachToPane<cr>
 
