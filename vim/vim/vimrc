@@ -3,6 +3,10 @@ let g:maplocalleader = '\\'
 
 call plug#begin('~/.vim/bundle')
 
+if !has('nvim')
+    Plug 'tpope/vim-sensible'
+endif
+
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': 'yes \| ./install --no-update-rc --no-completion --key-bindings' }
 Plug 'junegunn/fzf.vim'
 Plug 'tpope/vim-surround'
