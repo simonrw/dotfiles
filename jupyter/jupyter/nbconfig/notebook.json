@@ -1,9 +1,14 @@
 {
   "load_extensions": {
-    "vim_binding/vim_binding": true
+    "vim_binding/vim_binding": true,
+    "nbextensions_configurator/config_menu/main": true,
+    "contrib_nbextensions_help_item/main": true,
+    "code_prettify/autopep8": true,
+    "collapsible_headings/main": true,
+    "gist_it/main": true
   },
   "Notebook": {
-    "Header": false,
-    "Toolbar": false
+    "Header": true,
+    "Toolbar": true
   }
 }
