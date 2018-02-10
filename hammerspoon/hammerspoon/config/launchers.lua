@@ -5,7 +5,7 @@ end)
 
 -- Browser
 hs.hotkey.bind({'cmd', 'alt'}, 'c', function()
-    hs.application.launchOrFocus('Google Chrome')
+    hs.application.launchOrFocus('Safari')
 end)
 
 -- Notational velocity
