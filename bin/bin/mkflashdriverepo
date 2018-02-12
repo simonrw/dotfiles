@@ -39,7 +39,11 @@ def main(args):
     with change_dir(newpath):
         sp.check_call(['git', 'init', '--bare'], stdout=sp.PIPE, stderr=sp.PIPE)
 
-    print(newpath)
+    if args.no_add_origin:
+        print(newpath)
+    else:
+        sp.check_call(['git', 'remote', 'add', 'origin', newpath])
+        print(f'Set up new remote `origin`')
 
 
 
@@ -49,5 +53,7 @@ if __name__ == '__main__':
     parser.add_argument('-p', '--path', required=False,
             default=pathlib.Path('/', 'Volumes', 'PORTABLE', 'gitrepos'))
     parser.add_argument('-f', '--force', required=False, action='store_true',
+            default=False)
+    parser.add_argument('--no-add-origin', action='store_true',
             default=False)
     main(parser.parse_args())
