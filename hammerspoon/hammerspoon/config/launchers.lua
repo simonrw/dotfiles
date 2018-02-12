@@ -5,23 +5,9 @@ end)
 
 -- Browser
 hs.hotkey.bind({'cmd', 'alt'}, 'c', function()
-    hs.application.launchOrFocus('FirefoxNightly')
-end)
-
--- Notational velocity
-hs.hotkey.bind({'cmd', 'alt'}, 'n', function()
-    hs.application.launchOrFocus('Notational Velocity')
+    hs.application.launchOrFocus('Firefox')
 end)
 
 hs.hotkey.bind({'cmd', 'alt'}, 'e', function()
     hs.application.launchOrFocus('Mail')
-end)
-
-hs.hotkey.bind({'cmd', 'alt', 'ctrl'}, 'i', function()
-    hs.application.launchOrFocus('LimeChat')
-end)
-
--- Hammerspoon window
-hs.hotkey.bind({'cmd', 'shift', 'alt'}, 'h', function()
-    hs.application.launchOrFocus('Hammerspoon')
 end)
