@@ -1,7 +1,7 @@
 # Set up environment variables here
 set BUILD_PREFIX $HOME/.local
 set -x PATH $HOME/.bin $HOME/.bin/ngts $BUILD_PREFIX/bin $HOME/.cargo/bin $PATH
-set EDITOR vim
+set EDITOR nvim
 set VISUAL $EDITOR
 
 # Set up fzf
