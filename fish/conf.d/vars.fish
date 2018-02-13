@@ -1,9 +1,6 @@
-# Set up pyenv
-set PYENV_ROOT $HOME/.pyenv
-
 # Set up environment variables here
 set BUILD_PREFIX $HOME/.local
-set -x PATH $HOME/.bin $HOME/.bin/ngts $BUILD_PREFIX/bin $HOME/.cargo/bin $PYENV_ROOT/bin $PYENV_ROOT/shims $PATH
+set -x PATH $HOME/.bin $HOME/.bin/ngts $BUILD_PREFIX/bin $HOME/.cargo/bin $PATH
 set EDITOR vim
 set VISUAL $EDITOR
 
