@@ -21,7 +21,6 @@ Plug 'christoomey/vim-tmux-runner'
 Plug 'elixir-editors/vim-elixir'
 Plug 'ElmCast/elm-vim'
 Plug 'janko-m/vim-test'
-Plug 'w0rp/ale'
 Plug 'cespare/vim-toml'
 Plug 'tikhomirov/vim-glsl'
 
