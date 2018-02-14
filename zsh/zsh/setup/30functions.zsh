@@ -231,3 +231,11 @@ function lb() {
 
     vim ${LOGBOOK_DIR}/$(date '+%Y-%m-%d').md
 }
+
+# Function to create a quick git commit
+function commit() {
+    git commit -m "$*"
+}
+
+alias c=commit
+alias com=commit

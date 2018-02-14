@@ -11,6 +11,7 @@
     branch-name = "!git rev-parse --abbrev-ref HEAD"
     graphviz = !"f() { echo 'digraph git {' ; git log --pretty='format:  %h -> { %p }' \"$@\" | sed 's/[0-9a-f][0-9a-f]*/\"&\"/g' ; echo '}'; }; f"
 
+    commit = "!echo 'Use c/com/commit!!!'"
     graph = log --graph --all --decorate --stat --date iso
     # Scripting aliases
     # -- always run command at the root of the git repo
@@ -35,7 +36,7 @@
     mergeff = merge --ff-only
     sync = !git pr && git push
     wdiff = diff --color-words
-    ci = commit -v
+    ci = "!echo 'Use c/com/commit!!!'"
     c = commit -m
     q = quick
     edit = "!vim `git ls-files -m`"
