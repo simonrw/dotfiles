@@ -25,3 +25,6 @@
 [submodule "external/FlameGraph"]
 	path = external/FlameGraph
 	url = https://github.com/brendangregg/FlameGraph
+[submodule "external/mkflashdriverepo"]
+	path = external/mkflashdriverepo
+	url = git@github.com:mindriot101/mkflashdriverepo.git
