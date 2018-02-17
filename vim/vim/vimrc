@@ -99,3 +99,4 @@ if has('nvim')
 endif
 
 set background=dark
+colorscheme lucius
