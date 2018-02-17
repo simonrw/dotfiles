@@ -26,6 +26,8 @@ Plug 'tikhomirov/vim-glsl'
 
 call plug#end()
 
+set number
+set relativenumber
 set ttimeoutlen=0
 set shiftwidth=4
 set tabstop=4
