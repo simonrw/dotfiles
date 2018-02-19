@@ -27,6 +27,7 @@ EXCLUDE_LIST = [
     'dircolors',
     'emacs',
     'testing',
+    'kitty',
 ]
 
 
@@ -42,6 +43,34 @@ def main(args):
 
     for directory in directories:
         create_link(directory, args.prefix, args.force, args.dry_run)
+
+    deploy_specifics()
+
+
+def deploy_specifics():
+    deploy_kitty()
+
+
+def deploy_kitty():
+    dest = os.path.expanduser(
+            os.path.join(
+                '~', 'Library', 'Preferences', 'kitty', 'kitty.conf'))
+
+    if os.path.exists(dest):
+        raise ValueError('Kitty config file exists')
+
+    src = os.path.join(
+            os.path.dirname(__file__),
+            'kitty', 'kitty', 'kitty.conf')
+
+    containing_dir = os.path.dirname(dest)
+    if not os.path.isdir(containing_dir):
+        os.makedirs(containing_dir)
+
+    os.symlink(src, dest)
+
+
+
 
 
 def create_link(directory, prefix, force, dry_run):
