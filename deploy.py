@@ -59,9 +59,9 @@ def deploy_kitty():
     if os.path.exists(dest):
         raise ValueError('Kitty config file exists')
 
-    src = os.path.join(
+    src = os.path.realpath(os.path.join(
             os.path.dirname(__file__),
-            'kitty', 'kitty', 'kitty.conf')
+            'kitty', 'kitty', 'kitty.conf'))
 
     containing_dir = os.path.dirname(dest)
     if not os.path.isdir(containing_dir):
