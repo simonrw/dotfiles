@@ -234,7 +234,11 @@ function lb() {
 
 # Function to create a quick git commit
 function commit() {
-    git commit -m "$*"
+    if [[ $# == 0 ]]; then
+        git commit
+    else
+        git commit -m "$*"
+    fi
 }
 
 alias c=commit
