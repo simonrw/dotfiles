@@ -49,6 +49,8 @@ nnoremap <C-l> <C-w><C-l>
 nnoremap cp mmgg"+yG'm
 nnoremap ' `
 nnoremap ` '
+nnoremap j gj
+nnoremap k gk
 
 if executable('rg')
     set grepprg=rg\ --vimgrep
