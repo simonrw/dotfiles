@@ -39,6 +39,7 @@ set ignorecase
 set hidden
 set tags+=.git/tags
 set wildmode=longest:full
+set noswapfile
 
 nnoremap <space> :nohl<cr>
 nnoremap <C-h> <C-w><C-h>
