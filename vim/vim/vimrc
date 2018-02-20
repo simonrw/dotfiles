@@ -27,8 +27,9 @@ Plug 'tikhomirov/vim-glsl'
 
 call plug#end()
 
-set number
+set nonumber
 set relativenumber
+set numberwidth=5
 set ttimeoutlen=0
 set shiftwidth=4
 set tabstop=4
@@ -38,8 +39,27 @@ set smartcase
 set ignorecase
 set hidden
 set tags+=.git/tags
-set wildmode=longest:full
+set wildmode=list:longest,list:full
 set noswapfile
+set nobackup
+set nowritebackup
+set history=50
+set complete=.,w,t
+set ruler
+set showcmd
+set incsearch
+set laststatus=2
+set backspace=2
+set autowrite
+function! InsertTabWrapper()
+    let col = col('.') - 1
+    if !col || getline('.')[col - 1] !~ '\k'
+        return "\<tab>"
+    else
+        return "\<c-p>"
+    endif
+endfunction
+inoremap <Tab> <c-r>=InsertTabWrapper()<cr>
 
 nnoremap <space> :nohl<cr>
 nnoremap <C-h> <C-w><C-h>
@@ -91,7 +111,13 @@ nnoremap <leader>gr :Gread<cr>
 nnoremap <leader>gs :Gstatus<cr>
 nnoremap <leader>ga :Gcommit -v --amend<cr>
 
-
+" When editing a file, always jump to the last known cursor position.
+" Don't do it for commit messages, when the position is invalid, or when
+" inside an event handler (happens when dropping a file on gvim).
+autocmd BufReadPost *
+\ if &ft != 'gitcommit' && line("'\"") > 0 && line("'\"") <= line("$") |
+\   exe "normal g`\"" |
+\ endif
 
 " Configure neovim's terminal mode
 if has('nvim')
