@@ -5,7 +5,7 @@ end)
 
 -- Browser
 hs.hotkey.bind({'cmd', 'alt'}, 'c', function()
-    hs.application.launchOrFocus('FirefoxNightly')
+    hs.application.launchOrFocus('Google Chrome')
 end)
 
 hs.hotkey.bind({'cmd', 'alt'}, 'e', function()
