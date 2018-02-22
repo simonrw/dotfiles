@@ -28,7 +28,7 @@ Plug 'tikhomirov/vim-glsl'
 call plug#end()
 
 set nonumber
-set relativenumber
+set norelativenumber
 set numberwidth=5
 set ttimeoutlen=0
 set shiftwidth=4
