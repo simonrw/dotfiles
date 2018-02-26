@@ -5,7 +5,7 @@ end)
 
 -- Browser
 hs.hotkey.bind({'cmd', 'alt'}, 'c', function()
-    hs.application.launchOrFocus('Firefox')
+    hs.application.launchOrFocus('FirefoxDeveloperEdition')
 end)
 
 hs.hotkey.bind({'cmd', 'alt'}, 'e', function()
