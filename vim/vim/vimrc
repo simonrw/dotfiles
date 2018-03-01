@@ -24,6 +24,7 @@ Plug 'ElmCast/elm-vim'
 Plug 'janko-m/vim-test'
 Plug 'cespare/vim-toml'
 Plug 'tikhomirov/vim-glsl'
+Plug 'leafgarland/typescript-vim'
 
 call plug#end()
 
