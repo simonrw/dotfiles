@@ -109,7 +109,7 @@ export PATH=${PATH}:${HOME}/.cargo/bin
 export CARGO_HOME=${HOME}/.cargo
 export RUST_SRC_PATH=${HOME}/.cargo/rust-src/src
 export RUST_NEW_ERROR_FORMAT=true
-export RUST_BACKTRACE=1
+export RUST_BACKTRACE=0
 
 # source external zsh setup files
 for file in ~/.zsh/setup/*.zsh; do
