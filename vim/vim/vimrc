@@ -25,6 +25,7 @@ Plug 'janko-m/vim-test'
 Plug 'cespare/vim-toml'
 Plug 'tikhomirov/vim-glsl'
 Plug 'leafgarland/typescript-vim'
+Plug 'w0rp/ale'
 
 call plug#end()
 
