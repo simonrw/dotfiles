@@ -115,6 +115,10 @@ nnoremap <leader>gr :Gread<cr>
 nnoremap <leader>gs :Gstatus<cr>
 nnoremap <leader>ga :Gcommit -v --amend<cr>
 
+" Add mapping for ALENext/ALEPrevious
+nmap <silent> [g <Plug>(ale_previous_wrap)
+nmap <silent> ]g <Plug>(ale_next_wrap)
+
 inoremap jj <Esc>
 
 " When editing a file, always jump to the last known cursor position.
