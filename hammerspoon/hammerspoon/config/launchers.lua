@@ -7,3 +7,7 @@ end)
 hs.hotkey.bind({'cmd', 'alt'}, 'c', function()
     hs.application.launchOrFocus('Google Chrome')
 end)
+
+hs.hotkey.bind({'cmd', 'alt'}, 'e', function()
+    hs.application.launchOrFocus('Mail')
+end)
