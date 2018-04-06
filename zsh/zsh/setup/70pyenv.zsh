@@ -1,2 +1,2 @@
-export PATH="/Users/simon/.pyenv/bin:$PATH"
+export PATH="${HOME}/.pyenv/bin:$PATH"
 eval "$(pyenv init - --no-rehash)"

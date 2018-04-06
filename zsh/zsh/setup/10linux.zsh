@@ -1,7 +1,6 @@
 # Linux setup
 case $OSTYPE in
     linux*)
-        export BROWSER=firefox
         export LD_LIBRARY_PATH=${BUILD_PREFIX}/lib:${LD_LIBRARY_PATH}
         export PKG_CONFIG_PATH=${BUILD_PREFIX}/lib/pkgconfig:${PKG_CONFIG_PATH}
 
