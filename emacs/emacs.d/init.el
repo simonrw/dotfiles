@@ -8,7 +8,7 @@
 (blink-cursor-mode 0)
 (setq inhibit-splash-screen t)
 (setq inhibit-startup-message t)
-(dolist (m '(tooltip-mode tool-bar-mode scroll-bar-mode))
+(dolist (m '(tooltip-mode tool-bar-mode scroll-bar-mode menu-bar-mode))
   (when (fboundp m) (funcall m -1)))
 (show-paren-mode 1)
 (prefer-coding-system 'utf-8)
@@ -169,6 +169,7 @@
  '((plantuml . t)))
 
 (setq org-plantuml-jar-path "/usr/local/opt/plantuml/libexec/plantuml.jar")
+(setq org-src-fontify-natively t)
 
 (use-package evil
   :ensure t
