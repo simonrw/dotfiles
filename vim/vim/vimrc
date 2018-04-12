@@ -29,6 +29,7 @@ Plug 'cespare/vim-toml'
 Plug 'tikhomirov/vim-glsl'
 Plug 'leafgarland/typescript-vim'
 Plug 'kassio/neoterm'
+Plug 'aklt/plantuml-syntax'
 
 call plug#end()
 
