@@ -30,6 +30,8 @@ Plug 'tikhomirov/vim-glsl'
 Plug 'leafgarland/typescript-vim'
 Plug 'kassio/neoterm'
 Plug 'aklt/plantuml-syntax'
+Plug 'neomake/neomake'
+Plug 'christoomey/vim-tmux-navigator'
 
 call plug#end()
 
