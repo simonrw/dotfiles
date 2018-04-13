@@ -27,8 +27,8 @@ floating_modifier $mod
 bindsym $mod+Return exec stterm
 # bindsym $mod+Return exec urxvt
 
-# start chrome
-bindsym $mod+c exec chromium-browser
+# start browser
+bindsym $mod+c exec firefox
 
 # kill focused window
 bindsym $mod+Shift+Q kill
@@ -116,6 +116,8 @@ bindsym $mod+Shift+C reload
 bindsym $mod+Shift+R restart
 # exit i3 (logs you out of your X session)
 bindsym $mod+Shift+E exit
+
+bindsym $mod+Ctrl+L exec i3lock -c '#000000'
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
