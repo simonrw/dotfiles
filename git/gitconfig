@@ -128,4 +128,4 @@
     smudge = git-lfs smudge %f
     required = true
 [credential]
-	helper = cache
+	helper = store
