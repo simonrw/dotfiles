@@ -8,7 +8,7 @@ case $OSTYPE in
         function module() { eval `modulecmd zsh $*`; }
 
         export work=${HOME}/work/
-        alias open='xdg-open 2>/dev/null'
+        function open() { nohup xdg-open 2>/dev/null $* & disown }
         alias pbcopy='xsel --clipboard --input'
         alias pbpaste='xsel --clipboard --output'
 
