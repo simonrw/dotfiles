@@ -29,8 +29,5 @@ data.location=~/.task
 #include /usr/local/Cellar/task/2.5.1/share/doc/task/rc/solarized-light-256.theme
 #include /usr/local/Cellar/task/2.5.1/share/doc/task/rc/no-color.theme
 
-# Sync config
-#include ~/.task.d/syncconfig
-
 # Local overrides
 include ~/.task.d/local.conf
