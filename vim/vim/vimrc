@@ -30,6 +30,10 @@ Plug 'tikhomirov/vim-glsl'
 Plug 'leafgarland/typescript-vim'
 Plug 'kassio/neoterm'
 Plug 'aklt/plantuml-syntax'
+Plug 'racer-rust/vim-racer'
+Plug 'autozimu/LanguageClient-neovim', { 'do': ':UpdateRemotePlugins' }
+Plug 'roxma/nvim-completion-manager'
+Plug 'roxma/nvim-cm-racer'
 
 call plug#end()
 
