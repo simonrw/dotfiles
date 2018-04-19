@@ -38,7 +38,7 @@ Plug 'roxma/nvim-cm-racer'
 call plug#end()
 
 set nonumber
-set norelativenumber
+set relativenumber
 set numberwidth=5
 set ttimeoutlen=0
 set shiftwidth=4
