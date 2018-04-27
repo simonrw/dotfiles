@@ -118,9 +118,6 @@ let g:VtrAppendNewline = 1
 " Change the way tab autocompletion works
 set wildmode=longest,list:longest
 
-" Automatically resize splits when window is resized
-autocmd vimrc VimResized * wincmd =
-
 " Add mapping to open/close the quickfix list
 " Taken from: http://vim.wikia.com/wiki/Toggle_to_open_or_close_the_quickfix_window
 function! GetBufferList()
