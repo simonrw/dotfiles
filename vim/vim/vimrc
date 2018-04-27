@@ -62,6 +62,9 @@ set laststatus=2
 set backspace=2
 set autowrite
 set nowrap
+set breakindent
+set synmaxcol=200
+
 " Prevent Vim from clobbering the scrollback buffer. See
 " http://www.shallowsky.com/linux/noaltscreen.html
 set t_ti= t_te=
@@ -82,11 +85,15 @@ nnoremap <C-h> <C-w><C-h>
 nnoremap <C-j> <C-w><C-j>
 nnoremap <C-k> <C-w><C-k>
 nnoremap <C-l> <C-w><C-l>
-nnoremap cp mmgg"+yG'm
+nnoremap cp :0,$y+<Cr>
 nnoremap ' `
 nnoremap ` '
 nnoremap j gj
 nnoremap k gk
+
+" Reselect visual block after indent/outdent
+vnoremap < <gv
+vnoremap > >gv
 
 if executable('rg')
     set grepprg=rg\ --vimgrep
@@ -107,6 +114,59 @@ nnoremap <leader>a :FzfAg<cr>
 let g:VtrStripLeadingWhitespace = 1
 let g:VtrClearEmptyLines = 1
 let g:VtrAppendNewline = 1
+
+" Change the way tab autocompletion works
+set wildmode=longest,list:longest
+
+" Automatically resize splits when window is resized
+autocmd vimrc VimResized * wincmd =
+
+" Add mapping to open/close the quickfix list
+" Taken from: http://vim.wikia.com/wiki/Toggle_to_open_or_close_the_quickfix_window
+function! GetBufferList()
+  redir =>buflist
+  silent! ls!
+  redir END
+  return buflist
+endfunction
+
+function! ToggleList(bufname, pfx)
+  let buflist = GetBufferList()
+  for bufnum in map(filter(split(buflist, '\n'), 'v:val =~ "'.a:bufname.'"'), 'str2nr(matchstr(v:val, "\\d\\+"))')
+    if bufwinnr(bufnum) != -1
+      exec(a:pfx.'close')
+      return
+    endif
+  endfor
+  if a:pfx == 'l' && len(getloclist(0)) == 0
+      echohl ErrorMsg
+      echo "Location List is Empty."
+      return
+  endif
+  let winnr = winnr()
+  exec(a:pfx.'open')
+  if winnr() != winnr
+    wincmd p
+  endif
+endfunction
+
+" nmap <silent> <leader>l :call ToggleList("Location List", 'l')<CR>
+nmap <silent> Q :call ToggleList("Quickfix List", 'c')<CR>
+
+" Bind K to grep word under cursor
+nnoremap <silent> K :grep! "<C-R><C-W>"<cr><cr>\|:copen<Cr>
+
+" Default handler to run the current file
+function! HandleEnter(cmd)
+  if &buftype ==# 'quickfix' || &buftype ==# 'nofile'
+    silent execute "normal! \<cr>"
+  else
+    silent execute "normal! :silent :update" . a:cmd . "\<CR>"
+  endif
+endfunction
+
+" Default version where only the file is saved
+nnoremap <silent> <cr> :call HandleEnter("")<cr>
 
 " Configure vim test
 nnoremap <silent> tf :update\|:TestFile<Cr>
