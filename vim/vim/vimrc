@@ -118,6 +118,9 @@ let g:VtrAppendNewline = 1
 " Change the way tab autocompletion works
 set wildmode=longest,list:longest
 
+" Expand %% to the current directory
+cnoremap %% <c-r>=expand('%:h') . '/'<cr>
+
 " Add mapping to open/close the quickfix list
 " Taken from: http://vim.wikia.com/wiki/Toggle_to_open_or_close_the_quickfix_window
 function! GetBufferList()
