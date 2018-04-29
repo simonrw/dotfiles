@@ -38,7 +38,7 @@ Plug 'roxma/nvim-cm-racer'
 call plug#end()
 
 set nonumber
-set relativenumber
+set norelativenumber
 set numberwidth=5
 set ttimeoutlen=0
 set shiftwidth=4
@@ -120,6 +120,8 @@ set wildmode=longest,list:longest
 
 " Expand %% to the current directory
 cnoremap %% <c-r>=expand('%:h') . '/'<cr>
+
+nnoremap <silent> <leader>ev :tabe $MYVIMRC<Cr>
 
 " Add mapping to open/close the quickfix list
 " Taken from: http://vim.wikia.com/wiki/Toggle_to_open_or_close_the_quickfix_window
