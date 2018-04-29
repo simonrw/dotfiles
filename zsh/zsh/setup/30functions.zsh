@@ -214,7 +214,7 @@ __git_files () {
 # directory so that any attachments are automatically saved there
 function mutt() {
     (cd ~/Downloads
-    =mutt -n -F ~/.mutt.d/startup-fastmail.mutt)
+    =mutt -n -F ~/.mutt.d/startup-gmail.mutt)
 }
 alias email=mutt
 
