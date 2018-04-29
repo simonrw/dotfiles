@@ -114,14 +114,14 @@ set crypt_autosign = no
 # Accounts XXX not working at the moment, so commented out
 # Tutorial: https://wiki.archlinux.org/index.php/mutt#Multiple_accounts
 #
-# Work account
-# source "~/.mutt.d/account.work"
-# folder-hook $folder 'source ~/.mutt.d/account.work'
+# Fastmail account
+folder-hook account.fastmail 'source ~/.mutt.d/account.fastmail'
 
 # Gmail account
-# source "~/.mutt.d/account.gmail"
-# folder-hook imaps://s.r.walker101@imap.googlemail.com:993 'source ~/.mutt.d/account.gmail'
+folder-hook account.gmail 'source ~/.mutt.d/account.gmail'
+source "~/.mutt.d/account.gmail"
 
 # Shortcuts to change folder
-# macro index,pager <f2> '<sync-mailbox><enter-command>source ~/.mutt.d/account.gmail<enter><change-folder>!<enter>'
-# macro index,pager <f3> '<sync-mailbox><enter-command>source ~/.mutt.d/account.work<enter><change-folder>!<enter>'
+macro index,pager <f2> '<sync-mailbox><enter-command>source ~/.mutt.d/account.gmail<enter><change-folder>!<enter>'
+macro index,pager <f3> '<sync-mailbox><enter-command>source ~/.mutt.d/account.fastmail<enter><change-folder>!<enter>'
+# macro index,pager <f3> '<sync-mailbox><enter-command>source ~/.utt.d/account.work<enter><change-folder>!<enter>'
