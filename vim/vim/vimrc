@@ -70,6 +70,10 @@ set synmaxcol=200
 set t_ti= t_te=
 set modeline
 
+" Configure nvim completion manager
+let g:cm_auto_popup = 0
+imap <C-space> <Plug>(cm_force_refresh)
+
 function! InsertTabWrapper()
     let col = col('.') - 1
     if !col || getline('.')[col - 1] !~ '\k'
