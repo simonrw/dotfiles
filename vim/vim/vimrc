@@ -73,6 +73,7 @@ set modeline
 " Configure nvim completion manager
 let g:cm_auto_popup = 0
 imap <C-space> <Plug>(cm_force_refresh)
+let g:cm_completeopt = 'menu,menuone'
 
 function! InsertTabWrapper()
     let col = col('.') - 1
