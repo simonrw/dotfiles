@@ -131,5 +131,5 @@ if [[ "$PROFILE_STARTUP" == true ]]; then
     unsetopt xtrace
     exec 2>&3 3>&-
 fi
-export PATH=/usr/local/cuda/bin:${PATH:+:${PATH}}
-export LD_LIBRARY_PATH=/usr/local/cuda/lib64:${LD_LIBRARY_PATH:+:${LD_LIBRARY_PATH}}
+export PATH=${PATH:+:${PATH}}:/usr/local/cuda/bin
+export LD_LIBRARY_PATH=${LD_LIBRARY_PATH:+:${LD_LIBRARY_PATH}}:/usr/local/cuda/lib64
