@@ -30,10 +30,6 @@ Plug 'tikhomirov/vim-glsl'
 Plug 'leafgarland/typescript-vim'
 Plug 'kassio/neoterm'
 Plug 'aklt/plantuml-syntax'
-Plug 'racer-rust/vim-racer'
-Plug 'autozimu/LanguageClient-neovim', { 'do': ':UpdateRemotePlugins' }
-Plug 'roxma/nvim-completion-manager'
-Plug 'roxma/nvim-cm-racer'
 
 call plug#end()
 
@@ -69,11 +65,6 @@ set synmaxcol=200
 " http://www.shallowsky.com/linux/noaltscreen.html
 set t_ti= t_te=
 set modeline
-
-" Configure nvim completion manager
-let g:cm_auto_popup = 0
-imap <C-space> <Plug>(cm_force_refresh)
-let g:cm_completeopt = 'menu,menuone'
 
 function! InsertTabWrapper()
     let col = col('.') - 1
@@ -119,9 +110,6 @@ nnoremap <leader>a :FzfAg<cr>
 let g:VtrStripLeadingWhitespace = 1
 let g:VtrClearEmptyLines = 1
 let g:VtrAppendNewline = 1
-
-" Change the way tab autocompletion works
-set wildmode=longest,list:longest
 
 " Expand %% to the current directory
 cnoremap %% <c-r>=expand('%:h') . '/'<cr>
