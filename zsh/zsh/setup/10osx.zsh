@@ -11,8 +11,10 @@ case $OSTYPE in
         export NGTS=${work}/NGTS
 
 
-        # Configure chruby
-        # source /usr/local/opt/chruby/share/chruby/chruby.sh
+        # Configure homebrew
+        export HOMEBREW_NO_ANALYTICS=1
+        # Only update every week
+        export HOMEBREW_AUTO_UPDATE_SECS=604800
 
         # Set up online help
         unalias run-help
