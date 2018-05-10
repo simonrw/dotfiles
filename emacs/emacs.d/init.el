@@ -171,15 +171,6 @@
 (setq org-plantuml-jar-path "/usr/local/opt/plantuml/libexec/plantuml.jar")
 (setq org-src-fontify-natively t)
 
-(use-package evil
-  :ensure t
-  :config
-  (evil-mode t))
-
-(use-package evil-surround
-  :config
-  (global-evil-surround-mode t))
-
 (use-package go-mode)
 
 (use-package elixir-mode)
