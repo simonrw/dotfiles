@@ -144,6 +144,8 @@
   :config
   (load-theme 'dracula t))
 
+(use-package csharp-mode)
+
 (load "server")
 (unless (eq (server-running-p) t)
   (server-start))
