@@ -30,6 +30,7 @@ Plug 'tikhomirov/vim-glsl'
 Plug 'leafgarland/typescript-vim'
 Plug 'kassio/neoterm'
 Plug 'aklt/plantuml-syntax'
+Plug 'tpope/vim-apathy'
 
 call plug#end()
 
