@@ -87,6 +87,8 @@ nnoremap ' `
 nnoremap ` '
 nnoremap j gj
 nnoremap k gk
+nnoremap : ;
+nnoremap ; :
 
 " Reselect visual block after indent/outdent
 vnoremap < <gv
