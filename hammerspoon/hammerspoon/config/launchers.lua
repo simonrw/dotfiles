@@ -5,5 +5,5 @@ end)
 
 -- Browser
 hs.hotkey.bind({'cmd', 'alt'}, 'c', function()
-    hs.application.launchOrFocus('Safari')
+    hs.application.launchOrFocus('Google Chrome')
 end)
