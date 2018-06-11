@@ -35,7 +35,7 @@
     mergeff = merge --ff-only
     sync = !git pr && git push
     wdiff = diff --color-words
-    ci = commit
+	ci = commit -v
     c = commit -m
     q = quick
     edit = "!vim `git ls-files -m`"
