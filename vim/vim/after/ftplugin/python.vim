@@ -1,1 +1,1 @@
-let @i='import IPython; IPython.embed(); exit()'
+let @i='import ipdb; ipdb.set_trace()'
