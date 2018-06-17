@@ -6,3 +6,5 @@ venv
 \#*\#
 .tramp_history
 *.swp
+
+.vscode
