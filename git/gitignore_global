@@ -8,3 +8,5 @@ venv
 *.swp
 
 .vscode
+*.egg-info
+*.pyc
