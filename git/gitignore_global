@@ -10,3 +10,4 @@ venv
 .vscode
 *.egg-info
 *.pyc
+.ipynb_checkpoints
