@@ -10,6 +10,7 @@ endif
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': 'yes \| ./install --no-update-rc --no-completion --key-bindings' }
 Plug 'rust-lang/rust.vim'
 Plug 'nelstrom/vim-markdown-folding'
+Plug 'tpope/vim-dispatch'
 Plug 'junegunn/fzf.vim'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-vinegar'
