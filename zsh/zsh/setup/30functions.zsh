@@ -146,29 +146,6 @@ function build-movie() {
     (cd ${dirname} && mencoder 'mf://*.png' -mf w=800:h=600:fps=30:type=png -ovc x264 -x264encopts crf=18:nofast_pskip:nodct_decimate:nocabac:global_header:threads=12 -of lavf -lavfopts format=mp4 -o "${fulloutpath}")
 }
 
-# Function to source the virtual environment in the current directory
-function sourceenv() {
-    if [[ -f venv/bin/conda ]]; then
-        # Conda environment
-
-        # This does not work with ag, so see if grep has been aliased
-        set +e
-        alias | \grep -q 'grep=ag'
-        grep_aliased="$?"
-        if [ $grep_aliased ]; then
-            unalias grep
-        fi
-
-        source $(pyenv which activate) ${PWD}/venv
-    else
-        # Normal python environment
-        source ${PWD}/venv/bin/activate
-    fi
-
-    rehash
-}
-alias se=sourceenv
-
 # Expose the current directory using a python webserver
 # - handles importing http.server or SimpleHTTPServer
 function webshare() {

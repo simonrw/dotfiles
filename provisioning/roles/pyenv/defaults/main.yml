@@ -1,5 +1,0 @@
----
-pyenv_dir: "{{ home }}/.pyenv"
-pyenv_plugins:
-  - virtualenv
-  - update
