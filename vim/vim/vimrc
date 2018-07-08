@@ -63,6 +63,9 @@ set autowrite
 set nowrap
 set breakindent
 set synmaxcol=200
+if has('nvim')
+    set inccommand=nosplit
+endif
 
 set modeline
 
