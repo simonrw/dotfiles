@@ -22,11 +22,6 @@ else
     alias grep='grep --color=auto'
 fi
 
-if has_executable hub; then
-    alias git=hub
-    alias g=hub
-fi
-
 if has_executable task; then
     alias t=task
 fi
