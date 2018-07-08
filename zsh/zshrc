@@ -133,3 +133,36 @@ if [[ "$PROFILE_STARTUP" == true ]]; then
 fi
 export PATH=${PATH:+:${PATH}}:/usr/local/cuda/bin
 export LD_LIBRARY_PATH=${LD_LIBRARY_PATH:+:${LD_LIBRARY_PATH}}:/usr/local/cuda/lib64
+
+if has_executable hub; then
+    function __real_git_command() {
+        hub $@
+    }
+else
+    function __real_git_command() {
+        git $@
+    }
+fi
+
+function git() {
+    if [[ $1 == "commit" ]] || [[ $1 == "ci" ]]; then
+        local found="0"
+        for arg in $@; do
+            if [[ $arg == "-m" ]] || [[ $arg == "--message" ]]; then
+                found="1"
+                break
+            fi
+        done
+
+        if [[ $found == "1" ]]; then
+            echo >&2 "Use longform commit messages!!!"
+            return 1
+        else
+            __real_git_command $@
+        fi
+    else
+        __real_git_command $@
+    fi
+}
+
+alias g=git
