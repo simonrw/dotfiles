@@ -11,7 +11,7 @@ hs.hotkey.bind({'cmd', 'alt'}, 't', launchTerminal)
 
 -- Browser
 hs.hotkey.bind({'cmd', 'alt'}, 'c', function()
-    hs.application.launchOrFocus('FirefoxDeveloperEdition')
+    hs.application.launchOrFocus('Safari')
 end)
 
 -- Editor
