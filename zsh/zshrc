@@ -140,7 +140,7 @@ if has_executable hub; then
     }
 else
     function __real_git_command() {
-        git $@
+        =git $@
     }
 fi
 
