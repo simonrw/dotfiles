@@ -36,8 +36,8 @@ Plug 'tpope/vim-apathy'
 call plug#end()
 
 set mouse=a
-set number
-set relativenumber
+set nonumber
+set norelativenumber
 set numberwidth=5
 set ttimeoutlen=0
 set shiftwidth=4
