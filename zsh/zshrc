@@ -166,3 +166,5 @@ function git() {
 }
 
 alias g=git
+
+echo '\n!!! Remember to add journal entries with `did`'
