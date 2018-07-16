@@ -220,3 +220,8 @@ function commit() {
 
 alias c=commit
 alias com=commit
+
+# Function to add to my did.txt file
+function did() {
+    =vim +'normal Go' +'r!date' ~/did.txt
+}
