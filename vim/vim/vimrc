@@ -32,6 +32,7 @@ Plug 'leafgarland/typescript-vim'
 Plug 'kassio/neoterm'
 Plug 'aklt/plantuml-syntax'
 Plug 'tpope/vim-apathy'
+Plug 'vim-airline/vim-airline'
 
 call plug#end()
 
@@ -207,6 +208,10 @@ if has('nvim')
 
     autocmd TermOpen * startinsert
 endif
+
+" Configure airline
+let g:airline_section_z = ""
+let g:airline#extensions#wordcount#enabled = 0
 
 set background=dark
 colorscheme lucius
