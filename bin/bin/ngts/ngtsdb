@@ -1,9 +1,0 @@
-#!/usr/bin/env sh
-
-set -e
-
-main() {
-    mysql -t -u sw -h ngtsdb "$@"
-}
-
-main "$@"
