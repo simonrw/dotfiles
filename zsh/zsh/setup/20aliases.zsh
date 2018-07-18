@@ -11,8 +11,7 @@ alias clear-pycs='find ${PWD} -name "*.pyc" -delete'
 alias g='git'
 alias es='exec $SHELL'
 alias sqlite3='rlwrap =sqlite3'
-alias ls="ls --color=never --literal --tabsize 0"
-alias lsc="ls --color=auto --literal --tabsize 0"
+alias ls="ls --color=auto --literal --tabsize 0"
 
 if has_executable rg; then
     alias grep=rg
