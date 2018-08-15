@@ -53,7 +53,7 @@ set noswapfile
 set nobackup
 set nowritebackup
 set history=50
-set complete=.,w,t
+set complete=.,w,b,u,t
 set ruler
 set showcmd
 set incsearch
