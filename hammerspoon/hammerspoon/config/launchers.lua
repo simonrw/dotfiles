@@ -6,6 +6,10 @@ function launchEditor()
     hs.application.launchOrFocus('Visual Studio Code')
 end
 
+function launchEmail()
+    hs.application.launchOrFocus('Mail')
+end
+
 -- Terminal
 hs.hotkey.bind({'cmd', 'alt'}, 't', launchTerminal)
 
@@ -15,7 +19,7 @@ hs.hotkey.bind({'cmd', 'alt'}, 'c', function()
 end)
 
 -- Editor
-hs.hotkey.bind({'cmd', 'alt'}, 'e', launchEditor)
+hs.hotkey.bind({'cmd', 'alt'}, 'e', launchEmail)
 
 -- Switch between editor and terminal
 hs.hotkey.bind({'cmd', 'alt'}, 's', function()
