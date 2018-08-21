@@ -190,6 +190,9 @@ nnoremap <leader>ga :Gcommit -v --amend<cr>
 nmap <silent> [g <Plug>(ale_previous_wrap)
 nmap <silent> ]g <Plug>(ale_next_wrap)
 
+" Disable ALE colours as they get in the way
+let g:ale_set_highlights = 0
+
 inoremap jj <Esc>
 
 " When editing a file, always jump to the last known cursor position.
