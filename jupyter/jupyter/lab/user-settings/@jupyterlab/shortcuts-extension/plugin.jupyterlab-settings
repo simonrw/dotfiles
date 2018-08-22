@@ -1,0 +1,36 @@
+{
+    // Keyboard Shortcuts
+    // @jupyterlab/shortcuts-extension:plugin
+    // Keyboard shortcut settings for JupyterLab.
+    // ******************************************
+
+    // [missing schema title]
+    // [missing schema description]
+    "console:linebreak": {
+      "command": "console:linebreak",
+      "keys": [
+        "Ctrl Enter"
+      ],
+      "selector": ".jp-CodeConsole-promptCell"
+    },
+
+    // [missing schema title]
+    // [missing schema description]
+    "console:run-forced": {
+      "command": "console:run-forced",
+      "keys": [
+        "Shift Enter"
+      ],
+      "selector": ".jp-CodeConsole-promptCell"
+    },
+
+    // [missing schema title]
+    // [missing schema description]
+    "console:run-unforced": {
+      "command": "console:run-unforced",
+      "keys": [
+        "Enter"
+      ],
+      "selector": ".jp-CodeConsole-promptCell"
+    }
+}
