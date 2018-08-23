@@ -161,11 +161,11 @@ nnoremap <silent> K :grep! "<C-R><C-W>"<cr><cr>\|:copen<Cr>
 
 " Default handler to run the current file
 function! HandleEnter(cmd)
-  if &buftype ==# 'quickfix' || &buftype ==# 'nofile'
-    silent execute "normal! \<cr>"
-  else
-    silent execute "normal! :silent :update" . a:cmd . "\<CR>"
-  endif
+    if &buftype ==# 'quickfix' || &buftype ==# 'nofile'
+        silent execute "normal! \<cr>"
+    else
+        silent execute "normal! :silent :update" . a:cmd . "\<CR>"
+    endif
 endfunction
 
 " Default version where only the file is saved
@@ -199,11 +199,11 @@ let g:ale_set_highlights = 0
 
 " Configure language client
 let g:LanguageClient_serverCommands = {
-    \ 'rust': ['~/.cargo/bin/rustup', 'run', 'stable', 'rls'],
-    \ 'javascript': ['/usr/local/bin/javascript-typescript-stdio'],
-    \ 'javascript.jsx': ['tcp://127.0.0.1:2089'],
-    \ 'python': ['/usr/local/bin/pyls'],
-    \ }
+            \ 'rust': ['~/.0cargo/bin/rustup', 'run', 'stable', 'rls'],
+            \ 'javascript': ['/usr/local/bin/javascript-typescript-stdio'],
+            \ 'javascript.jsx': ['tcp://127.0.0.1:2089'],
+            \ 'python': ['/usr/local/bin/pyls'],
+            \ }
 
 inoremap jj <Esc>
 
