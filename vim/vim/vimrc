@@ -41,8 +41,8 @@ Plug 'autozimu/LanguageClient-neovim', {
 call plug#end()
 
 set mouse=a
-set nonumber
-set norelativenumber
+set number
+set relativenumber
 set numberwidth=5
 set ttimeoutlen=0
 set shiftwidth=4
