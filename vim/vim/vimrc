@@ -33,6 +33,10 @@ Plug 'kassio/neoterm'
 Plug 'aklt/plantuml-syntax'
 Plug 'tpope/vim-apathy'
 Plug 'w0rp/ale'
+Plug 'autozimu/LanguageClient-neovim', {
+    \ 'branch': 'next',
+    \ 'do': 'bash install.sh',
+    \ }
 
 call plug#end()
 
@@ -192,6 +196,14 @@ nmap <silent> ]g <Plug>(ale_next_wrap)
 
 " Disable ALE colours as they get in the way
 let g:ale_set_highlights = 0
+
+" Configure language client
+let g:LanguageClient_serverCommands = {
+    \ 'rust': ['~/.cargo/bin/rustup', 'run', 'stable', 'rls'],
+    \ 'javascript': ['/usr/local/bin/javascript-typescript-stdio'],
+    \ 'javascript.jsx': ['tcp://127.0.0.1:2089'],
+    \ 'python': ['/usr/local/bin/pyls'],
+    \ }
 
 inoremap jj <Esc>
 
