@@ -37,6 +37,8 @@ Plug 'autozimu/LanguageClient-neovim', {
     \ 'branch': 'next',
     \ 'do': 'bash install.sh',
     \ }
+Plug 'purescript-contrib/purescript-vim'
+Plug 'reasonml-editor/vim-reason-plus'
 
 call plug#end()
 
