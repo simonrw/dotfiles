@@ -39,6 +39,7 @@ Plug 'autozimu/LanguageClient-neovim', {
     \ }
 Plug 'purescript-contrib/purescript-vim'
 Plug 'reasonml-editor/vim-reason-plus'
+Plug 'chriskempson/base16-vim'
 
 call plug#end()
 
@@ -69,6 +70,7 @@ set autowrite
 set nowrap
 set breakindent
 set synmaxcol=200
+set termguicolors
 " Use global regex replaces by default
 set gdefault
 
@@ -270,4 +272,4 @@ if has('nvim')
 endif
 
 set background=dark
-colorscheme lucius
+colorscheme base16-tomorrow-night
