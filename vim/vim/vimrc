@@ -51,7 +51,6 @@ set shiftwidth=4
 set tabstop=4
 set smartcase
 set expandtab
-set smartcase
 set ignorecase
 set hidden
 set tags+=.git/tags
@@ -70,6 +69,20 @@ set autowrite
 set nowrap
 set breakindent
 set synmaxcol=200
+" Use global regex replaces by default
+set gdefault
+
+" Center search results
+nnoremap <silent> n nzz
+nnoremap <silent> N Nzz
+nnoremap <silent> * *zz
+nnoremap <silent> # #zz
+nnoremap <silent> g* g*zz
+
+" Sane splits
+set splitright
+set splitbelow
+
 if has('nvim')
     set inccommand=nosplit
 endif
@@ -79,6 +92,10 @@ set undofile
 set undodir=~/.vimundo
 
 set modeline
+set lazyredraw
+if !has('nvim')
+    set ttyfast
+endif
 
 function! InsertTabWrapper()
     let col = col('.') - 1
@@ -100,6 +117,17 @@ nnoremap ' `
 nnoremap ` '
 nnoremap j gj
 nnoremap k gk
+
+" Magic search by default
+nnoremap ? ?\v
+nnoremap / /\v
+cnoremap %s/ %sm/
+
+" escape with Ctrl-j
+inoremap <C-j> <esc>
+vnoremap <C-j> <esc>
+inoremap <C-c> <esc>
+vnoremap <C-c> <esc>
 
 " Reselect visual block after indent/outdent
 vnoremap < <gv
@@ -177,6 +205,13 @@ endfunction
 " Default version where only the file is saved
 nnoremap <silent> <cr> :call HandleEnter("")<cr>
 
+" Switch panes
+nnoremap <leader><leader> <C-^>
+
+" remove help key
+map <F1> <Esc>
+imap <F1> <Esc>
+
 " Configure vim test
 nnoremap <silent> tf :update\|:TestFile<Cr>
 nnoremap <silent> tl :update\|:TestLast<Cr>
@@ -228,6 +263,10 @@ if has('nvim')
 	tnoremap <C-v><Esc> <Esc>
 
     autocmd TermOpen * startinsert
+endif
+
+if has('nvim')
+    runtime! plugin/python_setup.vim
 endif
 
 set background=dark
