@@ -74,6 +74,10 @@ if has('nvim')
     set inccommand=nosplit
 endif
 
+" Set up persistent undo
+set undofile
+set undodir=~/.vimundo
+
 set modeline
 
 function! InsertTabWrapper()
