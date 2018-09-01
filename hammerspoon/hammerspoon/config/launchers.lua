@@ -1,5 +1,5 @@
 function launchTerminal()
-    hs.application.launchOrFocus('Terminal')
+    hs.application.launchOrFocus('iTerm')
 end
 
 function launchEditor()
