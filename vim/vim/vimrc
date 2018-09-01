@@ -236,9 +236,18 @@ nnoremap <leader>ga :Gcommit -v --amend<cr>
 " Add mapping for ALENext/ALEPrevious
 nmap <silent> [g <Plug>(ale_previous_wrap)
 nmap <silent> ]g <Plug>(ale_next_wrap)
+" Run the linter
+nmap <silent> L <Plug>(ale_lint)
 
 " Disable ALE colours as they get in the way
 let g:ale_set_highlights = 0
+
+" Configure ale
+let g:ale_lint_on_text_changed = 'never'
+let g:ale_lint_on_save = 0
+let g:ale_lint_on_enter = 0
+let g:ale_rust_cargo_use_check = 1
+let g:ale_rust_cargo_check_all_targets = 1
 
 " Configure language client
 let g:LanguageClient_serverCommands = {
