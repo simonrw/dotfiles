@@ -40,6 +40,7 @@ Plug 'autozimu/LanguageClient-neovim', {
 Plug 'purescript-contrib/purescript-vim'
 Plug 'reasonml-editor/vim-reason-plus'
 Plug 'chriskempson/base16-vim'
+Plug 'machakann/vim-highlightedyank'
 
 call plug#end()
 
