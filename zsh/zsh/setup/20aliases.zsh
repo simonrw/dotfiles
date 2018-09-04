@@ -28,7 +28,3 @@ fi
 if has_executable nvim; then
     alias vim=nvim
 fi
-
-if has_executable exa; then
-    alias ls=exa
-fi
