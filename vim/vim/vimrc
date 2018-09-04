@@ -24,6 +24,7 @@ Plug 'tpope/vim-rsi'
 Plug 'fatih/vim-go'
 Plug 'christoomey/vim-tmux-runner'
 Plug 'elixir-editors/vim-elixir'
+Plug 'mhinz/vim-mix-format'
 Plug 'ElmCast/elm-vim'
 Plug 'janko-m/vim-test'
 Plug 'cespare/vim-toml'
@@ -276,6 +277,9 @@ if has('nvim')
 
     autocmd TermOpen * startinsert
 endif
+
+" Automatically format elixir files on save
+let g:mix_format_on_save = 1
 
 if has('nvim')
     runtime! plugin/python_setup.vim
