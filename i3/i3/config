@@ -118,7 +118,7 @@ bindsym $mod+Shift+R restart
 # exit i3 (logs you out of your X session)
 bindsym $mod+Shift+E exit
 
-bindsym $mod+Ctrl+L exec i3lock -c '#000000'
+bindsym $mod+Ctrl+L exec i3lock -i /home/simon/Pictures/lock_screen.png -f -p win
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
@@ -152,3 +152,5 @@ bar {
   position top
   status_command i3status
 }
+
+exec_always --no-startup-id feh --bg-scale /home/simon/Pictures/ws_Ubuntu,_linux_2560x1600.jpg
