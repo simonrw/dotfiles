@@ -72,7 +72,7 @@ set autowrite
 set nowrap
 set breakindent
 set synmaxcol=200
-set termguicolors
+set notermguicolors  " only for macos terminal
 " Use global regex replaces by default
 set gdefault
 
