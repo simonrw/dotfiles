@@ -81,6 +81,9 @@ export FZF_DEFAULT_OPTS="--color dark --tac --ansi --no-mouse --tabstop 4 --inli
 export FZF_DEFAULT_COMMAND='rg --files --no-ignore --hidden --follow -g "!{.git,venv,node_modules}/*" 2> /dev/null'
 export FZF_CTRL_T_COMMAND="${FZF_DEFAULT_COMMAND}"
 
+# Add persistent history to elixir shell
+export ERL_AFLAGS="-kernel shell_history enabled"
+
 # Taken from grb's zshrc
 
 # By default, zsh considers many characters part of a word (e.g., _ and -).
