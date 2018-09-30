@@ -15,11 +15,11 @@ hs.hotkey.bind({'cmd', 'alt'}, 't', launchTerminal)
 
 -- Browser
 hs.hotkey.bind({'cmd', 'alt'}, 'c', function()
-    hs.application.launchOrFocus('Google Chrome')
+    hs.application.launchOrFocus('Firefox Developer Edition')
 end)
 
 -- Editor
-hs.hotkey.bind({'cmd', 'alt'}, 'e', launchEmail)
+-- hs.hotkey.bind({'cmd', 'alt'}, 'e', launchEmail)
 
 -- Switch between editor and terminal
 hs.hotkey.bind({'cmd', 'alt'}, 's', function()
