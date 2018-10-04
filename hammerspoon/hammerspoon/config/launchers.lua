@@ -1,5 +1,5 @@
 function launchTerminal()
-    hs.application.launchOrFocus('Kitty')
+    hs.application.launchOrFocus('Alacritty')
 end
 
 function launchEditor()
