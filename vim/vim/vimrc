@@ -44,6 +44,8 @@ Plug 'chriskempson/base16-vim'
 Plug 'machakann/vim-highlightedyank'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'posva/vim-vue'
+Plug 'toyamarinyon/vim-swift'
+Plug 'vim-scripts/nc.vim--Eno'
 
 call plug#end()
 
