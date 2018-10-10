@@ -1,8 +1,6 @@
 {
-  "load_extensions": {
-  },
   "Notebook": {
-    "Header": true,
+    "Header": false,
     "Toolbar": true
   }
 }

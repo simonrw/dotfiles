@@ -1,1 +1,18 @@
-{"keymap":"vim","theme":"base16-dark"}
+{
+    // CodeMirror
+    // @jupyterlab/codemirror-extension:commands
+    // Text editor settings for all CodeMirror editors.
+    // ************************************************
+
+    // [missing schema title]
+    // [missing schema description]
+    "keymap": "vim",
+
+    // Key Map
+    // [missing schema description]
+    "keyMap": "vim",
+
+    // Theme
+    // [missing schema description]
+    "theme": "base16-dark"
+}
