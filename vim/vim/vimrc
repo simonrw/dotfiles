@@ -46,6 +46,7 @@ Plug 'editorconfig/editorconfig-vim'
 Plug 'posva/vim-vue'
 Plug 'toyamarinyon/vim-swift'
 Plug 'vim-scripts/nc.vim--Eno'
+Plug 'icymind/NeoSolarized'
 
 call plug#end()
 
@@ -290,5 +291,5 @@ if has('nvim')
     runtime! plugin/python_setup.vim
 endif
 
-set background=dark
-colorscheme lucius
+set background=light
+colorscheme NeoSolarized
