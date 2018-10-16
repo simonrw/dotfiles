@@ -202,18 +202,6 @@ nmap <silent> Q :call ToggleList("Quickfix List", 'c')<CR>
 " Bind K to grep word under cursor
 nnoremap <silent> K :grep! "<C-R><C-W>"<cr><cr>\|:copen<Cr>
 
-" Default handler to run the current file
-function! HandleEnter(cmd)
-    if &buftype ==# 'quickfix' || &buftype ==# 'nofile'
-        silent execute "normal! \<cr>"
-    else
-        silent execute "normal! :silent :update" . a:cmd . "\<CR>"
-    endif
-endfunction
-
-" Default version where only the file is saved
-nnoremap <silent> <cr> :call HandleEnter("")<cr>
-
 " Switch panes
 nnoremap <leader><leader> <C-^>
 
