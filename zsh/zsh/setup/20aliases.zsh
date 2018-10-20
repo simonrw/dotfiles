@@ -12,6 +12,7 @@ alias g='git'
 alias es='exec $SHELL'
 alias sqlite3='rlwrap =sqlite3'
 alias ls="ls --color=auto --literal --tabsize 0"
+alias k=kubectl
 
 if has_executable rg; then
     alias grep=rg
