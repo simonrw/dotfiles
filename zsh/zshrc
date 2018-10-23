@@ -70,6 +70,7 @@ SAVEHIST=$HISTSIZE
 
 
 export GOPATH=${HOME}/dev/gocode
+export PATH=${PATH}:${GOPATH}/bin
 
 export EDITOR=vim_or_nvim
 export VISUAL=${EDITOR}
