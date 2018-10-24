@@ -82,6 +82,7 @@
     mergeoptions = --no-ff
     preloadindex = true
     excludesfile = ~/.gitignore_global
+	ignorecase = false
 [merge]
     tool = vimdiff
     conflictstyle = "diff3"
