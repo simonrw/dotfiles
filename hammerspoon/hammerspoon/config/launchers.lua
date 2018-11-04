@@ -1,5 +1,5 @@
 function launchTerminal()
-    hs.application.launchOrFocus('Alacritty')
+    hs.application.launchOrFocus('Kitty')
 end
 
 function launchEditor()
@@ -26,8 +26,8 @@ hs.hotkey.bind({'cmd', 'alt'}, 's', function()
     local currentApplication = hs.application.frontmostApplication()
     local currentApplicationName = currentApplication:name():lower()
     if currentApplicationName == 'code' then
-        hs.application.launchOrFocus('Alacritty')
-    elseif currentApplicationName == 'Alacritty' then
+        hs.application.launchOrFocus('Kitty')
+    elseif currentApplicationName == 'Kitty' then
         hs.application.launchOrFocus('Visual Studio Code')
     end
 end)
