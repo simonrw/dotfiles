@@ -10,7 +10,7 @@
 
     // Key Map
     // [missing schema description]
-    "keyMap": "vim",
+    "keyMap": "default",
 
     // Theme
     // [missing schema description]

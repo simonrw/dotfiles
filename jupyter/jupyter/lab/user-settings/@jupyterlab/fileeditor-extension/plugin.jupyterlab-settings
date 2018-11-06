@@ -1,1 +1,5 @@
-{"editorConfig":{"lineNumbers":false,"lineWrap":false,"readOnly":false,"tabSize":4,"insertSpaces":true,"matchBrackets":false,"autoClosingBrackets":false}}
+{
+    "editorConfig": {
+        "lineWrap": "on"
+    }
+}
