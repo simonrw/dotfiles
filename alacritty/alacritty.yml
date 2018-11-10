@@ -12,8 +12,8 @@ visual_bell:
 
 window:
   dimensions:
-    columns: 80
-    lines: 24
+    columns: 120
+    lines: 32
   # Adds this many blank pixels of padding around the window
   # Units are physical pixels; this is not DPI aware.
   # (change requires restart)
