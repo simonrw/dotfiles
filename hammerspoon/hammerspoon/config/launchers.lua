@@ -1,5 +1,8 @@
+terminalEmulator = "Kitty"
+browser = "Firefox Developer Edition"
+
 function launchTerminal()
-    hs.application.launchOrFocus('Alacritty')
+    hs.application.launchOrFocus(terminalEmulator)
 end
 
 function launchEditor()
@@ -15,7 +18,7 @@ hs.hotkey.bind({'cmd', 'alt'}, 't', launchTerminal)
 
 -- Browser
 hs.hotkey.bind({'cmd', 'alt'}, 'c', function()
-    hs.application.launchOrFocus('Google Chrome')
+    hs.application.launchOrFocus(browser)
 end)
 
 -- Editor
@@ -26,8 +29,8 @@ hs.hotkey.bind({'cmd', 'alt'}, 's', function()
     local currentApplication = hs.application.frontmostApplication()
     local currentApplicationName = currentApplication:name():lower()
     if currentApplicationName == 'code' then
-        hs.application.launchOrFocus('Alacritty')
-    elseif currentApplicationName == 'Alacritty' then
+        hs.application.launchOrFocus(terminalEmulator)
+    elseif currentApplicationName == terminalEmulator then
         hs.application.launchOrFocus('Visual Studio Code')
     end
 end)
