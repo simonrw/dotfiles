@@ -46,31 +46,6 @@ function tnew() {
     tns ${TMUXNAME}
 }
 
-# SSH into the ngts ops machine, allowing for custom ssh arguments
-function ng() {
-    if [[ $# == 0 ]]; then
-        ssh -t ngtshead exec /home/sw/.local/bin/zsh
-    else
-        ssh -t ngtshead $@
-    fi
-}
-
-function ng.astro() {
-    if [[ $# == 0 ]]; then
-        ssh -t ngtshead.astro exec /home/sw/.local/bin/zsh
-    else
-        ssh -t ngtshead.astro $@
-    fi
-}
-
-function ng.pi() {
-    if [[ $# == 0 ]]; then
-        ssh -t ngtshead.pi exec /home/sw/.local/bin/zsh
-    else
-        ssh -t ngtshead.pi $@
-    fi
-}
-
 function init-python() {
     local readonly fname="$1"
     # Remove the filename from the arugment list
@@ -153,32 +128,6 @@ function webshare() {
         python3 -m http.server $*
     else
         python2 -m SimpleHTTPServer $*
-    fi
-}
-
-function mount-ngtshead() {
-    local readonly mountdir=/tmp/ngtshead
-
-    # Check if the directory is already mounted
-    if ps aux | grep -i sftp | grep -v grep | grep ngtshead; then
-        echo "Already mounted"
-        true
-    else
-        echo "Mounting ngtshead home dir at ${mountdir}"
-        test -d ${mountdir} || mkdir -p ${mountdir}
-        sshfs -o allow_other,defer_permissions ngtshead.astro:/home/sw ${mountdir}
-    fi
-}
-
-function unmount-ngtshead() {
-    local readonly mountdir=/tmp/ngtshead
-
-    # Check if the directory is already mounted
-    if ps aux | grep -i sftp | grep -v grep | grep ngtshead; then
-        echo "Unmounting ${mountdir}"
-        umount ${mountdir}
-    else
-        echo "Not mounted"
     fi
 }
 
