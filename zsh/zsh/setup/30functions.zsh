@@ -174,3 +174,11 @@ alias com=commit
 function did() {
     =vim +'normal Go' +'r!date' ~/did.txt
 }
+
+function task() {
+    if [ -f ${PWD}/.taskrc ]; then
+        =task rc:${PWD}/.taskrc $*
+    else
+        =task $*
+    fi
+}
