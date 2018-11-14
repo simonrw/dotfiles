@@ -10,9 +10,6 @@ export PATH=${HOME}/.bin:${HOME}/.bin/ngts:${HOME}/.cabal/bin:/usr/local/bin:${P
 fpath=($HOME/.zsh/func $HOME/.zsh/completion $fpath)
 typeset -U fpath
 
-# Report the time taken for any long running command
-REPORTTIME=10
-
 # Disable Ctrl-s freezing the terminal
 stty stop undef
 
