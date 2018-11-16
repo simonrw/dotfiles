@@ -46,6 +46,7 @@ Plug 'editorconfig/editorconfig-vim'
 Plug 'posva/vim-vue'
 Plug 'toyamarinyon/vim-swift'
 Plug 'vim-scripts/nc.vim--Eno'
+Plug 'vim-airline/vim-airline'
 
 call plug#end()
 
