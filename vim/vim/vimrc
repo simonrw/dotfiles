@@ -34,10 +34,6 @@ Plug 'kassio/neoterm'
 Plug 'aklt/plantuml-syntax'
 Plug 'tpope/vim-apathy'
 Plug 'w0rp/ale'
-Plug 'autozimu/LanguageClient-neovim', {
-    \ 'branch': 'next',
-    \ 'do': 'bash install.sh',
-    \ }
 Plug 'purescript-contrib/purescript-vim'
 Plug 'reasonml-editor/vim-reason-plus'
 Plug 'chriskempson/base16-vim'
