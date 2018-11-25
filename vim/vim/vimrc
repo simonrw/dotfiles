@@ -70,7 +70,7 @@ set backspace=2
 set autowrite
 set nowrap
 set breakindent
-set synmaxcol=200
+set synmaxcol=1024
 if has('nvim')
     set termguicolors
 endif
