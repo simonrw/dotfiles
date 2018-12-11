@@ -63,7 +63,7 @@
   (menu-bar-mode t)
 
   (if (boundp 'mac-auto-operator-composition-mode)
-      (mac-auto-operator-composotion-mode))
+      (mac-auto-operator-composition-mode))
 
   (set-face-attribute 'default nil :family "Source Code Pro")
 
