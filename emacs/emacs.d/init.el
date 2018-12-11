@@ -104,6 +104,11 @@
   :config
   (setq magit-diff-refine-hunk t))
 
+;; Helm
+(use-package helm
+  :config
+  (helm-mode 1))
+
 ;; Markdown
 (use-package markdown-mode
   :mode (("README\\.md\\'" . gfm-mode)
@@ -135,7 +140,9 @@
   (use-package evil-leader
 	:ensure t
 	:config
-	(global-evil-leader-mode))
+	(global-evil-leader-mode)
+	(evil-leader/set-leader ",")
+	(evil-leader/set-key "f" 'projectile-find-file))
 
   (use-package evil-surround
 	:ensure t
@@ -144,6 +151,10 @@
 
   (use-package evil-indent-textobject
 	:ensure t))
+
+(use-package projectile
+  :config
+  (projectile-mode))
 
 ;; Configure C family of xlanguages
 (add-hook 'c-mode-common-hook
@@ -175,11 +186,6 @@
    (ruby . t)
    (rust . t)
    (python . t)))
-
-(require 'ido)
-(setq ido-enable-flex-matching t)
-(setq ido-everywhere t)
-(ido-mode 1)
 
 (setq org-startup-indented t)
 (setq org-startup-folded "showall")
