@@ -1,4 +1,4 @@
-;;; Init file
+;; Init file
 
 (setq site-lisp-dir
       (expand-file-name "site-lisp" user-emacs-directory))
@@ -37,9 +37,7 @@
 ;; Packages
 (require 'package)
 (add-to-list 'package-archives
-	     '("melpa" . "http://melpa.org/packages/") t)
-(add-to-list 'package-archives
-	     '("marmalade" . "http://marmalade-repo.org/packages/") t)
+	     '("melpa" . "https://melpa.org/packages/") t)
 
 ;; Package loading is handled through use-package
 (setq package-enable-at-startup nil)
@@ -106,6 +104,8 @@
 
 ;; Helm
 (use-package helm
+  :bind
+  (("M-x" . helm-M-x))
   :config
   (helm-mode 1))
 
@@ -154,7 +154,7 @@
 
 (use-package projectile
   :config
-  (projectile-mode))
+  (projectile-mode +1))
 
 ;; Configure C family of xlanguages
 (add-hook 'c-mode-common-hook
@@ -204,8 +204,6 @@
 (defun todo ()
   (interactive)
   (find-file (concat org-directory "/todo.org")))
-
-(global-visual-line-mode t)
 
 (provide 'init)
 ;;; init.el ends here
