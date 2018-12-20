@@ -175,6 +175,8 @@
 
 (use-package csharp-mode)
 
+(use-package alchemist)
+
 (load "server")
 (unless (eq (server-running-p) t)
   (server-start))
