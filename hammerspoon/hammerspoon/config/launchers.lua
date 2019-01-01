@@ -13,9 +13,6 @@ function launchEmail()
     hs.application.launchOrFocus('Mail')
 end
 
--- Terminal
-hs.hotkey.bind({'cmd', 'alt'}, 't', launchTerminal)
-
 -- Browser
 hs.hotkey.bind({'cmd', 'alt'}, 'c', function()
     hs.application.launchOrFocus(browser)
