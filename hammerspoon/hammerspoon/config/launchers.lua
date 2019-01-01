@@ -13,10 +13,6 @@ function launchEmail()
     hs.application.launchOrFocus('Mail')
 end
 
-function launchEmacs()
-   hs.application.launchOrFocus("Emacs")
- end
-
 -- Browser
 hs.hotkey.bind({'cmd', 'alt'}, 'c', function()
     hs.application.launchOrFocus(browser)
