@@ -131,6 +131,26 @@
 (use-package toml-mode
   :mode (("\\.toml\\'" . toml-mode)))
 
+(use-package evil
+  :ensure t
+  :config
+  (evil-mode 1)
+
+  (use-package evil-leader
+	:ensure t
+	:config
+	(global-evil-leader-mode)
+	(evil-leader/set-leader ",")
+	(evil-leader/set-key "f" 'projectile-find-file))
+
+  (use-package evil-surround
+	:ensure t
+	:config
+	(global-evil-surround-mode))
+
+  (use-package evil-indent-textobject
+	:ensure t))
+
 (use-package projectile
   :config
   (projectile-mode +1))
@@ -155,11 +175,6 @@
 (use-package csharp-mode)
 
 (use-package alchemist)
-
-(use-package sane-term
-  :ensure t
-  :bind (("C-x t" . sane-term)
-		 ("C-x T" . sane-term-create)))
 
 (load "server")
 (unless (eq (server-running-p) t)

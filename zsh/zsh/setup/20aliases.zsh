@@ -15,7 +15,6 @@ alias ls="ls --color=auto --literal --tabsize 0"
 alias k=kubectl
 alias venv="python3 -m venv venv"
 alias sourceenv="source ./venv/bin/activate"
-alias vim=emacs
 
 if has_executable rg; then
     alias grep=rg
@@ -27,4 +26,8 @@ fi
 
 if has_executable task; then
     alias t=task
+fi
+
+if has_executable nvim; then
+    alias vim=nvim
 fi
