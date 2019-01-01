@@ -13,12 +13,16 @@ function launchEmail()
     hs.application.launchOrFocus('Mail')
 end
 
+function launchTerminal()
+    hs.application.launchOrFocus(terminalEmulator)
+end
+
 -- Browser
 hs.hotkey.bind({'cmd', 'alt'}, 'c', function()
     hs.application.launchOrFocus(browser)
 end)
 
-hs.hotkey.bind({'cmd', 'alt'}, 't', launchEmacs)
+hs.hotkey.bind({'cmd', 'alt'}, 't', launchTerminal)
 
 -- Editor
 -- hs.hotkey.bind({'cmd', 'alt'}, 'e', launchEmail)
