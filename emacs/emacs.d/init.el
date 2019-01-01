@@ -63,7 +63,6 @@
   (if (boundp 'mac-auto-operator-composition-mode)
       (mac-auto-operator-composition-mode))
 
-  (setq-default locate-command "mdfind")
   (set-face-attribute 'default nil :family "Inter UI")
   (set-face-attribute 'default nil :height 140)
 
