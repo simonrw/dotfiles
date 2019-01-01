@@ -93,6 +93,8 @@
   :config
   (editorconfig-mode 1))
 
+(use-package pdf-tools)
+
 ;; Magit
 (use-package magit
   :bind (("C-x g" . magit-status))
