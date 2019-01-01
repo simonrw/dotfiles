@@ -63,11 +63,9 @@
   (if (boundp 'mac-auto-operator-composition-mode)
       (mac-auto-operator-composition-mode))
 
-  (set-face-attribute 'default nil :family "Source Code Pro")
-
-  (set-face-attribute 'default nil :height 120)
-
   (setq-default locate-command "mdfind")
+  (set-face-attribute 'default nil :family "Inter UI")
+  (set-face-attribute 'default nil :height 140)
 
   ;; Toggle fullscreen mode
   (global-set-key [m-return] 'toggle-frame-fullscreen)
