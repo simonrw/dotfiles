@@ -106,7 +106,10 @@
   :bind
   (("M-x" . helm-M-x))
   :config
-  (helm-mode 1))
+  (helm-mode 1)
+
+  (use-package helm-projectile
+	:ensure t))
 
 ;; Markdown
 (use-package markdown-mode
@@ -131,6 +134,14 @@
 (use-package toml-mode
   :mode (("\\.toml\\'" . toml-mode)))
 
+(use-package projectile
+  :ensure t
+  :config
+  (define-key projectile-mode-map (kbd "M-p") 'projectile-command-map)
+  (setq projectile-indexing-method 'alien)
+  (setq projectile-enable-caching t)
+  (projectile-mode +1))
+
 (use-package evil
   :ensure t
   :config
@@ -141,7 +152,7 @@
 	:config
 	(global-evil-leader-mode)
 	(evil-leader/set-leader ",")
-	(evil-leader/set-key "f" 'projectile-find-file))
+	(evil-leader/set-key "f" 'helm-projectile-find-file))
 
   (use-package evil-surround
 	:ensure t
@@ -150,10 +161,6 @@
 
   (use-package evil-indent-textobject
 	:ensure t))
-
-(use-package projectile
-  :config
-  (projectile-mode +1))
 
 ;; Configure C family of xlanguages
 (add-hook 'c-mode-common-hook
