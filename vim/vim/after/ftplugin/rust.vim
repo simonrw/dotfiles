@@ -10,3 +10,7 @@ let g:rustfmt_autosave = 1
 let g:rustfmt_fail_silently = 1
 let g:racer_experimental_completer = 1
 let g:racer_cmd = "/Users/simon/.cargo/bin/racer"
+
+if executable('rustfmt')
+    nnoremap <leader>y :RustFmt<Cr>
+endif
