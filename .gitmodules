@@ -28,3 +28,6 @@
 [submodule "external/mkflashdriverepo"]
 	path = external/mkflashdriverepo
 	url = https://github.com/mindriot101/mkflashdriverepo.git
+[submodule "external/z"]
+	path = external/z
+	url = https://github.com/rupa/z

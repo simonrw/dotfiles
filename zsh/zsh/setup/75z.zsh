@@ -1,4 +1,4 @@
-__filename=/usr/local/etc/profile.d/z.sh
+__filename=${HOME}/dotfiles/external/z/z.sh
 
 if [ -f ${__filename} ]; then
     source ${__filename}
