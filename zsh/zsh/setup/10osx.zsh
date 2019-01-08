@@ -10,6 +10,8 @@ case $OSTYPE in
         # Only update every week
         export HOMEBREW_AUTO_UPDATE_SECS=604800
 
+        export DYLD_LIBRARY_PATH=${BUILD_PREFIX}/lib:${DYLD_LIBRARY_PATH}
+
         # Set up the keymap for neovim
         tic ~/.zsh/$TERM.ti
         ;;
