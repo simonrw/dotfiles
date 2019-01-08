@@ -67,7 +67,8 @@ set incsearch
 set laststatus=2
 set backspace=2
 set autowrite
-set nowrap
+set wrap
+set textwidth=0
 set breakindent
 set synmaxcol=1024
 if has('nvim')
