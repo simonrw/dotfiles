@@ -3,3 +3,4 @@
 "   :silent !clang-format -i $(find src -name '*.cpp') $(find include -name '*.h')
 " endfunction
 " autocmd BufWritePre *.h,*.cc,*.cpp call Formatonsave()
+nnoremap <silent> <leader>y mm:%!clang-format<cr>'m
