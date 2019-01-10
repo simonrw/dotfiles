@@ -76,6 +76,8 @@ if has('nvim')
 endif
 " Use global regex replaces by default
 set gdefault
+" Configure minimum window width
+set winwidth=99
 
 " Center search results
 nnoremap <silent> n nzz
