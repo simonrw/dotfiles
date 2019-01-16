@@ -13,7 +13,7 @@ case $OSTYPE in
         export DYLD_LIBRARY_PATH=${BUILD_PREFIX}/lib:${DYLD_LIBRARY_PATH}
 
         # Set up the keymap for neovim
-        tic ~/.zsh/$TERM.ti
+        # tic ~/.zsh/$TERM.ti
         ;;
 esac
 
