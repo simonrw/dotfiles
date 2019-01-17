@@ -67,7 +67,7 @@ set incsearch
 set laststatus=2
 set backspace=2
 set autowrite
-set wrap
+set nowrap
 set textwidth=0
 set breakindent
 set synmaxcol=1024
