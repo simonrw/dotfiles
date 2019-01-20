@@ -1,5 +1,5 @@
 terminalEmulator = "Kitty"
-browser = "Brave Browser"
+browser = "Google Chrome"
 
 function launchTerminal()
     hs.application.launchOrFocus(terminalEmulator)
