@@ -41,6 +41,8 @@ Plug 'editorconfig/editorconfig-vim'
 Plug 'posva/vim-vue'
 Plug 'toyamarinyon/vim-swift'
 Plug 'vim-scripts/nc.vim--Eno'
+Plug 'autozimu/LanguageClient-neovim'
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 
 call plug#end()
 
