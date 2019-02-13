@@ -108,7 +108,7 @@ export PATH=${PATH}:${HOME}/.cargo/bin
 export CARGO_HOME=${HOME}/.cargo
 export RUST_SRC_PATH="$(rustc --print sysroot)/lib/rustlib/src/rust/src"
 export RUST_NEW_ERROR_FORMAT=true
-export RUST_BACKTRACE=0
+export RUST_BACKTRACE=1
 
 # source external zsh setup files
 for file in ~/.zsh/setup/*.zsh; do
