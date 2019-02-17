@@ -236,6 +236,7 @@ let g:LanguageClient_serverCommands = {
             \ 'javascript.jsx': ['tcp://127.0.0.1:2089'],
             \ 'python': ['/usr/local/bin/pyls'],
             \ }
+let g:LanguageClient_autoStart = 1
 
 inoremap jj <Esc>
 
