@@ -284,10 +284,10 @@ hi FoldColumn       ctermfg=152             ctermbg=23              cterm=none
 " Search
 " ------
 " highlight incremental search text; also highlight text replaced with :s///c
-hi IncSearch        guifg=#66ffff                                   gui=reverse
+hi IncSearch        guifg=#eeeeee                                   gui=reverse
 hi IncSearch        ctermfg=87                                      cterm=reverse
 " hlsearch (last search pattern), also used for quickfix
-hi Search                                    guibg=#ffaa33          gui=none
+hi Search           guifg=#eeeeee            guibg=#414141          gui=none
 hi Search                                    ctermbg=214            cterm=none
 
 " Popup Menu
