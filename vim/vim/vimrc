@@ -41,8 +41,9 @@ Plug 'editorconfig/editorconfig-vim'
 Plug 'posva/vim-vue'
 Plug 'toyamarinyon/vim-swift'
 Plug 'vim-scripts/nc.vim--Eno'
-Plug 'autozimu/LanguageClient-neovim'
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+Plug 'prabirshrestha/async.vim'
+Plug 'prabirshrestha/vim-lsp'
+Plug 'w0rp/ale'
 
 call plug#end()
 
@@ -80,6 +81,9 @@ endif
 set gdefault
 " Configure minimum window width
 set winwidth=99
+
+" Prevent vim from clobbering the scrollback buffer
+set t_ti= t_te=
 
 " Center search results
 nnoremap <silent> n nzz
@@ -237,6 +241,17 @@ let g:LanguageClient_serverCommands = {
             \ }
 let g:LanguageClient_autoStart = 1
 
+if executable('rls')
+    au User lsp_setup call lsp#register_server({
+        \ 'name': 'rls',
+        \ 'cmd': {server_info->['rustup', 'run', 'stable', 'rls']},
+        \ 'whitelist': ['rust'],
+        \})
+endif
+
+let g:lsp_signs_enabled = 1
+let g:lsp_diagnostics_echo_cursor = 1
+
 inoremap jj <Esc>
 
 " When editing a file, always jump to the last known cursor position.
@@ -255,6 +270,9 @@ if has('nvim')
 
     autocmd TermOpen * startinsert
 endif
+
+" Configure ALE
+let g:ale_set_highlights = 0  " Disable highlights
 
 " Automatically format elixir files on save
 let g:mix_format_on_save = 1

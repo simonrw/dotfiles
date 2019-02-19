@@ -14,3 +14,6 @@ let g:racer_cmd = "/Users/simon/.cargo/bin/racer"
 if executable('rustfmt')
     nnoremap <leader>y :RustFmt<Cr>
 endif
+
+" Use omnifunc for autocompletion
+setlocal omnifunc=lsp#complete
