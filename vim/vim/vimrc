@@ -289,3 +289,5 @@ let g:go_version_warning = 0
 
 set background=dark
 colorscheme lucius
+
+highlight ColorColumn ctermbg=0
