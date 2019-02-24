@@ -35,8 +35,8 @@ Plug 'editorconfig/editorconfig-vim'
 call plug#end()
 
 set mouse=a
-set number
-set relativenumber
+set nonumber
+set norelativenumber
 set ttimeoutlen=0
 set shiftwidth=4
 set tabstop=4
