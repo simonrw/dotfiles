@@ -6,5 +6,3 @@ set nowrap
 if executable('black')
     nnoremap <leader>y mm:%!black --fast -q -<Cr>`m
 endif
-
-setlocal cc=+1

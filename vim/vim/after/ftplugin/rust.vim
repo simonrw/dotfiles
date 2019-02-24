@@ -17,5 +17,3 @@ endif
 
 " Use omnifunc for autocompletion
 setlocal omnifunc=lsp#complete
-setlocal colorcolumn=+1
-setlocal textwidth=100
