@@ -1,0 +1,58 @@
+#!/usr/bin/env python3
+
+
+import subprocess as sp
+import os
+import platform
+import tempfile
+import sys
+import argparse
+
+
+def exit_with_message(msg):
+    print(msg, file=sys.stderr)
+    sys.exit(1)
+
+
+def darwin_flamegraph(args):
+    execname = os.path.basename(args.rest[0])
+    name = "/tmp/out.stack"
+    with tempfile.NamedTemporaryFile(suffix=".stacks") as tfile:
+        cmd = [
+            "sudo",
+            "dtrace",
+            "-c",
+            " ".join(args.rest),
+            "-o",
+            name,
+            "-n",
+            "profile-997 /execname == \"{}\"/ {{ @[ustack(100)] = count(); }}".format(
+                execname
+            ),
+        ]
+        sp.check_call(cmd)
+
+        tfile.seek(0)
+
+        stack_collapse_ps = sp.Popen(["stackcollapse.pl", name], stdout=sp.PIPE)
+        sp.check_call(["flamegraph.pl"], stdout=args.output, stdin=stack_collapse_ps.stdout)
+        stack_collapse_ps.wait()
+
+if __name__ == "__main__":
+    parser = argparse.ArgumentParser()
+    parser.add_argument(
+        "-o", "--output", required=False, default="-", type=argparse.FileType("w")
+    )
+    parser.add_argument("rest", nargs="*")
+    args = parser.parse_intermixed_args()
+
+    if not args.rest:
+        exit_with_message("No command supplied")
+
+    handlers = {"Darwin": darwin_flamegraph}
+
+    os_type = platform.system()
+    if os_type not in handlers:
+        exit_with_message("Operating system not supported: {}".format(os_type))
+
+    handlers[os_type](args)
