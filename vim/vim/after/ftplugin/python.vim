@@ -1,5 +1,4 @@
 let @i='import ipdb; ipdb.set_trace()'
-set textwidth=80
 set nowrap
 
 " Set up auto formatting
