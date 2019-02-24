@@ -26,7 +26,7 @@ def darwin_flamegraph(args):
             "-o",
             name,
             "-n",
-            "profile-997 /execname == \"{}\"/ {{ @[ustack(100)] = count(); }}".format(
+            'profile-997 /execname == "{}"/ {{ @[ustack(100)] = count(); }}'.format(
                 execname
             ),
         ]
@@ -35,8 +35,11 @@ def darwin_flamegraph(args):
         tfile.seek(0)
 
         stack_collapse_ps = sp.Popen(["stackcollapse.pl", name], stdout=sp.PIPE)
-        sp.check_call(["flamegraph.pl"], stdout=args.output, stdin=stack_collapse_ps.stdout)
+        sp.check_call(
+            ["flamegraph.pl"], stdout=args.output, stdin=stack_collapse_ps.stdout
+        )
         stack_collapse_ps.wait()
+
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
