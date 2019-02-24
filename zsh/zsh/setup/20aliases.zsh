@@ -27,3 +27,7 @@ fi
 if has_executable task; then
     alias t=task
 fi
+
+if has_executable nvim; then
+    alias vim=nvim
+fi
