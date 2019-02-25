@@ -67,7 +67,7 @@ set textwidth=0
 set breakindent
 set synmaxcol=1024
 if has('nvim')
-    set termguicolors
+    " set termguicolors
 endif
 " Use global regex replaces by default
 set gdefault
