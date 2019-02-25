@@ -28,7 +28,7 @@ bindsym $mod+Return exec stterm
 # bindsym $mod+Return exec urxvt
 
 # start browser
-bindsym $mod+c exec chromium-browser
+bindsym $mod+c exec firefox
 
 # kill focused window
 bindsym $mod+Shift+Q kill
