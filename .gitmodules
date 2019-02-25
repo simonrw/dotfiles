@@ -31,3 +31,6 @@
 [submodule "external/z"]
 	path = external/z
 	url = https://github.com/rupa/z
+[submodule "external/dracula-terminal-app"]
+	path = external/dracula-terminal-app
+	url = https://github.com/dracula/terminal-app.git
