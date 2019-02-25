@@ -31,6 +31,11 @@ Plug 'cespare/vim-toml'
 Plug 'tpope/vim-apathy'
 Plug 'machakann/vim-highlightedyank'
 Plug 'editorconfig/editorconfig-vim'
+Plug 'autozimu/LanguageClient-neovim', {
+    \ 'branch': 'next',
+    \ 'do': 'bash install.sh',
+    \ }
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 
 call plug#end()
 
@@ -227,17 +232,6 @@ let g:LanguageClient_serverCommands = {
             \ 'python': ['/usr/local/bin/pyls'],
             \ }
 let g:LanguageClient_autoStart = 1
-
-if executable('rls')
-    au User lsp_setup call lsp#register_server({
-        \ 'name': 'rls',
-        \ 'cmd': {server_info->['rustup', 'run', 'stable', 'rls']},
-        \ 'whitelist': ['rust'],
-        \})
-endif
-
-let g:lsp_signs_enabled = 1
-let g:lsp_diagnostics_echo_cursor = 1
 
 inoremap jj <Esc>
 
