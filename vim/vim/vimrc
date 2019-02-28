@@ -62,6 +62,7 @@ set synmaxcol=1024
 if has('nvim')
     set termguicolors
 endif
+set linebreak
 " Use global regex replaces by default
 set gdefault
 " Configure minimum window width

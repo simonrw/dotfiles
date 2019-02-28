@@ -1,4 +1,3 @@
-set linebreak
 set wrap
 set nocindent
 
