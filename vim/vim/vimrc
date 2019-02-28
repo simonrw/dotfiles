@@ -7,30 +7,22 @@ if !has('nvim')
     Plug 'tpope/vim-sensible'
 endif
 
+Plug 'junegunn/fzf.vim'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': 'yes \| ./install --no-update-rc --no-completion --key-bindings' }
 Plug 'rust-lang/rust.vim'
 Plug 'nelstrom/vim-markdown-folding'
-Plug 'tpope/vim-dispatch'
-Plug 'junegunn/fzf.vim'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-vinegar'
 Plug 'tpope/vim-unimpaired'
-Plug 'junegunn/goyo.vim'
 Plug 'tpope/vim-commentary'
-Plug 'tpope/vim-eunuch'
-Plug 'tpope/vim-markdown'
 Plug 'tpope/vim-fugitive'
-Plug 'tpope/vim-rsi'
-Plug 'fatih/vim-go'
 Plug 'christoomey/vim-tmux-runner'
 Plug 'elixir-editors/vim-elixir'
 Plug 'mhinz/vim-mix-format'
 Plug 'ElmCast/elm-vim'
 Plug 'janko-m/vim-test'
 Plug 'cespare/vim-toml'
-Plug 'tpope/vim-apathy'
 Plug 'machakann/vim-highlightedyank'
-Plug 'editorconfig/editorconfig-vim'
 Plug 'autozimu/LanguageClient-neovim', {
     \ 'branch': 'next',
     \ 'do': 'bash install.sh',
