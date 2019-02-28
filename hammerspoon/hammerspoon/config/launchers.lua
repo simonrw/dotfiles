@@ -1,4 +1,4 @@
-terminalEmulator = "Kitty"
+terminalEmulator = "Alacritty"
 browser = "Firefox"
 
 function launchTerminal()
