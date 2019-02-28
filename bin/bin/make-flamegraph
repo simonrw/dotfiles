@@ -16,7 +16,6 @@ def exit_with_message(msg):
 
 def darwin_flamegraph(args):
     execname = os.path.basename(args.rest[0])
-    name = "/tmp/out.stack"
     with tempfile.NamedTemporaryFile(suffix=".stacks") as tfile:
         cmd = [
             "sudo",
@@ -24,17 +23,19 @@ def darwin_flamegraph(args):
             "-c",
             " ".join(args.rest),
             "-o",
-            name,
+            tfile.name,
             "-n",
             'profile-997 /execname == "{}"/ {{ @[ustack(100)] = count(); }}'.format(
                 execname
             ),
         ]
+
+        print("Sudo password required, if prompted", file=sys.stderr)
         sp.check_call(cmd)
 
         tfile.seek(0)
 
-        stack_collapse_ps = sp.Popen(["stackcollapse.pl", name], stdout=sp.PIPE)
+        stack_collapse_ps = sp.Popen(["stackcollapse.pl", tfile.name], stdout=sp.PIPE)
         sp.check_call(
             ["flamegraph.pl"], stdout=args.output, stdin=stack_collapse_ps.stdout
         )
