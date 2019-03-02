@@ -1,6 +1,7 @@
 # Aliases
 alias ta=_tmux_attach
 alias tns="tmux new-session -A -n '' -s"
+alias ls="ls --color=never --literal --tabsize 0 --indicator-style=slash"
 alias ll='ls -lh'
 alias lr='ls -thor'
 alias ipy=ipython
@@ -11,7 +12,6 @@ alias clear-pycs='find ${PWD} -name "*.pyc" -delete'
 alias g='git'
 alias es='exec $SHELL'
 alias sqlite3='rlwrap =sqlite3'
-alias ls="ls --color=auto --literal --tabsize 0"
 alias k=kubectl
 alias venv="python3 -m venv venv"
 alias sourceenv="source ./venv/bin/activate"
