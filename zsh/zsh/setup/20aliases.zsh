@@ -1,7 +1,7 @@
 # Aliases
 alias ta=_tmux_attach
 alias tns="tmux new-session -A -n '' -s"
-alias ls="ls --color=never --literal --tabsize 0 --indicator-style=slash"
+alias ls="ls --color=never --literal --tabsize 0 --indicator-style=slash --classify --dereference-command-line"
 alias ll='ls -lh'
 alias lr='ls -thor'
 alias ipy=ipython
