@@ -1,3 +1,4 @@
 if [ -f ~/.dircolors/nord.txt ]; then
-    eval "$(dircolors ~/.dircolors/nord.txt)"
+    eval "$(/usr/local/opt/coreutils/libexec/gnubin/dircolors ~/.dircolors/nord.txt)"
+
 fi
