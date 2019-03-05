@@ -30,6 +30,7 @@ Plug 'autozimu/LanguageClient-neovim', {
     \ }
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'arcticicestudio/nord-vim'
+Plug 'easymotion/vim-easymotion'
 
 call plug#end()
 
@@ -258,6 +259,9 @@ let g:mix_format_on_save = 1
 if has('nvim')
     runtime! plugin/python_setup.vim
 endif
+
+" Configure easymotion
+map s <Plug>(easymotion-bd-f)
 
 " Enable hardtime plugin
 let g:hardtime_default_on = 1
