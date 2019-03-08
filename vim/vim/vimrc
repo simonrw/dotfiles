@@ -29,7 +29,6 @@ Plug 'autozimu/LanguageClient-neovim', {
     \ 'do': 'bash install.sh',
     \ }
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-Plug 'arcticicestudio/nord-vim'
 Plug 'easymotion/vim-easymotion'
 
 call plug#end()
@@ -270,6 +269,6 @@ let g:hardtime_default_on = 1
 let g:go_version_warning = 0
 
 set background=dark
-colorscheme nord
+colorscheme lucius
 
 highlight ColorColumn ctermbg=0
