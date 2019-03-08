@@ -161,3 +161,6 @@ function git() {
 }
 
 alias g=git
+
+# Print contents on new command
+s
