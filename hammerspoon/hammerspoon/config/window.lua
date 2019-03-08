@@ -1,6 +1,6 @@
 -- constant holding the window enlargement/shrinkage factor
 local WINDOW_SIZE_CHANGE = 16
-local WINDOW_BORDER = 0
+local WINDOW_BORDER = 15
 local FULLSCREEN_BORDER = WINDOW_BORDER
 local LEFTRIGHT_FRACTION = 0.5
 
@@ -18,9 +18,9 @@ hs.hotkey.bind({'cmd', 'alt', 'ctrl'}, 'Left', function()
     local screen = win:screen()
     local max = screen:frame()
 
-    f.x = max.x + WINDOW_BORDER / 2
+    f.x = WINDOW_BORDER / 2
     f.y = max.y + WINDOW_BORDER / 2
-    f.w = LEFTRIGHT_FRACTION * max.w - WINDOW_BORDER / 2
+    f.w = LEFTRIGHT_FRACTION * max.w - WINDOW_BORDER
     f.h = max.h - WINDOW_BORDER
     win:setFrame(f)
 end)
@@ -32,9 +32,9 @@ hs.hotkey.bind({'cmd', 'alt', 'ctrl'}, 'Right', function()
     local screen = win:screen()
     local max = screen:frame()
 
-    f.x = max.x + LEFTRIGHT_FRACTION * max.w
+    f.x = max.x + LEFTRIGHT_FRACTION * max.w + WINDOW_BORDER / 4
     f.y = max.y + WINDOW_BORDER / 2
-    f.w = (1 - LEFTRIGHT_FRACTION) * max.w --  - WINDOW_BORDER / 2
+    f.w = (1 - LEFTRIGHT_FRACTION) * max.w - WINDOW_BORDER
     f.h = max.h - WINDOW_BORDER
     win:setFrame(f)
 end)
