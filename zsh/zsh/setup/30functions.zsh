@@ -187,7 +187,11 @@ function task() {
 function s() {
 
     function header() {
-        figlet -f doom $1
+        if has_executable figlet; then
+            figlet $1
+        else
+            echo "== $1 =="
+        fi
     }
 
     echo
