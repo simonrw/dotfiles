@@ -30,6 +30,8 @@ Plug 'autozimu/LanguageClient-neovim', {
     \ }
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'easymotion/vim-easymotion'
+Plug 'posva/vim-vue'
+Plug 'leafgarland/typescript-vim'
 
 call plug#end()
 
