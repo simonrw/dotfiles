@@ -196,7 +196,6 @@ function s() {
 
     clear
 
-    echo
     header "ls"
     echo
     ls
