@@ -20,7 +20,7 @@ hs.hotkey.bind({'cmd', 'alt', 'ctrl'}, 'Left', function()
 
     f.x = WINDOW_BORDER / 2
     f.y = max.y + WINDOW_BORDER / 2
-    f.w = LEFTRIGHT_FRACTION * max.w - WINDOW_BORDER
+    f.w = LEFTRIGHT_FRACTION * max.w - WINDOW_BORDER / 2.0
     f.h = max.h - WINDOW_BORDER
     win:setFrame(f)
 end)
@@ -32,9 +32,9 @@ hs.hotkey.bind({'cmd', 'alt', 'ctrl'}, 'Right', function()
     local screen = win:screen()
     local max = screen:frame()
 
-    f.x = max.x + LEFTRIGHT_FRACTION * max.w + WINDOW_BORDER / 4
+    f.x = max.x + LEFTRIGHT_FRACTION * max.w
     f.y = max.y + WINDOW_BORDER / 2
-    f.w = (1 - LEFTRIGHT_FRACTION) * max.w - WINDOW_BORDER
+    f.w = (1 - LEFTRIGHT_FRACTION) * max.w - WINDOW_BORDER / 2.0
     f.h = max.h - WINDOW_BORDER
     win:setFrame(f)
 end)
