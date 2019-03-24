@@ -38,18 +38,3 @@ hs.hotkey.bind({'cmd', 'alt', 'ctrl'}, 'Right', function()
     f.h = max.h - WINDOW_BORDER
     win:setFrame(f)
 end)
-
-function maximizeWindow()
-    local win = hs.window.focusedWindow()
-    local f = win:frame()
-    local screen = win:screen()
-    local max = screen:frame()
-
-    f.x = max.x + FULLSCREEN_BORDER / 2
-    f.y = max.y + FULLSCREEN_BORDER / 2
-    f.w = max.w - FULLSCREEN_BORDER
-    f.h = max.h - FULLSCREEN_BORDER
-    win:setFrame(f)
-end
-
-hs.hotkey.bind({'cmd', 'alt', 'ctrl'}, 'f', maximizeWindow)
