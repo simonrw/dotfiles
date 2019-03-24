@@ -27,6 +27,7 @@ Plug 'machakann/vim-highlightedyank'
 Plug 'easymotion/vim-easymotion'
 Plug 'posva/vim-vue'
 Plug 'leafgarland/typescript-vim'
+Plug 'kassio/neoterm'
 
 call plug#end()
 
