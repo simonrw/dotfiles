@@ -28,6 +28,8 @@ Plug 'easymotion/vim-easymotion'
 Plug 'posva/vim-vue'
 Plug 'leafgarland/typescript-vim'
 Plug 'kassio/neoterm'
+Plug 'junegunn/goyo.vim'
+Plug 'junegunn/limelight.vim'
 
 call plug#end()
 
@@ -265,6 +267,10 @@ let g:hardtime_default_on = 1
 
 " Disable go version warnings
 let g:go_version_warning = 0
+
+" Enable limelight when entering Goyo mode
+autocmd! User GoyoEnter Limelight
+autocmd! User GoyoLeave Limelight!
 
 set background=dark
 colorscheme lucius
