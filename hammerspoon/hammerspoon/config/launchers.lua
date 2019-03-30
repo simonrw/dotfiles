@@ -10,7 +10,7 @@ function launchEditor()
 end
 
 function launchEmail()
-    hs.application.launchOrFocus('Mail')
+    hs.application.launchOrFocus('Thunderbird')
 end
 
 function launchTerminal()
@@ -23,6 +23,8 @@ hs.hotkey.bind({'cmd', 'alt'}, 'c', function()
 end)
 
 hs.hotkey.bind({'cmd', 'alt'}, 't', launchTerminal)
+
+hs.hotkey.bind({'cmd', 'alt'}, 'e', launchEmail)
 
 -- Editor
 -- hs.hotkey.bind({'cmd', 'alt'}, 'e', launchEmail)
