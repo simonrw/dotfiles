@@ -14,6 +14,10 @@ def exit_with_message(msg):
     sys.exit(1)
 
 
+def linux_flamegraph(args):
+    raise NotImplementedError("Linux")
+
+
 def darwin_flamegraph(args):
     execname = os.path.basename(args.rest[0])
     with tempfile.NamedTemporaryFile(suffix=".stacks") as tfile:
@@ -26,8 +30,7 @@ def darwin_flamegraph(args):
             tfile.name,
             "-n",
             'profile-{probe} /execname == "{execname}"/ {{ @[ustack(100)] = count(); }}'.format(
-                execname=execname,
-                probe=args.probe,
+                execname=execname, probe=args.probe
             ),
         ]
 
@@ -58,13 +61,12 @@ if __name__ == "__main__":
             "-p", "--probe", type=int, required=False, default=997, choices=PROBES
         )
 
-    parser.add_argument("rest", nargs="*")
-    args = parser.parse_intermixed_args()
+    args, extra = parser.parse_known_args()
 
-    if not args.rest:
+    if not extra:
         exit_with_message("No command supplied")
 
-    handlers = {"Darwin": darwin_flamegraph}
+    handlers = {"Darwin": darwin_flamegraph, "Linux": linux_flamegraph}
 
     if os_type not in handlers:
         exit_with_message("Operating system not supported: {}".format(os_type))
