@@ -1,5 +1,5 @@
 terminalEmulator = "iTerm"
-browser = "Google Chrome"
+browser = "Firefox Developer Edition"
 
 function launchTerminal()
     hs.application.launchOrFocus(terminalEmulator)
