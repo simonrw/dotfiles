@@ -269,6 +269,9 @@ let g:hardtime_default_on = 1
 " Disable go version warnings
 let g:go_version_warning = 0
 
+" Configure neomake
+call neomake#configure#automake('nw', 750)
+
 " Enable limelight when entering Goyo mode
 autocmd! User GoyoEnter Limelight
 autocmd! User GoyoLeave Limelight!
