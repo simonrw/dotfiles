@@ -1,4 +1,4 @@
-terminalEmulator = "iTerm"
+terminalEmulator = "Kitty"
 browser = "Firefox Developer Edition"
 
 function launchTerminal()
