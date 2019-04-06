@@ -9,7 +9,7 @@ endif
 
 Plug 'junegunn/fzf.vim'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': 'yes \| ./install --no-update-rc --no-completion --key-bindings' }
-Plug 'rust-lang/rust.vim'
+Plug 'rust-lang/rust.vim', { 'for': 'rust' }
 Plug 'nelstrom/vim-markdown-folding'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-vinegar'
@@ -18,19 +18,20 @@ Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-eunuch'
 Plug 'tpope/vim-fugitive'
 Plug 'christoomey/vim-tmux-runner'
-Plug 'elixir-editors/vim-elixir'
-Plug 'mhinz/vim-mix-format'
-Plug 'ElmCast/elm-vim'
+Plug 'elixir-editors/vim-elixir', { 'for': 'elixir' }
+Plug 'mhinz/vim-mix-format', { 'for': 'elixir' }
+Plug 'ElmCast/elm-vim', { 'for': 'elm' }
 Plug 'janko-m/vim-test'
-Plug 'cespare/vim-toml'
+Plug 'cespare/vim-toml', { 'for': 'toml' }
 Plug 'machakann/vim-highlightedyank'
 Plug 'easymotion/vim-easymotion'
-Plug 'posva/vim-vue'
-Plug 'leafgarland/typescript-vim'
+Plug 'posva/vim-vue', { 'for': 'vue' }
+Plug 'leafgarland/typescript-vim', { 'for': 'typescript' }
 Plug 'kassio/neoterm'
 Plug 'junegunn/goyo.vim'
 Plug 'junegunn/limelight.vim'
 Plug 'neomake/neomake'
+Plug 'fatih/vim-go', { 'for': 'go' }
 
 call plug#end()
 
