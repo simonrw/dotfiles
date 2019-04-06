@@ -115,6 +115,10 @@ for file in ~/.zsh/setup/*.zsh; do
     source $file
 done
 
+# Run ls after every cd
+autoload -U add-zsh-hook
+add-zsh-hook -Uz chpwd (){ ls; }
+
 # Set up misc extra commands
 export PYENV_VIRTUALENV_DISABLE_PROMPT=1
 
