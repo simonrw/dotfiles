@@ -270,6 +270,9 @@ let g:hardtime_default_on = 1
 " Disable go version warnings
 let g:go_version_warning = 0
 
+" Configure elm.vim
+let g:elm_format_fail_silently = 1
+
 " Configure neomake
 call neomake#configure#automake('nw', 750)
 
