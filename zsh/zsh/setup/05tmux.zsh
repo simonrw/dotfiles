@@ -19,8 +19,10 @@ _not_inside_tmux() { [[ -z "$TMUX" ]] }
 
 _not_inside_neovim() { [[ -z "$NVIM_LISTEN_ADDRESS" ]] }
 
+_not_inside_emacs() { [[ -z "$EMACS" ]] }
+
 ensure_tmux_is_running() {
-    if _not_inside_tmux && _not_inside_neovim; then
+    if _not_inside_tmux && _not_inside_neovim && _not_inside_emacs; then
         tat
     fi
 }
