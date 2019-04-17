@@ -15,10 +15,5 @@ if executable('rustfmt')
     nnoremap <silent> <leader>y :update\|:RustFmt<Cr>
 endif
 
-" If we have neomake installed, set the builder
-if &rtp =~ "Neovim"
-  nnoremap <silent> <leader>t :update\|:Neomake<Cr>
-endif
-
 " Use omnifunc for autocompletion
 setlocal omnifunc=lsp#complete

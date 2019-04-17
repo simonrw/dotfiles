@@ -30,7 +30,6 @@ Plug 'leafgarland/typescript-vim', { 'for': 'typescript' }
 Plug 'kassio/neoterm'
 Plug 'junegunn/goyo.vim'
 Plug 'junegunn/limelight.vim'
-Plug 'neomake/neomake'
 Plug 'fatih/vim-go', { 'for': 'go' }
 
 call plug#end()
@@ -274,9 +273,6 @@ let g:go_version_warning = 0
 
 " Configure elm.vim
 let g:elm_format_fail_silently = 1
-
-" Configure neomake
-call neomake#configure#automake('nw', 750)
 
 " Enable limelight when entering Goyo mode
 autocmd! User GoyoEnter Limelight
