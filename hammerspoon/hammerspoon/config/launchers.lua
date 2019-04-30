@@ -1,5 +1,5 @@
 terminalEmulator = "Kitty"
-browser = "Firefox"
+browser = "Firefox Developer Edition"
 
 function launchTerminal()
     hs.application.launchOrFocus(terminalEmulator)
