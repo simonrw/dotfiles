@@ -25,7 +25,7 @@ floating_modifier $mod
 
 # start a terminal
 # bindsym $mod+Return exec alacritty
-bindsym $mod+Return exec stterm
+bindsym $mod+Return exec st
 
 # start browser
 bindsym $mod+c exec firefox
