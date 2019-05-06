@@ -35,8 +35,8 @@ Plug 'fatih/vim-go', { 'for': 'go' }
 call plug#end()
 
 set mouse=a
-set nonumber
-set norelativenumber
+set number
+set relativenumber
 set ttimeoutlen=0
 set shiftwidth=4
 set tabstop=4
