@@ -1,4 +1,4 @@
-terminalEmulator = "Kitty"
+terminal = "Kitty"
 browser = "Google Chrome"
 email = "Thunderbird"
 
