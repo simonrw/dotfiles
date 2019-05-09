@@ -1,5 +1,5 @@
-terminal = "Kitty"
-browser = "Google Chrome"
+terminal = "iTerm"
+browser = "Firefox Developer Edition"
 email = "Thunderbird"
 
 hs.hotkey.bind({'cmd', 'alt'}, 'c', function()
