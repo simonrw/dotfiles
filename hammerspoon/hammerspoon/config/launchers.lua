@@ -1,5 +1,5 @@
 terminal = "iTerm"
-browser = "Firefox Developer Edition"
+browser = "Firefox"
 email = "Thunderbird"
 
 hs.hotkey.bind({'cmd', 'alt'}, 'c', function()
