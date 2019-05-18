@@ -4,6 +4,7 @@ case $OSTYPE in
         export PATH=/Library/TeX/texbin:${GOPATH}/bin:/usr/local/sbin:/sbin:/usr/sbin:${HOME}/.cabal/bin:${PATH}
         alias sed=gsed
         alias indent=gindent
+        alias ls="gls --color=never --literal --tabsize 0 --indicator-style=slash --classify --dereference-command-line"
 
         # Configure homebrew
         export HOMEBREW_NO_ANALYTICS=1
