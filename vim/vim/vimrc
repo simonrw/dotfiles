@@ -31,6 +31,7 @@ Plug 'kassio/neoterm'
 Plug 'junegunn/goyo.vim'
 Plug 'junegunn/limelight.vim'
 Plug 'fatih/vim-go', { 'for': 'go' }
+Plug 'airblade/vim-gitgutter'
 
 call plug#end()
 
@@ -273,6 +274,10 @@ let g:go_version_warning = 0
 
 " Configure elm.vim
 let g:elm_format_fail_silently = 1
+
+" Configure gitgutter
+nnoremap [g :GitGutterPrevHunk<cr>
+nnoremap ]g :GitGutterNextHunk<cr>
 
 " Enable limelight when entering Goyo mode
 autocmd! User GoyoEnter Limelight
