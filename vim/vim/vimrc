@@ -70,6 +70,7 @@ set linebreak
 set gdefault
 " Configure minimum window width
 set winwidth=99
+set updatetime=250
 
 " Prevent vim from clobbering the scrollback buffer
 set t_ti= t_te=
@@ -278,6 +279,11 @@ let g:elm_format_fail_silently = 1
 " Configure gitgutter
 nnoremap [g :GitGutterPrevHunk<cr>
 nnoremap ]g :GitGutterNextHunk<cr>
+let g:gitgutter_sign_added = '+'
+let g:gitgutter_sign_modified = '>'
+let g:gitgutter_sign_removed = '-'
+let g:gitgutter_sign_removed_first_line = '^'
+let g:gitgutter_sign_modified_removed = '<'
 
 " Enable limelight when entering Goyo mode
 autocmd! User GoyoEnter Limelight
