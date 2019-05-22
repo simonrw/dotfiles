@@ -28,7 +28,7 @@ floating_modifier $mod
 bindsym $mod+Return exec st
 
 # start browser
-bindsym $mod+c exec firefox
+bindsym $mod+c exec chromium-browser
 
 # kill focused window
 bindsym $mod+Shift+Q kill
