@@ -280,6 +280,6 @@ autocmd! User GoyoEnter Limelight
 autocmd! User GoyoLeave Limelight!
 
 set background=light
-colorscheme base16-one-light
+colorscheme base16-github
 
 highlight ColorColumn ctermbg=0
