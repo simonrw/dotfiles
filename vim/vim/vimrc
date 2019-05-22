@@ -31,7 +31,6 @@ Plug 'kassio/neoterm'
 Plug 'junegunn/goyo.vim'
 Plug 'junegunn/limelight.vim'
 Plug 'fatih/vim-go', { 'for': 'go' }
-Plug 'chriskempson/base16-vim'
 
 call plug#end()
 
@@ -279,7 +278,7 @@ let g:elm_format_fail_silently = 1
 autocmd! User GoyoEnter Limelight
 autocmd! User GoyoLeave Limelight!
 
-set background=light
-colorscheme base16-one-light
+set background=dark
+colorscheme lucius
 
 highlight ColorColumn ctermbg=0
