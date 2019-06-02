@@ -1,5 +1,5 @@
 terminal = "Kitty"
-browser = "Firefox"
+browser = "Safari"
 
 hs.hotkey.bind({'cmd', 'alt'}, 'c', function()
     hs.application.launchOrFocus(browser)
