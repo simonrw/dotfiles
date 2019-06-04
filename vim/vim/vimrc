@@ -32,6 +32,7 @@ Plug 'junegunn/goyo.vim'
 Plug 'junegunn/limelight.vim'
 Plug 'fatih/vim-go', { 'for': 'go' }
 Plug 'airblade/vim-gitgutter'
+Plug 'takac/vim-hardtime'
 
 call plug#end()
 
@@ -269,6 +270,10 @@ map s <Plug>(easymotion-bd-f)
 
 " Enable hardtime plugin
 let g:hardtime_default_on = 1
+let g:hardtime_showmsg = 1
+let g:hardtime_ignore_quickfix = 1
+let g:hardtime_allow_different_key = 1
+let g:hardtime_maxcount = 4
 
 " Disable go version warnings
 let g:go_version_warning = 0
