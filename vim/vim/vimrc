@@ -31,7 +31,6 @@ Plug 'kassio/neoterm'
 Plug 'junegunn/goyo.vim'
 Plug 'junegunn/limelight.vim'
 Plug 'fatih/vim-go', { 'for': 'go' }
-Plug 'airblade/vim-gitgutter'
 Plug 'takac/vim-hardtime'
 
 call plug#end()
