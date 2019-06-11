@@ -294,6 +294,6 @@ autocmd! User GoyoEnter Limelight
 autocmd! User GoyoLeave Limelight!
 
 set background=dark
-colorscheme lucius
+colorscheme desert
 
 highlight ColorColumn ctermbg=0
