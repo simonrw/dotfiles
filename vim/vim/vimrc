@@ -122,9 +122,6 @@ nnoremap ` '
 nnoremap j gj
 nnoremap k gk
 
-" Magic search by default
-nnoremap ? ?\v
-nnoremap / /\v
 cnoremap %s/ %sm/
 
 " escape with Ctrl-j
