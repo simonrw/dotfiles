@@ -33,6 +33,7 @@ Plug 'junegunn/limelight.vim'
 Plug 'fatih/vim-go', { 'for': 'go' }
 Plug 'takac/vim-hardtime'
 Plug 'chriskempson/base16-vim'
+Plug 'w0rp/ale'
 
 call plug#end()
 
@@ -253,7 +254,21 @@ if has('nvim')
 endif
 
 " Configure ALE
-let g:ale_set_highlights = 0  " Disable highlights
+let g:ale_set_highlights = 1  " Disable highlights
+let g:ale_virtualtext_cursor = 1
+highlight link ALEWarningSign Todo
+highlight link ALEErrorSign WarningMsg
+highlight link ALEVirtualTextWarning Todo
+highlight link ALEVirtualTextInfo Todo
+highlight link ALEVirtualTextError WarningMsg
+highlight ALEError guibg=None
+highlight ALEWarning guibg=None
+let g:ale_sign_error = "✖"
+let g:ale_sign_warning = "⚠"
+let g:ale_sign_info = "i"
+let g:ale_sign_hint = "➤"
+nmap <silent> <C-k> <Plug>(ale_previous_wrap)
+nmap <silent> <C-j> <Plug>(ale_next_wrap)
 
 " Automatically format elixir files on save
 let g:mix_format_on_save = 1
