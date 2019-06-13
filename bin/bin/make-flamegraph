@@ -18,14 +18,14 @@ def linux_flamegraph(args):
     raise NotImplementedError("Linux")
 
 
-def darwin_flamegraph(args):
-    execname = os.path.basename(args.rest[0])
+def darwin_flamegraph(args, rest):
+    execname = os.path.basename(rest[0])
     with tempfile.NamedTemporaryFile(suffix=".stacks") as tfile:
         cmd = [
             "sudo",
             "dtrace",
             "-c",
-            " ".join(args.rest),
+            " ".join(rest),
             "-o",
             tfile.name,
             "-n",
@@ -71,4 +71,4 @@ if __name__ == "__main__":
     if os_type not in handlers:
         exit_with_message("Operating system not supported: {}".format(os_type))
 
-    handlers[os_type](args)
+    handlers[os_type](args, extra)
