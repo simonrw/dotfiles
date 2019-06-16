@@ -71,6 +71,7 @@
     today = diff @{yesterday}..
     last = log -1
     unstage = reset HEAD
+	up = update
 [color]
     ui = auto
 [core]
