@@ -24,7 +24,6 @@ Plug 'ElmCast/elm-vim', { 'for': 'elm' }
 Plug 'janko-m/vim-test'
 Plug 'cespare/vim-toml', { 'for': 'toml' }
 Plug 'machakann/vim-highlightedyank'
-Plug 'easymotion/vim-easymotion'
 Plug 'posva/vim-vue', { 'for': 'vue' }
 Plug 'leafgarland/typescript-vim', { 'for': 'typescript' }
 Plug 'kassio/neoterm'
@@ -276,9 +275,6 @@ let g:mix_format_on_save = 1
 if has('nvim')
     runtime! plugin/python_setup.vim
 endif
-
-" Configure easymotion
-map s <Plug>(easymotion-bd-f)
 
 " Enable hardtime plugin
 let g:hardtime_default_on = 1
