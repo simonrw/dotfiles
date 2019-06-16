@@ -1,0 +1,41 @@
+#!/usr/bin/env python3
+
+
+import subprocess as sp
+import argparse
+
+
+def main(branch, remote, no_fast_forward):
+    sp.run(["git", "fetch", remote])
+
+    merge_command = ["git", "merge"]
+    if not no_fast_forward:
+        merge_command.append("--ff-only")
+    merge_command.append(f"{remote}/{branch}")
+
+    sp.run(merge_command)
+
+
+if __name__ == "__main__":
+    parser = argparse.ArgumentParser(
+        formatter_class=argparse.ArgumentDefaultsHelpFormatter
+    )
+    parser.add_argument(
+        "-b", "--branch", default="master", required=False, help="Branch to update"
+    )
+    parser.add_argument(
+        "-r", "--remote", default="origin", required=False, help="Remote to merge to"
+    )
+    parser.add_argument(
+        "--no-fast-forward",
+        action="store_true",
+        default=False,
+        help="Do not fast forward merge",
+    )
+    args = parser.parse_args()
+
+    branch = args.branch
+    remote = args.remote
+    no_fast_forward = args.no_fast_forward
+
+    main(branch=branch, remote=remote, no_fast_forward=no_fast_forward)
