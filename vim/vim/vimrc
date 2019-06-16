@@ -31,7 +31,6 @@ Plug 'junegunn/goyo.vim'
 Plug 'junegunn/limelight.vim'
 Plug 'fatih/vim-go', { 'for': 'go' }
 Plug 'takac/vim-hardtime'
-Plug 'chriskempson/base16-vim'
 Plug 'w0rp/ale'
 
 call plug#end()
@@ -303,6 +302,6 @@ autocmd! User GoyoEnter Limelight
 autocmd! User GoyoLeave Limelight!
 
 set background=dark
-colorscheme base16-gruvbox-dark-hard
+colorscheme lucius
 
 highlight ColorColumn ctermbg=0
