@@ -36,6 +36,8 @@ Plug 'w0rp/ale'
 call plug#end()
 
 set mouse=a
+set cursorline
+set scrolloff=5
 set number
 set relativenumber
 set ttimeoutlen=0
