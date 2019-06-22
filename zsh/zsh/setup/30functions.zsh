@@ -213,3 +213,12 @@ function s() {
         echo
     } || true
 }
+
+# Prevent nested tmux problem
+function ssh() {
+    if [[ ! -z "$TMUX" ]]; then
+        echo "Cannot ssh inside tmux session" >&2
+    else
+        =ssh $*
+    fi
+}
