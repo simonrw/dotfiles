@@ -214,11 +214,21 @@ function s() {
     } || true
 }
 
+_not_inside_tmux() { [[ -z "$TMUX" ]] }
+
 # Prevent nested tmux problem
 function ssh() {
-    if [[ ! -z "$TMUX" ]]; then
-        echo "Cannot ssh inside tmux session" >&2
+    if _not_inside_tmux; then
+        =ssh $*
     else
+        # Check hostname is not in blacklist
+        for name in "astoria"; do
+            if $(echo "$*" | grep -q "astoria"); then
+                echo "Cannot ssh to this host inside the current tmux session. The host is also configured to use tmux and so would cause a nested tmux issue." >&2
+                return
+            fi
+        done
+
         =ssh $*
     fi
 }
