@@ -260,14 +260,14 @@ highlight link ALEErrorSign WarningMsg
 highlight link ALEVirtualTextWarning Todo
 highlight link ALEVirtualTextInfo Todo
 highlight link ALEVirtualTextError WarningMsg
-highlight ALEError guibg=None
-highlight ALEWarning guibg=None
+if has('nvim')
+    highlight ALEError guibg=None
+    highlight ALEWarning guibg=None
+endif
 let g:ale_sign_error = "✖"
 let g:ale_sign_warning = "⚠"
 let g:ale_sign_info = "i"
 let g:ale_sign_hint = "➤"
-nmap <silent> <C-k> <Plug>(ale_previous_wrap)
-nmap <silent> <C-j> <Plug>(ale_next_wrap)
 
 " Automatically format elixir files on save
 let g:mix_format_on_save = 1
@@ -275,13 +275,6 @@ let g:mix_format_on_save = 1
 if has('nvim')
     runtime! plugin/python_setup.vim
 endif
-
-" Enable hardtime plugin
-let g:hardtime_default_on = 1
-let g:hardtime_showmsg = 1
-let g:hardtime_ignore_quickfix = 1
-let g:hardtime_allow_different_key = 1
-let g:hardtime_maxcount = 4
 
 " Disable go version warnings
 let g:go_version_warning = 0
