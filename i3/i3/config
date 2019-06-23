@@ -152,4 +152,25 @@ bar {
   status_command i3status
 }
 
-exec_always --no-startup-id feh --bg-scale /home/simon/Pictures/ws_Ubuntu,_linux_2560x1600.jpg
+exec_always --no-startup-id feh --bg-scale /home/simon/Pictures/wallpapers/dark-souls/artorias-vibrant.jpg
+
+exec_always --no-startup-id pasystray
+
+# Configure some window defaults
+
+# Set steam to always be floating
+# https://github.com/ValveSoftware/steam-for-linux/issues/1040
+for_window [class="^Steam$" title="^Friends$"] floating enable
+for_window [class="^Steam$" title="Steam - News"] floating enable
+for_window [class="^Steam$" title=".* - Chat"] floating enable
+for_window [class="^Steam$" title="^Settings$"] floating enable
+for_window [class="^Steam$" title=".* - event started"] floating enable
+for_window [class="^Steam$" title=".* CD key"] floating enable
+for_window [class="^Steam$" title="^Steam - Self Updater$"] floating enable
+for_window [class="^Steam$" title="^Screenshot Uploader$"] floating enable
+for_window [class="^Steam$" title="^Steam Guard - Computer Authorization Required$"] floating enable
+for_window [title="^Steam Keyboard$"] floating enable
+
+# gaps config
+for_window [class=".*"] border pixel 0
+gaps inner 16
