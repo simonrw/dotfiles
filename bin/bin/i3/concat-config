@@ -1,0 +1,3 @@
+#!/bin/bash
+
+cat ~/.i3/config.d/* > ~/.i3/config
