@@ -1,4 +1,12 @@
 #!/bin/bash
 
+set -e
+
+# Copy the base config
 cp ${HOME}/.i3/config.d/00-base ~/.i3/config
-cat "${HOME}/.i3/config.d/99-$(hostname -s)" >> ~/.i3/config
+
+# Copy any host-specific customisations
+cat "${HOME}/.i3/config.d/50-$(hostname -s)" >> ~/.i3/config
+
+# Finally copy any non-tracked files
+ls ${HOME}/.i3/config.d/9?-* | while read fname; do cat $fname >> ~/.i3/config; done
