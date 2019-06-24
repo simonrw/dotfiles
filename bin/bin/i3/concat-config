@@ -1,3 +1,4 @@
 #!/bin/bash
 
-cat ~/.i3/config.d/*.cfg > ~/.i3/config
+cp ${HOME}/.i3/config.d/00-base ~/.i3/config
+cat "${HOME}/.i3/config.d/99-$(hostname -s)" >> ~/.i3/config

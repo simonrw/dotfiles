@@ -110,5 +110,4 @@ mutt/mutt.d/messages
 .mypy_cache
 jupyter/jupyter/lab/workspaces
 
-i3/i3/config.d/9?-*
 i3/i3/config

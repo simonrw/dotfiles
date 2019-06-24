@@ -1,0 +1,9 @@
+# gaps config
+for_window [class=".*"] border pixel 0
+gaps inner 16
+
+# Set desktop background to artorias
+exec_always --no-startup-id feh --bg-scale /home/simon/Pictures/wallpapers/dark-souls/artorias-vibrant.jpg
+
+# Load sound manager
+exec_always --no-startup-id pasystray
