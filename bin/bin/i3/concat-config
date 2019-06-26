@@ -1,6 +1,6 @@
 #!/bin/bash
 
-set -e
+set -ex
 
 # Copy the base config
 cp ${HOME}/.i3/config.d/base ~/.i3/config
@@ -9,4 +9,4 @@ cp ${HOME}/.i3/config.d/base ~/.i3/config
 cat "${HOME}/.i3/config.d/$(hostname -s)" >> ~/.i3/config
 
 # Finally copy any non-tracked files
-test -f ${HOME}/.i3/config.d/config.local && cat ${HOME}/.i3/config.d/config.local >> ${HOME}/.i3/config
+test -f ${HOME}/.i3/config.d/config.local && cat ${HOME}/.i3/config.d/config.local >> ${HOME}/.i3/config || true
