@@ -33,6 +33,7 @@ Plug 'fatih/vim-go', { 'for': 'go' }
 Plug 'takac/vim-hardtime'
 Plug 'w0rp/ale'
 Plug 'hashivim/vim-terraform'
+Plug 'uarun/vim-protobuf'
 
 call plug#end()
 
