@@ -7,3 +7,7 @@ exec_always --no-startup-id feh --bg-scale /home/simon/Pictures/wallpapers/dark-
 
 # Load sound manager
 exec_always --no-startup-id pasystray
+
+# Configure keyboard shortcuts for increasing and decreasing volume
+bindsym $mod+ctrl+plus exec pactl set-sink-volume 2 '+10%'
+bindsym $mod+ctrl+minus exec pactl set-sink-volume 2 '-10%'
