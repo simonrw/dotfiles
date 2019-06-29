@@ -12,6 +12,9 @@ xrandr --output DP-2 --primary --right-of DVI-D-0
 
 compton --daemon --shadow --no-fading-openclose
 
+# Start the notification handler
+/usr/bin/dunst &
+
 # Set the keyboard map
 xmodmap ~/.Xmodmap
 
