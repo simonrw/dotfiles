@@ -6,3 +6,5 @@ set nowrap
 if executable('black')
     nnoremap <leader>y mm:%!black --fast -q -<Cr>`m
 endif
+
+vnoremap <silent> <leader>t :VtrSendLinesToRunner<Cr>
