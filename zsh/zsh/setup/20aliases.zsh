@@ -34,7 +34,3 @@ fi
 if has_executable exa; then
     alias ls=exa
 fi
-
-if has_executable pakku; then
-    alias pacman=pakku
-fi
