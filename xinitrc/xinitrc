@@ -1,9 +1,6 @@
 # Set the keyboard map to UK layout
 setxkbmap gb
 
-# Start the ssh-agent
-# eval $(ssh-agent)
-
 # Handle nice suspend
 xss-lock -- i3lock --color 333333 --show-failed-attempts &
 
