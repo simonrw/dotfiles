@@ -33,4 +33,7 @@ fi
 
 if has_executable exa; then
     alias ls=exa
+    alias thor="exa -snew -l"
+else
+    alias thor="ls -thor"
 fi
