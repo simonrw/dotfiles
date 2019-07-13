@@ -12,7 +12,6 @@ alias g='git'
 alias es='exec $SHELL'
 alias sqlite3='rlwrap =sqlite3'
 alias k=kubectl
-alias venv="python3 -m venv venv"
 alias sourceenv="source ./venv/bin/activate"
 
 if has_executable rg; then
