@@ -37,3 +37,7 @@ if has_executable exa; then
 else
     alias thor="ls -thor"
 fi
+
+if has_executable trizen; then
+    alias pacman=trizen
+fi
