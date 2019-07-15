@@ -31,7 +31,6 @@ Plug 'junegunn/goyo.vim'
 Plug 'junegunn/limelight.vim'
 Plug 'fatih/vim-go', { 'for': 'go' }
 Plug 'takac/vim-hardtime'
-Plug 'w0rp/ale'
 Plug 'hashivim/vim-terraform'
 Plug 'uarun/vim-protobuf'
 
@@ -253,23 +252,6 @@ if has('nvim')
 
     autocmd TermOpen * startinsert
 endif
-
-" Configure ALE
-let g:ale_set_highlights = 1  " Disable highlights
-let g:ale_virtualtext_cursor = 1
-highlight link ALEWarningSign Todo
-highlight link ALEErrorSign WarningMsg
-highlight link ALEVirtualTextWarning Todo
-highlight link ALEVirtualTextInfo Todo
-highlight link ALEVirtualTextError WarningMsg
-if has('nvim')
-    highlight ALEError guibg=None
-    highlight ALEWarning guibg=None
-endif
-let g:ale_sign_error = "✖"
-let g:ale_sign_warning = "⚠"
-let g:ale_sign_info = "i"
-let g:ale_sign_hint = "➤"
 
 " Automatically format elixir files on save
 let g:mix_format_on_save = 1
