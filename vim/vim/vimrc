@@ -74,6 +74,8 @@ set gdefault
 " Configure minimum window width
 set winwidth=99
 set updatetime=250
+" If buffer is already open when switching, switch to it
+set switchbuf+=useopen
 
 " Prevent vim from clobbering the scrollback buffer
 set t_ti= t_te=
