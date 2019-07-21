@@ -50,9 +50,6 @@ set ignorecase
 set hidden
 set tags+=.git/tags
 set wildmode=list:longest,list:full
-set noswapfile
-set nobackup
-set nowritebackup
 set history=50
 set complete=.,w,b,u,t
 set ruler
@@ -94,6 +91,26 @@ set splitbelow
 if has('nvim')
     set inccommand=nosplit
 endif
+
+" --- Set up backups
+" Protect changes between writes. Default values of
+" updatecount (200 keystrokes) and updatetime
+" (4 seconds) are fine
+set swapfile
+set directory^=~/.vim/swap//
+
+" protect against crash-during-write
+set writebackup
+" but do not persist backup after successful write
+set nobackup
+" use rename-and-write-new method whenever safe
+set backupcopy=auto
+" patch required to honor double slash at end
+if has("patch-8.1.0251")
+	" consolidate the writebackups -- not a big
+	" deal either way, since they usually get deleted
+	set backupdir^=~/.vim/backup//
+end
 
 " Set up persistent undo
 set undofile
