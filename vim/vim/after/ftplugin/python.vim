@@ -8,3 +8,4 @@ if executable('black')
 endif
 
 vnoremap <silent> <leader>t :VtrSendLinesToRunner<Cr>
+nnoremap <silent> <leader>p vip:VtrSendLinesToRunner<Cr>
