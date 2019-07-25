@@ -171,7 +171,7 @@ nnoremap gL :FzfBLines<cr>
 nnoremap <leader>a :FzfAg<cr>
 
 " Configure vim tmux runner
-let g:VtrStripLeadingWhitespace = 1
+let g:VtrStripLeadingWhitespace = 0
 let g:VtrClearEmptyLines = 1
 let g:VtrAppendNewline = 1
 
