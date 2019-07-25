@@ -131,3 +131,5 @@
     required = true
 [credential]
 	helper = store
+[mergetool]
+	prompt = false
