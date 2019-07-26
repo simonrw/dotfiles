@@ -208,7 +208,6 @@ There are two things you can do about this warning:
  '((emacs-lisp . t)
    (R . t)
    (ruby . t)
-   (rust . t)
    (python . t)))
 
 (setq org-startup-indented t)
