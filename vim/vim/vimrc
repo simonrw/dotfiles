@@ -320,15 +320,6 @@ autocmd! User GoyoLeave Limelight!
 " Configure coc
 let g:coc_global_extensions = [ 'coc-rls', 'coc-python' ]
 
-function! SetupCommandAbbrs(from, to)
-  exec 'cnoreabbrev <expr> '.a:from
-        \ .' ((getcmdtype() ==# ":" && getcmdline() ==# "'.a:from.'")'
-        \ .'? ("'.a:to.'") : ("'.a:from.'"))'
-endfunction
-
-" Use C to open coc config
-call SetupCommandAbbrs('C', 'CocConfig')
-
 set background=dark
 colorscheme srw256
 
