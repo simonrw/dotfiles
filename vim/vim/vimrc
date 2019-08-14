@@ -34,7 +34,6 @@ Plug 'takac/vim-hardtime'
 Plug 'w0rp/ale'
 Plug 'hashivim/vim-terraform'
 Plug 'uarun/vim-protobuf'
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 call plug#end()
 
@@ -316,9 +315,6 @@ let g:gitgutter_sign_modified_removed = '<'
 " Enable limelight when entering Goyo mode
 autocmd! User GoyoEnter Limelight
 autocmd! User GoyoLeave Limelight!
-
-" Configure coc
-let g:coc_global_extensions = [ 'coc-rls', 'coc-python' ]
 
 set background=dark
 colorscheme srw256
