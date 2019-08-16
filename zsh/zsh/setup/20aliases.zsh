@@ -39,6 +39,6 @@ else
     alias thor="ls -thor"
 fi
 
-if has_executable trizen; then
-    alias pacman=trizen
+if has_executable yay; then
+    alias pacman=yay
 fi
