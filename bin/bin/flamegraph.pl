@@ -1,1 +1,1 @@
-/Users/simon/dotfiles/external/FlameGraph/flamegraph.pl
+../../../dotfiles/external/FlameGraph/flamegraph.pl
