@@ -1,1 +1,1 @@
-/Users/simon/dotfiles/external/FlameGraph/stackcollapse.pl
+../../../dotfiles/external/FlameGraph/stackcollapse.pl

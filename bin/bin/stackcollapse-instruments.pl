@@ -1,1 +1,1 @@
-/Users/simon/dotfiles/external/FlameGraph/stackcollapse-instruments.pl
+../../../dotfiles/external/FlameGraph/stackcollapse-instruments.pl
