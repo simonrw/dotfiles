@@ -160,4 +160,9 @@ function git() {
     fi
 }
 
+# Configure safely including directories on the path, if the path .git/safe exists
+# https://thoughtbot.com/blog/git-safe
+
+export PATH="${PATH}:.git/safe/../../bin"
+
 alias g=git
