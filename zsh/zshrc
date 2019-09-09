@@ -135,31 +135,6 @@ export PATH=${PATH:+:${PATH}}:/usr/local/cuda/bin
 export LD_LIBRARY_PATH=${BUILD_PREFIX}/lib:${LD_LIBRARY_PATH:+:${LD_LIBRARY_PATH}}:/usr/local/cuda/lib64:/usr/local/cuda/extras/CUPTI/lib64
 export PKG_CONFIG_PATH=${BUILD_PREFIX}/lib/pkgconfig:${PKG_CONFIG_PATH}
 
-function __real_git_command() {
-    =git $@
-}
-
-function git() {
-    if [[ $1 == "commit" ]] || [[ $1 == "ci" ]]; then
-        local found="0"
-        for arg in $@; do
-            if [[ $arg == "-m" ]] || [[ $arg == "--message" ]]; then
-                found="1"
-                break
-            fi
-        done
-
-        if [[ $found == "1" ]]; then
-            echo >&2 "Use longform commit messages!!!"
-            return 1
-        else
-            __real_git_command $@
-        fi
-    else
-        __real_git_command $@
-    fi
-}
-
 # Configure safely including directories on the path, if the path .git/safe exists
 # https://thoughtbot.com/blog/git-safe
 
