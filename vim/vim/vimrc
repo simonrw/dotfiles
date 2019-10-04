@@ -253,7 +253,7 @@ nnoremap <leader>gd :Gdiff<cr>
 nnoremap <leader>gw :Gwrite<cr>
 nnoremap <leader>gr :Gread<cr>
 nnoremap <leader>gs :Gstatus<cr>
-nnoremap <leader>ga :Gcommit -v --amend<cr>
+nnoremap <leader>ga :Gcommit -v --amend --no-edit<cr>
 
 " Configure language client
 let g:LanguageClient_serverCommands = {
