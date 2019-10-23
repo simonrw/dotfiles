@@ -235,19 +235,30 @@ function ssh() {
 
 # Function to source the current virtual environment if there is one
 function se() {
-    if [[ -f ./venv/bin/activate ]]; then
-        # Have to check that the shell is not currently in a virtual environment
-        test -z $VIRTUAL_ENV || {
-            echo "Current shell is in a virtual environment ($VIRTUAL_ENV). Deactivating" >&2
-            deactivate
-        }
-        source ./venv/bin/activate
+    if has_executable poetry; then
+        if [[ -f ./pypoetry.toml ]]; then
+            # Poetry is already set up
+            poetry install
+            poetry shell
+        else
+            poetry init
+            poetry shell
+        fi
     else
-        # Create the virtual environment
-        echo "Virtual environment does not exist, creating" >&2
-        python3 -m venv ./venv
-        echo "Installing latest version of pip"
-        ./venv/bin/pip install -U pip
-        se
+        if [[ -f ./venv/bin/activate ]]; then
+            # Have to check that the shell is not currently in a virtual environment
+            test -z $VIRTUAL_ENV || {
+                echo "Current shell is in a virtual environment ($VIRTUAL_ENV). Deactivating" >&2
+                            deactivate
+                        }
+                    source ./venv/bin/activate
+                else
+                    # Create the virtual environment
+                    echo "Virtual environment does not exist, creating" >&2
+                    python3 -m venv ./venv
+                    echo "Installing latest version of pip"
+                    ./venv/bin/pip install -U pip
+                    se
+        fi
     fi
 }
