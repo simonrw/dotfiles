@@ -251,3 +251,13 @@ function se() {
         se
     fi
 }
+
+# Function to get the hierarchical process tree upwards (usually ending at PID 1)
+function pparents() {
+    if [[ $# -ne 1 ]]; then
+        echo "Usage: pparents <pid>" >&2
+        return 1
+    fi
+
+    pstree -s -p $1
+}
