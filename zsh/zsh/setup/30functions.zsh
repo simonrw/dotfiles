@@ -261,3 +261,13 @@ function pparents() {
 
     pstree -s -p $1
 }
+
+# Function to grep for specific process lines
+function psgrep() {
+    if [[ $# -ne 1 ]]; then
+        echo "Usage: psgrep <name>" >&2
+        return 1
+    fi
+
+    ps aux | grep $1
+}
