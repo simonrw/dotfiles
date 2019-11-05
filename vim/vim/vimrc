@@ -32,6 +32,7 @@ Plug 'fatih/vim-go', { 'for': 'go' }
 Plug 'takac/vim-hardtime'
 Plug 'hashivim/vim-terraform'
 Plug 'uarun/vim-protobuf'
+Plug 'MaxMEllon/vim-jsx-pretty'
 
 call plug#end()
 
