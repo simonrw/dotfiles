@@ -34,6 +34,7 @@ Plug 'takac/vim-hardtime'
 Plug 'hashivim/vim-terraform'
 Plug 'uarun/vim-protobuf'
 Plug 'MaxMEllon/vim-jsx-pretty'
+Plug 'easymotion/vim-easymotion'
 
 call plug#end()
 
