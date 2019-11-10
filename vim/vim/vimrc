@@ -150,7 +150,7 @@ if executable('rg')
 endif
 
 " Configure line breaking
-let &showbreak = "----> "
+let &showbreak = "> "
 
 " FZF
 set rtp+=~/.fzf
