@@ -294,15 +294,6 @@ let g:go_version_warning = 0
 " Configure elm.vim
 let g:elm_format_fail_silently = 1
 
-" Configure gitgutter
-nnoremap [g :GitGutterPrevHunk<cr>
-nnoremap ]g :GitGutterNextHunk<cr>
-let g:gitgutter_sign_added = '+'
-let g:gitgutter_sign_modified = '>'
-let g:gitgutter_sign_removed = '-'
-let g:gitgutter_sign_removed_first_line = '^'
-let g:gitgutter_sign_modified_removed = '<'
-
 " Enable limelight when entering Goyo mode
 autocmd! User GoyoEnter Limelight
 autocmd! User GoyoLeave Limelight!
