@@ -140,7 +140,11 @@ __git_files () {
 # directory so that any attachments are automatically saved there
 function mutt() {
     (cd ~/Downloads
-    =mutt)
+    if has_executable neomutt; then
+        =neomutt;
+    else
+        =mutt
+    fi)
 }
 alias email=mutt
 
