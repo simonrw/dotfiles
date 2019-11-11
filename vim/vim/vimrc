@@ -73,6 +73,7 @@ set winwidth=99
 set updatetime=250
 " If buffer is already open when switching, switch to it
 set switchbuf+=useopen
+set colorcolumn=100
 
 " Prevent vim from clobbering the scrollback buffer
 set t_ti= t_te=
@@ -309,4 +310,4 @@ autocmd! User GoyoLeave Limelight!
 set background=dark
 colorscheme srw256
 
-highlight ColorColumn ctermbg=0
+highlight ColorColumn ctermbg=243 guibg=#424242
