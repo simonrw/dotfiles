@@ -258,7 +258,9 @@ let g:LanguageClient_autoStart = 1
 let g:LanguageClient_useVirtualText = 0
 nnoremap <silent> gm :call LanguageClient#textDocument_hover()<CR>
 
-inoremap jj <Esc>
+" Custom escape combination, disable escape first
+inoremap <Esc> <nop>
+inoremap <C-space> <Esc>
 
 " When editing a file, always jump to the last known cursor position.
 " Don't do it for commit messages, when the position is invalid, or when
