@@ -34,7 +34,7 @@ Plug 'takac/vim-hardtime'
 Plug 'hashivim/vim-terraform'
 Plug 'uarun/vim-protobuf'
 Plug 'MaxMEllon/vim-jsx-pretty'
-Plug 'easymotion/vim-easymotion'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 call plug#end()
 
@@ -298,6 +298,10 @@ let g:elm_format_fail_silently = 1
 " Enable limelight when entering Goyo mode
 autocmd! User GoyoEnter Limelight
 autocmd! User GoyoLeave Limelight!
+
+" Configure coc.vim
+" Use <c-space> to trigger completion.
+inoremap <silent><expr> <c-space> coc#refresh()
 
 set background=dark
 colorscheme srw256
