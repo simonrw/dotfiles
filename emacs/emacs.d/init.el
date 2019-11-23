@@ -147,6 +147,8 @@ There are two things you can do about this warning:
   :init
   (add-hook 'rust-mode-hook 'cargo-minor-mode))
 
+(use-package rustic)
+
 (use-package toml-mode
   :mode (("\\.toml\\'" . toml-mode)))
 
