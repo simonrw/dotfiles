@@ -19,7 +19,7 @@ _not_inside_tmux() { [[ -z "$TMUX" ]] }
 
 _not_inside_neovim() { [[ -z "$NVIM_LISTEN_ADDRESS" ]] }
 
-_not_inside_emacs() { [[ -z "$EMACS" ]] }
+_not_inside_emacs() { [[ -z "$INSIDE_EMACS" ]] }
 
 _not_inside_vscode_term() { [[ "$TERM_PROGRAM" != "vscode" ]] }
 
