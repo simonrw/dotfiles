@@ -1,4 +1,4 @@
-set wrap
+set nowrap
 set nocindent
-
-let g:markdown_fenced_languages = ["rust"]
+set textwidth=80
+set colorcolumn=80
