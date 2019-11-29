@@ -36,6 +36,7 @@ Plug 'hashivim/vim-terraform'
 Plug 'uarun/vim-protobuf'
 Plug 'MaxMEllon/vim-jsx-pretty'
 Plug 'dense-analysis/ale'
+Plug 'robertmeta/nofrils'
 
 call plug#end()
 
@@ -301,6 +302,8 @@ autocmd! User GoyoEnter Limelight
 autocmd! User GoyoLeave Limelight!
 
 set background=dark
-colorscheme srw256
+" Extra highlighting for comments
+let g:nofrils_heavycomments = 1
+colorscheme nofrils-dark
 
 highlight ColorColumn ctermbg=243 guibg=#424242
