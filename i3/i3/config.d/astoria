@@ -11,7 +11,7 @@ gaps outer 0
 border_radius 4
 
 # Set desktop background to a solid colour
-exec_always --no-startup-id hsetroot -solid "#c79081"
+exec_always --no-startup-id hsetroot -solid "#c2dced"
 
 # Load sound manager
 exec_always --no-startup-id pasystray
