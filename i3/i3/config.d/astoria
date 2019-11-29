@@ -6,11 +6,12 @@ bindsym $mod+c exec firefox
 
 # gaps config
 for_window [class=".*"] border pixel 0
-gaps inner 8
+gaps inner 32
+gaps outer 0
 border_radius 4
 
-# Set desktop background to artorias
-exec_always --no-startup-id feh --bg-scale /home/simon/Pictures/wallpapers/dark-souls/artorias-vibrant.jpg
+# Set desktop background to a solid colour
+exec_always --no-startup-id hsetroot -solid "#c79081"
 
 # Load sound manager
 exec_always --no-startup-id pasystray
@@ -19,3 +20,10 @@ exec_always --no-startup-id pasystray
 set $volume_amount 5
 bindsym $mod+ctrl+plus exec ~/.bin/i3/volume increase $volume_amount && notify-send Volume "Increasing volume by $volume_amount%"
 bindsym $mod+ctrl+minus exec ~/.bin/i3/volume decrease $volume_amount && notify-send Volume "Decreasing volume by $volume_amount%"
+
+# Scratchpad
+bindsym $mod+BackSpace scratchpad show
+bindsym $mod+Ctrl+BackSpace exec mate-terminal
+
+# Enable compositing
+exec_always --no-startup-id picom --config /dev/null --shadow --xrender-sync-fence
