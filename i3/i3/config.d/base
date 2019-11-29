@@ -23,12 +23,6 @@ new_window pixel 1
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
-# start a terminal
-bindsym $mod+Return exec terminator
-
-# start browser
-bindsym $mod+c exec firefox-nightly
-
 # kill focused window
 bindsym $mod+Shift+Q kill
 
