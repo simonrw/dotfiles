@@ -5,7 +5,6 @@
 [alias]
     # Long form aliases
     # See https://github.com/GitAlias/gitalias/blob/master/gitalias.txt
-    get = !git pull --rebase && git submodule update --init --recursive
     publish = "!git push -u origin $(git branch-name)"
     unpublish = "!git push origin :$(git branch-name)"
     branch-name = "!git rev-parse --abbrev-ref HEAD"
@@ -54,9 +53,6 @@
     precommit = diff --cached --diff-algorithm=minimal -w
     pre = !git precommit
 
-
-    # Quickly interactive rebase with upstream
-    rebup = rebase -i origin/master --prune
 
     # Logging from Gary Bernhardt
     head = !git l -1
@@ -114,8 +110,6 @@
 [fetch]
     # Always prune when fetching and pulling
     prune = 1
-[branch]
-    autosetuprebase = always
 [grep]
     extendedRegexp = true
 [status]
@@ -124,8 +118,6 @@
     submoduleSummary = true
 [init]
     templatedir = ~/.gittemplate
-[pull]
-    rebase = preserve
 [filter "lfs"]
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f
