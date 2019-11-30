@@ -29,7 +29,7 @@
     st = status
     co = checkout
     su = submodule update --init --recursive
-    pr = pull --rebase --prune
+    pr = pull --prune
     pullff = pull --ff-only
     pushff = push --ff-only
     mergeff = merge --ff-only
