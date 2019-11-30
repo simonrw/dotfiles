@@ -3,7 +3,7 @@ set $font "Noto Sans Mono Regular"
 font pango:$font 10
 
 # Colors
-set $bg-color                   #2f343f
+set $bg-color                   #bfe3e3
 set $inactive-bg-color          #1c1f26
 set $text-color                 #f3f4f5
 set $inactive-text-color        #676E7D
@@ -23,10 +23,10 @@ bindsym $mod+Return exec mate-terminal
 bindsym $mod+c exec firefox
 
 # gaps config
-for_window [class=".*"] border pixel 0
+# for_window [class=".*"] border pixel 0
 gaps inner 32
 gaps outer 0
-border_radius 8
+# border_radius 8
 
 # Set desktop background to a solid colour
 exec_always --no-startup-id hsetroot -solid "#c2dced"
