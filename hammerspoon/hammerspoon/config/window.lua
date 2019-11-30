@@ -1,7 +1,7 @@
 -- constant holding the window enlargement/shrinkage factor
 local WINDOW_SIZE_CHANGE = 0
 local WINDOW_BORDER = 4
-local FULLSCREEN_BORDER = 32
+local FULLSCREEN_BORDER = 64
 local LEFTRIGHT_FRACTION = 0.55
 
 -- Move window to the next screen
