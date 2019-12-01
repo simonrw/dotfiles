@@ -18,7 +18,8 @@ exec_always xmodmap ~/.xmodmap
 font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
 
 # Set the window borders small
-new_window pixel 1
+# new_window pixel 2
+default_border pixel 2
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -110,7 +111,7 @@ bindsym $mod+Shift+C exec ~/.bin/i3/concat-config && DISPLAY=:0 i3-msg reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+R restart
 # exit i3 (logs you out of your X session)
-bindsym $mod+Shift+E exit
+bindsym $mod+Ctrl+Shift+E exit
 
 bindsym $mod+Ctrl+L exec i3lock --color 333333 --show-failed-attempts
 
