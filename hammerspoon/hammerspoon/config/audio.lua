@@ -16,5 +16,5 @@ function makeShiftFunction(diff)
     end
 end
 
-hs.hotkey.bind({'cmd', 'alt', 'ctrl'}, 'right', makeShiftFunction(5))
-hs.hotkey.bind({'cmd', 'alt', 'ctrl'}, 'left', makeShiftFunction(-5))
+-- hs.hotkey.bind({'cmd', 'alt', 'ctrl'}, 'right', makeShiftFunction(5))
+-- hs.hotkey.bind({'cmd', 'alt', 'ctrl'}, 'left', makeShiftFunction(-5))
