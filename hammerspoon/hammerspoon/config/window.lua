@@ -1,8 +1,8 @@
 -- constant holding the window enlargement/shrinkage factor
 local WINDOW_SIZE_CHANGE = 0
-local WINDOW_BORDER = 32
 local FULLSCREEN_BORDER = 64
-local LEFTRIGHT_FRACTION = 0.55
+local WINDOW_BORDER = FULLSCREEN_BORDER
+local LEFTRIGHT_FRACTION = 0.61803398875 -- golden ratio
 
 -- Move window to the next screen
 hs.hotkey.bind({'cmd', 'alt', 'ctrl'}, 'o', function()
@@ -18,9 +18,9 @@ hs.hotkey.bind({'cmd', 'alt', 'ctrl'}, 'Left', function()
     local screen = win:screen()
     local max = screen:frame()
 
-    f.x = WINDOW_BORDER / 2
+    f.x = max.x + WINDOW_BORDER / 2
     f.y = max.y + WINDOW_BORDER / 2
-    f.w = LEFTRIGHT_FRACTION * max.w - WINDOW_BORDER / 2.0
+    f.w = LEFTRIGHT_FRACTION * max.w - WINDOW_BORDER
     f.h = max.h - WINDOW_BORDER
     win:setFrame(f)
 end)
