@@ -210,6 +210,9 @@ endfunction
 " nmap <silent> <leader>l :call ToggleList("Location List", 'l')<CR>
 nmap <silent> Q :call ToggleList("Quickfix List", 'c')<CR>
 
+" Bind K to grep word under cursor
+nnoremap <silent> K :grep! "<C-R><C-W>"<cr><cr>\|:copen<Cr>
+
 " Default handler to run the current file
 function! HandleEnter(cmd)
     if &buftype ==# 'quickfix' || &buftype ==# 'nofile'
