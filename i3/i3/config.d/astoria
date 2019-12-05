@@ -30,6 +30,10 @@ gaps inner 16
 gaps outer 0
 # border_radius 8
 
+# Set the window borders small
+# new_window pixel 2
+default_border pixel 2
+
 # Set desktop background to a solid colour
 exec_always --no-startup-id hsetroot -solid "#c2dced"
 
