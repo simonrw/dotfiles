@@ -129,3 +129,6 @@
 	prompt = false
 [gpg]
 	program = gpg2
+[cinnabar]
+	helper = /home/simon/.git-cinnabar/git-cinnabar-helper
+	fsck = 1575586067
