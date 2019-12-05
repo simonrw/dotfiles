@@ -36,6 +36,7 @@ Plug 'hashivim/vim-terraform'
 Plug 'uarun/vim-protobuf'
 Plug 'MaxMEllon/vim-jsx-pretty'
 Plug 'dense-analysis/ale'
+Plug 'mustache/vim-mustache-handlebars'
 
 call plug#end()
 
