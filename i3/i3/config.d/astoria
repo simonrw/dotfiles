@@ -2,27 +2,8 @@
 set $font "Noto Sans Mono Regular"
 font pango:$font 10
 
-# Colors
-set $bg-color                   #2f343f
-set $tab-color                  #bfe3e3
-set $inactive-bg-color          #1c1f26
-set $text-color                 #f3f4f5
-set $dark-text-color            #192929
-set $inactive-text-color        #676E7D
-set $urgent-bg-color            #E53935
-
-## Window colors
-#                               border                  background              text                    indicator
-client.focused                  $bg-color               $tab-color              $dark-text-color             #7eecf2
-client.unfocused                $inactive-bg-color      $inactive-bg-color      $inactive-text-color    #7eecf2
-client.focused_inactive         $inactive-bg-color      $inactive-bg-color      $inactive-text-color    #7eecf2
-client.urgent                   $urgent-bg-color        $urgent-bg-color        $text-color             #7eecf2
-
 # start a terminal
 bindsym $mod+Return exec mate-terminal
-
-# start browser
-bindsym $mod+c exec firefox
 
 # gaps config
 # for_window [class=".*"] border pixel 0
@@ -31,11 +12,7 @@ gaps outer 0
 # border_radius 8
 
 # Set the window borders small
-# new_window pixel 2
 default_border pixel 2
-
-# Set desktop background to a solid colour
-exec_always --no-startup-id hsetroot -solid "#c2dced"
 
 # Load sound manager
 exec_always --no-startup-id pasystray
@@ -44,10 +21,6 @@ exec_always --no-startup-id pasystray
 set $volume_amount 5
 bindsym $mod+ctrl+plus exec ~/.bin/i3/volume increase $volume_amount && notify-send Volume "Increasing volume by $volume_amount%"
 bindsym $mod+ctrl+minus exec ~/.bin/i3/volume decrease $volume_amount && notify-send Volume "Decreasing volume by $volume_amount%"
-
-# Scratchpad
-bindsym $mod+BackSpace scratchpad show
-bindsym $mod+Ctrl+BackSpace exec mate-terminal
 
 # Enable compositing
 exec_always --no-startup-id picom --config /dev/null --shadow --xrender-sync-fence
