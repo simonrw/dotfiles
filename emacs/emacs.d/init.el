@@ -89,12 +89,6 @@ There are two things you can do about this warning:
     (setq-default mac-emulate-three-button-mouse t)
     (global-set-key (kbd "M-`") 'other-frame)))
 
-;; Show available keys on pause
-(use-package which-key
-  :ensure t
-  :config
-  (which-key-mode))
-
 ;; Get correct path from system shell
 (use-package exec-path-from-shell
   :init
@@ -117,16 +111,6 @@ There are two things you can do about this warning:
   :config
   (setq magit-diff-refine-hunk t))
 
-;; Helm
-(use-package helm
-  :bind
-  (("M-x" . helm-M-x))
-  :config
-  (helm-mode 1)
-
-  (use-package helm-projectile
-	:ensure t))
-
 ;; Markdown
 (use-package markdown-mode
   :mode (("README\\.md\\'" . gfm-mode)
@@ -147,8 +131,6 @@ There are two things you can do about this warning:
   :init
   (add-hook 'rust-mode-hook 'cargo-minor-mode))
 
-(use-package rustic)
-
 (use-package toml-mode
   :mode (("\\.toml\\'" . toml-mode)))
 
@@ -160,26 +142,6 @@ There are two things you can do about this warning:
   (setq projectile-enable-caching t)
   (projectile-mode +1))
 
-(use-package evil
-  :ensure t
-  :config
-  (evil-mode 1)
-
-  (use-package evil-leader
-	:ensure t
-	:config
-	(global-evil-leader-mode)
-	(evil-leader/set-leader ",")
-	(evil-leader/set-key "f" 'helm-projectile-find-file))
-
-  (use-package evil-surround
-	:ensure t
-	:config
-	(global-evil-surround-mode))
-
-  (use-package evil-indent-textobject
-	:ensure t))
-
 ;; Configure C family of xlanguages
 (add-hook 'c-mode-common-hook
 	  (lambda ()
@@ -190,12 +152,6 @@ There are two things you can do about this warning:
 
 (use-package cmake-mode
   :mode (("CMakeLists.txt" . cmake-mode)))
-
-;; Theming
-(use-package dracula-theme
-  :ensure t
-  :config
-  (load-theme 'dracula t))
 
 (use-package csharp-mode)
 
@@ -229,6 +185,8 @@ There are two things you can do about this warning:
 (defun todo ()
   (interactive)
   (find-file (concat org-directory "/todo.org")))
+
+(load-theme 'tango-dark)
 
 (provide 'init)
 ;;; init.el ends here
