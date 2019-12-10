@@ -5,7 +5,7 @@ setxkbmap gb
 # xss-lock -- i3lock --color 333333 --show-failed-attempts &
 
 # Set the screen configuration
-# xrandr --output DP-2 --primary --right-of DVI-D-0
+xrandr --output DP-2 --primary --right-of DVI-D-0
 
 # Start the notification handler
 # /usr/bin/dunst &
