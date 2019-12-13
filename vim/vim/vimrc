@@ -150,7 +150,7 @@ vnoremap < <gv
 vnoremap > >gv
 
 if executable('rg')
-    set grepprg=rg\ --vimgrep
+    let &grepprg="rg --vimgrep"
 endif
 
 " Configure line breaking
