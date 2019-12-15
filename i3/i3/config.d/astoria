@@ -2,6 +2,8 @@
 set $font "Noto Sans Mono Regular"
 font pango:$font 10
 
+bindsym $mod+c exec firefox-nightly
+
 # start a terminal
 bindsym $mod+Return exec mate-terminal
 

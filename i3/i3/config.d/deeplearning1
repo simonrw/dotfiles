@@ -1,3 +1,6 @@
 bindsym $mod+Return exec terminator
 
+# start browser
+bindsym $mod+c exec firefox
+
 for_window [class="^.*"] border pixel 0

@@ -42,9 +42,6 @@ bindsym $mod+Shift+Q kill
 # start dmenu (a program launcher)
 bindsym $mod+d exec dmenu_run
 
-# start browser
-bindsym $mod+c exec firefox
-
 # Set desktop background to a solid colour
 exec_always --no-startup-id hsetroot -solid "#c2dced"
 
