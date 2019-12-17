@@ -35,8 +35,8 @@ Plug 'takac/vim-hardtime'
 Plug 'hashivim/vim-terraform'
 Plug 'uarun/vim-protobuf'
 Plug 'MaxMEllon/vim-jsx-pretty'
-Plug 'dense-analysis/ale'
 Plug 'mustache/vim-mustache-handlebars'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 call plug#end()
 
@@ -252,19 +252,6 @@ nnoremap <leader>gr :Gread<cr>
 nnoremap <leader>gs :Gstatus<cr>
 nnoremap <leader>ga :Gcommit -v --amend<cr>
 
-" Configure language client
-let g:LanguageClient_serverCommands = {
-            \ 'rust': ['~/.cargo/bin/rustup', 'run', 'nightly', 'rls'],
-            \ 'javascript': ['/usr/local/bin/javascript-typescript-stdio'],
-            \ 'javascript.jsx': ['tcp://127.0.0.1:2089'],
-            \ 'python': ['/usr/local/bin/pyls'],
-            \ }
-let g:LanguageClient_autoStart = 1
-let g:LanguageClient_useVirtualText = 0
-nnoremap <silent> gm :call LanguageClient#textDocument_hover()<CR>
-
-inoremap jj <Esc>
-
 " When editing a file, always jump to the last known cursor position.
 " Don't do it for commit messages, when the position is invalid, or when
 " inside an event handler (happens when dropping a file on gvim).
@@ -303,6 +290,18 @@ let g:elm_format_fail_silently = 1
 " Enable limelight when entering Goyo mode
 autocmd! User GoyoEnter Limelight
 autocmd! User GoyoLeave Limelight!
+
+" Configure coc.vim
+inoremap <silent><expr> <C-.> coc#refresh()
+" Use <cr> to confirm completion, `<C-g>u` means break undo chain at current
+" position.
+" Coc only does snippet and additional edit on confirm.
+inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+
+" Use `[e` and `]e` to navigate diagnostics
+nmap <silent> [e <Plug>(coc-diagnostic-prev)
+nmap <silent> ]e <Plug>(coc-diagnostic-next)
+
 
 set background=dark
 colorscheme srw256
