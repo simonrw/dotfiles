@@ -9,12 +9,12 @@ bindsym $mod+Return exec mate-terminal
 
 # gaps config
 # for_window [class=".*"] border pixel 0
-gaps inner 8
+gaps inner 0
 gaps outer 0
 # border_radius 8
 
 # Set the window borders small
-default_border pixel 2
+default_border pixel 1
 
 # Load sound manager
 exec_always --no-startup-id pasystray
