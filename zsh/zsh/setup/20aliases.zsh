@@ -13,7 +13,7 @@ alias es='exec $SHELL'
 alias sqlite3='rlwrap =sqlite3'
 alias k=kubectl
 alias sourceenv="source ./venv/bin/activate"
-alias vup="vim +PlugClean! +PlugUpgrade +PlugUpdate +qa"
+alias vup="vim +PlugClean! +PlugUpgrade +PlugUpdate +UpdateRemotePlugins +qa"
 
 if has_executable rg; then
     alias grep=rg
