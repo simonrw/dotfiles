@@ -4,3 +4,6 @@ bindsym $mod+Return exec terminator
 bindsym $mod+c exec firefox
 
 for_window [class="^.*"] border pixel 0
+
+# start dmenu (a program launcher)
+bindsym $mod+d exec dmenu_run

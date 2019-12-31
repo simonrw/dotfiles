@@ -39,9 +39,6 @@ floating_modifier $mod
 # kill focused window
 bindsym $mod+Shift+Q kill
 
-# start dmenu (a program launcher)
-bindsym $mod+d exec dmenu_run
-
 # Set desktop background to a solid colour
 exec_always --no-startup-id hsetroot -solid "#c2dced"
 
