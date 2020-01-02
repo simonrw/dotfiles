@@ -28,4 +28,4 @@ bindsym $mod+ctrl+minus exec ~/.bin/i3/volume decrease $volume_amount && notify-
 exec_always --no-startup-id picom --config /dev/null --shadow --xrender-sync-fence
 
 # start rofi (a program launcher)
-bindsym $mod+d exec rofi -show combi
+bindsym $mod+d exec rofi -show drun
