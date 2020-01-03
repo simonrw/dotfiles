@@ -42,6 +42,10 @@ bindsym $mod+Shift+Q kill
 # Set desktop background to a solid colour
 exec_always --no-startup-id hsetroot -solid "#c2dced"
 
+# Set steam windows to be floating always
+# https://github.com/ValveSoftware/steam-for-linux/issues/1040
+for_window [class="^Steam$"] floating enable
+
 # change focus
 bindsym $mod+h focus left
 bindsym $mod+j focus down
