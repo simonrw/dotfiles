@@ -1,7 +1,7 @@
 # OSX setup
 case $OSTYPE in
     darwin*)
-        export PATH=/Library/TeX/texbin:${GOPATH}/bin:/usr/local/sbin:/sbin:/usr/sbin:${HOME}/.cabal/bin:${PATH}
+        export PATH=/Library/TeX/texbin:${GOPATH}/bin:/usr/local/sbin:/sbin:/usr/sbin:${HOME}/.cabal/bin:/usr/local/opt/python/libexec/bin:${PATH}
         alias sed=gsed
         alias indent=gindent
         alias ls="gls --color=never --literal --tabsize 0 --indicator-style=slash --classify --dereference-command-line"
