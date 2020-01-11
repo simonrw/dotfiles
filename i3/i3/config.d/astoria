@@ -17,7 +17,7 @@ gaps outer 0
 default_border pixel 1
 
 # Load sound manager
-exec_always --no-startup-id pasystray
+exec --no-startup-id pasystray
 
 # Configure keyboard shortcuts for increasing and decreasing volume
 set $volume_amount 5
@@ -31,4 +31,4 @@ exec_always --no-startup-id picom --config /dev/null --shadow --xrender-sync-fen
 bindsym $mod+d exec rofi -show drun
 
 # Start network manager applet
-exec_always --no-startup-id nm-applet
+exec --no-startup-id nm-applet
