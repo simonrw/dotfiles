@@ -29,3 +29,6 @@ exec_always --no-startup-id picom --config /dev/null --shadow --xrender-sync-fen
 
 # start rofi (a program launcher)
 bindsym $mod+d exec rofi -show drun
+
+# Start network manager applet
+exec_always --no-startup-id nm-applet
