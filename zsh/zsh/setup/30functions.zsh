@@ -249,7 +249,12 @@ function se() {
     else
         # Create the virtual environment
         echo "Virtual environment does not exist, creating" >&2
-        python3 -m venv ./venv
+        if has_executable python3; then
+            python3 -m venv ./venv
+        else
+            # Hope python is python3!
+            python -m venv ./venv
+        fi
         echo "Installing latest version of pip"
         ./venv/bin/pip install -U pip
         se
