@@ -103,8 +103,6 @@ There are two things you can do about this warning:
   :config
   (editorconfig-mode 1))
 
-(use-package pdf-tools)
-
 ;; Magit
 (use-package magit
   :bind (("C-x g" . magit-status))
@@ -134,14 +132,6 @@ There are two things you can do about this warning:
 (use-package toml-mode
   :mode (("\\.toml\\'" . toml-mode)))
 
-(use-package projectile
-  :ensure t
-  :config
-  (define-key projectile-mode-map (kbd "M-p") 'projectile-command-map)
-  (setq projectile-indexing-method 'alien)
-  (setq projectile-enable-caching t)
-  (projectile-mode +1))
-
 ;; Configure C family of xlanguages
 (add-hook 'c-mode-common-hook
 	  (lambda ()
@@ -154,8 +144,6 @@ There are two things you can do about this warning:
   :mode (("CMakeLists.txt" . cmake-mode)))
 
 (use-package csharp-mode)
-
-(use-package alchemist)
 
 (load "server")
 (unless (eq (server-running-p) t)
@@ -186,7 +174,51 @@ There are two things you can do about this warning:
   (interactive)
   (find-file (concat org-directory "/todo.org")))
 
-(load-theme 'tango-dark)
+(use-package evil
+  :config
+  (evil-mode 1)
+  ;;;; define shortcuts for powerful commands
+;;;; these can be invoked vim-style
+;;;; Esc-:<single_key_from_below>
+  (define-key evil-ex-map "g" 'helm-projectile-grep)
+  (define-key evil-ex-map "f" 'helm-projectile-find-file)
+
+;;;; I wept with joy about this in:
+;;;; http://www.mycpu.org/emacs-24-magit-magic/
+  (define-key evil-ex-map "m" 'magit-blame))
+
+(use-package helm
+  :config
+  (setq-default helm-M-x-fuzzy-match t)
+  (global-set-key "\C-x\C-m" 'helm-M-x)
+  (global-set-key "\C-c\C-m" 'helm-M-x)
+  (define-key evil-ex-map "x" 'helm-M-x)
+
+  (define-key evil-ex-map "b " 'helm-mini)
+  (define-key evil-ex-map "e" 'helm-find-files))
+
+(use-package helm-projectile
+  :config
+  (define-key evil-ex-map "g" 'helm-projectile-grep)
+  (define-key evil-ex-map "f" 'helm-projectile-find-file))
+
+(use-package doom-themes
+  :init
+  (setq doom-themes-enable-bold t    ; if nil, bold is universally disabled
+		doom-themes-enable-italic t) ; if nil, italics is universally disabled
+  :config
+  (doom-themes-visual-bell-config)
+  (doom-themes-neotree-config)  ; all-the-icons fonts must be installed!
+  (load-theme 'doom-gruvbox t))
+
+(use-package indent-guide
+  :config
+  (indent-guide-global-mode)
+  (set-face-background 'indent-guide-face "dimgray"))
+
+(use-package doom-modeline
+  :config
+  (doom-modeline-mode 1))
 
 (provide 'init)
 ;;; init.el ends here
