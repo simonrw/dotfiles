@@ -37,6 +37,7 @@ Plug 'uarun/vim-protobuf'
 Plug 'MaxMEllon/vim-jsx-pretty'
 Plug 'dense-analysis/ale'
 Plug 'mustache/vim-mustache-handlebars'
+Plug 'takac/vim-hardtime'
 
 call plug#end()
 
@@ -312,5 +313,14 @@ autocmd! User GoyoLeave Limelight!
 
 set background=dark
 colorscheme srw256
+
+" Use hardtime throughout
+let g:hardtime_default_on = 1
+
+" Make hardtime a little more lenient
+let g:hardtime_showmsg = 1
+let g:hardtime_ignore_quickfix = 1
+let g:hardtime_allow_different_key = 1
+let g:hardtime_maxcount = 4
 
 highlight ColorColumn ctermbg=243 guibg=#424242
