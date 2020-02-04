@@ -10,7 +10,6 @@ endif
 Plug 'junegunn/fzf.vim'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': 'yes \| ./install --no-update-rc --no-completion --key-bindings' }
 Plug 'rust-lang/rust.vim', { 'for': 'rust' }
-Plug 'nelstrom/vim-markdown-folding'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-vinegar'
 Plug 'tpope/vim-unimpaired'
@@ -25,16 +24,13 @@ Plug 'ElmCast/elm-vim', { 'for': 'elm' }
 Plug 'mindriot101/vim-test', { 'branch': 'cargo-nearest-test' }
 Plug 'cespare/vim-toml', { 'for': 'toml' }
 Plug 'machakann/vim-highlightedyank'
-Plug 'posva/vim-vue', { 'for': 'vue' }
 Plug 'leafgarland/typescript-vim', { 'for': 'typescript' }
-Plug 'kassio/neoterm'
 Plug 'junegunn/goyo.vim'
 Plug 'junegunn/limelight.vim'
 Plug 'fatih/vim-go', { 'for': 'go' }
 Plug 'hashivim/vim-terraform'
 Plug 'uarun/vim-protobuf'
 Plug 'MaxMEllon/vim-jsx-pretty'
-Plug 'dense-analysis/ale'
 Plug 'mustache/vim-mustache-handlebars'
 
 call plug#end()
@@ -181,6 +177,9 @@ nnoremap <silent> <leader>ve :tabe $MYVIMRC<Cr>
 nnoremap <silent> <leader>vr :source $MYVIMRC\|echo "Reloaded!"<Cr>
 nnoremap <silent> <leader>ev :echo "Use <leader>ve"<Cr>
 
+" Disable matching parens as this slows vim down
+let loaded_matchparen = 1
+
 " Add mapping to open/close the quickfix list
 " Taken from: http://vim.wikia.com/wiki/Toggle_to_open_or_close_the_quickfix_window
 function! GetBufferList()
@@ -302,14 +301,8 @@ let g:go_version_warning = 0
 " Configure elm.vim
 let g:elm_format_fail_silently = 1
 
-nmap <silent> [e <Plug>(ale_previous_wrap)
-nmap <silent> ]e <Plug>(ale_next_wrap)
-
 " Enable limelight when entering Goyo mode
 autocmd! User GoyoEnter Limelight
 autocmd! User GoyoLeave Limelight!
 
 set background=dark
-colorscheme srw256
-
-highlight ColorColumn ctermbg=243 guibg=#424242
