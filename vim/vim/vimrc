@@ -39,6 +39,7 @@ set mouse=a
 set scrolloff=5
 set nonumber
 set norelativenumber
+set nocursorline
 set ttimeoutlen=0
 set shiftwidth=4
 set tabstop=4
@@ -306,3 +307,4 @@ autocmd! User GoyoEnter Limelight
 autocmd! User GoyoLeave Limelight!
 
 set background=dark
+highlight ColorColumn ctermbg=243 guibg=#424242
