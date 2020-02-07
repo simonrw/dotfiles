@@ -307,4 +307,5 @@ autocmd! User GoyoEnter Limelight
 autocmd! User GoyoLeave Limelight!
 
 set background=dark
+colorscheme srw256
 highlight ColorColumn ctermbg=243 guibg=#424242
