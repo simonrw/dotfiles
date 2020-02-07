@@ -9,11 +9,8 @@ endif
 let g:rustfmt_autosave = 1
 let g:rustfmt_fail_silently = 1
 let g:racer_experimental_completer = 1
-let g:racer_cmd = "/Users/simon/.cargo/bin/racer"
+let g:racer_cmd = $HOME . "/.cargo/bin/racer"
 
 if executable('rustfmt')
     nnoremap <silent> <leader>y :update\|:RustFmt<Cr>
 endif
-
-" Use omnifunc for autocompletion
-setlocal omnifunc=lsp#complete
