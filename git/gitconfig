@@ -124,7 +124,7 @@
     required = true
 	process = git-lfs filter-process
 [credential]
-	helper = store
+	helper = cache
 [mergetool]
 	prompt = false
 [gpg]
