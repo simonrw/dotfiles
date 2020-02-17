@@ -1,5 +1,5 @@
 terminal = "Kitty"
-browser = "Firefox"
+browser = "Google Chrome"
 email = "Mail"
 
 hs.hotkey.bind({'cmd', 'alt'}, 'c', function()
@@ -9,3 +9,8 @@ end)
 hs.hotkey.bind({'cmd', 'alt'}, 't', function()
     hs.application.launchOrFocus(terminal)
 end)
+
+hs.hotkey.bind({'cmd', 'alt'}, 'e', function()
+    hs.application.launchOrFocus(email)
+end)
+
