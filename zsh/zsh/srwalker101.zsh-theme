@@ -23,7 +23,7 @@ function __suspended_count() {
 local green="%{$fg[green]%}"
 local red="%{$fg[red]%}"
 local yellow="%{$fg[yellow]%}"
-local blue="%{$fg[cyan]%}"
+local blue="%{$fg[blue]%}"
 local reset="%{$reset_color%}"
 local grey="%{$fg[black]%}"
 
@@ -32,4 +32,5 @@ function hr() {
 }
 
 PROMPT=$'\n$yellow$(__suspended_count)%(?.$green\\$.$red\\$)$reset '
+RPROMPT=$'$blue%m$reset'
 # vim: ft=zsh
