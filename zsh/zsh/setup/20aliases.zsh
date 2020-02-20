@@ -47,7 +47,3 @@ if has_executable bat; then
     alias less=bat
     alias more=bat
 fi
-
-if has_executable hub; then
-    alias git=hub
-fi
