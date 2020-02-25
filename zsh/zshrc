@@ -143,7 +143,4 @@ export GPG_TTY="$(tty)"
 
 export PATH="${PATH}:.git/safe/../../bin"
 
-# Configure autosuggestions for git (like fish)
-source ${HOME}/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
-
 alias g=git

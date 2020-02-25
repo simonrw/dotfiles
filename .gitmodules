@@ -34,6 +34,3 @@
 [submodule "external/dracula-terminal-app"]
 	path = external/dracula-terminal-app
 	url = https://github.com/dracula/terminal-app.git
-[submodule "external/zsh-autosuggestions"]
-	path = external/zsh-autosuggestions
-	url = https://github.com/zsh-users/zsh-autosuggestions
