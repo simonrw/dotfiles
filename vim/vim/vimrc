@@ -285,6 +285,10 @@ if has('nvim')
     autocmd TermOpen * startinsert
 endif
 
+" Get out of vim with kj rather than <esc>
+inoremap <esc> <nop>
+inoremap kj <esc>
+
 " Automatically format elixir files on save
 let g:mix_format_on_save = 1
 
