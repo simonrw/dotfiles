@@ -82,7 +82,7 @@
     excludesfile = ~/.gitignore_global
 	ignorecase = false
 [merge]
-    tool = vimdiff
+    tool = conflicted
     conflictstyle = "diff3"
 [transfer]
     fsckobjects = true
@@ -107,6 +107,8 @@
     trustExitCode = true
 [mergetool "ediff"]
     cmd = emacs --eval \"(ediff-merge-files-with-ancestor \\\"$LOCAL\\\" \\\"$REMOTE\\\"    \\\"$BASE\\\" nil \\\"$MERGED\\\")\"
+[mergetool "conflicted"]
+    cmd = "vim +Conflicted"
 [fetch]
     # Always prune when fetching and pulling
     prune = 1
