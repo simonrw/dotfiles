@@ -299,6 +299,8 @@ endif
 
 " Disable go version warnings
 let g:go_version_warning = 0
+let g:go_def_mode='gopls'
+let g:go_info_mode='gopls'
 
 " Configure elm.vim
 let g:elm_format_fail_silently = 1
