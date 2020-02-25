@@ -32,6 +32,7 @@ Plug 'hashivim/vim-terraform'
 Plug 'uarun/vim-protobuf'
 Plug 'MaxMEllon/vim-jsx-pretty'
 Plug 'mustache/vim-mustache-handlebars'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 call plug#end()
 
