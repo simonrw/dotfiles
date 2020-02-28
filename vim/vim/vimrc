@@ -310,6 +310,9 @@ let g:elm_format_fail_silently = 1
 autocmd! User GoyoEnter Limelight
 autocmd! User GoyoLeave Limelight!
 
+" Configure coc extensions
+let g:coc_global_extensions = ["coc-python", "coc-json", "coc-rust-analyzer"]
+
 " configure conflicted status line
 set statusline=%<%f\ %h%m%r%=%-14.(%l,%c%V%)\ %P
 set stl+=%{ConflictedVersion()}
