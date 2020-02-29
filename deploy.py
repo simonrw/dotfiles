@@ -1,116 +1,90 @@
 #!/usr/bin/env python
 
 
-from __future__ import print_function
-import os
-import sys
 import argparse
-import glob
+from pathlib import Path
 import logging
-
-logging.basicConfig(level=logging.WARNING)
-logger = logging.getLogger('deploy')
-
-EXCLUDE_LIST = [
-    '.git',
-    'external',
-    'osx',
-    '.',
-    '..',
-    'individual_files',
-    '.DS_Store',
-    '.bundle',
-    'git-remote-hg',
-    'plists',
-    'colours',
-    'provisioning',
-    'dircolors',
-    'emacs',
-    'testing',
-    'kitty',
-]
+from typing import Optional
 
 
-def main(args):
-    if args.verbose:
-        logger.setLevel(logging.DEBUG)
-
-    directories = (
-        path for path in glob.iglob('*')
-        if os.path.isdir(path)
-        and path not in EXCLUDE_LIST
-    )
-
-    for directory in directories:
-        create_link(directory, args.prefix, args.force, args.dry_run)
-
-    deploy_specifics()
+logging.basicConfig(
+    level=logging.WARNING, format="[%(asctime)s] %(levelname)7s:%(message)s"
+)
+logger = logging.getLogger("deploy")
 
 
-def deploy_specifics():
-    deploy_kitty()
+class Deployer(object):
+    @classmethod
+    def deploy(cls) -> None:
+        parser = argparse.ArgumentParser()
+        parser.add_argument("-n", "--dry-run", action="store_true", default=False)
+        parser.add_argument("-f", "--force", action="store_true", default=False)
+        parser.add_argument("-v", "--verbose", action="count")
+        args = parser.parse_args()
+
+        if args.verbose is not None:
+            if args.verbose == 1:
+                logger.setLevel(logging.INFO)
+            elif args.verbose > 1:
+                logger.setLevel(logging.DEBUG)
+
+        logger.info("deploying dotfiles")
+        logger.debug("debug logging enabled")
+
+        self = cls(dry_run=args.dry_run, force=args.force)
+        self.run()
+
+    def __init__(self, dry_run: bool, force: bool) -> None:
+        self.dry_run = dry_run
+        self.force = force
+
+    def run(self) -> None:
+        self.deploy_standard_dirs()
+
+    def deploy_standard_dirs(self, install_path: Optional[Path] = None) -> None:
+        dirnames = [
+            "vim",
+            "zsh",
+            "tmux",
+            "bin",
+            "conda",
+            "emacs",
+            "fish",
+            "git",
+            "hammerspoon",
+            "i3",
+            "ipython",
+            "jupyter",
+            "mutt",
+            "pgcli",
+            "postgresql",
+            "xinitrc",
+            "xresources",
+            "xmodmap",
+        ]
+        for dirname in dirnames:
+            src = Path.cwd().joinpath(dirname).resolve()
+            self.deploy_standard_dir(src, install_path=install_path)
+
+    def deploy_standard_dir(
+        self, dirname: Path, install_path: Optional[Path] = None
+    ) -> None:
+        if install_path is None:
+            install_path = Path.home().resolve()
+
+        logger.info("deploying %s", dirname)
+        source = Path.cwd().resolve().joinpath(dirname)
+        for src in source.glob("*"):
+            dst = install_path.joinpath(f".{src.name}")
+            logger.debug("- deploying %s to %s", src, dst)
+
+            if dst.exists() and not self.force:
+                logger.debug("--> path exists, skipping")
+                continue
+
+            dst.symlink_to(src)
+            logger.debug("--> linking complete")
 
 
-def deploy_kitty():
-    dest = os.path.expanduser(
-            os.path.join(
-                '~', 'Library', 'Preferences', 'kitty', 'kitty.conf'))
-
-    if os.path.exists(dest):
-        raise ValueError('Kitty config file exists')
-
-    src = os.path.realpath(os.path.join(
-            os.path.dirname(__file__),
-            'kitty', 'kitty', 'kitty.conf'))
-
-    containing_dir = os.path.dirname(dest)
-    if not os.path.isdir(containing_dir):
-        os.makedirs(containing_dir)
-
-    os.symlink(src, dest)
-
-
-
-
-
-def create_link(directory, prefix, force, dry_run):
-    linkable_items = glob.glob(
-        os.path.join(directory, '*'))
-    source_paths = [
-        os.path.realpath(path)
-        for path in linkable_items
-    ]
-    destination_paths = [
-        os.path.expanduser(
-            os.path.join(
-                prefix,
-                '.{}'.format(os.path.basename(path))
-            )
-        ) for path in linkable_items]
-
-    assert len(source_paths) == len(destination_paths)
-
-    for src, dest in zip(source_paths, destination_paths):
-        if os.path.exists(dest) and not force:
-            logger.info('Path %s exists, and force not given; skipping',
-                        dest)
-            continue
-
-        if dry_run:
-            logger.debug('Would link %s => %s (dry-run)',
-                         src, dest)
-        else:
-            logger.debug('Linking %s => %s', src, dest)
-            os.symlink(src, dest)
-
-
-if __name__ == '__main__':
-    parser = argparse.ArgumentParser()
-    parser.add_argument('--prefix', required=False, default='~')
-    parser.add_argument('-f', '--force', required=False, action='store_true',
-                        default=False)
-    parser.add_argument('-v', '--verbose', required=False, action='store_true',
-                        default=False)
-    parser.add_argument('-n', '--dry-run', required=False, action='store_true',
-                        default=False)
-    main(parser.parse_args())
+if __name__ == "__main__":
+    Deployer.deploy()
