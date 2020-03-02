@@ -311,7 +311,7 @@ autocmd! User GoyoEnter Limelight
 autocmd! User GoyoLeave Limelight!
 
 " Configure coc extensions
-let g:coc_global_extensions = ["coc-python", "coc-json", "coc-rust-analyzer"]
+let g:coc_global_extensions = ["coc-python", "coc-json", "coc-rls"]
 
 " configure conflicted status line
 set statusline=%<%f\ %h%m%r%=%-14.(%l,%c%V%)\ %P
