@@ -51,17 +51,17 @@
     discard = checkout --
     amend = commit --amend
     precommit = diff --cached --diff-algorithm=minimal -w
-    pre = !git precommit
+    pre = precommit
 
 
     # Logging from Gary Bernhardt
-    head = !git l -1
-    h = !git head
-    r = !git l -20
-    ra = !git r --all
     l = log --graph --decorate --oneline
+    head = l -1
+    h = head
+    r = l -20
+    ra = r --all
     la = log --graph --decorate --oneline --all
-    dc = !git precommit
+    dc = precommit
     aa = add --all
     aap = add --all --patch
     oneline = log --oneline --decorate
