@@ -55,11 +55,11 @@
 
 
     # Logging from Gary Bernhardt
-    l = log --graph --decorate --oneline
     head = l -1
     h = head
     r = l -20
     ra = r --all
+    l = log --graph --decorate --pretty=format:'%C(auto)%h %C(blue)[%an]%C(auto) %d %s%C(auto)'
     la = log --graph --decorate --oneline --all
     dc = precommit
     aa = add --all
