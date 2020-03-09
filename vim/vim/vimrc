@@ -34,8 +34,8 @@ Plug 'uarun/vim-protobuf'
 Plug 'MaxMEllon/vim-jsx-pretty'
 Plug 'mustache/vim-mustache-handlebars'
 Plug 'prettier/vim-prettier', {
-    \ 'do': 'npm install',
-    \ 'for': ['javascript', 'typescript', 'css', 'json', 'vue'] }
+    \ 'do': 'yarn install',
+    \ 'for': ['javascript', 'typescript', 'css', 'json', 'vue', 'html'] }
 
 call plug#end()
 
@@ -315,6 +315,10 @@ autocmd! User GoyoLeave Limelight!
 " configure conflicted status line
 set statusline=%<%f\ %h%m%r%=%-14.(%l,%c%V%)\ %P
 set stl+=%{ConflictedVersion()}
+
+" Enable autoformatting of valid pretter-compatible files
+let g:prettier#autoformat = 1
+let g:prettier#autoformat_require_pragma = 0
 
 set background=dark
 colorscheme srw256
