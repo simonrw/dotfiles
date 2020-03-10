@@ -43,6 +43,7 @@ class Deployer(object):
 
     def deploy_standard_dirs(self, install_path: Optional[Path] = None) -> None:
         dirnames = [
+            "sandbox",
             "vim",
             "zsh",
             "tmux",

@@ -37,3 +37,6 @@
 [submodule "external/zoxide"]
 	path = external/zoxide
 	url = https://github.com/ajeetdsouza/zoxide
+[submodule "external/sandboxd"]
+	path = external/sandboxd
+	url = https://github.com/benvan/sandboxd

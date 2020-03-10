@@ -9,3 +9,5 @@ has_executable() {
 
     command -v $1 >/dev/null 2>/dev/null
 }
+
+source ${HOME}/dotfiles/external/sandboxd/sandboxd
