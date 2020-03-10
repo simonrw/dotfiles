@@ -1,9 +1,6 @@
 PROFILE_STARTUP=false
 if [[ "$PROFILE_STARTUP" == true ]]; then
-    # http://zsh.sourceforge.net/Doc/Release/Prompt-Expansion.html
-    PS4=$'%D{%M%S%6.} %N:%i> '
-    exec 3>&2 2>$HOME/tmp/startlog.$$
-    setopt xtrace prompt_subst
+    zmodload zsh/zprof
 fi
 
 export PATH=${HOME}/.bin:${HOME}/.poetry/bin:${HOME}/.cabal/bin:/usr/local/bin:${PATH}:${HOME}/bin
@@ -144,3 +141,7 @@ export GPG_TTY="$(tty)"
 export PATH="${PATH}:.git/safe/../../bin"
 
 alias g=git
+
+if [[ "$PROFILE_STARTUP" == true ]]; then
+    zprof
+fi
