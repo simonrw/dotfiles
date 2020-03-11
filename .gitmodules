@@ -34,9 +34,6 @@
 [submodule "external/dracula-terminal-app"]
 	path = external/dracula-terminal-app
 	url = https://github.com/dracula/terminal-app.git
-[submodule "external/zoxide"]
-	path = external/zoxide
-	url = https://github.com/ajeetdsouza/zoxide
 [submodule "external/sandboxd"]
 	path = external/sandboxd
 	url = https://github.com/benvan/sandboxd
