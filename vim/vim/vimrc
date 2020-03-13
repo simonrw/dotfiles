@@ -36,7 +36,7 @@ Plug 'mustache/vim-mustache-handlebars'
 Plug 'prettier/vim-prettier', {
     \ 'do': 'yarn install',
     \ 'for': ['javascript', 'typescript', 'css', 'json', 'vue', 'html'] }
-Plug 'hardselius/warlock'
+Plug 'Lokaltog/vim-monotone'
 
 call plug#end()
 
@@ -322,5 +322,5 @@ let g:prettier#autoformat = 1
 let g:prettier#autoformat_require_pragma = 0
 
 set background=dark
-colorscheme warlock
+colorscheme monotone
 highlight ColorColumn ctermbg=243 guibg=#424242
