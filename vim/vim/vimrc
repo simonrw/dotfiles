@@ -316,6 +316,10 @@ autocmd! User GoyoLeave Limelight!
 set statusline=%<%f\ %h%m%r%=%-14.(%l,%c%V%)\ %P
 set stl+=%{ConflictedVersion()}
 
+" Add secondary mapping to leave insert mode
+inoremap <esc> <nop>
+inoremap <C-l> <esc>
+
 " Enable autoformatting of valid pretter-compatible files
 let g:prettier#autoformat = 1
 let g:prettier#autoformat_require_pragma = 0
