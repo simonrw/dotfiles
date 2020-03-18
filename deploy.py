@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 
 
 import argparse
@@ -40,6 +40,7 @@ class Deployer(object):
 
     def run(self) -> None:
         self.deploy_standard_dirs()
+        self.deploy_direnv()
 
     def deploy_standard_dirs(self, install_path: Optional[Path] = None) -> None:
         dirnames = [
@@ -85,6 +86,22 @@ class Deployer(object):
 
             dst.symlink_to(src)
             logger.debug("--> linking complete")
+
+    def deploy_direnv(self):
+        src = Path.cwd().joinpath("direnv", "direnvrc").resolve()
+
+        dest_dir = Path.home().resolve().joinpath(".config", "direnv")
+        dest_dir.mkdir(parents=True, exist_ok=True)
+
+        dest = dest_dir.joinpath("direnvrc")
+        logger.info("deploying %s -> %s", src, dest)
+
+        if dest.exists() and not self.force:
+            logger.debug("--> path exists, skipping")
+            return
+
+        dest.symlink_to(src)
+        logger.debug("--> linking complete")
 
 
 if __name__ == "__main__":
