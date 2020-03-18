@@ -326,6 +326,7 @@ let g:prettier#autoformat = 1
 let g:prettier#autoformat_require_pragma = 0
 
 set background=dark
+let g:lucius_contrast = "high"
+let g:lucius_contrast_bg = "normal"
 colorscheme lucius
-LuciusDarkHighContrast
 highlight ColorColumn ctermbg=243 guibg=#424242
