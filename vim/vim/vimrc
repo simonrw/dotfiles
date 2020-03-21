@@ -270,8 +270,6 @@ let g:LanguageClient_autoStart = 1
 let g:LanguageClient_useVirtualText = 0
 nnoremap <silent> gm :call LanguageClient#textDocument_hover()<CR>
 
-inoremap jj <Esc>
-
 " When editing a file, always jump to the last known cursor position.
 " Don't do it for commit messages, when the position is invalid, or when
 " inside an event handler (happens when dropping a file on gvim).
