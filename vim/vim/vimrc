@@ -138,6 +138,10 @@ nnoremap ` '
 nnoremap j gj
 nnoremap k gk
 
+" Easier command mode
+nnoremap ; :
+nnoremap : ;
+
 cnoremap %s/ %sm/
 
 " escape with Ctrl-j
