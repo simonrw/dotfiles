@@ -1,7 +1,4 @@
 [user]
-    name = Simon Walker
-    email = s.r.walker101@googlemail.com
-    signingkey = 436C76F7B62EE752
 	useConfigOnly = true
 [alias]
     # Long form aliases
@@ -70,6 +67,7 @@
     last = log -1
     unstage = reset HEAD
 	up = update
+	identity = "! git config user.name \"$(git config user.$1.name)\"; git config user.email \"$(git config user.$1.email)\"; git config user.signingkey \"$(git config user.$1.signingkey)\"; :"
 [color]
     ui = auto
 [core]
@@ -135,3 +133,7 @@
 [cinnabar]
 	helper = /home/simon/.git-cinnabar/git-cinnabar-helper
 	fsck = 1575586067
+[user "github.personal"]
+	name = Simon Walker
+	email = s.r.walker101@googlemail.com
+	signingkey = 436C76F7B62EE752
