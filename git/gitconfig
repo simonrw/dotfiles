@@ -2,6 +2,7 @@
     name = Simon Walker
     email = s.r.walker101@googlemail.com
     signingkey = 436C76F7B62EE752
+	useConfigOnly = true
 [alias]
     # Long form aliases
     # See https://github.com/GitAlias/gitalias/blob/master/gitalias.txt
