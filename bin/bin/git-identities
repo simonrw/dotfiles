@@ -4,4 +4,9 @@
 
 set -e
 
-grep -oP '^\[user\s+"([^\\"]+)"\]' ~/.gitconfig | cut -d\" -f 2
+if command -v ggrep >/dev/null 2>&1; then
+    # check if macos
+    ggrep -oP '^\[user\s+"([^\\"]+)"\]' ~/.gitconfig | cut -d\" -f 2
+else
+    grep -oP '^\[user\s+"([^\\"]+)"\]' ~/.gitconfig | cut -d\" -f 2
+fi
