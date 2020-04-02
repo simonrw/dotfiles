@@ -1,0 +1,7 @@
+#!/bin/sh
+
+# Print the list of available identities found in the gitconfig file
+
+set -e
+
+grep -oP '^\[user\s+"([^\\"]+)"\]' ~/.gitconfig | cut -d\" -f 2
