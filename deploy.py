@@ -41,6 +41,7 @@ class Deployer(object):
     def run(self) -> None:
         self.deploy_standard_dirs()
         self.deploy_direnv()
+        self.deploy_alacritty()
 
     def deploy_standard_dirs(self, install_path: Optional[Path] = None) -> None:
         dirnames = [
@@ -89,11 +90,17 @@ class Deployer(object):
 
     def deploy_direnv(self):
         src = Path.cwd().joinpath("direnv", "direnvrc").resolve()
+        dest = Path.home().resolve().joinpath(".config", "direnv", "direnvrc")
+        self._deploy_single_file(src, dest)
 
-        dest_dir = Path.home().resolve().joinpath(".config", "direnv")
-        dest_dir.mkdir(parents=True, exist_ok=True)
+    def deploy_alacritty(self):
+        src = Path.cwd().joinpath("alacritty", "alacritty.yml").resolve()
+        dest = Path.home().resolve().joinpath(".config", "alacritty", "alacritty.yml")
+        self._deploy_single_file(src, dest)
 
-        dest = dest_dir.joinpath("direnvrc")
+    def _deploy_single_file(self, src, dest):
+        dest.parent.mkdir(parents=True, exist_ok=True)
+
         logger.info("deploying %s -> %s", src, dest)
 
         if dest.exists() and not self.force:
