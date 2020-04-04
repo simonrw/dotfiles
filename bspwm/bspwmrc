@@ -30,6 +30,7 @@ bspc config presel_feedback_color	"#2E3440"
 # Compositing
 if [ -x "$(command -v picom)" ]; then
     killall picom >/dev/null 2>&1 || true
+    sleep 0.1
     picom -b --dbus
 fi
 
