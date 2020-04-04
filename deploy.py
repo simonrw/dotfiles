@@ -40,8 +40,7 @@ class Deployer(object):
 
     def run(self) -> None:
         self.deploy_standard_dirs()
-        self.deploy_direnv()
-        self.deploy_alacritty()
+        self.deploy_dotconfig_files()
 
     def deploy_standard_dirs(self, install_path: Optional[Path] = None) -> None:
         dirnames = [
@@ -88,15 +87,23 @@ class Deployer(object):
             dst.symlink_to(src)
             logger.debug("--> linking complete")
 
-    def deploy_direnv(self):
-        src = Path.cwd().joinpath("direnv", "direnvrc").resolve()
-        dest = Path.home().resolve().joinpath(".config", "direnv", "direnvrc")
-        self._deploy_single_file(src, dest)
+    def deploy_dotconfig_files(self):
+        for subdir in [
+            "direnv",
+            "alacritty",
+            "bspwm",
+            "polybar",
+            "sxhkd",
+            "rofi",
+            "picom",
+        ]:
+            self.deploy_dotconfig_file(subdir)
 
-    def deploy_alacritty(self):
-        src = Path.cwd().joinpath("alacritty", "alacritty.yml").resolve()
-        dest = Path.home().resolve().joinpath(".config", "alacritty", "alacritty.yml")
-        self._deploy_single_file(src, dest)
+    def deploy_dotconfig_file(self, subdir):
+        srcs = Path.cwd().joinpath(subdir).glob("*")
+        for src in srcs:
+            dest = Path.home().resolve().joinpath(".config", subdir, src.name)
+            self._deploy_single_file(src, dest)
 
     def _deploy_single_file(self, src, dest):
         dest.parent.mkdir(parents=True, exist_ok=True)
