@@ -37,3 +37,6 @@
 [submodule "external/sandboxd"]
 	path = external/sandboxd
 	url = https://github.com/benvan/sandboxd
+[submodule "external/git-identity-manager"]
+	path = external/git-identity-manager
+	url = https://github.com/mindriot101/git-identity-manager
