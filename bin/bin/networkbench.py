@@ -1,6 +1,8 @@
 #!/usr/bin/env python3
 
 
+import sys
+from pathlib import Path
 import argparse
 import subprocess as sp
 
@@ -8,7 +10,7 @@ import subprocess as sp
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument(
-        "-o", "--output", required=True, help="JSON file name to output"
+        "-o", "--output", required=True, help="JSON file name to output", type=Path
     )
     parser.add_argument("-H", "--host", required=True)
     parser.add_argument(
@@ -33,7 +35,27 @@ if __name__ == "__main__":
         required=False,
         help="IP address to bind to, to e.g. specify a network interface",
     )
+    parser.add_argument(
+        "-f",
+        "--force",
+        action="store_true",
+        default=False,
+        help="If an existing output file exists, then allow overwriting",
+    )
     args = parser.parse_args()
+
+    output = args.output.resolve()
+    if output.is_file():
+        if not args.force:
+            print(
+                f"Output file {str(output)} exists and `-f/--force` not given. "
+                "We cannot continue without overwriting the content that is already there.",
+                file=sys.stderr,
+            )
+            sys.exit(1)
+
+        # Remove the original file
+        output.unlink()
 
     cmd = [
         "iperf3",
@@ -41,7 +63,7 @@ if __name__ == "__main__":
         str(args.time),
         "--json",
         "--logfile",
-        args.output,
+        str(output),
         "--interval",
         str(args.interval),
         "-c",
