@@ -14,4 +14,4 @@ setxkbmap gb
 xmodmap ~/.Xmodmap
 
 # Start i3
-exec bspwm
+exec mate-session
