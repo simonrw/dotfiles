@@ -67,8 +67,6 @@
     last = log -1
     unstage = reset HEAD
 	up = update
-	identity = "! git config user.name \"$(git config user.$1.name)\"; git config user.email \"$(git config user.$1.email)\"; git config user.signingkey \"$(git config user.$1.signingkey)\"; :"
-    set-identity = "!git identity $(git identities | fzf)"
 [color]
     ui = auto
 [core]
@@ -138,3 +136,7 @@
 	name = Simon Walker
 	email = s.r.walker101@googlemail.com
 	signingkey = 436C76F7B62EE752
+	sshkey = /home/simon/.ssh/id_rsa
+[user "work.mtc"]
+	name = Simon Walker
+	email = simon.walker@the-mtc.org
