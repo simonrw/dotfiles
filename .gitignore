@@ -112,3 +112,5 @@ jupyter/jupyter/lab/workspaces
 
 i3/i3/config
 vim/vim/pack
+git/gitlocalconfig/*
+!git/gitlocalconfig/.gitkeep
