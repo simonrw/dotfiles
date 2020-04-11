@@ -5,6 +5,7 @@ import argparse
 from pathlib import Path
 import logging
 from typing import Optional
+from contextlib import contextmanager
 import subprocess as sp
 import os
 
@@ -53,6 +54,7 @@ class Deployer(object):
         self.deploy_dotconfig_files()
         if self.compile:
             self.install_rust_packages()
+            self.install_custom_binaries()
         else:
             logger.warning(
                 "`-c/--compile` not supplied, not compiling packages under `external`"
@@ -132,6 +134,15 @@ class Deployer(object):
         for subdir in subdirs:
             cmd = ["cargo", "install", "--path", subdir]
             sp.run(cmd)
+
+    def install_custom_binaries(self):
+        # git-bug
+        if not self._binary_exists("go"):
+            logger.warning("cannot find go compiler, skipping installing git-bug")
+            return
+
+        cmd = ["make", "-C", str(Path.cwd() / "external" / "git-bug"), "install"]
+        sp.run(cmd)
 
     def _deploy_single_file(self, src, dest):
         dest.parent.mkdir(parents=True, exist_ok=True)
