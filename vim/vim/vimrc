@@ -36,6 +36,7 @@ Plug 'mustache/vim-mustache-handlebars'
 Plug 'prettier/vim-prettier', {
     \ 'do': 'yarn install',
     \ 'for': ['javascript', 'typescript', 'css', 'json', 'vue', 'html'] }
+Plug 'junegunn/vim-easy-align'
 
 call plug#end()
 
