@@ -1,0 +1,172 @@
+#compdef git-identity
+
+autoload -U is-at-least
+
+_git-identity() {
+    typeset -A opt_args
+    typeset -a _arguments_options
+    local ret=1
+
+    if is-at-least 5.2; then
+        _arguments_options=(-s -S -C)
+    else
+        _arguments_options=(-s -C)
+    fi
+
+    local context curcontext="$curcontext" state line
+    _arguments "${_arguments_options[@]}" \
+'-h[Prints help information]' \
+'--help[Prints help information]' \
+'-V[Prints version information]' \
+'--version[Prints version information]' \
+":: :_git-identity_commands" \
+"*::: :->git-identity" \
+&& ret=0
+    case $state in
+    (git-identity)
+        words=($line[1] "${words[@]}")
+        (( CURRENT += 1 ))
+        curcontext="${curcontext%:*:*}:git-identity-command-$line[1]:"
+        case $line[1] in
+            (add)
+_arguments "${_arguments_options[@]}" \
+'-i+[]' \
+'--id=[]' \
+'-n+[]' \
+'--name=[]' \
+'-e+[]' \
+'--email=[]' \
+'-s+[]' \
+'--signing-key=[]' \
+'-S+[]' \
+'--ssh-key=[]' \
+'-h[Prints help information]' \
+'--help[Prints help information]' \
+'-V[Prints version information]' \
+'--version[Prints version information]' \
+&& ret=0
+;;
+(list)
+_arguments "${_arguments_options[@]}" \
+'-h[Prints help information]' \
+'--help[Prints help information]' \
+'-V[Prints version information]' \
+'--version[Prints version information]' \
+&& ret=0
+;;
+(set)
+_arguments "${_arguments_options[@]}" \
+'-h[Prints help information]' \
+'--help[Prints help information]' \
+'-V[Prints version information]' \
+'--version[Prints version information]' \
+&& ret=0
+;;
+(remove)
+_arguments "${_arguments_options[@]}" \
+'-i+[]' \
+'--identity=[]' \
+'-f[]' \
+'--force[]' \
+'--global[]' \
+'-h[Prints help information]' \
+'--help[Prints help information]' \
+'-V[Prints version information]' \
+'--version[Prints version information]' \
+&& ret=0
+;;
+(current)
+_arguments "${_arguments_options[@]}" \
+'-h[Prints help information]' \
+'--help[Prints help information]' \
+'-V[Prints version information]' \
+'--version[Prints version information]' \
+&& ret=0
+;;
+(gen-completion)
+_arguments "${_arguments_options[@]}" \
+'-s+[]' \
+'--shell=[]' \
+'-h[Prints help information]' \
+'--help[Prints help information]' \
+'-V[Prints version information]' \
+'--version[Prints version information]' \
+&& ret=0
+;;
+(help)
+_arguments "${_arguments_options[@]}" \
+'-h[Prints help information]' \
+'--help[Prints help information]' \
+'-V[Prints version information]' \
+'--version[Prints version information]' \
+&& ret=0
+;;
+        esac
+    ;;
+esac
+}
+
+(( $+functions[_git-identity_commands] )) ||
+_git-identity_commands() {
+    local commands; commands=(
+        "add:" \
+"list:" \
+"set:" \
+"remove:" \
+"current:" \
+"gen-completion:" \
+"help:Prints this message or the help of the given subcommand(s)" \
+    )
+    _describe -t commands 'git-identity commands' commands "$@"
+}
+(( $+functions[_git-identity__add_commands] )) ||
+_git-identity__add_commands() {
+    local commands; commands=(
+        
+    )
+    _describe -t commands 'git-identity add commands' commands "$@"
+}
+(( $+functions[_git-identity__current_commands] )) ||
+_git-identity__current_commands() {
+    local commands; commands=(
+        
+    )
+    _describe -t commands 'git-identity current commands' commands "$@"
+}
+(( $+functions[_git-identity__gen-completion_commands] )) ||
+_git-identity__gen-completion_commands() {
+    local commands; commands=(
+        
+    )
+    _describe -t commands 'git-identity gen-completion commands' commands "$@"
+}
+(( $+functions[_git-identity__help_commands] )) ||
+_git-identity__help_commands() {
+    local commands; commands=(
+        
+    )
+    _describe -t commands 'git-identity help commands' commands "$@"
+}
+(( $+functions[_git-identity__list_commands] )) ||
+_git-identity__list_commands() {
+    local commands; commands=(
+        
+    )
+    _describe -t commands 'git-identity list commands' commands "$@"
+}
+(( $+functions[_git-identity__remove_commands] )) ||
+_git-identity__remove_commands() {
+    local commands; commands=(
+        
+    )
+    _describe -t commands 'git-identity remove commands' commands "$@"
+}
+(( $+functions[_git-identity__set_commands] )) ||
+_git-identity__set_commands() {
+    local commands; commands=(
+        
+    )
+    _describe -t commands 'git-identity set commands' commands "$@"
+}
+
+_git-identity "$@"
