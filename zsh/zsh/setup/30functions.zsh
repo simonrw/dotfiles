@@ -286,3 +286,15 @@ function psgrep() {
 
     ps aux | grep $1
 }
+
+function find_pi() {
+    if [[ $# != 1 ]]; then
+        echo "usage: find_pi <interface>" >&2
+        return 1
+    fi
+
+    local interface=$1
+
+    echo "Usage may require sudo password"
+    sudo arp-scan --interface=$interface --localnet | grep b8:27:eb | awk '{print $1}'
+}
