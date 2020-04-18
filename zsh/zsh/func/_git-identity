@@ -30,16 +30,16 @@ _git-identity() {
         case $line[1] in
             (add)
 _arguments "${_arguments_options[@]}" \
-'-i+[]' \
-'--id=[]' \
-'-n+[]' \
-'--name=[]' \
-'-e+[]' \
-'--email=[]' \
-'-s+[]' \
-'--signing-key=[]' \
-'-S+[]' \
-'--ssh-key=[]' \
+'-i+[Name of the identity]' \
+'--id=[Name of the identity]' \
+'-n+[Your name]' \
+'--name=[Your name]' \
+'-e+[Your email]' \
+'--email=[Your email]' \
+'-s+[Optional gpg signing key id]' \
+'--signing-key=[Optional gpg signing key id]' \
+'-S+[Optional path to SSH key]' \
+'--ssh-key=[Optional path to SSH key]' \
 '-h[Prints help information]' \
 '--help[Prints help information]' \
 '-V[Prints version information]' \
@@ -64,11 +64,11 @@ _arguments "${_arguments_options[@]}" \
 ;;
 (remove)
 _arguments "${_arguments_options[@]}" \
-'-i+[]' \
-'--identity=[]' \
-'-f[]' \
-'--force[]' \
-'--global[]' \
+'-i+[Identity name if required]' \
+'--identity=[Identity name if required]' \
+'-f[Act out the removal (nothing happens without this key)]' \
+'--force[Act out the removal (nothing happens without this key)]' \
+'--global[Remove from global identity list]' \
 '-h[Prints help information]' \
 '--help[Prints help information]' \
 '-V[Prints version information]' \
@@ -85,8 +85,8 @@ _arguments "${_arguments_options[@]}" \
 ;;
 (gen-completion)
 _arguments "${_arguments_options[@]}" \
-'-s+[]' \
-'--shell=[]' \
+'-s+[Shell to generate completion for]' \
+'--shell=[Shell to generate completion for]' \
 '-h[Prints help information]' \
 '--help[Prints help information]' \
 '-V[Prints version information]' \
@@ -109,12 +109,12 @@ esac
 (( $+functions[_git-identity_commands] )) ||
 _git-identity_commands() {
     local commands; commands=(
-        "add:" \
-"list:" \
-"set:" \
-"remove:" \
-"current:" \
-"gen-completion:" \
+        "add:Add an identity to the global store" \
+"list:List available identities" \
+"set:Set the identity for the current repository" \
+"remove:Remove an identity from this repository or the global list" \
+"current:Get the currently active identity for this repository" \
+"gen-completion:Generate shell completion" \
 "help:Prints this message or the help of the given subcommand(s)" \
     )
     _describe -t commands 'git-identity commands' commands "$@"
