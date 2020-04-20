@@ -1,5 +1,5 @@
 let @i='import IPython; IPython.embed(); exit()'
-let @p='import ipdb; ipdb.set_trace()'
+let @p='import pudb; pudb.set_trace()'
 let @n='if __name__ == "__main__":'
 set nowrap
 
