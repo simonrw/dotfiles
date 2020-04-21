@@ -32,4 +32,5 @@ function hr() {
 }
 
 PROMPT=$'\n$yellow$(__suspended_count)%(?.$green\\$.$red\\$)$reset '
+RPROMPT=$'$blue%m$reset'
 # vim: ft=zsh
