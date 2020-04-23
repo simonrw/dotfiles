@@ -187,9 +187,6 @@ nnoremap <silent> <leader>ve :tabe $MYVIMRC<Cr>
 nnoremap <silent> <leader>vr :source $MYVIMRC\|echo "Reloaded!"<Cr>
 nnoremap <silent> <leader>ev :echo "Use <leader>ve"<Cr>
 
-" Disable matching parens as this slows vim down
-let loaded_matchparen = 1
-
 " Add mapping to open/close the quickfix list
 " Taken from: http://vim.wikia.com/wiki/Toggle_to_open_or_close_the_quickfix_window
 function! GetBufferList()
