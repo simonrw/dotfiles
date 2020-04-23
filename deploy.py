@@ -114,6 +114,7 @@ class Deployer(object):
             "sxhkd",
             "rofi",
             "picom",
+            "nvim",
         ]:
             self.deploy_dotconfig_file(subdir)
 
