@@ -317,6 +317,9 @@ set statusline=%<%f\ %h%m%r%=%-14.(%l,%c%V%)\ %P
 set statusline+=%{ConflictedVersion()}
 set statusline+=\ %{coc#status()}
 
+" Configure coc extensions
+let g:coc_global_extensions = ["coc-go", "coc-python", "coc-rust-analyzer"]
+
 " Enable autoformatting of valid pretter-compatible files
 let g:prettier#autoformat = 1
 let g:prettier#autoformat_require_pragma = 0
