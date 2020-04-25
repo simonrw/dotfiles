@@ -1,4 +1,4 @@
-bindkey -v
+bindkey -e
 
 # View manpages in neovim
 if has_executable nvim; then
