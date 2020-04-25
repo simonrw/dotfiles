@@ -9,7 +9,7 @@ bindsym $mod+Return exec mate-terminal
 
 # gaps config
 # for_window [class=".*"] border pixel 0
-gaps inner 16
+gaps inner 8
 gaps outer 0
 # border_radius 8
 
