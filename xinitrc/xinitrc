@@ -2,16 +2,16 @@
 setxkbmap gb
 
 # Handle nice suspend
-xss-lock -- i3lock --color 333333 --show-failed-attempts &
+# xss-lock -- i3lock --color 333333 --show-failed-attempts &
 
 # Set the screen configuration
-xrandr --output DP-2 --primary --right-of DVI-D-0
+# xrandr --output DP-2 --primary --right-of DVI-D-0
 
 # Start the notification handler
-/usr/bin/dunst &
+# /usr/bin/dunst &
 
 # Set the keyboard map
 xmodmap ~/.Xmodmap
 
 # Start i3
-exec i3
+exec mate-session
