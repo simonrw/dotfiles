@@ -3,6 +3,7 @@
 
 import argparse
 from pathlib import Path
+import platform
 import logging
 from typing import Optional
 from contextlib import contextmanager
@@ -52,6 +53,8 @@ class Deployer(object):
     def run(self) -> None:
         self.deploy_standard_dirs()
         self.deploy_dotconfig_files()
+        if self.macos():
+            self.deploy_kitty_config()
         if self.compile:
             self.install_rust_packages()
             self.install_custom_binaries()
@@ -124,6 +127,19 @@ class Deployer(object):
             dest = Path.home().resolve().joinpath(".config", subdir, src.name)
             self._deploy_single_file(src, dest)
 
+    def deploy_kitty_config(self):
+        srcs = (Path.cwd() / "kitty" / "kitty").glob("*")
+        dest_dir = Path.home() / "Library" / "Preferences" / "kitty"
+        for src in srcs:
+            logger.info("deploying %s", src)
+            dest = dest_dir / src.name
+            if dest.exists() and not self.force:
+                logger.debug("--> path exists, skipping")
+                continue
+
+            dest.symlink_to(src)
+            logger.debug("--> linking complete")
+
     def install_rust_packages(self):
         if not self._binary_exists("cargo"):
             logger.warning(
@@ -170,6 +186,9 @@ class Deployer(object):
                 return True
 
         return False
+
+    def macos(self):
+        return platform.system() == "Darwin"
 
 
 if __name__ == "__main__":
