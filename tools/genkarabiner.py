@@ -15,7 +15,27 @@ def gen_rule(key, mod):
 
 
 manipulators = []
-for key in ["q", "w", "e", "r", "t", "a", "s", "d", "f", "g", "z", "x", "c", "v"]:
+for key in [
+    "q",
+    "w",
+    "e",
+    "r",
+    "t",
+    "a",
+    "s",
+    "d",
+    "f",
+    "g",
+    "z",
+    "x",
+    "c",
+    "v",
+    "1",
+    "2",
+    "3",
+    "4",
+    "5",
+]:
     rule = gen_rule(key, "left_shift")
     manipulators.append(rule)
 
@@ -36,6 +56,14 @@ for key in [
     "comma",
     "period",
     "slash",
+    "6",
+    "7",
+    "8",
+    "9",
+    "0",
+    "open_bracket",
+    "close_bracket",
+    "quote",
 ]:
     rule = gen_rule(key, "right_shift")
     manipulators.append(rule)
