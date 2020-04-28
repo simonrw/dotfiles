@@ -30,6 +30,14 @@ class Deployer(object):
             default=False,
             help="Compile packages under `external`",
         )
+        parser.add_argument(
+            "-r",
+            "--root",
+            required=False,
+            default=Path.home(),
+            type=Path,
+            help="Install to a different root directory [default = home]",
+        )
         parser.add_argument("-v", "--verbose", action="count")
         args = parser.parse_args()
 
@@ -42,13 +50,14 @@ class Deployer(object):
         logger.info("deploying dotfiles")
         logger.debug("debug logging enabled")
 
-        self = cls(dry_run=args.dry_run, force=args.force, should_compile=args.compile)
+        self = cls(dry_run=args.dry_run, force=args.force, should_compile=args.compile, root=args.root)
         self.run()
 
-    def __init__(self, dry_run: bool, force: bool, should_compile: bool) -> None:
+    def __init__(self, dry_run: bool, force: bool, should_compile: bool, root: Path) -> None:
         self.dry_run = dry_run
         self.force = force
         self.compile = should_compile
+        self.root = root
 
     def run(self) -> None:
         self.deploy_standard_dirs()
@@ -93,7 +102,7 @@ class Deployer(object):
         self, dirname: Path, install_path: Optional[Path] = None
     ) -> None:
         if install_path is None:
-            install_path = Path.home().resolve()
+            install_path = self.root.resolve()
 
         logger.info("deploying %s", dirname)
         source = Path.cwd().resolve().joinpath(dirname)
@@ -124,12 +133,12 @@ class Deployer(object):
     def deploy_dotconfig_file(self, subdir):
         srcs = Path.cwd().joinpath(subdir).glob("*")
         for src in srcs:
-            dest = Path.home().resolve().joinpath(".config", subdir, src.name)
+            dest = self.root.resolve().joinpath(".config", subdir, src.name)
             self._deploy_single_file(src, dest)
 
     def deploy_kitty_config(self):
         srcs = (Path.cwd() / "kitty" / "kitty").glob("*")
-        dest_dir = Path.home() / "Library" / "Preferences" / "kitty"
+        dest_dir = self.root / "Library" / "Preferences" / "kitty"
         for src in srcs:
             logger.info("deploying %s", src)
             dest = dest_dir / src.name
