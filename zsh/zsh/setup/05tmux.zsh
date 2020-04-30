@@ -44,4 +44,4 @@ ensure_tmux_is_running() {
     fi
 }
 
-# Do not ensure tmux is running for the time being
+ensure_tmux_is_running
