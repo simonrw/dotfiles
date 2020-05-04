@@ -39,7 +39,6 @@ Plug 'prettier/vim-prettier', {
     \ 'for': ['javascript', 'typescript', 'css', 'json', 'vue', 'html'] }
 Plug 'junegunn/vim-easy-align'
 Plug 'jvirtanen/vim-hcl'
-Plug 'morhetz/gruvbox'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 call plug#end()
@@ -325,4 +324,4 @@ let g:prettier#autoformat = 1
 let g:prettier#autoformat_require_pragma = 0
 
 set background=dark
-colorscheme gruvbox
+colorscheme srw256
