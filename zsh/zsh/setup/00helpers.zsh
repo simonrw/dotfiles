@@ -11,3 +11,8 @@ has_executable() {
 }
 
 source ${HOME}/dotfiles/external/sandboxd/sandboxd
+
+# Add function to print in muted colours
+function muted_print() {
+    printf "\u001b[30;1m%s\u001b[0m\n" "$*"
+}
