@@ -43,3 +43,6 @@
 [submodule "external/git-bug"]
 	path = external/git-bug
 	url = https://github.com/mindriot101/git-bug.git
+[submodule "external/zsh-autosuggestions"]
+	path = external/zsh-autosuggestions
+	url = https://github.com/zsh-users/zsh-autosuggestions
