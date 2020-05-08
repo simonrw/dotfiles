@@ -140,5 +140,8 @@
 [user "work.mtc"]
 	name = Simon Walker
 	email = simon.walker@the-mtc.org
+[user "gitlab.personal"]
+	name = Simon Walker
+	email = s.r.walker101@googlemail.com
 [include]
 	path = ~/.gitlocalconfig/local
