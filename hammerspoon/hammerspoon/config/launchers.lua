@@ -1,5 +1,5 @@
 terminal = "Kitty"
-browser = "Google Chrome"
+browser = "Firefox"
 email = "Mail"
 
 hs.hotkey.bind({'cmd', 'alt'}, 'c', function()
