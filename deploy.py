@@ -50,14 +50,31 @@ class Deployer(object):
         logger.info("deploying dotfiles")
         logger.debug("debug logging enabled")
 
-        self = cls(dry_run=args.dry_run, force=args.force, should_compile=args.compile, root=args.root)
+        self = cls(args)
         self.run()
 
-    def __init__(self, dry_run: bool, force: bool, should_compile: bool, root: Path) -> None:
-        self.dry_run = dry_run
-        self.force = force
-        self.compile = should_compile
-        self.root = root
+    def __init__(self, args) -> None:
+        self.args = args
+
+    @property
+    def dry_run(self):
+        return self.args.dry_run
+
+    @property
+    def force(self):
+        return self.args.force
+
+    @property
+    def compile(self):
+        return self.args.compile
+
+    @property
+    def root(self):
+        return self.args.root
+
+    @property
+    def homebrew(self):
+        return self.args.homebrew
 
     def run(self) -> None:
         self.deploy_standard_dirs()
