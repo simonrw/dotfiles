@@ -88,7 +88,15 @@ class Deployer(object):
         self.deploy_dotconfig_files()
         if self.macos():
             self.deploy_kitty_config()
-            self.deploy_homebrew_bundles()
+            if not self.homebrew:
+                logger.warning(
+                    "not installing homebrew packages as `-H/--homebrew` not specified"
+                )
+            else:
+                homebrew = Homebrew()
+                homebrew.install()
+                homebrew.install_packages()
+
         if self.compile:
             self.install_rust_packages()
             self.install_custom_binaries()
@@ -174,25 +182,6 @@ class Deployer(object):
             dest.symlink_to(src)
             logger.debug("--> linking complete")
 
-    def deploy_homebrew_bundles(self):
-        if not self.homebrew:
-            logger.warning(
-                "not installing homebrew packages as `-H/--homebrew` not specified"
-            )
-            return
-
-        # Check that we have a Brewfile in the current directory
-        if not (Path.cwd() / "Brewfile").is_file():
-            raise RuntimeError("cannot find brewfile in current directory")
-
-        # TODO: check that we have homebrew in the `path`
-
-        # Run the command
-        cmd = ["brew", "bundle"]
-        logger.info("deploying homebrew packages")
-        logger.debug("running command: %s", cmd)
-        sp.run(cmd)
-
     def install_rust_packages(self):
         if not self._binary_exists("cargo"):
             logger.warning(
@@ -242,6 +231,24 @@ class Deployer(object):
 
     def macos(self):
         return platform.system() == "Darwin"
+
+
+class Homebrew(object):
+    def install(self):
+        # TODO install homebrew itself. Note: this requires user interaction to disable SIP etc.
+        pass
+
+    def install_packages(self):
+        # Check that we have a Brewfile in the current directory
+        if not (Path.cwd() / "Brewfile").is_file():
+            raise RuntimeError("cannot find brewfile in current directory")
+
+        # Run the command
+        cmd = ["brew", "bundle"]
+        logger.info("deploying homebrew packages")
+        logger.debug("running command: %s", cmd)
+        sp.run(cmd)
+
 
 if __name__ == "__main__":
     Deployer.deploy()
