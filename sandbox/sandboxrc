@@ -1,5 +1,0 @@
-# vim: ft=zsh
-
-sandbox_init_kubectl() {
-    eval "$(kubectl completion zsh)"
-}
