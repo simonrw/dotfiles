@@ -5,9 +5,7 @@ tap "homebrew/cask-drivers"
 tap "homebrew/cask-fonts"
 tap "homebrew/cask-versions"
 tap "homebrew/core"
-tap "homebrew/python"
 tap "homebrew/services"
-tap "homebrew/versions"
 
 # Formulae
 brew "ansible"
