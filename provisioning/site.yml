@@ -1,8 +1,0 @@
----
-- hosts: localhost
-  vars:
-  - home: "{{ lookup('env', 'HOME') }}"
-
-  roles:
-  - common
-  - { role: macosx, when: ansible_distribution == "MacOSX", tags: ['macosx']}
