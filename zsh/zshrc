@@ -14,7 +14,7 @@ REPORTTIME=10
 stty stop undef
 
 autoload -U compinit
-compinit
+compinit -i
 
 # Disable non-standard implicit tee/cat behaviour
 unsetopt multios
