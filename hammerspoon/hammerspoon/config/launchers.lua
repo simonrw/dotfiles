@@ -2,9 +2,14 @@ terminal = "Kitty"
 browser = "Firefox"
 email = "Mail"
 chat = "Slack"
+music = "Spotify"
 
 hs.hotkey.bind({'cmd', 'alt'}, 'c', function()
     hs.application.launchOrFocus(browser)
+end)
+
+hs.hotkey.bind({'cmd', 'alt'}, 'm', function()
+    hs.application.launchOrFocus(music)
 end)
 
 hs.hotkey.bind({'cmd', 'alt'}, 's', function()
