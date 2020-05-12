@@ -2,3 +2,7 @@
 # direnv stuff
 .direnv
 .envrc
+
+# In any project, we want to ignore the "scratch" subdirectories
+scratch
+tmp
