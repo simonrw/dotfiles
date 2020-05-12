@@ -1,7 +1,6 @@
-function asdf-init() {
-    # Do not activate asdf if inside a poetry shell
-    if [[ -z "${POETRY_ACTIVE}" ]]; then
-        . ${HOME}/.asdf/asdf.sh
-        . ${HOME}/.asdf/completions/asdf.bash
-    fi
+test -f ${HOME}/.asdf/asdf.sh || {
+    muted_print "asdf not installed"
+    exit 1
 }
+
+. ${HOME}/.asdf/asdf.sh
