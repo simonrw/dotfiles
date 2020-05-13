@@ -1287,6 +1287,12 @@
         "options": {
           "full_name": "iterm2"
         }
+      },
+      "libreoffice": {
+        "version": "6.4.3",
+        "options": {
+          "full_name": "libreoffice"
+        }
       }
     }
   },
