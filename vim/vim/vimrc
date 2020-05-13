@@ -39,6 +39,9 @@ Plug 'prettier/vim-prettier', {
     \ 'for': ['javascript', 'typescript', 'css', 'json', 'vue', 'html'] }
 Plug 'junegunn/vim-easy-align'
 Plug 'jvirtanen/vim-hcl'
+Plug 'martinda/Jenkinsfile-vim-syntax'
+Plug 'NLKNguyen/cloudformation-syntax.vim'
+Plug 'chr4/nginx.vim'
 
 call plug#end()
 
