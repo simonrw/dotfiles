@@ -1,0 +1,1 @@
+autocmd! BufNewFile,BufRead cloudformation.template setfiletype cloudformation
