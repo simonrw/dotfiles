@@ -21,6 +21,9 @@
       },
       "homebrew/services": {
         "revision": "c8fee02f479d20cf286c20babe696e56d8680205"
+      },
+      "aws/tap": {
+        "revision": "9ddfdddbe1fed52940f9561ed04618682d5b24b2"
       }
     },
     "brew": {
@@ -1169,6 +1172,23 @@
             }
           }
         }
+      },
+      "aws-sam-cli": {
+        "version": "0.48.0",
+        "bottle": {
+          "cellar": ":any_skip_relocation",
+          "prefix": "/usr/local",
+          "files": {
+            "sierra": {
+              "url": "https://github.com/awslabs/aws-sam-cli/releases/download/v0.48.0//aws-sam-cli-0.48.0.sierra.bottle.tar.gz",
+              "sha256": "58bd0e6dd2ef6df8a448e1ab51e97986ca561e05d070d6200098465e6bcfc55a"
+            },
+            "x86_64_linux": {
+              "url": "https://github.com/awslabs/aws-sam-cli/releases/download/v0.48.0//aws-sam-cli-0.48.0.x86_64_linux.bottle.tar.gz",
+              "sha256": "ac8a55cf66287686b42d0bdf3405b4fcef1617b3eb5c3bda85d3ecbd185b0287"
+            }
+          }
+        }
       }
     },
     "cask": {
@@ -1260,6 +1280,12 @@
         "version": "1.5.1",
         "options": {
           "full_name": "keepingyouawake"
+        }
+      },
+      "iterm2": {
+        "version": "3.3.9",
+        "options": {
+          "full_name": "iterm2"
         }
       }
     }
