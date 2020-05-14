@@ -44,4 +44,7 @@ layout_poetry() {
   PATH_add "$VENV"
 }
 
+# source .envrc files in parent directories
+source_up
+
 # vim: ft=sh
