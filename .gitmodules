@@ -34,9 +34,6 @@
 [submodule "external/dracula-terminal-app"]
 	path = external/dracula-terminal-app
 	url = https://github.com/dracula/terminal-app.git
-[submodule "external/git-identity-manager"]
-	path = external/git-identity-manager
-	url = https://github.com/mindriot101/git-identity-manager
 [submodule "external/git-bug"]
 	path = external/git-bug
 	url = https://github.com/mindriot101/git-bug.git
