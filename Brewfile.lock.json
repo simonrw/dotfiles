@@ -1321,6 +1321,12 @@
         "options": {
           "full_name": "libreoffice"
         }
+      },
+      "google-drive-file-stream": {
+        "version": "latest",
+        "options": {
+          "full_name": "google-drive-file-stream"
+        }
       }
     }
   },
