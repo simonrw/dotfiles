@@ -317,5 +317,14 @@ autocmd! User GoyoLeave Limelight!
 let g:prettier#autoformat = 1
 let g:prettier#autoformat_require_pragma = 0
 
+" Configure the status line
+" We need to add the default in as when we override it, the new values
+" overwrite the previous (i.e. empty gives a default value, anything else sets
+" the setting)
+set statusline=%<%f\ %h%m%r%=%-14.(%l,%c%V%)\ %P
+
+" Set up vim conflicted to show upstream/local/working in the status line
+set statusline+=:\ %{ConflictedVersion()}
+
 set background=dark
 colorscheme srw256
