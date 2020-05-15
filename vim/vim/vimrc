@@ -42,6 +42,7 @@ Plug 'jvirtanen/vim-hcl'
 Plug 'martinda/Jenkinsfile-vim-syntax'
 Plug 'NLKNguyen/cloudformation-syntax.vim'
 Plug 'chr4/nginx.vim'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 call plug#end()
 
@@ -313,18 +314,22 @@ let g:elm_format_fail_silently = 1
 autocmd! User GoyoEnter Limelight
 autocmd! User GoyoLeave Limelight!
 
+" configure conflicted status line
+set statusline=%<%f\ %h%m%r%=%-14.(%l,%c%V%)\ %P
+set statusline+=%{ConflictedVersion()}
+
+" set up coc status line
+set statusline+=\ %{coc#status()}
+
+" Configure coc extensions
+let g:coc_global_extensions = ["coc-go", "coc-python", "coc-rls", "coc-json"]
+
 " Enable autoformatting of valid pretter-compatible files
 let g:prettier#autoformat = 1
 let g:prettier#autoformat_require_pragma = 0
 
-" Configure the status line
-" We need to add the default in as when we override it, the new values
-" overwrite the previous (i.e. empty gives a default value, anything else sets
-" the setting)
-set statusline=%<%f\ %h%m%r%=%-14.(%l,%c%V%)\ %P
-
-" Set up vim conflicted to show upstream/local/working in the status line
-set statusline+=:\ %{ConflictedVersion()}
-
+" coc mappings
+nnoremap gd <Plug>(coc-definition)
+nnoremap gr <Plug>(coc-references)
 set background=dark
 colorscheme srw256
