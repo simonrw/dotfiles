@@ -1,5 +1,5 @@
 {
-    "python.jediEnabled": true,
+    "python.jediEnabled": false,
     "languageserver": {
         "ccls": {
             "command": "ccls",
