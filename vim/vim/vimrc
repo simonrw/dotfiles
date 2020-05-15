@@ -178,7 +178,7 @@ let g:VtrAppendNewline = 1
 " Expand %% to the current directory
 cnoremap %% <c-r>=expand('%:h') . '/'<cr>
 
-" Configure vim-test to use dispatch
+" Configure vim-test to use vtr
 let test#strategy = "vtr"
 
 nnoremap <silent> <leader>ve :tabe $MYVIMRC<Cr>
