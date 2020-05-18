@@ -4,6 +4,7 @@ local FULLSCREEN_BORDER = 16
 local WINDOW_BORDER = FULLSCREEN_BORDER
 local LEFTRIGHT_FRACTION = 0.5
 local ENABLE_SHORTCUTS = true
+local ENABLE_FULLSCREEN_SHORTCUT = false
 
 -- Move window to the next screen
 hs.hotkey.bind({'cmd', 'alt', 'ctrl'}, 'o', function()
@@ -55,5 +56,7 @@ if ENABLE_SHORTCUTS then
         win:setFrame(f)
     end
 
-    hs.hotkey.bind({'cmd', 'alt', 'ctrl'}, 'f', maximizeWindow)
+    if ENABLE_FULLSCREEN_SHORTCUT then
+        hs.hotkey.bind({'cmd', 'alt', 'ctrl'}, 'f', maximizeWindow)
+    end
 end
