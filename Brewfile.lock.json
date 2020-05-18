@@ -1396,6 +1396,12 @@
         "options": {
           "full_name": "drawio"
         }
+      },
+      "visual-studio-code": {
+        "version": "1.45.1",
+        "options": {
+          "full_name": "visual-studio-code"
+        }
       }
     }
   },
