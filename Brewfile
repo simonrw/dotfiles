@@ -50,6 +50,7 @@ brew "neofetch"
 brew "neovim", args: ["HEAD"]
 brew "netcat"
 brew "nmap"
+brew "openjdk"
 brew "openssh"
 brew "pkg-config"
 brew "postgresql", restart_service: true
