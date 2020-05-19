@@ -190,17 +190,26 @@ class Deployer(object):
 
         subdirs = ["external/git-identity-manager", "external/mkflashdriverepo"]
         for subdir in subdirs:
+            if not os.path.isdir(subdir):
+                continue
             cmd = ["cargo", "install", "--path", subdir]
             sp.run(cmd)
 
     def install_custom_binaries(self):
-        # git-bug
         if not self._binary_exists("go"):
             logger.warning("cannot find go compiler, skipping installing git-bug")
             return
 
+        # git-bug
+        logger.debug("compiling and installing external/git-bug")
         cmd = ["make", "-C", str(Path.cwd() / "external" / "git-bug"), "install"]
         sp.run(cmd)
+
+        # gomodinit
+        logger.debug("compiling and installing external/gomodinit")
+        with self._chdir("external/gomodinit"):
+            cmd = ["go", "install"]
+            sp.run(cmd)
 
     def _deploy_single_file(self, src, dest):
         dest.parent.mkdir(parents=True, exist_ok=True)
@@ -227,6 +236,15 @@ class Deployer(object):
                 return True
 
         return False
+
+    @contextmanager
+    def _chdir(self, path):
+        oldpath = os.getcwd()
+        try:
+            os.chdir(path)
+            yield
+        finally:
+            os.chdir(oldpath)
 
     def macos(self):
         return platform.system() == "Darwin"
