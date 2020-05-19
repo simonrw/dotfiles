@@ -1465,6 +1465,12 @@
         "options": {
           "full_name": "visual-studio-code"
         }
+      },
+      "notion": {
+        "version": "2.0.7",
+        "options": {
+          "full_name": "notion"
+        }
       }
     },
     "mas": {
