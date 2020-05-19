@@ -1280,6 +1280,27 @@
             }
           }
         }
+      },
+      "cookiecutter": {
+        "version": "1.7.2",
+        "bottle": {
+          "cellar": ":any_skip_relocation",
+          "prefix": "/usr/local",
+          "files": {
+            "catalina": {
+              "url": "https://homebrew.bintray.com/bottles/cookiecutter-1.7.2.catalina.bottle.tar.gz",
+              "sha256": "a2478744f1af2f5f7c88cf397f9b0909aa7ccbd9006bb47bae8d0d7de47e827a"
+            },
+            "mojave": {
+              "url": "https://homebrew.bintray.com/bottles/cookiecutter-1.7.2.mojave.bottle.tar.gz",
+              "sha256": "94952b16808a3e0428e3403f495d163532079a93ed7e1d1c56b0946f8bc354f4"
+            },
+            "high_sierra": {
+              "url": "https://homebrew.bintray.com/bottles/cookiecutter-1.7.2.high_sierra.bottle.tar.gz",
+              "sha256": "ced26761fb874fe209564d63067b40713ae17de01c7bb16baed6b8e75675abc6"
+            }
+          }
+        }
       }
     },
     "cask": {
