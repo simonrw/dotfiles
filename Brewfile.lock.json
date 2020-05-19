@@ -1403,6 +1403,13 @@
           "full_name": "visual-studio-code"
         }
       }
+    },
+    "mas": {
+      "Twitter": {
+        "id": "1482454543",
+        "version": "8.19"
+      },
+      "Tweetdeck": null
     }
   },
   "system": {

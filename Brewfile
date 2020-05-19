@@ -88,3 +88,7 @@ cask "spotify"
 cask "visual-studio-code"
 cask "vlc"
 cask "zoomus"
+
+# App store apps
+mas "Twitter", id: 1482454543
+mas "Tweetdeck", id: 485812721
