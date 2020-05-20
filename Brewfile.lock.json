@@ -1368,7 +1368,8 @@
           }
         }
       },
-      "mc": null
+      "mc": null,
+      "minio/stable/mc": null
     },
     "cask": {
       "docker": {
