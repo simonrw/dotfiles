@@ -27,6 +27,9 @@
       },
       "zaquestion/tap": {
         "revision": "b8f03942da61681bcafbb64f80662c86e09ab4ec"
+      },
+      "minio/stable": {
+        "revision": "1b8431d3ab22f66ccb69a83d387262d9a23d79f5"
       }
     },
     "brew": {
@@ -1343,7 +1346,29 @@
             }
           }
         }
-      }
+      },
+      "minio": {
+        "version": "20200428235656",
+        "bottle": {
+          "cellar": ":any_skip_relocation",
+          "prefix": "/usr/local",
+          "files": {
+            "catalina": {
+              "url": "https://homebrew.bintray.com/bottles/minio-20200428235656.catalina.bottle.tar.gz",
+              "sha256": "ac27e9834abda9a57d97f950641be3085e21cf00d2e34da6947b2fe5abbc7143"
+            },
+            "mojave": {
+              "url": "https://homebrew.bintray.com/bottles/minio-20200428235656.mojave.bottle.tar.gz",
+              "sha256": "8b321241b9eadd4c6464133158a55b381d268ba3b43157e154735546d0ed5693"
+            },
+            "high_sierra": {
+              "url": "https://homebrew.bintray.com/bottles/minio-20200428235656.high_sierra.bottle.tar.gz",
+              "sha256": "364654073feb1f7794b6ed94aef0dba566b742f52d59e8039a7e97b5adda5518"
+            }
+          }
+        }
+      },
+      "mc": null
     },
     "cask": {
       "docker": {
