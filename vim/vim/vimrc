@@ -37,6 +37,7 @@ Plug 'jvirtanen/vim-hcl'
 Plug 'martinda/Jenkinsfile-vim-syntax'
 Plug 'NLKNguyen/cloudformation-syntax.vim'
 Plug 'chr4/nginx.vim'
+Plug 'ludovicchabant/vim-gutentags'
 
 call plug#end()
 
