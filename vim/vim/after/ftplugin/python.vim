@@ -6,6 +6,7 @@ set nowrap
 " Set up auto formatting
 if executable('black')
     nnoremap <leader>y mm:%!black --fast -q -<Cr>`m
+    vnoremap <leader>y :'<,'>!black --fast -q -<Cr>
 endif
 
 vnoremap <silent> <leader>t :VtrSendLinesToRunner<Cr>
