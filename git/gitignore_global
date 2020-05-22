@@ -12,3 +12,6 @@ tmp
 
 # Ignore tags files
 tags
+tags.lock
+tags.temp
+tags.tmp
