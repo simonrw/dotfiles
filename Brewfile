@@ -95,6 +95,7 @@ cask "pocket-casts"
 cask "spotify"
 cask "visual-studio-code"
 cask "vlc"
+cask "wireshark"
 cask "zoomus"
 
 # App store apps
