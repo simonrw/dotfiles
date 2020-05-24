@@ -39,6 +39,7 @@ Plug 'NLKNguyen/cloudformation-syntax.vim'
 Plug 'chr4/nginx.vim'
 Plug 'ludovicchabant/vim-gutentags'
 Plug 'dense-analysis/ale'
+Plug 'takac/vim-hardtime'
 
 call plug#end()
 
@@ -317,6 +318,9 @@ set statusline+=%{ConflictedVersion()}
 " Enable autoformatting of valid pretter-compatible files
 let g:prettier#autoformat = 1
 let g:prettier#autoformat_require_pragma = 0
+
+" Enable hardtime
+let g:hardtime_default_on = 1
 
 set background=dark
 colorscheme srw256
