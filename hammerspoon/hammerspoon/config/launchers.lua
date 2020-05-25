@@ -1,4 +1,4 @@
-terminal = "iTerm"
+terminal = "Kitty"
 browser = "Firefox"
 email = "Mail"
 chat = "Slack"
