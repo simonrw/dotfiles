@@ -76,6 +76,7 @@ brew "yq"
 brew "zsh"
 
 # Casks
+
 cask "alfred"
 cask "barrier"
 cask "chromedriver"
@@ -93,10 +94,10 @@ cask "libreoffice"
 cask "notion"
 cask "pocket-casts"
 cask "spotify"
+cask "vimr"
 cask "visual-studio-code"
 cask "vlc"
 cask "wireshark"
 cask "zoomus"
-
 # App store apps
 mas "Twitter", id: 1482454543
