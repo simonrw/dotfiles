@@ -38,6 +38,7 @@ Plug 'martinda/Jenkinsfile-vim-syntax'
 Plug 'NLKNguyen/cloudformation-syntax.vim'
 Plug 'chr4/nginx.vim'
 Plug 'ludovicchabant/vim-gutentags'
+Plug 'morhetz/gruvbox'
 Plug 'dense-analysis/ale'
 Plug 'takac/vim-hardtime'
 
@@ -323,4 +324,4 @@ let g:prettier#autoformat_require_pragma = 0
 let g:hardtime_default_on = 1
 
 set background=dark
-colorscheme srw256
+colorscheme gruvbox
