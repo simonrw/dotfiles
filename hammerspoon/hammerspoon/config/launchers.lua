@@ -1,4 +1,4 @@
-terminal = "Kitty"
+terminal = "Alacritty"
 browser = "Firefox"
 email = "Mail"
 chat = "Slack"
