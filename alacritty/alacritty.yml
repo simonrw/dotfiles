@@ -531,7 +531,7 @@ colors:
 #
 # If the same trigger is assigned to multiple actions, all of them are executed
 # at once.
-#key_bindings:
+key_bindings:
   # (Windows, Linux, and BSD only)
   #- { key: V,        mods: Control|Shift, action: Paste            }
   #- { key: C,        mods: Control|Shift, action: Copy             }
@@ -568,6 +568,13 @@ colors:
   #- { key: PageDown,  mods: Shift,   action: ScrollPageDown, mode: ~Alt       }
   #- { key: Home,      mods: Shift,   action: ScrollToTop,    mode: ~Alt       }
   #- { key: End,       mods: Shift,   action: ScrollToBottom, mode: ~Alt       }
+
+  # https://godoc.org/github.com/tiborvass/uniline/ansi#Code
+  # https://github.com/jwilm/alacritty/issues/93#issuecomment-334790547
+  - { key: F,  mods: Alt,           chars: "\x1bf"                       }
+  - { key: B,  mods: Alt,           chars: "\x1bb"                       }
+  # https://github.com/jwilm/alacritty/issues/93#issuecomment-427592040
+  - { key: D,  mods: Alt,           chars: "\x1bd"                       }
 
 #debug:
   # Display the time it takes to redraw each frame.
