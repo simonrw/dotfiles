@@ -1,10 +1,1 @@
-{
-    "languageserver": {
-        "golang": {
-            "command": "gopls",
-            "rootPatterns": ["go.mod"],
-            "filetypes": ["go"]
-        }
-    },
-    "python.jediEnabled": false
-}
+../../nvim/coc-settings.json
