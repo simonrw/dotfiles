@@ -38,7 +38,6 @@ Plug 'martinda/Jenkinsfile-vim-syntax'
 Plug 'NLKNguyen/cloudformation-syntax.vim'
 Plug 'chr4/nginx.vim'
 Plug 'ludovicchabant/vim-gutentags'
-Plug 'morhetz/gruvbox'
 Plug 'takac/vim-hardtime'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
@@ -337,4 +336,4 @@ let g:hardtime_default_on = 1
 
 
 set background=dark
-colorscheme gruvbox
+colorscheme srw256
