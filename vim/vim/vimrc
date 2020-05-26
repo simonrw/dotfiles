@@ -40,6 +40,8 @@ Plug 'chr4/nginx.vim'
 Plug 'ludovicchabant/vim-gutentags'
 Plug 'morhetz/gruvbox'
 Plug 'takac/vim-hardtime'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+
 
 call plug#end()
 
@@ -315,12 +317,24 @@ autocmd! User GoyoLeave Limelight!
 set statusline=%<%f\ %h%m%r%=%-14.(%l,%c%V%)\ %P
 set statusline+=%{ConflictedVersion()}
 
+" set up coc status line
+set statusline+=\ %{coc#status()}
+
+" coc mappings
+nnoremap gd <Plug>(coc-definition)
+nnoremap gr <Plug>(coc-references)
+
+" Configure coc extensions
+let g:coc_global_extensions = ["coc-go", "coc-python", "coc-rls", "coc-json"]
+
 " Enable autoformatting of valid pretter-compatible files
 let g:prettier#autoformat = 1
 let g:prettier#autoformat_require_pragma = 0
 
 " Enable hardtime
 let g:hardtime_default_on = 1
+
+
 
 set background=dark
 colorscheme gruvbox
