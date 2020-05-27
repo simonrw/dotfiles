@@ -13,8 +13,8 @@ tmp
 # Ignore tags files
 tags
 tags.lock
-tags.temp
-tags.tmp
+tags*temp
+tags*.tmp
 
 
 # Created by https://www.gitignore.io/api/linux,macos,windows
