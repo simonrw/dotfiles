@@ -15,6 +15,7 @@ alias sqlite3='rlwrap =sqlite3'
 alias k=kubectl
 alias sourceenv="source ./venv/bin/activate"
 alias vup="vim +PlugClean! +PlugUpgrade +PlugUpdate +UpdateRemotePlugins +qa"
+alias notes="vim ${HOME}/notes/notes.md"
 
 if has_executable rg; then
     alias grep=rg
