@@ -1,4 +1,5 @@
 # Taps
+
 tap "homebrew/bundle"
 tap "homebrew/cask"
 tap "homebrew/cask-drivers"
@@ -11,6 +12,7 @@ tap "zaquestion/tap"
 tap "minio/stable"
 
 # Formulae
+
 brew "ansible"
 brew "arp-scan"
 brew "aws-sam-cli"
@@ -97,7 +99,10 @@ cask "spotify"
 cask "vimr"
 cask "visual-studio-code"
 cask "vlc"
+cask "whatsapp"
 cask "wireshark"
 cask "zoomus"
+
 # App store apps
+
 mas "Twitter", id: 1482454543
