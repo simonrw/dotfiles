@@ -170,7 +170,6 @@ nnoremap gs :FzfTags<cr>
 nnoremap gl :FzfRg<cr>
 nnoremap gL :FzfBLines<cr>
 nnoremap <leader>a :FzfAg<cr>
-let g:fzf_layout = {'up':'~40%'}
 
 " Configure vim tmux runner
 let g:VtrStripLeadingWhitespace = 0
