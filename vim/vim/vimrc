@@ -253,12 +253,12 @@ nnoremap <leader>v :VtrAttachToPane<cr>
 command! -nargs=? V call VtrSendCommand(<f-args>)
 
 " Configure vim fugitive
-nnoremap <leader>gc :Gcommit -v<cr>
-nnoremap <leader>gd :Gdiff<cr>
-nnoremap <leader>gw :Gwrite<cr>
-nnoremap <leader>gr :Gread<cr>
-nnoremap <leader>gs :Gstatus<cr>
-nnoremap <leader>ga :Gcommit -v --amend<cr>
+nnoremap <leader>gc :Git commit -v<cr>
+nnoremap <leader>gd :Git diff<cr>
+nnoremap <leader>gw :Git write<cr>
+nnoremap <leader>gr :Git read<cr>
+nnoremap <leader>gs :Git<cr>
+nnoremap <leader>ga :Git commit -v --amend<cr>
 
 " Configure language client
 let g:LanguageClient_serverCommands = {
