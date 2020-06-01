@@ -48,7 +48,7 @@ set mouse=a
 set scrolloff=5
 set number
 set relativenumber
-set nocursorline
+set cursorline
 set ttimeoutlen=0
 set shiftwidth=4
 set tabstop=4
