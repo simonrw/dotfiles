@@ -1517,6 +1517,12 @@
         "options": {
           "full_name": "wireshark"
         }
+      },
+      "xquartz": {
+        "version": "2.7.11",
+        "options": {
+          "full_name": "xquartz"
+        }
       }
     },
     "mas": {
@@ -1541,9 +1547,9 @@
         "HOMEBREW_VERSION": "2.2.17",
         "HOMEBREW_PREFIX": "/usr/local",
         "Homebrew/homebrew-core": "eaae1b6ba12f49cbf3ef979d2bd2426c9dbb9aef",
-        "CLT": "11.5.0.0.1.1588476445",
+        "CLT": "1103.0.32.62",
         "Xcode": "11.4.1",
-        "macOS": "10.15.4"
+        "macOS": "10.15.5"
       }
     }
   }

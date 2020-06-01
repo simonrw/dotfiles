@@ -101,6 +101,7 @@ cask "visual-studio-code"
 cask "vlc"
 cask "whatsapp"
 cask "wireshark"
+cask "xquartz"
 cask "zoomus"
 
 # App store apps
