@@ -240,8 +240,8 @@ function ssh() {
 # Function to source the current virtual environment if there is one
 function se() {
     if has_executable direnv; then
-        grep -q 'layout python-venv' .envrc 2>/dev/null || {
-            echo layout python-venv >> .envrc
+        grep -q 'layout poetry' .envrc 2>/dev/null || {
+            echo layout poetry >> .envrc
         }
     else
         if [[ -f ./venv/bin/activate ]]; then
