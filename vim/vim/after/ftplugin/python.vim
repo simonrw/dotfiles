@@ -5,9 +5,9 @@ set nowrap
 set textwidth=79
 
 " Set up auto formatting
-if executable('black')
-    nnoremap <leader>y mm:%!black --quiet --fast -<Cr>`m
-    vnoremap <leader>y :'<,'>!black --quiet --fast -<Cr>
+if executable('autopep8')
+    nnoremap <leader>y mm:%!autopep8 -<Cr>`m
+    vnoremap <leader>y :'<,'>!autopep8 -<Cr>
 endif
 
 vnoremap <silent> <leader>t :VtrSendLinesToRunner<Cr>
