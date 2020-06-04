@@ -6,26 +6,20 @@ music = "Spotify"
 documentation = "Dash"
 notes = "Notable"
 
-hs.hotkey.bind({'cmd', 'alt'}, 'c', function()
-    hs.application.launchOrFocus(browser)
-end)
 
-hs.hotkey.bind({'cmd', 'alt'}, 'm', function()
-    hs.application.launchOrFocus(music)
-end)
+-- helper function to bind multiple keys to a single application
+function bindKey(application, ...)
+    local arg = {...}
+    for _, k in ipairs(arg) do
+        hs.hotkey.bind({'cmd', 'alt'}, k, function()
+            hs.application.launchOrFocus(application)
+        end)
+    end
+end
 
-hs.hotkey.bind({'cmd', 'alt'}, 's', function()
-    hs.application.launchOrFocus(chat)
-end)
-
-hs.hotkey.bind({'cmd', 'alt'}, 't', function()
-    hs.application.launchOrFocus(terminal)
-end)
-
-hs.hotkey.bind({'cmd', 'alt'}, 'r', function()
-    hs.application.launchOrFocus(documentation)
-end)
-
-hs.hotkey.bind({'cmd', 'alt'}, 'n', function()
-    hs.application.launchOrFocus(notes)
-end)
+bindKey(browser, 'c')
+bindKey(music, 'm')
+bindKey(chat, 's')
+bindKey(terminal, 't')
+bindKey(documentation, 'r')
+bindKey(notes, 'e', 'n')
