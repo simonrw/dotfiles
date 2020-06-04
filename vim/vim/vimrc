@@ -38,6 +38,7 @@ Plug 'martinda/Jenkinsfile-vim-syntax'
 Plug 'NLKNguyen/cloudformation-syntax.vim'
 Plug 'chr4/nginx.vim'
 Plug 'ludovicchabant/vim-gutentags'
+Plug 'dense-analysis/ale'
 
 call plug#end()
 
