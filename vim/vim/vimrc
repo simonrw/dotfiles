@@ -40,7 +40,7 @@ Plug 'chr4/nginx.vim'
 Plug 'ludovicchabant/vim-gutentags'
 Plug 'dense-analysis/ale'
 Plug 'ayu-theme/ayu-vim'
-
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 
 call plug#end()
 
@@ -321,6 +321,8 @@ set statusline+=%{ConflictedVersion()}
 " Enable autoformatting of valid pretter-compatible files
 let g:prettier#autoformat = 1
 let g:prettier#autoformat_require_pragma = 0
+
+let g:deoplete#enable_at_startup = 1
 
 " Start interactive EasyAlign in visual mode (e.g. vip<Enter>)
 vmap <Enter> <Plug>(EasyAlign)
