@@ -12,6 +12,9 @@
     # -- always run command at the root of the git repo
     exec = ! exec
 
+    # command to get the current sha
+    sha = rev-parse --short HEAD
+
     # Taken from https://blog.scottnonnenberg.com/better-git-configuration/
     prune = fetch --prune
 
