@@ -38,6 +38,8 @@ Plug 'martinda/Jenkinsfile-vim-syntax'
 Plug 'NLKNguyen/cloudformation-syntax.vim'
 Plug 'chr4/nginx.vim'
 Plug 'ludovicchabant/vim-gutentags'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+
 
 call plug#end()
 
@@ -312,6 +314,16 @@ autocmd! User GoyoLeave Limelight!
 " configure conflicted status line
 set statusline=%<%f\ %h%m%r%=%-14.(%l,%c%V%)\ %P
 set statusline+=%{ConflictedVersion()}
+
+" set up coc status line
+set statusline+=\ %{coc#status()}
+
+" coc mappings
+nnoremap gd <Plug>(coc-definition)
+nnoremap gr <Plug>(coc-references)
+
+" Configure coc extensions
+let g:coc_global_extensions = ["coc-go", "coc-python", "coc-rls", "coc-json"]
 
 " Enable autoformatting of valid pretter-compatible files
 let g:prettier#autoformat = 1
