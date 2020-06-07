@@ -329,5 +329,11 @@ let g:coc_global_extensions = ["coc-go", "coc-python", "coc-rls", "coc-json"]
 let g:prettier#autoformat = 1
 let g:prettier#autoformat_require_pragma = 0
 
+" Start interactive EasyAlign in visual mode (e.g. vip<Enter>)
+vmap <Enter> <Plug>(EasyAlign)
+
+" Start interactive EasyAlign for a motion/text object (e.g. gaip)
+nmap ga <Plug>(EasyAlign)
+
 set background=dark
 colorscheme srw256
