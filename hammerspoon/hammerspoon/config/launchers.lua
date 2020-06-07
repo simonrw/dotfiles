@@ -5,7 +5,6 @@ chat = "Slack"
 music = "Spotify"
 documentation = "Dash"
 notes = "Notable"
-jira = "Jira"
 
 
 -- helper function to bind multiple keys to a single application
@@ -25,4 +24,3 @@ bindKey(terminal, 't')
 bindKey(documentation, 'r')
 bindKey(notes, 'n')
 bindKey(email, 'e')
-bindKey(jira, 'j')
