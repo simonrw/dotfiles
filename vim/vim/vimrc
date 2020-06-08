@@ -243,7 +243,9 @@ imap <F1> <Esc>
 " Configure vim test
 nnoremap <silent> tf :update\|:TestFile<Cr>
 nnoremap <silent> tl :update\|:TestLast<Cr>
-nnoremap <silent> tc :update\|:TestNearest<Cr>
+nnoremap <silent> tn :update\|:TestNearest<Cr>
+nnoremap <silent> ta :update\|:TestSuite<Cr>
+nnoremap <silent> ts :update\|:TestSuite<Cr>
 let test#python#runner = 'pytest'
 
 nnoremap <leader>v :VtrAttachToPane<cr>
