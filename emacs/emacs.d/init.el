@@ -56,7 +56,7 @@ There are two things you can do about this warning:
     (add-to-list 'package-archives (cons "gnu" (concat proto "://elpa.gnu.org/packages/")))))
 
 ;; Package loading is handled through use-package
-(setq package-enable-at-startup nil)
+(setq package-enable-at-startup t)
 (package-initialize)
 
 (unless (package-installed-p 'use-package)
@@ -80,7 +80,7 @@ There are two things you can do about this warning:
       (mac-auto-operator-composition-mode))
 
   (set-face-attribute 'default nil :family "Source Code Pro")
-  (set-face-attribute 'default nil :height 120)
+  (set-face-attribute 'default nil :height 130)
 
   ;; Toggle fullscreen mode
   (global-set-key [m-return] 'toggle-frame-fullscreen)
@@ -174,15 +174,19 @@ There are two things you can do about this warning:
   (interactive)
   (find-file (concat org-directory "/todo.org")))
 
+(use-package fzf
+  :ensure t)
+
+(use-package evil-leader
+  :config
+  (global-evil-leader-mode)
+  (evil-leader/set-leader ",")
+  (evil-leader/set-key "f" 'fzf-git-files))
+
 (use-package evil
   :config
   (evil-mode 1)
   ;;;; define shortcuts for powerful commands
-;;;; these can be invoked vim-style
-;;;; Esc-:<single_key_from_below>
-  (define-key evil-ex-map "g" 'helm-projectile-grep)
-  (define-key evil-ex-map "f" 'helm-projectile-find-file)
-
 ;;;; I wept with joy about this in:
 ;;;; http://www.mycpu.org/emacs-24-magit-magic/
   (define-key evil-ex-map "m" 'magit-blame))
@@ -202,23 +206,9 @@ There are two things you can do about this warning:
   (define-key evil-ex-map "g" 'helm-projectile-grep)
   (define-key evil-ex-map "f" 'helm-projectile-find-file))
 
-(use-package doom-themes
-  :init
-  (setq doom-themes-enable-bold t    ; if nil, bold is universally disabled
-		doom-themes-enable-italic t) ; if nil, italics is universally disabled
+(use-package gruvbox-theme
   :config
-  (doom-themes-visual-bell-config)
-  (doom-themes-neotree-config)  ; all-the-icons fonts must be installed!
-  (load-theme 'doom-gruvbox t))
-
-(use-package indent-guide
-  :config
-  (indent-guide-global-mode)
-  (set-face-background 'indent-guide-face "dimgray"))
-
-(use-package doom-modeline
-  :config
-  (doom-modeline-mode 1))
+  (load-theme 'gruvbox t))
 
 (provide 'init)
 ;;; init.el ends here
