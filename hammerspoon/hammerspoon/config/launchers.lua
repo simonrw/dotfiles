@@ -1,5 +1,9 @@
 terminal = "Alacritty"
-browser = "Firefox"
+if string.find(hs.host.names()[1], "pixmac516") then
+    browser = "Google Chrome"
+else
+    browser = "Firefox"
+end
 email = "Mail"
 chat = "Slack"
 music = "Spotify"
