@@ -166,7 +166,16 @@ There are two things you can do about this warning:
 (setq org-plantuml-jar-path "/usr/local/opt/plantuml/libexec/plantuml.jar")
 (setq org-src-fontify-natively t)
 
-(use-package go-mode)
+(use-package go-mode
+  :config
+  (setq gofmt-command "goimports")
+  (add-hook 'before-save-hook 'gofmt-before-save))
+
+(use-package auto-complete
+  :config
+  (auto-complete-mode 1))
+
+(use-package go-autocomplete)
 
 (use-package elixir-mode)
 
