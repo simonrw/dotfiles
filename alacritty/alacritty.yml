@@ -13,14 +13,14 @@ env:
   #TERM: alacritty
   TERM: xterm-256color
 
-#window:
+window:
   # Window dimensions (changes require restart)
   #
   # Specified in number of columns/lines, not pixels.
   # If both are `0`, this setting is ignored.
-  #dimensions:
-  #  columns: 0
-  #  lines: 0
+  dimensions:
+    columns: 300
+    lines: 80
 
   # Window position (changes require restart)
   #

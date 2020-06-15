@@ -4,7 +4,7 @@ local FULLSCREEN_BORDER = 16
 local WINDOW_BORDER = FULLSCREEN_BORDER
 local LEFTRIGHT_FRACTION = 0.5
 local ENABLE_SHORTCUTS = true
-local ENABLE_FULLSCREEN_SHORTCUT = true
+local ENABLE_FULLSCREEN_SHORTCUT = false
 
 -- Move window to the next screen
 hs.hotkey.bind({'cmd', 'alt', 'ctrl'}, 'o', function()
