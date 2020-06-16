@@ -166,7 +166,6 @@ let g:fzf_command_prefix = 'Fzf'
 nnoremap <leader>f :FzfGitFiles<cr>
 nnoremap <leader>F :FzfFiles<cr>
 nnoremap gb :FzfBuffers<cr>
-nnoremap gs :FzfTags<cr>
 nnoremap gl :FzfRg<cr>
 nnoremap gL :FzfBLines<cr>
 nnoremap <leader>a :FzfAg<cr>
@@ -258,7 +257,7 @@ nnoremap <leader>gc :Git commit -v<cr>
 nnoremap <leader>gd :Gdiff<cr>
 nnoremap <leader>gw :Gwrite<cr>
 nnoremap <leader>gr :Gread<cr>
-nnoremap <leader>gs :Git<cr>
+nnoremap gs :Git<cr>
 nnoremap <leader>ga :Git commit -v --amend<cr>
 
 " Configure language client
