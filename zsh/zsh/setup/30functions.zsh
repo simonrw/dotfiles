@@ -298,3 +298,20 @@ function find_pi() {
     echo "Usage may require sudo password"
     sudo arp-scan --interface=$interface --localnet | grep b8:27:eb | awk '{print $1}'
 }
+
+# if no arguments are given then open with the file browser, otherwise pass arguments in
+function vim() {
+    if [[ $# -eq 0 ]]; then
+        if has_executable nvim; then
+            nvim +FzfGitFiles
+        else
+            =vim +FzfGitFiles
+        fi
+    else
+        if has_executable nvim; then
+            nvim $*
+        else
+            =vim $*
+        fi
+    fi
+}
