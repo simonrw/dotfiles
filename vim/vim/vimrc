@@ -1,4 +1,4 @@
-let g:mapleader = ','
+let g:mapleader = "\<Space>"
 let g:maplocalleader = '\\'
 
 call plug#begin('~/.vim/bundle')
@@ -130,7 +130,7 @@ if !has('nvim')
     set ttyfast
 endif
 
-nnoremap <space> :nohl<cr>
+nnoremap <leader>c :nohl<cr>
 nnoremap <C-h> <C-w><C-h>
 nnoremap <C-j> <C-w><C-j>
 nnoremap <C-k> <C-w><C-k>
