@@ -1,11 +1,4 @@
-terminal = "Alacritty"
-browser = "Firefox"
-email = "Mail"
-chat = "Slack"
-music = "Spotify"
-documentation = "Dash"
-notes = "Notable"
-
+require "config/applications"
 
 -- helper function to bind multiple keys to a single application
 function bindKey(application, ...)
@@ -17,10 +10,10 @@ function bindKey(application, ...)
     end
 end
 
-bindKey(browser, 'c')
-bindKey(music, 'm')
-bindKey(chat, 's')
-bindKey(terminal, 't')
-bindKey(documentation, 'r')
-bindKey(notes, 'n')
-bindKey(email, 'e')
+bindKey(applications.browser, 'c')
+bindKey(applications.music, 'm')
+bindKey(applications.chat, 's')
+bindKey(applications.terminal, 't')
+bindKey(applications.documentation, 'r')
+bindKey(applications.notes, 'n')
+bindKey(applications.email, 'e')
