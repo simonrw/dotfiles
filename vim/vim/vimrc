@@ -39,6 +39,7 @@ Plug 'NLKNguyen/cloudformation-syntax.vim'
 Plug 'chr4/nginx.vim'
 Plug 'ludovicchabant/vim-gutentags'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'airblade/vim-gitgutter'
 
 call plug#end()
 
