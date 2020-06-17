@@ -63,6 +63,7 @@ set complete=.,w,b,u,t
 set ruler
 set showcmd
 set incsearch
+set nohlsearch
 set laststatus=2
 set backspace=2
 set autowrite
