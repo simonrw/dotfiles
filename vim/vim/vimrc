@@ -41,7 +41,7 @@ Plug 'ludovicchabant/vim-gutentags'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'airblade/vim-gitgutter'
 Plug 'christoomey/vim-tmux-navigator'
-Plug 'ayu-theme/ayu-vim'
+Plug 'NLKNguyen/papercolor-theme'
 
 call plug#end()
 
@@ -339,5 +339,4 @@ vmap <Enter> <Plug>(EasyAlign)
 nmap ga <Plug>(EasyAlign)
 
 set background=light
-let ayucolor="light"
-colorscheme ayu
+colorscheme PaperColor
