@@ -159,6 +159,7 @@ class Deployer(object):
             "rofi",
             "picom",
             "nvim",
+            "bat",
         ]:
             self.deploy_dotconfig_file(subdir)
 
