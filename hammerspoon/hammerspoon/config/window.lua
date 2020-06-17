@@ -7,7 +7,7 @@ local WINDOW_BORDER = FULLSCREEN_BORDER
 local LEFTRIGHT_FRACTION = 0.5
 local ENABLE_SHORTCUTS = true
 local ENABLE_FULLSCREEN_SHORTCUT = true
-local ENABLE_FULLSCREEN_FOR_APPS = { "Code" }
+local ENABLE_FULLSCREEN_FOR_APPS = { applications.terminal }
 local ENABLE_FULLSCREEN_SHORTCUT = true
 
 -- Move window to the next screen
