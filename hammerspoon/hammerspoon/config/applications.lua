@@ -6,6 +6,7 @@ applications = {
     music = "Spotify",
     documentation = "Dash",
     notes = "Notable",
+    editor = "Visual Studio Code",
 }
 
 -- overrides

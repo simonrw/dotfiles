@@ -1,11 +1,13 @@
+require "config/applications"
+
 -- constant holding the window enlargement/shrinkage factor
 local WINDOW_SIZE_CHANGE = 0
-local FULLSCREEN_BORDER = 0
+local FULLSCREEN_BORDER = 16
 local WINDOW_BORDER = FULLSCREEN_BORDER
 local LEFTRIGHT_FRACTION = 0.5
 local ENABLE_SHORTCUTS = true
 local ENABLE_FULLSCREEN_SHORTCUT = true
-local ENABLE_FULLSCREEN_FOR_TERMINAL_ONLY = true
+local ENABLE_FULLSCREEN_FOR_APPS = { "Code" }
 local ENABLE_FULLSCREEN_SHORTCUT = true
 
 -- Move window to the next screen
@@ -46,9 +48,9 @@ if ENABLE_SHORTCUTS then
     end)
 
     function maximizeWindow()
-        if ENABLE_FULLSCREEN_FOR_TERMINAL_ONLY then
-            local app = hs.application.frontmostApplication()
-            if app:title() ~= applications.terminal then
+        local app = hs.application.frontmostApplication()
+        for _, allowed_app in ipairs(ENABLE_FULLSCREEN_FOR_APPS) do
+            if app:title() ~= allowed_app then
                 return
             end
         end
