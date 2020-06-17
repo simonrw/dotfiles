@@ -7,3 +7,9 @@ applications = {
     documentation = "Dash",
     notes = "Notable",
 }
+
+-- overrides
+
+if string.find(hs.host.names()[1], "pixmac516") then
+    applications.browser = "Google Chrome"
+end
