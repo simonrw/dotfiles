@@ -41,7 +41,6 @@ Plug 'ludovicchabant/vim-gutentags'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'airblade/vim-gitgutter'
 Plug 'christoomey/vim-tmux-navigator'
-Plug 'takac/vim-hardtime'
 
 call plug#end()
 
@@ -337,8 +336,6 @@ vmap <Enter> <Plug>(EasyAlign)
 
 " Start interactive EasyAlign for a motion/text object (e.g. gaip)
 nmap ga <Plug>(EasyAlign)
-
-let g:hardtime_default_on = 1
 
 set background=dark
 colorscheme srw256
