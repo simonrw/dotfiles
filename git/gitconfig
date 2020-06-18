@@ -54,7 +54,8 @@
 
 
     # Logging from Gary Bernhardt
-    l = log --graph --decorate --pretty=format:'%C(auto)%h%C(reset) %C(green)(%ar)%C(reset) %C(blue)[%an]%C(auto) %d %s%C(auto)' --exclude='refs/bugs/*' --exclude='refs/identities/*' --all
+    l = log --graph --decorate --pretty=format:'%C(auto)%h - %s %d %C(blue)<%an> %C(green)(%ar)' --exclude='refs/bugs/*' --exclude='refs/identities/*' --all
+
     la = l
     head = l -1
     h = head
