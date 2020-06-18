@@ -178,8 +178,8 @@ let g:VtrAppendNewline = 1
 " Expand %% to the current directory
 cnoremap %% <c-r>=expand('%:h') . '/'<cr>
 
-" Configure vim-test to use vtr
-let test#strategy = "vtr"
+" Configure vim-test to use neovim
+let test#strategy = "neovim"
 
 nnoremap <silent> <leader>ve :tabe $MYVIMRC<Cr>
 nnoremap <silent> <leader>vr :source $MYVIMRC\|echo "Reloaded!"<Cr>
