@@ -41,7 +41,6 @@ Plug 'ludovicchabant/vim-gutentags'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'airblade/vim-gitgutter'
 Plug 'christoomey/vim-tmux-navigator'
-Plug 'NLKNguyen/papercolor-theme'
 Plug 'takac/vim-hardtime'
 
 call plug#end()
@@ -341,5 +340,5 @@ nmap ga <Plug>(EasyAlign)
 
 let g:hardtime_default_on = 1
 
-set background=light
-colorscheme PaperColor
+set background=dark
+colorscheme srw256
