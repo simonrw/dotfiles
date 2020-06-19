@@ -186,34 +186,13 @@ There are two things you can do about this warning:
 (use-package fzf
   :ensure t)
 
-(use-package evil-leader
-  :config
-  (global-evil-leader-mode)
-  (evil-leader/set-leader ",")
-  (evil-leader/set-key "f" 'fzf-git-files))
-
-(use-package evil
-  :config
-  (evil-mode 1)
-  ;;;; define shortcuts for powerful commands
-;;;; I wept with joy about this in:
-;;;; http://www.mycpu.org/emacs-24-magit-magic/
-  (define-key evil-ex-map "m" 'magit-blame))
-
 (use-package helm
   :config
   (setq-default helm-M-x-fuzzy-match t)
   (global-set-key "\C-x\C-m" 'helm-M-x)
-  (global-set-key "\C-c\C-m" 'helm-M-x)
-  (define-key evil-ex-map "x" 'helm-M-x)
+  (global-set-key "\C-c\C-m" 'helm-M-x))
 
-  (define-key evil-ex-map "b " 'helm-mini)
-  (define-key evil-ex-map "e" 'helm-find-files))
-
-(use-package helm-projectile
-  :config
-  (define-key evil-ex-map "g" 'helm-projectile-grep)
-  (define-key evil-ex-map "f" 'helm-projectile-find-file))
+(use-package helm-projectile)
 
 (use-package gruvbox-theme
   :config
