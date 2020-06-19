@@ -43,7 +43,13 @@ function tnew() {
 
     cd $DIRNAME
     TMUXNAME=$(basename `pwd`)
-    tns ${TMUXNAME}
+    tmux new-session -d -s ${TMUXNAME} -n ''
+
+    # rename the session
+    tmux send-keys -t ${TMUXNAME} "tmux-renamesession" Enter
+    tmux send-keys -t ${TMUXNAME} "clear" Enter
+
+    tmux attach -t ${TMUXNAME}
 }
 
 function init-python() {
