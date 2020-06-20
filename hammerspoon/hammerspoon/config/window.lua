@@ -3,7 +3,7 @@ require "config/applications"
 -- constant holding the window enlargement/shrinkage factor
 local FULLSCREEN_BORDER = 16
 local ENABLE_FULLSCREEN_SHORTCUT = true
-local ENABLE_FULLSCREEN_FOR_APPS = { applications.terminal }
+local ENABLE_FULLSCREEN_FOR_APPS = {}
 
 -- Move window to the next screen
 hs.hotkey.bind({'cmd', 'alt', 'ctrl'}, 'o', function()
@@ -15,9 +15,11 @@ end)
 
 function maximizeWindow()
     local app = hs.application.frontmostApplication()
-    for _, allowed_app in ipairs(ENABLE_FULLSCREEN_FOR_APPS) do
-        if app:title() ~= allowed_app then
-            return
+    if #ENABLE_FULLSCREEN_FOR_APPS ~= 0 then
+        for _, allowed_app in ipairs(ENABLE_FULLSCREEN_FOR_APPS) do
+            if app:title() ~= allowed_app then
+                return
+            end
         end
     end
 
