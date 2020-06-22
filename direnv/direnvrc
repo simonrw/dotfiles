@@ -15,7 +15,12 @@ layout_python-venv() {
             log_error "Could not detect Python version"
             return 1
         fi
-        VIRTUAL_ENV=$PWD/.direnv/python-venv-$python_version
+        # create a virtual environment in the common VIRTUAL_ENV_ROOT dir,
+        # namespaced by location on disk. Spaces and directory separators are
+        # replaced with hyphens.
+        VIRTUAL_ENV_ROOT=${HOME}/.virtualenvs
+        test -d $VIRTUAL_ENV_ROOT || mkdir -p $VIRTUAL_ENV_ROOT
+        VIRTUAL_ENV=${VIRTUAL_ENV_ROOT}/$(pwd | sed 's#/#-#g' | sed 's/ /-/g')/python-venv-$python_version
     fi
     export VIRTUAL_ENV
     if [[ ! -d $VIRTUAL_ENV ]]; then
