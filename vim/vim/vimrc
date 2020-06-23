@@ -40,6 +40,8 @@ Plug 'chr4/nginx.vim'
 Plug 'ludovicchabant/vim-gutentags'
 Plug 'airblade/vim-gitgutter'
 Plug 'dense-analysis/ale'
+Plug 'xolox/vim-misc'
+Plug 'xolox/vim-notes'
 
 call plug#end()
 
@@ -325,6 +327,9 @@ vmap <Enter> <Plug>(EasyAlign)
 
 " Start interactive EasyAlign for a motion/text object (e.g. gaip)
 nmap ga <Plug>(EasyAlign)
+
+" configure vim notes
+let g:notes_directories = ["~/notes"]
 
 set background=dark
 colorscheme srw256
