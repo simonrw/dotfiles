@@ -13,4 +13,6 @@ endif
 vnoremap <silent> <leader>t :VtrSendLinesToRunner<Cr>
 nnoremap <silent> <leader>p vip:VtrSendLinesToRunner<Cr>
 
+let g:ale_fixers = ["black"]
+
 setlocal colorcolumn=80
