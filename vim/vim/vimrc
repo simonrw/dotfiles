@@ -334,11 +334,16 @@ nmap ga <Plug>(EasyAlign)
 
 " configure vim notes
 let g:notes_directories = ["~/notes"]
-function! Today()
+function! s:Today()
     let dt = strftime('%Y-%m-%d')
     execute "Note" . dt
 endfunction
-command! Today call Today()
+command! Today call s:Today()
+
+function! s:TODO()
+    execute "Note TODO"
+endfunction
+command! TODO call s:Todo()
 
 let g:jellybeans_overrides = {
 \    'background': { 'ctermbg': 'none', '256ctermbg': 'none' },
