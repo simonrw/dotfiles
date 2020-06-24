@@ -17,6 +17,7 @@ alias vup="vim +PlugClean! +PlugUpgrade +PlugUpdate +UpdateRemotePlugins +qa"
 
 # set up alias for opening today's note
 alias today='note $(date +%Y-%m-%d)'
+alias todo='note TODO'
 
 if has_executable rg; then
     alias grep=rg

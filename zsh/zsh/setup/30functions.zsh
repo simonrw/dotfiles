@@ -150,11 +150,6 @@ function mutt() {
 }
 alias email=mutt
 
-# Edit my todo list in editor
-function todo() {
-    $EDITOR ${HOME}/Desktop/todo.txt
-}
-
 function lb() {
     LOGBOOK_DIR=${HOME}/logbook
     if [ ! -d ${LOGBOOK_DIR} ]; then
