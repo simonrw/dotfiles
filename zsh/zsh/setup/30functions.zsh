@@ -42,12 +42,8 @@ function tnew() {
     fi
 
     cd $DIRNAME
-    TMUXNAME=$(basename `pwd`)
+    TMUXNAME="$(basename $(dirname $PWD))/$(basename $PWD)"
     tmux new-session -d -s ${TMUXNAME} -n ''
-
-    # rename the session
-    tmux send-keys -t ${TMUXNAME} "tmux-renamesession" Enter
-    tmux send-keys -t ${TMUXNAME} "clear" Enter
 
     tmux attach -t ${TMUXNAME}
 }
