@@ -316,9 +316,11 @@ function vim() {
 # function to edit a note from the command line
 function note() {
     if [[ $# -eq 0 ]]; then
-        echo "usage: note <name>" >&2
-        return 1
+        # XXX we may need to allow the user to configure the notes directory
+        NOTESDIR=$HOME/notes
+        STUB="$(find $NOTESDIR -type f -print0 | xargs -0 basename | sort | fzf)"
+        note $STUB
+    else
+        vim +edit "note:$*"
     fi
-
-    vim +edit "note:$*"
 }
