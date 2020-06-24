@@ -317,3 +317,13 @@ function vim() {
         fi
     fi
 }
+
+# function to edit a note from the command line
+function note() {
+    if [[ $# -eq 0 ]]; then
+        echo "usage: note <name>" >&2
+        return 1
+    fi
+
+    vim +edit "note:$*"
+}
