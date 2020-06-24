@@ -42,6 +42,7 @@ Plug 'airblade/vim-gitgutter'
 Plug 'dense-analysis/ale'
 Plug 'xolox/vim-misc'
 Plug 'xolox/vim-notes'
+Plug 'nanotech/jellybeans.vim'
 
 call plug#end()
 
@@ -330,6 +331,14 @@ nmap ga <Plug>(EasyAlign)
 
 " configure vim notes
 let g:notes_directories = ["~/notes"]
+
+let g:jellybeans_overrides = {
+\    'background': { 'ctermbg': 'none', '256ctermbg': 'none' },
+\}
+if has('termguicolors') && &termguicolors
+    let g:jellybeans_overrides['background']['guibg'] = 'none'
+endif
+
 
 set background=dark
 colorscheme srw256
