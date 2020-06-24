@@ -351,7 +351,7 @@ let g:jellybeans_overrides = {
 if has('termguicolors') && &termguicolors
     let g:jellybeans_overrides['background']['guibg'] = 'none'
 endif
-
+let g:jellybeans_use_gui_italics = 0
 
 set background=dark
 colorscheme srw256
