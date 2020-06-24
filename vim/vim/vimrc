@@ -85,6 +85,9 @@ set updatetime=250
 " If buffer is already open when switching, switch to it
 set switchbuf+=useopen
 set colorcolumn=100
+" configure concealing things
+set conceallevel=3
+set concealcursor=nc
 
 " Prevent vim from clobbering the scrollback buffer
 set t_ti= t_te=
