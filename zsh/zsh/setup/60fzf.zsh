@@ -37,18 +37,6 @@ gsha() {
   echo -n $(echo "$commit" | sed "s/ .*//")
 }
 
-function fpass() {
-  if ! lpass status -q; then
-    lpass login $EMAIL
-  fi
-
-  if ! lpass status -q; then
-    exit
-  fi
-
-  lpass ls | fzf-tmux | =grep -oE '\d+' | xargs lpass show -c --password
-}
-
 # Overload the default history widget which reverses the order of the entries
 function fzf-history-widget () {
     local selected num
