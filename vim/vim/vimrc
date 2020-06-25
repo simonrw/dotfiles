@@ -343,7 +343,7 @@ command! Today call s:Today()
 function! s:TODO()
     execute "Note TODO"
 endfunction
-command! TODO call s:Todo()
+command! TODO call s:TODO()
 
 let g:jellybeans_overrides = {
 \    'background': { 'ctermbg': 'none', '256ctermbg': 'none' },
