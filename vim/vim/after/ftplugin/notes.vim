@@ -1,4 +1,7 @@
-set textwidth=100
-set nowrap
-set nocindent
-set colorcolumn=+1
+setlocal textwidth=100
+setlocal nowrap
+setlocal nocindent
+setlocal colorcolumn=+1
+setlocal formatoptions-=t
+setlocal formatoptions-=q
+setlocal formatoptions-=c
