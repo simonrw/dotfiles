@@ -318,8 +318,8 @@ function note() {
     if [[ $# -eq 0 ]]; then
         # XXX we may need to allow the user to configure the notes directory
         NOTESDIR=$HOME/notes
-        STUB="$(find $NOTESDIR -type f -print0 | xargs -0 basename | sort | fzf)"
-        note $STUB
+        STUB="$(find $NOTESDIR -type f -print0 | xargs -0 basename | sort | fzf -0 --preview 'bat -l markdown --color=always $HOME/notes/{}')"
+        vim +edit "note:$STUB"
     else
         vim +edit "note:$*"
     fi
