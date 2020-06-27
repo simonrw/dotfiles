@@ -25,7 +25,6 @@ Plug 'cespare/vim-toml', { 'for': 'toml' }
 Plug 'machakann/vim-highlightedyank'
 Plug 'leafgarland/typescript-vim', { 'for': 'typescript' }
 Plug 'junegunn/goyo.vim'
-Plug 'junegunn/limelight.vim'
 Plug 'fatih/vim-go', { 'for': 'go' }
 Plug 'hashivim/vim-terraform'
 Plug 'uarun/vim-protobuf'
@@ -313,10 +312,6 @@ let g:go_info_mode='gopls'
 
 " Configure elm.vim
 let g:elm_format_fail_silently = 1
-
-" Enable limelight when entering Goyo mode
-autocmd! User GoyoEnter Limelight
-autocmd! User GoyoLeave Limelight!
 
 " configure conflicted status line
 set statusline=%<%f\ %h%m%r%=%-14.(%l,%c%V%)\ %P
