@@ -87,9 +87,8 @@ set colorcolumn=100
 " configure concealing things
 set conceallevel=3
 set concealcursor=nc
-
-" Prevent vim from clobbering the scrollback buffer
-set t_ti= t_te=
+set list
+let &listchars="tab:> ,trail:-,nbsp:+"
 
 " Center search results
 nnoremap <silent> n nzz
