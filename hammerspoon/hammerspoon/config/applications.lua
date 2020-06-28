@@ -1,6 +1,6 @@
 applications = {
     terminal = "Alacritty",
-    browser = "Google Chrome",
+    browser = "Firefox",
     email = "Mail",
     chat = "Slack",
     music = "Spotify",
