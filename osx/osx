@@ -76,7 +76,7 @@ defaults write NSGlobalDomain NSAutomaticQuoteSubstitutionEnabled -bool false
 defaults write NSGlobalDomain NSAutomaticDashSubstitutionEnabled -bool false
 
 # Set background to dark-grey color
-# sqlite3 ~/Library/Application\ Support/Dock/desktoppicture.db "update data set value = '/Library/Desktop Pictures/Solid Colors/Solid Gray Pro Dark.png'"
+# sqlite3 ~/Library/Application\ Support/Dock/desktoppicture.db "update data set value = '/System/Library/Desktop Pictures/Solid Colors/Ocher.png'"
 
 ###############################################################################
 # SSD-specific tweaks                                                         #
@@ -111,7 +111,7 @@ fi
 # defaults -currentHost write NSGlobalDomain com.apple.trackpad.enableSecondaryClick -bool true
 
 # Increase sound quality for Bluetooth headphones/headsets
-# defaults write com.apple.BluetoothAudioAgent "Apple Bitpool Min (editable)" -int 40
+defaults write com.apple.BluetoothAudioAgent "Apple Bitpool Min (editable)" -int 40
 
 # Enable full keyboard access for all controls
 # (e.g. enable Tab in modal dialogs - 0 = text boxes and lists, 2/3 = all controls)
@@ -121,7 +121,7 @@ defaults write NSGlobalDomain AppleKeyboardUIMode -int 0
 # defaults write com.apple.universalaccess closeViewScrollWheelToggle -bool true
 # defaults write com.apple.universalaccess HIDScrollZoomModifierMask -int 262144
 # Follow the keyboard focus while zoomed in
-defaults write com.apple.universalaccess closeViewZoomFollowsFocus -bool true
+# defaults write com.apple.universalaccess closeViewZoomFollowsFocus -bool true
 
 # Disable press-and-hold for keys in favor of key repeat
 # defaults write NSGlobalDomain ApplePressAndHoldEnabled -bool false
@@ -138,11 +138,11 @@ defaults write NSGlobalDomain NSAutomaticSpellingCorrectionEnabled -bool false
 ###############################################################################
 
 # Require password immediately after sleep or screen saver begins
-defaults write com.apple.screensaver askForPassword -int 1
-defaults write com.apple.screensaver askForPasswordDelay -int 0
+# defaults write com.apple.screensaver askForPassword -int 1
+# defaults write com.apple.screensaver askForPasswordDelay -int 0
 
 # Save screenshots to the desktop
-defaults write com.apple.screencapture location -string "${HOME}/Desktop"
+# defaults write com.apple.screencapture location -string "${HOME}/Desktop"
 
 # Save screenshots in PNG format (other options: BMP, GIF, JPG, PDF, TIFF)
 defaults write com.apple.screencapture type -string "png"
@@ -164,14 +164,14 @@ defaults write com.apple.screencapture type -string "png"
 
 # Set Desktop as the default location for new Finder windows
 # For other paths, use `PfLo` and `file:///full/path/here/`
-defaults write com.apple.finder NewWindowTarget -string "PfDe"
-defaults write com.apple.finder NewWindowTargetPath -string "file://${HOME}/Desktop/"
+# defaults write com.apple.finder NewWindowTarget -string "PfDe"
+# defaults write com.apple.finder NewWindowTargetPath -string "file://${HOME}/Desktop/"
 
 # Show icons for hard drives, servers, and removable media on the desktop
-defaults write com.apple.finder ShowExternalHardDrivesOnDesktop -bool true
-defaults write com.apple.finder ShowHardDrivesOnDesktop -bool true
-defaults write com.apple.finder ShowMountedServersOnDesktop -bool true
-defaults write com.apple.finder ShowRemovableMediaOnDesktop -bool true
+# defaults write com.apple.finder ShowExternalHardDrivesOnDesktop -bool true
+# defaults write com.apple.finder ShowHardDrivesOnDesktop -bool true
+# defaults write com.apple.finder ShowMountedServersOnDesktop -bool true
+# defaults write com.apple.finder ShowRemovableMediaOnDesktop -bool true
 
 # Finder: show hidden files by default
 # defaults write com.apple.finder AppleShowAllFiles -bool true
@@ -216,18 +216,18 @@ defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool true
 # defaults write com.apple.finder OpenWindowForNewRemovableDisk -bool true
 
 # Enable snap-to-grid for icons on the desktop and in other icon views
-/usr/libexec/PlistBuddy -c "Set :DesktopViewSettings:IconViewSettings:arrangeBy grid" ~/Library/Preferences/com.apple.finder.plist
-/usr/libexec/PlistBuddy -c "Set :FK_StandardViewSettings:IconViewSettings:arrangeBy grid" ~/Library/Preferences/com.apple.finder.plist
-/usr/libexec/PlistBuddy -c "Set :StandardViewSettings:IconViewSettings:arrangeBy grid" ~/Library/Preferences/com.apple.finder.plist
+# /usr/libexec/PlistBuddy -c "Set :DesktopViewSettings:IconViewSettings:arrangeBy grid" ~/Library/Preferences/com.apple.finder.plist
+# /usr/libexec/PlistBuddy -c "Set :FK_StandardViewSettings:IconViewSettings:arrangeBy grid" ~/Library/Preferences/com.apple.finder.plist
+# /usr/libexec/PlistBuddy -c "Set :StandardViewSettings:IconViewSettings:arrangeBy grid" ~/Library/Preferences/com.apple.finder.plist
 
 # Set the size of icons on the desktop and in other icon views
-/usr/libexec/PlistBuddy -c "Set :DesktopViewSettings:IconViewSettings:iconSize 64" ~/Library/Preferences/com.apple.finder.plist
-/usr/libexec/PlistBuddy -c "Set :FK_StandardViewSettings:IconViewSettings:iconSize 64" ~/Library/Preferences/com.apple.finder.plist
-/usr/libexec/PlistBuddy -c "Set :StandardViewSettings:IconViewSettings:iconSize 64" ~/Library/Preferences/com.apple.finder.plist
+# /usr/libexec/PlistBuddy -c "Set :DesktopViewSettings:IconViewSettings:iconSize 64" ~/Library/Preferences/com.apple.finder.plist
+# /usr/libexec/PlistBuddy -c "Set :FK_StandardViewSettings:IconViewSettings:iconSize 64" ~/Library/Preferences/com.apple.finder.plist
+# /usr/libexec/PlistBuddy -c "Set :StandardViewSettings:IconViewSettings:iconSize 64" ~/Library/Preferences/com.apple.finder.plist
 
 # Use column view in all Finder windows by default
 # Four-letter codes for the other view modes: `icnv`, `Nlsv`, `clmv`, `Flwv`
-defaults write com.apple.finder FXPreferredViewStyle -string "clmv"
+# defaults write com.apple.finder FXPreferredViewStyle -string "clmv"
 
 # Disable the warning before emptying the Trash
 # defaults write com.apple.finder WarnOnEmptyTrash -bool false
@@ -244,18 +244,18 @@ chflags nohidden ~/Library
 
 # Expand the following File Info panes:
 # “General”, “Open with”, and “Sharing & Permissions”
-defaults write com.apple.finder FXInfoPanesExpanded -dict \
-  General -bool true \
-  OpenWith -bool true \
-  Preview -bool false \
-  Privileges -bool true
+# defaults write com.apple.finder FXInfoPanesExpanded -dict \
+#   General -bool true \
+#   OpenWith -bool true \
+#   Preview -bool false \
+#   Privileges -bool true
 
 ###############################################################################
 # Dock, Dashboard, and hot corners                                            #
 ###############################################################################
 
 # Set the icon size of Dock items
-defaults write com.apple.dock tilesize -int 20
+defaults write com.apple.dock tilesize -int 27
 
 # Enable spring loading for all Dock items
 # defaults write com.apple.dock enable-spring-load-actions-on-all-items -bool true
@@ -268,7 +268,7 @@ defaults write com.apple.dock expose-animation-duration -float 0.15
 
 # Don’t group windows by application in Mission Control
 # (i.e. switch to old Exposé behavior)
-defaults write com.apple.dock expose-group-by-app -bool false
+# defaults write com.apple.dock expose-group-by-app -bool false
 
 # Remove the auto-hiding Dock delay
 # defaults write com.apple.dock autohide-delay -float 0
@@ -276,7 +276,7 @@ defaults write com.apple.dock expose-group-by-app -bool false
 # defaults write com.apple.dock autohide-time-modifier -float 0
 
 # Automatically hide and show the Dock
-# defaults write com.apple.dock autohide -bool true
+defaults write com.apple.dock autohide -bool true
 
 # Make Dock icons of hidden applications translucent
 defaults write com.apple.dock showhidden -bool false
@@ -316,24 +316,24 @@ defaults write com.apple.dock showhidden -bool false
 ###############################################################################
 
 # Set Safari’s home page to `about:blank` for faster loading
-defaults write com.apple.Safari HomePage -string "about:blank"
+# defaults write com.apple.Safari HomePage -string "about:blank"
 
 # Prevent Safari from opening ‘safe’ files automatically after downloading
-defaults write com.apple.Safari AutoOpenSafeDownloads -bool false
+# defaults write com.apple.Safari AutoOpenSafeDownloads -bool false
 
 # Disable Safari’s thumbnail cache for History and Top Sites
-defaults write com.apple.Safari DebugSnapshotsUpdatePolicy -int 2
+# defaults write com.apple.Safari DebugSnapshotsUpdatePolicy -int 2
 
 # Enable Safari’s debug menu
-defaults write com.apple.Safari IncludeInternalDebugMenu -bool true
+# defaults write com.apple.Safari IncludeInternalDebugMenu -bool true
 
 # Enable the Develop menu and the Web Inspector in Safari
-defaults write com.apple.Safari IncludeDevelopMenu -bool true
-defaults write com.apple.Safari WebKitDeveloperExtrasEnabledPreferenceKey -bool true
-defaults write com.apple.Safari com.apple.Safari.ContentPageGroupIdentifier.WebKit2DeveloperExtrasEnabled -bool true
+# defaults write com.apple.Safari IncludeDevelopMenu -bool true
+# defaults write com.apple.Safari WebKitDeveloperExtrasEnabledPreferenceKey -bool true
+# defaults write com.apple.Safari com.apple.Safari.ContentPageGroupIdentifier.WebKit2DeveloperExtrasEnabled -bool true
 
 # Add a context menu item for showing the Web Inspector in web views
-defaults write NSGlobalDomain WebKitDeveloperExtras -bool true
+# defaults write NSGlobalDomain WebKitDeveloperExtras -bool true
 
 ###############################################################################
 # Mail                                                                        #
@@ -379,7 +379,7 @@ fi
 ###############################################################################
 
 # Only use UTF-8 in Terminal.app
-defaults write com.apple.terminal StringEncodings -array 4
+# defaults write com.apple.terminal StringEncodings -array 4
 
 # For Terminal theme, see: https://github.com/geerlingguy/mac-dev-playbook
 
@@ -401,11 +401,11 @@ defaults write com.apple.terminal StringEncodings -array 4
 ###############################################################################
 
 # Use plain text mode for new TextEdit documents
-defaults write com.apple.TextEdit RichText -int 0
+# defaults write com.apple.TextEdit RichText -int 0
 
 # Open and save files as UTF-8 in TextEdit
-defaults write com.apple.TextEdit PlainTextEncoding -int 4
-defaults write com.apple.TextEdit PlainTextEncodingForWrite -int 4
+# defaults write com.apple.TextEdit PlainTextEncoding -int 4
+# defaults write com.apple.TextEdit PlainTextEncodingForWrite -int 4
 
 ###############################################################################
 # Messages                                                                    #
@@ -415,27 +415,27 @@ defaults write com.apple.TextEdit PlainTextEncodingForWrite -int 4
 # defaults write com.apple.messageshelper.MessageController SOInputLineSettings -dict-add "automaticEmojiSubstitutionEnablediMessage" -bool false
 
 # Disable smart quotes as it’s annoying for messages that contain code
-defaults write com.apple.messageshelper.MessageController SOInputLineSettings -dict-add "automaticQuoteSubstitutionEnabled" -bool false
+# defaults write com.apple.messageshelper.MessageController SOInputLineSettings -dict-add "automaticQuoteSubstitutionEnabled" -bool false
 
 # Disable continuous spell checking
-defaults write com.apple.messageshelper.MessageController SOInputLineSettings -dict-add "continuousSpellCheckingEnabled" -bool false
+# defaults write com.apple.messageshelper.MessageController SOInputLineSettings -dict-add "continuousSpellCheckingEnabled" -bool false
 
 ###############################################################################
 # Google Chrome                                                               #
 ###############################################################################
 
 # Disable sensitive and senseless swipe-based navigation
-defaults write com.google.Chrome AppleEnableSwipeNavigateWithScrolls -bool true
+# defaults write com.google.Chrome AppleEnableSwipeNavigateWithScrolls -bool true
 
 # Use the system print dialog
-defaults write com.google.Chrome DisablePrintPreview -bool true
+# defaults write com.google.Chrome DisablePrintPreview -bool true
 
 ###############################################################################
 # Sublime text                                                                #
 ###############################################################################
 
 # Enable key repeat
-defaults write com.sublimetext.3 ApplePressAndHoldEnabled -bool false
+# defaults write com.sublimetext.3 ApplePressAndHoldEnabled -bool false
 
 ###############################################################################
 # Kill/restart affected applications                                          #
