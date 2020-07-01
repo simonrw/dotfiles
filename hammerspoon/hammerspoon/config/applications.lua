@@ -1,7 +1,7 @@
 applications = {
     terminal = "Alacritty",
     browser = "Firefox",
-    email = "Mail",
+    email = "Thunderbird",
     chat = "Slack",
     music = "Spotify",
     documentation = "Dash",
