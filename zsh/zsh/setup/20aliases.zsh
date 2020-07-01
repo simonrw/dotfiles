@@ -14,6 +14,7 @@ alias sqlite3='rlwrap =sqlite3'
 alias k=kubectl
 alias sourceenv="source ./venv/bin/activate"
 alias vup="vim +PlugClean! +PlugUpgrade +PlugUpdate +UpdateRemotePlugins +qa"
+alias add-keys="ssh-add $(ls ~/.ssh/id_rsa* | grep -v pub | grep -v bak)"
 
 # set up alias for opening today's note
 alias today='note $(date +%Y-%m-%d)'
