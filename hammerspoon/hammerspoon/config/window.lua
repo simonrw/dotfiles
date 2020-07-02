@@ -6,6 +6,7 @@ local ENABLE_FULLSCREEN_SHORTCUT = true
 local ENABLE_FULLSCREEN_FOR_APPS = {}
 local WINDOW_BORDER = FULLSCREEN_BORDER
 local LEFTRIGHT_FRACTION = 0.5
+local TERMINAL_NORMAL_SIZE = {1024, 768}
 
 -- Move window to the next screen
 hs.hotkey.bind({'cmd', 'alt', 'ctrl'}, 'o', function()
@@ -55,6 +56,12 @@ function maximizeWindow()
 
     local win = hs.window.focusedWindow()
     local f = win:frame()
+    local prev_frame = {
+        x = f.x,
+        y = f.y,
+        w = f.w,
+        h = f.h,
+    }
     local screen = win:screen()
     local max = screen:frame()
 
@@ -62,7 +69,27 @@ function maximizeWindow()
     f.y = max.y + FULLSCREEN_BORDER / 2
     f.w = max.w - FULLSCREEN_BORDER
     f.h = max.h - FULLSCREEN_BORDER
-    win:setFrame(f)
+
+    if app:title() == applications.terminal then
+        toggleTerminalSize(win, prev_frame, f)
+    else
+        win:setFrame(f)
+    end
+end
+
+function toggleTerminalSize(win, current, target)
+    local screen = win:screen()
+    local max = screen:frame()
+    if current.w == max.w - FULLSCREEN_BORDER and current.h == max.h - FULLSCREEN_BORDER then
+        -- We are already fullscreened, so set the size down a bit
+        target.w = TERMINAL_NORMAL_SIZE[1]
+        target.h = TERMINAL_NORMAL_SIZE[2]
+        -- center the window
+        win:setFrame(target)
+        win:centerOnScreen()
+    else
+        win:setFrame(target)
+    end
 end
 
 if ENABLE_FULLSCREEN_SHORTCUT then
