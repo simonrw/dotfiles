@@ -22,7 +22,6 @@ Plug 'christoomey/vim-tmux-runner'
 Plug 'christoomey/vim-conflicted'
 Plug 'vim-test/vim-test'
 Plug 'cespare/vim-toml', { 'for': 'toml' }
-Plug 'machakann/vim-highlightedyank'
 Plug 'leafgarland/typescript-vim', { 'for': 'typescript' }
 Plug 'junegunn/goyo.vim'
 Plug 'fatih/vim-go', { 'for': 'go' }
@@ -42,6 +41,15 @@ Plug 'dense-analysis/ale'
 Plug 'xolox/vim-misc'
 Plug 'xolox/vim-notes'
 Plug 'nanotech/jellybeans.vim'
+
+if has('nvim-0.5')
+    augroup LuaHighlight
+        autocmd!
+        autocmd TextYankPost * silent! lua require'vim.highlight'.on_yank()
+    augroup END
+else
+    Plug 'machakann/vim-highlightedyank'
+endif
 
 call plug#end()
 
