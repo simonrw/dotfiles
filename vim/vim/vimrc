@@ -70,6 +70,7 @@ set wildmode=list:longest,list:full
 set history=50
 set complete=.,w,b,u,t
 set ruler
+set list
 set showcmd
 set incsearch
 set nohlsearch
