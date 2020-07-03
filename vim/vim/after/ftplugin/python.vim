@@ -15,4 +15,11 @@ nnoremap <silent> <leader>p vip:VtrSendLinesToRunner<Cr>
 
 let g:ale_fixers = ["black"]
 
+" enable indent guides and automatically disable afterwards
+augroup filetype_python
+    autocmd!
+    autocmd BufEnter * if &ft ==# 'python' | IndentGuidesEnable | endif
+    autocmd BufLeave * if &ft ==# 'python' | IndentGuidesDisable | endif
+augroup end
+
 setlocal colorcolumn=80
