@@ -42,6 +42,7 @@ Plug 'xolox/vim-misc'
 Plug 'xolox/vim-notes'
 Plug 'nanotech/jellybeans.vim'
 Plug 'nathanaelkane/vim-indent-guides'
+Plug 'vmchale/dhall-vim', { 'for': 'dhall' }
 
 if has('nvim-0.5')
     augroup LuaHighlight
