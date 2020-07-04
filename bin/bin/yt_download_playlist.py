@@ -34,7 +34,8 @@ class ExponentialBackoff:
         self._logger.info("running cmd")
         while self._count < self.tries:
             try:
-                res = self.fn(self.args, **self.kwargs)
+                print(self.args, self.kwargs)
+                res = self.fn(*self.args, **self.kwargs)
                 self._logger.info("success")
                 return res
             except Exception as e:
@@ -70,7 +71,7 @@ class YoutubeDownload:
             self.url,
         ]
 
-        backoff = ExponentialBackoff(sp.check_output, args=cmd)
+        backoff = ExponentialBackoff(sp.check_output, args=(cmd, ))
         stdout = backoff.run()
         return stdout.decode().strip()
 
@@ -87,13 +88,13 @@ class YoutubeDownload:
         ]
         logging.debug("cmd %s", cmd)
         backoff = ExponentialBackoff(
-            sp.check_call, args=cmd, kwargs={"stdout": sp.PIPE}
+            sp.check_call, args=(cmd, ), kwargs={"stdout": sp.PIPE}
         )
         backoff.run()
 
     def num_items(self):
         cmd = ["youtube-dl", "--flat-playlist", "-j", self.url]
-        backoff = ExponentialBackoff(sp.check_output, args=cmd)
+        backoff = ExponentialBackoff(sp.check_output, args=(cmd, ))
         stdout = backoff.run()
         info = stdout.decode().strip()
         nentries = len(info.split("\n"))
