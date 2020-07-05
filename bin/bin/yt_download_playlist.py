@@ -63,6 +63,8 @@ class ExponentialBackoff:
 class YoutubeDownload:
     def __init__(self, url: str, output_format: Optional[str] = None) -> None:
         self.url = url
+        # Hidden setting
+        self._disable_exponential_backoff = False
 
         if output_format is None:
             output_format = "%(playlist_index)03d-%(title)s.%(ext)s"
@@ -81,8 +83,11 @@ class YoutubeDownload:
             self.url,
         ]
 
-        backoff = ExponentialBackoff(sp.check_output, args=(cmd,))
-        stdout: bytes = backoff.run()
+        if self._disable_exponential_backoff:
+            stdout: bytes = sp.check_output(cmd)
+        else:
+            backoff = ExponentialBackoff(sp.check_output, args=(cmd,))
+            stdout: bytes = backoff.run()
         return stdout.decode().strip()
 
     def download(self, file_format: int, playlist_item: int) -> None:
