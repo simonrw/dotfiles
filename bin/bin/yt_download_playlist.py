@@ -8,6 +8,9 @@ import argparse
 import time
 import os
 import logging
+from typing import Optional, List, Dict, Callable, Any, Tuple, Type
+from typing_extensions import Literal
+from types import TracebackType
 import subprocess as sp
 from concurrent.futures import ThreadPoolExecutor, as_completed
 
@@ -19,18 +22,24 @@ VIDEO_FORMAT = 299
 
 
 class ExponentialBackoff:
-    def __init__(self, fn, args=None, kwargs=None, tries=6):
+    def __init__(
+        self,
+        fn: Callable[..., Any],
+        args: Optional[Tuple[Any]] = None,
+        kwargs: Optional[Dict[str, Any]] = None,
+        tries: int = 6,
+    ) -> None:
         self.fn = fn
         self.args = args if args is not None else []
         self.kwargs = kwargs if kwargs is not None else {}
         self.tries = tries
         self._count = 0
         self._sleep_time = 1
-        self._exc = None
+        self._exc: Optional[Exception] = None
         self._logger = logging.getLogger("backoff")
         self._logger.setLevel(logging.WARNING)
 
-    def run(self):
+    def run(self) -> Any:
         self._logger.info("running cmd")
         while self._count < self.tries:
             try:
@@ -47,18 +56,19 @@ class ExponentialBackoff:
                 self._sleep_time *= 2
 
         # if we have reached here then we have timed out
-        raise self._exc
+        if self._exc:
+            raise self._exc
 
 
 class YoutubeDownload:
-    def __init__(self, url: str, output_format: str = None) -> None:
+    def __init__(self, url: str, output_format: Optional[str] = None) -> None:
         self.url = url
 
         if output_format is None:
             output_format = "%(playlist_index)03d-%(title)s.%(ext)s"
         self.output_format = output_format
 
-    def get_filename(self, file_format: int, playlist_item: int):
+    def get_filename(self, file_format: int, playlist_item: int) -> str:
         cmd = [
             "youtube-dl",
             "--format",
@@ -72,10 +82,10 @@ class YoutubeDownload:
         ]
 
         backoff = ExponentialBackoff(sp.check_output, args=(cmd,))
-        stdout = backoff.run()
+        stdout: bytes = backoff.run()
         return stdout.decode().strip()
 
-    def download(self, file_format: int, playlist_item: int):
+    def download(self, file_format: int, playlist_item: int) -> None:
         cmd = [
             "youtube-dl",
             "--format",
@@ -92,7 +102,7 @@ class YoutubeDownload:
         )
         backoff.run()
 
-    def num_items(self):
+    def num_items(self) -> int:
         cmd = ["youtube-dl", "--flat-playlist", "--dump-json", self.url]
         backoff = ExponentialBackoff(sp.check_output, args=(cmd,))
         stdout = backoff.run()
@@ -101,17 +111,12 @@ class YoutubeDownload:
         return nentries
 
 
-class FFMpeg:
-    def __init__(self) -> None:
-        pass
-
-
 class Downloader:
     def __init__(self, ytd: YoutubeDownload, item_id: int, format: int) -> None:
         self.ytd = ytd
         self.item_id = item_id
         self.format = format
-        self._filename = None
+        self._filename: Optional[str] = None
         logging.debug("created downloader")
 
     @property
@@ -127,7 +132,7 @@ class Downloader:
         self.validate()
         return self.filename
 
-    def validate(self):
+    def validate(self) -> None:
         logging.debug("valdating file %s", self.filename)
         if not os.path.isfile(self.filename):
             raise RuntimeError(f"cannot find downloaded file {self.filename}")
@@ -138,7 +143,7 @@ class MergedDownloader:
         self.item_id = item_id
         self.ytd = ytd
 
-    def download_and_merge(self):
+    def download_and_merge(self) -> None:
         audio_fname = self.download_audio()
         video_fname = self.download_video()
 
@@ -149,11 +154,11 @@ class MergedDownloader:
         self.clearup(audio_fname)
         self.clearup(video_fname)
 
-    def download_audio(self) -> None:
+    def download_audio(self) -> str:
         dl = Downloader(ytd=self.ytd, item_id=self.item_id, format=AUDIO_FORMAT)
         return dl.download()
 
-    def download_video(self) -> None:
+    def download_video(self) -> str:
         dl = Downloader(ytd=self.ytd, item_id=self.item_id, format=VIDEO_FORMAT)
         return dl.download()
 
@@ -191,28 +196,38 @@ class PlaylistDownloader:
     def __init__(
         self,
         url: str,
-        n_items: int = None,
+        n_items: Optional[int] = None,
         nthreads: int = 16,
-        output_format: str = None,
+        output_format: Optional[str] = None,
     ) -> None:
         self.url = url
         self.n_items = n_items
         self.nthreads = nthreads
-        self._pool = None
+        self._pool: Optional[ThreadPoolExecutor] = None
         self.ytd = YoutubeDownload(url, output_format)
 
-    def __enter__(self):
+    def __enter__(self) -> "PlaylistDownloader":
         self._pool = ThreadPoolExecutor(self.nthreads)
         if self.n_items is None:
             self.n_items = self._fetch_n_items()
         return self
 
-    def __exit__(self, exc_ty, exc_val, exc_tb):
+    def __exit__(
+        self,
+        exc_ty: Optional[Type[BaseException]],
+        exc_val: Optional[BaseException],
+        exc_tb: Optional[TracebackType],
+    ) -> Literal[False]:
+        if self._pool is None:
+            raise ValueError("threadpool does not exist")
         self._pool.shutdown(wait=True)
         return False
 
-    def download(self):
+    def download(self) -> None:
         futs = {}
+        assert self.n_items is not None
+        assert self._pool is not None
+
         for i in range(self.n_items):
             video_id = i + 1
             downloader = MergedDownloader(video_id, self.ytd)
@@ -226,11 +241,11 @@ class PlaylistDownloader:
             # raise exception if there was one
             fut.result()
 
-    def _fetch_n_items(self):
+    def _fetch_n_items(self) -> int:
         return self.ytd.num_items()
 
 
-if __name__ == "__main__":
+if __name__ == "__main__":  # pragma: no cover
     parser = argparse.ArgumentParser()
     parser.add_argument("-u", "--url", required=True)
     parser.add_argument("-n", "--nthreads", type=int, required=False, default=16)
