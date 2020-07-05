@@ -71,7 +71,7 @@ class YoutubeDownload:
             self.url,
         ]
 
-        backoff = ExponentialBackoff(sp.check_output, args=(cmd, ))
+        backoff = ExponentialBackoff(sp.check_output, args=(cmd,))
         stdout = backoff.run()
         return stdout.decode().strip()
 
@@ -88,13 +88,13 @@ class YoutubeDownload:
         ]
         logging.debug("cmd %s", cmd)
         backoff = ExponentialBackoff(
-            sp.check_call, args=(cmd, ), kwargs={"stdout": sp.PIPE}
+            sp.check_call, args=(cmd,), kwargs={"stdout": sp.PIPE}
         )
         backoff.run()
 
     def num_items(self):
-        cmd = ["youtube-dl", "--flat-playlist", "-j", self.url]
-        backoff = ExponentialBackoff(sp.check_output, args=(cmd, ))
+        cmd = ["youtube-dl", "--flat-playlist", "--dump-json", self.url]
+        backoff = ExponentialBackoff(sp.check_output, args=(cmd,))
         stdout = backoff.run()
         info = stdout.decode().strip()
         nentries = len(info.split("\n"))
