@@ -166,6 +166,11 @@ There are two things you can do about this warning:
 (setq org-plantuml-jar-path "/usr/local/opt/plantuml/libexec/plantuml.jar")
 (setq org-src-fontify-natively t)
 
+										; evil
+(use-package evil
+  :config
+  (evil-mode))
+
 (use-package go-mode
   :config
   (setq gofmt-command "goimports")
@@ -194,9 +199,9 @@ There are two things you can do about this warning:
 
 (use-package helm-projectile)
 
-(use-package gruvbox-theme
+(use-package jbeans-theme
   :config
-  (load-theme 'gruvbox t))
+  (load-theme 'jbeans t))
 
 (provide 'init)
 ;;; init.el ends here
