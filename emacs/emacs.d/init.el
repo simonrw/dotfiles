@@ -153,6 +153,7 @@ There are two things you can do about this warning:
  'org-babel-load-languages
  '((emacs-lisp . t)
    (R . t)
+   (dot . t)
    (ruby . t)
    (python . t)))
 
@@ -188,6 +189,10 @@ There are two things you can do about this warning:
   (interactive)
   (find-file (concat org-directory "/todo.org")))
 
+(use-package org-bullets
+  :init
+  (add-hook 'org-mode-hook (lambda ()
+							 org-bullets-mode 1)))
 (use-package fzf
   :ensure t)
 
