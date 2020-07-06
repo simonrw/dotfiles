@@ -30,6 +30,11 @@ layout_python-venv() {
 
     PATH="${VIRTUAL_ENV}/bin:${PATH}"
     export PATH
+
+    # Update the ZSH rprompt
+    local blue="%{$fg[cyan]%}"
+    local reset="%{$reset_color%}"
+    export RPROMPT=$'$blue(v)$reset'
 }
 
 layout_poetry() {
