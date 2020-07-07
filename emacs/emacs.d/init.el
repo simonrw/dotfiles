@@ -208,5 +208,8 @@ There are two things you can do about this warning:
   :config
   (load-theme 'jbeans t))
 
+(use-package lua-mode)
+
+
 (provide 'init)
 ;;; init.el ends here
