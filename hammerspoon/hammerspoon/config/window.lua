@@ -46,13 +46,13 @@ end)
 
 function maximizeWindow()
     local app = hs.application.frontmostApplication()
-    if #ENABLE_FULLSCREEN_FOR_APPS ~= 0 then
-        for _, allowed_app in ipairs(ENABLE_FULLSCREEN_FOR_APPS) do
-            if app:title() ~= allowed_app then
-                return
-            end
-        end
-    end
+    -- if #ENABLE_FULLSCREEN_FOR_APPS ~= 0 then
+    --     for _, allowed_app in ipairs(ENABLE_FULLSCREEN_FOR_APPS) do
+    --         if app:title() ~= allowed_app then
+    --             return
+    --         end
+    --     end
+    -- end
 
     local win = hs.window.focusedWindow()
     local f = win:frame()
@@ -70,20 +70,34 @@ function maximizeWindow()
     f.w = max.w - FULLSCREEN_BORDER
     f.h = max.h - FULLSCREEN_BORDER
 
-    if app:title() == applications.terminal then
-        toggleTerminalSize(win, prev_frame, f)
-    else
+    local found = false
+    for _, application in pairs(applications) do
+        if app:title() == application.name then
+            if application.normal_size then
+                toggleSize(win, prev_frame, f, application.normal_size)
+                found = true
+                break
+            end
+        end
+    end
+
+    if not found then
         win:setFrame(f)
     end
+    -- if app:title() == applications.terminal.name then
+    --     toggleTerminalSize(win, prev_frame, f)
+    -- else
+    --     win:setFrame(f)
+    -- end
 end
 
-function toggleTerminalSize(win, current, target)
+function toggleSize(win, current, target, default_size)
     local screen = win:screen()
     local max = screen:frame()
     if current.w == max.w - FULLSCREEN_BORDER and current.h == max.h - FULLSCREEN_BORDER then
         -- We are already fullscreened, so set the size down a bit
-        target.w = TERMINAL_NORMAL_SIZE[1]
-        target.h = TERMINAL_NORMAL_SIZE[2]
+        target.w = default_size.width
+        target.h = default_size.height
         -- center the window
         win:setFrame(target)
         win:centerOnScreen()

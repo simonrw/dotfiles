@@ -12,7 +12,7 @@ function bindKey(application, ...)
         end
 
         hs.hotkey.bind({'cmd', 'alt'}, k, function()
-            hs.application.launchOrFocus(application)
+            hs.application.launchOrFocus(application.name)
         end)
 
         -- add the hotkey to the seen list
