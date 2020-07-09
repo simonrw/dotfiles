@@ -7,6 +7,7 @@ local ENABLE_FULLSCREEN_FOR_APPS = {}
 local WINDOW_BORDER = FULLSCREEN_BORDER
 local LEFTRIGHT_FRACTION = 0.5
 local TERMINAL_NORMAL_SIZE = {1024, 768}
+local ENABLE_FULLSCREEN_FOR_APPS = { applications.terminal }
 
 -- Move window to the next screen
 hs.hotkey.bind({'cmd', 'alt', 'ctrl'}, 'o', function()
@@ -46,13 +47,13 @@ end)
 
 function maximizeWindow()
     local app = hs.application.frontmostApplication()
-    -- if #ENABLE_FULLSCREEN_FOR_APPS ~= 0 then
-    --     for _, allowed_app in ipairs(ENABLE_FULLSCREEN_FOR_APPS) do
-    --         if app:title() ~= allowed_app then
-    --             return
-    --         end
-    --     end
-    -- end
+    if #ENABLE_FULLSCREEN_FOR_APPS ~= 0 then
+        for _, allowed_app in ipairs(ENABLE_FULLSCREEN_FOR_APPS) do
+            if app:title() ~= allowed_app.name then
+                return
+            end
+        end
+    end
 
     local win = hs.window.focusedWindow()
     local f = win:frame()
@@ -84,11 +85,6 @@ function maximizeWindow()
     if not found then
         win:setFrame(f)
     end
-    -- if app:title() == applications.terminal.name then
-    --     toggleTerminalSize(win, prev_frame, f)
-    -- else
-    --     win:setFrame(f)
-    -- end
 end
 
 function toggleSize(win, current, target, default_size)
