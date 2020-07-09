@@ -106,6 +106,10 @@ nnoremap <silent> * *zz
 nnoremap <silent> # #zz
 nnoremap <silent> g* g*zz
 
+" Very magic search always
+nnoremap / /\v
+nnoremap ? ?\v
+
 " Sane splits
 set splitright
 set splitbelow
