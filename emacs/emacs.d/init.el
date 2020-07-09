@@ -209,7 +209,7 @@ There are two things you can do about this warning:
   (load-theme 'jbeans t))
 
 (use-package lua-mode)
-
+(use-package yaml-mode)
 
 (provide 'init)
 ;;; init.el ends here
