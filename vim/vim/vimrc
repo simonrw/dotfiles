@@ -40,9 +40,9 @@ Plug 'airblade/vim-gitgutter'
 Plug 'dense-analysis/ale'
 Plug 'xolox/vim-misc'
 Plug 'xolox/vim-notes'
-Plug 'nanotech/jellybeans.vim'
 Plug 'nathanaelkane/vim-indent-guides'
 Plug 'vmchale/dhall-vim', { 'for': 'dhall' }
+Plug 'dracula/vim'
 
 if has('nvim-0.5')
     augroup LuaHighlight
@@ -351,14 +351,6 @@ function! s:TODO()
     execute "Note TODO"
 endfunction
 command! TODO call s:TODO()
-
-let g:jellybeans_overrides = {
-\    'background': { 'ctermbg': 'none', '256ctermbg': 'none' },
-\}
-if has('termguicolors') && &termguicolors
-    let g:jellybeans_overrides['background']['guibg'] = 'none'
-endif
-let g:jellybeans_use_gui_italics = 0
 
 " enable this for specific file types
 let g:indent_guides_enable_on_vim_startup = 0
