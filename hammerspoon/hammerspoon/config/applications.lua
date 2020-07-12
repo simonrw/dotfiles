@@ -14,7 +14,7 @@ applications = {
       },
    },
    email = {
-	  name = "Thunderbird",
+	  name = "Mail",
    },
    chat = {
 	  name = "Slack",
@@ -41,6 +41,6 @@ applications = {
 
 for _, hostname in ipairs(hs.host.names()) do
     if string.find(hostname, "pixmac516") then
-        -- host overrides
+        applications.email.name = "Thunderbird"
     end
 end
