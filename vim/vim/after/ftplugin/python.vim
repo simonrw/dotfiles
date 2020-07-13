@@ -23,3 +23,7 @@ augroup filetype_python
 augroup end
 
 setlocal colorcolumn=80
+
+" override the pytest executable as pytest tries to be too clever when a
+" Pipfile exists
+let test#python#pytest#executable = 'pytest'
