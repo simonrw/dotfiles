@@ -40,7 +40,6 @@ Plug 'airblade/vim-gitgutter'
 Plug 'dense-analysis/ale'
 Plug 'xolox/vim-misc'
 Plug 'xolox/vim-notes'
-Plug 'nathanaelkane/vim-indent-guides'
 Plug 'vmchale/dhall-vim', { 'for': 'dhall' }
 Plug 'ElmCast/elm-vim', { 'for': 'elm' }
 Plug 'dracula/vim'
@@ -352,10 +351,6 @@ function! s:TODO()
     execute "Note TODO"
 endfunction
 command! TODO call s:TODO()
-
-" enable this for specific file types
-let g:indent_guides_enable_on_vim_startup = 0
-let g:indent_guides_guide_size = 1
 
 set background=dark
 colorscheme srw256
