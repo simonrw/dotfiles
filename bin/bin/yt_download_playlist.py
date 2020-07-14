@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 
 """
 Downloads the 1080@60 video and highest quality audio and merges with ffmpeg
@@ -9,7 +9,14 @@ import time
 import os
 import logging
 from typing import Optional, List, Dict, Callable, Any, Tuple, Type
-from typing_extensions import Literal
+try:
+    from typing_extensions import Literal
+except ImportError:
+    class LiteralCls:
+        def __getitem__(self, idx):
+            return Any
+
+    Literal = LiteralCls()
 from types import TracebackType
 import subprocess as sp
 from concurrent.futures import ThreadPoolExecutor, as_completed
