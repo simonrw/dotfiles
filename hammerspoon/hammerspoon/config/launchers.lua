@@ -22,7 +22,5 @@ end
 
 bindKey(applications.browser, 'c')
 bindKey(applications.music, 'm')
-bindKey(applications.chat, 's')
 bindKey(applications.terminal, 't')
 bindKey(applications.documentation, 'r')
-bindKey(applications.email, 'e')
