@@ -352,5 +352,9 @@ function! s:TODO()
 endfunction
 command! TODO call s:TODO()
 
+" bindings for ALE
+nnoremap <silent> ]e :ALENext<Cr>
+nnoremap <silent> [e :ALEPrevious<Cr>
+
 set background=dark
 colorscheme srw256
