@@ -334,7 +334,7 @@ available_schemes:
     #
     #indexed_colors: []
 
-colors: *colors_default
+colors: *colors_dracula
 
 # Visual Bell
 #
