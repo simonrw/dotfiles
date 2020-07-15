@@ -239,6 +239,7 @@ function se() {
     if has_executable direnv; then
         grep -q 'layout python-venv' .envrc 2>/dev/null || {
             echo layout python-venv >> .envrc
+            direnv allow .
         }
     else
         if [[ -f ./venv/bin/activate ]]; then
