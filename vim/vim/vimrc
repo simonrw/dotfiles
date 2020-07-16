@@ -37,6 +37,7 @@ Plug 'NLKNguyen/cloudformation-syntax.vim'
 Plug 'chr4/nginx.vim'
 Plug 'ludovicchabant/vim-gutentags'
 Plug 'airblade/vim-gitgutter'
+Plug 'takac/vim-hardtime'
 Plug 'dense-analysis/ale'
 Plug 'xolox/vim-misc'
 Plug 'xolox/vim-notes'
@@ -338,6 +339,8 @@ vmap <Enter> <Plug>(EasyAlign)
 
 " Start interactive EasyAlign for a motion/text object (e.g. gaip)
 nmap ga <Plug>(EasyAlign)
+
+let g:hardtime_default_on = 1
 
 " configure vim notes
 let g:notes_directories = ["~/notes"]
