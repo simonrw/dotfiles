@@ -160,6 +160,7 @@ class Deployer(object):
             "picom",
             "nvim",
             "bat",
+            "karabiner",
         ]:
             self.deploy_dotconfig_file(subdir)
 
