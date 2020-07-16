@@ -105,3 +105,25 @@ end
 if ENABLE_FULLSCREEN_SHORTCUT then
     hs.hotkey.bind({'cmd', 'alt', 'ctrl'}, 'f', maximizeWindow)
 end
+
+function wideZoom(target_height)
+    return function()
+        local win = hs.window.get("Zoom Meeting")
+        if win == nil then
+            return
+        end
+
+        local screen = win:screen()
+        local max = screen:frame()
+        local frame = win:frame()
+
+        frame.w = max.w
+        frame.x = 0
+        frame.y = 0
+        frame.h = target_height
+
+        win:setFrame(frame)
+    end
+end
+
+hs.hotkey.bind({'cmd', 'alt', 'ctrl'}, 'z', wideZoom(400))
