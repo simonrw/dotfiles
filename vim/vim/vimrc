@@ -1,4 +1,4 @@
-let g:mapleader = "\<Space>"
+let g:mapleader = ","
 let g:maplocalleader = '\\'
 
 call plug#begin('~/.vim/bundle')
