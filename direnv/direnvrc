@@ -34,7 +34,7 @@ layout_python-venv() {
     # Update the ZSH rprompt
     local blue="%{$fg[cyan]%}"
     local reset="%{$reset_color%}"
-    export RPROMPT=$'$blue(v)$reset'
+    export RPROMPT="\$blue(v)\$reset $RPROMPT"
 }
 
 layout_poetry() {

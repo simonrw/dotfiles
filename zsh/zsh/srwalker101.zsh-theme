@@ -31,6 +31,6 @@ function hr() {
     printf '%*s\n' "${COLUMNS:-$(tput cols)}" '' | tr ' ' -
 }
 
-PROMPT=$'\n$yellow$(__suspended_count)%(?.$green\\$.$red\\$)$reset '
-RPROMPT=$''
+export PROMPT=$'\n$yellow$(__suspended_count)%(?.$green\\$.$red\\$)$reset '
+export RPROMPT=$'$green%~@$yellow%m$reset'
 # vim: ft=zsh
