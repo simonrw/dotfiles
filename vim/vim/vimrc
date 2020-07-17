@@ -33,7 +33,6 @@ Plug 'prettier/vim-prettier', {
 Plug 'junegunn/vim-easy-align'
 Plug 'jvirtanen/vim-hcl'
 Plug 'martinda/Jenkinsfile-vim-syntax'
-Plug 'NLKNguyen/cloudformation-syntax.vim'
 Plug 'chr4/nginx.vim'
 Plug 'ludovicchabant/vim-gutentags'
 Plug 'airblade/vim-gitgutter'

@@ -1,0 +1,1 @@
+let &makeprg = "cfn-lint %"
