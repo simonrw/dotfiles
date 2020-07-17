@@ -23,10 +23,11 @@ hs.hotkey.bind({'cmd', 'alt', 'ctrl'}, 'Left', function()
     local screen = win:screen()
     local max = screen:frame()
 
-    f.x = max.x + WINDOW_BORDER / 2
-    f.y = max.y + WINDOW_BORDER / 2
-    f.w = LEFTRIGHT_FRACTION * max.w - WINDOW_BORDER
-    f.h = max.h - WINDOW_BORDER
+    f.x = 0
+    f.y = 0
+    f.w = max.w / 2 - FULLSCREEN_BORDER / 2
+    f.h = max.h
+    f = clampFrame(f, max)
     win:setFrame(f)
 end)
 
@@ -37,10 +38,11 @@ hs.hotkey.bind({'cmd', 'alt', 'ctrl'}, 'Right', function()
     local screen = win:screen()
     local max = screen:frame()
 
-    f.x = max.x + LEFTRIGHT_FRACTION * max.w
-    f.y = max.y + WINDOW_BORDER / 2
-    f.w = (1 - LEFTRIGHT_FRACTION) * max.w - WINDOW_BORDER / 2.0
-    f.h = max.h - WINDOW_BORDER
+    f.x = max.w / 2 + FULLSCREEN_BORDER / 2
+    f.y = 0
+    f.w = max.w / 2
+    f.h = max.h
+    f = clampFrame(f, max)
     win:setFrame(f)
 end)
 
@@ -66,10 +68,11 @@ function maximizeWindow()
     local screen = win:screen()
     local max = screen:frame()
 
-    f.x = max.x + FULLSCREEN_BORDER / 2
-    f.y = max.y + FULLSCREEN_BORDER / 2
-    f.w = max.w - FULLSCREEN_BORDER
-    f.h = max.h - FULLSCREEN_BORDER
+    f.x = 0
+    f.y = 0
+    f.w = max.w
+    f.h = max.h
+    f = clampFrame(f, max)
 
     local found = false
     for _, application in pairs(applications) do
@@ -85,6 +88,18 @@ function maximizeWindow()
     if not found then
         win:setFrame(f)
     end
+end
+
+function clamp(val, minval, maxval)
+    return math.min(math.max(val, minval), maxval)
+end
+
+function clampFrame(frame, max)
+    frame.x = clamp(frame.x, FULLSCREEN_BORDER / 2, max.w - FULLSCREEN_BORDER / 2)
+    frame.y = clamp(frame.y, max.y + FULLSCREEN_BORDER / 2, max.h - FULLSCREEN_BORDER / 2)
+    frame.w = clamp(frame.w, 0, max.w - FULLSCREEN_BORDER / 2 - frame.x)
+    frame.h = clamp(frame.h, 0, max.h - FULLSCREEN_BORDER)
+    return frame
 end
 
 function toggleSize(win, current, target, default_size)
@@ -119,11 +134,13 @@ function zoomMode(target_height)
             frame.y = 0
             frame.h = target_height
         else
-            frame.y = target_height
+            frame.y = target_height + FULLSCREEN_BORDER
             frame.h = max.h - target_height
         end
         frame.x = 0
         frame.w = max.w
+
+        frame = clampFrame(frame, max)
 
         win:setFrame(frame)
     end
