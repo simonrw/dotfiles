@@ -48,7 +48,7 @@
     stashes = stash list
     unstage = reset -q HEAD --
     discard = checkout --
-    amend = commit --amend
+    amend = commit --amend -v
     precommit = diff --cached --diff-algorithm=minimal -w
     pre = precommit
 
