@@ -184,37 +184,6 @@ function task() {
     fi
 }
 
-# Print status of ra directory
-function s() {
-
-    function header() {
-        if has_executable figlet; then
-            figlet $1
-        else
-            echo "== $1 =="
-        fi
-    }
-
-    clear
-
-    header "ls"
-    echo
-    ls
-    echo
-
-    git rev-parse --is-inside-work-tree 2>/dev/null && {
-        header "git status"
-        echo
-        git status
-        echo
-
-        header "recent git log"
-        echo
-        git ra
-        echo
-    } || true
-}
-
 _not_inside_tmux() { [[ -z "$TMUX" ]] }
 
 # Prevent nested tmux problem
