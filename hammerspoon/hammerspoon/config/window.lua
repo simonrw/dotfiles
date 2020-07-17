@@ -106,24 +106,27 @@ if ENABLE_FULLSCREEN_SHORTCUT then
     hs.hotkey.bind({'cmd', 'alt', 'ctrl'}, 'f', maximizeWindow)
 end
 
-function wideZoom(target_height)
+-- Add the ability to add a zoom window at the top of the screen, or use the
+-- remaining space for other windows
+function zoomMode(target_height)
     return function()
-        local win = hs.window.get("Zoom Meeting")
-        if win == nil then
-            return
-        end
-
+        local win = hs.window.focusedWindow()
         local screen = win:screen()
         local max = screen:frame()
         local frame = win:frame()
 
-        frame.w = max.w
+        if win:title() == "Zoom Meeting" then
+            frame.y = 0
+            frame.h = target_height
+        else
+            frame.y = target_height
+            frame.h = max.h - target_height
+        end
         frame.x = 0
-        frame.y = 0
-        frame.h = target_height
+        frame.w = max.w
 
         win:setFrame(frame)
     end
 end
 
-hs.hotkey.bind({'cmd', 'alt', 'ctrl'}, 'z', wideZoom(400))
+hs.hotkey.bind({'cmd', 'alt', 'ctrl'}, 'z', zoomMode(400))
