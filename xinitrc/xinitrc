@@ -13,5 +13,11 @@ setxkbmap gb
 # Set the keyboard map
 xmodmap ~/.Xmodmap
 
+# Configure xcape
+setxkbmap -option 'caps:ctrl_modifier'
+xcape -e 'Caps_Lock=Escape'
+setxkbmap -option 'caps:ctrl_modifier'
+xcape -e 'Caps_Lock=Escape;Control_L=Escape;Control_R=Escape'
+
 # Start i3
 exec mate-session
