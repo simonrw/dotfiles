@@ -1,6 +1,6 @@
 " Based on
 
-runtime colors/grb24bit.vim
+runtime colors/dracula.vim
 
 let g:colors_name = "srw256"
 
