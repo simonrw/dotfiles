@@ -14,3 +14,6 @@ let g:racer_cmd = $HOME . "/.cargo/bin/racer"
 if executable('rustfmt')
     nnoremap <silent> <leader>y :update\|:RustFmt<Cr>
 endif
+
+" configure ale
+let b:ale_linters = {'rust': ['analyzer']}

@@ -358,6 +358,7 @@ command! TODO call s:TODO()
 " bindings for ALE
 nnoremap <silent> ]e :ALENextWrap<Cr>
 nnoremap <silent> [e :ALEPreviousWrap<Cr>
+let g:ale_completion_enabled = 1
 
 set background=dark
 colorscheme srw256
