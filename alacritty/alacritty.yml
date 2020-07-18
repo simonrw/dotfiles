@@ -363,7 +363,7 @@ available_schemes:
     #
     #indexed_colors: []
 
-colors: *colors_dracula
+colors: *colors_gruvbox_dark
 
 # Visual Bell
 #
