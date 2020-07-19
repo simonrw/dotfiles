@@ -35,12 +35,14 @@ applications = {
    editor = {
 	  name = "Visual Studio Code",
    },
+   video = {
+       name = "Zoom Meeting",
+   }
 }
 
 -- overrides
 
 for _, hostname in ipairs(hs.host.names()) do
     if string.find(hostname, "pixmac516") then
-        applications.email.name = "Thunderbird"
     end
 end
