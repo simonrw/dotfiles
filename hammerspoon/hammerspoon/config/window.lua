@@ -103,7 +103,7 @@ function clampFrame(frame, max)
     frame.x = clamp(frame.x, FULLSCREEN_BORDER / 2, max.w - FULLSCREEN_BORDER / 2)
     frame.y = clamp(frame.y, max.y + FULLSCREEN_BORDER / 2, max.h - FULLSCREEN_BORDER / 2)
     frame.w = clamp(frame.w, 0, max.w - FULLSCREEN_BORDER / 2 - frame.x)
-    frame.h = clamp(frame.h, 0, max.h - FULLSCREEN_BORDER)
+    frame.h = clamp(frame.h, 0, max.h - FULLSCREEN_BORDER / 2)
     return frame
 end
 
@@ -140,7 +140,7 @@ function zoomMode(target_height)
             frame.h = target_height
         else
             frame.y = target_height + FULLSCREEN_BORDER * 2.5
-            frame.h = max.h - target_height - FULLSCREEN_BORDER
+            frame.h = max.h - target_height - FULLSCREEN_BORDER * 2
         end
         frame.x = 0
         frame.w = max.w
