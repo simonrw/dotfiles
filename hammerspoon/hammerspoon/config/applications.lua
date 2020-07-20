@@ -1,6 +1,6 @@
 applications = {
    terminal = {
-	  name = "Alacritty",
+	  name = "iTerm",
 	  normal_size = {
 		 width = 1024,
 		 height = 768,
