@@ -151,4 +151,4 @@ function zoomMode(target_height)
     end
 end
 
-hs.hotkey.bind({'cmd', 'alt', 'ctrl'}, 'z', zoomMode(400))
+hs.hotkey.bind({'cmd', 'alt', 'ctrl'}, 'z', zoomMode(450))
