@@ -24,7 +24,8 @@ function hr() {
     printf '%*s\n' "${COLUMNS:-$(tput cols)}" '' | tr ' ' -
 }
 
-ARROW_ICON="➜"
-export PROMPT=$'\n%F{4}%~%F{7}\n%F{yellow}$(__suspended_count)%(?.%F{green}${ARROW_ICON}.%F{red}${ARROW_ICON})%F{reset} '
+# __prompt_icon="➜"
+__prompt_icon="$"
+export PROMPT=$'\n%F{4}%~%F{7}\n%F{yellow}$(__suspended_count)%(?.%F{green}${__prompt_icon}.%F{red}${__prompt_icon})%F{reset} '
 export RPROMPT=$'%F{yellow}%m%F{reset}'
 # vim: ft=zsh
