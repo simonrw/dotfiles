@@ -20,17 +20,11 @@ function __suspended_count() {
     fi
 }
 
-local green="%{$fg[green]%}"
-local red="%{$fg[red]%}"
-local yellow="%{$fg[yellow]%}"
-local blue="%{$fg[cyan]%}"
-local reset="%{$reset_color%}"
-local grey="%{$fg[black]%}"
-
 function hr() {
     printf '%*s\n' "${COLUMNS:-$(tput cols)}" '' | tr ' ' -
 }
 
-export PROMPT=$'\n$yellow$(__suspended_count)%(?.$green\\$.$red\\$)$reset '
-export RPROMPT=$'$green%~@$yellow%m$reset'
+ARROW_ICON="➜"
+export PROMPT=$'\n%F{4}%~%F{7}\n%F{yellow}$(__suspended_count)%(?.%F{green}${ARROW_ICON}.%F{red}${ARROW_ICON})%F{reset} '
+export RPROMPT=$'%F{yellow}%m%F{reset}'
 # vim: ft=zsh
