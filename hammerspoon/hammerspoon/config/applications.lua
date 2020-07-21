@@ -44,5 +44,6 @@ applications = {
 
 for _, hostname in ipairs(hs.host.names()) do
     if string.find(hostname, "pixmac516") then
+        applications.email.name = "Thunderbird"
     end
 end
