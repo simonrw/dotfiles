@@ -7,11 +7,14 @@ local ENABLE_FULLSCREEN_FOR_APPS = {}
 local WINDOW_BORDER = FULLSCREEN_BORDER
 local LEFTRIGHT_FRACTION = 0.5
 local TERMINAL_NORMAL_SIZE = {1024, 768}
-local ENABLE_FULLSCREEN_FOR_APPS = { applications.terminal, applications.video }
+local ENABLE_FULLSCREEN_FOR_APPS = {}
+
+frame_cache = {}
 
 -- Move window to the next screen
 hs.hotkey.bind({'cmd', 'alt', 'ctrl'}, 'o', function()
     local win = hs.window.focusedWindow()
+    frame_cache[win:id()] = win:frame()
     local nextScreen = win:screen():next()
     win:moveToScreen(nextScreen)
 end)
@@ -19,6 +22,7 @@ end)
 -- Move window to left two thirds
 hs.hotkey.bind({'cmd', 'alt', 'ctrl'}, 'Left', function()
     local win = hs.window.focusedWindow()
+    frame_cache[win:id()] = win:frame()
     local f = win:frame()
     local screen = win:screen()
     local max = screen:frame()
@@ -63,35 +67,31 @@ function maximizeWindow()
     end
 
     local win = hs.window.focusedWindow()
-    local f = win:frame()
-    local prev_frame = {
-        x = f.x,
-        y = f.y,
-        w = f.w,
-        h = f.h,
-    }
-    local screen = win:screen()
-    local max = screen:frame()
+    if frame_cache[win:id()] then
+        win:setFrame(frame_cache[win:id()])
+        frame_cache[win:id()] = nil
+    else
+        local f = win:frame()
+        frame_cache[win:id()] = win:frame()
 
-    f.x = 0
-    f.y = 0
-    f.w = max.w
-    f.h = max.h
-    f = clampFrame(f, max)
+        local screen = win:screen()
+        local max = screen:frame()
 
-    local found = false
-    for _, application in pairs(applications) do
-        if app:title() == application.name then
-            if application.normal_size then
-                toggleSize(win, prev_frame, f, application.normal_size)
-                found = true
-                break
-            end
-        end
-    end
+        f.x = 0
+        f.y = 0
+        f.w = max.w
+        f.h = max.h
+        f = clampFrame(f, max)
 
-    if not found then
         win:setFrame(f)
+    end
+end
+
+function restoreWindow()
+    local win = hs.window.focusedWindow()
+    if frame_cache[win:id()] then
+        win:setFrame(frame_cache[win:id()])
+        frame_cache[win:id()] = nil
     end
 end
 
@@ -105,21 +105,6 @@ function clampFrame(frame, max)
     frame.w = clamp(frame.w, 0, max.w - FULLSCREEN_BORDER / 2 - frame.x)
     frame.h = clamp(frame.h, 0, max.h - FULLSCREEN_BORDER / 2)
     return frame
-end
-
-function toggleSize(win, current, target, default_size)
-    local screen = win:screen()
-    local max = screen:frame()
-    if current.w == max.w - FULLSCREEN_BORDER and current.h == max.h - FULLSCREEN_BORDER then
-        -- We are already fullscreened, so set the size down a bit
-        target.w = default_size.width
-        target.h = default_size.height
-        -- center the window
-        win:setFrame(target)
-        win:centerOnScreen()
-    else
-        win:setFrame(target)
-    end
 end
 
 if ENABLE_FULLSCREEN_SHORTCUT then
@@ -152,3 +137,4 @@ function zoomMode(target_height)
 end
 
 hs.hotkey.bind({'cmd', 'alt', 'ctrl'}, 'z', zoomMode(450))
+hs.hotkey.bind({'cmd', 'alt', 'ctrl'}, 'r', restoreWindow)
