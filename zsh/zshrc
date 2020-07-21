@@ -16,6 +16,8 @@ stty stop undef
 autoload -U compinit
 compinit -i
 
+autoload add-zsh-hook
+
 # Disable non-standard implicit tee/cat behaviour
 unsetopt multios
 
@@ -110,13 +112,13 @@ export RUST_SRC_PATH="$(rustc --print sysroot)/lib/rustlib/src/rust/src"
 export RUST_NEW_ERROR_FORMAT=true
 export RUST_BACKTRACE=0
 
-# Finally source the theme
-source ${HOME}/.zsh/srwalker101.zsh-theme
-
 # source external zsh setup files
 for file in ~/.zsh/setup/*.zsh; do
     source $file
 done
+
+# Finally source the theme
+source ${HOME}/.zsh/srwalker101.zsh-theme
 
 # Set up misc extra commands
 export PYENV_VIRTUALENV_DISABLE_PROMPT=1
