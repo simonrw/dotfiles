@@ -40,7 +40,8 @@
     edit = "!vim `git ls-files -m`"
     cleanup = "!git rebase -i $(git rev-parse --abbrev-ref --symbolic-full-name '@{u}')"
     # Quickly diff the upstream remote (assume origin)
-    diffup = diff origin
+    upstream = "rev-parse --abbrev-ref --symbolic-full-name '@{u}'"
+    diffup = "!git diff $(git upstream).."
     upsub = submodule foreach 'git checkout master && git pull'
 
     # https://thoughtbot.com/blog/powerful-git-macros-for-automating-everyday-workflows
@@ -60,6 +61,7 @@
     head = l -1
     h = head
     r = l -20
+    ol = log --oneline --decorate --graph
     ra = r
     dc = precommit
     aa = add --all
