@@ -1,0 +1,38 @@
+#!/usr/bin/env python
+
+import os
+import shlex
+import subprocess as sp
+import sys
+
+
+def exit_if_failure(fn):
+    def inner():
+        try:
+            fn()
+        except sp.CalledProcessError:
+            print("❌ precommit hook failed ❌", file=sys.stderr)
+            sys.exit(1)
+
+    return inner
+
+
+@exit_if_failure
+def vet_rust_project():
+    run("cargo fmt --quiet -- --check")
+
+
+@exit_if_failure
+def vet_python_project():
+    run("black --quiet --check src tests")
+
+
+def run(s):
+    sp.run(shlex.split(s), check=True)
+
+
+if __name__ == "__main__":
+    if os.path.isfile("Cargo.toml"):
+        vet_rust_project()
+    elif os.path.isdir("src") or os.path.isdir("lambda_function"):
+        vet_python_project()
