@@ -36,13 +36,13 @@ Plug 'martinda/Jenkinsfile-vim-syntax'
 Plug 'chr4/nginx.vim'
 Plug 'ludovicchabant/vim-gutentags'
 Plug 'airblade/vim-gitgutter'
-Plug 'dense-analysis/ale'
 Plug 'xolox/vim-misc'
 Plug 'xolox/vim-notes'
 Plug 'vmchale/dhall-vim', { 'for': 'dhall' }
 Plug 'ElmCast/elm-vim', { 'for': 'elm' }
 Plug 'dracula/vim'
 Plug 'morhetz/gruvbox'
+Plug 'neoclide/coc.nvim', { 'branch': 'release' }
 
 if has('nvim-0.5')
     augroup LuaHighlight
@@ -328,6 +328,9 @@ let g:elm_format_fail_silently = 1
 set statusline=%<%f\ %h%m%r%=%-14.(%l,%c%V%)\ %P
 set statusline+=%{ConflictedVersion()}
 
+" set up coc status line
+set statusline+=\ %{coc#status()}%{get(b:,'coc_current_function','')}
+
 " Enable autoformatting of valid pretter-compatible files
 let g:prettier#autoformat = 1
 let g:prettier#autoformat_require_pragma = 0
@@ -351,10 +354,16 @@ function! s:TODO()
 endfunction
 command! TODO call s:TODO()
 
-" bindings for ALE
-nnoremap <silent> ]e :ALENextWrap<Cr>
-nnoremap <silent> [e :ALEPreviousWrap<Cr>
-let g:ale_completion_enabled = 1
+" Use <c-space> to trigger completion.
+if has('nvim')
+  inoremap <silent><expr> <c-space> coc#refresh()
+else
+  inoremap <silent><expr> <c-@> coc#refresh()
+endif
+
+" Highlight the symbol and its references when holding the cursor.
+autocmd CursorHold * silent call CocActionAsync('highlight')
+
 
 set background=dark
 colorscheme srw256
