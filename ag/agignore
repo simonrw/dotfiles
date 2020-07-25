@@ -1,5 +1,0 @@
-*.o
-*.bz2
-*.fits
-node_modules/*
-bower_components/*
