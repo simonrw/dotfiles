@@ -9,6 +9,7 @@ from typing import Optional
 from contextlib import contextmanager
 import subprocess as sp
 import os
+import shutil
 
 
 logging.basicConfig(
@@ -180,7 +181,14 @@ class Deployer(object):
                 logger.debug("--> path exists, skipping")
                 continue
 
-            dest.symlink_to(src)
+            try:
+                dest.symlink_to(src)
+            except FileExistsError:
+                try:
+                    shutil.rmtree(dest)
+                except NotADirectoryError:
+                    os.remove(dest)
+                dest.symlink_to(src)
             logger.debug("--> linking complete")
 
     def install_rust_packages(self):
