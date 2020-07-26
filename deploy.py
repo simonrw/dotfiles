@@ -262,7 +262,7 @@ class Deployer(object):
         except FileExistsError:
             try:
                 shutil.rmtree(dest)
-            except NotADirectoryError:
+            except (OSError, NotADirectoryError):
                 os.remove(dest)
             dest.symlink_to(src)
 
