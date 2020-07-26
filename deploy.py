@@ -147,7 +147,7 @@ class Deployer(object):
                 logger.debug("--> path exists, skipping")
                 continue
 
-            dst.symlink_to(src)
+            self._force_symlink_to(src, dst)
             logger.debug("--> linking complete")
 
     def deploy_dotconfig_files(self):
@@ -181,14 +181,7 @@ class Deployer(object):
                 logger.debug("--> path exists, skipping")
                 continue
 
-            try:
-                dest.symlink_to(src)
-            except FileExistsError:
-                try:
-                    shutil.rmtree(dest)
-                except NotADirectoryError:
-                    os.remove(dest)
-                dest.symlink_to(src)
+            self._force_symlink_to(src, dest)
             logger.debug("--> linking complete")
 
     def install_rust_packages(self):
@@ -230,7 +223,7 @@ class Deployer(object):
             logger.debug("--> path exists, skipping")
             return
 
-        dest.symlink_to(src)
+        self._force_symlink_to(src, dest)
         logger.debug("--> linking complete")
 
     def _binary_exists(self, name):
@@ -258,6 +251,20 @@ class Deployer(object):
 
     def macos(self):
         return platform.system() == "Darwin"
+
+    @staticmethod
+    def _force_symlink_to(src, dest):
+        """
+        Ensures that the symlink clobbers the destination.
+        """
+        try:
+            dest.symlink_to(src)
+        except FileExistsError:
+            try:
+                shutil.rmtree(dest)
+            except NotADirectoryError:
+                os.remove(dest)
+            dest.symlink_to(src)
 
 
 class Homebrew(object):
