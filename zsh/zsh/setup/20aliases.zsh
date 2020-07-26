@@ -14,7 +14,7 @@ alias sqlite3='rlwrap =sqlite3'
 alias k=kubectl
 alias sourceenv="source ./venv/bin/activate"
 alias vup="vim +PlugClean! +PlugUpgrade +PlugUpdate +UpdateRemotePlugins +qa"
-alias add-keys="ssh-add $(ls ~/.ssh/id_rsa* | grep -v pub | grep -v bak)"
+alias add-keys="ssh-add $(find ~/.ssh -maxdepth 1 -type f -name "id_rsa*" | grep -v pub | grep -v bak)"
 alias gs='g st'
 alias s='g st'
 
