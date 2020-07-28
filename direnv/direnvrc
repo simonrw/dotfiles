@@ -30,9 +30,6 @@ layout_python-venv() {
 
     PATH="${VIRTUAL_ENV}/bin:${PATH}"
     export PATH
-
-    # Update the ZSH rprompt
-    export RPROMPT="%F{cyan}(v)%F{reset} $RPROMPT"
 }
 
 layout_poetry() {

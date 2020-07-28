@@ -1,0 +1,7 @@
+add_newline = true
+
+[character]
+symbol = "$"
+
+[aws]
+disabled = true

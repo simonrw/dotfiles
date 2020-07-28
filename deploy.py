@@ -162,6 +162,7 @@ class Deployer(object):
             "nvim",
             "bat",
             "karabiner",
+            "starship",
         ]:
             self.deploy_dotconfig_file(subdir)
 

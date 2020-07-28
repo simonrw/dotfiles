@@ -119,9 +119,6 @@ fi
 export RUST_NEW_ERROR_FORMAT=true
 export RUST_BACKTRACE=0
 
-# Finally source the theme
-source ${HOME}/.zsh/srwalker101.zsh-theme
-
 # Set up misc extra commands
 export PYENV_VIRTUALENV_DISABLE_PROMPT=1
 
@@ -148,6 +145,14 @@ export GPG_TTY="$(tty)"
 export PATH="${PATH}:.git/safe/../../bin"
 
 alias g=git
+
+# Finally source the theme
+if has_executable starship; then
+    export STARSHIP_CONFIG=~/.config/starship/starship.toml
+    eval "$(starship init zsh)"
+else
+    source ${HOME}/.zsh/srwalker101.zsh-theme
+fi
 
 if [[ "$PROFILE_STARTUP" == true ]]; then
     zprof
