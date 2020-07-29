@@ -2,6 +2,12 @@
     "python.jediEnabled": false,
     "python.linting.flake8Enabled": true,
     "python.linting.enabled": true,
+    "python.linting.pylintEnabled": false,
+    "python.formatting.blackPath": "~/.asdf/shims/black",
+    "python.autoComplete.extraPaths": ["src", "lambda_handler"],
+    "python.linting.mypyEnabled": true,
+    "python.formatting.provider": "black",
+    "python.venvFolders": ["venv", ".direnv", "~/.virtualenvs"],
     "languageserver": {
         "ccls": {
             "command": "ccls",
