@@ -7,11 +7,13 @@ import sys
 
 
 def exit_if_failure(fn):
-    def inner():
+    def inner(*args, **kwargs):
+        output = fn(*args, **kwargs)
         try:
-            fn()
+            output.check_returncode()
         except sp.CalledProcessError:
             print("❌ precommit hook failed ❌", file=sys.stderr)
+            print(output.stderr.decode(), file=sys.stderr)
             sys.exit(1)
 
     return inner
@@ -19,20 +21,23 @@ def exit_if_failure(fn):
 
 @exit_if_failure
 def vet_rust_project():
-    run("cargo fmt --quiet -- --check")
+    return run("cargo fmt --quiet -- --check")
 
 
 @exit_if_failure
-def vet_python_project():
-    run("black --quiet --check src tests")
+def vet_python_project(path):
+    return run(f"black --check {path} tests")
 
 
 def run(s):
-    sp.run(shlex.split(s), check=True)
+    return sp.run(shlex.split(s), stdout=sp.PIPE, stderr=sp.PIPE)
 
 
 if __name__ == "__main__":
     if os.path.isfile("Cargo.toml"):
         vet_rust_project()
-    elif os.path.isdir("src") or os.path.isdir("lambda_function"):
-        vet_python_project()
+    elif os.path.isdir("src"):
+        vet_python_project("src")
+    elif os.path.isdir("lambda_function"):
+        vet_python_project("lambda_function")
+
