@@ -151,6 +151,7 @@ if has_executable starship; then
     export STARSHIP_CONFIG=~/.config/starship/starship.toml
     eval "$(starship init zsh)"
 else
+    muted_print "Cannot find starship"
     source ${HOME}/.zsh/srwalker101.zsh-theme
 fi
 
