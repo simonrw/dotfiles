@@ -11,7 +11,7 @@
     "python.linting.enabled": true,
     "python.linting.pylintEnabled": false,
     "python.formatting.blackPath": "~/.asdf/shims/black",
-    "python.autoComplete.extraPaths": ["src", "lambda_handler"],
+    "python.autoComplete.extraPaths": ["src", "lambda_handler", "tests"],
     "python.linting.mypyEnabled": true,
     "python.formatting.provider": "black",
     "python.venvFolders": ["venv", ".direnv", "~/.virtualenvs"],
