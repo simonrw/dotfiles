@@ -20,7 +20,7 @@ layout_python-venv() {
         # replaced with hyphens.
         VIRTUAL_ENV_ROOT=${HOME}/.virtualenvs
         test -d $VIRTUAL_ENV_ROOT || mkdir -p $VIRTUAL_ENV_ROOT
-        VIRTUAL_ENV=${VIRTUAL_ENV_ROOT}/$(pwd | sed 's#/#-#g' | sed 's/ /-/g')/python-venv-$python_version
+        VIRTUAL_ENV=${VIRTUAL_ENV_ROOT}/$(pwd | sed 's#/#-#g' | sed 's/ /-/g')/$python_version
     fi
     export VIRTUAL_ENV
     if [[ ! -d $VIRTUAL_ENV ]]; then
