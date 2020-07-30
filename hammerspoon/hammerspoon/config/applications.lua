@@ -26,11 +26,7 @@ applications = {
 	  name = "Dash",
    },
    notes = {
-	  name = "Emacs",
-      normal_size = {
-          width = 768,
-          height = 1024,
-      },
+	  name = "Obsidian",
    },
    editor = {
 	  name = "Visual Studio Code",
