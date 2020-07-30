@@ -2,3 +2,9 @@ add_newline = true
 
 [aws]
 disabled = true
+
+[hostname]
+disabled = true
+
+[username]
+disabled = true
