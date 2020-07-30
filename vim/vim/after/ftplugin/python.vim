@@ -4,9 +4,6 @@ let @n='if __name__ == "__main__":'
 set nowrap
 set textwidth=0
 
-" Set up auto formatting
-nnoremap <leader>y mm:Format<Cr>`m
-
 vnoremap <silent> <leader>t :VtrSendLinesToRunner<Cr>
 nnoremap <silent> <leader>p vip:VtrSendLinesToRunner<Cr>
 

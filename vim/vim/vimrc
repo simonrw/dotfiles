@@ -399,6 +399,9 @@ augroup end
 " Add `:Format` command to format current buffer.
 command! -nargs=0 Format :call CocAction('format')
 
+" Set up auto formatting
+nnoremap <leader>y mm:Format<Cr>`m
+
 " Use K to show documentation in preview window.
 nnoremap <silent> K :call <SID>show_documentation()<CR>
 
