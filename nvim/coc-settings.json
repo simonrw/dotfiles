@@ -1,11 +1,4 @@
 {
-    "coc.preferences.formatOnSaveFiletypes": [
-        "rust",
-        "python",
-        "typescript",
-        "json"
-    ],
-    "coc.preferences.formatOnInsertLeave": true,
     "python.jediEnabled": false,
     "python.linting.flake8Enabled": true,
     "python.linting.enabled": true,

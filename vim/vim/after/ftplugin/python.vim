@@ -5,10 +5,7 @@ set nowrap
 set textwidth=0
 
 " Set up auto formatting
-if executable('black')
-    nnoremap <leader>y mm:%!black --fast -q -<Cr>`m
-    vnoremap <leader>y :'<,'>!black --fast -q -<Cr>
-endif
+nnoremap <leader>y mm:Format<Cr>`m
 
 vnoremap <silent> <leader>t :VtrSendLinesToRunner<Cr>
 nnoremap <silent> <leader>p vip:VtrSendLinesToRunner<Cr>
