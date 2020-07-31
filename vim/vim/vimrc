@@ -41,11 +41,8 @@ Plug 'xolox/vim-notes'
 Plug 'vmchale/dhall-vim', { 'for': 'dhall' }
 Plug 'ElmCast/elm-vim', { 'for': 'elm' }
 Plug 'dracula/vim'
-Plug 'NLKNguyen/papercolor-theme'
-Plug 'swalladge/paper.vim'
 Plug 'morhetz/gruvbox'
 Plug 'neoclide/coc.nvim', { 'branch': 'release' }
-Plug 'rakr/vim-one'
 
 if has('nvim-0.5')
     augroup LuaHighlight
@@ -417,5 +414,5 @@ endfunction
 autocmd CursorHold * silent call CocActionAsync('highlight')
 
 
-set background=light
-colorscheme one
+set background=dark
+colorscheme srw256
