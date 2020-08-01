@@ -7,7 +7,7 @@ applications = {
 	  },
    },
    browser = {
-	  name = "Firefox",
+	  name = "Google Chrome",
       normal_size = {
           width = 1920,
           height = 1200,
@@ -40,6 +40,5 @@ applications = {
 
 for _, hostname in ipairs(hs.host.names()) do
     if string.find(hostname, "pixmac516") then
-        applications.browser.name = "Google Chrome"
     end
 end
