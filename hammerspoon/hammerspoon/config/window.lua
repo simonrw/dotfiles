@@ -124,8 +124,8 @@ function zoomMode(target_height)
             frame.y = 0
             frame.h = target_height
         else
-            frame.y = target_height + FULLSCREEN_BORDER * 2.5
-            frame.h = max.h - target_height - FULLSCREEN_BORDER * 2
+            frame.y = target_height + max.y + FULLSCREEN_BORDER * 2.5
+            frame.h = max.h + max.y - target_height - FULLSCREEN_BORDER * 2
         end
         frame.x = 0
         frame.w = max.w
