@@ -197,7 +197,7 @@ let g:VtrAppendNewline = 1
 " Expand %% to the current directory
 cnoremap %% <c-r>=expand('%:h') . '/'<cr>
 
-let test#strategy = "dispatch"
+let test#strategy = "vtr"
 
 nnoremap <silent> <leader>ve :tabe $MYVIMRC<Cr>
 nnoremap <silent> <leader>vr :source $MYVIMRC\|echo "Reloaded!"<Cr>
