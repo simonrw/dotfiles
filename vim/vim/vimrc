@@ -197,8 +197,6 @@ let g:VtrAppendNewline = 1
 " Expand %% to the current directory
 cnoremap %% <c-r>=expand('%:h') . '/'<cr>
 
-let test#strategy = "vtr"
-
 nnoremap <silent> <leader>ve :tabe $MYVIMRC<Cr>
 nnoremap <silent> <leader>vr :source $MYVIMRC\|echo "Reloaded!"<Cr>
 nnoremap <silent> <leader>ev :echo "Use <leader>ve"<Cr>
@@ -421,6 +419,20 @@ autocmd CursorHold * silent call CocActionAsync('highlight')
 
 let g:dispatch_quickfix_height=40
 let g:dispatch_tmux_height=40
+
+" configure custom rshtuff test runner
+function! RShtuffStrategy(cmd)
+    if !exists('g:rshtuff_listener')
+        echoerr 'You must define g:rshtuff_listener to use this strategy'
+        return
+    endif
+
+    call system("rshtuff -n " . shellescape(g:rshtuff_listener) . " send " . shellescape(a:cmd) . " --clear")
+endfunction
+
+let g:rshtuff_listener = "testrunner"
+let g:test#custom_strategies = {'rshtuff': function('RShtuffStrategy')}
+let g:test#strategy = 'rshtuff'
 
 set background=dark
 colorscheme srw256
