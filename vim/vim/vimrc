@@ -134,9 +134,9 @@ set nobackup
 set backupcopy=auto
 " patch required to honor double slash at end
 if has("patch-8.1.0251")
-	" consolidate the writebackups -- not a big
-	" deal either way, since they usually get deleted
-	set backupdir^=~/.vim/backup//
+    " consolidate the writebackups -- not a big
+    " deal either way, since they usually get deleted
+    set backupdir^=~/.vim/backup//
 end
 
 " Set up persistent undo
@@ -298,9 +298,9 @@ autocmd BufReadPost *
 
 " Configure neovim's terminal mode
 if has('nvim')
-	tnoremap <Esc> <C-\><C-n>
-	tnoremap <M-[> <Esc>
-	tnoremap <C-v><Esc> <Esc>
+    tnoremap <Esc> <C-\><C-n>
+    tnoremap <M-[> <Esc>
+    tnoremap <C-v><Esc> <Esc>
 
     autocmd TermOpen * startinsert
 endif
