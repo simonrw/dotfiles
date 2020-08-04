@@ -196,7 +196,7 @@ let g:VtrAppendNewline = 1
 " Expand %% to the current directory
 cnoremap %% <c-r>=expand('%:h') . '/'<cr>
 
-let test#strategy = "neovim"
+let test#strategy = "dispatch"
 
 nnoremap <silent> <leader>ve :tabe $MYVIMRC<Cr>
 nnoremap <silent> <leader>vr :source $MYVIMRC\|echo "Reloaded!"<Cr>
@@ -414,6 +414,9 @@ endfunction
 " Highlight the symbol and its references when holding the cursor.
 autocmd CursorHold * silent call CocActionAsync('highlight')
 
+
+let g:dispatch_quickfix_height=40
+let g:dispatch_tmux_height=40
 
 set background=dark
 colorscheme srw256
