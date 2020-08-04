@@ -43,6 +43,7 @@ Plug 'ElmCast/elm-vim', { 'for': 'elm' }
 Plug 'dracula/vim'
 Plug 'morhetz/gruvbox'
 Plug 'neoclide/coc.nvim', { 'branch': 'release' }
+let g:airline_theme='dracula'
 Plug 'vim-airline/vim-airline'
 
 if has('nvim-0.5')
