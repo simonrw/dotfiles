@@ -40,11 +40,11 @@ Plug 'xolox/vim-misc'
 Plug 'xolox/vim-notes'
 Plug 'vmchale/dhall-vim', { 'for': 'dhall' }
 Plug 'ElmCast/elm-vim', { 'for': 'elm' }
-Plug 'dracula/vim'
 Plug 'morhetz/gruvbox'
 Plug 'neoclide/coc.nvim', { 'branch': 'release' }
-let g:airline_theme='dracula'
+let g:airline_theme='gruvbox'
 Plug 'vim-airline/vim-airline'
+Plug 'chriskempson/base16-vim'
 
 if has('nvim-0.5')
     augroup LuaHighlight
@@ -434,4 +434,4 @@ let g:test#custom_strategies = {'rshtuff': function('RShtuffStrategy')}
 let g:test#strategy = 'basic'
 
 set background=dark
-colorscheme srw256
+colorscheme gruvbox
