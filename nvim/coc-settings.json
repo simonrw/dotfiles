@@ -1,23 +1,23 @@
 {
-    "python.jediEnabled": false,
-    "python.linting.flake8Enabled": true,
-    "python.linting.enabled": true,
-    "python.linting.pylintEnabled": false,
-    "python.formatting.blackPath": "~/.asdf/shims/black",
-    "python.autoComplete.extraPaths": ["src", "lambda_handler", "tests"],
-    "python.linting.mypyEnabled": true,
-    "python.formatting.provider": "black",
-    "python.venvFolders": ["venv", ".direnv", "~/.virtualenvs"],
-    "languageserver": {
-        "ccls": {
-            "command": "ccls",
-            "filetypes": ["c", "cpp", "objc", "objcpp"],
-            "rootPatterns": [".ccls", "compile_commands.json", ".git/", ".hg/"],
-            "initializationOptions": {
-                "cache": {
-                    "directory": "/tmp/ccls"
-                }
-            }
+  "python.jediEnabled": false,
+  "python.linting.flake8Enabled": true,
+  "python.linting.enabled": true,
+  "python.linting.pylintEnabled": false,
+  "python.formatting.blackPath": "~/.asdf/shims/black",
+  "python.autoComplete.extraPaths": ["src", "lambda_handler", "tests"],
+  "python.linting.mypyEnabled": true,
+  "python.formatting.provider": "black",
+  "python.venvFolders": ["venv", ".direnv", "~/.virtualenvs"],
+  "languageserver": {
+    "ccls": {
+      "command": "ccls",
+      "filetypes": ["c", "cpp", "objc", "objcpp"],
+      "rootPatterns": [".ccls", "compile_commands.json", ".git/", ".hg/"],
+      "initializationOptions": {
+        "cache": {
+          "directory": "/tmp/ccls"
         }
+      }
     }
+  }
 }
