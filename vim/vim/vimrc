@@ -98,8 +98,7 @@ set updatetime=250
 set switchbuf+=useopen
 set colorcolumn=100
 " configure concealing things
-set conceallevel=3
-set concealcursor=nc
+set conceallevel=0
 
 " Center search results
 nnoremap <silent> n nzz
