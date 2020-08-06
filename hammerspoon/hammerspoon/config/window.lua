@@ -100,10 +100,10 @@ function clamp(val, minval, maxval)
 end
 
 function clampFrame(frame, max)
-    frame.x = clamp(frame.x, FULLSCREEN_BORDER / 2, max.w - FULLSCREEN_BORDER / 2)
-    frame.y = clamp(frame.y, max.y + FULLSCREEN_BORDER / 2, max.h - FULLSCREEN_BORDER / 2)
-    frame.w = clamp(frame.w, 0, max.w - FULLSCREEN_BORDER / 2 - frame.x)
-    frame.h = clamp(frame.h, 0, max.h - FULLSCREEN_BORDER / 2)
+    frame.x = clamp(frame.x, max.x + FULLSCREEN_BORDER / 2, max.w - FULLSCREEN_BORDER / 2 + max.x)
+    frame.y = clamp(frame.y, max.y + FULLSCREEN_BORDER / 2, max.h - FULLSCREEN_BORDER / 2 + max.y)
+    frame.w = clamp(frame.w, 0, max.w - FULLSCREEN_BORDER - max.x)
+    frame.h = clamp(frame.h, 0, max.h - FULLSCREEN_BORDER)
     return frame
 end
 
