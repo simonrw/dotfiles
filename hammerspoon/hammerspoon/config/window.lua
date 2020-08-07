@@ -14,6 +14,7 @@ frame_cache = {}
 -- Move window to the next screen
 hs.hotkey.bind({'cmd', 'alt', 'ctrl'}, 'o', function()
     local win = hs.window.focusedWindow()
+    frame_cache[win:id()] = win:frame()
     local nextScreen = win:screen():next()
     win:moveToScreen(nextScreen)
 end)
@@ -76,8 +77,8 @@ function maximizeWindow()
         local screen = win:screen()
         local max = screen:frame()
 
-        f.x = max.x
-        f.y = max.y
+        f.x = 0
+        f.y = 0
         f.w = max.w
         f.h = max.h
         f = clampFrame(f, max)
