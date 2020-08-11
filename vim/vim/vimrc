@@ -431,4 +431,4 @@ let g:test#custom_strategies = {'rshtuff': function('RShtuffStrategy')}
 let g:test#strategy = 'basic'
 
 set background=dark
-colorscheme gruvbox
+colorscheme srw256
