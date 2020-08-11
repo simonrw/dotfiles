@@ -44,7 +44,6 @@ Plug 'morhetz/gruvbox'
 Plug 'neoclide/coc.nvim', { 'branch': 'release' }
 let g:airline_theme='dracula'
 Plug 'vim-airline/vim-airline'
-Plug 'takac/vim-hardtime'
 
 if has('nvim-0.5')
     augroup LuaHighlight
@@ -432,8 +431,6 @@ endfunction
 let g:rshtuff_listener = "testrunner"
 let g:test#custom_strategies = {'rshtuff': function('RShtuffStrategy')}
 let g:test#strategy = 'basic'
-
-let g:hardtime_default_on = 1
 
 set background=dark
 colorscheme srw256
