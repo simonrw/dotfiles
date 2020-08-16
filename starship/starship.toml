@@ -8,3 +8,6 @@ disabled = true
 
 [username]
 disabled = true
+
+[character]
+symbol = "$"
