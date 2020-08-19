@@ -294,3 +294,8 @@ function note() {
         vim +edit "note:$*"
     fi
 }
+
+function wakeastoria() {
+    wakeonlan -i 192.168.0.255 -p 7 40:B0:76:DE:79:B3 >/dev/null
+    ping -o astoria.localnet >/dev/null
+}
