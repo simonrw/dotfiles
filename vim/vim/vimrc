@@ -27,9 +27,6 @@ Plug 'junegunn/goyo.vim'
 Plug 'fatih/vim-go', { 'for': 'go' }
 Plug 'hashivim/vim-terraform'
 Plug 'uarun/vim-protobuf'
-Plug 'prettier/vim-prettier', {
-    \ 'do': 'yarn install',
-    \ 'for': ['javascript', 'typescript', 'css', 'json', 'vue', 'html', 'yaml'] }
 Plug 'junegunn/vim-easy-align'
 Plug 'jvirtanen/vim-hcl'
 Plug 'martinda/Jenkinsfile-vim-syntax'
