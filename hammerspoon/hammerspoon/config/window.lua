@@ -68,8 +68,8 @@ function maximizeWindow()
     local screen = win:screen()
     local max = screen:frame()
 
-    f.x = 0
-    f.y = 0
+    f.x = max.x
+    f.y = max.y
     f.w = max.w
     f.h = max.h
     f = clampFrame(f, max)
