@@ -69,7 +69,7 @@ SAVEHIST=$HISTSIZE
 export GOPATH=${HOME}/dev/gocode
 export PATH=${PATH}:${GOPATH}/bin
 
-export EDITOR=vim_or_nvim
+export EDITOR=nvim
 export VISUAL=${EDITOR}
 export BIBINPUTS=${HOME}/work/central-bibliography:${BIBINPUTS}
 export LESS='-FXR'

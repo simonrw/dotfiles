@@ -79,7 +79,7 @@
     autocrlf = input
     safecrlf = true
     whitespace = fix
-    editor = vim_or_nvim
+    editor = nvim
     mergeoptions = --no-ff
     preloadindex = true
     excludesfile = ~/.gitignore_global
@@ -122,7 +122,7 @@
 [mergetool "ediff"]
     cmd = emacs --eval \"(ediff-merge-files-with-ancestor \\\"$LOCAL\\\" \\\"$REMOTE\\\"    \\\"$BASE\\\" nil \\\"$MERGED\\\")\"
 [mergetool "conflicted"]
-    cmd = "vim +Conflicted"
+    cmd = "nvim +Conflicted"
 [fetch]
     # Always prune when fetching and pulling
     prune = 1
