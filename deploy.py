@@ -88,7 +88,6 @@ class Deployer(object):
         self.deploy_standard_dirs()
         self.deploy_dotconfig_files()
         if self.macos():
-            self.deploy_kitty_config()
             if not self.homebrew:
                 logger.warning(
                     "not installing homebrew packages as `-H/--homebrew` not specified"
@@ -163,6 +162,7 @@ class Deployer(object):
             "bat",
             "karabiner",
             "starship",
+            "kitty",
         ]:
             self.deploy_dotconfig_file(subdir)
 
