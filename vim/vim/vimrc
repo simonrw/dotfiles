@@ -9,7 +9,6 @@ endif
 
 Plug 'junegunn/fzf.vim'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': 'yes \| ./install --no-update-rc --no-completion --key-bindings' }
-Plug 'rust-lang/rust.vim', { 'for': 'rust' }
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-vinegar'
 Plug 'tpope/vim-unimpaired'
@@ -21,24 +20,15 @@ Plug 'tpope/vim-dispatch'
 Plug 'christoomey/vim-tmux-runner'
 Plug 'christoomey/vim-conflicted'
 Plug 'vim-test/vim-test'
-Plug 'cespare/vim-toml', { 'for': 'toml' }
-Plug 'leafgarland/typescript-vim', { 'for': 'typescript' }
 Plug 'junegunn/goyo.vim'
-Plug 'fatih/vim-go', { 'for': 'go' }
-Plug 'hashivim/vim-terraform'
-Plug 'uarun/vim-protobuf'
 Plug 'junegunn/vim-easy-align'
-Plug 'jvirtanen/vim-hcl'
-Plug 'martinda/Jenkinsfile-vim-syntax'
-Plug 'chr4/nginx.vim'
 Plug 'airblade/vim-gitgutter'
 Plug 'xolox/vim-misc'
 Plug 'xolox/vim-notes'
-Plug 'vmchale/dhall-vim', { 'for': 'dhall' }
-Plug 'ElmCast/elm-vim', { 'for': 'elm' }
 Plug 'morhetz/gruvbox'
 Plug 'neoclide/coc.nvim', { 'branch': 'release' }
 Plug 'chriskempson/base16-vim'
+Plug 'sheerun/vim-polyglot'
 
 if has('nvim-0.5')
     augroup LuaHighlight
