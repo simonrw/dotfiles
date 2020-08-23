@@ -80,5 +80,5 @@ ZSH_THEME_GIT_PROMPT_SUFFIX="%f%b"
 
 # __prompt_icon="➜"
 __prompt_icon="$"
-export PROMPT=$'\n%F{yellow}$(__suspended_count)%(?.%F{green}${__prompt_icon}.%F{red}${__prompt_icon})%F{reset} '
+export PROMPT=$'%F{yellow}$(__suspended_count)%(?.%F{green}${__prompt_icon}.%F{red}${__prompt_icon})%F{reset} '
 # vim: ft=zsh
