@@ -29,6 +29,7 @@ Plug 'morhetz/gruvbox'
 Plug 'neoclide/coc.nvim', { 'branch': 'release' }
 Plug 'chriskempson/base16-vim'
 Plug 'sheerun/vim-polyglot'
+Plug 'takac/vim-hardtime'
 
 if has('nvim-0.5')
     augroup LuaHighlight
@@ -415,6 +416,10 @@ let g:test#custom_strategies = {'rshtuff': function('RShtuffStrategy')}
 let g:test#strategy = 'basic'
 
 let g:polyglot_disabled = ['python-indent', 'python']
+let g:hardtime_default_on = 1
+let g:hardtime_ignore_quickfix = 1
+let g:hardtime_allow_different_key = 1
+let g:hardtime_maxcount = 2
 
 set background=dark
 colorscheme srw256
