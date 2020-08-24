@@ -81,7 +81,6 @@ set winwidth=80
 set updatetime=250
 " If buffer is already open when switching, switch to it
 set switchbuf+=useopen
-set colorcolumn=100
 " configure concealing things
 set conceallevel=0
 
