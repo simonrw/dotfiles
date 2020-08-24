@@ -414,5 +414,7 @@ let g:rshtuff_listener = "testrunner"
 let g:test#custom_strategies = {'rshtuff': function('RShtuffStrategy')}
 let g:test#strategy = 'basic'
 
+let g:polyglot_disabled = ['python-indent', 'python']
+
 set background=dark
 colorscheme srw256
