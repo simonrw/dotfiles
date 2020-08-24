@@ -407,6 +407,13 @@ function! RShtuffStrategy(cmd)
     call system("rshtuff -n " . shellescape(g:rshtuff_listener) . " send " . shellescape(a:cmd) . " --clear")
 endfunction
 
+function! SynStack()
+  if !exists("*synstack")
+    return
+  endif
+  echo map(synstack(line('.'), col('.')), 'synIDattr(v:val, "name")')
+endfunc
+
 let g:rshtuff_listener = "testrunner"
 let g:test#custom_strategies = {'rshtuff': function('RShtuffStrategy')}
 let g:test#strategy = 'basic'
