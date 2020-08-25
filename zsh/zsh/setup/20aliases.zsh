@@ -17,8 +17,6 @@ alias vup="vim +PlugClean! +PlugUpgrade +PlugUpdate +UpdateRemotePlugins +qa"
 test -d ~/.ssh && {
     alias add-keys="ssh-add $(find ~/.ssh -maxdepth 1 -type f -name "id_rsa*" | grep -v pub | grep -v bak)"
 }
-alias gs='g st'
-alias s='g st'
 
 # set up alias for opening today's note
 alias today='note $(date +%Y-%m-%d)'
