@@ -1,2 +1,2 @@
 let g:go_fmt_command = "goimports"
-set noexpandtab
+setlocal noexpandtab
