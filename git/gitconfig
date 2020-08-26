@@ -59,13 +59,13 @@
     diff-base = "!git diff $(git merge-base master HEAD)"
 
     # Logging from Gary Bernhardt
-    l = log --graph --decorate --pretty=format:'%C(auto)%h%C(reset) %C(green)(%ar)%C(reset) %C(blue)[%an]%C(auto) %d %s%C(auto)' --exclude='refs/bugs/*' --exclude='refs/identities/*' --all
-    la = l
+    l = log --graph --decorate --pretty=format:'%C(auto)%h%C(reset) %C(green)(%ar)%C(reset) %C(blue)[%an]%C(auto) %d %s%C(auto)' --exclude='refs/bugs/*' --exclude='refs/identities/*'
+    la = l --all
     head = l -1
     h = head
     r = l -20
     ol = log --oneline --decorate --graph
-    ra = r
+    ra = r --all
     dc = precommit
     aa = add --all
     aap = add --all --patch
