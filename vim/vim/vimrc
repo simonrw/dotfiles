@@ -32,8 +32,6 @@ Plug 'sheerun/vim-polyglot'
 Plug 'takac/vim-hardtime'
 Plug 'jonathanfilip/vim-lucius'
 Plug 'dracula/vim'
-let g:airline_theme = "dracula"
-Plug 'vim-airline/vim-airline'
 
 if has('nvim-0.5')
     augroup LuaHighlight
