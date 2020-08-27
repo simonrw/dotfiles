@@ -1,0 +1,20 @@
+#!/bin/bash
+
+set -eou pipefail
+
+colourlog() {
+    printf "\e[38;5;2m%s\e[0m\n" "$*"
+}
+
+run_command() {
+    colourlog $@
+    $*
+}
+
+main() {
+    run_command pip install -U pip
+    run_command pip install -e '.[dev]'
+    run_command pip install ipython flake8 mypy black
+}
+
+main
