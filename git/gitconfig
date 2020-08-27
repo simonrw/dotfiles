@@ -78,7 +78,7 @@
     ui = auto
 [core]
     abbrev = 12
-    pager = delta
+    pager = "diff-so-fancy | less --tabs=4 -RFX --pattern '^(Date|added|deleted|modified): '"
     autocrlf = input
     safecrlf = true
     whitespace = fix
@@ -87,17 +87,6 @@
     preloadindex = true
     excludesfile = ~/.gitignore_global
 	ignorecase = false
-[interactive]
-    diffFilter = delta --color-only
-[delta]
-    features = decorations
-    whitespace-error-style = 22 reverse
-	side-by-side = true
-    syntax-theme = Dracula
-[delta "decorations"]
-    commit-decoration-style = bold yellow box ul
-    file-style = bold yellow ul
-    file-decoration-style = none
 [merge]
     tool = conflicted
     conflictstyle = "diff3"
