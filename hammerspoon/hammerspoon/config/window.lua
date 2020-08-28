@@ -1,7 +1,7 @@
 require "config/applications"
 
 -- constant holding the window enlargement/shrinkage factor
-local FULLSCREEN_BORDER = 0
+local FULLSCREEN_BORDER = 64
 local ENABLE_FULLSCREEN_SHORTCUT = true
 local WINDOW_BORDER = FULLSCREEN_BORDER
 local LEFTRIGHT_FRACTION = 0.5
