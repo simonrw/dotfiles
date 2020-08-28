@@ -1,7 +1,6 @@
 {
     "python.jediEnabled": false,
     "python.linting.flake8Enabled": true,
-    "suggest.autoTrigger": "none",
     "python.linting.enabled": true,
     "python.linting.pylintEnabled": false,
     "python.formatting.blackPath": "~/.asdf/shims/black",
