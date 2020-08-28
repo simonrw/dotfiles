@@ -78,7 +78,7 @@
     ui = auto
 [core]
     abbrev = 12
-    pager = "diff-so-fancy | bat"
+    pager = delta
     autocrlf = input
     safecrlf = true
     whitespace = fix
@@ -87,6 +87,10 @@
     preloadindex = true
     excludesfile = ~/.gitignore_global
 	ignorecase = false
+[interactive]
+    diffFilter = delta --color-only
+[delta]
+    syntax-theme = "Monokai Extended"
 [merge]
     tool = conflicted
     conflictstyle = "diff3"
