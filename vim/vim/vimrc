@@ -23,8 +23,6 @@ Plug 'vim-test/vim-test'
 Plug 'junegunn/goyo.vim'
 Plug 'junegunn/vim-easy-align'
 Plug 'airblade/vim-gitgutter'
-Plug 'xolox/vim-misc'
-Plug 'xolox/vim-notes'
 Plug 'morhetz/gruvbox'
 Plug 'neoclide/coc.nvim', { 'branch': 'release' }
 Plug 'chriskempson/base16-vim'
