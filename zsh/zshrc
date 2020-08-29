@@ -112,7 +112,6 @@ done
 
 # Set up rustup
 export CARGO_HOME=${HOME}/.cargo
-export CARGO_TARGET_DIR=${CARGO_HOME}/target
 export PATH=${CARGO_HOME}/bin:${PATH}
 if has_executable "rustc"; then
     export RUST_SRC_PATH="$(rustc --print sysroot)/lib/rustlib/src/rust/src"
