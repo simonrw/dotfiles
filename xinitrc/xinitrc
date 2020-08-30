@@ -15,7 +15,7 @@ xmodmap ~/.Xmodmap
 
 # Configure xcape
 setxkbmap -option 'caps:ctrl_modifier'
-xcape -t 200 -e 'Caps_Lock=Escape;Control_L=Escape;Control_R=Escape'
+xcape -t 100 -e 'Caps_Lock=Escape;Control_L=Escape;Control_R=Escape'
 
 # Start i3
 exec mate-session
