@@ -28,7 +28,6 @@ Plug 'neoclide/coc.nvim', { 'branch': 'release' }
 Plug 'chriskempson/base16-vim'
 Plug 'sheerun/vim-polyglot'
 Plug 'takac/vim-hardtime'
-Plug 'crusoexia/vim-monokai'
 
 if has('nvim-0.5')
     augroup LuaHighlight
