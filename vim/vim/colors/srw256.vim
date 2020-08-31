@@ -1,6 +1,6 @@
 " Based on
 
-runtime colors/monokai.vim
+runtime colors/base16-gruvbox-dark-hard.vim
 
 let g:colors_name = "srw256"
 
