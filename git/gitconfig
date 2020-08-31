@@ -90,7 +90,7 @@
 [interactive]
     diffFilter = delta --color-only
 [delta]
-    syntax-theme = "base16"
+    syntax-theme = "Monokai Extended"
 [merge]
     tool = conflicted
     conflictstyle = "diff3"

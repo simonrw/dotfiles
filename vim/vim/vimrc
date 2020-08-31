@@ -29,7 +29,6 @@ Plug 'chriskempson/base16-vim'
 Plug 'sheerun/vim-polyglot'
 Plug 'takac/vim-hardtime'
 Plug 'crusoexia/vim-monokai'
-Plug 'chriskempson/base16-vim'
 
 if has('nvim-0.5')
     augroup LuaHighlight
