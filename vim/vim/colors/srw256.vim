@@ -1,7 +1,6 @@
 " Based on
 
-let g:gruvbox_contrast_dark = "hard"
-runtime colors/gruvbox.vim
+runtime colors/lucius.vim
 
 let g:colors_name = "srw256"
 
