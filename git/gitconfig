@@ -147,3 +147,5 @@
 	fsck = 1575586067
 [include]
 	path = ~/.gitlocalconfig/local
+[pull]
+	ff = only
