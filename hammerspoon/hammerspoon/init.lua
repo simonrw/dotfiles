@@ -85,7 +85,7 @@ hs.hotkey.bind({'cmd', 'ctrl', 'alt'}, 'Down', function()
 end)
 
 -- Reload the config on file change
-hs.pathwatcher.new(os.getenv('HOME') .. '/.hammerspoon/', function(files)
+configWatcher = hs.pathwatcher.new(os.getenv('HOME') .. '/.hammerspoon/', function(files)
     doReload = false
     for _,file in pairs(files) do
         if file:sub(-4) == '.lua' then
