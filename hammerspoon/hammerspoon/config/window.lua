@@ -8,6 +8,8 @@ local LEFTRIGHT_FRACTION = 0.5
 local TERMINAL_NORMAL_SIZE = {1024, 768}
 local ENABLE_FULLSCREEN_FOR_APPS = {}
 
+frame_cache = {}
+
 -- Move window to the next screen
 hs.hotkey.bind({'cmd', 'alt', 'ctrl'}, 'o', function()
     local win = hs.window.focusedWindow()
@@ -15,12 +17,25 @@ hs.hotkey.bind({'cmd', 'alt', 'ctrl'}, 'o', function()
     win:moveToScreen(nextScreen)
 end)
 
+function updateFrameCache(win)
+    local app = win:application()
+    local name = app:name()
+    local frame = win:frame()
+
+    if frame_cache[name] == nil then
+        frame_cache[name] = {}
+    end
+    table.insert(frame_cache[name], frame)
+end
+
 -- Move window to left two thirds
 hs.hotkey.bind({'cmd', 'alt', 'ctrl'}, 'Left', function()
     local win = hs.window.focusedWindow()
     local f = win:frame()
     local screen = win:screen()
     local max = screen:frame()
+
+    updateFrameCache(win)
 
     f.x = max.x
     f.y = max.y
@@ -36,6 +51,8 @@ hs.hotkey.bind({'cmd', 'alt', 'ctrl'}, 'Right', function()
     local f = win:frame()
     local screen = win:screen()
     local max = screen:frame()
+
+    updateFrameCache(win)
 
     f.x = max.w / 2 + FULLSCREEN_BORDER / 2
     f.y = max.y
@@ -66,6 +83,8 @@ function maximizeWindow()
 
     local screen = win:screen()
     local max = screen:frame()
+
+    updateFrameCache(win)
 
     f.x = max.x
     f.y = max.y
@@ -117,4 +136,21 @@ function zoomMode(target_height)
     end
 end
 
-hs.hotkey.bind({'cmd', 'alt', 'ctrl'}, 'z', zoomMode(450))
+function undoPosition()
+    local win = hs.window.focusedWindow()
+    local app = win:application()
+    local name = app:name()
+
+    if frame_cache[name] == nil then
+        return
+    end
+
+    if #frame_cache[name] == 0 then
+        return
+    end
+
+    local newFrame = table.remove(frame_cache[name])
+    win:setFrame(newFrame)
+end
+
+hs.hotkey.bind({'cmd', 'alt', 'ctrl'}, 'z', undoPosition)
