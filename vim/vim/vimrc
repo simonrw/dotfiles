@@ -45,7 +45,7 @@ set scrolloff=5
 set number
 set relativenumber
 set nocursorline
-set ttimeoutlen=0
+set ttimeoutlen=10
 set shiftwidth=4
 set tabstop=4
 set smartcase
@@ -81,6 +81,8 @@ set updatetime=250
 set switchbuf+=useopen
 " configure concealing things
 set conceallevel=0
+" configure shortmessages
+set shortmess+=AIOTWaot
 
 " Center search results
 nnoremap <silent> n nzz
