@@ -6,7 +6,7 @@ layout_python-venv() {
     local python=${1:-python3}
     [[ $# -gt 0 ]] && shift
     unset PYTHONHOME
-    if [[ -n $VIRTUAL_ENV ]]; then
+    if [[ -n ${VIRTUAL_ENV+x} ]]; then
         VIRTUAL_ENV=$(realpath "${VIRTUAL_ENV}")
     else
         local python_version
