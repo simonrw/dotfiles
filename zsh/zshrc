@@ -22,6 +22,7 @@ autoload add-zsh-hook
 unsetopt multios
 
 autoload -U bashcompinit
+bashcompinit
 
 # Emacs keybindings
 bindkey -e
