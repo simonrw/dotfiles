@@ -5,6 +5,7 @@
     "python.linting.pylintEnabled": false,
     "python.formatting.blackPath": "~/.local/bin/black",
     "python.linting.flake8Path": "~/.local/bin/flake8",
+    "python.linting.mypyPath": "~/.local/bin/mypy",
     "coc.preferences.formatOnSaveFiletypes": ["rust"],
     "python.autoComplete.extraPaths": ["src", "lambda_handler", "tests"],
     "python.linting.mypyEnabled": true,
