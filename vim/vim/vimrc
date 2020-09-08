@@ -20,14 +20,12 @@ Plug 'tpope/vim-dispatch'
 Plug 'christoomey/vim-tmux-runner'
 Plug 'christoomey/vim-conflicted'
 Plug 'vim-test/vim-test'
-Plug 'junegunn/goyo.vim'
 Plug 'junegunn/vim-easy-align'
-Plug 'airblade/vim-gitgutter'
 Plug 'morhetz/gruvbox'
-Plug 'neoclide/coc.nvim', { 'branch': 'release' }
 Plug 'chriskempson/base16-vim'
 Plug 'sheerun/vim-polyglot'
 Plug 'jeetsukumaran/vim-pythonsense'
+Plug 'psf/black', { 'branch': 'stable' }
 
 if has('nvim-0.5')
     augroup LuaHighlight
@@ -312,7 +310,7 @@ set statusline=%<%f\ %h%m%r%=%-14.(%l,%c%V%)\ %P
 set statusline+=%{ConflictedVersion()}
 
 " set up coc status line
-set statusline+=\ %{coc#status()}%{get(b:,'coc_current_function','')}
+" set statusline+=\ %{coc#status()}%{get(b:,'coc_current_function','')}
 
 " Enable autoformatting of valid pretter-compatible files
 let g:prettier#autoformat = 1
@@ -349,11 +347,6 @@ nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
 nnoremap <silent> gh :CocList symbols<cr>
-
-" Use `[g` and `]g` to navigate diagnostics
-" Use `:CocDiagnostics` to get all diagnostics of current buffer in location list.
-nmap <silent> [g <Plug>(coc-diagnostic-prev)
-nmap <silent> ]g <Plug>(coc-diagnostic-next)
 
 augroup cocgroup
   autocmd!
@@ -413,8 +406,15 @@ let g:coc_global_extensions = [ 'coc-python', 'coc-json', 'coc-go', 'coc-rust-an
 let g:vim_markdown_auto_insert_bullets = 0
 let g:vim_markdown_new_list_item_indent= 0
 
+" Autoformat python files on save
+autocmd BufWritePre *.py execute ':Black'
+
 " configure abbreviations
 source ~/.vim/abbreviations.vim
 
 set background=dark
-colorscheme srw256
+colorscheme default
+
+highlight ColorColumn ctermbg=243 guibg=#424242
+highlight diffRemoved guifg=#fd8272
+highlight diffAdded guifg=#b4fa73
