@@ -413,8 +413,4 @@ autocmd BufWritePre *.py execute ':Black'
 source ~/.vim/abbreviations.vim
 
 set background=dark
-colorscheme default
-
-highlight ColorColumn ctermbg=243 guibg=#424242
-highlight diffRemoved guifg=#fd8272
-highlight diffAdded guifg=#b4fa73
+colorscheme srw256
