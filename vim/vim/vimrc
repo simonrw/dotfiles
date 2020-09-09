@@ -169,6 +169,7 @@ nnoremap gb :FzfBuffers<cr>
 nnoremap gl :FzfRg<cr>
 nnoremap gL :FzfBLines<cr>
 nnoremap <leader>a :FzfAg<cr>
+nnoremap gh :FzfTags<cr>
 
 " Configure vim tmux runner
 let g:VtrStripLeadingWhitespace = 0
