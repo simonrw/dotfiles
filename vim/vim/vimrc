@@ -25,7 +25,7 @@ Plug 'morhetz/gruvbox'
 Plug 'chriskempson/base16-vim'
 Plug 'sheerun/vim-polyglot'
 Plug 'jeetsukumaran/vim-pythonsense'
-Plug 'psf/black', { 'branch': 'stable' }
+Plug 'psf/black', { 'branch': 'stable', 'for': 'python' }
 
 if has('nvim-0.5')
     augroup LuaHighlight
