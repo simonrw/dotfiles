@@ -25,6 +25,7 @@ Plug 'morhetz/gruvbox'
 Plug 'chriskempson/base16-vim'
 Plug 'sheerun/vim-polyglot'
 Plug 'jeetsukumaran/vim-pythonsense'
+Plug 'neoclide/coc.nvim', { 'branch': 'release' }
 Plug 'psf/black', { 'branch': 'stable' }
 
 if has('nvim-0.5')
@@ -310,7 +311,7 @@ set statusline=%<%f\ %h%m%r%=%-14.(%l,%c%V%)\ %P
 set statusline+=%{ConflictedVersion()}
 
 " set up coc status line
-" set statusline+=\ %{coc#status()}%{get(b:,'coc_current_function','')}
+set statusline+=\ %{coc#status()}%{get(b:,'coc_current_function','')}
 
 " Enable autoformatting of valid pretter-compatible files
 let g:prettier#autoformat = 1
@@ -341,12 +342,6 @@ if has('nvim')
 else
   inoremap <silent><expr> <c-@> coc#refresh()
 endif
-
-nmap <silent> gd <Plug>(coc-definition)
-nmap <silent> gy <Plug>(coc-type-definition)
-nmap <silent> gi <Plug>(coc-implementation)
-nmap <silent> gr <Plug>(coc-references)
-nnoremap <silent> gh :CocList symbols<cr>
 
 augroup cocgroup
   autocmd!
@@ -406,11 +401,11 @@ let g:coc_global_extensions = [ 'coc-python', 'coc-json', 'coc-go', 'coc-rust-an
 let g:vim_markdown_auto_insert_bullets = 0
 let g:vim_markdown_new_list_item_indent= 0
 
-" Autoformat python files on save
-autocmd BufWritePre *.py execute ':Black'
-
 " configure abbreviations
 source ~/.vim/abbreviations.vim
+
+" Autoformat python files on save
+autocmd BufWritePre *.py execute ':Black'
 
 set background=dark
 colorscheme srw256

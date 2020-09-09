@@ -4,7 +4,7 @@
     "suggest.autoTrigger": "none",
     "python.linting.enabled": true,
     "python.linting.pylintEnabled": false,
-    "coc.preferences.formatOnSaveFiletypes": ["python", "rust"],
+    "coc.preferences.formatOnSaveFiletypes": ["rust"],
     "python.autoComplete.extraPaths": ["src", "lambda_handler", "tests"],
     "python.linting.mypyEnabled": true,
     "python.formatting.provider": "black",
