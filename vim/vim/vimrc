@@ -25,7 +25,6 @@ Plug 'morhetz/gruvbox'
 Plug 'chriskempson/base16-vim'
 Plug 'sheerun/vim-polyglot'
 Plug 'jeetsukumaran/vim-pythonsense'
-Plug 'psf/black', { 'branch': 'stable', 'for': 'python' }
 Plug 'dense-analysis/ale'
 Plug 'airblade/vim-gitgutter'
 
@@ -366,11 +365,12 @@ let g:coc_global_extensions = [ 'coc-python', 'coc-json', 'coc-go', 'coc-rust-an
 let g:vim_markdown_auto_insert_bullets = 0
 let g:vim_markdown_new_list_item_indent= 0
 
+nnoremap [g :ALEPreviousWrap<cr>
+nnoremap ]g :ALENextWrap<cr>
+let g:ale_fix_on_save = 1
+
 " configure abbreviations
 source ~/.vim/abbreviations.vim
-
-" Autoformat python files on save
-autocmd BufWritePre *.py execute ':Black'
 
 " Binding to show hunk preview for git diff
 nnoremap gp :GitGutterPreviewHunk<Cr>
