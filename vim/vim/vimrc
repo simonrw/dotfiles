@@ -76,7 +76,8 @@ set linebreak
 set gdefault
 " Configure minimum window width
 set winwidth=80
-set updatetime=250
+" speed up UI updates
+set updatetime=100
 " If buffer is already open when switching, switch to it
 set switchbuf+=useopen
 " configure concealing things
