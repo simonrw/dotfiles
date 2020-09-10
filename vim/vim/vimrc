@@ -27,6 +27,7 @@ Plug 'sheerun/vim-polyglot'
 Plug 'jeetsukumaran/vim-pythonsense'
 Plug 'psf/black', { 'branch': 'stable', 'for': 'python' }
 Plug 'dense-analysis/ale'
+Plug 'airblade/vim-gitgutter'
 
 if has('nvim-0.5')
     augroup LuaHighlight
@@ -369,6 +370,9 @@ source ~/.vim/abbreviations.vim
 
 " Autoformat python files on save
 autocmd BufWritePre *.py execute ':Black'
+
+" Binding to show hunk preview for git diff
+nnoremap gp :GitGutterPreviewHunk<Cr>
 
 set background=dark
 colorscheme srw256
