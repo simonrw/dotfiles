@@ -26,6 +26,7 @@ Plug 'chriskempson/base16-vim'
 Plug 'sheerun/vim-polyglot'
 Plug 'jeetsukumaran/vim-pythonsense'
 Plug 'psf/black', { 'branch': 'stable', 'for': 'python' }
+Plug 'dense-analysis/ale'
 
 if has('nvim-0.5')
     augroup LuaHighlight
