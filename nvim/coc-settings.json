@@ -1,14 +1,15 @@
 {
     "python.jediEnabled": false,
     "python.linting.flake8Enabled": true,
-    "suggest.autoTrigger": "none",
     "python.linting.enabled": true,
     "python.linting.pylintEnabled": false,
-    "coc.preferences.formatOnSaveFiletypes": ["rust"],
+    "coc.preferences.formatOnSaveFiletypes": ["python", "rust"],
     "python.autoComplete.extraPaths": ["src", "lambda_handler", "tests"],
     "python.linting.mypyEnabled": true,
     "python.formatting.provider": "black",
     "python.venvFolders": ["venv", ".direnv", "~/.virtualenvs"],
+    "python.formatting.blackPath": "~/.local/bin/black",
+    "python.linting.flake8Path": "~/.local/bin/flake8",
     "languageserver": {
         "ccls": {
             "command": "ccls",
