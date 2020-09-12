@@ -10,6 +10,7 @@
     "python.venvFolders": ["venv", ".direnv", "~/.virtualenvs"],
     "python.formatting.blackPath": "~/.local/bin/black",
     "python.linting.flake8Path": "~/.local/bin/flake8",
+    "python.linting.mypyPath": "~/.local/bin/mypy",
     "languageserver": {
         "ccls": {
             "command": "ccls",
