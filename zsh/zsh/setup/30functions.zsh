@@ -203,6 +203,37 @@ function ssh() {
     fi
 }
 
+# Function to source the current virtual environment if there is one
+function se() {
+    if has_executable direnv; then
+        grep -q 'layout python-venv' .envrc 2>/dev/null || {
+            echo layout python-venv >> .envrc
+            direnv allow .
+        }
+    else
+        if [[ -f ./venv/bin/activate ]]; then
+            # Have to check that the shell is not currently in a virtual environment
+            test -z $VIRTUAL_ENV || {
+                echo "Current shell is in a virtual environment ($VIRTUAL_ENV). Deactivating" >&2
+                deactivate
+            }
+            source ./venv/bin/activate
+        else
+            # Create the virtual environment
+            echo "Virtual environment does not exist, creating" >&2
+            if has_executable python3; then
+                python3 -m venv ./venv
+            else
+                # Hope python is python3!
+                python -m venv ./venv
+            fi
+            echo "Installing latest version of pip"
+            ./venv/bin/pip install -U pip
+            se
+        fi
+    fi
+}
+
 # Function to get the hierarchical process tree upwards (usually ending at PID 1)
 function pparents() {
     if [[ $# -ne 1 ]]; then
