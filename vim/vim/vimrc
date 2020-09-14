@@ -315,6 +315,9 @@ let g:elm_format_fail_silently = 1
 set statusline=%<%f\ %h%m%r%=%-14.(%l,%c%V%)\ %P
 set statusline+=%{ConflictedVersion()}
 
+" allow more height for coc
+set cmdheight=2
+
 " set up coc status line
 set statusline+=\ %{coc#status()}%{get(b:,'coc_current_function','')}
 
