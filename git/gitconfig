@@ -90,7 +90,7 @@
 [interactive]
     diffFilter = delta --color-only
 [delta]
-    syntax-theme = "Monokai Extended"
+    syntax-theme = "1337"
     side-by-side = true
     hunk-header-style = "omit"
 [merge]
