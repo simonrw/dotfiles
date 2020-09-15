@@ -78,7 +78,7 @@
     ui = auto
 [core]
     abbrev = 12
-    pager = diff-so-fancy | bat
+    pager = delta
     autocrlf = input
     safecrlf = true
     whitespace = fix
@@ -91,6 +91,8 @@
     diffFilter = delta --color-only
 [delta]
     syntax-theme = "Monokai Extended"
+    side-by-side = true
+    diff-so-fancy = true
 [merge]
     tool = conflicted
     conflictstyle = "diff3"
