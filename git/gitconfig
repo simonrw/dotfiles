@@ -92,7 +92,7 @@
 [delta]
     syntax-theme = "Monokai Extended"
     side-by-side = true
-    diff-so-fancy = true
+    hunk-header-style = "omit"
 [merge]
     tool = conflicted
     conflictstyle = "diff3"
