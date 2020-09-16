@@ -50,3 +50,7 @@ if has_executable bat; then
     alias less=bat
     alias more=bat
 fi
+
+if has_executable curlie; then
+    alias http=curlie
+fi
