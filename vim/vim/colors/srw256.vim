@@ -1,6 +1,6 @@
 " Based on
 
-runtime colors/codedark.vim
+runtime colors/lucius.vim
 
 let g:colors_name = "srw256"
 
