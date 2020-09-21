@@ -1,7 +1,7 @@
 require "config/applications"
 
 -- constant holding the window enlargement/shrinkage factor
-local FULLSCREEN_BORDER = 0
+local FULLSCREEN_BORDER = 16
 local ENABLE_FULLSCREEN_SHORTCUT = true
 local WINDOW_BORDER = FULLSCREEN_BORDER
 local LEFTRIGHT_FRACTION = 0.5
@@ -39,7 +39,7 @@ hs.hotkey.bind({'cmd', 'alt', 'ctrl'}, 'Left', function()
 
     f.x = max.x
     f.y = max.y
-    f.w = max.w / 2 - FULLSCREEN_BORDER / 2
+    f.w = halfWindowWidth(max)
     f.h = max.h
     f = clampFrame(f, max)
     win:setFrame(f)
@@ -54,13 +54,17 @@ hs.hotkey.bind({'cmd', 'alt', 'ctrl'}, 'Right', function()
 
     updateFrameCache(win)
 
-    f.x = max.w / 2 + FULLSCREEN_BORDER / 2
+    f.x = max.w / 2 + FULLSCREEN_BORDER * 1 / 4
     f.y = max.y
-    f.w = max.w / 2 - FULLSCREEN_BORDER
+    f.w = halfWindowWidth(max)
     f.h = max.h
     f = clampFrame(f, max)
     win:setFrame(f)
 end)
+
+function halfWindowWidth(max)
+    return max.w / 2 - FULLSCREEN_BORDER * 3 / 4
+end
 
 
 function maximizeWindow()
