@@ -34,6 +34,10 @@ hs.hotkey.bind({'cmd', 'alt', 'ctrl'}, 'Left', function()
     win:setFrame(f)
 end)
 
+function sign(value)
+    return value / math.abs(value)
+end
+
 -- Move window to the right half
 hs.hotkey.bind({'cmd', 'alt', 'ctrl'}, 'Right', function()
     local win = hs.window.focusedWindow()
@@ -43,7 +47,7 @@ hs.hotkey.bind({'cmd', 'alt', 'ctrl'}, 'Right', function()
 
     fc:add(win)
 
-    f.x = max.w / 2 + FULLSCREEN_BORDER * 1 / 4
+    f.x = sign(f.x) * (max.w / 2 + FULLSCREEN_BORDER * 1 / 4)
     f.y = max.y
     f.w = halfWindowWidth(max)
     f.h = max.h
