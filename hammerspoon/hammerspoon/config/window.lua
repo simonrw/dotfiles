@@ -1,5 +1,3 @@
-require "config/applications"
-
 -- constant holding the window enlargement/shrinkage factor
 local FULLSCREEN_BORDER = 16
 local ENABLE_FULLSCREEN_SHORTCUT = true
@@ -8,7 +6,8 @@ local LEFTRIGHT_FRACTION = 0.5
 local TERMINAL_NORMAL_SIZE = {1024, 768}
 local ENABLE_FULLSCREEN_FOR_APPS = {}
 
-frame_cache = {}
+
+fc = FrameCache:new()
 
 -- Move window to the next screen
 hs.hotkey.bind({'cmd', 'alt', 'ctrl'}, 'o', function()
@@ -17,16 +16,6 @@ hs.hotkey.bind({'cmd', 'alt', 'ctrl'}, 'o', function()
     win:moveToScreen(nextScreen)
 end)
 
-function updateFrameCache(win)
-    local app = win:application()
-    local name = app:name()
-    local frame = win:frame()
-
-    if frame_cache[name] == nil then
-        frame_cache[name] = {}
-    end
-    table.insert(frame_cache[name], frame)
-end
 
 -- Move window to left two thirds
 hs.hotkey.bind({'cmd', 'alt', 'ctrl'}, 'Left', function()
@@ -35,7 +24,7 @@ hs.hotkey.bind({'cmd', 'alt', 'ctrl'}, 'Left', function()
     local screen = win:screen()
     local max = screen:frame()
 
-    updateFrameCache(win)
+    fc:add(win)
 
     f.x = max.x
     f.y = max.y
@@ -52,7 +41,7 @@ hs.hotkey.bind({'cmd', 'alt', 'ctrl'}, 'Right', function()
     local screen = win:screen()
     local max = screen:frame()
 
-    updateFrameCache(win)
+    fc:add(win)
 
     f.x = max.w / 2 + FULLSCREEN_BORDER * 1 / 4
     f.y = max.y
@@ -88,7 +77,7 @@ function maximizeWindow()
     local screen = win:screen()
     local max = screen:frame()
 
-    updateFrameCache(win)
+    fc:add(win)
 
     f.x = max.x
     f.y = max.y
@@ -140,21 +129,10 @@ function zoomMode(target_height)
     end
 end
 
-function undoPosition()
+hs.hotkey.bind({'cmd', 'alt', 'ctrl'}, 'z', function()
     local win = hs.window.focusedWindow()
     local app = win:application()
     local name = app:name()
 
-    if frame_cache[name] == nil then
-        return
-    end
-
-    if #frame_cache[name] == 0 then
-        return
-    end
-
-    local newFrame = table.remove(frame_cache[name])
-    win:setFrame(newFrame)
-end
-
-hs.hotkey.bind({'cmd', 'alt', 'ctrl'}, 'z', undoPosition)
+    fc:pop(name)
+end)
