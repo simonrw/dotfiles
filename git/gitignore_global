@@ -1,7 +1,6 @@
 .vscode
 # direnv stuff
 .direnv
-.envrc
 
 # Ignore coc.vim local vim dir
 .vim
