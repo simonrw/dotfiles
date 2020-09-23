@@ -54,3 +54,7 @@ fi
 if has_executable curlie; then
     alias http=curlie
 fi
+
+if has_executable nvim; then
+    alias vimdiff="nvim -d"
+fi
