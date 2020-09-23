@@ -9,13 +9,6 @@ local ENABLE_FULLSCREEN_FOR_APPS = {}
 
 fc = FrameCache:new()
 
--- Move window to the next screen
-hs.hotkey.bind({'cmd', 'alt', 'ctrl'}, 'o', function()
-    local win = hs.window.focusedWindow()
-    local nextScreen = win:screen():next()
-    win:moveToScreen(nextScreen)
-end)
-
 function windowLeftHalf(frame, max, border)
     local border = border or FULLSCREEN_BORDER
 
@@ -43,20 +36,6 @@ function windowRightHalf(frame, max, border)
 end
 
 
--- Move window to left two thirds
-hs.hotkey.bind({'cmd', 'alt', 'ctrl'}, 'Left', function()
-    local win = hs.window.focusedWindow()
-    local f = win:frame()
-    local screen = win:screen()
-    local max = screen:frame()
-
-    fc:add(win)
-
-    local f = windowLeftHalf(f, max)
-
-    win:setFrame(f)
-end)
-
 function sign(value)
     if value == 0 then
         return 1
@@ -65,53 +44,11 @@ function sign(value)
     return value / math.abs(value)
 end
 
--- Move window to the right half
-hs.hotkey.bind({'cmd', 'alt', 'ctrl'}, 'Right', function()
-    local win = hs.window.focusedWindow()
-    local f = win:frame()
-    local screen = win:screen()
-    local max = screen:frame()
-
-    fc:add(win)
-
-    local f = windowRightHalf(f, max)
-
-    win:setFrame(f)
-end)
-
 function halfWindowWidth(max, border)
     border = border or FULLSCREEN_BORDER
     return max.w / 2 - border * 3 / 4
 end
 
-
-function maximizeWindow()
-    local app = hs.application.frontmostApplication()
-    if #ENABLE_FULLSCREEN_FOR_APPS ~= 0 then
-        local found = false
-        for _, allowed_app in ipairs(ENABLE_FULLSCREEN_FOR_APPS) do
-            if string.lower(app:title()) == string.lower(allowed_app.name) then
-                found = true
-                break
-            end
-        end
-        if not found then
-            return
-        end
-    end
-
-    local win = hs.window.focusedWindow()
-    local f = win:frame()
-
-    local screen = win:screen()
-    local max = screen:frame()
-
-    fc:add(win)
-
-    local f = maximizeWindowSize(f, max)
-
-    win:setFrame(f)
-end
 
 function maximizeWindowSize(frame, max, border)
     local border = border or FULLSCREEN_BORDER
@@ -135,34 +72,41 @@ function clampFrame(frame, max, fullscreen_border)
     return newFrame
 end
 
-if ENABLE_FULLSCREEN_SHORTCUT then
-    hs.hotkey.bind({'cmd', 'alt', 'ctrl'}, 'f', maximizeWindow)
-end
+-- HANDLERS
+-- Move window to the next screen
+hs.hotkey.bind({'cmd', 'alt', 'ctrl'}, 'o', function()
+    local win = hs.window.focusedWindow()
+    local nextScreen = win:screen():next()
+    win:moveToScreen(nextScreen)
+end)
 
--- Add the ability to add a zoom window at the top of the screen, or use the
--- remaining space for other windows
-function zoomMode(target_height)
-    return function()
-        local win = hs.window.focusedWindow()
-        local screen = win:screen()
-        local max = screen:frame()
-        local frame = win:frame()
+-- Move window to left two thirds
+hs.hotkey.bind({'cmd', 'alt', 'ctrl'}, 'Left', function()
+    local win = hs.window.focusedWindow()
+    local f = win:frame()
+    local screen = win:screen()
+    local max = screen:frame()
 
-        if win:title() == "Zoom Meeting" then
-            frame.y = 0
-            frame.h = target_height
-        else
-            frame.y = target_height + max.y + FULLSCREEN_BORDER * 2.5
-            frame.h = max.h + max.y - target_height - FULLSCREEN_BORDER * 2
-        end
-        frame.x = 0
-        frame.w = max.w
+    fc:add(win)
 
-        frame = clampFrame(frame, max)
+    local f = windowLeftHalf(f, max)
 
-        win:setFrame(frame)
-    end
-end
+    win:setFrame(f)
+end)
+
+-- Move window to the right half
+hs.hotkey.bind({'cmd', 'alt', 'ctrl'}, 'Right', function()
+    local win = hs.window.focusedWindow()
+    local f = win:frame()
+    local screen = win:screen()
+    local max = screen:frame()
+
+    fc:add(win)
+
+    local f = windowRightHalf(f, max)
+
+    win:setFrame(f)
+end)
 
 hs.hotkey.bind({'cmd', 'alt', 'ctrl'}, 'z', function()
     local win = hs.window.focusedWindow()
@@ -171,3 +115,34 @@ hs.hotkey.bind({'cmd', 'alt', 'ctrl'}, 'z', function()
 
     fc:pop(name)
 end)
+
+if ENABLE_FULLSCREEN_SHORTCUT then
+    hs.hotkey.bind({'cmd', 'alt', 'ctrl'}, 'f', function()
+        local app = hs.application.frontmostApplication()
+        if #ENABLE_FULLSCREEN_FOR_APPS ~= 0 then
+            local found = false
+            for _, allowed_app in ipairs(ENABLE_FULLSCREEN_FOR_APPS) do
+                if string.lower(app:title()) == string.lower(allowed_app.name) then
+                    found = true
+                    break
+                end
+            end
+            if not found then
+                return
+            end
+        end
+
+        local win = hs.window.focusedWindow()
+        local f = win:frame()
+
+        local screen = win:screen()
+        local max = screen:frame()
+
+        fc:add(win)
+
+        local f = maximizeWindowSize(f, max)
+
+        win:setFrame(f)
+    end)
+end
+
