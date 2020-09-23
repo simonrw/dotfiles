@@ -16,6 +16,32 @@ hs.hotkey.bind({'cmd', 'alt', 'ctrl'}, 'o', function()
     win:moveToScreen(nextScreen)
 end)
 
+function windowLeftHalf(frame, max, border)
+    local border = border or FULLSCREEN_BORDER
+
+    local newFrame = {
+        x = max.x + border / 2,
+        y = max.y + border / 2,
+        w = halfWindowWidth(max, border),
+        h = max.h - border,
+    }
+
+    return newFrame
+end
+
+function windowRightHalf(frame, max, border)
+    local border = border or FULLSCREEN_BORDER
+
+    local newFrame = {
+        x = sign(max.x) * (max.w / 2) + border / 2,
+        y = max.y + border / 2,
+        w = halfWindowWidth(max, border),
+        h = max.h - border,
+    }
+
+    return newFrame
+end
+
 
 -- Move window to left two thirds
 hs.hotkey.bind({'cmd', 'alt', 'ctrl'}, 'Left', function()
@@ -26,15 +52,16 @@ hs.hotkey.bind({'cmd', 'alt', 'ctrl'}, 'Left', function()
 
     fc:add(win)
 
-    f.x = max.x
-    f.y = max.y
-    f.w = halfWindowWidth(max)
-    f.h = max.h
-    f = clampFrame(f, max)
+    local f = windowLeftHalf(f, max)
+
     win:setFrame(f)
 end)
 
 function sign(value)
+    if value == 0 then
+        return 1
+    end
+
     return value / math.abs(value)
 end
 
@@ -47,16 +74,14 @@ hs.hotkey.bind({'cmd', 'alt', 'ctrl'}, 'Right', function()
 
     fc:add(win)
 
-    f.x = sign(f.x) * (max.w / 2 + FULLSCREEN_BORDER * 1 / 4)
-    f.y = max.y
-    f.w = halfWindowWidth(max)
-    f.h = max.h
-    f = clampFrame(f, max)
+    local f = windowRightHalf(f, max)
+
     win:setFrame(f)
 end)
 
-function halfWindowWidth(max)
-    return max.w / 2 - FULLSCREEN_BORDER * 3 / 4
+function halfWindowWidth(max, border)
+    border = border or FULLSCREEN_BORDER
+    return max.w / 2 - border * 3 / 4
 end
 
 
@@ -83,25 +108,31 @@ function maximizeWindow()
 
     fc:add(win)
 
-    f.x = max.x
-    f.y = max.y
-    f.w = max.w
-    f.h = max.h
-    f = clampFrame(f, max)
+    local f = maximizeWindowSize(f, max)
 
     win:setFrame(f)
+end
+
+function maximizeWindowSize(frame, max, border)
+    local border = border or FULLSCREEN_BORDER
+
+    return clampFrame(max, max, border)
 end
 
 function clamp(val, minval, maxval)
     return math.min(math.max(val, minval), maxval)
 end
 
-function clampFrame(frame, max)
-    frame.x = clamp(frame.x, max.x + FULLSCREEN_BORDER / 2, max.w - FULLSCREEN_BORDER / 2 + max.x)
-    frame.y = clamp(frame.y, max.y + FULLSCREEN_BORDER / 2, max.h - FULLSCREEN_BORDER / 2 + max.y)
-    frame.w = clamp(frame.w, 0, max.w - FULLSCREEN_BORDER - math.max(0, max.x))
-    frame.h = clamp(frame.h, 0, max.h - FULLSCREEN_BORDER)
-    return frame
+function clampFrame(frame, max, fullscreen_border)
+    local fullscreen_border = fullscreen_border or FULLSCREEN_BORDER
+
+    local newFrame = {
+        x = clamp(frame.x, max.x + fullscreen_border / 2, max.w - fullscreen_border / 2 + max.x),
+        y = clamp(frame.y, max.y + fullscreen_border / 2, max.h - fullscreen_border / 2 + max.y),
+        w = clamp(frame.w, 0, max.w - fullscreen_border - math.max(0, max.x)),
+        h = clamp(frame.h, 0, max.h - fullscreen_border),
+    }
+    return newFrame
 end
 
 if ENABLE_FULLSCREEN_SHORTCUT then
