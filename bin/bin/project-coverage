@@ -25,6 +25,16 @@ class Result(NamedTuple):
     num_tests: int
     num_lines: int
 
+    @classmethod
+    def null(cls, revision, num_lines):
+        return cls(
+            revision=revision,
+            coverage=None,
+            time=None,
+            num_tests=None,
+            num_lines=num_lines,
+        )
+
     def to_dict(self):
         return {
             "revision": self.revision,
@@ -138,18 +148,16 @@ if __name__ == "__main__":
         coverages = []
         for rev in revs:
             checkout(rev)
-            num_tests = extract_num_tests()
             num_lines = extract_num_lines()
 
             with tempfile.NamedTemporaryFile() as tfile:
                 try:
+                    num_tests = extract_num_tests()
                     start_time = time.time()
                     run_tests(tfile.name, parallel=args.parallel)
                 except Exception:
                     logger.exception(f"error running texts, skipping revision {rev}")
-                    coverages.append(
-                        Result(revision=rev, num_tests=num_tests, num_lines=num_lines)
-                    )
+                    coverages.append(Result.null(revision=rev, num_lines=num_lines))
                     continue
 
                 end_time = time.time()
