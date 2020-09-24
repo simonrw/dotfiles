@@ -1,0 +1,171 @@
+#!/usr/bin/env python
+
+import argparse
+import logging
+import re
+import json
+import time
+import sys
+from typing import NamedTuple
+import subprocess as sp
+import tempfile
+import xml.etree.ElementTree as ET
+
+logging.basicConfig(level=logging.INFO)
+logger = logging.getLogger("project-coverage")
+
+
+NUM_TESTS_RE = re.compile(r"collected\s+(\d+)\s+items")
+
+
+class Result(NamedTuple):
+    revision: str
+    coverage: float
+    time: float
+    num_tests: int
+    num_lines: int
+
+    def to_dict(self):
+        return {
+            "revision": self.revision,
+            "coverage": self.coverage,
+            "time": self.time,
+            "num_tests": self.num_tests,
+            "num_lines": self.num_lines,
+        }
+
+
+class NullResult:
+    def __init__(self, revision):
+        self.revision = revision
+
+    def to_dict(self):
+        return {
+            "revision": self.revision,
+            "coverage": None,
+            "time": None,
+            "num_tests": None,
+            "num_lines": None,
+        }
+
+
+def checkout(revision):
+    logger.debug(f"checking out {revision}")
+    sp.check_call(["git", "checkout", "--quiet", revision])
+
+
+def run_tests(temp_filename, parallel):
+    logger.debug("running tests")
+    cmd = ["pytest", "-x", "--cov-report", f"xml:{temp_filename}"]
+    if parallel:
+        cmd.extend(["-n", "auto"])
+    sp.check_call(cmd)
+
+
+def extract_coverage(coverage_io):
+    cov_text = coverage_io.read().decode()
+    root = ET.fromstring(cov_text)
+    return float(root.attrib["line-rate"])
+
+
+def get_current_rev():
+    output = sp.check_output(["git", "rev-parse", "--abbrev-ref", "HEAD"])
+    return output.decode().strip()
+
+
+def extract_num_tests():
+    output = sp.check_output(["pytest", "--collect-only"]).decode().split("\n")
+    for line in output:
+        match = NUM_TESTS_RE.match(line.strip())
+        if match is not None:
+            return int(match.group(1))
+
+
+def extract_num_lines():
+    output = sp.check_output(["tokei"]).decode().split("\n")
+    for line in output:
+        if "Total" in line and "(Total)" not in line:
+            parts = line.strip().split()
+            assert parts[0] == "Total"
+            assert len(parts) == 6
+            return int(parts[3])
+
+
+def reset_dir():
+    sp.check_call(["git", "reset", "--quiet", "--hard"])
+
+
+if __name__ == "__main__":
+    parser = argparse.ArgumentParser()
+    parser.add_argument("-s", "--start", required=True)
+    parser.add_argument("-e", "--end", required=True)
+    parser.add_argument("-c", "--collect-only", action="store_true", default=False)
+    parser.add_argument(
+        "--parallel",
+        action="store_true",
+        default=False,
+        help="Run pytest tests in parallel (using xdist)",
+    )
+    parser.add_argument("-v", "--verbose", action="store_true", default=False)
+    parser.add_argument(
+        "-o", "--output", required=False, default="-", type=argparse.FileType("w")
+    )
+    args = parser.parse_args()
+
+    if args.verbose:
+        logger.setLevel(logging.DEBUG)
+
+    current_rev = get_current_rev()
+    logger.debug(f"current rev: {current_rev}")
+
+    try:
+
+        revs = [
+            line.strip()
+            for line in sp.check_output(
+                ["git", "rev-list", "--reverse", f"{args.start}..{args.end}"]
+            )
+            .decode()
+            .split("\n")
+            if line
+        ] + [args.end]
+
+        logging.info(f"collected {len(revs)} revs")
+
+        if args.collect_only:
+            sys.exit(0)
+
+        coverages = []
+        for rev in revs:
+            checkout(rev)
+            num_tests = extract_num_tests()
+            num_lines = extract_num_lines()
+
+            with tempfile.NamedTemporaryFile() as tfile:
+                try:
+                    start_time = time.time()
+                    run_tests(tfile.name, parallel=args.parallel)
+                except Exception:
+                    logger.exception(f"error running texts, skipping revision {rev}")
+                    coverages.append(
+                        Result(revision=rev, num_tests=num_tests, num_lines=num_lines)
+                    )
+                    continue
+
+                end_time = time.time()
+                tfile.seek(0)
+                coverage = extract_coverage(tfile)
+                result = Result(
+                    revision=rev,
+                    coverage=coverage,
+                    time=end_time - start_time,
+                    num_tests=num_tests,
+                    num_lines=num_lines,
+                )
+                coverages.append(result)
+            reset_dir()
+
+        print(json.dumps([c.to_dict() for c in coverages]), file=args.output)
+
+    finally:
+        checkout(current_rev)
