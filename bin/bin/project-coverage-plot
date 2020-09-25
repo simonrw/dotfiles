@@ -13,6 +13,7 @@ plt.style.use(["ggplot", "seaborn-poster"])
 class Renderer:
     def __init__(self, data):
         self.data = data
+        self._unsplatted = None
 
     def show(self):
         fig, axes = plt.subplots(2, 2, sharex=True)
@@ -27,23 +28,25 @@ class Renderer:
         plt.show()
 
     def render_coverage(self, axis):
-        cov = [self._to_float(item["coverage"]) * 100 for item in self.data]
+        cov = self.unsplatted["coverage"] * 100
         axis.plot(self.x, cov, ".")
         axis.set(ylabel="Coverage [%]")
 
     def render_num_lines(self, axis):
-        num_lines = [self._to_float(item["num_lines"]) for item in self.data]
-        axis.plot(self.x, num_lines, ".")
-        axis.set(ylabel="Number of code lines")
+        prod_lines = self.unsplatted["num_production_lines"]
+        test_lines = self.unsplatted["num_test_lines"]
+        prod_test_ratio = prod_lines / test_lines
+        axis.plot(self.x, prod_test_ratio, ".")
+        axis.set(ylabel="Ratio of production code to test code")
 
     def render_num_tests(self, axis):
-        num_lines = [self._to_float(item["num_tests"]) for item in self.data]
-        axis.plot(self.x, num_lines, ".")
+        num_tests = self.unsplatted["num_tests"]
+        axis.plot(self.x, num_tests, ".")
         axis.set(ylabel="Number of tests")
 
     def render_test_time(self, axis):
-        num_lines = [self._to_float(item["time"]) for item in self.data]
-        axis.plot(self.x, num_lines, ".")
+        test_time = self.unsplatted["time"]
+        axis.plot(self.x, test_time, ".")
         axis.set(ylabel="Test run duration [s]")
 
     def finalise(self, fig):
@@ -54,6 +57,21 @@ class Renderer:
     @property
     def x(self):
         return np.arange(len(self.data))
+
+    @property
+    def unsplatted(self):
+        skip_keys = ["revision", "rev"]
+        if self._unsplatted is None:
+            unsplatted = {}
+            keys = self.data[0].keys()
+            for key in keys:
+                if key in skip_keys:
+                    continue
+                unsplatted[key] = np.array(
+                    [self._to_float(item[key]) for item in self.data]
+                )
+            self._unsplatted = unsplatted
+        return self._unsplatted
 
     def _to_float(self, value):
         if value is None:
