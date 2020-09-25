@@ -24,8 +24,7 @@ Plug 'junegunn/vim-easy-align'
 let g:polyglot_disabled = ['python-indent', 'python']
 Plug 'sheerun/vim-polyglot'
 Plug 'jeetsukumaran/vim-pythonsense'
-Plug 'dense-analysis/ale'
-Plug 'airblade/vim-gitgutter'
+Plug 'neoclide/coc.nvim', { 'branch': 'release' }
 
 if has('nvim-0.5')
     augroup LuaHighlight
@@ -170,7 +169,6 @@ nnoremap gb :FzfBuffers<cr>
 nnoremap gl :FzfRg<cr>
 nnoremap gL :FzfBLines<cr>
 nnoremap <leader>a :FzfAg<cr>
-nnoremap gh :FzfTags<cr>
 
 " Configure fzf window style
 let g:fzf_layout = { 'window': { 'width': 1, 'height': 0.4, 'yoffset': 1, 'border': 'top' } }
@@ -302,6 +300,9 @@ let g:elm_format_fail_silently = 1
 set statusline=%<%f\ %h%m%r%=%-14.(%l,%c%V%)\ %P
 set statusline+=%{ConflictedVersion()}
 
+" set up coc status line
+set statusline+=\ %{coc#status()}%{get(b:,'coc_current_function','')}
+
 " Enable autoformatting of valid pretter-compatible files
 let g:prettier#autoformat = 1
 let g:prettier#autoformat_require_pragma = 0
@@ -325,12 +326,54 @@ function! s:TODO()
 endfunction
 command! TODO call s:TODO()
 
+" Use <c-space> to trigger completion.
+if has('nvim')
+  inoremap <silent><expr> <c-space> coc#refresh()
+else
+  inoremap <silent><expr> <c-@> coc#refresh()
+endif
+
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
+nnoremap <silent> gh :CocList symbols<cr>
+
+" Use `[g` and `]g` to navigate diagnostics
+" Use `:CocDiagnostics` to get all diagnostics of current buffer in location list.
+nmap <silent> [g <Plug>(coc-diagnostic-prev)
+nmap <silent> ]g <Plug>(coc-diagnostic-next)
+
+augroup cocgroup
+  autocmd!
+  " Setup formatexpr specified filetype(s).
+  autocmd FileType python,rust,json,typescript setl formatexpr=CocAction('formatSelected')
+  " Update signature help on jump placeholder.
+  autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
+augroup end
+
+" Add `:Format` command to format current buffer.
+command! -nargs=0 Format :call CocAction('format')
+
+" Set up auto formatting
+nnoremap <leader>y mm:Format<Cr>`m
+
+" Symbol renaming.
+nmap <leader>rn <Plug>(coc-rename)
+
+" Use K to show documentation in preview window.
+nnoremap <silent> K :call <SID>show_documentation()<CR>
+
+function! s:show_documentation()
+  if (index(['vim','help'], &filetype) >= 0)
+    execute 'h '.expand('<cword>')
+  else
+    call CocAction('doHover')
+  endif
+endfunction
+
 let g:dispatch_quickfix_height=40
 let g:dispatch_tmux_height=40
-
-nnoremap [g :ALEPreviousWrap<cr>
-nnoremap ]g :ALENextWrap<cr>
-let g:ale_fix_on_save = 1
 
 " configure custom rshtuff test runner
 function! RShtuffStrategy(cmd)
@@ -353,6 +396,7 @@ let g:rshtuff_listener = "testrunner"
 let g:test#custom_strategies = {'rshtuff': function('RShtuffStrategy')}
 let g:test#strategy = 'basic'
 
+let g:coc_global_extensions = [ 'coc-python', 'coc-json', 'coc-go', 'coc-rust-analyzer', 'coc-tailwindcss' ]
 let g:vim_markdown_auto_insert_bullets = 0
 let g:vim_markdown_new_list_item_indent= 0
 
@@ -373,6 +417,12 @@ source ~/.vim/abbreviations.vim
 
 " Binding to show hunk preview for git diff
 nnoremap gp :GitGutterPreviewHunk<Cr>
+
+" navigate chunks of current buffer
+nmap [g <Plug>(coc-git-prevchunk)
+nmap ]g <Plug>(coc-git-nextchunk)
+" show chunk diff at current position
+nmap gp <Plug>(coc-git-chunkinfo)
 
 set background=dark
 colorscheme srw256
