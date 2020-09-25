@@ -105,11 +105,31 @@ def reset_dir():
     sp.check_call(["git", "reset", "--quiet", "--hard"])
 
 
+def calculate_revisions(merges_only):
+    cmd = ["git", "rev-list", "--reverse"]
+    if merges_only:
+        cmd.append("--merges")
+    cmd.append(f"{args.start}..{args.end}")
+
+    cmd_output = sp.check_output(cmd).decode().split("\n")
+
+    return [line.strip() for line in cmd_output if line]
+
+
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument("-s", "--start", required=True)
     parser.add_argument("-e", "--end", required=True)
-    parser.add_argument("-c", "--collect-only", action="store_true", default=False)
+    parser.add_argument(
+        "-a",
+        "--all",
+        action="store_true",
+        default=False,
+        help="Include all commits, not just merges",
+    )
+    parser.add_argument(
+        "-c", "--collect-only", action="store_true", default=False
+    )  # noqa: E501
     parser.add_argument(
         "--parallel",
         action="store_true",
@@ -118,7 +138,11 @@ if __name__ == "__main__":
     )
     parser.add_argument("-v", "--verbose", action="store_true", default=False)
     parser.add_argument(
-        "-o", "--output", required=False, default="-", type=argparse.FileType("w")
+        "-o",
+        "--output",
+        required=False,
+        default="-",
+        type=argparse.FileType("w"),  # noqa: E501
     )
     args = parser.parse_args()
 
@@ -130,15 +154,7 @@ if __name__ == "__main__":
 
     try:
 
-        revs = [
-            line.strip()
-            for line in sp.check_output(
-                ["git", "rev-list", "--reverse", f"{args.start}..{args.end}"]
-            )
-            .decode()
-            .split("\n")
-            if line
-        ] + [args.end]
+        revs = calculate_revisions(not args.all) + [args.end]
 
         logging.info(f"collected {len(revs)} revs")
 
@@ -156,8 +172,12 @@ if __name__ == "__main__":
                     start_time = time.time()
                     run_tests(tfile.name, parallel=args.parallel)
                 except Exception:
-                    logger.exception(f"error running texts, skipping revision {rev}")
-                    coverages.append(Result.null(revision=rev, num_lines=num_lines))
+                    logger.exception(
+                        f"error running texts, skipping revision {rev}"
+                    )  # noqa: E501
+                    coverages.append(
+                        Result.null(revision=rev, num_lines=num_lines)
+                    )  # noqa: E501
                     continue
 
                 end_time = time.time()
