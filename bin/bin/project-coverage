@@ -1,15 +1,16 @@
 #!/usr/bin/env python
 
 import argparse
-import logging
-import re
 import json
-import time
-import sys
-from typing import NamedTuple
+import logging
+import os
+import re
 import subprocess as sp
+import sys
 import tempfile
+import time
 import xml.etree.ElementTree as ET
+from typing import NamedTuple
 
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger("project-coverage")
@@ -23,16 +24,18 @@ class Result(NamedTuple):
     coverage: float
     time: float
     num_tests: int
-    num_lines: int
+    num_production_lines: int
+    num_test_lines: int
 
     @classmethod
-    def null(cls, revision, num_lines):
+    def null(cls, revision, num_production_lines, num_test_lines):
         return cls(
             revision=revision,
             coverage=None,
             time=None,
             num_tests=None,
-            num_lines=num_lines,
+            num_production_lines=num_production_lines,
+            num_test_lines=num_test_lines,
         )
 
     def to_dict(self):
@@ -41,21 +44,8 @@ class Result(NamedTuple):
             "coverage": self.coverage,
             "time": self.time,
             "num_tests": self.num_tests,
-            "num_lines": self.num_lines,
-        }
-
-
-class NullResult:
-    def __init__(self, revision):
-        self.revision = revision
-
-    def to_dict(self):
-        return {
-            "revision": self.revision,
-            "coverage": None,
-            "time": None,
-            "num_tests": None,
-            "num_lines": None,
+            "num_production_lines": self.num_production_lines,
+            "num_test_lines": self.num_test_lines,
         }
 
 
@@ -91,8 +81,8 @@ def extract_num_tests():
             return int(match.group(1))
 
 
-def extract_num_lines():
-    output = sp.check_output(["tokei"]).decode().split("\n")
+def extract_num_lines(path="."):
+    output = sp.check_output(["tokei", path]).decode().split("\n")
     for line in output:
         if "Total" in line and "(Total)" not in line:
             parts = line.strip().split()
@@ -114,6 +104,18 @@ def calculate_revisions(merges_only):
     cmd_output = sp.check_output(cmd).decode().split("\n")
 
     return [line.strip() for line in cmd_output if line]
+
+
+def extract_test_lines():
+    return extract_num_lines("tests")
+
+
+def extract_production_lines():
+    test_paths = ["src", "lambda_handler"]
+    for path in test_paths:
+        if os.path.isdir(path):
+            return extract_num_lines(path)
+    logger.warning("could not determine production code directory")
 
 
 if __name__ == "__main__":
@@ -164,7 +166,8 @@ if __name__ == "__main__":
         coverages = []
         for rev in revs:
             checkout(rev)
-            num_lines = extract_num_lines()
+            num_production_lines = extract_production_lines()
+            num_test_lines = extract_test_lines()
 
             with tempfile.NamedTemporaryFile() as tfile:
                 try:
@@ -176,7 +179,11 @@ if __name__ == "__main__":
                         f"error running texts, skipping revision {rev}"
                     )  # noqa: E501
                     coverages.append(
-                        Result.null(revision=rev, num_lines=num_lines)
+                        Result.null(
+                            revision=rev,
+                            num_production_lines=num_production_lines,
+                            num_test_lines=num_test_lines,
+                        )
                     )  # noqa: E501
                     continue
 
@@ -188,7 +195,8 @@ if __name__ == "__main__":
                     coverage=coverage,
                     time=end_time - start_time,
                     num_tests=num_tests,
-                    num_lines=num_lines,
+                    num_production_lines=num_production_lines,
+                    num_test_lines=num_test_lines,
                 )
                 coverages.append(result)
             reset_dir()
