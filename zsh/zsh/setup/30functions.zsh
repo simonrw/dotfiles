@@ -299,3 +299,16 @@ function wakeastoria() {
     wakeonlan -i 192.168.0.255 -p 7 40:B0:76:DE:79:B3 >/dev/null
     ping -o astoria.localnet >/dev/null
 }
+
+function pushdotfiles() {
+    (cd ${HOME}/dotfiles && __pushdotfiles)
+}
+
+function __pushdotfiles() {
+    git diff --quiet HEAD || {
+        echo "dotfiles dir not clean"
+        return
+    }
+
+    git push
+}
