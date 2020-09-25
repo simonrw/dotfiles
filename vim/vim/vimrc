@@ -53,7 +53,7 @@ set hidden
 set tags+=.git/tags
 set wildmode=list:longest,list:full
 set history=50
-set complete=.,w,b,u,t
+set complete=.,w,b,u,t,i
 set ruler
 set nolist
 set showcmd
