@@ -21,8 +21,6 @@ Plug 'christoomey/vim-tmux-runner'
 Plug 'christoomey/vim-conflicted'
 Plug 'vim-test/vim-test'
 Plug 'junegunn/vim-easy-align'
-Plug 'morhetz/gruvbox'
-Plug 'chriskempson/base16-vim'
 let g:polyglot_disabled = ['python-indent', 'python']
 Plug 'sheerun/vim-polyglot'
 Plug 'jeetsukumaran/vim-pythonsense'
