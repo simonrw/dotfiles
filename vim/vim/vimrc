@@ -396,7 +396,7 @@ let g:rshtuff_listener = "testrunner"
 let g:test#custom_strategies = {'rshtuff': function('RShtuffStrategy')}
 let g:test#strategy = 'basic'
 
-let g:coc_global_extensions = [ 'coc-python', 'coc-json', 'coc-go', 'coc-rust-analyzer', 'coc-tailwindcss' ]
+let g:coc_global_extensions = [ 'coc-python', 'coc-json', 'coc-go', 'coc-rust-analyzer', 'coc-tailwindcss', 'coc-git' ]
 let g:vim_markdown_auto_insert_bullets = 0
 let g:vim_markdown_new_list_item_indent= 0
 
