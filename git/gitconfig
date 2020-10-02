@@ -90,7 +90,7 @@
 [interactive]
     diffFilter = delta --color-only
 [delta]
-    syntax-theme = "1337"
+    syntax-theme = "ansi-light"
     side-by-side = true
     hunk-header-style = "omit"
 [merge]
