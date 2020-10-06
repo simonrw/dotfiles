@@ -78,7 +78,7 @@
     ui = auto
 [core]
     abbrev = 12
-    pager = delta
+    pager = bat
     autocrlf = input
     safecrlf = true
     whitespace = fix
@@ -87,10 +87,8 @@
     preloadindex = true
     excludesfile = ~/.gitignore_global
 	ignorecase = false
-[interactive]
-    diffFilter = delta --color-only
 [delta]
-    syntax-theme = "1337"
+    syntax-theme = none
     side-by-side = true
     hunk-header-style = "omit"
 [merge]
