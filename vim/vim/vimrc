@@ -27,6 +27,7 @@ Plug 'jeetsukumaran/vim-pythonsense'
 Plug 'junegunn/goyo.vim'
 Plug 'fatih/vim-go'
 Plug 'neoclide/coc.nvim', { 'branch': 'release' }
+Plug 'takac/vim-hardtime'
 
 if has('nvim-0.5')
     augroup LuaHighlight
@@ -451,6 +452,11 @@ autocmd! User GoyoLeave nested call <SID>goyo_leave()
 let g:ale_fix_on_save = 1
 
 autocmd BufWritePre *.go :call CocAction('organizeImport')
+
+let g:hardtime_default_on = 1
+let g:hardtime_ignore_quickfix = 1
+let g:hardtime_allow_different_key = 1
+let g:hardtime_maxcount = 2
 
 set background=dark
 colorscheme srw256
