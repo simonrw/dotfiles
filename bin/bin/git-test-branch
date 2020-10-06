@@ -76,6 +76,8 @@ def main():
         print(f"Command failed: {e}", file=sys.stderr)
         sys.exit(1)
 
+    Git.checkout(symbolic_end)
+    Git.reset(hard=True)
     print("OK")
 
 
