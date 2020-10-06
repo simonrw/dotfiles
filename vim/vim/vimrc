@@ -25,7 +25,6 @@ let g:polyglot_disabled = ['python-indent', 'python']
 Plug 'sheerun/vim-polyglot'
 Plug 'jeetsukumaran/vim-pythonsense'
 Plug 'neoclide/coc.nvim', { 'branch': 'release' }
-Plug 'takac/vim-hardtime'
 
 if has('nvim-0.5')
     augroup LuaHighlight
@@ -82,6 +81,7 @@ set switchbuf+=useopen
 set conceallevel=0
 " configure shortmessages
 set shortmess+=AIOTWaot
+set signcolumn=number
 
 " Center search results
 nnoremap <silent> n nzz
@@ -408,19 +408,16 @@ endif
 " configure abbreviations
 source ~/.vim/abbreviations.vim
 
-" Binding to show hunk preview for git diff
-nnoremap gp :GitGutterPreviewHunk<Cr>
+" Use `[g` and `]g` to navigate diagnostics
+" Use `:CocDiagnostics` to get all diagnostics of current buffer in location list.
+nmap <silent> [g <Plug>(coc-diagnostic-prev)
+nmap <silent> ]g <Plug>(coc-diagnostic-next)
 
 " navigate chunks of current buffer
-nmap [g <Plug>(coc-git-prevchunk)
-nmap ]g <Plug>(coc-git-nextchunk)
+nmap [c <Plug>(coc-git-prevchunk)
+nmap ]c <Plug>(coc-git-nextchunk)
 " show chunk diff at current position
 nmap gp <Plug>(coc-git-chunkinfo)
-
-let g:hardtime_default_on = 1
-let g:hardtime_ignore_quickfix = 1
-let g:hardtime_allow_different_key = 1
-let g:hardtime_maxcount = 2
 
 set background=dark
 colorscheme srw256
