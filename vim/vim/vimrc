@@ -81,7 +81,6 @@ set switchbuf+=useopen
 set conceallevel=0
 " configure shortmessages
 set shortmess+=AIOTWaot
-set signcolumn=number
 
 " Center search results
 nnoremap <silent> n nzz
