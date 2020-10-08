@@ -13,3 +13,5 @@ let b:ale_linters = ["flake8", "mypy"]
 " override the pytest executable as pytest tries to be too clever when a
 " Pipfile exists
 let test#python#pytest#executable = 'pytest'
+
+autocmd BufWritePre *.py execute ':Black'
