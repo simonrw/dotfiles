@@ -25,7 +25,6 @@ let g:polyglot_disabled = ['python-indent', 'python']
 Plug 'sheerun/vim-polyglot'
 Plug 'jeetsukumaran/vim-pythonsense'
 Plug 'neoclide/coc.nvim', { 'branch': 'release' }
-Plug 'psf/black', { 'branch': 'stable' }
 
 if has('nvim-0.5')
     augroup LuaHighlight

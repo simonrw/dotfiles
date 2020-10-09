@@ -4,7 +4,7 @@
     "python.linting.flake8Enabled": true,
     "python.linting.enabled": true,
     "python.linting.pylintEnabled": false,
-    "coc.preferences.formatOnSaveFiletypes": ["rust"],
+    "coc.preferences.formatOnSaveFiletypes": ["python", "rust"],
     "python.autoComplete.extraPaths": ["src", "lambda_handler", "tests"],
     "python.linting.mypyEnabled": true,
     "python.formatting.provider": "black",
