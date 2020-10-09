@@ -14,4 +14,4 @@ let b:ale_linters = ["flake8", "mypy"]
 " Pipfile exists
 let test#python#pytest#executable = 'pytest'
 
-autocmd BufWritePre *.py execute ':Black'
+autocmd BufWritePre *.py silent execute ':Black'
