@@ -57,6 +57,7 @@
 
     # diff between the current commit and the most recent common ancestor to master (mimics gitlab's interface)
     diff-base = "!git diff $(git merge-base master HEAD)"
+    cleanup-base = "!git rebase -i $(git merge-base master $(git rev-parse --abbrev-ref HEAD))"
 
     # Logging from Gary Bernhardt
     l = log --graph --decorate --pretty=format:'%C(auto)%h%C(reset) %C(green)(%ar)%C(reset) %C(blue)[%an]%C(auto) %d %s%C(auto)' --exclude='refs/bugs/*' --exclude='refs/identities/*'
