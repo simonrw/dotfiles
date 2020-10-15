@@ -418,5 +418,5 @@ nmap ]c <Plug>(coc-git-nextchunk)
 " show chunk diff at current position
 nmap gp <Plug>(coc-git-chunkinfo)
 
-set background=light
+set background=dark
 colorscheme srw256
