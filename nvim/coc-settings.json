@@ -1,5 +1,4 @@
 {
-    "suggest.autoTrigger": "none",
     "python.jediEnabled": false,
     "python.linting.flake8Enabled": true,
     "python.linting.enabled": true,
