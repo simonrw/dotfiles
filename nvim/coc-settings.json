@@ -3,7 +3,7 @@
     "python.linting.flake8Enabled": true,
     "python.linting.enabled": true,
     "python.linting.pylintEnabled": false,
-    "coc.preferences.formatOnSaveFiletypes": ["python", "rust", "javascript", "html", "typescript"],
+    "coc.preferences.formatOnSaveFiletypes": ["python", "rust", "javascript", "javascriptreact", "html", "typescript"],
     "python.autoComplete.extraPaths": ["src", "lambda_handler", "tests"],
     "python.linting.mypyEnabled": true,
     "python.formatting.provider": "black",
