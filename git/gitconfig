@@ -79,7 +79,7 @@
     ui = auto
 [core]
     abbrev = 12
-    pager = ~/.bin/diffcontext.py | bat
+    pager = delta
     autocrlf = input
     safecrlf = true
     whitespace = fix
