@@ -88,6 +88,7 @@
     preloadindex = true
     excludesfile = ~/.gitignore_global
 	ignorecase = false
+	attributesFile = ~/.gitattributes_global
 [delta]
     syntax-theme = none
     side-by-side = true
