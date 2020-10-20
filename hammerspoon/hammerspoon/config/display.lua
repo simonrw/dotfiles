@@ -1,7 +1,10 @@
-displays = {1, 2}
+local displays = {1, 2}
+local displayIncrement = 5
 
 function taskCallback(exitCode, stdOut, stdErr)
-    print(exitCode, stdOut, stdErr)
+    if exitCode ~= 0 then
+        print(exitCode, stdOut, stdErr)
+    end
 end
 
 function taskStreamCallback(task, stdOut, stdErr)
@@ -26,9 +29,11 @@ end
 
 
 hs.hotkey.bind({'cmd', 'alt', 'ctrl'}, 'Up', function()
-    runBrightnessControl("20+")
+    local command = string.format("%s+", displayIncrement)
+    runBrightnessControl(command)
 end)
 
 hs.hotkey.bind({'cmd', 'alt', 'ctrl'}, 'Down', function()
-    runBrightnessControl("20-")
+    local command = string.format("%s-", displayIncrement)
+    runBrightnessControl(command)
 end)
