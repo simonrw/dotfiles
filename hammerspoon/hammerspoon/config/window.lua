@@ -1,7 +1,7 @@
 -- constant holding the window enlargement/shrinkage factor
 local FULLSCREEN_BORDER = 0
 local ENABLE_FULLSCREEN_SHORTCUT = true
-local WINDOW_BORDER = FULLSCREEN_BORDER
+local WINDOW_BORDER = 0
 local LEFTRIGHT_FRACTION = 0.5
 local TERMINAL_NORMAL_SIZE = {1024, 768}
 local ENABLE_FULLSCREEN_FOR_APPS = {}
@@ -10,7 +10,7 @@ local ENABLE_FULLSCREEN_FOR_APPS = {}
 fc = FrameCache:new()
 
 function windowLeftHalf(frame, max, border)
-    local border = border or FULLSCREEN_BORDER
+    local border = border or WINDOW_BORDER
 
     local newFrame = {
         x = max.x + border / 2,
@@ -23,7 +23,7 @@ function windowLeftHalf(frame, max, border)
 end
 
 function windowRightHalf(frame, max, border)
-    local border = border or FULLSCREEN_BORDER
+    local border = border or WINDOW_BORDER
 
     local newFrame = {
         x = sign(max.x) * (max.w / 2) + border / 2,
@@ -45,7 +45,7 @@ function sign(value)
 end
 
 function halfWindowWidth(max, border)
-    border = border or FULLSCREEN_BORDER
+    border = border or WINDOW_BORDER
     return max.w / 2 - border * 3 / 4
 end
 
