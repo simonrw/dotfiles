@@ -418,5 +418,7 @@ nmap ]c <Plug>(coc-git-nextchunk)
 " show chunk diff at current position
 nmap gp <Plug>(coc-git-chunkinfo)
 
+let g:vim_markdown_no_default_key_mappings = 1
+
 set background=dark
 colorscheme srw256
