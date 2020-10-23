@@ -25,6 +25,7 @@ let g:polyglot_disabled = ['python-indent', 'python']
 Plug 'sheerun/vim-polyglot'
 Plug 'jeetsukumaran/vim-pythonsense'
 Plug 'neoclide/coc.nvim', { 'branch': 'release' }
+Plug 'overcache/NeoSolarized'
 
 if has('nvim-0.5')
     augroup LuaHighlight
@@ -420,5 +421,5 @@ nmap gp <Plug>(coc-git-chunkinfo)
 
 let g:vim_markdown_no_default_key_mappings = 1
 
-set background=dark
-colorscheme srw256
+set background=light
+colorscheme NeoSolarized

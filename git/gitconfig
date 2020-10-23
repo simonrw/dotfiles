@@ -91,6 +91,7 @@
 	attributesFile = ~/.gitattributes_global
 [delta]
     syntax-theme = none
+    light = true
     side-by-side = true
     hunk-header-style = "omit"
 [merge]
