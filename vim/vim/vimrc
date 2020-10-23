@@ -420,5 +420,7 @@ nmap gp <Plug>(coc-git-chunkinfo)
 
 let g:vim_markdown_no_default_key_mappings = 1
 
+autocmd BufWritePre *.go :call CocAction('organizeImport')
+
 set background=dark
 colorscheme srw256
