@@ -1,0 +1,16 @@
+#!/bin/bash
+
+# Creates a second session that can separately control an existing session.
+
+set -eou pipefail
+
+
+main() {
+    readonly sessionname="$(tmux ls | fzf | cut -d : -f 1)"
+    readonly sessionid="${sessionname}-$(uuidgen)"
+
+    tmux new-session -s $sessionid -t ${sessionname} || true
+    tmux kill-session -t $sessionid
+}
+
+main "$@"
