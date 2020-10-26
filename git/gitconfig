@@ -89,10 +89,6 @@
     excludesfile = ~/.gitignore_global
 	ignorecase = false
 	attributesFile = ~/.gitattributes_global
-[delta]
-    syntax-theme = none
-    side-by-side = true
-    hunk-header-style = "omit"
 [merge]
     tool = conflicted
     conflictstyle = "diff3"
@@ -104,6 +100,7 @@
 [diff]
     algorithm = patience
     tool = icdiff
+	colorMoved = default
 [difftool]
     prompt = false
 [difftool "icdiff"]
