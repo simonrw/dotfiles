@@ -21,11 +21,13 @@ Plug 'christoomey/vim-tmux-runner'
 Plug 'christoomey/vim-conflicted'
 Plug 'vim-test/vim-test'
 Plug 'junegunn/vim-easy-align'
-let g:polyglot_disabled = ['python-indent', 'python']
+let g:polyglot_disabled = ['python-indent', 'python', 'go']
 Plug 'sheerun/vim-polyglot'
 Plug 'jeetsukumaran/vim-pythonsense'
 Plug 'airblade/vim-gitgutter'
 Plug 'junegunn/goyo.vim'
+Plug 'psf/black', { 'branch': 'stable' }
+Plug 'fatih/vim-go'
 
 if has('nvim-0.5')
     augroup LuaHighlight
@@ -394,6 +396,9 @@ endfunction
 
 autocmd! User GoyoEnter nested call <SID>goyo_enter()
 autocmd! User GoyoLeave nested call <SID>goyo_leave()
+
+let g:black_fast = 1
+autocmd BufWritePre *.py silent execute ':Black'
 
 set background=dark
 colorscheme srw256
