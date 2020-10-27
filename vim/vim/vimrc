@@ -24,6 +24,8 @@ Plug 'junegunn/vim-easy-align'
 let g:polyglot_disabled = ['python-indent', 'python']
 Plug 'sheerun/vim-polyglot'
 Plug 'jeetsukumaran/vim-pythonsense'
+Plug 'airblade/vim-gitgutter'
+Plug 'junegunn/goyo.vim'
 
 if has('nvim-0.5')
     augroup LuaHighlight
@@ -367,6 +369,31 @@ source ~/.vim/abbreviations.vim
 
 let g:vim_markdown_no_default_key_mappings = 1
 
+" configure goyo
+function! s:goyo_enter()
+  if executable('tmux') && strlen($TMUX)
+    silent !tmux set status off
+    silent !tmux list-panes -F '\#F' | grep -q Z || tmux resize-pane -Z
+  endif
+  set noshowmode
+  set noshowcmd
+  set scrolloff=999
+  highlight EndOfBuffer guifg=#1d2021
+endfunction
+
+function! s:goyo_leave()
+  if executable('tmux') && strlen($TMUX)
+    silent !tmux set status on
+    silent !tmux list-panes -F '\#F' | grep -q Z && tmux resize-pane -Z
+  endif
+  set showmode
+  set showcmd
+  set scrolloff=5
+  highlight EndOfBuffer guifg=#444444
+endfunction
+
+autocmd! User GoyoEnter nested call <SID>goyo_enter()
+autocmd! User GoyoLeave nested call <SID>goyo_leave()
 
 set background=dark
 colorscheme srw256
