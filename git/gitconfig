@@ -89,6 +89,8 @@
     excludesfile = ~/.gitignore_global
 	ignorecase = false
 	attributesFile = ~/.gitattributes_global
+[delta]
+    side-by-side = true
 [merge]
     tool = conflicted
     conflictstyle = "diff3"
