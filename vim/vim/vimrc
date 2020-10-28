@@ -28,6 +28,7 @@ Plug 'airblade/vim-gitgutter'
 Plug 'junegunn/goyo.vim'
 Plug 'psf/black', { 'branch': 'stable' }
 Plug 'fatih/vim-go'
+Plug 'dense-analysis/ale'
 
 if has('nvim-0.5')
     augroup LuaHighlight
@@ -397,8 +398,10 @@ endfunction
 autocmd! User GoyoEnter nested call <SID>goyo_enter()
 autocmd! User GoyoLeave nested call <SID>goyo_leave()
 
-let g:black_fast = 1
-autocmd BufWritePre *.py silent execute ':Black'
+let g:ale_fix_on_save = 1
+
+nmap <silent> [g <Plug>(ale_previous_wrap)
+nmap <silent> ]g <Plug>(ale_next_wrap)
 
 set background=dark
 colorscheme srw256
