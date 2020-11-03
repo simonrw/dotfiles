@@ -24,11 +24,9 @@ Plug 'junegunn/vim-easy-align'
 let g:polyglot_disabled = ['python-indent', 'python', 'go']
 Plug 'sheerun/vim-polyglot'
 Plug 'jeetsukumaran/vim-pythonsense'
-Plug 'airblade/vim-gitgutter'
 Plug 'junegunn/goyo.vim'
-Plug 'psf/black', { 'branch': 'stable' }
 Plug 'fatih/vim-go'
-Plug 'dense-analysis/ale'
+Plug 'neoclide/coc.nvim', { 'branch': 'release' }
 
 if has('nvim-0.5')
     augroup LuaHighlight
@@ -304,6 +302,9 @@ let g:elm_format_fail_silently = 1
 set statusline=%<%f\ %h%m%r%=%-14.(%l,%c%V%)\ %P
 set statusline+=%{ConflictedVersion()}
 
+" set up coc status line
+set statusline+=\ %{coc#status()}%{get(b:,'coc_current_function','')}
+
 " Enable autoformatting of valid pretter-compatible files
 let g:prettier#autoformat = 1
 let g:prettier#autoformat_require_pragma = 0
@@ -326,6 +327,44 @@ function! s:TODO()
     execute "Note TODO"
 endfunction
 command! TODO call s:TODO()
+
+" Use <c-space> to trigger completion.
+if has('nvim')
+  inoremap <silent><expr> <c-space> coc#refresh()
+else
+  inoremap <silent><expr> <c-@> coc#refresh()
+endif
+
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
+nnoremap <silent> gh :CocList symbols<cr>
+
+" Use `[g` and `]g` to navigate diagnostics
+" Use `:CocDiagnostics` to get all diagnostics of current buffer in location list.
+nmap <silent> [g <Plug>(coc-diagnostic-prev)
+nmap <silent> ]g <Plug>(coc-diagnostic-next)
+
+" Add `:Format` command to format current buffer.
+command! -nargs=0 Format :call CocAction('format')
+
+" Set up auto formatting
+nnoremap <leader>y mm:Format<Cr>`m
+
+" Symbol renaming.
+nmap <leader>rn <Plug>(coc-rename)
+
+" Use K to show documentation in preview window.
+nnoremap <silent> <leader>d :call <SID>show_documentation()<CR>
+
+function! s:show_documentation()
+  if (index(['vim','help'], &filetype) >= 0)
+    execute 'h '.expand('<cword>')
+  else
+    call CocAction('doHover')
+  endif
+endfunction
 
 let g:dispatch_quickfix_height=40
 let g:dispatch_tmux_height=40
@@ -370,6 +409,17 @@ endif
 " configure abbreviations
 source ~/.vim/abbreviations.vim
 
+" Use `[g` and `]g` to navigate diagnostics
+" Use `:CocDiagnostics` to get all diagnostics of current buffer in location list.
+nmap <silent> [g <Plug>(coc-diagnostic-prev)
+nmap <silent> ]g <Plug>(coc-diagnostic-next)
+
+" navigate chunks of current buffer
+nmap [c <Plug>(coc-git-prevchunk)
+nmap ]c <Plug>(coc-git-nextchunk)
+" show chunk diff at current position
+nmap gp <Plug>(coc-git-chunkinfo)
+
 let g:vim_markdown_no_default_key_mappings = 1
 
 " configure goyo
@@ -400,8 +450,7 @@ autocmd! User GoyoLeave nested call <SID>goyo_leave()
 
 let g:ale_fix_on_save = 1
 
-nmap <silent> [g <Plug>(ale_previous_wrap)
-nmap <silent> ]g <Plug>(ale_next_wrap)
+autocmd BufWritePre *.go :call CocAction('organizeImport')
 
 set background=dark
 colorscheme srw256
