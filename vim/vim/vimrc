@@ -275,7 +275,10 @@ if has('nvim')
     tnoremap <M-[> <Esc>
     tnoremap <C-v><Esc> <Esc>
 
-    autocmd TermOpen * startinsert
+    augroup terminal_settings
+        autocmd!
+        autocmd TermOpen * startinsert
+    augroup END
 endif
 
 " Automatically format elixir files on save
@@ -456,6 +459,9 @@ let g:hardtime_default_on = 1
 let g:hardtime_ignore_quickfix = 1
 let g:hardtime_allow_different_key = 1
 let g:hardtime_maxcount = 2
+
+" Command to split a terminal window
+command! -nargs=* T split | resize 30 | term <args>
 
 set background=dark
 colorscheme srw256
