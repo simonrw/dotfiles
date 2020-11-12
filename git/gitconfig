@@ -79,7 +79,7 @@
     ui = auto
 [core]
     abbrev = 12
-    pager = delta
+	pager = diff-so-fancy | bat
     autocrlf = input
     safecrlf = true
     whitespace = fix
@@ -90,7 +90,7 @@
 	ignorecase = false
 	attributesFile = ~/.gitattributes_global
 [delta]
-    side-by-side = true
+    syntax-theme = "ansi-dark"
 [merge]
     tool = conflicted
     conflictstyle = "diff3"
