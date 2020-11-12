@@ -27,7 +27,6 @@ Plug 'jeetsukumaran/vim-pythonsense'
 Plug 'junegunn/goyo.vim'
 Plug 'fatih/vim-go'
 Plug 'neoclide/coc.nvim', { 'branch': 'release' }
-Plug 'takac/vim-hardtime'
 
 if has('nvim-0.5')
     augroup LuaHighlight
