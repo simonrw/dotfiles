@@ -31,6 +31,7 @@ e.2......6.3..........t..q....
 ]]
 
 -- caffeine replacement
+local disableSleepDefault = true
 local caffeine = hs.menubar.new()
 local sleepType = "displayIdle"
 
@@ -48,5 +49,6 @@ end
 
 if caffeine then
     caffeine:setClickCallback(caffeineClicked)
+    hs.caffeinate.set(sleepType, disableSleepDefault)
     setCaffeineDisplay(hs.caffeinate.get(sleepType))
 end
