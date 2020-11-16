@@ -1,6 +1,6 @@
 -- constant holding the window enlargement/shrinkage factor
 local FULLSCREEN_BORDER = 0
-local ENABLE_FULLSCREEN_SHORTCUT = true
+local ENABLE_FULLSCREEN_SHORTCUT = false
 local WINDOW_BORDER = 0
 local LEFTRIGHT_FRACTION = 0.5
 local TERMINAL_NORMAL_SIZE = {1024, 768}
