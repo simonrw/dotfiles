@@ -1,6 +1,9 @@
 let g:mapleader = ","
 let g:maplocalleader = '\\'
 
+" remove all existing autocmds
+autocmd!
+
 call plug#begin('~/.vim/bundle')
 
 if !has('nvim')
@@ -262,13 +265,15 @@ let g:LanguageClient_autoStart = 1
 let g:LanguageClient_useVirtualText = 0
 nnoremap <silent> gm :call LanguageClient#textDocument_hover()<CR>
 
-" When editing a file, always jump to the last known cursor position.
-" Don't do it for commit messages, when the position is invalid, or when
-" inside an event handler (happens when dropping a file on gvim).
-autocmd BufReadPost *
-\ if &ft != 'gitcommit' && line("'\"") > 0 && line("'\"") <= line("$") |
-\   exe "normal g`\"" |
-\ endif
+augroup last_position
+    " When editing a file, always jump to the last known cursor position.
+    " Don't do it for commit messages, when the position is invalid, or when
+    " inside an event handler (happens when dropping a file on gvim).
+    autocmd BufReadPost *
+    \ if &ft != 'gitcommit' && line("'\"") > 0 && line("'\"") <= line("$") |
+    \   exe "normal g`\"" |
+    \ endif
+augroup END
 
 " Configure neovim's terminal mode
 if has('nvim')
@@ -449,12 +454,16 @@ function! s:goyo_leave()
   highlight EndOfBuffer guifg=#444444
 endfunction
 
-autocmd! User GoyoEnter nested call <SID>goyo_enter()
-autocmd! User GoyoLeave nested call <SID>goyo_leave()
+augroup goyo
+    autocmd! User GoyoEnter nested call <SID>goyo_enter()
+    autocmd! User GoyoLeave nested call <SID>goyo_leave()
+augroup END
 
 let g:ale_fix_on_save = 1
 
-autocmd BufWritePre *.go :call CocAction('organizeImport')
+augroup go_imports
+    autocmd BufWritePre *.go :call CocAction('organizeImport')
+augroup END
 
 let g:hardtime_default_on = 1
 let g:hardtime_ignore_quickfix = 1
