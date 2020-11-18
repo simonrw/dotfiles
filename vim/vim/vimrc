@@ -430,34 +430,6 @@ nmap gp <Plug>(coc-git-chunkinfo)
 
 let g:vim_markdown_no_default_key_mappings = 1
 
-" configure goyo
-function! s:goyo_enter()
-  if executable('tmux') && strlen($TMUX)
-    silent !tmux set status off
-    silent !tmux list-panes -F '\#F' | grep -q Z || tmux resize-pane -Z
-  endif
-  set noshowmode
-  set noshowcmd
-  set scrolloff=999
-  highlight EndOfBuffer guifg=#1d2021
-endfunction
-
-function! s:goyo_leave()
-  if executable('tmux') && strlen($TMUX)
-    silent !tmux set status on
-    silent !tmux list-panes -F '\#F' | grep -q Z && tmux resize-pane -Z
-  endif
-  set showmode
-  set showcmd
-  set scrolloff=5
-  highlight EndOfBuffer guifg=#444444
-endfunction
-
-augroup goyo
-    autocmd! User GoyoEnter nested call <SID>goyo_enter()
-    autocmd! User GoyoLeave nested call <SID>goyo_leave()
-augroup END
-
 let g:ale_fix_on_save = 1
 
 augroup go_imports
