@@ -2,7 +2,6 @@
     "python.jediEnabled": false,
     "python.linting.flake8Enabled": true,
     "python.linting.enabled": true,
-    "suggest.autoTrigger": "none",
     "python.linting.pylintEnabled": false,
     "coc.preferences.formatOnSaveFiletypes": ["python", "rust", "javascript", "javascriptreact", "html", "typescript", "go"],
     "python.autoComplete.extraPaths": ["src", "lambda_handler", "tests"],
