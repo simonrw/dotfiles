@@ -154,7 +154,7 @@ There are two things you can do about this warning:
  '((emacs-lisp . t)
    (R . t)
    (dot . t)
-   (ruby . t)
+  (ruby . t)
    (python . t)))
 
 (setq org-startup-indented t)
@@ -204,12 +204,11 @@ There are two things you can do about this warning:
 
 (use-package helm-projectile)
 
-(use-package jbeans-theme
-  :config
-  (load-theme 'jbeans t))
-
-(use-package lua-mode)
 (use-package yaml-mode)
+
+(use-package dracula-theme
+  :config
+  (load-theme 'dracula t))
 
 (provide 'init)
 ;;; init.el ends here
