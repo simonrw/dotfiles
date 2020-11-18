@@ -30,7 +30,7 @@ Plug 'jeetsukumaran/vim-pythonsense'
 Plug 'junegunn/goyo.vim'
 Plug 'fatih/vim-go'
 Plug 'neoclide/coc.nvim', { 'branch': 'release' }
-Plug 'arcticicestudio/nord-vim'
+Plug 'dracula/vim', { 'as': 'dracula' }
 
 if has('nvim-0.5')
     augroup LuaHighlight
@@ -491,9 +491,8 @@ endfunction
 
 command! -nargs=0 GLL :call GitlabLinkLine()
 
-set background=dark
-
 " configure nord
 let g:nord_uniform_diff_background = 1
 
-colorscheme nord
+set background=dark
+colorscheme dracula
