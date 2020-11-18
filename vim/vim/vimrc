@@ -172,7 +172,7 @@ nnoremap gb :FzfBuffers<cr>
 nnoremap gl :FzfRg<cr>
 nnoremap gL :FzfBLines<cr>
 nnoremap <leader>gt :FzfTags<cr>
-nnoremap <leader>a :FzfAg<cr>
+nnoremap <leader>a :FzfRg<cr>
 
 " Configure fzf window style
 " let g:fzf_layout = { 'window': { 'width': 1, 'height': 0.4, 'yoffset': 1, 'border': 'top' } }
