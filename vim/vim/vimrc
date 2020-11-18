@@ -163,9 +163,6 @@ if executable('rg')
     let &grepprg="rg --vimgrep"
 endif
 
-" Configure line breaking
-let &showbreak = "> "
-
 " FZF
 set rtp+=~/.fzf
 let g:fzf_command_prefix = 'Fzf'
