@@ -30,6 +30,7 @@ Plug 'jeetsukumaran/vim-pythonsense'
 Plug 'junegunn/goyo.vim'
 Plug 'fatih/vim-go'
 Plug 'neoclide/coc.nvim', { 'branch': 'release' }
+Plug 'arcticicestudio/nord-vim'
 
 if has('nvim-0.5')
     augroup LuaHighlight
@@ -475,4 +476,8 @@ let g:hardtime_maxcount = 2
 command! -nargs=* T split | resize 30 | term <args>
 
 set background=dark
-colorscheme srw256
+
+" configure nord
+let g:nord_uniform_diff_background = 1
+
+colorscheme nord
