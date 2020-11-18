@@ -4,6 +4,7 @@
     "python.linting.enabled": true,
     "python.linting.pylintEnabled": false,
     "coc.preferences.formatOnSaveFiletypes": ["python", "rust", "javascript", "javascriptreact", "html", "typescript", "go", "elm"],
+    "rust-analyzer.checkOnSave.enable": false,
     "python.autoComplete.extraPaths": ["src", "lambda_handler", "tests"],
     "python.linting.mypyEnabled": true,
     "python.formatting.provider": "black",
