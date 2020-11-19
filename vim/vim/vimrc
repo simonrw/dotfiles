@@ -445,7 +445,9 @@ let g:hardtime_maxcount = 2
 command! -nargs=* T split | resize 30 | term <args>
 
 function! s:transform_remote_url(url)
-    return "https://" . split(a:url, "@")[1]
+    let stub = substitute(split(a:url, "@")[1], ":", "/", "g")
+    let stub = substitute(stub, "\.git", "", "g")
+    return "https://" . stub
 endfunction
 
 function! GitlabLinkLine()
