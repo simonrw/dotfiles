@@ -467,4 +467,4 @@ set background=dark
 " configure nord
 let g:nord_uniform_diff_background = 1
 
-colorscheme nord
+colorscheme srw256
