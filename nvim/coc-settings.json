@@ -9,9 +9,9 @@
     "python.linting.mypyEnabled": true,
     "python.formatting.provider": "black",
     "python.venvFolders": ["venv", ".direnv", "~/.virtualenvs"],
-    "python.formatting.blackPath": "~/.local/bin/black",
-    "python.linting.flake8Path": "~/.local/bin/flake8",
-    "python.linting.mypyPath": "~/.local/bin/mypy",
+    "python.formatting.blackPath": "~/.local/pipx/bin/black",
+    "python.linting.flake8Path": "~/.local/pipx/bin/flake8",
+    "python.linting.mypyPath": "~/.local/pipx/bin/mypy",
     "languageserver": {
         "ccls": {
             "command": "ccls",
