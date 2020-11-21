@@ -5,10 +5,9 @@
     "python.linting.pylintEnabled": false,
     "coc.preferences.formatOnSaveFiletypes": ["python", "rust", "javascript", "javascriptreact", "html", "typescript", "go", "elm"],
     "rust-analyzer.checkOnSave.enable": false,
-    "python.autoComplete.extraPaths": ["src", "lambda_handler", "tests"],
     "python.linting.mypyEnabled": true,
     "python.formatting.provider": "black",
-    "python.venvFolders": ["venv", ".direnv", "~/.virtualenvs"],
+    "python.venvFolders": ["venv", ".direnv", "~/.virtualenvs", "~/.local/share/virtualenvs"],
     "python.formatting.blackPath": "~/.local/pipx/bin/black",
     "python.linting.flake8Path": "~/.local/pipx/bin/flake8",
     "python.linting.mypyPath": "~/.local/pipx/bin/mypy",
@@ -28,6 +27,5 @@
             "filetypes": ["elm"],
             "rootPatterns": ["elm.json"]
         }
-    },
-    "codeLens.enable": true
+    }
 }

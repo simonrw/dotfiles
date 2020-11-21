@@ -472,4 +472,12 @@ augroup highlighting
     au BufWinEnter * let w:m2=matchadd('ErrorMsg', '\%>88v.\+', -1)
 augroup END
 
+if has('nvim-0.4.0') || has('patch-8.2.0750')
+    nnoremap <nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
+    nnoremap <nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
+    inoremap <nowait><expr> <C-f> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(1)\<cr>" : "\<Right>"
+    inoremap <nowait><expr> <C-b> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(0)\<cr>" : "\<Left>"
+endif
+
+
 colorscheme srw256
