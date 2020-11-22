@@ -4,7 +4,6 @@
     "python.linting.enabled": true,
     "python.linting.pylintEnabled": false,
     "coc.preferences.formatOnSaveFiletypes": ["python", "rust", "javascript", "javascriptreact", "html", "typescript", "go", "elm"],
-    "rust-analyzer.checkOnSave.enable": false,
     "python.linting.mypyEnabled": true,
     "python.formatting.provider": "black",
     "python.venvFolders": ["venv", ".direnv", "~/.virtualenvs", "~/.local/share/virtualenvs"],
