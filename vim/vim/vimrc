@@ -31,6 +31,8 @@ Plug 'junegunn/goyo.vim'
 Plug 'fatih/vim-go'
 Plug 'neoclide/coc.nvim', { 'branch': 'release' }
 Plug 'arcticicestudio/nord-vim'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 
 if has('nvim-0.5')
     augroup LuaHighlight
@@ -482,5 +484,7 @@ if has('nvim-0.4.0') || has('patch-8.2.0750')
     inoremap <nowait><expr> <C-b> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(0)\<cr>" : "\<Left>"
 endif
 
+
+let g:airline_theme='lucius'
 
 colorscheme srw256
