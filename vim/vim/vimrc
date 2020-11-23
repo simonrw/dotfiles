@@ -45,8 +45,8 @@ call plug#end()
 
 set mouse=a
 set scrolloff=5
-set nonumber
-set norelativenumber
+set number
+set relativenumber
 set nocursorline
 set ttimeoutlen=10
 set shiftwidth=4
@@ -264,6 +264,7 @@ let g:LanguageClient_useVirtualText = 0
 nnoremap <silent> gm :call LanguageClient#textDocument_hover()<CR>
 
 augroup last_position
+    autocmd!
     " When editing a file, always jump to the last known cursor position.
     " Don't do it for commit messages, when the position is invalid, or when
     " inside an event handler (happens when dropping a file on gvim).
@@ -433,6 +434,7 @@ let g:vim_markdown_no_default_key_mappings = 1
 let g:ale_fix_on_save = 1
 
 augroup go_imports
+    autocmd!
     autocmd BufWritePre *.go :call CocAction('organizeImport')
 augroup END
 
@@ -469,6 +471,7 @@ let g:nord_uniform_diff_background = 1
 
 " Improvement over colorcolumn
 augroup highlighting
+    autocmd!
     au BufWinEnter * let w:m2=matchadd('ErrorMsg', '\%>88v.\+', -1)
 augroup END
 
