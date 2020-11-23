@@ -1,6 +1,6 @@
 applications = {
     terminal = {
-        name = "Alacritty",
+        name = "iTerm",
     },
     browser = {
         name = "Google Chrome",
