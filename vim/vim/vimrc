@@ -31,7 +31,7 @@ Plug 'junegunn/goyo.vim'
 Plug 'fatih/vim-go'
 Plug 'neoclide/coc.nvim', { 'branch': 'release' }
 Plug 'arcticicestudio/nord-vim'
-Plug 'vim-airline/vim-airline'
+Plug 'itchyny/lightline.vim'
 Plug 'editorconfig/editorconfig-vim'
 
 if has('nvim-0.5')
@@ -409,6 +409,9 @@ nmap ]c <Plug>(coc-git-nextchunk)
 " show chunk diff at current position
 nmap gp <Plug>(coc-git-chunkinfo)
 
+" Show available actions
+nnoremap <silent> <leader>ca :CocAction<cr>
+
 let g:vim_markdown_no_default_key_mappings = 1
 
 let g:ale_fix_on_save = 1
@@ -456,7 +459,19 @@ if has('nvim-0.4.0') || has('patch-8.2.0750')
     inoremap <nowait><expr> <C-b> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(0)\<cr>" : "\<Left>"
 endif
 
-
-let g:airline_theme='lucius'
+" Lightline
+let g:lightline = {
+      \ 'active': {
+      \   'left': [ [ 'mode', 'paste' ],
+      \             [ 'cocstatus', 'readonly', 'filename', 'modified' ] ]
+      \ },
+      \ 'component_function': {
+      \   'filename': 'LightlineFilename',
+      \   'cocstatus': 'coc#status'
+      \ },
+      \ }
+function! LightlineFilename()
+  return expand('%:t') !=# '' ? @% : '[No Name]'
+endfunction
 
 colorscheme srw256
