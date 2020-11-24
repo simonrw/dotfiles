@@ -32,7 +32,7 @@ Plug 'fatih/vim-go'
 Plug 'neoclide/coc.nvim', { 'branch': 'release' }
 Plug 'arcticicestudio/nord-vim'
 Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
+Plug 'editorconfig/editorconfig-vim'
 
 if has('nvim-0.5')
     augroup LuaHighlight
