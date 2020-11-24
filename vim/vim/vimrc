@@ -97,6 +97,10 @@ nnoremap <silent> * *zz
 nnoremap <silent> # #zz
 nnoremap <silent> g* g*zz
 
+" Make semicolon more useful
+nnoremap ; :
+nnoremap : ;
+
 " Very magic search always
 nnoremap / /\v
 nnoremap ? ?\v
