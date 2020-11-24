@@ -471,12 +471,6 @@ set background=dark
 " configure nord
 let g:nord_uniform_diff_background = 1
 
-" Improvement over colorcolumn
-augroup highlighting
-    autocmd!
-    au BufWinEnter * let w:m2=matchadd('ErrorMsg', '\%>88v.\+', -1)
-augroup END
-
 if has('nvim-0.4.0') || has('patch-8.2.0750')
     nnoremap <nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
     nnoremap <nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
