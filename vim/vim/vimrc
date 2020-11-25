@@ -314,18 +314,22 @@ vmap <Enter> <Plug>(EasyAlign)
 " Start interactive EasyAlign for a motion/text object (e.g. gaip)
 nmap ga <Plug>(EasyAlign)
 
-" configure vim notes
-let g:notes_directories = ["~/notes"]
-function! s:Today()
-    let dt = strftime('%Y-%m-%d')
-    execute "Note" . dt
+" configure todo list management 
+function! s:note(name)
+    let l:notes_path = expand("$HOME") . "/notes/"
+    let l:note_stub = substitute(a:name, " ", "-", "g")
+    let l:note_name = l:notes_path . l:note_stub . ".md"
+    execute 'tabedit ' . l:note_name
 endfunction
-command! Today call s:Today()
 
-function! s:TODO()
-    execute "Note TODO"
+function! s:todo()
+    call s:note('todo')
 endfunction
-command! TODO call s:TODO()
+
+command! -nargs=0 Todo :call s:todo()
+command! -nargs=1 Note :call s:note(<f-args>)
+
+nnoremap cd :Todo<cr>
 
 " Use <c-space> to trigger completion.
 if has('nvim')

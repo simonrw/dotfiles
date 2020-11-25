@@ -21,7 +21,7 @@ alias gpe="git push && exit"
 
 # set up alias for opening today's note
 alias today='note $(date +%Y-%m-%d)'
-alias todo='note TODO'
+alias todo='note todo'
 
 if has_executable rg; then
     alias grep=rg

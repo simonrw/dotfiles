@@ -285,13 +285,13 @@ function vim() {
 
 # function to edit a note from the command line
 function note() {
+    # NOTE: we may need to allow the user to configure the notes directory
+    NOTESDIR=$HOME/notes/
     if [[ $# -eq 0 ]]; then
-        # XXX we may need to allow the user to configure the notes directory
-        NOTESDIR=$HOME/notes/
         STUB="$(find $NOTESDIR -type f -print0 | xargs -0 basename | sort | fzf -0 --preview 'bat -l markdown --color=always $HOME/notes/{}')"
-        vim +edit "note:$STUB"
+        vim +edit "${NOTESDIR}/$STUB"
     else
-        vim +edit "note:$*"
+        vim +edit "${NOTESDIR}/$*.md"
     fi
 }
 
