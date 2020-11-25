@@ -319,7 +319,7 @@ function! s:note(name)
     let l:notes_path = expand("$HOME") . "/notes/"
     let l:note_stub = substitute(a:name, " ", "-", "g")
     let l:note_name = l:notes_path . l:note_stub . ".md"
-    execute 'tabedit ' . l:note_name
+    execute 'split ' . l:note_name
 endfunction
 
 function! s:todo()
