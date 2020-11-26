@@ -442,7 +442,7 @@ let g:hardtime_allow_different_key = 1
 let g:hardtime_maxcount = 2
 
 " Command to split a terminal window
-command! -nargs=* T split | resize 30 | term <args>
+command! -nargs=* -complete=shellcmd T split | resize 30 | term <args>
 
 function! s:transform_remote_url(url)
     let stub = substitute(split(a:url, "@")[1], ":", "/", "g")
