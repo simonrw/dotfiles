@@ -323,10 +323,19 @@ function! s:note(name)
 endfunction
 
 function! s:todo()
-    call s:note('todo')
+    let l:monday_date = trim(system("gdate -d monday +%Y-%m-%d"))
+    echo l:monday_date
+    call s:note('todo-' . l:monday_date)
+endfunction
+
+function! s:todo_last_week()
+    let l:last_monday_date = trim(system("gdate -d last-monday +%Y-%m-%d"))
+    echo l:last_monday_date
+    call s:note('todo-' . l:last_monday_date)
 endfunction
 
 command! -nargs=0 Todo :call s:todo()
+command! -nargs=0 TodoLastWeek :call s:todo_last_week()
 command! -nargs=1 Note :call s:note(<f-args>)
 
 nnoremap cd :Todo<cr>
