@@ -14,6 +14,7 @@ highlight DiffDelete guifg=#ff2222 ctermfg=1 guibg=none ctermbg=none
 highlight DiffText guibg=#7d1816
 highlight diffRemoved guifg=#fd8272
 highlight diffAdded guifg=#b4fa73
+highlight EndOfBuffer guifg=#242424
 
 " colours for terminal mode
 let g:terminal_color_0 = '#616261'
