@@ -23,7 +23,7 @@
             }
         },
         "elmLS": {
-            "command": "elm-language-server",
+            "command": "npx elm-language-server",
             "filetypes": ["elm"],
             "rootPatterns": ["elm.json"]
         }
