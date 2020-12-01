@@ -167,11 +167,6 @@ There are two things you can do about this warning:
 (setq org-plantuml-jar-path "/usr/local/opt/plantuml/libexec/plantuml.jar")
 (setq org-src-fontify-natively t)
 
-										; evil
-(use-package evil
-  :config
-  (evil-mode))
-
 (use-package go-mode
   :config
   (setq gofmt-command "goimports")
