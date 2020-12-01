@@ -201,9 +201,7 @@ There are two things you can do about this warning:
 
 (use-package yaml-mode)
 
-(use-package dracula-theme
-  :config
-  (load-theme 'dracula t))
+(load-theme 'wombat t)
 
 (provide 'init)
 ;;; init.el ends here
