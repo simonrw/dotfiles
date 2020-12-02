@@ -197,11 +197,35 @@ There are two things you can do about this warning:
   (global-set-key "\C-x\C-m" 'helm-M-x)
   (global-set-key "\C-c\C-m" 'helm-M-x))
 
+(use-package projectile
+  :config
+  (projectile-mode +1)
+  :bind (("C-c p" . 'projectile-command-map)))
+
 (use-package helm-projectile)
 
 (use-package yaml-mode)
 
+(use-package php-mode)
+
+(setq lsp-keymap-prefix "s-l")
+(setq lsp-rust-server "rust-analyzer")
+(use-package lsp-mode
+  :hook (
+         (python-mode . lsp)
+         (rust-mode . lsp)
+         (lsp-mode . lsp-enable-which-key-integration))
+  :commands lsp)
+
+(use-package lsp-ui :commands lsp-ui-mode)
+
+(use-package which-key
+  :config
+  (which-key-mode))
+
+
 (load-theme 'wombat t)
+
 
 (provide 'init)
 ;;; init.el ends here
