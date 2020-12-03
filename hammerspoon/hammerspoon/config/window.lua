@@ -1,6 +1,8 @@
+-- Should we enable window shortcuts at all?
+local ENABLE_WINDOW_SHORTCUTS = false
 -- constant holding the window enlargement/shrinkage factor
 local FULLSCREEN_BORDER = 0
-local ENABLE_FULLSCREEN_SHORTCUT = true
+local ENABLE_FULLSCREEN_SHORTCUT = false
 local WINDOW_BORDER = FULLSCREEN_BORDER
 local LEFTRIGHT_FRACTION = 0.5
 local TERMINAL_NORMAL_SIZE = {1024, 768}
@@ -73,76 +75,78 @@ function clampFrame(frame, max, fullscreen_border)
 end
 
 -- HANDLERS
--- Move window to the next screen
-hs.hotkey.bind({'cmd', 'alt', 'ctrl'}, 'o', function()
-    local win = hs.window.focusedWindow()
-    local nextScreen = win:screen():next()
-    win:moveToScreen(nextScreen)
-end)
+if ENABLE_WINDOW_SHORTCUTS then
+    -- Move window to the next screen
+    hs.hotkey.bind({'cmd', 'alt', 'ctrl'}, 'o', function()
+        local win = hs.window.focusedWindow()
+        local nextScreen = win:screen():next()
+        win:moveToScreen(nextScreen)
+    end)
 
--- Move window to left two thirds
-hs.hotkey.bind({'cmd', 'alt', 'ctrl'}, 'Left', function()
-    local win = hs.window.focusedWindow()
-    local f = win:frame()
-    local screen = win:screen()
-    local max = screen:frame()
-
-    fc:add(win)
-
-    local f = windowLeftHalf(f, max)
-
-    win:setFrame(f)
-end)
-
--- Move window to the right half
-hs.hotkey.bind({'cmd', 'alt', 'ctrl'}, 'Right', function()
-    local win = hs.window.focusedWindow()
-    local f = win:frame()
-    local screen = win:screen()
-    local max = screen:frame()
-
-    fc:add(win)
-
-    local f = windowRightHalf(f, max)
-
-    win:setFrame(f)
-end)
-
-hs.hotkey.bind({'cmd', 'alt', 'ctrl'}, 'z', function()
-    local win = hs.window.focusedWindow()
-    local app = win:application()
-    local name = app:name()
-
-    fc:pop(name)
-end)
-
-if ENABLE_FULLSCREEN_SHORTCUT then
-    hs.hotkey.bind({'cmd', 'alt', 'ctrl'}, 'f', function()
-        local app = hs.application.frontmostApplication()
-        if #ENABLE_FULLSCREEN_FOR_APPS ~= 0 then
-            local found = false
-            for _, allowed_app in ipairs(ENABLE_FULLSCREEN_FOR_APPS) do
-                if string.lower(app:title()) == string.lower(allowed_app.name) then
-                    found = true
-                    break
-                end
-            end
-            if not found then
-                return
-            end
-        end
-
+    -- Move window to left two thirds
+    hs.hotkey.bind({'cmd', 'alt', 'ctrl'}, 'Left', function()
         local win = hs.window.focusedWindow()
         local f = win:frame()
-
         local screen = win:screen()
         local max = screen:frame()
 
         fc:add(win)
 
-        local f = maximizeWindowSize(f, max)
+        local f = windowLeftHalf(f, max)
 
         win:setFrame(f)
     end)
-end
 
+    -- Move window to the right half
+    hs.hotkey.bind({'cmd', 'alt', 'ctrl'}, 'Right', function()
+        local win = hs.window.focusedWindow()
+        local f = win:frame()
+        local screen = win:screen()
+        local max = screen:frame()
+
+        fc:add(win)
+
+        local f = windowRightHalf(f, max)
+
+        win:setFrame(f)
+    end)
+
+    hs.hotkey.bind({'cmd', 'alt', 'ctrl'}, 'z', function()
+        local win = hs.window.focusedWindow()
+        local app = win:application()
+        local name = app:name()
+
+        fc:pop(name)
+    end)
+
+    if ENABLE_FULLSCREEN_SHORTCUT then
+        hs.hotkey.bind({'cmd', 'alt', 'ctrl'}, 'f', function()
+            local app = hs.application.frontmostApplication()
+            if #ENABLE_FULLSCREEN_FOR_APPS ~= 0 then
+                local found = false
+                for _, allowed_app in ipairs(ENABLE_FULLSCREEN_FOR_APPS) do
+                    if string.lower(app:title()) == string.lower(allowed_app.name) then
+                        found = true
+                        break
+                    end
+                end
+                if not found then
+                    return
+                end
+            end
+
+            local win = hs.window.focusedWindow()
+            local f = win:frame()
+
+            local screen = win:screen()
+            local max = screen:frame()
+
+            fc:add(win)
+
+            local f = maximizeWindowSize(f, max)
+
+            win:setFrame(f)
+        end)
+    end
+
+end
