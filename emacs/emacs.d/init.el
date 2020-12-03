@@ -223,6 +223,10 @@ There are two things you can do about this warning:
   :config
   (which-key-mode))
 
+(use-package direnv
+  :config
+  (direnv-mode))
+
 
 (load-theme 'wombat t)
 
