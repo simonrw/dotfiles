@@ -2,9 +2,9 @@
 
 c = get_config()
 
-#------------------------------------------------------------------------------
+# ------------------------------------------------------------------------------
 # InteractiveShellApp configuration
-#------------------------------------------------------------------------------
+# ------------------------------------------------------------------------------
 
 # A Mixin for applications that start InteractiveShell instances.
 #
@@ -58,9 +58,9 @@ c = get_config()
 # A file to be run
 # c.InteractiveShellApp.file_to_run = ''
 
-#------------------------------------------------------------------------------
+# ------------------------------------------------------------------------------
 # TerminalIPythonApp configuration
-#------------------------------------------------------------------------------
+# ------------------------------------------------------------------------------
 
 # TerminalIPythonApp will inherit config from: BaseIPythonApplication,
 # Application, InteractiveShellApp
@@ -126,7 +126,7 @@ c.TerminalIPythonApp.display_banner = False
 #         ]
 
 # The Logging format template
-c.TerminalIPythonApp.log_format = '[%(asctime)s|%(name)s] %(message)s'
+c.TerminalIPythonApp.log_format = "[%(asctime)s|%(name)s] %(message)s"
 
 # dotted module name of an IPython extension to load.
 # c.TerminalIPythonApp.extra_extension = ''
@@ -140,9 +140,9 @@ c.TerminalIPythonApp.log_format = '[%(asctime)s|%(name)s] %(message)s'
 # A file to be run
 # c.TerminalIPythonApp.file_to_run = ''
 
-#------------------------------------------------------------------------------
+# ------------------------------------------------------------------------------
 # TerminalInteractiveShell configuration
-#------------------------------------------------------------------------------
+# ------------------------------------------------------------------------------
 
 # TerminalInteractiveShell will inherit config from: InteractiveShell
 
@@ -164,7 +164,7 @@ c.TerminalIPythonApp.log_format = '[%(asctime)s|%(name)s] %(message)s'
 # c.TerminalInteractiveShell.show_rewritten_input = True
 
 # Set the color scheme (NoColor, Linux, or LightBG).
-c.TerminalInteractiveShell.colors = 'Linux'
+c.TerminalInteractiveShell.colors = "LightBG"
 
 # Autoindent IPython code entered interactively.
 # c.TerminalInteractiveShell.autoindent = True
@@ -293,9 +293,9 @@ c.TerminalInteractiveShell.autocall = 0
 # Automatically call the pdb debugger after every exception.
 # c.TerminalInteractiveShell.pdb = False
 
-#------------------------------------------------------------------------------
+# ------------------------------------------------------------------------------
 # PromptManager configuration
-#------------------------------------------------------------------------------
+# ------------------------------------------------------------------------------
 
 # This is the primary interface for producing IPython's prompts.
 
@@ -315,9 +315,9 @@ c.TerminalInteractiveShell.autocall = 0
 # c.PromptManager.color_scheme = 'Linux'
 # c.PromptManager.color_scheme = 'Linux'
 
-#------------------------------------------------------------------------------
+# ------------------------------------------------------------------------------
 # HistoryManager configuration
-#------------------------------------------------------------------------------
+# ------------------------------------------------------------------------------
 
 # A class to organize all history-related functionality in one place.
 
@@ -342,9 +342,9 @@ c.TerminalInteractiveShell.autocall = 0
 #
 # c.HistoryManager.db_cache_size = 0
 
-#------------------------------------------------------------------------------
+# ------------------------------------------------------------------------------
 # ProfileDir configuration
-#------------------------------------------------------------------------------
+# ------------------------------------------------------------------------------
 
 # An object to manage the profile directory and its resources.
 #
@@ -358,9 +358,9 @@ c.TerminalInteractiveShell.autocall = 0
 # `profile` option.
 # c.ProfileDir.location = u''
 
-#------------------------------------------------------------------------------
+# ------------------------------------------------------------------------------
 # PlainTextFormatter configuration
-#------------------------------------------------------------------------------
+# ------------------------------------------------------------------------------
 
 # The default pretty-printer.
 #
@@ -410,9 +410,9 @@ c.TerminalInteractiveShell.autocall = 0
 #
 # c.PlainTextFormatter.singleton_printers = {}
 
-#------------------------------------------------------------------------------
+# ------------------------------------------------------------------------------
 # IPCompleter configuration
-#------------------------------------------------------------------------------
+# ------------------------------------------------------------------------------
 
 # Extension of the completer class with IPython-specific features
 
@@ -450,9 +450,9 @@ c.TerminalInteractiveShell.autocall = 0
 # etc., but can be unsafe because the code is actually evaluated on TAB.
 # c.IPCompleter.greedy = False
 
-#------------------------------------------------------------------------------
+# ------------------------------------------------------------------------------
 # ScriptMagics configuration
-#------------------------------------------------------------------------------
+# ------------------------------------------------------------------------------
 
 # Magics for talking to scripts
 #
