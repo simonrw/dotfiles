@@ -114,7 +114,9 @@ There are two things you can do about this warning:
   :mode (("README\\.md\\'" . gfm-mode)
 	 ("\\.md\\'" . markdown-mode)
 	 ("\\.markdown\\'" . markdown-mode))
-  :init (setq markdown-command "multimarkdown"))
+  :init
+  (setq markdown-command "multimarkdown")
+  (setq markdown-header-scaling t))
 
 (use-package rust-mode
   :mode "\\.rs\\'"
@@ -208,9 +210,10 @@ There are two things you can do about this warning:
 
 (use-package php-mode)
 
-(setq lsp-keymap-prefix "s-l")
-(setq lsp-rust-server "rust-analyzer")
 (use-package lsp-mode
+  :init
+  (setq lsp-keymap-prefix "s-l")
+  (setq lsp-rust-server "rust-analyzer")
   :hook (
          (python-mode . lsp)
          (rust-mode . lsp)
@@ -218,6 +221,13 @@ There are two things you can do about this warning:
   :commands lsp)
 
 (use-package lsp-ui :commands lsp-ui-mode)
+
+(use-package lsp-python-ms
+  :ensure t
+  :init (setq lsp-python-ms-auto-install-server t)
+  :hook (python-mode . (lambda ()
+						 (require 'lsp-python-ms)
+						 (lsp))))
 
 (use-package which-key
   :config
@@ -228,7 +238,7 @@ There are two things you can do about this warning:
   (direnv-mode))
 
 
-(load-theme 'wombat t)
+(load-theme 'whiteboard t)
 
 
 (provide 'init)
