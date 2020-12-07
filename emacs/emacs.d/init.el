@@ -20,6 +20,8 @@
 (setq mouse-wheel-progressive-speed nil)
 (setq mouse-wheel-follow-mouse t)
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
+(global-visual-line-mode t)
+
 
 ;; Enable nicer window moving
 (when (fboundp 'windmove-default-keybindings)
@@ -79,7 +81,7 @@ There are two things you can do about this warning:
   (if (boundp 'mac-auto-operator-composition-mode)
       (mac-auto-operator-composition-mode))
 
-  (set-face-attribute 'default nil :family "Source Code Pro")
+  (set-face-attribute 'default nil :family "Hack")
   (set-face-attribute 'default nil :height 130)
 
   ;; Toggle fullscreen mode
@@ -210,9 +212,9 @@ There are two things you can do about this warning:
 
 (use-package php-mode)
 
+(setq lsp-keymap-prefix "C-c l")
 (use-package lsp-mode
   :init
-  (setq lsp-keymap-prefix "s-l")
   (setq lsp-rust-server "rust-analyzer")
   :hook (
          (python-mode . lsp)
@@ -236,6 +238,10 @@ There are two things you can do about this warning:
 (use-package direnv
   :config
   (direnv-mode))
+
+(use-package company
+  :config
+  (company-mode))
 
 
 (load-theme 'whiteboard t)
