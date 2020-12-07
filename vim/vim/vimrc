@@ -24,8 +24,6 @@ Plug 'christoomey/vim-tmux-runner'
 Plug 'christoomey/vim-conflicted'
 Plug 'vim-test/vim-test'
 Plug 'junegunn/vim-easy-align'
-let g:polyglot_disabled = ['python-indent', 'python', 'go']
-Plug 'sheerun/vim-polyglot'
 Plug 'jeetsukumaran/vim-pythonsense'
 Plug 'junegunn/goyo.vim'
 Plug 'fatih/vim-go'
@@ -33,6 +31,7 @@ Plug 'neoclide/coc.nvim', { 'branch': 'release' }
 Plug 'arcticicestudio/nord-vim'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'chriskempson/base16-vim'
+Plug 'plasticboy/vim-markdown'
 
 if has('nvim-0.5')
     augroup LuaHighlight
@@ -405,6 +404,7 @@ let g:test#strategy = 'basic'
 let g:coc_global_extensions = [ 'coc-python', 'coc-json', 'coc-go', 'coc-rust-analyzer', 'coc-tailwindcss', 'coc-git', 'coc-emoji' ]
 let g:vim_markdown_auto_insert_bullets = 0
 let g:vim_markdown_new_list_item_indent= 0
+let g:vim_markdown_no_default_key_mappings = 1
 
 " configure python3 for neovim
 "
@@ -435,7 +435,6 @@ nmap gp <Plug>(coc-git-chunkinfo)
 " Show available actions
 nnoremap <silent> <leader>ca :CocAction<cr>
 
-let g:vim_markdown_no_default_key_mappings = 1
 
 let g:ale_fix_on_save = 1
 
