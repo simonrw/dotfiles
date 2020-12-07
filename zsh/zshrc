@@ -29,9 +29,9 @@ autoload -U bashcompinit
 bashcompinit
 
 # Emacs keybindings
-bindkey -e
 bindkey "^R" history-incremental-search-backward
 bindkey -v '^?' backward-delete-char
+bindkey -e
 
 # Set up editor in command line
 autoload edit-command-line
