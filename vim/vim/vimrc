@@ -89,7 +89,7 @@ set conceallevel=0
 " configure shortmessages
 set shortmess+=AIOTWaot
 " Do not hide sign column
-set signcolumn=yes
+set signcolumn=auto
 
 " Center search results
 nnoremap <silent> n nzz
