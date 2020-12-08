@@ -167,7 +167,7 @@ c.TerminalIPythonApp.log_format = "[%(asctime)s|%(name)s] %(message)s"
 c.TerminalInteractiveShell.colors = "LightBG"
 
 # Autoindent IPython code entered interactively.
-# c.TerminalInteractiveShell.autoindent = True
+c.TerminalInteractiveShell.autoindent = True
 
 #
 # c.TerminalInteractiveShell.separate_in = '\n'
