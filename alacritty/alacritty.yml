@@ -278,6 +278,77 @@ available_schemes:
     #   `- { index: 16, color: '0xff00ff' }`
     #
     indexed_colors: []
+
+  default: &colors_base16_tomorrow
+    # Default colors
+    primary:
+      background: '#ffffff'
+      foreground: '#4d4d4c'
+
+    # Normal colors
+    normal:
+      black:   '#ffffff'
+      red:     '#c82829'
+      green:   '#718c00'
+      yellow:  '#eab700'
+      blue:    '#4271ae'
+      magenta: '#8959a8'
+      cyan:    '#3e999f'
+      white:   '#4d4d4c'
+
+    # Bright colors
+    bright:
+      black:   '#8e908c'
+      red:     '#f5871f'
+      green:   '#e0e0e0'
+      yellow:  '#d6d6d6'
+      blue:    '#969896'
+      magenta: '#282a2e'
+      cyan:    '#a3685a'
+      white:   '#1d1f21'
+
+      # Bright and dim foreground colors
+      #
+      # The dimmed foreground color is calculated automatically if it is not present.
+      # If the bright foreground color is not set, or `draw_bold_text_with_bright_colors`
+      # is `false`, the normal foreground color will be used.
+      #dim_foreground: '#828482'
+      #bright_foreground: '#eaeaea'
+
+    # Cursor colors
+    #
+    # Colors which should be used to draw the terminal cursor. If these are
+    # unset, the cursor color will be the inverse of the cell color.
+    cursor:
+      text: '#000000'
+      cursor: '#4d4d4c'
+
+    # Vi mode cursor colors
+    #
+    # Colors for the cursor when the vi mode is active. If these are unset, the
+    # cursor color will be the inverse of the cell color.
+    vi_mode_cursor:
+      text: '#000000'
+      cursor: '#4d4d4c'
+
+    # Selection colors
+    #
+    # Colors which should be used to draw the selection area. If selection
+    # background is unset, selection color will be the inverse of the cell colors.
+    # If only text is unset the cell text color will remain the same.
+    selection:
+      text: '#ffffff'
+      background: '#4d4d4c'
+
+    # Indexed Colors
+    #
+    # The indexed colors include all colors from 16 to 256.
+    # When these are not set, they're filled with sensible defaults.
+    #
+    # Example:
+    #   `- { index: 16, color: '#ff00ff' }`
+    #
+    #indexed_colors: []
   default: &colors_default
     # Default colors
     primary:
@@ -363,7 +434,7 @@ available_schemes:
     #
     #indexed_colors: []
 
-colors: *colors_default
+colors: *colors_base16_tomorrow
 
 # Visual Bell
 #
