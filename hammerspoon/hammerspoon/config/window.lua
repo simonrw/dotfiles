@@ -26,7 +26,7 @@ function windowRightHalf(frame, max, border)
     local border = border or WINDOW_BORDER
 
     local newFrame = {
-        x = sign(max.x) * (max.w / 2) + border / 2,
+        x = sign(max.x) * (max.w / 2) + border / 4,
         y = max.y + border / 2,
         w = halfWindowWidth(max, border),
         h = max.h - border,
