@@ -115,6 +115,7 @@ export CARGO_HOME=${HOME}/.cargo
 export PATH=${CARGO_HOME}/bin:${PATH}
 export RUST_NEW_ERROR_FORMAT=true
 export RUST_BACKTRACE=0
+export CARGO_TARGET_DIR=${BUILD_PREFIX}/rust/target
 
 # Set up misc extra commands
 export PYENV_VIRTUALENV_DISABLE_PROMPT=1
