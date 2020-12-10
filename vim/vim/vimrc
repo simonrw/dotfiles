@@ -26,13 +26,15 @@ Plug 'christoomey/vim-tmux-runner'
 Plug 'christoomey/vim-conflicted'
 Plug 'vim-test/vim-test'
 Plug 'junegunn/vim-easy-align'
-Plug 'jeetsukumaran/vim-pythonsense'
 Plug 'junegunn/goyo.vim'
-Plug 'fatih/vim-go'
 Plug 'neoclide/coc.nvim', { 'branch': 'release' }
 Plug 'editorconfig/editorconfig-vim'
-Plug 'plasticboy/vim-markdown'
 Plug 'itchyny/lightline.vim'
+
+" language plugins
+Plug 'cespare/vim-toml'
+Plug 'jeetsukumaran/vim-pythonsense'
+Plug 'fatih/vim-go'
 
 if has('nvim-0.5')
     augroup LuaHighlight
@@ -408,6 +410,7 @@ let g:coc_global_extensions = [ 'coc-python', 'coc-json', 'coc-go', 'coc-rust-an
 let g:vim_markdown_auto_insert_bullets = 0
 let g:vim_markdown_new_list_item_indent= 0
 let g:vim_markdown_no_default_key_mappings = 1
+let g:markdown_fenced_languages = ["python", "javascript", "toml", "rust"]
 
 " configure python3 for neovim
 "
