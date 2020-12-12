@@ -19,7 +19,7 @@ THEME_MAPS = {
         "kitty": "srw.conf",
         "ipython": "Linux",
         "alacritty": "colors_default",
-        "bat": "TwoDark",
+        "bat": "Monokai Extended",
     },
     "light": {
         "vim": "base16-tomorrow",
