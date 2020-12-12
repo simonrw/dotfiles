@@ -91,6 +91,7 @@
 	attributesFile = ~/.gitattributes_global
 [delta]
     dark = true
+    side-by-side = true
 [merge]
     tool = conflicted
     conflictstyle = "diff3"
