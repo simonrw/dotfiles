@@ -43,10 +43,6 @@ else
     alias thor="ls -thor"
 fi
 
-if has_executable yay; then
-    alias pacman=yay
-fi
-
 if has_executable bat; then
     alias cat=bat
     alias less=bat
