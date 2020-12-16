@@ -38,6 +38,7 @@ Plug 'fatih/vim-go'
 Plug 'rust-lang/rust.vim'
 Plug 'evanleck/vim-svelte'
 Plug 'ElmCast/elm-vim'
+Plug 'leafgarland/typescript-vim'
 
 if has('nvim-0.5')
     augroup LuaHighlight
