@@ -39,6 +39,7 @@ Plug 'rust-lang/rust.vim'
 Plug 'evanleck/vim-svelte'
 Plug 'ElmCast/elm-vim'
 Plug 'leafgarland/typescript-vim'
+Plug 'hashivim/vim-terraform'
 
 if has('nvim-0.5')
     augroup LuaHighlight
