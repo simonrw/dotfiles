@@ -52,8 +52,6 @@ endif
 
 call plug#end()
 
-let loaded_matchparen = 1
-
 set mouse=a
 set scrolloff=5
 set nonumber
