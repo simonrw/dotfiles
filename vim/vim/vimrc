@@ -504,7 +504,7 @@ endfunction
 
 " Lightline
 let g:lightline = {
-      \ 'colorscheme': 'ayu_light',
+      \ 'colorscheme': 'default',
       \ 'active': {
       \   'left': [ [ 'mode', 'paste' ],
       \             [ 'cocstatus', 'readonly', 'filename', 'modified' ] ]
@@ -518,4 +518,4 @@ function! LightlineFilename()
   return expand('%:t') !=# '' ? @% : '[No Name]'
 endfunction
 
-colorscheme base16-tomorrow
+colorscheme srw256
