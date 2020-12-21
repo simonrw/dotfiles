@@ -244,7 +244,7 @@ There are two things you can do about this warning:
   (company-mode))
 
 
-(load-theme 'wombat t)
+(load-theme 'whiteboard t)
 
 
 (provide 'init)

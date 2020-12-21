@@ -90,7 +90,7 @@
 	ignorecase = false
 	attributesFile = ~/.gitattributes_global
 [delta]
-    dark = true
+    light = true
     side-by-side = true
 [merge]
     tool = conflicted

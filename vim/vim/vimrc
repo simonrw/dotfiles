@@ -30,6 +30,7 @@ Plug 'junegunn/goyo.vim'
 Plug 'neoclide/coc.nvim', { 'branch': 'release' }
 Plug 'editorconfig/editorconfig-vim'
 Plug 'itchyny/lightline.vim'
+Plug 'chriskempson/base16-vim'
 
 " language plugins
 Plug 'cespare/vim-toml'
@@ -503,6 +504,7 @@ endfunction
 
 " Lightline
 let g:lightline = {
+      \ 'colorscheme': 'ayu_light',
       \ 'active': {
       \   'left': [ [ 'mode', 'paste' ],
       \             [ 'cocstatus', 'readonly', 'filename', 'modified' ] ]
@@ -516,4 +518,4 @@ function! LightlineFilename()
   return expand('%:t') !=# '' ? @% : '[No Name]'
 endfunction
 
-colorscheme srw256
+colorscheme base16-tomorrow

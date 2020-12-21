@@ -24,7 +24,7 @@ THEME_MAPS = {
     },
     "light": {
         "vim": "base16-tomorrow",
-        "tmux": "base16/base16-tomorrow.conf",
+        "tmux": "base16/base16-ia-light.conf",
         "kitty": "base16/base16-tomorrow.conf",
         "ipython": "LightBG",
         "alacritty": "colors_base16_tomorrow",
