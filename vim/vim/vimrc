@@ -518,4 +518,12 @@ function! LightlineFilename()
   return expand('%:t') !=# '' ? @% : '[No Name]'
 endfunction
 
+" Support directory local vimrc files
+" https://github.com/direnv/direnv/wiki/Vim
+if exists("$EXTRA_VIM")
+  for path in split($EXTRA_VIM, ':')
+    exec "source ".path
+  endfor
+endif
+
 colorscheme srw256
