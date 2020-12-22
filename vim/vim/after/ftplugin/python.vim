@@ -1,8 +1,6 @@
 let @i='import IPython; IPython.embed(); exit()'
 let @p='import pudb; pudb.set_trace()'
 let @n='if __name__ == "__main__":'
-setlocal nowrap
-setlocal textwidth=0
 
 vnoremap <silent> <leader>t :VtrSendLinesToRunner<Cr>
 nnoremap <silent> <leader>p vip:VtrSendLinesToRunner<Cr>
