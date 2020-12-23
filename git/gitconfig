@@ -90,8 +90,7 @@
 	ignorecase = false
 	attributesFile = ~/.gitattributes_global
 [delta]
-    dark = true
-    side-by-side = true
+    syntax-theme = ansi-dark
 [merge]
     tool = conflicted
     conflictstyle = "diff3"
