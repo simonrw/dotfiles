@@ -266,23 +266,6 @@ function find_pi() {
     sudo arp-scan --interface=$interface --localnet | grep b8:27:eb | awk '{print $1}'
 }
 
-# if no arguments are given then open with the file browser, otherwise pass arguments in
-function vim() {
-    if [[ $# -eq 0 ]]; then
-        if has_executable nvim; then
-            nvim +FzfGitFiles
-        else
-            =vim +FzfGitFiles
-        fi
-    else
-        if has_executable nvim; then
-            nvim $*
-        else
-            =vim $*
-        fi
-    fi
-}
-
 # function to edit a note from the command line
 function note() {
     # NOTE: we may need to allow the user to configure the notes directory
