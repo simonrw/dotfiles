@@ -5,11 +5,11 @@ font pango:$font 10
 bindsym $mod+c exec firefox
 
 # start a terminal
-bindsym $mod+Return exec mate-terminal
+bindsym $mod+Return exec kitty
 
 # gaps config
 # for_window [class=".*"] border pixel 0
-gaps inner 8
+gaps inner 0
 gaps outer 0
 # border_radius 8
 
