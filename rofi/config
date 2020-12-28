@@ -1,3 +1,4 @@
 rofi.theme: srw
 rofi.combi-modi: window,drun
 rofi.modi: drun
+rofi.theme: /usr/share/rofi/themes/Arc-Dark.rasi
