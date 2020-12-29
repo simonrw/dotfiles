@@ -8,7 +8,7 @@ xss-lock -- i3lock --color 333333 --show-failed-attempts &
 # xrandr --output DP-2 --primary --right-of DVI-D-0
 
 # Start the notification handler
-/usr/bin/dunst &
+# /usr/bin/dunst &
 
 # Set the keyboard map
 xmodmap ~/.Xmodmap
@@ -18,4 +18,4 @@ setxkbmap -option 'caps:ctrl_modifier'
 xcape -t 100 -e 'Caps_Lock=Escape;Control_L=Escape;Control_R=Escape'
 
 # Start i3
-exec i3
+exec mate-session
