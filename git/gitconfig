@@ -79,7 +79,6 @@
     ui = auto
 [core]
     abbrev = 12
-	pager = delta
     autocrlf = input
     safecrlf = true
     whitespace = fix
