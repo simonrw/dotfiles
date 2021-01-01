@@ -149,10 +149,6 @@ There are two things you can do about this warning:
 
 (use-package csharp-mode)
 
-(load "server")
-(unless (eq (server-running-p) t)
-  (server-start))
-
 (org-babel-do-load-languages
  'org-babel-load-languages
  '((emacs-lisp . t)
