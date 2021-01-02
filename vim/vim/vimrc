@@ -479,6 +479,12 @@ endfunction
 
 command! -nargs=0 GLL :call GitlabLinkLine()
 
+" Support building notes after writing
+augroup NoteComplile
+    autocmd!
+    autocmd BufWritePost *note-*.md silent !buildNote %:p
+augroup END
+
 set background=dark
 
 " configure nord

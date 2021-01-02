@@ -19,11 +19,6 @@ test -d ~/.ssh && {
 }
 alias gpe="git push && exit"
 
-# set up alias for opening today's note
-alias today='note $(date +%Y-%m-%d)'
-alias todo='note todo-$(gdate -dmonday +%Y-%m-%d)'
-alias todolastweek='note todo-$(gdate -dlast-monday +%Y-%m-%d)'
-
 if has_executable rg; then
     alias grep=rg
 elif has_executable ag; then

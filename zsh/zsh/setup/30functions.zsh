@@ -266,18 +266,6 @@ function find_pi() {
     sudo arp-scan --interface=$interface --localnet | grep b8:27:eb | awk '{print $1}'
 }
 
-# function to edit a note from the command line
-function note() {
-    # NOTE: we may need to allow the user to configure the notes directory
-    NOTESDIR=$HOME/notes/
-    if [[ $# -eq 0 ]]; then
-        STUB="$(find $NOTESDIR -type f -print0 | xargs -0 basename | sort | fzf -0 --preview 'bat -l markdown --color=always $HOME/notes/{}')"
-        vim +edit "${NOTESDIR}/$STUB"
-    else
-        vim +edit "${NOTESDIR}/$*.md"
-    fi
-}
-
 function wakeastoria() {
     wakeonlan -i 192.168.0.255 -p 7 40:B0:76:DE:79:B3 >/dev/null
     readonly ip_address="$(nslookup astoria | grep Address | grep 192 | awk '{print $2}')"

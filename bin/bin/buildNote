@@ -1,0 +1,19 @@
+#!/bin/sh
+
+set -eou pipefail
+
+if ! command -v pandoc 2>&1 >/dev/null; then
+    echo "buildNote: pandoc not found" >&2
+    exit 1
+fi
+
+filename=$1
+target="$(dirname "${filename}")/../pdf"
+mkdir -p ${target}
+outputFile="$(basename "$filename" .md).pdf"
+
+pandoc \
+    --pdf-engine=xelatex \
+    -V 'mainFont:DejaVuSerif' \
+    -V "geometry:margin=1in" \
+    -o "$target/$outputFile" $filename &
