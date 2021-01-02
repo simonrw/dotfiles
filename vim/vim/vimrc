@@ -30,7 +30,6 @@ Plug 'junegunn/goyo.vim'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'itchyny/lightline.vim'
 Plug 'chriskempson/base16-vim'
-Plug 'dense-analysis/ale'
 
 " language plugins
 Plug 'cespare/vim-toml'
@@ -412,9 +411,6 @@ function! GitlabLinkLine()
 endfunction
 
 command! -nargs=0 GLL :call GitlabLinkLine()
-
-nmap <silent> [g <Plug>(ale_previous_wrap)
-nmap <silent> ]g <Plug>(ale_next_wrap)
 
 set background=dark
 
