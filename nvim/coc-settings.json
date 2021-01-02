@@ -9,7 +9,6 @@
     "python.venvFolders": ["venv", ".direnv", "~/.virtualenvs", "~/.local/share/virtualenvs"],
     "python.formatting.blackPath": "~/.local/pipx/bin/black",
     "python.linting.flake8Path": "~/.local/pipx/bin/flake8",
-    "python.linting.mypyPath": "~/.local/pipx/bin/mypy",
     "coc.source.emoji.filetypes": ["markdown", "gitcommit"],
     "languageserver": {
         "ccls": {
