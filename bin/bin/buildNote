@@ -7,13 +7,13 @@ if ! command -v pandoc 2>&1 >/dev/null; then
     exit 1
 fi
 
+ext=html
 filename=$1
-target="$(dirname "${filename}")/../pdf"
+target="$(dirname "${filename}")/../$ext"
 mkdir -p ${target}
-outputFile="$(basename "$filename" .md).pdf"
+outputFile="$(basename "$filename" .md).$ext"
 
 pandoc \
-    --pdf-engine=xelatex \
-    -V 'mainFont:DejaVuSerif' \
-    -V "geometry:margin=1in" \
+    -t html5 \
+    --template Github.html5 \
     -o "$target/$outputFile" $filename &

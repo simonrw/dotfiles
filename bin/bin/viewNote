@@ -1,0 +1,19 @@
+#!/bin/sh
+
+set -eou pipefail
+
+noteName=${HOME}/notes/html/note-$(date +%Y-%m-%d).html
+
+function buildnote() {
+    srcName="$(echo $noteName | sed 's/html/src/' | sed 's/html/md/')"
+    test -f $srcName || {
+        echo "Cannot find source file $sourceName" >&2
+        return 1
+    }
+
+    ${HOME}/.bin/buildNote $srcName
+    wait
+}
+
+buildnote
+open $noteName
