@@ -201,6 +201,10 @@ There are two things you can do about this warning:
   :config
   (ivy-mode 1))
 
+(use-package ivy-rich
+  :init
+  (ivy-rich-mode 1))
+
 (use-package rainbow-delimiters
   :hook (prog-mode . rainbow-delimiters-mode))
 
@@ -208,6 +212,21 @@ There are two things you can do about this warning:
   :config
   (projectile-mode +1)
   :bind (("C-c p" . 'projectile-command-map)))
+
+(use-package counsel
+  :bind (("M-x" . counsel-M-x))
+  :config
+  (setq ivy-initial-inputs-alist nil))
+
+(use-package helpful
+  :custom
+  (counsel-describe-function-function #'helpful-callable)
+  (counsel-describe-variable-function #'helpful-variable)
+  :bind
+  ([remap describe-function] . counsel-describe-function)
+  ([remap describe-command] . counsel-describe-command)
+  ([remap describe-variable] . counsel-describe-variable)
+  ([remap describe-key] . helpful-key))
 
 (use-package yaml-mode)
 
