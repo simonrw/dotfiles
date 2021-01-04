@@ -1,12 +1,10 @@
 {
-    "python.jediEnabled": false,
     "python.linting.flake8Enabled": true,
     "python.linting.enabled": true,
     "python.linting.pylintEnabled": false,
     "coc.preferences.formatOnSaveFiletypes": ["python", "rust", "javascript", "javascriptreact", "html", "typescript", "go", "elm", "typescriptreact", "javascriptreact"],
     "python.linting.mypyEnabled": true,
     "python.formatting.provider": "black",
-    "python.venvFolders": ["venv", ".direnv", "~/.virtualenvs", "~/.local/share/virtualenvs"],
     "python.formatting.blackPath": "~/.local/pipx/bin/black",
     "python.linting.flake8Path": "~/.local/pipx/bin/flake8",
     "coc.source.emoji.filetypes": ["markdown", "gitcommit"],
