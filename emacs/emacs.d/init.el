@@ -21,7 +21,9 @@
 (setq mouse-wheel-follow-mouse t)
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
 (global-visual-line-mode t)
+(set-fringe-mode 10)
 
+(global-set-key (kbd "<escape>") 'keyboard-escape-quit)
 
 ;; Enable nicer window moving
 (when (fboundp 'windmove-default-keybindings)
@@ -61,6 +63,11 @@ There are two things you can do about this warning:
 (setq package-enable-at-startup t)
 (package-initialize)
 
+; Initialise package archive
+(unless package-archive-contents
+  (package-refresh-contents))
+
+
 (unless (package-installed-p 'use-package)
   (package-refresh-contents)
   (package-install 'use-package))
@@ -81,8 +88,7 @@ There are two things you can do about this warning:
   (if (boundp 'mac-auto-operator-composition-mode)
       (mac-auto-operator-composition-mode))
 
-  (set-face-attribute 'default nil :family "Hack")
-  (set-face-attribute 'default nil :height 130)
+  (set-face-attribute 'default nil :family "Source Code Pro" :height 130)
 
   ;; Toggle fullscreen mode
   (global-set-key [m-return] 'toggle-frame-fullscreen)
@@ -188,21 +194,20 @@ There are two things you can do about this warning:
   :init
   (add-hook 'org-mode-hook (lambda ()
 							 org-bullets-mode 1)))
-(use-package fzf
-  :ensure t)
+(use-package fzf)
 
-(use-package helm
+(use-package ivy
+  :diminish
   :config
-  (setq-default helm-M-x-fuzzy-match t)
-  (global-set-key "\C-x\C-m" 'helm-M-x)
-  (global-set-key "\C-c\C-m" 'helm-M-x))
+  (ivy-mode 1))
+
+(use-package rainbow-delimiters
+  :hook (prog-mode . rainbow-delimiters-mode))
 
 (use-package projectile
   :config
   (projectile-mode +1)
   :bind (("C-c p" . 'projectile-command-map)))
-
-(use-package helm-projectile)
 
 (use-package yaml-mode)
 
@@ -221,15 +226,17 @@ There are two things you can do about this warning:
 (use-package lsp-ui :commands lsp-ui-mode)
 
 (use-package lsp-python-ms
-  :ensure t
   :init (setq lsp-python-ms-auto-install-server t)
   :hook (python-mode . (lambda ()
 						 (require 'lsp-python-ms)
 						 (lsp))))
 
 (use-package which-key
+  :init
+  (which-key-mode)
+  :diminish which-key-mode
   :config
-  (which-key-mode))
+  (setq which-key-idle-delay 1))
 
 (use-package direnv
   :config
