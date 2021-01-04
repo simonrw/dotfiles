@@ -230,6 +230,10 @@ There are two things you can do about this warning:
 
 (use-package yaml-mode)
 
+(use-package doom-modeline
+  :init (doom-modeline-mode 1)
+  :custom ((doom-modeline-height 15)))
+
 (use-package php-mode)
 
 (setq lsp-keymap-prefix "C-c l")
