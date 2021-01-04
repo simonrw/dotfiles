@@ -31,6 +31,7 @@ Plug 'neoclide/coc.nvim', { 'branch': 'release' }
 Plug 'editorconfig/editorconfig-vim'
 Plug 'itchyny/lightline.vim'
 Plug 'chriskempson/base16-vim'
+Plug 'dracula/vim', { 'as': 'dracula' }
 
 " language plugins
 Plug 'cespare/vim-toml'
@@ -507,10 +508,9 @@ function! s:check_back_space() abort
     return !col || getline(".")[col - 1] =~# '\s'
 endfunction
 
-
 " Lightline
 let g:lightline = {
-      \ 'colorscheme': 'default',
+      \ 'colorscheme': 'darcula',
       \ 'active': {
       \   'left': [ [ 'mode', 'paste' ],
       \             [ 'cocstatus', 'readonly', 'filename', 'modified' ] ]
@@ -532,4 +532,7 @@ if exists("$EXTRA_VIM")
   endfor
 endif
 
-colorscheme srw256
+colorscheme dracula
+
+" hide end of buffer lines
+highlight EndOfBuffer guifg=bg
