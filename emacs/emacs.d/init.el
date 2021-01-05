@@ -117,6 +117,9 @@ There are two things you can do about this warning:
   :config
   (setq magit-diff-refine-hunk t))
 
+(use-package evil-magit
+  :after magit)
+
 ;; Markdown
 (use-package markdown-mode
   :mode (("README\\.md\\'" . gfm-mode)
