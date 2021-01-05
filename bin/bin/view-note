@@ -11,7 +11,11 @@ function buildnote() {
         return 1
     }
 
-    ${HOME}/.bin/buildNote $srcName
+    pandoc \
+        -t html5 \
+        --template Github.html5 \
+        --metadata title="Notes" \
+        -o "$noteName" $srcName
     wait
 }
 
