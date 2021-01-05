@@ -1,0 +1,61 @@
+#!/usr/bin/env python
+
+import datetime
+import re
+from pathlib import Path
+from collections import defaultdict
+import argparse
+
+
+if __name__ == "__main__":
+
+    parser = argparse.ArgumentParser()
+    parser.add_argument("-c", "--completed", action="store_true", default=False)
+    parser.add_argument("-C", "--completed-only", action="store_true", default=False)
+    args = parser.parse_args()
+
+    notes_dir = Path.home() / "notes" / "src"
+    files = notes_dir.glob("*.md")
+
+    title_re = re.compile(r"#\s+Notes\s+for\s+(?P<year>\d+)-(?P<month>\d+)-(?P<day>\d+)")
+    todo_re = re.compile(r"\[[ *x]+\]\s+.*")
+
+    todo_groups = defaultdict(list)
+    for fname in files:
+        with fname.open() as infile:
+            lines = list(filter(None, [line.strip() for line in infile.readlines()]))
+
+        todo_items = []
+        date = None
+        for line in lines:
+            match = title_re.match(line)
+            if match:
+                date = datetime.date(
+                    int(match.group("year")),
+                    int(match.group("month")),
+                    int(match.group("day")),
+                )
+
+            # extract the todo item
+            match = todo_re.match(line)
+            if not match:
+                continue
+            todo_items.append(match.group(0))
+
+        if not len(todo_items):
+            continue
+
+        todo_groups[date] = todo_items
+
+    todo_groups = sorted(todo_groups.items(), key=lambda g: g[0])
+    for date, items in todo_groups:
+        formatted_date = date.strftime("%a %b %d %Y")
+        print(f"# {formatted_date}\n")
+
+        for item in items:
+            if "[x]" in item.lower() and not args.completed_only and not args.completed:
+                continue
+            if item.startswith("[ ]") and args.completed_only:
+                continue
+            print(item)
+        print()
