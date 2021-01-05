@@ -288,3 +288,18 @@ function __pushdotfiles() {
 
     git push
 }
+
+# Open the video in a native viewer (mpv if exists)
+function video() {
+    if [[ $# != 1 ]]; then
+        echo "usage: video <url>" >&2
+        return 1
+    fi
+
+    local url=$1
+    case $OSTYPE in
+        darwin*)
+            open $1 -a mpv
+            ;;
+    esac
+}
