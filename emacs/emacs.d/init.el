@@ -206,7 +206,8 @@ There are two things you can do about this warning:
 
 (use-package ivy-rich
   :init
-  (ivy-rich-mode 1))
+  (ivy-rich-mode 1)
+  :after counsel)
 
 (use-package rainbow-delimiters
   :hook (prog-mode . rainbow-delimiters-mode))
