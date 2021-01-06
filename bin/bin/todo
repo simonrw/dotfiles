@@ -1,10 +1,81 @@
 #!/usr/bin/env python
 
+import typing as T
 import datetime
 import re
+import sys
 from pathlib import Path
 from collections import defaultdict
 import argparse
+import tempfile
+import subprocess as sp
+from contextlib import contextmanager
+from shutil import rmtree
+
+
+@contextmanager
+def tempdir(*args, **kwargs):
+    path = Path(tempfile.mkdtemp(*args, **kwargs))
+    try:
+        yield path
+    finally:
+        rmtree(path)
+
+
+class Entry(T.NamedTuple):
+    filename: Path
+    line: int
+    text: str
+
+    @property
+    def completed(self):
+        return "[x]" in self.text.lower()
+
+    def __str__(self):
+        return self.text
+
+
+class RenderedLine(T.NamedTuple):
+    after: T.Optional[str]
+    entry: T.Optional[Entry]
+
+
+class Tracker:
+    def __init__(self, ostream: T.IO[str]):
+        self.ostream = ostream
+        self.rendered_lines = []
+
+    def write_header(self, text: str) -> None:
+        print(text, file=self.ostream)
+        self.rendered_lines.append(RenderedLine(entry=None, after=None))
+
+    def write(self, entry: Entry) -> None:
+        print(entry.text.strip(), file=self.ostream)
+        self.rendered_lines.append(RenderedLine(entry=entry, after=None))
+
+
+class Updater:
+    def __init__(self, filename: Path):
+        self.filename = filename
+
+    def act(self, updates: T.List[RenderedLine]):
+        updated_lines = {u.entry.line for u in updates}
+
+        out_lines = []
+        with self.filename.open() as infile:
+            for i, line in enumerate(infile.readlines()):
+                line = line.strip()
+                if i in updated_lines:
+                    update = [u for u in updates if u.entry.line == i]
+                    assert len(update) == 1
+                    update = update[0]
+                    out_lines.append(update.after.strip())
+                else:
+                    out_lines.append(line)
+
+        with self.filename.open("w") as outfile:
+            outfile.write("\n".join(out_lines))
+
 
 
 if __name__ == "__main__":
@@ -17,17 +88,19 @@ if __name__ == "__main__":
     notes_dir = Path.home() / "notes" / "src"
     files = notes_dir.glob("*.md")
 
-    title_re = re.compile(r"#\s+Notes\s+for\s+(?P<year>\d+)-(?P<month>\d+)-(?P<day>\d+)")
+    title_re = re.compile(
+        r"#\s+Notes\s+for\s+(?P<year>\d+)-(?P<month>\d+)-(?P<day>\d+)"
+    )
     todo_re = re.compile(r"\[[ *x]+\]\s+.*")
 
     todo_groups = defaultdict(list)
     for fname in files:
         with fname.open() as infile:
-            lines = list(filter(None, [line.strip() for line in infile.readlines()]))
+            lines = [line.strip() for line in infile.readlines()]
 
         todo_items = []
         date = None
-        for line in lines:
+        for (i, line) in enumerate(lines):
             match = title_re.match(line)
             if match:
                 date = datetime.date(
@@ -40,7 +113,13 @@ if __name__ == "__main__":
             match = todo_re.match(line)
             if not match:
                 continue
-            todo_items.append(match.group(0))
+
+            entry = Entry(
+                filename=fname,
+                line=i,
+                text=match.group(0),
+            )
+            todo_items.append(entry)
 
         if not len(todo_items):
             continue
@@ -48,14 +127,56 @@ if __name__ == "__main__":
         todo_groups[date] = todo_items
 
     todo_groups = sorted(todo_groups.items(), key=lambda g: g[0])
-    for date, items in todo_groups:
-        formatted_date = date.strftime("%a %b %d %Y")
-        print(f"# {formatted_date}\n")
 
-        for item in items:
-            if "[x]" in item.lower() and not args.completed_only and not args.completed:
-                continue
-            if item.startswith("[ ]") and args.completed_only:
-                continue
-            print(item)
-        print()
+    with tempdir() as tdir:
+        tfile = tdir / "todo.md"
+        with tfile.open("w") as outfile:
+            tracker = Tracker(outfile)
+
+            for date, items in todo_groups:
+
+                to_render_items = []
+                for item in items:
+                    if (
+                        item.completed
+                        and not args.completed_only
+                        and not args.completed
+                    ):
+                        continue
+                    if not item.completed and args.completed_only:
+                        continue
+
+                    to_render_items.append(item)
+
+                if not to_render_items:
+                    continue
+
+                formatted_date = date.strftime("%a %b %d %Y")
+                tracker.write_header(f"# {formatted_date}")
+                tracker.write_header("")
+
+                for item in to_render_items:
+                    tracker.write(item)
+
+                tracker.write_header("")
+
+        sp.check_call(["nvim", str(tfile)])
+
+        with tfile.open() as infile:
+            new_lines = infile.readlines()
+
+    changes = defaultdict(list)
+    for (before, after) in zip(tracker.rendered_lines, new_lines):
+        if before.entry is None:
+            continue
+
+        after = after.strip()
+        if after == before.entry.text:
+            continue
+
+        change = RenderedLine(entry=before.entry, after=after)
+        changes[before.entry.filename].append(change)
+
+    for filename, updates in changes.items():
+        updater = Updater(filename)
+        updater.act(updates)
