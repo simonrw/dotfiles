@@ -117,9 +117,6 @@ There are two things you can do about this warning:
   :config
   (setq magit-diff-refine-hunk t))
 
-(use-package evil-magit
-  :after magit)
-
 ;; Markdown
 (use-package markdown-mode
   :mode (("README\\.md\\'" . gfm-mode)
@@ -215,6 +212,7 @@ There are two things you can do about this warning:
 (use-package projectile
   :config
   (projectile-mode +1)
+  :custom ((projectile-completion-system 'ivy))
   :bind (("C-c p" . 'projectile-command-map)))
 
 (use-package counsel
@@ -238,13 +236,14 @@ There are two things you can do about this warning:
 
 (setq lsp-keymap-prefix "C-c l")
 (use-package lsp-mode
+  :commands (lsp lsp-deferred)
   :init
   (setq lsp-rust-server "rust-analyzer")
+  (setq lsp-keymap-prefix "C-c l")
   :hook (
          (python-mode . lsp)
          (rust-mode . lsp)
-         (lsp-mode . lsp-enable-which-key-integration))
-  :commands lsp)
+         (lsp-mode . lsp-enable-which-key-integration)))
 
 (use-package lsp-ui :commands lsp-ui-mode)
 
@@ -292,9 +291,7 @@ There are two things you can do about this warning:
   :config
   (evil-collection-init))
 
-(use-package dracula-theme
-  :config
-  (load-theme 'dracula t))
+(load-theme 'tango-dark t)
 
 (provide 'init)
 ;;; init.el ends here
