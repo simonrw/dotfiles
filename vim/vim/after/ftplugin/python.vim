@@ -13,3 +13,6 @@ let b:ale_linters = ["flake8", "mypy"]
 let test#python#pytest#executable = 'pytest'
 
 setlocal colorcolumn=+1
+
+command! -nargs=* Mypy call python#run_mypy(<f-args>)
+command! -nargs=* Flake8 call python#run_flake8(<f-args>)
