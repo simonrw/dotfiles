@@ -417,6 +417,13 @@ let g:vim_markdown_new_list_item_indent= 0
 let g:vim_markdown_no_default_key_mappings = 1
 let g:markdown_fenced_languages = ["python", "javascript", "toml", "rust"]
 
+" prevent coc-emoji leaving behind the initial colon
+" https://github.com/neoclide/coc-sources/issues/15#issuecomment-636398317
+if exists('*complete_info')
+  inoremap <expr> <cr> complete_info()["selected"] != "-1" ? "\<C-y>" : "\<C-g>u\<CR>"
+endif
+
+
 " configure python3 for neovim
 "
 " We ensure that a global python installation with the python3 file is set 
@@ -493,7 +500,7 @@ if has('nvim-0.4.0') || has('patch-8.2.0750')
 endif
 
 inoremap <silent><expr> <TAB>
-    \ pumvisible() ? "\<C-n>" :
+    \ pumvisible() ? "" :
     \ <SID>check_back_space() ? "\<TAB>" :
     \ coc#refresh()
 
