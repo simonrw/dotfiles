@@ -1,0 +1,9 @@
+#!/bin/bash
+
+set -eou pipefail
+
+main() {
+    find ${HOME}/notes/src -name "*.md" | sort | xargs bat -l markdown
+}
+
+main
