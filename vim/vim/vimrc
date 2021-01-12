@@ -97,7 +97,7 @@ set switchbuf+=useopen
 " configure concealing things
 set conceallevel=0
 " configure shortmessages
-set shortmess+=IOTWaot
+set shortmess=tToOFIWa
 " Do not hide sign column
 set signcolumn=auto
 
