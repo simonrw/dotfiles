@@ -2,16 +2,5 @@
 
 set -eou pipefail
 
-noteDir="${HOME}/notes/src"
-test -d ${noteDir} || mkdir -p ${noteDir}
-noteFilename="${noteDir}/note-$(date +%Y-%m-%d).md"
-
-test -f ${noteFilename} || {
-    echo "# Notes for $(date +%Y-%m-%d)" > ${noteFilename}
-}
-
-nvim -c "norm Go" \
-    -c "norm Go## $(date +%H:%M)" \
-    -c "norm G2o" \
-    -c "norm zz" \
-    -c "startinsert" ${noteFilename}
+urlTemplate="obsidian://open?vault=notes&file=daily%2F$(date +%Y-%m-%d)"
+open $urlTemplate

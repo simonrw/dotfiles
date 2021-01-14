@@ -3,12 +3,14 @@
 set -eou pipefail
 
 main() {
-    (find ${HOME}/notes/src -name "*.md" | sort | xargs cat) >> /tmp/allnotes.md
-    if command -v nvim 2>&1 >/dev/null; then
-        nvim /tmp/allnotes.md
-    else
-        vim /tmp/allnotes.md
-    fi
+    case $OSTYPE in
+        darwin*)
+            open -a obsidian
+        ;;
+        *)
+            echo "not implemented"
+        ;;
+    esac
 }
 
 main
