@@ -67,10 +67,11 @@ There are two things you can do about this warning:
 (unless package-archive-contents
   (package-refresh-contents))
 
-
 (unless (package-installed-p 'use-package)
   (package-refresh-contents)
   (package-install 'use-package))
+(eval-when-compile
+  (require 'use-package))
 
 (setq use-package-always-ensure t)
 
@@ -209,6 +210,30 @@ There are two things you can do about this warning:
 (use-package direnv
   :config
   (direnv-mode))
+
+(use-package evil
+  :init
+  (setq evil-want-integration t)
+  (setq evil-want-keybinding nil)
+  :config
+  (evil-mode t)
+  (define-key evil-insert-state-map (kbd "C-g") 'evil-normal-state)
+
+  (evil-set-leader 'normal (kbd ","))
+
+  (evil-global-set-key 'motion "j" 'evil-next-visual-line)
+  (evil-global-set-key 'motion "k" 'evil-previous-visual-line)
+
+  (evil-define-key 'normal 'global (kbd "<leader>f") 'fzf-git-files)
+
+  (evil-set-initial-state 'messages-buffer-mode 'normal)
+  (evil-set-initial-state 'dashboard-mode 'normal))
+
+(use-package evil-collection
+  :after evil
+  :config
+  (evil-collection-init))
+
 
 (load-theme 'wombat t)
 
