@@ -178,12 +178,6 @@ There are two things you can do about this warning:
   (setq gofmt-command "goimports")
   (add-hook 'before-save-hook 'gofmt-before-save))
 
-(use-package auto-complete
-  :config
-  (auto-complete-mode 1))
-
-(use-package go-autocomplete)
-
 (use-package elixir-mode)
 
 (defun todo ()
@@ -196,62 +190,14 @@ There are two things you can do about this warning:
 							 org-bullets-mode 1)))
 (use-package fzf)
 
-(use-package ivy
-  :diminish
-  :config
-  (ivy-mode 1))
-
-(use-package ivy-rich
-  :init
-  (ivy-rich-mode 1)
-  :after counsel)
-
 (use-package rainbow-delimiters
   :hook (prog-mode . rainbow-delimiters-mode))
 
-(use-package projectile
-  :config
-  (projectile-mode +1)
-  :custom ((projectile-completion-system 'ivy))
-  :bind (("C-c p" . 'projectile-command-map)))
-
-(use-package counsel
-  :bind (("M-x" . counsel-M-x))
-  :config
-  (setq ivy-initial-inputs-alist nil))
-
-(use-package helpful
-  :custom
-  (counsel-describe-function-function #'helpful-callable)
-  (counsel-describe-variable-function #'helpful-variable)
-  :bind
-  ([remap describe-function] . counsel-describe-function)
-  ([remap describe-command] . counsel-describe-command)
-  ([remap describe-variable] . counsel-describe-variable)
-  ([remap describe-key] . helpful-key))
+(use-package dockerfile-mode)
 
 (use-package yaml-mode)
 
 (use-package php-mode)
-
-(setq lsp-keymap-prefix "C-c l")
-(use-package lsp-mode
-  :commands (lsp lsp-deferred)
-  :init
-  (setq lsp-rust-server "rust-analyzer")
-  (setq lsp-keymap-prefix "C-c l")
-  :hook (
-         (python-mode . lsp)
-         (rust-mode . lsp)
-         (lsp-mode . lsp-enable-which-key-integration)))
-
-(use-package lsp-ui :commands lsp-ui-mode)
-
-(use-package lsp-python-ms
-  :init (setq lsp-python-ms-auto-install-server t)
-  :hook (python-mode . (lambda ()
-						 (require 'lsp-python-ms)
-						 (lsp))))
 
 (use-package which-key
   :init
@@ -264,34 +210,7 @@ There are two things you can do about this warning:
   :config
   (direnv-mode))
 
-(use-package company
-  :config
-  (company-mode))
-
-(use-package evil
-  :init
-  (setq evil-want-integration t)
-  (setq evil-want-keybinding nil)
-  :config
-  (evil-mode t)
-  (define-key evil-insert-state-map (kbd "C-g") 'evil-normal-state)
-
-  (evil-set-leader 'normal (kbd ","))
-
-  (evil-global-set-key 'motion "j" 'evil-next-visual-line)
-  (evil-global-set-key 'motion "k" 'evil-previous-visual-line)
-
-  (evil-define-key 'normal 'global (kbd "<leader>f") 'fzf-git-files)
-
-  (evil-set-initial-state 'messages-buffer-mode 'normal)
-  (evil-set-initial-state 'dashboard-mode 'normal))
-
-(use-package evil-collection
-  :after evil
-  :config
-  (evil-collection-init))
-
-(load-theme 'tango-dark t)
+(load-theme 'wombat t)
 
 (provide 'init)
 ;;; init.el ends here
