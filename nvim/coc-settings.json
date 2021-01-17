@@ -8,6 +8,7 @@
     "python.formatting.blackArgs": ["--line-length", "88"],
     "python.formatting.blackPath": "~/.local/pipx/bin/black",
     "python.linting.flake8Path": "~/.local/pipx/bin/flake8",
+    "suggest.autoTrigger": "none",
     "coc.source.emoji.filetypes": ["markdown", "gitcommit"],
     "languageserver": {
         "ccls": {
