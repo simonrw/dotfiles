@@ -17,6 +17,5 @@ xmodmap ~/.Xmodmap
 setxkbmap -option 'caps:ctrl_modifier'
 xcape -t 100 -e 'Caps_Lock=Escape;Control_L=Escape;Control_R=Escape'
 
-# Start KDE
-export DESKTOP_SESSION=plasma
-exec startplasma-x11
+# Start XFCE
+exec startxfce4
