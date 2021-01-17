@@ -540,6 +540,9 @@ function! LightlineFilename()
   return expand('%:t') !=# '' ? @% : '[No Name]'
 endfunction
 
+" Disable concealing with indentline
+let g:indentLine_setConceal = 0
+
 " Support directory local vimrc files
 " https://github.com/direnv/direnv/wiki/Vim
 if exists("$EXTRA_VIM")
