@@ -28,8 +28,6 @@ Plug 'vim-test/vim-test'
 Plug 'junegunn/vim-easy-align'
 Plug 'junegunn/goyo.vim'
 Plug 'neoclide/coc.nvim', { 'branch': 'release' }
-Plug 'editorconfig/editorconfig-vim'
-Plug 'itchyny/lightline.vim'
 Plug 'chriskempson/base16-vim'
 Plug 'Yggdroot/indentLine'
 
@@ -510,37 +508,6 @@ inoremap <silent><expr> <TAB>
 function! s:check_back_space() abort
     let col = col(".") - 1
     return !col || getline(".")[col - 1] =~# '\s'
-endfunction
-
-
-" Lightline
-let g:lightline = {}
-let g:lightline.colorscheme = 'default'
-let g:lightline.active = {
-      \   'left': [ [ 'mode', 'paste' ],
-      \             [ 'cocstatus', 'readonly', 'filename', 'modified', 'gitstatus' ] ]
-      \ }
-let g:lightline.inactive = g:lightline.active
-let g:lightline.mode_map = {
-        \ 'n' : 'N',
-        \ 'i' : 'I',
-        \ 'R' : 'R',
-        \ 'v' : 'V',
-        \ 'V' : 'VL',
-        \ "\<C-v>": 'VB',
-        \ 'c' : 'C',
-        \ 's' : 'S',
-        \ 'S' : 'SL',
-        \ "\<C-s>": 'SB',
-        \ 't': 'T',
-        \ }
-let g:lightline.component_function = {
-      \   'filename': 'LightlineFilename',
-      \   'cocstatus': 'coc#status',
-      \   'gitstatus': 'FugitiveStatusline'
-      \ }
-function! LightlineFilename()
-  return expand('%:t') !=# '' ? @% : '[No Name]'
 endfunction
 
 " Disable concealing with indentline
