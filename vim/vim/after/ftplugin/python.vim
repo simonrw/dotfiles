@@ -12,7 +12,7 @@ let b:ale_linters = ["flake8", "mypy"]
 " Pipfile exists
 let test#python#pytest#executable = 'pytest'
 
-setlocal colorcolumn=+1
+set colorcolumn=0
 
 command! -nargs=* Mypy call python#run_mypy(<f-args>)
 command! -nargs=* Flake8 call python#run_flake8(<f-args>)
