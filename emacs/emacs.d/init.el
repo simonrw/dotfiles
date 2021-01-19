@@ -234,6 +234,29 @@ There are two things you can do about this warning:
   :config
   (evil-collection-init))
 
+(use-package projectile
+  :diminish projectile-mode
+  :config (projectile-mode)
+  :custom ((projectile-completion-system 'ivy))
+  :bind-keymap
+  ("C-c C-p" . projectile-command-map))
+
+(use-package all-the-icons)
+
+(use-package doom-modeline
+  :init (doom-modeline-mode 1)
+  :custom ((doom-modeline-height 10)))
+
+(use-package ivy-rich
+  :init
+  (ivy-rich-mode 1))
+
+(use-package counsel
+  :bind (("M-x" . counsel-M-x)
+		 ("C-x b" . counsel-ibuffer)
+		 ("C-x C-f" . counsel-find-file)
+		 :map minibuffer-local-map
+		 ("C-r" . 'counsel-minibuffer-history)))
 
 (load-theme 'wombat t)
 
