@@ -234,10 +234,14 @@ There are two things you can do about this warning:
   :config
   (evil-collection-init))
 
+(use-package helm
+  :config
+  (helm-mode 1))
+
 (use-package projectile
   :diminish projectile-mode
   :config (projectile-mode)
-  :custom ((projectile-completion-system 'ivy))
+  :custom ((projectile-completion-system 'helm))
   :bind-keymap
   ("C-c C-p" . projectile-command-map))
 
@@ -246,10 +250,6 @@ There are two things you can do about this warning:
 (use-package doom-modeline
   :init (doom-modeline-mode 1)
   :custom ((doom-modeline-height 10)))
-
-(use-package ivy-rich
-  :init
-  (ivy-rich-mode 1))
 
 (use-package counsel
   :bind (("M-x" . counsel-M-x)
