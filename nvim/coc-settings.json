@@ -5,7 +5,6 @@
     "coc.preferences.formatOnSaveFiletypes": ["rust", "javascript", "javascriptreact", "html", "typescript", "go", "elm", "typescriptreact", "javascriptreact"],
     "python.linting.mypyEnabled": true,
     "python.formatting.provider": "black",
-    "python.formatting.blackArgs": ["--line-length", "88"],
     "python.formatting.blackPath": "~/.local/pipx/bin/black",
     "python.linting.flake8Path": "~/.local/pipx/bin/flake8",
     "coc.source.emoji.filetypes": ["markdown", "gitcommit"],
