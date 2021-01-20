@@ -81,34 +81,32 @@ hs.hotkey.bind({'cmd', 'alt', 'ctrl'}, 'o', function()
 end)
 
 -- Move window to left two thirds
-if false then
-    hs.hotkey.bind({'cmd', 'alt', 'ctrl'}, 'Left', function()
-        local win = hs.window.focusedWindow()
-        local f = win:frame()
-        local screen = win:screen()
-        local max = screen:frame()
+hs.hotkey.bind({'cmd', 'alt', 'ctrl'}, 'Left', function()
+    local win = hs.window.focusedWindow()
+    local f = win:frame()
+    local screen = win:screen()
+    local max = screen:frame()
 
-        fc:add(win)
+    fc:add(win)
 
-        local f = windowLeftHalf(f, max)
+    local f = windowLeftHalf(f, max)
 
-        win:setFrame(f)
-    end)
+    win:setFrame(f)
+end)
 
-    -- Move window to the right half
-    hs.hotkey.bind({'cmd', 'alt', 'ctrl'}, 'Right', function()
-        local win = hs.window.focusedWindow()
-        local f = win:frame()
-        local screen = win:screen()
-        local max = screen:frame()
+-- Move window to the right half
+hs.hotkey.bind({'cmd', 'alt', 'ctrl'}, 'Right', function()
+    local win = hs.window.focusedWindow()
+    local f = win:frame()
+    local screen = win:screen()
+    local max = screen:frame()
 
-        fc:add(win)
+    fc:add(win)
 
-        local f = windowRightHalf(f, max)
+    local f = windowRightHalf(f, max)
 
-        win:setFrame(f)
-    end)
-end
+    win:setFrame(f)
+end)
 
 hs.hotkey.bind({'cmd', 'alt', 'ctrl'}, 'z', function()
     local win = hs.window.focusedWindow()
