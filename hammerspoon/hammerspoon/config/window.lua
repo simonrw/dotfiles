@@ -1,5 +1,5 @@
 -- constant holding the window enlargement/shrinkage factor
-local FULLSCREEN_BORDER = 0
+local FULLSCREEN_BORDER = 16
 local ENABLE_FULLSCREEN_SHORTCUT = true
 local WINDOW_BORDER = FULLSCREEN_BORDER
 local LEFTRIGHT_FRACTION = 0.5
@@ -81,32 +81,34 @@ hs.hotkey.bind({'cmd', 'alt', 'ctrl'}, 'o', function()
 end)
 
 -- Move window to left two thirds
-hs.hotkey.bind({'cmd', 'alt', 'ctrl'}, 'Left', function()
-    local win = hs.window.focusedWindow()
-    local f = win:frame()
-    local screen = win:screen()
-    local max = screen:frame()
+if false then
+    hs.hotkey.bind({'cmd', 'alt', 'ctrl'}, 'Left', function()
+        local win = hs.window.focusedWindow()
+        local f = win:frame()
+        local screen = win:screen()
+        local max = screen:frame()
 
-    fc:add(win)
+        fc:add(win)
 
-    local f = windowLeftHalf(f, max)
+        local f = windowLeftHalf(f, max)
 
-    win:setFrame(f)
-end)
+        win:setFrame(f)
+    end)
 
--- Move window to the right half
-hs.hotkey.bind({'cmd', 'alt', 'ctrl'}, 'Right', function()
-    local win = hs.window.focusedWindow()
-    local f = win:frame()
-    local screen = win:screen()
-    local max = screen:frame()
+    -- Move window to the right half
+    hs.hotkey.bind({'cmd', 'alt', 'ctrl'}, 'Right', function()
+        local win = hs.window.focusedWindow()
+        local f = win:frame()
+        local screen = win:screen()
+        local max = screen:frame()
 
-    fc:add(win)
+        fc:add(win)
 
-    local f = windowRightHalf(f, max)
+        local f = windowRightHalf(f, max)
 
-    win:setFrame(f)
-end)
+        win:setFrame(f)
+    end)
+end
 
 hs.hotkey.bind({'cmd', 'alt', 'ctrl'}, 'z', function()
     local win = hs.window.focusedWindow()
