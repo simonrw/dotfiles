@@ -23,7 +23,7 @@ THEME_MAPS = {
         "emacs": "wombat",
     },
     "light": {
-        "vim": "base16-tomorrow",
+        "vim": "base16-google-light",
         "tmux": "base16/base16-ia-light.conf",
         "kitty": "base16/base16-tomorrow.conf",
         "ipython": "LightBG",

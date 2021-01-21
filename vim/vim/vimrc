@@ -434,5 +434,5 @@ endif
 let g:pydocstring_doq_path = expand("$HOME") . '/.local/pipx/bin/doq'
 let g:pydocstring_formatter = "sphinx"
 
+colorscheme base16-google-light
 set background=dark
-colorscheme base16-tomorrow
