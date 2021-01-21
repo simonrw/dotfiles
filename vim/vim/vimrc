@@ -29,6 +29,7 @@ Plug 'junegunn/vim-easy-align'
 Plug 'junegunn/goyo.vim'
 Plug 'chriskempson/base16-vim'
 Plug 'shumphrey/fugitive-gitlab.vim'
+Plug 'dense-analysis/ale'
 
 " My plugins
 Plug 'https://gitlab.com/srwalker101/pytest-callgraph.git'
@@ -399,7 +400,10 @@ endif
 " configure abbreviations
 source ~/.vim/abbreviations.vim
 
-let g:ale_fix_on_save = 1
+" configure ale
+let g:ale_fix_on_save = 0
+nmap <silent> [g <Plug>(ale_previous_wrap)
+nmap <silent> ]g <Plug>(ale_next_wrap)
 
 let g:hardtime_default_on = 1
 let g:hardtime_ignore_quickfix = 1
