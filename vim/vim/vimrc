@@ -29,7 +29,6 @@ Plug 'junegunn/vim-easy-align'
 Plug 'junegunn/goyo.vim'
 Plug 'neoclide/coc.nvim', { 'branch': 'release' }
 Plug 'chriskempson/base16-vim'
-Plug 'Yggdroot/indentLine'
 
 " My plugins
 Plug 'https://gitlab.com/srwalker101/pytest-callgraph.git'
