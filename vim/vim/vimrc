@@ -32,6 +32,7 @@ Plug 'shumphrey/fugitive-gitlab.vim'
 Plug 'dense-analysis/ale'
 Plug 'heavenshell/vim-pydocstring'
 Plug 'psf/black', { 'branch': 'stable' }
+Plug 'airblade/vim-gitgutter'
 
 " My plugins
 Plug 'https://gitlab.com/srwalker101/pytest-callgraph.git'
