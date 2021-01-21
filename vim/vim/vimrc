@@ -30,6 +30,7 @@ Plug 'junegunn/goyo.vim'
 Plug 'chriskempson/base16-vim'
 Plug 'shumphrey/fugitive-gitlab.vim'
 Plug 'dense-analysis/ale'
+Plug 'heavenshell/vim-pydocstring'
 
 " My plugins
 Plug 'https://gitlab.com/srwalker101/pytest-callgraph.git'
@@ -429,6 +430,9 @@ if exists("$EXTRA_VIM")
     exec "source ".path
   endfor
 endif
+
+let g:pydocstring_doq_path = expand("$HOME") . '/.local/pipx/bin/doq'
+let g:pydocstring_formatter = "sphinx"
 
 set background=dark
 colorscheme srw256
