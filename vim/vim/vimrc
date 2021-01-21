@@ -29,6 +29,7 @@ Plug 'junegunn/vim-easy-align'
 Plug 'junegunn/goyo.vim'
 Plug 'neoclide/coc.nvim', { 'branch': 'release' }
 Plug 'chriskempson/base16-vim'
+Plug 'shumphrey/fugitive-gitlab.vim'
 
 " My plugins
 Plug 'https://gitlab.com/srwalker101/pytest-callgraph.git'
@@ -469,25 +470,8 @@ let g:hardtime_maxcount = 2
 " Command to split a terminal window
 command! -nargs=* -complete=shellcmd T split | resize 30 | term <args>
 
-function! s:transform_remote_url(url)
-    let stub = substitute(split(a:url, "@")[1], ":", "/", "g")
-    let stub = substitute(stub, "\.git", "", "g")
-    return "https://" . stub
-endfunction
-
-function! GitlabLinkLine()
-    let curr_line = line(".")
-    let sha = trim(system("git rev-parse HEAD"))
-    let remote_url = trim(system("git config --get remote.origin.url"))
-    let remote_https_url = s:transform_remote_url(remote_url)
-    let full_url = remote_https_url . "/-/blob/" . sha . "/" . expand("%") . "#L" . curr_line
-    echo full_url
-    call system("open " . full_url)
-endfunction
-
-command! -nargs=0 GLL :call GitlabLinkLine()
-
-set background=dark
+" configure fugitive-gitlab
+let g:fugitive_gitlab_domains = ["https://gitlab.pixsystem.net", "https://gitlab.com"]
 
 " configure nord
 let g:nord_uniform_diff_background = 1
@@ -520,4 +504,5 @@ if exists("$EXTRA_VIM")
   endfor
 endif
 
+set background=dark
 colorscheme srw256
