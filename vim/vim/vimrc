@@ -435,4 +435,4 @@ let g:pydocstring_doq_path = expand("$HOME") . '/.local/pipx/bin/doq'
 let g:pydocstring_formatter = "sphinx"
 
 set background=dark
-colorscheme srw256
+colorscheme base16-tomorrow
