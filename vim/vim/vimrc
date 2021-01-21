@@ -31,6 +31,7 @@ Plug 'chriskempson/base16-vim'
 Plug 'shumphrey/fugitive-gitlab.vim'
 Plug 'dense-analysis/ale'
 Plug 'heavenshell/vim-pydocstring'
+Plug 'psf/black', { 'branch': 'stable' }
 
 " My plugins
 Plug 'https://gitlab.com/srwalker101/pytest-callgraph.git'
@@ -433,6 +434,7 @@ endif
 
 let g:pydocstring_doq_path = expand("$HOME") . '/.local/pipx/bin/doq'
 let g:pydocstring_formatter = "sphinx"
+let g:pydocstring_enable_mapping = 0
 
-colorscheme base16-google-light
+colorscheme srw256
 set background=dark

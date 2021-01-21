@@ -434,7 +434,7 @@ available_schemes:
     #
     #indexed_colors: []
 
-colors: *colors_base16_tomorrow
+colors: *colors_default
 
 # Visual Bell
 #
