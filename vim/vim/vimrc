@@ -31,7 +31,6 @@ Plug 'chriskempson/base16-vim'
 Plug 'shumphrey/fugitive-gitlab.vim'
 Plug 'dense-analysis/ale'
 Plug 'heavenshell/vim-pydocstring'
-Plug 'psf/black', { 'branch': 'stable' }
 Plug 'airblade/vim-gitgutter'
 
 " My plugins
