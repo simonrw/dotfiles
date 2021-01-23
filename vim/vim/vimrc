@@ -348,7 +348,7 @@ command! -nargs=1 Note :call s:note(<f-args>)
 nnoremap cd :Todo<cr>
 
 " Set up auto formatting
-nnoremap <leader>y mm:Format<Cr>`m
+nnoremap <silent> <leader>y :ALEFix<Cr>
 
 let g:dispatch_quickfix_height=40
 let g:dispatch_tmux_height=40
