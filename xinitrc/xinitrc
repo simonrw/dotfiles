@@ -1,5 +1,3 @@
-# Set the keyboard map to UK layout
-setxkbmap gb
 
 # Handle nice suspend
 xss-lock -- i3lock --color 333333 --show-failed-attempts &
@@ -13,9 +11,8 @@ xss-lock -- i3lock --color 333333 --show-failed-attempts &
 # Set the keyboard map
 xmodmap ~/.Xmodmap
 
-# Configure xcape
-setxkbmap -option 'caps:ctrl_modifier'
-xcape -t 100 -e 'Caps_Lock=Escape;Control_L=Escape;Control_R=Escape'
+# Configure keyboard map
+bash ~/.bin/set-keyboard
 
 # Start XFCE
 exec startxfce4
