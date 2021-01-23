@@ -23,12 +23,12 @@ THEME_MAPS = {
         "emacs": "wombat",
     },
     "light": {
-        "vim": "base16-google-light",
-        "tmux": "base16/base16-ia-light.conf",
-        "kitty": "base16/base16-tomorrow.conf",
+        "vim": "base16-solarized-light",
+        "tmux": "base16/base16-solarized-light.conf",
+        "kitty": "base16/base16-solarized-light.conf",
         "ipython": "LightBG",
         "alacritty": "colors_base16_tomorrow",
-        "bat": "base16",
+        "bat": "Solarized (Light)",
         "emacs": "whiteboard",
     },
 }
