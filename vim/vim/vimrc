@@ -371,6 +371,7 @@ nmap <silent> ]g <Plug>(coc-diagnostic-next)
 
 " Add `:Format` command to format current buffer.
 command! -nargs=0 Format :call CocAction('format')
+nnoremap <silent> <leader>y :Format<cr>
 
 " Symbol renaming.
 nmap <leader>rn <Plug>(coc-rename)
