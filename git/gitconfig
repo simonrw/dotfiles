@@ -90,8 +90,7 @@
 	attributesFile = ~/.gitattributes_global
     pager = delta
 [delta]
-    light = true
-    syntax-theme = "Solarized (light)"
+    dark = true
     side-by-side = true
 [merge]
     tool = conflicted
