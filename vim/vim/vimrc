@@ -30,9 +30,7 @@ Plug 'junegunn/goyo.vim'
 Plug 'neoclide/coc.nvim', { 'branch': 'release' }
 Plug 'chriskempson/base16-vim'
 Plug 'shumphrey/fugitive-gitlab.vim'
-Plug 'dense-analysis/ale'
 Plug 'heavenshell/vim-pydocstring'
-Plug 'airblade/vim-gitgutter'
 
 " My plugins
 Plug 'https://gitlab.com/srwalker101/pytest-callgraph.git'
@@ -374,9 +372,6 @@ nmap <silent> ]g <Plug>(coc-diagnostic-next)
 " Add `:Format` command to format current buffer.
 command! -nargs=0 Format :call CocAction('format')
 
-" Set up auto formatting
-nnoremap <silent> <leader>y :ALEFix<Cr>
-
 " Symbol renaming.
 nmap <leader>rn <Plug>(coc-rename)
 
@@ -442,11 +437,6 @@ endif
 
 " configure abbreviations
 source ~/.vim/abbreviations.vim
-
-" configure ale
-let g:ale_fix_on_save = 0
-nmap <silent> [g <Plug>(ale_previous_wrap)
-nmap <silent> ]g <Plug>(ale_next_wrap)
 
 " Use `[g` and `]g` to navigate diagnostics
 " Use `:CocDiagnostics` to get all diagnostics of current buffer in location list.
