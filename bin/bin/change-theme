@@ -25,7 +25,7 @@ THEME_MAPS = {
     "light": {
         "vim": "PaperColor",
         "tmux": "srw.conf",
-        "kitty": "base16/papercolor-light.conf",
+        "kitty": "papercolor-light.conf",
         "ipython": "LightBG",
         "alacritty": "colors_base16_tomorrow",
         "bat": "Github",
