@@ -28,7 +28,7 @@ THEME_MAPS = {
         "kitty": "papercolor-light.conf",
         "ipython": "LightBG",
         "alacritty": "colors_base16_tomorrow",
-        "bat": "Github",
+        "bat": "GitHub",
         "emacs": "whiteboard",
     },
 }
