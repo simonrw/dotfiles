@@ -23,12 +23,12 @@ THEME_MAPS = {
         "emacs": "wombat",
     },
     "light": {
-        "vim": "base16-google-light",
-        "tmux": "base16/base16-ia-light.conf",
-        "kitty": "base16/base16-tomorrow.conf",
+        "vim": "PaperColor",
+        "tmux": "srw.conf",
+        "kitty": "base16/papercolor-light.conf",
         "ipython": "LightBG",
         "alacritty": "colors_base16_tomorrow",
-        "bat": "base16",
+        "bat": "Github",
         "emacs": "whiteboard",
     },
 }
@@ -62,7 +62,6 @@ class ThemeChooser:
         # TODO(maybe): emacs
         self.method_names = [
             "update_vim",
-            "update_tmux",
             "update_kitty",
             "update_gitconfig",
             "update_fzf",
@@ -102,6 +101,8 @@ class ThemeChooser:
         )
 
     def update_tmux(self):
+        # NOTE: DEPRECATED: This is not used any more. The tmux config does not
+        # change, it inherits from the terminal colour scheme.
         tmux_conf = HOME_DIR / ".tmux.d" / "colourschemes" / "custom.conf"
         theme_name = THEME_MAPS[self.theme_name]["tmux"]
         self.replacer.replace_in_file(
