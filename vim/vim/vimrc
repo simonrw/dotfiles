@@ -203,7 +203,7 @@ let g:VtrAppendNewline = 1
 " Expand %% to the current directory
 cnoremap %% <c-r>=expand('%:h') . '/'<cr>
 
-nnoremap <silent> <leader>ve :split ~/.vim/vimrc<Cr>
+nnoremap <silent> <leader>ve :e ~/.vim/vimrc<Cr>
 nnoremap <silent> <leader>vr :source $MYVIMRC\|echo "Reloaded!"<Cr>
 nnoremap <silent> <leader>ev :echo "Use <leader>ve"<Cr>
 
