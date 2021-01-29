@@ -444,6 +444,10 @@ else
         \ . ". Create virtual environment there and install `pynvim`."
 endif
 
+" mapping to set up run command
+nnoremap <leader>V :nnoremap <silent> <leader>t :update\\|:V<space>
+nnoremap <leader>T :nnoremap <silent> <leader>t :update\\|:T<space>
+
 " configure abbreviations
 source ~/.vim/abbreviations.vim
 
