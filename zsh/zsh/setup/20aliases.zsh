@@ -55,3 +55,8 @@ fi
 if has_executable nvim; then
     alias vimdiff="nvim -d"
 fi
+
+if has_executable lab; then
+    alias lpb="lab project browse"
+    alias lmb="lab mr browse"
+fi
