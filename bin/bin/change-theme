@@ -14,7 +14,10 @@ logging.basicConfig(level=logging.WARNING)
 
 THEME_MAPS = {
     "dark": {
-        "vim": "srw256",
+        "vim": {
+            "colourscheme": "srw256",
+            "lightline": "default",
+        },
         "tmux": "srw.conf",
         "kitty": "srw.conf",
         "ipython": "Linux",
@@ -23,13 +26,30 @@ THEME_MAPS = {
         "emacs": "wombat",
     },
     "light": {
-        "vim": "PaperColor",
+        "vim": {
+            "colourscheme": "PaperColor",
+            "lightline": "PaperColor",
+        },
         "tmux": "srw.conf",
         "kitty": "papercolor-light.conf",
         "ipython": "LightBG",
-        "alacritty": "colors_base16_tomorrow",
+        "alacritty": "colors_papercolor",
         "bat": "GitHub",
         "emacs": "whiteboard",
+    },
+}
+TMUX_COLOURS = {
+    "light": {
+        "accent_color": "colour6",
+        "text_color": "colour7",
+        "active_text_color": "colour6",
+        "pane_border_color": "colour6",
+    },
+    "dark": {
+        "accent_color": "colour12",
+        "text_color": "colour7",
+        "active_text_color": "colour12",
+        "pane_border_color": "colour240",
     },
 }
 
@@ -96,20 +116,25 @@ class ThemeChooser:
     def update_vim(self):
         vimrc = HOME_DIR / ".vim" / "vimrc"
         theme_name = THEME_MAPS[self.theme_name]["vim"]
+        theme = theme_name["colourscheme"]
         self.replacer.replace_in_file(
-            vimrc, r"^colorscheme .*$", f"colorscheme {theme_name}"
+            vimrc, r"^colorscheme .*$", f"colorscheme {theme}"
+        )
+        lightline_theme = theme_name["lightline"]
+        self.replacer.replace_in_file(
+            vimrc,
+            r"^let g:lightline.colorscheme.*$",
+            f"let g:lightline.colorscheme = '{lightline_theme}'",
         )
 
     def update_tmux(self):
-        # NOTE: DEPRECATED: This is not used any more. The tmux config does not
-        # change, it inherits from the terminal colour scheme.
-        tmux_conf = HOME_DIR / ".tmux.d" / "colourschemes" / "custom.conf"
-        theme_name = THEME_MAPS[self.theme_name]["tmux"]
-        self.replacer.replace_in_file(
-            tmux_conf,
-            r"^source ~/.tmux.d/colourschemes/.*$",
-            f"source ~/.tmux.d/colourschemes/{theme_name}",
-        )
+        tmux_conf = HOME_DIR / ".tmux.d" / "colourschemes" / "srw.conf"
+        for key, value in TMUX_COLOURS[self.theme_name].items():
+            self.replacer.replace_in_file(
+                tmux_conf,
+                fr"^{key}.*$",
+                f"{key}={value}",
+            )
 
     def update_kitty(self):
         kitty_conf = HOME_DIR / ".config" / "kitty" / "kitty.conf"
