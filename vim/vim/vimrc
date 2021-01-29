@@ -547,4 +547,4 @@ let g:pydocstring_formatter = "sphinx"
 let g:pydocstring_enable_mapping = 0
 
 set background=light
-colorscheme srw256
+colorscheme PaperColor

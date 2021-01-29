@@ -253,7 +253,7 @@ There are two things you can do about this warning:
 		 :map minibuffer-local-map
 		 ("C-r" . 'counsel-minibuffer-history)))
 
-(load-theme 'wombat t)
+(load-theme 'whiteboard t)
 
 (provide 'init)
 ;;; init.el ends here

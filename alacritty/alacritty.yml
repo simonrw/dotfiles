@@ -377,43 +377,22 @@ available_schemes:
       cyan:    '0xe5e6fe'
       white:   '0xfefffe'
 
-      # Bright and dim foreground colors
-      #
-      # The dimmed foreground color is calculated automatically if it is not present.
-      # If the bright foreground color is not set, or `draw_bold_text_with_bright_colors`
-      # is `false`, the normal foreground color will be used.
-      #dim_foreground: '#828482'
-      #bright_foreground: '#eaeaea'
-
     # Cursor colors
-    #
-    # Colors which should be used to draw the terminal cursor. If these are
-    # unset, the cursor color will be the inverse of the cell color.
     cursor:
       text: '#000000'
       cursor: '#ffffff'
 
     # Vi mode cursor colors
-    #
-    # Colors for the cursor when the vi mode is active. If these are unset, the
-    # cursor color will be the inverse of the cell color.
     vi_mode_cursor:
       text: '#000000'
       cursor: '#ffffff'
 
     # Selection colors
-    #
-    # Colors which should be used to draw the selection area. If selection
-    # background is unset, selection color will be the inverse of the cell colors.
-    # If only text is unset the cell text color will remain the same.
     selection:
       text: '#eaeaea'
       background: '#404040'
 
     # Dim colors
-    #
-    # If the dim colors are not set, they will be calculated automatically based
-    # on the `normal` colors.
     dim:
       black:   '#131415'
       red:     '#864343'
@@ -424,17 +403,45 @@ available_schemes:
       cyan:    '#5b7d78'
       white:   '#828482'
 
-    # Indexed Colors
-    #
-    # The indexed colors include all colors from 16 to 256.
-    # When these are not set, they're filled with sensible defaults.
-    #
-    # Example:
-    #   `- { index: 16, color: '#ff00ff' }`
-    #
-    #indexed_colors: []
+  default: &colors_papercolor
+    # Default colors
+    primary:
+      foreground: '#444444'
+      background: '#eeeeee'
 
-colors: *colors_default
+    # Normal colors
+    normal:
+      black:   '0xeeeeee'
+      red:     '0xaf0000'
+      green:   '0x008700'
+      yellow:  '0x5f8700'
+      blue:    '0x0087af'
+      magenta: '0x878787'
+      cyan:    '0x005f87'
+      white:   '0x444444'
+
+    # Bright colors
+    bright:
+      black:   '0xbcbcbc'
+      red:     '0xd70000'
+      green:   '0xd70087'
+      yellow:  '0x8700af'
+      blue:    '0xd75f00'
+      magenta: '0xfdb1fe'
+      cyan:    '0x005faf'
+      white:   '0x005f87'
+
+    # Cursor colors
+    cursor:
+      text: '#eeeeee'
+      cursor: '#444444'
+
+    # Vi mode cursor colors
+    vi_mode_cursor:
+      text: '#eeeeee'
+      cursor: '#444444'
+
+colors: *colors_papercolor
 
 # Visual Bell
 #
