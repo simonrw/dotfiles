@@ -60,3 +60,7 @@ if has_executable lab; then
     alias lpb="lab project browse"
     alias lmb="lab mr browse"
 fi
+
+if has_executable paru; then
+    alias pacman=paru
+fi
