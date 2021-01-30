@@ -254,6 +254,11 @@ There are two things you can do about this warning:
 		 ("C-r" . 'counsel-minibuffer-history)))
 
 (load-theme 'whiteboard t)
+ 
+(use-package ivy
+  :config
+  (ivy-mode))
+
 
 (provide 'init)
 ;;; init.el ends here
