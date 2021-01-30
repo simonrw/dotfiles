@@ -82,6 +82,7 @@ class ThemeChooser:
         # TODO(maybe): emacs
         self.method_names = [
             "update_vim",
+            "update_tmux",
             "update_kitty",
             "update_gitconfig",
             "update_fzf",
