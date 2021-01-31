@@ -256,6 +256,7 @@ nnoremap <silent> tn :update\|:TestNearest<Cr>
 nnoremap <silent> ta :update\|:TestSuite<Cr>
 nnoremap <silent> ts :update\|:TestSuite<Cr>
 let test#python#runner = 'pytest'
+let test#javascript#reactscripts#options = "--watchAll=false"
 
 nnoremap <leader>v :VtrAttachToPane<cr>
 
