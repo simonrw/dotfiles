@@ -441,7 +441,7 @@ available_schemes:
       text: '#eeeeee'
       cursor: '#444444'
 
-colors: *colors_papercolor
+colors: *colors_default
 
 # Visual Bell
 #
