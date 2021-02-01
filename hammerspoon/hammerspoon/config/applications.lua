@@ -25,6 +25,9 @@ applications = {
     },
     video = {
         name = "Zoom Meeting",
+    },
+    youtube = {
+        name = "YouTube",
     }
 }
 
