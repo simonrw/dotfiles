@@ -69,16 +69,24 @@ function git_async() {
   async_job __git_worker __git_status "$(pwd)"
 }
 
-function precmd() {
-    git_async
-}
+# function precmd() {
+#     git_async
+# }
 
 ZSH_THEME_GIT_PROMPT_CLEAN=") %F{green}%B✔ "
 ZSH_THEME_GIT_PROMPT_DIRTY=") %F{yellow}%B✗ "
 ZSH_THEME_GIT_PROMPT_PREFIX="%F{5}%B("
 ZSH_THEME_GIT_PROMPT_SUFFIX="%f%b"
 
+# Version control info
+autoload -Uz vcs_info
+precmd() { vcs_info }
+
+zstyle ':vcs_info:git:*' formats '%b'
+
 # __prompt_icon="➜"
 __prompt_icon="$"
+setopt PROMPT_SUBST
 export PROMPT=$'\n%F{yellow}$(__suspended_count)%(?.%F{green}${__prompt_icon}.%F{red}${__prompt_icon})%F{reset} '
+export RPROMPT=$'%F{red}${vcs_info_msg_0_}%F{reset}'
 # vim: ft=zsh
