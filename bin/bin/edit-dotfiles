@@ -1,0 +1,54 @@
+#!/bin/sh
+
+set -euo pipefail
+
+log() {
+    echo "[$(date)]: $*" >&2
+}
+
+error() {
+    log $*
+    exit 1
+}
+
+dotfiles_session_name() {
+    echo $HOME/dotfiles | rev | cut -f 1-2 -d '/' | rev
+}
+
+create_dotfiles_session() {
+    tmux new-session -s $1 -d -c $HOME/dotfiles
+    switch_to_existing_session $1
+}
+
+attach_to_dotfiles_session() {
+    create_dotfiles_session
+}
+
+switch_to_existing_session() {
+    tmux switch-client -t $1
+}
+
+tmux_session_exists() {
+    tmux ls | grep -q $1
+}
+
+switch_to_dotfiles_session() {
+    session_name=$1
+    tmux_session_exists $session_name && {
+        switch_to_existing_session $session_name
+    } || {
+        create_dotfiles_session $session_name
+    }
+}
+
+
+main() {
+    session_name=$(dotfiles_session_name)
+    if [[ -z "$TMUX" ]]; then
+        attach_to_dotfiles_session $session_name
+    else
+        switch_to_dotfiles_session $session_name
+    fi
+}
+
+main
