@@ -68,3 +68,7 @@ fi
 if has_executable emacsclient; then
     alias emacs="emacsclient -c -n"
 fi
+
+if has_executable edit-dotfiles; then
+    alias dotfiles=edit-dotfiles
+fi
