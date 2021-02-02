@@ -7,6 +7,6 @@ function __suspended_count() {
 
 __prompt_icon="$"
 
-export PROMPT=$'\n%F{yellow}$(__suspended_count)%(?.%F{10}${__prompt_icon}.%F{9}${__prompt_icon})%F{reset} '
+export PROMPT=$'\n%F{yellow}$(__suspended_count)%(?.%F{green}${__prompt_icon}.%F{red}${__prompt_icon})%F{reset} '
 export RPROMPT=$''
 # vim: ft=zsh
