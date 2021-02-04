@@ -18,6 +18,7 @@ test -d ~/.ssh && {
     alias add-keys="ssh-add $(find ~/.ssh -maxdepth 1 -type f -name "id_rsa*" | grep -v pub | grep -v bak)"
 }
 alias gpe="git push && exit"
+alias gpr="git pull --rebase"
 
 if has_executable rg; then
     alias grep=rg
@@ -72,3 +73,4 @@ fi
 if has_executable edit-dotfiles; then
     alias dotfiles=edit-dotfiles
 fi
+
