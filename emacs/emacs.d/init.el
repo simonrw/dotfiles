@@ -156,23 +156,57 @@ There are two things you can do about this warning:
 
 (use-package csharp-mode)
 
-(org-babel-do-load-languages
- 'org-babel-load-languages
- '((emacs-lisp . t)
-   (R . t)
-   (dot . t)
-  (ruby . t)
-   (python . t)))
+(use-package graphviz-dot-mode)
 
-(setq org-startup-indented t)
-(setq org-startup-folded "showall")
-(setq org-directory "~/Dropbox/org")
-(org-babel-do-load-languages
- 'org-babel-load-languages
- '((plantuml . t)))
+(use-package org
+  :hook (org-mode-hook . variable-pitch-mode)
+  :config
+  (setq org-startup-indented t)
+  (setq org-startup-folded "showall")
+  (setq org-directory "~/Dropbox/org")
+  (org-babel-do-load-languages
+   'org-babel-load-languages
+   '((plantuml . t)))
+  (setq org-plantuml-jar-path "/usr/local/opt/plantuml/libexec/plantuml.jar")
+  (org-babel-do-load-languages
+   'org-babel-load-languages
+   '((emacs-lisp . t)
+	 (R . t)
+	 (dot . t)
+	 (ruby . t)
+	 (python . t)))
+  (setq org-hide-emphasis-markers 1)
+    (let* ((variable-tuple
+          (cond ((x-list-fonts "ETBembo")         '(:font "ETBembo"))
+                ((x-list-fonts "Source Sans Pro") '(:font "Source Sans Pro"))
+                ((x-list-fonts "Lucida Grande")   '(:font "Lucida Grande"))
+                ((x-list-fonts "Verdana")         '(:font "Verdana"))
+                ((x-family-fonts "Sans Serif")    '(:family "Sans Serif"))
+                (nil (warn "Cannot find a Sans Serif Font.  Install Source Sans Pro."))))
+         (base-font-color     (face-foreground 'default nil 'default))
+         (headline           `(:inherit default :weight bold :foreground ,base-font-color)))
 
-(setq org-plantuml-jar-path "/usr/local/opt/plantuml/libexec/plantuml.jar")
-(setq org-src-fontify-natively t)
+    (custom-theme-set-faces
+     'user
+     `(org-level-8 ((t (,@headline ,@variable-tuple))))
+     `(org-level-7 ((t (,@headline ,@variable-tuple))))
+     `(org-level-6 ((t (,@headline ,@variable-tuple))))
+     `(org-level-5 ((t (,@headline ,@variable-tuple))))
+     `(org-level-4 ((t (,@headline ,@variable-tuple :height 1.1))))
+     `(org-level-3 ((t (,@headline ,@variable-tuple :height 1.25))))
+     `(org-level-2 ((t (,@headline ,@variable-tuple :height 1.5))))
+     `(org-level-1 ((t (,@headline ,@variable-tuple :height 1.75))))
+     `(org-document-title ((t (,@headline ,@variable-tuple :height 2.0 :underline nil))))))
+    (setq org-src-fontify-natively t))
+
+(use-package org-bullets
+  :init
+  (add-hook 'org-mode-hook (lambda () org-bullets-mode 1)))
+
+(use-package org-roam
+  :hook (after-init-hook . org-roam-mode)
+  :config
+  (setq org-roam-directory "~/org-roam"))
 
 (use-package go-mode
   :config
@@ -185,10 +219,6 @@ There are two things you can do about this warning:
   (interactive)
   (find-file (concat org-directory "/todo.org")))
 
-(use-package org-bullets
-  :init
-  (add-hook 'org-mode-hook (lambda ()
-							 org-bullets-mode 1)))
 (use-package fzf)
 
 (use-package rainbow-delimiters
@@ -248,13 +278,13 @@ There are two things you can do about this warning:
 
 (use-package counsel
   :bind (("M-x" . counsel-M-x)
-		 ("C-x b" . counsel-ibuffer)
-		 ("C-x C-f" . counsel-find-file)
-		 :map minibuffer-local-map
-		 ("C-r" . 'counsel-minibuffer-history)))
+         ("C-x b" . counsel-ibuffer)
+         ("C-x C-f" . counsel-find-file)
+         :map minibuffer-local-map
+         ("C-r" . 'counsel-minibuffer-history)))
 
 (load-theme 'whiteboard t)
- 
+
 (use-package ivy
   :config
   (ivy-mode))
