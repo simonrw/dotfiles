@@ -74,3 +74,6 @@ if has_executable edit-dotfiles; then
     alias dotfiles=edit-dotfiles
 fi
 
+if has_executable ht; then
+    alias curl=ht
+fi
