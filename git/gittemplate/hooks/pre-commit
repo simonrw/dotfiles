@@ -1,9 +1,0 @@
-#!/bin/bash
-
-set -eou pipefail
-
-# flake8
-# black --check --target-version py38 src tests --quiet || {
-#     echo "Black check failed! 💥💔💥" >&2
-#     exit 1
-# }

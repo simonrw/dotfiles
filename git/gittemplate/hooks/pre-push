@@ -5,13 +5,27 @@ set -e
 
 echo "Running tests before push"
 
-echo "*** NO TESTS SET UP YET ***"
+# customise the variable below
+PYTHON_PROJECTDIRS="setup.py tests"
 
-# XXX Running tox?
-# ./venv/bin/tox
+test-python() {
+    test -z "${PYTHON_PROJECTDIRS:-}" && {
+        echo "No black paths set" >&2
+        exit 1
+    }
 
-# XXX Running pytest?
-# ./venv/bin/pytest
+    black --check --target-version py38 $PROJECTDIRS --quiet || {
+        echo "Black check failed! 💥💔💥" >&2
+        exit 1
+    }
+    flake8
+    pytest --quiet --disable-warnings
+}
 
-# XXX Running cargo?
-# cargo test
+test-rust() {
+    cargo test
+}
+
+# Do not allow pushes without validating what pre-push commands are wanted
+echo "*** NO TESTS SET UP YET, BLOCKING PUSH ***"
+exit 1
