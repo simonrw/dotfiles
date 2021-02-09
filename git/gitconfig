@@ -90,8 +90,8 @@
 	attributesFile = ~/.gitattributes_global
     pager = delta
 [delta]
-    dark = true
     side-by-side = true
+    diff-highlight = true
 [merge]
     tool = conflicted
     conflictstyle = "diff3"
