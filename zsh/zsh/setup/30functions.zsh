@@ -312,3 +312,21 @@ function git() {
         command git "$@"
     fi
 }
+
+function cwd-of() {
+    local pid=$1
+    test -z "${pid:-}" && {
+        echo "Usage: cwd-of <pid>" >&2
+        exit 1
+    }
+
+    case $OSTYPE in
+        darwin*)
+            lsof -p $pid | grep cwd | rev | awk '{print $1}' | rev
+            ;;
+        *)
+            echo "Not implemented" >&2
+            exit 1
+            ;;
+    esac
+}
