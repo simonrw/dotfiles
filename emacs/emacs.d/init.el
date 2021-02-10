@@ -221,29 +221,6 @@
   :config
   (direnv-mode))
 
-(use-package evil
-  :init
-  (setq evil-want-integration t)
-  (setq evil-want-keybinding nil)
-  :config
-  (evil-mode t)
-  (define-key evil-insert-state-map (kbd "C-g") 'evil-normal-state)
-
-  (evil-set-leader 'normal (kbd ","))
-
-  (evil-global-set-key 'motion "j" 'evil-next-visual-line)
-  (evil-global-set-key 'motion "k" 'evil-previous-visual-line)
-
-  (evil-define-key 'normal 'global (kbd "<leader>f") 'projectile-find-file)
-
-  (evil-set-initial-state 'messages-buffer-mode 'normal)
-  (evil-set-initial-state 'dashboard-mode 'normal))
-
-(use-package evil-collection
-  :after evil
-  :config
-  (evil-collection-init))
-
 (use-package projectile
   :diminish projectile-mode
   :config (projectile-mode)
