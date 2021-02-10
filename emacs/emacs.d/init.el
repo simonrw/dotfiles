@@ -40,6 +40,7 @@
 
 (global-set-key (kbd "<escape>") 'keyboard-escape-quit)
 
+
 ;; Enable nicer window moving
 (when (fboundp 'windmove-default-keybindings)
   (windmove-default-keybindings))
@@ -64,10 +65,29 @@
   (setq mac-option-modifier 'meta)
   (setq mac-command-modifier 'meta)
 
+  (defun pbcopy ()
+	(interactive)
+	(call-process-region (point) (mark) "pbcopy")
+	(setq deactivate-mark t))
+
+  (defun pbpaste ()
+	(interactive)
+	(call-process-region (point) (if mark-active (mark) (point)) "pbpaste" t t))
+
+  (defun pbcut ()
+	(interactive)
+	(pbcopy)
+	(delete-region (region-beginning) (region-end)))
+
+  (global-set-key (kbd "C-c c") 'pbcopy)
+  (global-set-key (kbd "C-c v") 'pbpaste)
+  (global-set-key (kbd "C-c x") 'pbcut)
+
+
   (menu-bar-mode t)
 
   (if (boundp 'mac-auto-operator-composition-mode)
-      (mac-auto-operator-composition-mode))
+	  (mac-auto-operator-composition-mode))
 
   (set-face-attribute 'default nil :family "Source Code Pro" :height 130)
 
@@ -75,8 +95,8 @@
   (global-set-key [m-return] 'toggle-frame-fullscreen)
 
   (when (display-graphic-p)
-    (setq-default mac-emulate-three-button-mouse t)
-    (global-set-key (kbd "M-`") 'other-frame)))
+	(setq-default mac-emulate-three-button-mouse t)
+	(global-set-key (kbd "M-`") 'other-frame)))
 
 ;; Get correct path from system shell
 (use-package exec-path-from-shell
@@ -157,6 +177,8 @@
 	 (python . t)))
   (setq org-hide-emphasis-markers 1))
 
+(use-package python-pytest)
+
 (use-package org-preview-html)
 
 (use-package org-bullets
@@ -178,8 +200,6 @@
 (defun todo ()
   (interactive)
   (find-file (concat org-directory "/todo.org")))
-
-(use-package fzf)
 
 (use-package rainbow-delimiters
   :hook (prog-mode . rainbow-delimiters-mode))
@@ -214,7 +234,7 @@
   (evil-global-set-key 'motion "j" 'evil-next-visual-line)
   (evil-global-set-key 'motion "k" 'evil-previous-visual-line)
 
-  (evil-define-key 'normal 'global (kbd "<leader>f") 'fzf-git-files)
+  (evil-define-key 'normal 'global (kbd "<leader>f") 'projectile-find-file)
 
   (evil-set-initial-state 'messages-buffer-mode 'normal)
   (evil-set-initial-state 'dashboard-mode 'normal))
