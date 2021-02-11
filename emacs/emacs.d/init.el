@@ -174,8 +174,7 @@
 	 (R . t)
 	 (dot . t)
 	 (ruby . t)
-	 (python . t)))
-  (setq org-hide-emphasis-markers 1))
+	 (python . t))))
 
 (use-package python-pytest)
 
@@ -218,6 +217,8 @@
   (setq which-key-idle-delay 1))
 
 (use-package direnv
+  :custom
+  ((direnv-always-show-summary nil))
   :config
   (direnv-mode))
 
