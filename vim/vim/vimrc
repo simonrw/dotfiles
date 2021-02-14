@@ -519,19 +519,6 @@ let g:lightline.active = {
       \             [ 'cocstatus', 'readonly', 'filename', 'modified', 'gitstatus' ] ]
       \ }
 let g:lightline.inactive = g:lightline.active
-let g:lightline.mode_map = {
-        \ 'n' : 'N',
-        \ 'i' : 'I',
-        \ 'R' : 'R',
-        \ 'v' : 'V',
-        \ 'V' : 'VL',
-        \ "\<C-v>": 'VB',
-        \ 'c' : 'C',
-        \ 's' : 'S',
-        \ 'S' : 'SL',
-        \ "\<C-s>": 'SB',
-        \ 't': 'T',
-        \ }
 let g:lightline.component_function = {
       \   'filename': 'LightlineFilename',
       \   'cocstatus': 'coc#status',
@@ -545,5 +532,5 @@ let g:pydocstring_doq_path = expand("$HOME") . '/.local/pipx/bin/doq'
 let g:pydocstring_formatter = "sphinx"
 let g:pydocstring_enable_mapping = 0
 
-set background=light
+set background=dark
 colorscheme srw256
