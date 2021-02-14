@@ -1,10 +1,7 @@
 # OSX setup
 case $OSTYPE in
     darwin*)
-        export PATH=/Library/TeX/texbin:${GOPATH}/bin:/usr/local/sbin:/sbin:/usr/sbin:${HOME}/.cabal/bin:/usr/local/opt/python/libexec/bin:${PATH}
-        alias sed=gsed
-        alias indent=gindent
-        alias du=gdu
+        export PATH=/Library/TeX/texbin:${GOPATH}/bin:/usr/local/opt/coreutils/libexec/gnubin:/usr/local/sbin:/sbin:/usr/sbin:${HOME}/.cabal/bin:/usr/local/opt/python/libexec/bin:${PATH}
 
         # Configure homebrew
         export HOMEBREW_NO_ANALYTICS=1
