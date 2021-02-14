@@ -90,6 +90,7 @@
 	attributesFile = ~/.gitattributes_global
     pager = delta
 [delta]
+    light = true
     side-by-side = true
     diff-highlight = true
 [merge]

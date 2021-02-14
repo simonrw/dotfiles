@@ -513,7 +513,7 @@ endif
 
 " Lightline
 let g:lightline = {}
-let g:lightline.colorscheme = 'default'
+let g:lightline.colorscheme = 'PaperColor'
 let g:lightline.active = {
       \   'left': [ [ 'mode', 'paste' ],
       \             [ 'cocstatus', 'readonly', 'filename', 'modified', 'gitstatus' ] ]
@@ -532,5 +532,5 @@ let g:pydocstring_doq_path = expand("$HOME") . '/.local/pipx/bin/doq'
 let g:pydocstring_formatter = "sphinx"
 let g:pydocstring_enable_mapping = 0
 
-set background=dark
-colorscheme srw256
+set background=light
+colorscheme PaperColor
