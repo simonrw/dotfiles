@@ -245,7 +245,5 @@
   :config
   (ivy-mode))
 
-(load-theme 'whiteboard t)
-
 (provide 'init)
 ;;; init.el ends here
