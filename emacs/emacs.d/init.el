@@ -98,6 +98,8 @@
 	(setq-default mac-emulate-three-button-mouse t)
 	(global-set-key (kbd "M-`") 'other-frame)))
 
+(use-package no-littering)
+
 ;; Get correct path from system shell
 (use-package exec-path-from-shell
   :init
@@ -154,9 +156,11 @@
 (use-package cmake-mode
   :mode (("CMakeLists.txt" . cmake-mode)))
 
-(use-package csharp-mode)
+(use-package csharp-mode
+  :mode "\\.cs\\'")
 
-(use-package graphviz-dot-mode)
+(use-package graphviz-dot-mode
+  :mode "\\.dot\\'")
 
 (use-package org
   :hook (org-mode-hook . variable-pitch-mode)
@@ -176,25 +180,28 @@
 	 (ruby . t)
 	 (python . t))))
 
-(use-package python-pytest)
+(use-package python-pytest
+  :mode "\\.py\\'")
 
-(use-package org-preview-html)
+(use-package org-preview-html
+  :after (org))
 
 (use-package org-bullets
+  :after (org)
   :init
   (add-hook 'org-mode-hook (lambda () org-bullets-mode 1)))
 
 (use-package org-roam
+  :after (org)
   :hook (after-init-hook . org-roam-mode)
   :config
   (setq org-roam-directory "~/org-roam"))
 
 (use-package go-mode
+  :mode "\\.go\\'"
   :config
   (setq gofmt-command "goimports")
   (add-hook 'before-save-hook 'gofmt-before-save))
-
-(use-package elixir-mode)
 
 (defun todo ()
   (interactive)
@@ -203,26 +210,26 @@
 (use-package rainbow-delimiters
   :hook (prog-mode . rainbow-delimiters-mode))
 
-(use-package dockerfile-mode)
+(use-package dockerfile-mode
+  :mode "Dockerfile")
 
-(use-package yaml-mode)
+(use-package yaml-mode
+  :mode "\\.yml\\'")
 
-(use-package php-mode)
+(use-package php-mode
+  :mode "\\.php\\'"
+  :config
+  (message "Loaded php mode"))
 
 (use-package which-key
-  :init
-  (which-key-mode)
+  :defer 0
   :diminish which-key-mode
   :config
+  (which-key-mode)
   (setq which-key-idle-delay 1))
 
-(use-package direnv
-  :custom
-  ((direnv-always-show-summary nil))
-  :config
-  (direnv-mode))
-
 (use-package projectile
+  :commands (projectile-command-map)
   :diminish projectile-mode
   :config (projectile-mode)
   :bind-keymap
@@ -242,8 +249,19 @@
          ("C-r" . 'counsel-minibuffer-history)))
 
 (use-package ivy
+  :diminish
+  :bind (("C-s" . swiper))
   :config
-  (ivy-mode))
+  (ivy-mode 1))
+
+(defun efs/display-startup-time ()
+  (message "Emacs loaded in %s seconds with %d garbage collections."
+		   (format "%.2f seconds"
+				   (float-time
+					(time-subtract after-init-time before-init-time)))
+		   gcs-done))
+
+(add-hook 'emacs-startup-hook #'efs/display-startup-time)
 
 (provide 'init)
 ;;; init.el ends here
