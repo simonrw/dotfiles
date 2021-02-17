@@ -191,7 +191,8 @@ nnoremap <leader>F :FzfFiles<cr>
 nnoremap gb :FzfBuffers<cr>
 nnoremap gl :FzfRg<cr>
 nnoremap gL :FzfBLines<cr>
-nnoremap <leader>gt :FzfTags<cr>
+nnoremap <leader>gT :FzfTags<cr>
+nnoremap <leader>gt :FzfBTags<cr>
 nnoremap <leader>a :FzfRg<cr>
 
 " Configure fzf window style
