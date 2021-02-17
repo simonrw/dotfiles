@@ -491,9 +491,7 @@ if has('nvim-0.4.0') || has('patch-8.2.0750')
 endif
 
 inoremap <silent><expr> <TAB>
-    \ pumvisible() ? "" :
-    \ <SID>check_back_space() ? "\<TAB>" :
-    \ coc#refresh()
+    \ pumvisible() ? "\<C-y>" : "\<TAB>"
 
 function! s:check_back_space() abort
     let col = col(".") - 1
