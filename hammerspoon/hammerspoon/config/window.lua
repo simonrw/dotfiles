@@ -5,6 +5,7 @@ local WINDOW_BORDER = FULLSCREEN_BORDER
 local LEFTRIGHT_FRACTION = 0.5
 local TERMINAL_NORMAL_SIZE = {1024, 768}
 local ENABLE_FULLSCREEN_FOR_APPS = {applications.terminal}
+local MOVE_AMOUNT = 20
 
 
 fc = FrameCache:new()
@@ -114,6 +115,26 @@ hs.hotkey.bind({'cmd', 'alt', 'ctrl'}, 'z', function()
     local name = app:name()
 
     fc:pop(name)
+end)
+
+hs.hotkey.bind({'cmd', 'alt', 'ctrl'}, 'h', function()
+    local win = hs.window.focusedWindow()
+    win:move({-MOVE_AMOUNT, 0}, nil, true)
+end)
+
+hs.hotkey.bind({'cmd', 'alt', 'ctrl'}, 'l', function()
+    local win = hs.window.focusedWindow()
+    win:move({MOVE_AMOUNT, 0}, nil, true)
+end)
+
+hs.hotkey.bind({'cmd', 'alt', 'ctrl'}, 'k', function()
+    local win = hs.window.focusedWindow()
+    win:move({0, -MOVE_AMOUNT}, nil, true)
+end)
+
+hs.hotkey.bind({'cmd', 'alt', 'ctrl'}, 'j', function()
+    local win = hs.window.focusedWindow()
+    win:move({0, MOVE_AMOUNT}, nil, true)
 end)
 
 if ENABLE_FULLSCREEN_SHORTCUT then
