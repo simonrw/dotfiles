@@ -78,6 +78,7 @@ end
 hs.hotkey.bind({'cmd', 'alt', 'ctrl'}, 'o', function()
     local win = hs.window.focusedWindow()
     local nextScreen = win:screen():next()
+    fc:add(win)
     win:moveToScreen(nextScreen)
 end)
 
@@ -119,21 +120,25 @@ end)
 
 hs.hotkey.bind({'cmd', 'alt', 'ctrl'}, 'h', function()
     local win = hs.window.focusedWindow()
+    fc:add(win)
     win:move({-MOVE_AMOUNT, 0}, nil, true)
 end)
 
 hs.hotkey.bind({'cmd', 'alt', 'ctrl'}, 'l', function()
     local win = hs.window.focusedWindow()
+    fc:add(win)
     win:move({MOVE_AMOUNT, 0}, nil, true)
 end)
 
 hs.hotkey.bind({'cmd', 'alt', 'ctrl'}, 'k', function()
     local win = hs.window.focusedWindow()
+    fc:add(win)
     win:move({0, -MOVE_AMOUNT}, nil, true)
 end)
 
 hs.hotkey.bind({'cmd', 'alt', 'ctrl'}, 'j', function()
     local win = hs.window.focusedWindow()
+    fc:add(win)
     win:move({0, MOVE_AMOUNT}, nil, true)
 end)
 
