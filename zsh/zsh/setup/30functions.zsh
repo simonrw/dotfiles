@@ -45,7 +45,11 @@ function tnew() {
     TMUXNAME="$(basename $(dirname $PWD))/$(basename $PWD)"
     tmux new-session -d -s ${TMUXNAME} -n ''
 
-    tmux attach -t ${TMUXNAME}
+    test -z "${TMUX:-}" && {
+        tmux attach -t ${TMUXNAME}
+    } || {
+        tmux switch-client -t ${TMUXNAME}
+    }
 }
 
 function init-python() {
