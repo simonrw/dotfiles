@@ -263,5 +263,7 @@
 
 (add-hook 'emacs-startup-hook #'efs/display-startup-time)
 
+(load-theme 'wombat t)
+
 (provide 'init)
 ;;; init.el ends here
