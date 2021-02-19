@@ -32,7 +32,7 @@ e.2......6.3..........t..q....
 
 -- caffeine replacement
 local disableSleepDefault = true
-local caffeine = hs.menubar.new()
+local caffeine = nil
 local sleepType = "displayIdle"
 
 function setCaffeineDisplay(state)
