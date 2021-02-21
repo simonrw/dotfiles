@@ -10,8 +10,6 @@ if !has('nvim')
     Plug 'tpope/vim-sensible'
 endif
 
-syntax on
-
 Plug 'junegunn/fzf.vim'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': 'yes \| ./install --no-update-rc --no-completion --key-bindings' }
 Plug 'tpope/vim-surround'
@@ -546,3 +544,5 @@ let g:pydocstring_enable_mapping = 0
 
 set background=light
 colorscheme srw256
+
+syntax off
