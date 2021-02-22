@@ -91,8 +91,9 @@
     pager = delta
 [delta]
     dark = true
-    side-by-side = true
-    diff-highlight = true
+    side-by-side = false
+    # diff-highlight = true
+    syntax-theme = ansi-dark
 [merge]
     tool = conflicted
     conflictstyle = "diff3"
