@@ -91,6 +91,9 @@ set breakindent
 set synmaxcol=1024
 if has('nvim')
     set termguicolors
+    set inccommand=nosplit
+else
+    set ttyfast
 endif
 set linebreak
 " Use global regex replaces by default
@@ -123,10 +126,6 @@ nnoremap ? ?\v
 set splitright
 set splitbelow
 
-if has('nvim')
-    set inccommand=nosplit
-endif
-
 " --- Set up backups
 " Protect changes between writes. Default values of
 " updatecount (200 keystrokes) and updatetime
@@ -153,9 +152,6 @@ set undodir=~/.vimundo
 
 set modeline
 set lazyredraw
-if !has('nvim')
-    set ttyfast
-endif
 
 nnoremap <C-h> <C-w><C-h>
 nnoremap <C-j> <C-w><C-j>
