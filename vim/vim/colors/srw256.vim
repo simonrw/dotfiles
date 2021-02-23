@@ -15,6 +15,7 @@ highlight DiffText guibg=#7d1816
 highlight diffRemoved guifg=#fd8272
 highlight diffAdded guifg=#b4fa73
 highlight EndOfBuffer guifg=#242424
+highlight Comment guifg=#a3a3a3
 
 " colours for terminal mode
 let g:terminal_color_0 = '#616261'
