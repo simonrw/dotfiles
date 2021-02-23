@@ -1,0 +1,9 @@
+{
+    "color": true,
+    "sen": false,
+    "format": {
+        "indent": 2,
+        "tab": false,
+        "pretty": 80.3
+    }
+}

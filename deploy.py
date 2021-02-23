@@ -125,6 +125,7 @@ class Deployer(object):
             "xinitrc",
             "xresources",
             "xmodmap",
+            "oj",
         ]
         for dirname in dirnames:
             src = Path.cwd().joinpath(dirname).resolve()
