@@ -14,7 +14,7 @@ test-python() {
         exit 1
     }
 
-    black --check --target-version py38 $PROJECTDIRS --quiet || {
+    black --check --target-version py38 $PYTHON_PROJECTDIRS --quiet || {
         echo "Black check failed! 💥💔💥" >&2
         exit 1
     }
