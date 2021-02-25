@@ -21,7 +21,7 @@ applications = {
         name = "Obsidian",
     },
     editor = {
-        name = "Visual Studio Code",
+        name = "Emacs",
     },
     video = {
         name = "Zoom Meeting",
