@@ -180,8 +180,7 @@
 	 (ruby . t)
 	 (python . t))))
 
-(use-package python-pytest
-  :mode "\\.py\\'")
+(use-package python-pytest)
 
 (use-package org-preview-html
   :after (org))
@@ -286,6 +285,10 @@
 (add-hook 'emacs-startup-hook #'efs/display-startup-time)
 
 (load-theme 'wombat t)
+
+(use-package direnv
+ :config
+ (direnv-mode))
 
 (provide 'init)
 ;;; init.el ends here
