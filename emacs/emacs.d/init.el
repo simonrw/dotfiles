@@ -254,6 +254,28 @@
   :config
   (ivy-mode 1))
 
+(use-package vterm)
+
+(use-package evil
+  :config
+  :init
+  (setq evil-want-keybinding nil)
+  (evil-mode 1))
+
+(use-package evil-collection
+  :after (evil)
+  :config
+  (evil-collection-init))
+
+(use-package evil-leader
+  :after (evil)
+  :config
+  (evil-leader/set-leader ",")
+  (evil-leader/set-key
+	"f" 'projectile-find-file)
+
+  (global-evil-leader-mode))
+
 (defun efs/display-startup-time ()
   (message "Emacs loaded in %s seconds with %d garbage collections."
 		   (format "%.2f seconds"
