@@ -423,8 +423,8 @@ function! s:check_back_space() abort
 endfunction
 
 " ALE
-nnoremap <silent> [g <Plug>(ale_previous_wrap)
-nnoremap <silent> ]g <Plug>(ale_next_wrap)
+nmap <silent> [g <Plug>(ale_previous_wrap)
+nmap <silent> ]g <Plug>(ale_next_wrap)
 nnoremap <silent> <leader>y :ALEFix<cr>
 
 function! LinterStatus() abort
