@@ -28,12 +28,13 @@ Plug 'christoomey/vim-conflicted'
 Plug 'vim-test/vim-test'
 Plug 'junegunn/vim-easy-align'
 Plug 'junegunn/goyo.vim'
+Plug 'neoclide/coc.nvim', { 'branch': 'release' }
 Plug 'chriskempson/base16-vim'
 Plug 'shumphrey/fugitive-gitlab.vim'
 Plug 'NLKNguyen/papercolor-theme'
+Plug 'itchyny/lightline.vim'
+Plug 'rodrigore/coc-tailwind-intellisense', {'do': 'npm install'}
 Plug 'direnv/direnv.vim'
-Plug 'dense-analysis/ale'
-Plug 'airblade/vim-gitgutter'
 
 " My plugins
 Plug 'https://gitlab.com/srwalker101/pytest-callgraph.git'
@@ -315,6 +316,10 @@ let g:go_info_mode='gopls'
 " Configure elm.vim
 let g:elm_format_fail_silently = 1
 
+" configure conflicted status line
+" set statusline=%<%f\ %{coc#status()}%{get(b:,'coc_current_function','')}%h%m%r%=%-14.(%l,%c%V%)\ %P
+" set statusline+=%{ConflictedVersion()}
+
 " Enable autoformatting of valid pretter-compatible files
 let g:prettier#autoformat = 1
 let g:prettier#autoformat_require_pragma = 0
@@ -351,6 +356,40 @@ command! -nargs=1 Note :call s:note(<f-args>)
 
 nnoremap cd :Todo<cr>
 
+" Triggering completion
+inoremap <silent><expr> <c-p> coc#refresh()
+inoremap <silent><expr> <c-n> coc#refresh()
+
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
+nnoremap <silent> gh :CocList symbols<cr>
+nnoremap <silent> <leader>cr :CocRestart<cr>
+
+" Use `[g` and `]g` to navigate diagnostics
+" Use `:CocDiagnostics` to get all diagnostics of current buffer in location list.
+nmap <silent> [g <Plug>(coc-diagnostic-prev)
+nmap <silent> ]g <Plug>(coc-diagnostic-next)
+
+" Add `:Format` command to format current buffer.
+command! -nargs=0 Format :call CocAction('format')
+nnoremap <silent> <leader>y :Format<cr>
+
+" Symbol renaming.
+nmap <leader>rn <Plug>(coc-rename)
+
+" Use K to show documentation in preview window.
+nnoremap <silent> <leader>d :call <SID>show_documentation()<CR>
+
+function! s:show_documentation()
+  if (index(['vim','help'], &filetype) >= 0)
+    execute 'h '.expand('<cword>')
+  else
+    call CocAction('doHover')
+  endif
+endfunction
+
 let g:dispatch_quickfix_height=40
 let g:dispatch_tmux_height=40
 
@@ -381,6 +420,13 @@ let g:vim_markdown_new_list_item_indent= 0
 let g:vim_markdown_no_default_key_mappings = 1
 let g:markdown_fenced_languages = ["python", "javascript", "toml", "rust"]
 
+" prevent coc-emoji leaving behind the initial colon
+" https://github.com/neoclide/coc-sources/issues/15#issuecomment-636398317
+if exists('*complete_info')
+  inoremap <expr> <cr> complete_info()["selected"] != "-1" ? "\<C-y>" : "\<C-g>u\<CR>"
+endif
+
+
 " configure python3 for neovim
 "
 " We ensure that a global python installation with the python3 file is set 
@@ -400,6 +446,25 @@ nnoremap <leader>T :nnoremap <silent> <leader>t :update\\|:T<space>
 " configure abbreviations
 source ~/.vim/abbreviations.vim
 
+" Use `[g` and `]g` to navigate diagnostics
+" Use `:CocDiagnostics` to get all diagnostics of current buffer in location list.
+nmap <silent> [g <Plug>(coc-diagnostic-prev)
+nmap <silent> ]g <Plug>(coc-diagnostic-next)
+
+" navigate chunks of current buffer
+nmap [c <Plug>(coc-git-prevchunk)
+nmap ]c <Plug>(coc-git-nextchunk)
+" show chunk diff at current position
+nmap gp <Plug>(coc-git-chunkinfo)
+
+" Show available actions
+nnoremap <silent> <leader>ca :CocAction<cr>
+
+augroup go_imports
+    autocmd!
+    autocmd BufWritePre *.go :call CocAction('organizeImport')
+augroup END
+
 let g:hardtime_default_on = 1
 let g:hardtime_ignore_quickfix = 1
 let g:hardtime_allow_different_key = 1
@@ -414,6 +479,13 @@ let g:fugitive_gitlab_domains = ["https://gitlab.pixsystem.net", "https://gitlab
 " configure nord
 let g:nord_uniform_diff_background = 1
 
+if has('nvim-0.4.0') || has('patch-8.2.0750')
+    nnoremap <nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
+    nnoremap <nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
+    inoremap <nowait><expr> <C-f> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(1)\<cr>" : "\<Right>"
+    inoremap <nowait><expr> <C-b> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(0)\<cr>" : "\<Left>"
+endif
+
 inoremap <silent><expr> <TAB>
     \ pumvisible() ? "\<C-y>" : "\<TAB>"
 
@@ -421,26 +493,6 @@ function! s:check_back_space() abort
     let col = col(".") - 1
     return !col || getline(".")[col - 1] =~# '\s'
 endfunction
-
-" ALE
-nmap <silent> [g <Plug>(ale_previous_wrap)
-nmap <silent> ]g <Plug>(ale_next_wrap)
-nnoremap <silent> <leader>y :ALEFix<cr>
-
-function! LinterStatus() abort
-    let l:counts = ale#statusline#Count(bufnr(''))
-
-    let l:all_errors = l:counts.error + l:counts.style_error
-    let l:all_non_errors = l:counts.total - l:all_errors
-
-    return l:counts.total == 0 ? 'OK' : printf(
-    \   '%dW %dE',
-    \   all_non_errors,
-    \   all_errors
-    \)
-endfunction
-
-" set statusline=%{LinterStatus()}
 
 " Disable concealing with indentline
 let g:indentLine_setConceal = 0
@@ -452,6 +504,36 @@ if exists("$EXTRA_VIM")
     exec "source ".path
   endfor
 endif
+
+" Lightline
+let g:lightline = {}
+let g:lightline.colorscheme = 'default'
+let g:lightline.active = {
+      \   'left': [ [ 'mode', 'paste' ],
+      \             [ 'cocstatus', 'readonly', 'filename', 'modified', 'gitstatus' ] ]
+      \ }
+let g:lightline.mode_map = {
+        \ 'n' : 'N',
+        \ 'i' : 'I',
+        \ 'R' : 'R',
+        \ 'v' : 'V',
+        \ 'V' : 'VL',
+        \ "\<C-v>": 'VB',
+        \ 'c' : 'C',
+        \ 's' : 'S',
+        \ 'S' : 'SL',
+        \ "\<C-s>": 'SB',
+        \ 't': 'T',
+        \ }
+let g:lightline.inactive = g:lightline.active
+let g:lightline.component_function = {
+      \   'filename': 'LightlineFilename',
+      \   'cocstatus': 'coc#status',
+      \   'gitstatus': 'FugitiveStatusline'
+      \ }
+function! LightlineFilename()
+  return expand('%:t') !=# '' ? @% : '[No Name]'
+endfunction
 
 set background=dark
 colorscheme srw256
