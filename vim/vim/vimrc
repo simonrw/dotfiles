@@ -466,6 +466,13 @@ augroup go_imports
     autocmd BufWritePre *.go :call CocAction('organizeImport')
 augroup END
 
+augroup diff_mode
+    " If doing a diff. Upon writing changes to file, automatically update the
+    " differences
+    autocmd!
+    autocmd BufWritePost * if &diff == 1 | diffupdate | endif
+augroup END
+
 let g:hardtime_default_on = 1
 let g:hardtime_ignore_quickfix = 1
 let g:hardtime_allow_different_key = 1
