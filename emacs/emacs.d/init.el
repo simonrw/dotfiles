@@ -256,10 +256,13 @@
 (use-package vterm)
 
 (use-package evil
-  :config
   :init
   (setq evil-want-keybinding nil)
-  (evil-mode 1))
+  :config
+  (evil-mode 1)
+  (evil-define-key 'normal 'global
+	"tf" 'python-pytest-file
+    "tn" 'python-pytest-function))
 
 (use-package evil-collection
   :after (evil)
