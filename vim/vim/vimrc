@@ -391,6 +391,9 @@ function! s:show_documentation()
   endif
 endfunction
 
+" Prevent missing cursor bug
+let g:coc_disable_transparent_cursor = 1
+
 let g:dispatch_quickfix_height=40
 let g:dispatch_tmux_height=40
 
