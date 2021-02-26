@@ -6,16 +6,16 @@ let g:colors_name = "srw256"
 
 highlight ColorColumn ctermbg=243 guibg=#424242
 highlight Normal guibg=none
+" highlight Comment guifg=#a3a3a3
 
 " configure coc-git
-highlight DiffAdd guifg=#58db69 ctermfg=2 guibg=none ctermbg=none
-highlight DiffChange guifg=#e09e2b ctermfg=3 guibg=none ctermbg=none
-highlight DiffDelete guifg=#ff2222 ctermfg=1 guibg=none ctermbg=none
-highlight DiffText guibg=#7d1816
-highlight diffRemoved guifg=#fd8272
-highlight diffAdded guifg=#b4fa73
-highlight EndOfBuffer guifg=#242424
-highlight Comment guifg=#a3a3a3
+" highlight DiffAdd guifg=#58db69 ctermfg=2 guibg=none ctermbg=none
+" highlight DiffChange guifg=#e09e2b ctermfg=3 guibg=none ctermbg=none
+" highlight DiffDelete guifg=#ff2222 ctermfg=1 guibg=none ctermbg=none
+" highlight DiffText guibg=#7d1816
+" highlight diffRemoved guifg=#fd8272
+" highlight diffAdded guifg=#b4fa73
+" highlight EndOfBuffer guifg=#242424
 
 " colours for terminal mode
 " let g:terminal_color_0 = '#616261'
