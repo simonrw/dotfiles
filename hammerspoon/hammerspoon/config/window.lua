@@ -118,29 +118,37 @@ hs.hotkey.bind({'cmd', 'alt', 'ctrl'}, 'z', function()
     fc:pop(name)
 end)
 
-hs.hotkey.bind({'cmd', 'alt', 'ctrl'}, 'h', function()
-    local win = hs.window.focusedWindow()
-    fc:add(win)
-    win:move({-MOVE_AMOUNT, 0}, nil, true)
-end)
+local LEFT = {-MOVE_AMOUNT, 0}
+local RIGHT = {MOVE_AMOUNT, 0}
+local UP = {0, -MOVE_AMOUNT}
+local DOWN = {0, MOVE_AMOUNT}
 
-hs.hotkey.bind({'cmd', 'alt', 'ctrl'}, 'l', function()
-    local win = hs.window.focusedWindow()
-    fc:add(win)
-    win:move({MOVE_AMOUNT, 0}, nil, true)
-end)
+function setupMoveKey(key, direction)
+    local timer = nil
 
-hs.hotkey.bind({'cmd', 'alt', 'ctrl'}, 'k', function()
-    local win = hs.window.focusedWindow()
-    fc:add(win)
-    win:move({0, -MOVE_AMOUNT}, nil, true)
-end)
+    function pressedCallback()
+        local win = hs.window.focusedWindow()
+        fc:add(win)
+        win:move(direction, nil, true)
+        timer = hs.timer.doEvery(0.01, function()
+            win:move(direction, nil, true)
+        end)
+    end
 
-hs.hotkey.bind({'cmd', 'alt', 'ctrl'}, 'j', function()
-    local win = hs.window.focusedWindow()
-    fc:add(win)
-    win:move({0, MOVE_AMOUNT}, nil, true)
-end)
+    function releasedCallback()
+        if timer ~= nil then
+            timer:stop()
+            timer = nil
+        end
+    end
+
+    hs.hotkey.bind({'cmd', 'alt', 'ctrl'}, key, pressedCallback, releasedCallback)
+end
+
+setupMoveKey("j", DOWN)
+setupMoveKey('k', UP)
+setupMoveKey('h', LEFT)
+setupMoveKey('l', RIGHT)
 
 if ENABLE_FULLSCREEN_SHORTCUT then
     hs.hotkey.bind({'cmd', 'alt', 'ctrl'}, 'f', function()
@@ -171,3 +179,4 @@ if ENABLE_FULLSCREEN_SHORTCUT then
         win:setFrame(f)
     end)
 end
+
