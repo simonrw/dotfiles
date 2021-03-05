@@ -34,6 +34,8 @@ Plug 'shumphrey/fugitive-gitlab.vim'
 Plug 'NLKNguyen/papercolor-theme'
 Plug 'rodrigore/coc-tailwind-intellisense', {'do': 'npm install'}
 Plug 'direnv/direnv.vim'
+Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
+
 
 " My plugins
 Plug 'https://gitlab.com/srwalker101/pytest-callgraph.git'
@@ -502,6 +504,10 @@ function! s:check_back_space() abort
     let col = col(".") - 1
     return !col || getline(".")[col - 1] =~# '\s'
 endfunction
+
+" configure vim markdown preview
+" disable auto closing
+let g:mkdp_auto_close = 0
 
 " Disable concealing with indentline
 let g:indentLine_setConceal = 0
