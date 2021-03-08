@@ -287,7 +287,7 @@
 
 (add-hook 'emacs-startup-hook #'efs/display-startup-time)
 
-(load-theme 'wombat t)
+(load-theme 'whiteboard t)
 
 (use-package direnv
  :config
