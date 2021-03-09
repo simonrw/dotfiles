@@ -121,6 +121,12 @@ class ThemeChooser:
         self.replacer.replace_in_file(
             vimrc, r"^colorscheme .*$", f"colorscheme {theme}"
         )
+        lightline_theme = theme_name["lightline"]
+        self.replacer.replace_in_file(
+            vimrc,
+            r"^let g:lightline.colorscheme.*$",
+            f"let g:lightline.colorscheme = '{lightline_theme}'",
+        )
 
     def update_tmux(self):
         tmux_conf = HOME_DIR / ".tmux.d" / "colourschemes" / "srw.conf"

@@ -521,6 +521,5 @@ if exists("$EXTRA_VIM")
   endfor
 endif
 
-set background=light
-colorscheme PaperColor
-highlight Normal guibg=none
+set background=dark
+colorscheme srw256
