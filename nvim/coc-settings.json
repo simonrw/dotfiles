@@ -8,7 +8,9 @@
     "python.formatting.blackPath": "~/.local/pipx/bin/black",
     "python.linting.flake8Path": "~/.local/pipx/bin/flake8",
     "coc.source.emoji.filetypes": ["markdown", "gitcommit"],
-    "suggest.autoTrigger": "always",
+    "suggest.enablePreselect": true,
+    "suggest.autoTrigger": "none",
+    "suggest.noselect": false,
     "languageserver": {
         "ccls": {
             "command": "ccls",
