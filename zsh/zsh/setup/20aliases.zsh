@@ -49,10 +49,6 @@ if has_executable bat; then
     alias more=bat
 fi
 
-if has_executable curlie; then
-    alias http=curlie
-fi
-
 if has_executable nvim; then
     alias vimdiff="nvim -d"
 fi
@@ -68,8 +64,4 @@ fi
 
 if has_executable edit-dotfiles; then
     alias dotfiles=edit-dotfiles
-fi
-
-if has_executable ht; then
-    alias curl=ht
 fi
