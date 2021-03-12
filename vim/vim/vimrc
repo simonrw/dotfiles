@@ -35,6 +35,8 @@ Plug 'NLKNguyen/papercolor-theme'
 Plug 'rodrigore/coc-tailwind-intellisense', {'do': 'npm install'}
 Plug 'direnv/direnv.vim'
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
+Plug 'eemed/sitruuna.vim'
+Plug 'morhetz/gruvbox'
 
 
 " My plugins
@@ -522,4 +524,5 @@ if exists("$EXTRA_VIM")
 endif
 
 set background=dark
-colorscheme srw256
+let g:gruvbox_contrast_dark = "hard"
+colorscheme gruvbox
