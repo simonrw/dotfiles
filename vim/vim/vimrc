@@ -34,7 +34,6 @@ Plug 'NLKNguyen/papercolor-theme'
 Plug 'direnv/direnv.vim'
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
 Plug 'eemed/sitruuna.vim'
-Plug 'morhetz/gruvbox'
 Plug 'dense-analysis/ale'
 Plug 'airblade/vim-gitgutter'
 
@@ -469,5 +468,4 @@ if exists("$EXTRA_VIM")
 endif
 
 set background=dark
-let g:gruvbox_contrast_dark = "hard"
-colorscheme gruvbox
+colorscheme srw256
