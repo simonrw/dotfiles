@@ -34,3 +34,7 @@ let g:terminal_color_12 = '#c1e3fe'
 let g:terminal_color_13 = '#fdb1fe'
 let g:terminal_color_14 = '#e5e6fe'
 let g:terminal_color_15 = '#fefffe'
+
+" lsp
+hi LspDiagnosticsVirtualTextWarning guifg=#8c7048
+hi LspDiagnosticsSignWarning guifg=#8c7048
