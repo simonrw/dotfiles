@@ -34,8 +34,11 @@ Plug 'NLKNguyen/papercolor-theme'
 Plug 'direnv/direnv.vim'
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
 Plug 'eemed/sitruuna.vim'
-Plug 'dense-analysis/ale'
 Plug 'airblade/vim-gitgutter'
+if has('nvim-0.5')
+    Plug 'neovim/nvim-lspconfig'
+    Plug 'hrsh7th/nvim-compe'
+endif
 
 
 " My plugins
@@ -319,26 +322,6 @@ let g:go_info_mode='gopls'
 " Configure elm.vim
 let g:elm_format_fail_silently = 1
 
-" ALE
-nmap <silent> [g <Plug>(ale_previous_wrap)
-nmap <silent> ]g <Plug>(ale_next_wrap)
-nnoremap <silent> <leader>y :ALEFix<cr>
-
-function! LinterStatus() abort
-    let l:counts = ale#statusline#Count(bufnr(''))
-
-    let l:all_errors = l:counts.error + l:counts.style_error
-    let l:all_non_errors = l:counts.total - l:all_errors
-
-    return l:counts.total == 0 ? 'OK' : printf(
-    \   '%dW %dE',
-    \   all_non_errors,
-    \   all_errors
-    \)
-endfunction
-
-set statusline=%<%f\ (%{LinterStatus()})\ %h%m%r%=%-14.(%l,%c%V%)\ %P
-
 " Enable autoformatting of valid pretter-compatible files
 let g:prettier#autoformat = 1
 let g:prettier#autoformat_require_pragma = 0
@@ -458,6 +441,17 @@ let g:mkdp_auto_close = 0
 
 " Disable concealing with indentline
 let g:indentLine_setConceal = 0
+
+" lsp configuration
+nnoremap <silent> gd <cmd>lua vim.lsp.buf.definition()<CR>
+nnoremap <silent> gD <cmd>lua vim.lsp.buf.declaration()<CR>
+nnoremap <silent> gr <cmd>lua vim.lsp.buf.references()<CR>
+nnoremap <silent> gi <cmd>lua vim.lsp.buf.implementation()<CR>
+nnoremap ]g <cmd>lua vim.lsp.diagnostic.goto_next()<CR>
+nnoremap [g <cmd>lua vim.lsp.diagnostic.goto_prev()<CR>
+nnoremap <leader>y <cmd>lua vim.lsp.buf.formatting_sync(nil, 100)<cr>
+
+luafile ~/.vim/lua/customlspconfig.lua
 
 " Support directory local vimrc files
 " https://github.com/direnv/direnv/wiki/Vim
