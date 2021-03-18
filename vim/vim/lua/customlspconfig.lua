@@ -32,6 +32,25 @@ compe.setup {
     };
 }
 
+local on_attach = function(client, bufnr)
+    local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
+    local function buf_set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
+
+    buf_set_option('omnifunc', 'v:lua.vim.lsp.omnifunc')
+
+    local opts = { noremap=true, silent=true }
+
+    buf_set_keymap("n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", opts)
+    buf_set_keymap("n", "gr", "<cmd>lua vim.lsp.buf.references()<CR>", opts)
+    buf_set_keymap("n", "gi", "<cmd>lua vim.lsp.buf.implementation()<CR>", opts)
+    buf_set_keymap("n", "]g", "<cmd>lua vim.lsp.diagnostic.goto_next()<CR>", opts)
+    buf_set_keymap("n", "[g", "<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>", opts)
+    -- Format with leader y. Second parameter is timeout. Sometimes Python can take ages.
+    if client.resolved_capabilities.document_formatting then
+        buf_set_keymap("n", "<leader>y", "<cmd>lua vim.lsp.buf.formatting_sync(nil, 1000000)<cr>", opts)
+    end
+end
+
 local t = function(str)
     return vim.api.nvim_replace_termcodes(str, true, true, true)
 end
@@ -50,6 +69,7 @@ vim.api.nvim_set_keymap("i", "<S-Tab>", "v:lua.s_tab_complete()", {expr = true})
 vim.api.nvim_set_keymap("s", "<S-Tab>", "v:lua.s_tab_complete()", {expr = true})
 
 -- lspconfig
--- lspconfig.pyright.setup{}
--- lspconfig.pyls_ms.setup{}
-lspconfig.pyls.setup{}
+local servers = {"pyls", "rust_analyzer"}
+for _, lsp in ipairs(servers) do
+    lspconfig[lsp].setup { on_attach = on_attach }
+end

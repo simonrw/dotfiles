@@ -37,4 +37,10 @@ let g:terminal_color_15 = '#fefffe'
 
 " lsp
 hi LspDiagnosticsVirtualTextWarning guifg=#8c7048
-hi LspDiagnosticsSignWarning guifg=#8c7048
+hi LspDiagnosticsVirtualTextError guifg=#b34a37
+hi LspDiagnosticsVirtualTextInformation guifg=#00ff00
+hi LspDiagnosticsVirtualTextHint guifg=#4976a3
+hi link LspDiagnosticsSignWarning LspDiagnosticsVirtualTextWarning
+hi link LspDiagnosticsSignError LspDiagnosticsVirtualTextError
+hi link LspDiagnosticsSignInformation LspDiagnosticsVirtualTextInformation
+hi link LspDiagnosticsSignHint LspDiagnosticsVirtualTextHint
