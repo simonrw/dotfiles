@@ -36,12 +36,8 @@ Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': 
 Plug 'eemed/sitruuna.vim'
 Plug 'airblade/vim-gitgutter'
 Plug 'takac/vim-hardtime'
-if has('nvim-0.5')
-    Plug 'neovim/nvim-lspconfig'
-    Plug 'hrsh7th/nvim-compe'
-    Plug 'RishabhRD/popfix'
-    Plug 'RishabhRD/nvim-lsputils'
-endif
+Plug 'neoclide/coc.nvim', { 'branch': 'release' }
+Plug 'rodrigore/coc-tailwind-intellisense', {'do': 'npm install'}
 
 
 " My plugins
@@ -325,6 +321,10 @@ let g:go_info_mode='gopls'
 " Configure elm.vim
 let g:elm_format_fail_silently = 1
 
+" configure conflicted status line
+set statusline=%<%f\ %{coc#status()}%{get(b:,'coc_current_function','')}%h%m%r%=%-14.(%l,%c%V%)\ %P
+set statusline+=%{ConflictedVersion()}
+
 " Enable autoformatting of valid pretter-compatible files
 let g:prettier#autoformat = 1
 let g:prettier#autoformat_require_pragma = 0
@@ -361,6 +361,44 @@ command! -nargs=1 Note :call s:note(<f-args>)
 
 nnoremap cd :Todo<cr>
 
+" Triggering completion
+inoremap <silent><expr> <c-p> coc#refresh()
+inoremap <silent><expr> <c-n> coc#refresh()
+
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
+nnoremap <silent> gh :CocList symbols<cr>
+nnoremap <silent> <leader>cr :CocRestart<cr>
+
+" Use `[g` and `]g` to navigate diagnostics
+" Use `:CocDiagnostics` to get all diagnostics of current buffer in location list.
+nmap <silent> [g <Plug>(coc-diagnostic-prev)
+nmap <silent> ]g <Plug>(coc-diagnostic-next)
+
+" Add `:Format` command to format current buffer.
+command! -nargs=0 Format :call CocAction('format')
+nnoremap <silent> <leader>y :Format<cr>
+
+" Symbol renaming.
+nmap <leader>rn <Plug>(coc-rename)
+
+" Use K to show documentation in preview window.
+nnoremap <silent> <leader>d :call <SID>show_documentation()<CR>
+
+function! s:show_documentation()
+  if (index(['vim','help'], &filetype) >= 0)
+    execute 'h '.expand('<cword>')
+  else
+    call CocAction('doHover')
+  endif
+endfunction
+
+" Prevent missing cursor bug
+let g:coc_disable_transparent_cursor = 1
+
+
 let g:dispatch_quickfix_height=40
 let g:dispatch_tmux_height=40
 
@@ -385,10 +423,18 @@ let g:rshtuff_listener = "testrunner"
 let g:test#custom_strategies = {'rshtuff': function('RShtuffStrategy')}
 let g:test#strategy = 'basic'
 
+let g:coc_global_extensions = [ 'coc-pyright', 'coc-json', 'coc-go', 'coc-rust-analyzer', 'coc-git', 'coc-emoji']
 let g:vim_markdown_auto_insert_bullets = 0
 let g:vim_markdown_new_list_item_indent= 0
 let g:vim_markdown_no_default_key_mappings = 1
 let g:markdown_fenced_languages = ["python", "javascript", "toml", "rust"]
+
+" prevent coc-emoji leaving behind the initial colon
+" https://github.com/neoclide/coc-sources/issues/15#issuecomment-636398317
+if exists('*complete_info')
+  inoremap <expr> <cr> complete_info()["selected"] != "-1" ? "\<C-y>" : "\<C-g>u\<CR>"
+endif
+
 
 " configure python3 for neovim
 "
@@ -408,6 +454,25 @@ nnoremap <leader>T :nnoremap <silent> <leader>t :update\\|:T<space>
 
 " configure abbreviations
 source ~/.vim/abbreviations.vim
+
+" Use `[g` and `]g` to navigate diagnostics
+" Use `:CocDiagnostics` to get all diagnostics of current buffer in location list.
+nmap <silent> [g <Plug>(coc-diagnostic-prev)
+nmap <silent> ]g <Plug>(coc-diagnostic-next)
+
+" navigate chunks of current buffer
+nmap [c <Plug>(coc-git-prevchunk)
+nmap ]c <Plug>(coc-git-nextchunk)
+" show chunk diff at current position
+nmap gp <Plug>(coc-git-chunkinfo)
+
+" Show available actions
+nnoremap <silent> <leader>ca :CocAction<cr>
+
+augroup go_imports
+    autocmd!
+    autocmd BufWritePre *.go :call CocAction('organizeImport')
+augroup END
 
 augroup diff_mode
     " If doing a diff. Upon writing changes to file, automatically update the
@@ -430,6 +495,14 @@ let g:fugitive_gitlab_domains = ["https://gitlab.pixsystem.net", "https://gitlab
 " configure nord
 let g:nord_uniform_diff_background = 1
 
+if has('nvim-0.4.0') || has('patch-8.2.0750')
+    nnoremap <nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
+    nnoremap <nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
+    inoremap <nowait><expr> <C-f> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(1)\<cr>" : "\<Right>"
+    inoremap <nowait><expr> <C-b> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(0)\<cr>" : "\<Left>"
+endif
+
+
 inoremap <silent><expr> <TAB>
     \ pumvisible() ? "\<C-y>" : "\<TAB>"
 
@@ -444,12 +517,6 @@ let g:mkdp_auto_close = 0
 
 " Disable concealing with indentline
 let g:indentLine_setConceal = 0
-
-" lsp configuration
-if has('nvim-0.5')
-    luafile ~/.vim/lua/customlspconfig.lua
-endif
-
 
 " Support directory local vimrc files
 " https://github.com/direnv/direnv/wiki/Vim
