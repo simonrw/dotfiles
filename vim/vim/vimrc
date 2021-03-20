@@ -184,6 +184,7 @@ endif
 " FZF
 set rtp+=~/.fzf
 let g:fzf_command_prefix = 'Fzf'
+let g:fzf_preview_window = []
 nnoremap <leader>f :FzfGitFiles<cr>
 nnoremap <leader>F :FzfFiles<cr>
 nnoremap gb :FzfBuffers<cr>
