@@ -202,13 +202,6 @@
   (setq gofmt-command "goimports")
   (add-hook 'before-save-hook 'gofmt-before-save))
 
-(defun todo ()
-  (interactive)
-  (find-file (concat org-directory "/todo.org")))
-
-(use-package rainbow-delimiters
-  :hook (prog-mode . rainbow-delimiters-mode))
-
 (use-package dockerfile-mode
   :mode "Dockerfile")
 
@@ -227,71 +220,30 @@
   (which-key-mode)
   (setq which-key-idle-delay 1))
 
-(use-package projectile
-  :commands (projectile-command-map)
-  :diminish projectile-mode
-  :config (projectile-mode)
-  :bind-keymap
-  ("C-c C-p" . projectile-command-map))
-
-(use-package all-the-icons)
-
-(use-package doom-modeline
-  :init (doom-modeline-mode 1)
-  :custom ((doom-modeline-height 10)))
-
-(use-package counsel
-  :bind (("M-x" . counsel-M-x)
-         ("C-x b" . counsel-ibuffer)
-         ("C-x C-f" . counsel-find-file)
-         :map minibuffer-local-map
-         ("C-r" . 'counsel-minibuffer-history)))
-
-(use-package ivy
-  :diminish
-  :bind (("C-s" . swiper))
-  :config
-  (ivy-mode 1))
-
 (use-package vterm)
-
-(use-package evil
-  :init
-  (setq evil-want-keybinding nil)
-  :config
-  (evil-mode 1)
-  (evil-define-key 'normal 'global
-	"tf" 'python-pytest-file
-    "tn" 'python-pytest-function))
-
-(use-package evil-collection
-  :after (evil)
-  :config
-  (evil-collection-init))
-
-(use-package evil-leader
-  :after (evil)
-  :config
-  (evil-leader/set-leader ",")
-  (evil-leader/set-key
-	"f" 'projectile-find-file)
-
-  (global-evil-leader-mode))
-
-(defun efs/display-startup-time ()
-  (message "Emacs loaded in %s seconds with %d garbage collections."
-		   (format "%.2f seconds"
-				   (float-time
-					(time-subtract after-init-time before-init-time)))
-		   gcs-done))
-
-(add-hook 'emacs-startup-hook #'efs/display-startup-time)
-
-(load-theme 'wombat t)
 
 (use-package direnv
  :config
  (direnv-mode))
+
+;; LSP
+(use-package lsp-mode
+  :init
+  (setq lsp-keymap-prefix "C-c l")
+  :hook
+  ((python-mode . lsp)
+   (lsp-mode . lsp-enable-which-key-integration))
+  :commands (lsp lsp))
+
+(use-package lsp-ui :commands lsp-ui-mode)
+
+(use-package lsp-pyright
+  :hook
+  (python-mode . (lambda ()
+				   (require 'lsp-pyright)
+				   (lsp))))
+
+(load-theme 'wombat t)
 
 (provide 'init)
 ;;; init.el ends here
