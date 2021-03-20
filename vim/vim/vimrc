@@ -34,7 +34,6 @@ Plug 'NLKNguyen/papercolor-theme'
 Plug 'direnv/direnv.vim'
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
 Plug 'eemed/sitruuna.vim'
-Plug 'takac/vim-hardtime'
 Plug 'neoclide/coc.nvim', { 'branch': 'release' }
 Plug 'rodrigore/coc-tailwind-intellisense', {'do': 'npm install'}
 
