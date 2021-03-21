@@ -195,7 +195,7 @@ nnoremap <leader>gt :FzfBTags<cr>
 nnoremap <leader>a :FzfRg<cr>
 
 " Configure fzf window style
-let g:fzf_layout = { 'window': { 'width': 1, 'height': 0.4, 'yoffset': 1, 'border': 'top' } }
+" let g:fzf_layout = { 'window': { 'width': 1, 'height': 0.4, 'yoffset': 1, 'border': 'top' } }
 
 " Configure vim tmux runner
 let g:VtrStripLeadingWhitespace = 0
