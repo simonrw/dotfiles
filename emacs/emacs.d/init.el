@@ -243,6 +243,27 @@
 				   (require 'lsp-pyright)
 				   (lsp))))
 
+(use-package evil
+  :init
+  (setq evil-want-keybinding nil)
+  :config
+  (evil-mode 1)
+  (evil-define-key 'normal 'global
+	"tf" 'python-pytest-file
+    "tn" 'python-pytest-function))
+
+(use-package evil-collection
+  :after (evil)
+  :config
+  (evil-collection-init))
+
+(use-package evil-leader
+  :after (evil)
+  :config
+  (evil-leader/set-leader ",")
+  (evil-leader/set-key
+	"f" 'projectile-find-file)
+
 (load-theme 'wombat t)
 
 (provide 'init)
