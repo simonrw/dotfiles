@@ -122,6 +122,7 @@
 
 ;; Markdown
 (use-package markdown-mode
+
   :mode (("README\\.md\\'" . gfm-mode)
 	 ("\\.md\\'" . markdown-mode)
 	 ("\\.markdown\\'" . markdown-mode))
@@ -226,22 +227,11 @@
  :config
  (direnv-mode))
 
-;; LSP
-(use-package lsp-mode
+(use-package flycheck
   :init
-  (setq lsp-keymap-prefix "C-c l")
-  :hook
-  ((python-mode . lsp)
-   (lsp-mode . lsp-enable-which-key-integration))
-  :commands (lsp lsp))
+  (global-flycheck-mode))
 
-(use-package lsp-ui :commands lsp-ui-mode)
-
-(use-package lsp-pyright
-  :hook
-  (python-mode . (lambda ()
-				   (require 'lsp-pyright)
-				   (lsp))))
+(use-package python-pytest)
 
 (use-package evil
   :init
@@ -250,7 +240,8 @@
   (evil-mode 1)
   (evil-define-key 'normal 'global
 	"tf" 'python-pytest-file
-    "tn" 'python-pytest-function))
+    "tn" 'python-pytest-function
+	"tl" 'python-pytest-repeat))
 
 (use-package evil-collection
   :after (evil)
@@ -262,9 +253,9 @@
   :config
   (evil-leader/set-leader ",")
   (evil-leader/set-key
-	"f" 'projectile-find-file)
+	"f" 'projectile-find-file))
 
-(load-theme 'wombat t)
+(load-theme 'tango-dark t)
 
 (provide 'init)
 ;;; init.el ends here
