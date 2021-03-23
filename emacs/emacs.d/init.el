@@ -183,6 +183,12 @@
 
 (use-package python-pytest)
 
+(add-hook! python-mode
+  (advice-add 'python-pytest-file :before
+              (lambda (&rest args)
+                (setq python-pytest-executable (+python-executable-find "pytest")))))
+
+
 (use-package org-preview-html
   :after (org))
 
