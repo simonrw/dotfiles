@@ -181,13 +181,12 @@
 	 (ruby . t)
 	 (python . t))))
 
-(use-package python-pytest)
-
-(add-hook! python-mode
-  (advice-add 'python-pytest-file :before
-              (lambda (&rest args)
-                (setq python-pytest-executable (+python-executable-find "pytest")))))
-
+(use-package python-pytest
+  :init
+  (add-hook 'python-mode
+            (advice-add 'python-pytest-file :before
+                        (lambda (&rest args)
+                          (setq python-pytest-executable (+python-executable-find "pytest"))))))
 
 (use-package org-preview-html
   :after (org))
@@ -237,31 +236,7 @@
   :init
   (global-flycheck-mode))
 
-(use-package python-pytest)
-
-(use-package evil
-  :init
-  (setq evil-want-keybinding nil)
-  :config
-  (evil-mode 1)
-  (evil-define-key 'normal 'global
-	"tf" 'python-pytest-file
-    "tn" 'python-pytest-function
-	"tl" 'python-pytest-repeat))
-
-(use-package evil-collection
-  :after (evil)
-  :config
-  (evil-collection-init))
-
-(use-package evil-leader
-  :after (evil)
-  :config
-  (evil-leader/set-leader ",")
-  (evil-leader/set-key
-	"f" 'projectile-find-file))
-
-(load-theme 'tango-dark t)
+(load-theme 'tango t)
 
 (provide 'init)
 ;;; init.el ends here
