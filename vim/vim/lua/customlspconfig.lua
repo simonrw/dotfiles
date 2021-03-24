@@ -80,7 +80,7 @@ vim.lsp.handlers['textDocument/documentSymbol'] = require'lsputil.symbols'.docum
 vim.lsp.handlers['workspace/symbol'] = require'lsputil.symbols'.workspace_handler
 
 -- lspconfig
-local servers = {"pyls", "rust_analyzer"}
+local servers = {"pyls", "rust_analyzer", "gopls"}
 for _, lsp in ipairs(servers) do
     lspconfig[lsp].setup { on_attach = on_attach }
 end
