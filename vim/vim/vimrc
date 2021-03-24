@@ -444,7 +444,7 @@ let g:indentLine_setConceal = 0
 
 " lsp configuration
 if has('nvim-0.5')
-    luafile ~/.vim/lua/customlspconfig.lua
+    lua require("customlspconfig")
 endif
 
 
