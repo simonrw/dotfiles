@@ -236,7 +236,7 @@
   :init
   (global-flycheck-mode))
 
-(load-theme 'tango t)
+(load-theme 'wombat t)
 
 (provide 'init)
 ;;; init.el ends here
