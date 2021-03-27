@@ -40,6 +40,7 @@ if has('nvim-0.5')
     Plug 'hrsh7th/nvim-compe'
     Plug 'RishabhRD/popfix'
     Plug 'RishabhRD/nvim-lsputils'
+    Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 endif
 
 
@@ -445,6 +446,7 @@ let g:indentLine_setConceal = 0
 " lsp configuration
 if has('nvim-0.5')
     lua require("customlspconfig")
+    lua require("treesitterconfig")
 endif
 
 
