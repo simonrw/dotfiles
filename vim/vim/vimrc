@@ -37,6 +37,7 @@ Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': 
 Plug 'eemed/sitruuna.vim'
 Plug 'neoclide/coc.nvim', { 'branch': 'release' }
 Plug 'rodrigore/coc-tailwind-intellisense', {'do': 'npm install'}
+Plug 'josa42/vim-lightline-coc'
 
 " My plugins
 Plug 'https://gitlab.com/srwalker101/pytest-callgraph.git'
@@ -521,8 +522,8 @@ let g:lightline = {}
 let g:lightline.colorscheme = 'default'
 let g:lightline.active = {
       \   'left': [ [ 'mode', 'paste' ],
-      \             [ 'readonly', 'filename', 'modified', 'gitstatus' ] ],
-      \   'right': [ ['lineinfo'], ['percent'], ['fileformat', 'fileencoding', 'filetype'] ]
+      \             [ 'readonly', 'filename', 'modified', 'gitstatus', 'coc_status' ] ],
+      \   'right': [ ['lineinfo'], ['percent'], ['coc_info', 'coc_hints', 'coc_errors', 'coc_warnings', 'coc_ok', 'fileformat', 'fileencoding', 'filetype'] ]
       \ }
 let g:lightline.mode_map = {
         \ 'n' : 'N',
@@ -545,6 +546,7 @@ let g:lightline.component_function = {
 function! LightlineFilename()
   return expand('%:t') !=# '' ? @% : '[No Name]'
 endfunction
+call lightline#coc#register()
 
 " Support directory local vimrc files
 " https://github.com/direnv/direnv/wiki/Vim
