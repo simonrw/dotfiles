@@ -2,6 +2,8 @@ vim.o.completeopt = "menuone,noselect"
 
 local lspconfig = require("lspconfig")
 local compe = require("compe")
+local lsp_status = require("lsp-status")
+lsp_status.register_progress()
 
 -- compe
 compe.setup {
@@ -50,6 +52,9 @@ local on_attach = function(client, bufnr)
     if client.resolved_capabilities.document_formatting then
         buf_set_keymap("n", "<leader>y", "<cmd>lua vim.lsp.buf.formatting_sync(nil, 1000000)<cr>", opts)
     end
+
+    -- lsp-status
+    lsp_status.on_attach(client, bufnr)
 end
 
 local t = function(str)
