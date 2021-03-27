@@ -469,11 +469,6 @@ nmap gp <Plug>(coc-git-chunkinfo)
 " Show available actions
 nnoremap <silent> <leader>ca :CocAction<cr>
 
-augroup go_imports
-    autocmd!
-    autocmd BufWritePre *.go :call CocAction('organizeImport')
-augroup END
-
 augroup diff_mode
     " If doing a diff. Upon writing changes to file, automatically update the
     " differences
