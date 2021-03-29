@@ -34,7 +34,6 @@ Plug 'NLKNguyen/papercolor-theme'
 Plug 'itchyny/lightline.vim'
 Plug 'direnv/direnv.vim'
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
-Plug 'eemed/sitruuna.vim'
 
 " My plugins
 Plug 'https://gitlab.com/srwalker101/pytest-callgraph.git'
