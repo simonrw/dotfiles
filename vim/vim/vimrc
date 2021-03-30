@@ -31,7 +31,6 @@ Plug 'junegunn/goyo.vim'
 Plug 'chriskempson/base16-vim'
 Plug 'shumphrey/fugitive-gitlab.vim'
 Plug 'NLKNguyen/papercolor-theme'
-Plug 'itchyny/lightline.vim'
 Plug 'direnv/direnv.vim'
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
 Plug 'psf/black'
@@ -439,34 +438,6 @@ let g:mkdp_auto_close = 0
 
 " Disable concealing with indentline
 let g:indentLine_setConceal = 0
-
-let g:lightline = {}
-let g:lightline.colorscheme = 'default'
-let g:lightline.active = {
-      \   'left': [ [ 'mode', 'paste' ],
-      \             [ 'readonly', 'filename', 'modified', 'gitstatus'] ],
-      \ }
-let g:lightline.mode_map = {
-        \ 'n' : 'N',
-        \ 'i' : 'I',
-        \ 'R' : 'R',
-        \ 'v' : 'V',
-        \ 'V' : 'VL',
-        \ "\<C-v>": 'VB',
-        \ 'c' : 'C',
-        \ 's' : 'S',
-        \ 'S' : 'SL',
-        \ "\<C-s>": 'SB',
-        \ 't': 'T',
-        \ }
-let g:lightline.inactive = g:lightline.active
-let g:lightline.component_function = {
-      \   'filename': 'LightlineFilename',
-      \   'gitstatus': 'FugitiveStatusline',
-      \ }
-function! LightlineFilename()
-  return expand('%:t') !=# '' ? @% : '[No Name]'
-endfunction
 
 " Support directory local vimrc files
 " https://github.com/direnv/direnv/wiki/Vim
