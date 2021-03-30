@@ -20,6 +20,10 @@ test -d ~/.ssh && {
 alias gpe="git push && exit"
 alias gpr="git pull --rebase"
 
+if has_executable git-change; then
+    alias gc="git change"
+fi
+
 if has_executable rg; then
     alias grep=rg
 elif has_executable ag; then

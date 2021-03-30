@@ -1,0 +1,42 @@
+#!/bin/sh
+
+# git-change:
+# 
+# run with an argument:
+# - creates and switches to to a new branch if it does not exist
+# - switches to a branch if it exists
+# run without argument:
+# - commits
+
+set -euo pipefail
+
+handle_branches() {
+    name=$1
+
+    git branch | grep -q $name && {
+        git checkout $name
+    } || {
+        git checkout -b $name
+    }
+
+    true
+}
+
+
+main() {
+    if [ $# -eq 0 ]; then
+        git commit --verbose
+        return
+    fi
+
+    name=$1
+    shift
+
+    echo $name | grep -q "\-" && {
+        git commit $name $@
+    } || {
+        handle_branches $name
+    }
+}
+
+main $@
