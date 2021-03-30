@@ -35,7 +35,6 @@ Plug 'itchyny/lightline.vim'
 Plug 'direnv/direnv.vim'
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
 Plug 'psf/black'
-Plug 'preservim/tagbar'
 
 " My plugins
 Plug 'https://gitlab.com/srwalker101/pytest-callgraph.git'
@@ -445,7 +444,7 @@ let g:lightline = {}
 let g:lightline.colorscheme = 'default'
 let g:lightline.active = {
       \   'left': [ [ 'mode', 'paste' ],
-      \             [ 'readonly', 'filename', 'modified', 'gitstatus', 'tagbar' ] ],
+      \             [ 'readonly', 'filename', 'modified', 'gitstatus'] ],
       \ }
 let g:lightline.mode_map = {
         \ 'n' : 'N',
@@ -465,19 +464,9 @@ let g:lightline.component_function = {
       \   'filename': 'LightlineFilename',
       \   'gitstatus': 'FugitiveStatusline',
       \ }
-let g:lightline.component = {
-      \ 'tagbar': '%{tagbar#currenttag("%s", "", "f")}',
-      \ }
 function! LightlineFilename()
   return expand('%:t') !=# '' ? @% : '[No Name]'
 endfunction
-
-" tagbar
-let g:tagbar_position = 'topleft vertical'
-let g:tagbar_autoclose = 1
-let g:tagbar_autofocus = 1
-let g:tagbar_compact = 1
-nnoremap <silent> yot :silent TagbarToggle<Cr>
 
 " Support directory local vimrc files
 " https://github.com/direnv/direnv/wiki/Vim
