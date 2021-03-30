@@ -35,7 +35,7 @@
 (setq mouse-wheel-progressive-speed nil)
 (setq mouse-wheel-follow-mouse t)
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
-v(global-visual-line-mode t)
+(global-visual-line-mode t)
 (set-fringe-mode 10)
 
 ;; Enable nicer window moving
@@ -223,10 +223,6 @@ v(global-visual-line-mode t)
   (setq which-key-idle-delay 1))
 
 (use-package vterm)
-
-(use-package direnv
- :config
- (direnv-mode))
 
 (provide 'init)
 ;;; init.el ends here
