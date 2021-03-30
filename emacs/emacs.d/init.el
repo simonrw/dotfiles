@@ -35,11 +35,8 @@
 (setq mouse-wheel-progressive-speed nil)
 (setq mouse-wheel-follow-mouse t)
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
-(global-visual-line-mode t)
+v(global-visual-line-mode t)
 (set-fringe-mode 10)
-
-(global-set-key (kbd "<escape>") 'keyboard-escape-quit)
-
 
 ;; Enable nicer window moving
 (when (fboundp 'windmove-default-keybindings)
@@ -82,7 +79,6 @@
   (global-set-key (kbd "C-c c") 'pbcopy)
   (global-set-key (kbd "C-c v") 'pbpaste)
   (global-set-key (kbd "C-c x") 'pbcut)
-
 
   (menu-bar-mode t)
 
@@ -231,12 +227,6 @@
 (use-package direnv
  :config
  (direnv-mode))
-
-(use-package flycheck
-  :init
-  (global-flycheck-mode))
-
-(load-theme 'wombat t)
 
 (provide 'init)
 ;;; init.el ends here
