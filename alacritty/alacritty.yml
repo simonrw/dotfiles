@@ -352,7 +352,7 @@ available_schemes:
   default: &colors_default
     # Default colors
     primary:
-      background: '#1d1f21'
+      background: '#181818'
       foreground: '#e6e6e6'
 
     # Normal colors
