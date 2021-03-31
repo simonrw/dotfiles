@@ -48,6 +48,7 @@ Plug 'ElmCast/elm-vim'
 Plug 'leafgarland/typescript-vim'
 Plug 'hashivim/vim-terraform'
 Plug 'ziglang/zig.vim'
+Plug 'jparise/vim-graphql'
 
 if has('nvim-0.5')
     augroup LuaHighlight
