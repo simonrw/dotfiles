@@ -224,5 +224,7 @@
 
 (use-package vterm)
 
+(load-theme 'tango-dark t)
+
 (provide 'init)
 ;;; init.el ends here
