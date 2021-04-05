@@ -6,12 +6,12 @@ setlocal textwidth=0
 nnoremap <silent> <leader>m :Mypy<cr>
 
 function! s:list_functions_in_buffer() abort
-    silent grep 'def ' %
+    silent grep! 'def ' %
     copen
 endfunction
 
 function! s:list_test_functions_in_buffer() abort
-    silent grep 'def test_' %
+    silent grep! 'def test_' %
     copen
 endfunction
 
