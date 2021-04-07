@@ -34,7 +34,6 @@ Plug 'NLKNguyen/papercolor-theme'
 Plug 'direnv/direnv.vim'
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
 Plug 'psf/black'
-Plug 'dense-analysis/ale'
 Plug 'fatih/vim-go'
 
 " My plugins
@@ -59,6 +58,9 @@ if has('nvim-0.5')
 else
     Plug 'machakann/vim-highlightedyank'
 endif
+
+" language helpers/linting
+source ~/.vim/tooling/coc.vim
 
 call plug#end()
 
@@ -320,26 +322,6 @@ let g:go_info_mode='gopls'
 " Configure elm.vim
 let g:elm_format_fail_silently = 1
 
-" ALE
-nmap <silent> [g <Plug>(ale_previous_wrap)
-nmap <silent> ]g <Plug>(ale_next_wrap)
-nnoremap <silent> <leader>y <Plug>(ale_fix)<cr>
-
-function! LinterStatus() abort
-    let l:counts = ale#statusline#Count(bufnr(''))
-
-    let l:all_errors = l:counts.error + l:counts.style_error
-    let l:all_non_errors = l:counts.total - l:all_errors
-
-    return l:counts.total == 0 ? 'OK' : printf(
-    \   '%dW %dE',
-    \   all_non_errors,
-    \   all_errors
-    \)
-endfunction
-
-set statusline=%<%f\ (%{LinterStatus()})\ %h%m%r%=%-14.(%l,%c%V%)\ %P
-
 " Enable autoformatting of valid pretter-compatible files
 let g:prettier#autoformat = 1
 let g:prettier#autoformat_require_pragma = 0
@@ -400,7 +382,6 @@ let g:rshtuff_listener = "testrunner"
 let g:test#custom_strategies = {'rshtuff': function('RShtuffStrategy')}
 let g:test#strategy = 'basic'
 
-let g:coc_global_extensions = [ 'coc-pyright', 'coc-json', 'coc-go', 'coc-rust-analyzer', 'coc-git', 'coc-emoji']
 let g:vim_markdown_auto_insert_bullets = 0
 let g:vim_markdown_new_list_item_indent= 0
 let g:vim_markdown_no_default_key_mappings = 1
