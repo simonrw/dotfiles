@@ -26,6 +26,11 @@ test-rust() {
     cargo test
 }
 
+test-go() {
+    go vet
+    go test
+}
+
 # Do not allow pushes without validating what pre-push commands are wanted
 echo "*** NO TESTS SET UP YET, BLOCKING PUSH ***"
 exit 1
