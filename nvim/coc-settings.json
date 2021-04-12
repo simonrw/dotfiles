@@ -9,9 +9,6 @@
     "python.linting.flake8Path": "~/.local/pipx/bin/flake8",
     "coc.source.emoji.filetypes": ["markdown", "gitcommit"],
     "suggest.noselect": false,
-    "diagnostic.errorSign": "✘",
-    "diagnostic.warningSign": "!",
-    "diagnostic.infoSign": "?",
     "hover.target": "float",
     "diagnostic.checkCurrentLine": true,
     "languageserver": {
