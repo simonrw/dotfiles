@@ -579,13 +579,15 @@ function! OpenURLUnderCursor()
 	if s:uri != ''
         if has("macunix")
             silent exec "!open '".s:uri."'"
+        elseif has('unix')
+            silent exec "!xdg-open '".s:uri."' 2>/dev/null"
         else
             echom "No open handler found for this OS"
         endif
 		:redraw!
 	endif
 endfunction
-nnoremap <silent> gx :silent call OpenURLUnderCursor()<CR>
+nnoremap <silent> gx :call OpenURLUnderCursor()<CR>
 
 " Support directory local vimrc files
 " https://github.com/direnv/direnv/wiki/Vim
