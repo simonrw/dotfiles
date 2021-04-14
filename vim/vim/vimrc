@@ -10,7 +10,7 @@ if !has('nvim')
     Plug 'tpope/vim-sensible'
 endif
 
-let g:completion_framework = "nvim"
+let g:completion_framework = ""
 
 syntax on
 
@@ -568,6 +568,22 @@ elseif g:completion_framework == "ale"
 elseif g:completion_framework == "nvim" && has('nvim-0.5')
     luafile ~/.vim/lua/customlspconfig.lua
 endif
+
+" Hack around the recent failure of gx
+function! OpenURLUnderCursor()
+	let s:uri = expand('<cWORD>')
+	let s:uri = matchstr(s:uri, "[a-z]*:\/\/[^ >,;)'\"]*")
+	let s:uri = substitute(s:uri, '#', '\\#', '')
+	if s:uri != ''
+        if has("macunix")
+            silent exec "!open '".s:uri."'"
+        else
+            echom "No open handler found for this OS"
+        endif
+		:redraw!
+	endif
+endfunction
+nnoremap <silent> gx :silent call OpenURLUnderCursor()<CR>
 
 " Support directory local vimrc files
 " https://github.com/direnv/direnv/wiki/Vim
