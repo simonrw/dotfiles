@@ -74,6 +74,8 @@ elseif g:completion_framework == "nvim" && has('nvim-0.5')
     Plug 'RishabhRD/nvim-lsputils'
     Plug 'nvim-lua/lsp-status.nvim'
     Plug 'airblade/vim-gitgutter'
+else
+    Plug 'airblade/vim-gitgutter'
 endif
 
 call plug#end()
