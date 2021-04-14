@@ -66,4 +66,4 @@ endif
 " highlighting overrides for plugins
 hi CocUnderline gui=none cterm=none
 
-let g:coc_global_extensions = [ 'coc-pyright', 'coc-json', 'coc-go', 'coc-rust-analyzer', 'coc-emoji', 'coc-cfn-lint']
+let g:coc_global_extensions = [ 'coc-pyright', 'coc-json', 'coc-go', 'coc-rust-analyzer', 'coc-emoji', 'coc-git']
