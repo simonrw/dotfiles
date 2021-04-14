@@ -1,6 +1,14 @@
 " gray-100
 hi Normal guifg=#f3f4f6 ctermfg=none guibg=None
 
+hi SignColumn guibg=None
+hi StatusLine guifg=white guibg=none gui=bold
+hi EndOfBuffer guifg=black guibg=none
+
+" gray-500
+hi StatusLineNC guifg=#6B7280 guibg=none gui=none
+hi VertSplit cterm=reverse guifg=#6B7280 gui=none
+
 hi! link Constant Normal
 hi! link String Normal
 hi! link Character Normal
@@ -34,6 +42,8 @@ hi! link Underlined Normal
 hi! link Ignore Normal
 hi! link Error Normal
 hi! link SpecialComment Normal
+hi! link NonText Normal
+hi! link Title Normal
 
 " amber-200
 hi! Todo guifg=#fde68a
@@ -41,3 +51,8 @@ hi! Todo guifg=#fde68a
 " gray-300
 hi! Comment guifg=#d1d5db
 
+
+" gitgutter
+hi! link GitGutterAdd Normal
+hi! link GitGutterChange Normal
+hi! link GitGutterDelete Normal
