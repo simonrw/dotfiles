@@ -10,6 +10,8 @@ if !has('nvim')
     Plug 'tpope/vim-sensible'
 endif
 
+let g:completion_framework = "nvim"
+
 syntax on
 
 Plug 'junegunn/fzf.vim'
@@ -59,8 +61,20 @@ else
     Plug 'machakann/vim-highlightedyank'
 endif
 
-" language helpers/linting
-source ~/.vim/tooling/coc.vim
+if g:completion_framework == "coc"
+    Plug 'neoclide/coc.nvim', { 'branch': 'release' }
+    Plug 'rodrigore/coc-tailwind-intellisense', {'do': 'npm install'}
+elseif g:completion_framework == "ale"
+    Plug 'dense-analysis/ale'
+    Plug 'airblade/vim-gitgutter'
+elseif g:completion_framework == "nvim" && has('nvim-0.5')
+    Plug 'neovim/nvim-lspconfig'
+    Plug 'hrsh7th/nvim-compe'
+    Plug 'RishabhRD/popfix'
+    Plug 'RishabhRD/nvim-lsputils'
+    Plug 'nvim-lua/lsp-status.nvim'
+    Plug 'airblade/vim-gitgutter'
+endif
 
 call plug#end()
 
@@ -463,6 +477,98 @@ let g:mkdp_auto_close = 0
 " Disable concealing with indentline
 let g:indentLine_setConceal = 0
 
+" completion
+if g:completion_framework == "coc"
+    " configure conflicted status line
+    set statusline=%<%f\ %{coc#status()}%{get(b:,'coc_current_function','')}%h%m%r%=%-14.(%l,%c%V%)\ %P
+    set statusline+=%{ConflictedVersion()}
+
+    " Triggering completion
+    inoremap <silent><expr> <c-p> coc#refresh()
+    inoremap <silent><expr> <c-n> coc#refresh()
+
+    nmap <silent> gd <Plug>(coc-definition)
+    nmap <silent> gy <Plug>(coc-type-definition)
+    nmap <silent> gi <Plug>(coc-implementation)
+    nmap <silent> gr <Plug>(coc-references)
+    nnoremap <silent> gh :CocList symbols<cr>
+    nnoremap <silent> <leader>cr :CocRestart<cr>
+
+    " Use `[g` and `]g` to navigate diagnostics
+    " Use `:CocDiagnostics` to get all diagnostics of current buffer in location list.
+    nmap <silent> [g <Plug>(coc-diagnostic-prev)
+    nmap <silent> ]g <Plug>(coc-diagnostic-next)
+
+    " Add `:Format` command to format current buffer.
+    command! -nargs=0 Format :call CocAction('format')
+    nnoremap <silent> <leader>y :Format<cr>
+
+    " Symbol renaming.
+    nmap <leader>rn <Plug>(coc-rename)
+
+    " Use K to show documentation in preview window.
+    nnoremap <silent> <leader>d :call <SID>show_documentation()<CR>
+
+    function! s:show_documentation()
+      if (index(['vim','help'], &filetype) >= 0)
+        execute 'h '.expand('<cword>')
+      else
+        call CocAction('doHover')
+      endif
+    endfunction
+
+    " Prevent missing cursor bug
+    let g:coc_disable_transparent_cursor = 1
+
+    " prevent coc-emoji leaving behind the initial colon
+    " https://github.com/neoclide/coc-sources/issues/15#issuecomment-636398317
+    if exists('*complete_info')
+      inoremap <expr> <cr> complete_info()["selected"] != "-1" ? "\<C-y>" : "\<C-g>u\<CR>"
+    endif
+
+    " Use `[g` and `]g` to navigate diagnostics
+    " Use `:CocDiagnostics` to get all diagnostics of current buffer in location list.
+    nmap <silent> [g <Plug>(coc-diagnostic-prev)
+    nmap <silent> ]g <Plug>(coc-diagnostic-next)
+
+    " Show available actions
+    nnoremap <silent> <leader>ca :CocAction<cr>
+
+    if has('nvim-0.4.0') || has('patch-8.2.0750')
+        nnoremap <nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
+        nnoremap <nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
+        inoremap <nowait><expr> <C-f> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(1)\<cr>" : "\<Right>"
+        inoremap <nowait><expr> <C-b> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(0)\<cr>" : "\<Left>"
+    endif
+
+    " highlighting overrides for plugins
+    hi CocUnderline gui=none cterm=none
+
+    let g:coc_global_extensions = [ 'coc-pyright', 'coc-json', 'coc-go', 'coc-rust-analyzer', 'coc-emoji', 'coc-git']
+elseif g:completion_framework == "ale"
+    " ALE
+    nmap <silent> [g <Plug>(ale_previous_wrap)
+    nmap <silent> ]g <Plug>(ale_next_wrap)
+    nnoremap <silent> <leader>y <Plug>(ale_fix)<cr>
+
+    function! LinterStatus() abort
+        let l:counts = ale#statusline#Count(bufnr(''))
+
+        let l:all_errors = l:counts.error + l:counts.style_error
+        let l:all_non_errors = l:counts.total - l:all_errors
+
+        return l:counts.total == 0 ? 'OK' : printf(
+        \   '%dW %dE',
+        \   all_non_errors,
+        \   all_errors
+        \)
+    endfunction
+
+    set statusline=%<%f\ (%{LinterStatus()})\ %h%m%r%=%-14.(%l,%c%V%)\ %P
+elseif g:completion_framework == "nvim" && has('nvim-0.5')
+    luafile ~/.vim/lua/customlspconfig.lua
+endif
+
 " Support directory local vimrc files
 " https://github.com/direnv/direnv/wiki/Vim
 if exists("$EXTRA_VIM")
@@ -470,6 +576,7 @@ if exists("$EXTRA_VIM")
     exec "source ".path
   endfor
 endif
+
 
 set background=dark
 colorscheme srw256
