@@ -601,4 +601,4 @@ endif
 
 
 set background=dark
-colorscheme srw256
+colorscheme mono
