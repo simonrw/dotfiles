@@ -51,6 +51,7 @@ Plug 'leafgarland/typescript-vim'
 Plug 'hashivim/vim-terraform'
 Plug 'ziglang/zig.vim'
 Plug 'jparise/vim-graphql'
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 
 if has('nvim-0.5')
     augroup LuaHighlight
@@ -592,6 +593,8 @@ function! OpenURLUnderCursor()
 	endif
 endfunction
 nnoremap <silent> gx :call OpenURLUnderCursor()<CR>
+
+luafile ~/.vim/lua/treesitterconfig.lua
 
 " Support directory local vimrc files
 " https://github.com/direnv/direnv/wiki/Vim
