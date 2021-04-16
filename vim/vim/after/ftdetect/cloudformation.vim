@@ -1,1 +1,1 @@
-au BufNewFile,BufRead cloudformation.template set ft=yaml
+au BufNewFile,BufRead cloudformation.yml,cloudformation.template,*.template set ft=cloudformation
