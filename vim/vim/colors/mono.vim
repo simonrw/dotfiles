@@ -48,8 +48,8 @@ hi! link Title Normal
 " amber-200
 hi! Todo guifg=#fde68a
 
-" gray-300
-hi! Comment guifg=#d1d5db
+" gray-400
+hi! Comment guifg=#9CA3AF
 
 
 " gitgutter
