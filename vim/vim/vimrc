@@ -10,7 +10,9 @@ if !has('nvim')
     Plug 'tpope/vim-sensible'
 endif
 
+" general settings
 let g:completion_framework = ""
+let g:include_treeplanner = 0
 
 syntax on
 
@@ -52,7 +54,10 @@ Plug 'leafgarland/typescript-vim'
 Plug 'hashivim/vim-terraform'
 Plug 'ziglang/zig.vim'
 Plug 'jparise/vim-graphql'
+
+if has('nvim-0.5') && g:include_treeplanner
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+endif
 
 if has('nvim-0.5')
     augroup LuaHighlight
@@ -360,6 +365,10 @@ if g:completion_framework == "coc"
     let g:go_highlight_generate_tags = 1
 endif
 
+if has('nvim-0.5') && g:include_treeplanner
+luafile ~/.vim/lua/treesitterconfig.lua
+endif
+
 " Configure elm.vim
 let g:elm_format_fail_silently = 1
 
@@ -594,8 +603,6 @@ function! OpenURLUnderCursor()
 	endif
 endfunction
 nnoremap <silent> gx :call OpenURLUnderCursor()<CR>
-
-luafile ~/.vim/lua/treesitterconfig.lua
 
 " Support directory local vimrc files
 " https://github.com/direnv/direnv/wiki/Vim
