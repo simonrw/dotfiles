@@ -40,7 +40,6 @@ Plug 'direnv/direnv.vim'
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
 Plug 'psf/black'
 Plug 'fatih/vim-go'
-Plug 'doums/darcula'
 
 " My plugins
 Plug 'https://gitlab.com/srwalker101/pytest-callgraph.git'
