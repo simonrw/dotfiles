@@ -85,14 +85,16 @@
   (if (boundp 'mac-auto-operator-composition-mode)
 	  (mac-auto-operator-composition-mode))
 
-  (set-face-attribute 'default nil :family "Source Code Pro" :height 130)
-
   ;; Toggle fullscreen mode
   (global-set-key [m-return] 'toggle-frame-fullscreen)
 
   (when (display-graphic-p)
 	(setq-default mac-emulate-three-button-mouse t)
 	(global-set-key (kbd "M-`") 'other-frame)))
+
+(set-face-attribute 'default nil :family "Source Code Pro" :height 130)
+(set-face-attribute 'fixed-pitch nil :family "Source Code Pro" :height 130)
+(set-face-attribute 'variable-pitch nil :family "Cantarell" :height 130)
 
 (use-package no-littering)
 
@@ -159,12 +161,28 @@
 (use-package graphviz-dot-mode
   :mode "\\.dot\\'")
 
+(use-package projectile
+  :diminish projectile-mode
+  :config
+  (projectile-mode 1)
+  :bind-keymap
+  ("C-c p" . projectile-command-map)
+  :custom
+  ((projectile-completion-system 'ivy))
+  :init
+  (when (file-directory-p "~/work")
+	(setq projectile-project-search-path '("~/work")))
+  (when (file-directory-p "~/dev")
+	(setq projectile-project-search-path '("~/dev")))
+  (setq projectile-switch-project-action #'projectile-dired))
+
 (use-package org
-  :hook (org-mode-hook . variable-pitch-mode)
+  :commands (org-capture org-agenda)
+  :hook (org-mode-hook . org-mode-setup)
   :config
   (setq org-startup-indented t)
   (setq org-startup-folded "showall")
-  (setq org-directory "~/Dropbox/org")
+  (setq org-directory "~/org")
   (org-babel-do-load-languages
    'org-babel-load-languages
    '((plantuml . t)))
@@ -175,7 +193,8 @@
 	 (R . t)
 	 (dot . t)
 	 (ruby . t)
-	 (python . t))))
+	 (python . t)))
+  (org-font-setup))
 
 (use-package python-pytest
   :init
@@ -197,6 +216,39 @@
   :hook (after-init-hook . org-roam-mode)
   :config
   (setq org-roam-directory "~/org-roam"))
+
+(defun org-font-setup ()
+  (font-lock-add-keywords 'org-mode
+                          '(("^ *\\([-]\\) "
+                             (0 (prog1 () (compose-region (match-beginning 1) (match-end 1) "•"))))))
+  (dolist (face '((org-level-1 . 1.2)
+                  (org-level-2 . 1.1)
+                  (org-level-3 . 1.0)
+                  (org-level-4 . 1.0)
+                  (org-level-5 . 1.1)
+                  (org-level-6 . 1.1)
+                  (org-level-7 . 1.1)
+                  (org-level-8 . 1.1)))
+    (set-face-attribute (car face) nil :font "Cantarell" :weight 'regular :height (cdr face)))
+
+  ;; Ensure that anything that should be fixed-pitch in Org files appears that way
+  (set-face-attribute 'org-block nil    :foreground nil :inherit 'fixed-pitch)
+  (set-face-attribute 'org-table nil    :inherit 'fixed-pitch)
+  (set-face-attribute 'org-formula nil  :inherit 'fixed-pitch)
+  (set-face-attribute 'org-code nil     :inherit '(shadow fixed-pitch))
+  (set-face-attribute 'org-table nil    :inherit '(shadow fixed-pitch))
+  (set-face-attribute 'org-verbatim nil :inherit '(shadow fixed-pitch))
+  (set-face-attribute 'org-special-keyword nil :inherit '(font-lock-comment-face fixed-pitch))
+  (set-face-attribute 'org-meta-line nil :inherit '(font-lock-comment-face fixed-pitch))
+  (set-face-attribute 'org-checkbox nil  :inherit 'fixed-pitch)
+  (set-face-attribute 'line-number nil :inherit 'fixed-pitch)
+  (set-face-attribute 'line-number-current-line nil :inherit 'fixed-pitch))
+
+(defun org-mode-setup ()
+  (org-indent-mode)
+  (variable-pitch-mode 1)
+  (visual-line-mode 1))
+
 
 (use-package go-mode
   :mode "\\.go\\'"
@@ -222,9 +274,63 @@
   (which-key-mode)
   (setq which-key-idle-delay 1))
 
+(use-package evil
+  :init
+  (setq evil-want-integration t)
+  (setq evil-want-keybinding nil)
+  (setq evil-want-C-u-scroll t)
+  (setq evil-want-C-i-jump nil)
+  :config
+  (evil-mode 1)
+
+  (define-key evil-insert-state-map (kbd "C-g") 'evil-normal-state)
+  (define-key evil-insert-state-map (kbd "C-h") 'evil-delete-backward-char-and-join)
+
+  (evil-global-set-key 'motion "j" 'evil-next-visual-line)
+  (evil-global-set-key 'motion "k" 'evil-previous-visual-line))
+
+(use-package evil-collection
+  :after evil
+  :config
+  (evil-collection-init))
+
+(use-package evil-leader
+  :after evil
+  :config
+  (global-evil-leader-mode)
+  (evil-leader/set-leader ",")
+  (evil-leader/set-key
+	"f" 'projectile-find-file))
+
 (use-package vterm)
 
-(load-theme 'tango-dark t)
+(use-package ivy
+  :diminish
+  :config
+  (ivy-mode 1))
+
+(use-package ivy-rich
+  :after ivy
+  :init
+  (ivy-rich-mode 1))
+
+(use-package ivy-prescient
+  :after counsel
+  :custom
+  (ivy-prescient-enable-filtering nil)
+  :config
+  (ivy-prescient-mode 1))
+
+(use-package counsel
+  :bind (("C-M-j" . 'counsel-switch-buffer)
+		 :map minibuffer-local-map
+		 ("C-r" . 'counsel-minibuffer-history))
+  :custom
+  (counsel-linux-app-format-function #'counsel-linux-app-format-function-name-only)
+  :config
+  (counsel-mode 1))
+
+(load-theme 'wombat t)
 
 (provide 'init)
 ;;; init.el ends here
