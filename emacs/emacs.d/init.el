@@ -310,12 +310,12 @@
   (ivy-mode 1))
 
 (use-package ivy-rich
-  :after ivy
+  :after (ivy counsel)
   :init
   (ivy-rich-mode 1))
 
 (use-package ivy-prescient
-  :after counsel
+  :after (ivy counsel)
   :custom
   (ivy-prescient-enable-filtering nil)
   :config
