@@ -162,7 +162,7 @@
   :mode "\\.dot\\'")
 
 (use-package projectile
-  :diminish projectile-mode
+  :diminish
   :config
   (projectile-mode 1)
   :bind-keymap
@@ -179,6 +179,7 @@
 (use-package org
   :commands (org-capture org-agenda)
   :hook (org-mode-hook . org-mode-setup)
+  :bind (("C-c a" . 'org-agenda))
   :config
   (setq org-startup-indented t)
   (setq org-startup-folded "showall")
@@ -221,8 +222,8 @@
   (font-lock-add-keywords 'org-mode
                           '(("^ *\\([-]\\) "
                              (0 (prog1 () (compose-region (match-beginning 1) (match-end 1) "•"))))))
-  (dolist (face '((org-level-1 . 1.2)
-                  (org-level-2 . 1.1)
+  (dolist (face '((org-level-1 . 2.0)
+                  (org-level-2 . 1.5)
                   (org-level-3 . 1.0)
                   (org-level-4 . 1.0)
                   (org-level-5 . 1.1)
@@ -274,36 +275,6 @@
   (which-key-mode)
   (setq which-key-idle-delay 1))
 
-(use-package evil
-  :init
-  (setq evil-want-integration t)
-  (setq evil-want-keybinding nil)
-  (setq evil-want-C-u-scroll t)
-  (setq evil-want-C-i-jump nil)
-  :config
-  (evil-mode 1)
-
-  (define-key evil-insert-state-map (kbd "C-g") 'evil-normal-state)
-  (define-key evil-insert-state-map (kbd "C-h") 'evil-delete-backward-char-and-join)
-
-  (evil-global-set-key 'motion "j" 'evil-next-visual-line)
-  (evil-global-set-key 'motion "k" 'evil-previous-visual-line))
-
-(use-package evil-collection
-  :after evil
-  :config
-  (evil-collection-init))
-
-(use-package evil-leader
-  :after evil
-  :config
-  (global-evil-leader-mode)
-  (evil-leader/set-leader ",")
-  (evil-leader/set-key
-	"f" 'projectile-find-file))
-
-(use-package vterm)
-
 (use-package ivy
   :diminish
   :config
@@ -315,7 +286,7 @@
   (ivy-rich-mode 1))
 
 (use-package ivy-prescient
-  :after (ivy counsel)
+  :after ivy
   :custom
   (ivy-prescient-enable-filtering nil)
   :config
