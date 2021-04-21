@@ -18,7 +18,7 @@ applications = {
         name = "Dash",
     },
     notes = {
-        name = "Obsidian",
+        name = "Emacs",
     },
     editor = {
         name = "Emacs",
