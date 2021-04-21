@@ -105,7 +105,10 @@
   (setq exec-path-from-shell-arguments '("-l" "-i"))
   :config
   (exec-path-from-shell-initialize)
-  (exec-path-from-shell-copy-env "RUST_SRC_PATH"))
+  (exec-path-from-shell-copy-env "RUST_SRC_PATH")
+  (exec-path-from-shell-copy-env "SSH_AGENT_PID")
+  (exec-path-from-shell-copy-env "SSH_AUTH_SOCK"))
+
 
 ;; Editorconfig
 (use-package editorconfig
@@ -161,6 +164,35 @@
 (use-package graphviz-dot-mode
   :mode "\\.dot\\'")
 
+(use-package evil
+  :init
+  (setq evil-want-integration t)
+  (setq evil-want-keybinding nil)
+  (setq evil-want-C-u-scroll t)
+  (setq evil-want-C-i-jump nil)
+  :config
+  (evil-mode 0)
+
+  (define-key evil-insert-state-map (kbd "C-g") 'evil-normal-state)
+  (define-key evil-insert-state-map (kbd "C-h") 'evil-delete-backward-char-and-join)
+
+  (evil-global-set-key 'motion "j" 'evil-next-visual-line)
+  (evil-global-set-key 'motion "k" 'evil-previous-visual-line))
+
+(use-package evil-collection
+  :after evil
+  :config
+  (evil-collection-init))
+
+(use-package evil-leader
+  :after evil
+  :config
+  (global-evil-leader-mode)
+  (evil-leader/set-leader ",")
+  (evil-leader/set-key "f" 'projectile-find-file))
+
+(use-package lua-mode)
+
 (use-package projectile
   :diminish
   :config
@@ -173,8 +205,7 @@
   (when (file-directory-p "~/work")
 	(setq projectile-project-search-path '("~/work")))
   (when (file-directory-p "~/dev")
-	(setq projectile-project-search-path '("~/dev")))
-  (setq projectile-switch-project-action #'projectile-dired))
+	(setq projectile-project-search-path '("~/dev"))))
 
 (use-package org
   :commands (org-capture org-agenda)
@@ -274,6 +305,10 @@
   :config
   (which-key-mode)
   (setq which-key-idle-delay 1))
+
+(use-package direnv
+  :config
+  (direnv-mode))
 
 (use-package ivy
   :diminish
