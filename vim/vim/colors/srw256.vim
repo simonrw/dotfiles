@@ -44,3 +44,7 @@ hi link LspDiagnosticsSignWarning LspDiagnosticsVirtualTextWarning
 hi link LspDiagnosticsSignError LspDiagnosticsVirtualTextError
 hi link LspDiagnosticsSignInformation LspDiagnosticsVirtualTextInformation
 hi link LspDiagnosticsSignHint LspDiagnosticsVirtualTextHint
+
+" ale
+hi ALEErrorSign guifg=#ff0000 guibg=none
+hi ALEWarningSign guifg=#ff922b guibg=none

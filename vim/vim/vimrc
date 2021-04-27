@@ -568,6 +568,10 @@ elseif g:completion_framework == "ale"
     nmap <silent> ]g <Plug>(ale_next_wrap)
     nnoremap <silent> <leader>y <Plug>(ale_fix)<cr>
 
+    " set up signs
+    let g:ale_sign_error = "E"
+    let g:ale_sign_warning = "W"
+
     function! LinterStatus() abort
         let l:counts = ale#statusline#Count(bufnr(''))
 
