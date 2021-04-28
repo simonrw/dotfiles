@@ -171,7 +171,7 @@
   (setq evil-want-C-u-scroll t)
   (setq evil-want-C-i-jump nil)
   :config
-  (evil-mode 0)
+  (evil-mode 1)
 
   (define-key evil-insert-state-map (kbd "C-g") 'evil-normal-state)
   (define-key evil-insert-state-map (kbd "C-h") 'evil-delete-backward-char-and-join)
@@ -221,7 +221,7 @@
   (setq org-plantuml-jar-path "/usr/local/opt/plantuml/libexec/plantuml.jar")
   (setq org-agenda-files (list "~/org/todo.org"))
   (setq org-todo-keywords
-		'((sequence "TODO(!)" "BLOCKED(!)" "|" "DONE(!)")))
+		'((sequence "TODO(!)" "BLOCKED" "|" "DONE(!)")))
   (org-babel-do-load-languages
    'org-babel-load-languages
    '((emacs-lisp . t)
