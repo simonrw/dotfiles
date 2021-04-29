@@ -6,7 +6,7 @@ vnoremap <silent> <leader>t :VtrSendLinesToRunner<Cr>
 nnoremap <silent> <leader>p vip:VtrSendLinesToRunner<Cr>
 
 let b:ale_fixers = ["black"]
-let b:ale_linters = ["flake8"]
+let b:ale_linters = ["pyls", "flake8"]
 
 " override the pytest executable as pytest tries to be too clever when a
 " Pipfile exists
