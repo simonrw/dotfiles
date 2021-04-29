@@ -221,7 +221,7 @@
   (setq org-plantuml-jar-path "/usr/local/opt/plantuml/libexec/plantuml.jar")
   (setq org-agenda-files (list "~/org/todo.org"))
   (setq org-todo-keywords
-		'((sequence "TODO(!)" "BLOCKED" "|" "DONE(!)")))
+		'((sequence "TODO(!)" "|" "DONE(!)")))
   (org-babel-do-load-languages
    'org-babel-load-languages
    '((emacs-lisp . t)
