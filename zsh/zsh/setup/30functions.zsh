@@ -308,15 +308,6 @@ function video() {
     esac
 }
 
-function git() {
-    if [[ "$1" == "push" && "$@" != *"--help"* ]]; then
-        shift 1
-        command git log-push "$@"
-    else
-        command git "$@"
-    fi
-}
-
 function cwd-of() {
     local pid=$1
     test -z "${pid:-}" && {
