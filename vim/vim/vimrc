@@ -54,6 +54,7 @@ Plug 'hashivim/vim-terraform'
 Plug 'ziglang/zig.vim'
 Plug 'jparise/vim-graphql'
 Plug 'jjo/vim-cue'
+Plug 'vmchale/dhall-vim'
 
 if has('nvim-0.5') && g:include_treeplanner
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
@@ -569,6 +570,9 @@ elseif g:completion_framework == "ale"
     nnoremap <silent> <leader>y <Plug>(ale_fix)<cr>
 
     let g:ale_completion_enabled = 1
+
+    nnoremap <silent> gd :ALEGoToDefinition<Cr>
+    nnoremap <silent> gh :ALEFindReferences<cr>
 
     " set up signs
     let g:ale_sign_error = ">"
