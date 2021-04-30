@@ -568,9 +568,6 @@ elseif g:completion_framework == "ale"
     nmap <silent> [g <Plug>(ale_previous_wrap)
     nmap <silent> ]g <Plug>(ale_next_wrap)
     nnoremap <silent> <leader>y <Plug>(ale_fix)<cr>
-
-    let g:ale_completion_enabled = 1
-
     nnoremap <silent> gd :ALEGoToDefinition<Cr>
     nnoremap <silent> gh :ALEFindReferences<cr>
 
