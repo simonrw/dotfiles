@@ -16,4 +16,3 @@ set colorcolumn=0
 
 command! -nargs=* Mypy call python#run_mypy("--strict", expand("%"))
 command! -nargs=* Flake8 call python#run_flake8(<f-args>)
-nnoremap <silent> <leader>y :silent Black<cr>
