@@ -54,6 +54,7 @@ Plug 'leafgarland/typescript-vim'
 Plug 'hashivim/vim-terraform'
 Plug 'ziglang/zig.vim'
 Plug 'jparise/vim-graphql'
+Plug 'jjo/vim-cue'
 
 if has('nvim-0.5') && g:include_treeplanner
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
