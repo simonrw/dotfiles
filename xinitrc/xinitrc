@@ -14,5 +14,4 @@ xmodmap ~/.Xmodmap
 # Configure keyboard map
 bash ~/.bin/set-keyboard
 
-# Start XFCE
-exec startxfce4
+exec mate-session
