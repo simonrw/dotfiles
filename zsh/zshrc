@@ -94,6 +94,9 @@ export FZF_DEFAULT_COMMAND='rg --files --no-ignore --hidden --follow -g "!{.git,
 export FZF_CTRL_T_COMMAND="${FZF_DEFAULT_COMMAND}"
 export MANPATH=${MANPATH}:${HOME}/.fzf/man
 
+# Disable SAM telemetry
+export SAM_CLI_TELEMETRY=0
+
 # Add persistent history to elixir shell
 export ERL_AFLAGS="-kernel shell_history enabled"
 
