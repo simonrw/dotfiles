@@ -16,4 +16,5 @@ if executable('rustfmt')
 endif
 
 " configure ale
-let b:ale_linters = {'rust': ['analyzer', 'cargo']}
+let b:ale_linters = ['analyzer', 'cargo']
+let b:ale_fixers = ["rustfmt"]
