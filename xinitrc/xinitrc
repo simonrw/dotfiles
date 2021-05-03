@@ -14,4 +14,4 @@ xmodmap ~/.Xmodmap
 # Configure keyboard map
 bash ~/.bin/set-keyboard
 
-exec mate-session
+exec gnome-session
