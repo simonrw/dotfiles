@@ -6,6 +6,8 @@ let g:colors_name = "srw256"
 
 highlight ColorColumn ctermbg=243 guibg=#424242
 highlight Normal guibg=none
+highlight LineNr guibg=none
+highlight SignColumn guibg=none
 
 " configure coc-git
 highlight DiffAdd guifg=#58db69 ctermfg=2 guibg=none ctermbg=none
