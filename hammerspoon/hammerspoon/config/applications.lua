@@ -3,7 +3,7 @@ applications = {
         name = "Kitty",
     },
     browser = {
-        name = "Brave Browser",
+        name = "Firefox Developer Edition",
     },
     email = {
         name = "Mail",
@@ -35,5 +35,6 @@ applications = {
 
 for _, hostname in ipairs(hs.host.names()) do
     if string.find(hostname, "pixmac516") then
+        applications.browser.name = "Google Chrome"
     end
 end
