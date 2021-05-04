@@ -48,3 +48,5 @@ hi link LspDiagnosticsSignHint LspDiagnosticsVirtualTextHint
 " ale
 hi ALEErrorSign guifg=#ff0000 guibg=none
 hi ALEWarningSign guifg=#ff922b guibg=none
+hi link ALEVirtualTextError ALEErrorSign
+hi link ALEVirtualTextWarning ALEWarningSign

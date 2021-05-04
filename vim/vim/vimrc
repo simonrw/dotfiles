@@ -570,10 +570,15 @@ elseif g:completion_framework == "ale"
     nnoremap <silent> <leader>y <Plug>(ale_fix)<cr>
     nnoremap <silent> gd :ALEGoToDefinition<Cr>
     nnoremap <silent> gh :ALEFindReferences<cr>
+    nnoremap <silent> <leader>ad :ALEDetail<Cr>
 
     " set up signs
     let g:ale_sign_error = ">"
     let g:ale_sign_warning = "~"
+    let g:ale_virtualtext_cursor = 0
+    let g:ale_cursor_detail = 0
+    let g:ale_echo_cursor = 0
+    let g:ale_set_balloons = 0
 
     function! LinterStatus() abort
         let l:counts = ale#statusline#Count(bufnr(''))
