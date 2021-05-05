@@ -228,6 +228,8 @@
 	 (R . t)
 	 (dot . t)
 	 (ruby . t)
+	 (plantuml . t)
+	 (gnuplot . t)
 	 (python . t)))
   (org-font-setup))
 
