@@ -10,6 +10,11 @@ case $OSTYPE in
 
         export DYLD_LIBRARY_PATH=${BUILD_PREFIX}/lib:${DYLD_LIBRARY_PATH}
 
+        if has_executable gls; then
+            alias ls="gls --color=auto"
+            alias thor="gls -thor"
+        fi
+
         # Set up the keymap for neovim
         # tic ~/.zsh/$TERM.ti
         ;;

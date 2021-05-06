@@ -40,13 +40,6 @@ if has_executable nvim; then
     alias vim=nvim
 fi
 
-if has_executable exa; then
-    alias ls=exa
-    alias thor="exa -snew -l"
-else
-    alias thor="ls -thor"
-fi
-
 if has_executable bat; then
     alias cat=bat
     alias less=bat
