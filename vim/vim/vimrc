@@ -55,7 +55,6 @@ Plug 'ziglang/zig.vim'
 Plug 'jparise/vim-graphql'
 Plug 'jjo/vim-cue'
 Plug 'vmchale/dhall-vim'
-Plug 'plasticboy/vim-markdown'
 
 if has('nvim-0.5') && g:include_treesitter
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
@@ -207,6 +206,8 @@ vnoremap > >gv
 if executable('rg')
     let &grepprg="rg --vimgrep"
 endif
+
+let g:markdown_folding = 1
 
 " FZF
 set rtp+=~/.fzf
