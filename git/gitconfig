@@ -88,12 +88,11 @@
     excludesfile = ~/.gitignore_global
 	ignorecase = false
 	attributesFile = ~/.gitattributes_global
-    pager = bat
+    pager = delta
 [delta]
-    dark = true
-    side-by-side = false
+    side-by-side = true
     diff-so-fancy = false
-    syntax-theme = ansi-dark
+    syntax-theme = none
 [merge]
     tool = conflicted
     conflictstyle = "diff3"
