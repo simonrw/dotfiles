@@ -57,6 +57,8 @@ vimrc() {
   fi
 }
 
+source "$(asdf direnv hook asdf)"
+
 # source .envrc files in parent directories
 source_up
 
