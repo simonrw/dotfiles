@@ -1,6 +1,6 @@
 applications = {
     terminal = {
-        name = "Alacritty",
+        name = "Kitty",
     },
     browser = {
         name = "Firefox Developer Edition",
