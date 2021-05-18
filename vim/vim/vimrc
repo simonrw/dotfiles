@@ -140,13 +140,6 @@ set shortmess=tToOFIWa
 " Do not hide sign column
 set signcolumn=yes
 
-" Center search results
-nnoremap <silent> n nzz
-nnoremap <silent> N Nzz
-nnoremap <silent> * *zz
-nnoremap <silent> # #zz
-nnoremap <silent> g* g*zz
-
 " Very magic search always
 nnoremap / /\v
 nnoremap ? ?\v
