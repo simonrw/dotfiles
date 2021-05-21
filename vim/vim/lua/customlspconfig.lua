@@ -49,9 +49,17 @@ local on_attach = function(client, bufnr)
     buf_set_keymap("n", "td", "<cmd>lua vim.lsp.buf.type_definition()<CR>", opts)
     buf_set_keymap("n", "]g", "<cmd>lua vim.lsp.diagnostic.goto_next()<CR>", opts)
     buf_set_keymap("n", "[g", "<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>", opts)
+    vim.cmd("command! LspFormatting lua vim.lsp.buf.formatting()")
+
     -- Format with leader y. Second parameter is timeout. Sometimes Python can take ages.
     if client.resolved_capabilities.document_formatting then
         buf_set_keymap("n", "<leader>y", "<cmd>lua vim.lsp.buf.formatting_sync(nil, 1000000)<cr>", opts)
+        vim.api.nvim_exec([[
+            augroup LspAutocommands
+                autocmd! * <buffer>
+                autocmd BufWritePre <buffer> LspFormatting
+            augroup END
+            ]], true)
     end
 
     -- lsp-status
