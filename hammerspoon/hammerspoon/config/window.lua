@@ -159,7 +159,8 @@ if ENABLE_FULLSCREEN_SHORTCUT then
         if #ENABLE_FULLSCREEN_FOR_APPS ~= 0 then
             local found = false
             for _, allowed_app in ipairs(ENABLE_FULLSCREEN_FOR_APPS) do
-                if string.lower(app:title()) == string.lower(allowed_app.name) then
+                local windowTitle = string.lower(allowed_app.windowTitle or allowed_app.name)
+                if string.lower(app:title()) == windowTitle then
                     found = true
                     break
                 end

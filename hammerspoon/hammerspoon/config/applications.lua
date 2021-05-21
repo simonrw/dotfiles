@@ -21,7 +21,8 @@ applications = {
         name = "VimR",
     },
     editor = {
-        name = "Emacs",
+        name = "Visual Studio Code",
+        windowTitle = "Code",
     },
     video = {
         name = "Zoom Meeting",
