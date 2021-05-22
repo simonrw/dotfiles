@@ -523,6 +523,8 @@ if g:completion_framework == "coc"
           \ <SID>check_back_space() ? "\<Tab>" :
           \ coc#refresh()
 
+    inoremap <silent><expr> <C-space> coc#refresh()
+
     function! s:show_documentation()
       if (index(['vim','help'], &filetype) >= 0)
         execute 'h '.expand('<cword>')
