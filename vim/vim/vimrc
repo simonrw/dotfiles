@@ -11,7 +11,7 @@ if !has('nvim')
 endif
 
 " general settings
-let g:completion_framework = "nvim"
+let g:completion_framework = "ale"
 let g:include_treesitter = 0
 
 syntax on
