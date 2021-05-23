@@ -335,3 +335,18 @@ function s() {
     figlet "git status"
     git status
 }
+
+function find_up() {
+  (
+    while true; do
+      if [[ -f $1 ]]; then
+        echo "$PWD/$1"
+        return 0
+      fi
+      if [[ $PWD == / ]] || [[ $PWD == // ]]; then
+        return 1
+      fi
+      cd ..
+    done
+  )
+}
