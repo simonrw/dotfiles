@@ -129,6 +129,9 @@ export PATH=${CARGO_HOME}/bin:${PATH}
 export RUST_NEW_ERROR_FORMAT=true
 export RUST_BACKTRACE=0
 
+# stop pip installing without a virtual environment
+export PIP_REQUIRE_VIRTUALENV=true
+
 # Set up misc extra commands
 export PYENV_VIRTUALENV_DISABLE_PROMPT=1
 
