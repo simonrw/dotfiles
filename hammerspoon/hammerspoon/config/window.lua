@@ -182,5 +182,35 @@ if ENABLE_FULLSCREEN_SHORTCUT then
 
         win:setFrame(f)
     end)
+
+    -- maximise over multiple screens
+    hs.hotkey.bind({'cmd', 'alt', 'ctrl', 'shift'}, 'f', function()
+        print("Really maximising this window")
+
+        local allScreens = hs.screen.allScreens()
+        if #allScreens > 1 then
+            local win = hs.window.focusedWindow()
+
+            local r = hs.geometry(0, 0, 0, 0)
+
+            for _, screen in ipairs(allScreens) do
+                local f = screen:frame()
+                print(hs.inspect(f))
+                r.x = math.min(r.x, f.x)
+                r.y = math.max(r.y, f.y)
+                r.w = r.w + f.w
+                if r.h == 0 then
+                    r.h = f.h
+                else
+                    r.h = math.min(r.h, f.h)
+                end
+            end
+
+            print(hs.inspect(r))
+
+            fc:add(win)
+            win:setFrame(r)
+        end
+    end)
 end
 
