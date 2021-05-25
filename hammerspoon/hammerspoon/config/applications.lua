@@ -1,6 +1,6 @@
 applications = {
     terminal = {
-        name = "Alacritty",
+        name = "Kitty",
     },
     browser = {
         name = "Firefox Developer Edition",
@@ -36,5 +36,6 @@ applications = {
 
 for _, hostname in ipairs(hs.host.names()) do
     if string.find(hostname, "pixmac516") then
+        applications.browser.name = "Google Chrome"
     end
 end
