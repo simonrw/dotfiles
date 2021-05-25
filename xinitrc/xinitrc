@@ -15,4 +15,4 @@ xmodmap ~/.Xmodmap
 bash ~/.bin/set-keyboard
 
 # Start XFCE
-exec startxfce4
+exec mate-session
