@@ -57,6 +57,7 @@ Plug 'jparise/vim-graphql'
 Plug 'jjo/vim-cue'
 Plug 'vmchale/dhall-vim'
 Plug 'pest-parser/pest.vim'
+Plug 'airblade/vim-gitgutter'
 
 if has('nvim-0.5') && g:include_treesitter
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
@@ -76,16 +77,12 @@ if g:completion_framework == "coc"
     Plug 'rodrigore/coc-tailwind-intellisense', {'do': 'npm install'}
 elseif g:completion_framework == "ale"
     Plug 'dense-analysis/ale'
-    Plug 'airblade/vim-gitgutter'
 elseif g:completion_framework == "nvim" && has('nvim-0.5')
     Plug 'neovim/nvim-lspconfig'
     Plug 'hrsh7th/nvim-compe'
     Plug 'RishabhRD/popfix'
     Plug 'RishabhRD/nvim-lsputils'
     Plug 'nvim-lua/lsp-status.nvim'
-    Plug 'airblade/vim-gitgutter'
-else
-    Plug 'airblade/vim-gitgutter'
 endif
 
 call plug#end()
@@ -561,7 +558,7 @@ if g:completion_framework == "coc"
     " highlighting overrides for plugins
     hi CocUnderline gui=none cterm=none
 
-    let g:coc_global_extensions = [ 'coc-pyright', 'coc-json', 'coc-go', 'coc-rust-analyzer', 'coc-emoji', 'coc-git']
+    let g:coc_global_extensions = [ 'coc-pyright', 'coc-json', 'coc-go', 'coc-rust-analyzer', 'coc-emoji']
 elseif g:completion_framework == "ale"
     " ALE
     nmap <silent> [g <Plug>(ale_previous_wrap)
