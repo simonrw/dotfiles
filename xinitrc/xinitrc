@@ -1,6 +1,6 @@
 
 # Handle nice suspend
-xss-lock -- i3lock --color 333333 --show-failed-attempts &
+# xss-lock -- i3lock --color 333333 --show-failed-attempts &
 
 # Set the screen configuration
 # xrandr --output DP-2 --primary --right-of DVI-D-0
