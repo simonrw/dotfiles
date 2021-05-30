@@ -52,8 +52,8 @@ fi
 
 if has_executable lab; then
     alias lpb="lab project browse"
-    alias lmb="lab mr browse"
-    alias lcv="lab ci view"
+    alias mr="lab mr browse"
+    alias ci="lab ci view"
 fi
 
 if has_executable paru; then
