@@ -89,8 +89,8 @@ call plug#end()
 
 set mouse=a
 set scrolloff=5
-set nonumber
-set norelativenumber
+set number
+set relativenumber
 set nocursorline
 set ttimeoutlen=10
 set shiftwidth=4
