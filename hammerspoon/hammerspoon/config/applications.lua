@@ -8,6 +8,9 @@ applications = {
     email = {
         name = "Mail",
     },
+    chat = {
+        name = "Slack",
+    },
     music = {
         name = "Spotify",
     },
