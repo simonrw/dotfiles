@@ -21,7 +21,6 @@ function bindKey(application, ...)
 end
 
 bindKey(applications.browser, 'c')
-bindKey(applications.music, 'm')
 bindKey(applications.terminal, 't')
 bindKey(applications.documentation, 'r')
 bindKey(applications.notes, 'n', 'e')
