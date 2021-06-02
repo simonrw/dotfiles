@@ -12,7 +12,7 @@ endif
 
 " general settings
 let g:completion_framework = "coc"
-let g:include_treesitter = 0
+let g:include_treesitter = 1
 
 syntax on
 
