@@ -8,6 +8,7 @@ highlight ColorColumn ctermbg=243 guibg=#424242
 highlight Normal guibg=none
 highlight LineNr guibg=none
 highlight SignColumn guibg=none
+highlight CursorLineNr guifg=#c4bfb9 guibg=none
 
 " configure coc-git
 highlight DiffAdd guifg=#58db69 ctermfg=2 guibg=none ctermbg=none
