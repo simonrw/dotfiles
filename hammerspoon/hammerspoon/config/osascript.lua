@@ -32,6 +32,6 @@ open location "%s"
     hs.osascript.applescript(cmd)
 end
 
-hs.hotkey.bind({'cmd', 'alt'}, 'm', function()
-    launchViaOsascript(applications.browser.name, "spotify.com")
-end)
+-- hs.hotkey.bind({'cmd', 'alt'}, 'm', function()
+--     launchViaOsascript(applications.browser.name, "spotify.com")
+-- end)
