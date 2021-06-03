@@ -3,7 +3,7 @@ applications = {
         name = "Kitty",
     },
     browser = {
-        name = "Brave Browser",
+        name = "Firefox",
     },
     email = {
         name = "Mail",
