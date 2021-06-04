@@ -3,6 +3,8 @@ case $OSTYPE in
     darwin*)
         export PATH=/Library/TeX/texbin:${GOPATH}/bin:/usr/local/opt/coreutils/libexec/gnubin:/usr/local/sbin:/sbin:/usr/sbin:${HOME}/.cabal/bin:/usr/local/opt/python/libexec/bin:${PATH}
 
+        alias curl=/usr/local/opt/curl/bin/curl
+
         # Configure homebrew
         export HOMEBREW_NO_ANALYTICS=1
         # Only update every week
