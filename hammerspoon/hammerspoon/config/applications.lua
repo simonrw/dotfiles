@@ -18,7 +18,7 @@ applications = {
         name = "Dash",
     },
     notes = {
-        name = "VimR",
+        name = "Notes",
     },
     editor = {
         name = "Visual Studio Code",
