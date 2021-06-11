@@ -47,7 +47,6 @@ Plug 'https://gitlab.com/srwalker101/pytest-callgraph.git'
 " language plugins
 Plug 'cespare/vim-toml'
 Plug 'jeetsukumaran/vim-pythonsense'
-Plug 'rust-lang/rust.vim'
 Plug 'evanleck/vim-svelte'
 Plug 'ElmCast/elm-vim'
 Plug 'leafgarland/typescript-vim'
@@ -322,11 +321,6 @@ endif
 
 " Automatically format elixir files on save
 let g:mix_format_on_save = 1
-
-" Configure rust format
-let g:rustfmt_autosave = 1
-let g:rustfmt_emit_files = 1
-let g:rustfmt_fail_silently = 0
 
 if has('nvim')
     runtime! plugin/python_setup.vim
