@@ -20,6 +20,8 @@ test -d ~/.ssh && {
 alias gpe="git push && exit"
 alias gpr="git pull --rebase"
 
+alias poetry-env-rm="poetry env remove $(poetry env info --path)/bin/python"
+
 if has_executable git-change; then
     alias gc="git change"
 fi
