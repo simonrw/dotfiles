@@ -82,6 +82,7 @@ elseif g:completion_framework == "nvim" && has('nvim-0.5')
     Plug 'RishabhRD/popfix'
     Plug 'RishabhRD/nvim-lsputils'
     Plug 'nvim-lua/lsp-status.nvim'
+    Plug 'psf/black', { 'branch': 'stable' }
 endif
 
 call plug#end()

@@ -8,6 +8,10 @@ nnoremap <silent> <leader>p vip:VtrSendLinesToRunner<Cr>
 let b:ale_fixers = ["black"]
 let b:ale_linters = ["pyright", "flake8"]
 
+if g:completion_framework == "nvim"
+    autocmd BufWritePre *.py execute ':Black'
+endif
+
 " override the pytest executable as pytest tries to be too clever when a
 " Pipfile exists
 let test#python#pytest#executable = 'pytest'
