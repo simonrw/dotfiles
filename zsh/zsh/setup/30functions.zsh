@@ -350,3 +350,7 @@ function find_up() {
     done
   )
 }
+
+function poetry-env-rm() {
+    poetry env remove $(poetry env info --path)/bin/python
+}
