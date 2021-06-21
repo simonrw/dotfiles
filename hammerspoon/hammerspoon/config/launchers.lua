@@ -24,7 +24,5 @@ bindKey(applications.browser, 'c')
 bindKey(applications.terminal, 't')
 bindKey(applications.documentation, 'r')
 bindKey(applications.notes, 'n', 'e')
+bindKey(applications.chat, 's')
 bindKey(applications.music, 'm')
-
--- secure keyboard entry is a thing so bind this key to do nothing
-hs.hotkey.bind({'cmd', 'alt'}, 's', function() end)
