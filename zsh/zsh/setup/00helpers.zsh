@@ -14,3 +14,7 @@ has_executable() {
 function muted_print() {
     printf "\u001b[30;1m%s\u001b[0m\n" "$*"
 }
+
+function __log() {
+    echo $* >&2
+}
