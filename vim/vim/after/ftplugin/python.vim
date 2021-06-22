@@ -18,5 +18,5 @@ let test#python#pytest#executable = 'pytest'
 
 set colorcolumn=0
 
-command! -nargs=* Mypy call python#run_mypy("--strict", expand("%"))
+command! -nargs=* Mypy call python#run_mypy("--strict --ignore-missing-imports", expand("%"))
 command! -nargs=* Flake8 call python#run_flake8(<f-args>)
