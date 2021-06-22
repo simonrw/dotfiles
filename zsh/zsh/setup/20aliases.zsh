@@ -8,6 +8,7 @@ alias pydoc='=python -m pydoc'
 alias pylab='ipython --pylab'
 alias clear-pycs='find ${PWD} -name "*.pyc" -delete'
 alias g='git'
+alias gs="git status"
 alias ga='git commit --amend'
 alias es='exec $SHELL'
 alias sqlite3='rlwrap =sqlite3'
