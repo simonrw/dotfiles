@@ -64,3 +64,7 @@ fi
 if has_executable edit-dotfiles; then
     alias dotfiles=edit-dotfiles
 fi
+
+if has_executable xh; then
+    alias http=xh
+fi
