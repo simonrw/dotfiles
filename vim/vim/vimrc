@@ -582,6 +582,7 @@ elseif g:completion_framework == "ale"
     let g:ale_fix_on_save = 1
 elseif g:completion_framework == "nvim" && has('nvim-0.5')
     luafile ~/.vim/lua/customlspconfig.lua
+    inoremap <silent><expr> <C-Space> compe#complete()
 endif
 
 " Hack around the recent failure of gx

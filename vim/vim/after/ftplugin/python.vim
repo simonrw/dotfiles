@@ -9,7 +9,7 @@ let b:ale_fixers = ["black"]
 let b:ale_linters = ["pyright", "flake8"]
 
 if g:completion_framework == "nvim"
-    autocmd BufWritePre *.py execute ':Black'
+    autocmd BufWritePre *.py silent Black
 endif
 
 " override the pytest executable as pytest tries to be too clever when a
