@@ -1,5 +1,6 @@
 setlocal nowrap
 setlocal nocindent
-set tw=120
+setlocal expandtab
+setlocal tw=120
 
 setlocal spell
