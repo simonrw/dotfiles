@@ -16,8 +16,8 @@ let g:include_treesitter = 1
 
 syntax on
 
-Plug 'junegunn/fzf.vim'
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': 'yes \| ./install --no-update-rc --no-completion --key-bindings' }
+Plug 'lotabout/skim', { 'dir': '~/.skim', 'do': './install' }
+Plug 'lotabout/skim.vim'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-vinegar'
 Plug 'tpope/vim-unimpaired'
@@ -202,7 +202,6 @@ endif
 let g:markdown_folding = 1
 
 " FZF
-set rtp+=~/.fzf
 let g:fzf_command_prefix = 'Fzf'
 let g:fzf_preview_window = []
 nnoremap <leader>f :FzfGitFiles<cr>

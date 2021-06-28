@@ -1,9 +1,9 @@
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+[ -f ${HOME}/.skim/bin/sk ] && export PATH=${HOME}/.skim/bin:${PATH}
 
 fs() {
     local session
     session=$(tmux list-sessions -F "#{session_name}" | \
-        fzf-tmux --query="$1" --select-1 --exit-0)
+        sk-tmux --query="$1" --select-1 --exit-0)
 
     if [[ ! -z ${session} ]]; then
         if [ -z ${TMUX} ]; then
@@ -24,7 +24,7 @@ gco() {
     sort -u          | awk '{print "\x1b[34;1mbranch\x1b[m\t" $1}') || return
     target=$(
     (echo "$tags"; echo "$branches") |
-    fzf-tmux -- --no-hscroll --ansi +m -d "\t" -n 2) || return
+    sk-tmux -- --no-hscroll --ansi -d "\t" -n 2) || return
     git checkout $(echo "$target" | awk '{print $2}')
 }
 
@@ -33,16 +33,16 @@ gco() {
 gsha() {
   local commits commit
   commits=$(git log --all --color=always --pretty=oneline --abbrev-commit --reverse) &&
-  commit=$(echo "$commits" | fzf --tac +s +m -e --ansi --reverse) &&
+  commit=$(echo "$commits" | sk --tac -e --ansi --reverse) &&
   echo -n $(echo "$commit" | sed "s/ .*//")
 }
 
 # Overload the default history widget which reverses the order of the entries
-function fzf-history-widget () {
+function sk-history-widget () {
     local selected num
     setopt localoptions noglobsubst noposixbuiltins pipefail 2> /dev/null
     selected=($(fc -l 1 |
-        FZF_DEFAULT_OPTS="--height ${FZF_TMUX_HEIGHT:-40%} $FZF_DEFAULT_OPTS -n2..,.. --tiebreak=index --bind=ctrl-r:toggle-sort $FZF_CTRL_R_OPTS --query=${(qqq)LBUFFER} +m" $(__fzfcmd)))
+        sk_DEFAULT_OPTS="--height ${sk_TMUX_HEIGHT:-40%} $sk_DEFAULT_OPTS -n2..,.. --tiebreak=index --bind=ctrl-r:toggle-sort $sk_CTRL_R_OPTS --query=${(qqq)LBUFFER} +m" $(__skcmd)))
     local ret=$?
     if [ -n "$selected" ]
     then
@@ -55,3 +55,4 @@ function fzf-history-widget () {
     zle reset-prompt
     return $ret
 }
+
