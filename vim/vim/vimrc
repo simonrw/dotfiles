@@ -39,7 +39,6 @@ Plug 'NLKNguyen/papercolor-theme'
 Plug 'direnv/direnv.vim'
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
 Plug 'fatih/vim-go'
-Plug 'itchyny/lightline.vim'
 
 " My plugins
 Plug 'https://gitlab.com/srwalker101/pytest-callgraph.git'
@@ -601,35 +600,6 @@ function! OpenURLUnderCursor()
 	endif
 endfunction
 nnoremap <silent> gx :call OpenURLUnderCursor()<CR>
-
-let g:lightline = {}
-let g:lightline.colorscheme = 'default'
-let g:lightline.active = {
-      \   'left': [ [ 'mode', 'paste' ],
-      \             [ 'cocstatus', 'readonly', 'filename', 'modified', 'gitstatus'] ],
-      \ }
-let g:lightline.mode_map = {
-        \ 'n' : 'N',
-        \ 'i' : 'I',
-        \ 'R' : 'R',
-        \ 'v' : 'V',
-        \ 'V' : 'VL',
-        \ "\<C-v>": 'VB',
-        \ 'c' : 'C',
-        \ 's' : 'S',
-        \ 'S' : 'SL',
-        \ "\<C-s>": 'SB',
-        \ 't': 'T',
-        \ }
-let g:lightline.inactive = g:lightline.active
-let g:lightline.component_function = {
-      \   'filename': 'LightlineFilename',
-      \   'cocstatus': 'coc#status',
-      \   'gitstatus': 'FugitiveStatusline',
-      \ }
-function! LightlineFilename()
-  return expand('%:t') !=# '' ? @% : '[No Name]'
-endfunction
 
 " Support directory local vimrc files
 " https://github.com/direnv/direnv/wiki/Vim
