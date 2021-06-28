@@ -37,22 +37,26 @@ gsha() {
   echo -n $(echo "$commit" | sed "s/ .*//")
 }
 
-# Overload the default history widget which reverses the order of the entries
-function sk-history-widget () {
-    local selected num
-    setopt localoptions noglobsubst noposixbuiltins pipefail 2> /dev/null
-    selected=($(fc -l 1 |
-        sk_DEFAULT_OPTS="--height ${sk_TMUX_HEIGHT:-40%} $sk_DEFAULT_OPTS -n2..,.. --tiebreak=index --bind=ctrl-r:toggle-sort $sk_CTRL_R_OPTS --query=${(qqq)LBUFFER} +m" $(__skcmd)))
-    local ret=$?
-    if [ -n "$selected" ]
-    then
-        num=$selected[1]
-        if [ -n "$num" ]
-        then
-            zle vi-fetch-history -n $num
-        fi
-    fi
-    zle reset-prompt
-    return $ret
+__skimcmd() {
+  [ -n "$TMUX_PANE" ] && { [ "${SKIM_TMUX:-0}" != 0 ] || [ -n "$SKIM_TMUX_OPTS" ]; } &&
+    echo "sk-tmux ${SKIM_TMUX_OPTS:--d${SKIM_TMUX_HEIGHT:-40%}} -- " || echo "sk"
 }
 
+# Overload the default history widget which reverses the order of the entries
+skim-history-widget() {
+  local selected num
+  setopt localoptions noglobsubst noposixbuiltins pipefail no_aliases 2> /dev/null
+  selected=( $(fc -rl 1 | perl -ne 'print if !$seen{(/^\s*[0-9]+\**\s+(.*)/, $1)}++' |
+    SKIM_DEFAULT_OPTIONS="--height ${SKIM_TMUX_HEIGHT:-40%} --color dark --ansi --no-mouse --tabstop 4 --inline-info -n2..,.. --tiebreak=index --bind=ctrl-r:toggle-sort $SKIM_CTRL_R_OPTS --query=${(qqq)LBUFFER} --no-multi" $(__skimcmd)) )
+  local ret=$?
+  if [ -n "$selected" ]; then
+    num=$selected[1]
+    if [ -n "$num" ]; then
+      zle vi-fetch-history -n $num
+    fi
+  fi
+  zle reset-prompt
+  return $ret
+}
+zle     -N   skim-history-widget
+bindkey '^R' skim-history-widget
