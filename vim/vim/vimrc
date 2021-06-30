@@ -38,7 +38,6 @@ Plug 'shumphrey/fugitive-gitlab.vim'
 Plug 'NLKNguyen/papercolor-theme'
 Plug 'direnv/direnv.vim'
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
-Plug 'fatih/vim-go'
 Plug 'itchyny/lightline.vim'
 
 " My plugins
