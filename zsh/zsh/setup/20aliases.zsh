@@ -11,7 +11,6 @@ alias g='git'
 alias gs="git status"
 alias ga='git commit --amend'
 alias es='exec $SHELL'
-alias sqlite3='rlwrap =sqlite3'
 alias k=kubectl
 alias sourceenv="source ./venv/bin/activate"
 alias vup="vim +PlugUpgrade +PlugUpdate +UpdateRemotePlugins +qa"
