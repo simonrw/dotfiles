@@ -1,5 +1,11 @@
 [ -f ${HOME}/.skim/bin/sk ] && export PATH=${HOME}/.skim/bin:${PATH}
 
+# Set up skim
+export SKIM_DEFAULT_OPTIONS="--tiebreak begin,length --color dark,matched_bg:-1 --ansi --no-mouse --tabstop 4 --inline-info"
+export SKIM_DEFAULT_COMMAND='rg --files --no-ignore --hidden --follow -g "!{.git,venv,node_modules}/*" 2> /dev/null'
+export MANPATH=${MANPATH}:${HOME}/.skim/man
+
+
 fs() {
     local session
     session=$(tmux list-sessions -F "#{session_name}" | \

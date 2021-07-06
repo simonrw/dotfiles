@@ -88,11 +88,6 @@ export VISUAL=${EDITOR}
 export BIBINPUTS=${HOME}/work/central-bibliography:${BIBINPUTS}
 export LESS='-FXR'
 
-# Set up fzf
-export SKIM_DEFAULT_OPTIONS="--tiebreak begin,length --color dark --ansi --no-mouse --tabstop 4 --inline-info"
-export SKIM_DEFAULT_COMMAND='rg --files --no-ignore --hidden --follow -g "!{.git,venv,node_modules}/*" 2> /dev/null'
-export MANPATH=${MANPATH}:${HOME}/.skim/man
-
 # Disable SAM telemetry
 export SAM_CLI_TELEMETRY=0
 
