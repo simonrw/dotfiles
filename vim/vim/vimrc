@@ -164,6 +164,8 @@ if has("patch-8.1.0251")
     " deal either way, since they usually get deleted
     set backupdir^=~/.vim/backup//
 end
+" configure format options to wrap in commented blocks
+set formatoptions+=ro
 
 " Set up persistent undo
 set undofile
