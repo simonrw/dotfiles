@@ -5,15 +5,19 @@ runtime colors/lucius.vim
 let g:colors_name = "srw256"
 
 highlight ColorColumn ctermbg=243 guibg=#424242
-highlight Normal guibg=none
-highlight LineNr guibg=none
-highlight SignColumn guibg=none
-highlight CursorLineNr guifg=#c4bfb9 guibg=none
+if has("nvim")
+    highlight Normal guibg=none
+    highlight LineNr guibg=none
+    highlight SignColumn guibg=none
+    highlight CursorLineNr guifg=#c4bfb9 guibg=none
+endif
 
 " configure coc-git
-highlight DiffAdd guifg=#58db69 ctermfg=2 guibg=none ctermbg=none
-highlight DiffChange guifg=#e09e2b ctermfg=3 guibg=none ctermbg=none
-highlight DiffDelete guifg=#ff2222 ctermfg=1 guibg=none ctermbg=none
+if has("nvim")
+    highlight DiffAdd guifg=#58db69 ctermfg=2 guibg=none ctermbg=none
+    highlight DiffChange guifg=#e09e2b ctermfg=3 guibg=none ctermbg=none
+    highlight DiffDelete guifg=#ff2222 ctermfg=1 guibg=none ctermbg=none
+endif
 highlight DiffText guibg=#7d1816
 highlight diffRemoved guifg=#fd8272
 highlight diffAdded guifg=#b4fa73
@@ -49,7 +53,9 @@ hi link LspDiagnosticsSignInformation LspDiagnosticsVirtualTextInformation
 hi link LspDiagnosticsSignHint LspDiagnosticsVirtualTextHint
 
 " ale
-hi ALEErrorSign guifg=#ff0000 guibg=none
-hi ALEWarningSign guifg=#ff922b guibg=none
+if has("nvim")
+    hi ALEErrorSign guifg=#ff0000 guibg=none
+    hi ALEWarningSign guifg=#ff922b guibg=none
+endif
 hi link ALEVirtualTextError ALEErrorSign
 hi link ALEVirtualTextWarning ALEWarningSign
