@@ -6,7 +6,8 @@ set -e
 echo "Running tests before push"
 
 # customise the variable below
-PYTHON_PROJECTDIRS="setup.py tests"
+SOURCE_DIR=src
+PYTHON_PROJECTDIRS="${SOURCE_DIR} setup.py tests"
 
 test-python() {
     test -z "${PYTHON_PROJECTDIRS:-}" && {
@@ -19,6 +20,9 @@ test-python() {
         exit 1
     }
     flake8
+    if command -v bandit >/dev/null 2>&1; then
+        bandit -r ${SOURCE_DIR}
+    fi
     pytest --quiet --disable-warnings
 }
 
