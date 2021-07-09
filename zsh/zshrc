@@ -1,6 +1,11 @@
 PROFILE_STARTUP=false
 if [[ "$PROFILE_STARTUP" == true ]]; then
     zmodload zsh/zprof
+
+    # http://zsh.sourceforge.net/Doc/Release/Prompt-Expansion.html
+    PS4=$'%D{%M%S%.} %N:%i> '
+    exec 3>&2 2>$HOME/tmp/startlog.$$
+    setopt xtrace prompt_subst
 fi
 
 export LANG="en_GB.UTF-8"
@@ -139,11 +144,6 @@ if [[ -f ${HOME}/.zshrc.local ]]; then
     source ${HOME}/.zshrc.local
 fi
 
-if [[ "$PROFILE_STARTUP" == true ]]; then
-    unsetopt xtrace
-    exec 2>&3 3>&-
-fi
-
 export LD_LIBRARY_PATH=${BUILD_PREFIX}/lib:${LD_LIBRARY_PATH:+:${LD_LIBRARY_PATH}}
 export PKG_CONFIG_PATH=${BUILD_PREFIX}/lib/pkgconfig:${PKG_CONFIG_PATH}
 export KITTY_LISTEN_ON=unix:/tmp/mykitty
@@ -162,5 +162,7 @@ alias g=git
 source ${HOME}/.zsh/srwalker101.zsh-theme
 
 if [[ "$PROFILE_STARTUP" == true ]]; then
+    unsetopt xtrace
+    exec 2>&3 3>&-
     zprof
 fi
