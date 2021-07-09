@@ -1,0 +1,5 @@
+#!/bin/bash
+
+set -euo pipefail
+
+tmux list-sessions -F '#S' | sk | xargs tmux switch-client -t
