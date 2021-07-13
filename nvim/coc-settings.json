@@ -8,9 +8,9 @@
     "python.formatting.blackPath": "~/.local/pipx/bin/black",
     "python.linting.flake8Path": "~/.local/pipx/bin/flake8",
     "suggest.noselect": false,
-    "suggest.autoTrigger": "none",
     "rust-analyzer.inlayHints.chainingHints": false,
     "hover.target": "float",
+    "rust-analyzer.completion.addCallParenthesis": false,
     "diagnostic.checkCurrentLine": true,
     "languageserver": {
         "golang": {
