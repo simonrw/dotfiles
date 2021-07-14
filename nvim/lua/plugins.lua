@@ -7,7 +7,7 @@ if fn.empty(fn.glob(install_path)) > 0 then
     execute('packadd packer.nvim')
 end
 
-return require('packer').startup(function()
+return require('packer').startup(function(use)
     use 'wbthomason/packer.nvim'
     use 'lotabout/skim'
     use 'lotabout/skim.vim'
@@ -30,7 +30,7 @@ return require('packer').startup(function()
     use 'shumphrey/fugitive-gitlab.vim'
     use 'NLKNguyen/papercolor-theme'
     use 'direnv/direnv.vim'
-    use { 'iamcco/markdown-preview.nvim', run = ':mkdp#util#install()', ft = {'markdown'} }
+    use { 'iamcco/markdown-preview.nvim', run = 'cd app && yarn install', ft = {'markdown'} }
 
     -- language plugins
     use 'cespare/vim-toml'
