@@ -1,3 +1,12 @@
+-- bootstrap packer
+local execute = vim.api.nvim_command
+local fn = vim.fn
+local install_path = fn.stdpath('data') .. '/site/pack/packer/start/packer.nvim'
+if fn.empty(fn.glob(install_path)) > 0 then
+    fn.system({'git', 'clone', 'https://github.com/wbthomason/packer.nvim', install_path})
+    execute('packadd packer.nvim')
+end
+
 return require('packer').startup(function()
     use 'wbthomason/packer.nvim'
     use 'lotabout/skim'
@@ -37,13 +46,14 @@ return require('packer').startup(function()
     use 'pest-parser/pest.vim'
     use 'airblade/vim-gitgutter'
 
-    if vim.api.nvim_get_var("completion_framework") == "coc" then
+    local completion_framework = vim.api.nvim_get_var("completion_framework")
+    if completion_framework == "coc" then
         use { 'neoclide/coc.nvim', branch = 'release' }
         use { 'rodrigore/coc-tailwind-intellisense', run = 'npm install' }
-    elseif vim.api.nvim_get_var("completion_framework") == 'ale' then
+    elseif completion_framework == 'ale' then
         use 'dense-analysis/ale'
         use 'fatih/vim-go'
-    elseif vim.api.nvim_get_var("completion_framework") == 'nvim' then
+    elseif completion_framework == 'nvim' then
         use 'neovim/nvim-lspconfig'
         use 'hrsh7th/nvim-compe'
         use 'RishabhRD/popfix'
