@@ -16,7 +16,7 @@ let g:include_treesitter = 1
 
 syntax on
 
-Plug 'lotabout/skim', { 'dir': '~/.skim', 'do': './install' }
+Plug 'lotabout/skim'
 Plug 'lotabout/skim.vim'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-vinegar'
