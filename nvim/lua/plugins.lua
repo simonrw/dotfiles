@@ -41,14 +41,13 @@ return require('packer').startup({function(use)
     use { 'vmchale/dhall-vim', ft = {'dhall'} }
     use { 'pest-parser/pest.vim', ft = {'pest'} }
 
-    local completion_framework = vim.api.nvim_get_var("completion_framework")
-    if completion_framework == "coc" then
+    if vim.g.completion_framework == "coc" then
         use { 'neoclide/coc.nvim', branch = 'release' }
         use { 'rodrigore/coc-tailwind-intellisense', run = 'npm install' }
-    elseif completion_framework == 'ale' then
+    elseif vim.g.completion_framework == 'ale' then
         use 'dense-analysis/ale'
         use { 'fatih/vim-go', ft = {'go'} }
-    elseif completion_framework == 'nvim' then
+    elseif vim.g.completion_framework == 'nvim' then
         use 'neovim/nvim-lspconfig'
         use 'hrsh7th/nvim-compe'
         use 'RishabhRD/popfix'
@@ -57,7 +56,7 @@ return require('packer').startup({function(use)
         use { 'psf/black', branch = 'stable', ft = {'python'} }
     end
 
-    if vim.api.nvim_get_var("include_treesitter") == 1 then
+    if vim.g.include_treesitter == 1 then
         use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
     end
 end,
