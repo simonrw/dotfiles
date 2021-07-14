@@ -19,27 +19,22 @@ return require('packer').startup(function(use)
     use 'tpope/vim-fugitive'
     use 'tpope/vim-rhubarb'
     use 'tpope/vim-repeat'
-    use 'tpope/vim-dispatch'
-    use 'tpope/vim-obsession'
     use 'christoomey/vim-tmux-runner'
     use 'christoomey/vim-conflicted'
     use 'vim-test/vim-test'
     use 'junegunn/vim-easy-align'
-    use 'junegunn/goyo.vim'
-    use 'chriskempson/base16-vim'
+    use { 'junegunn/goyo.vim', cmd = {'Goyo'} }
     use 'shumphrey/fugitive-gitlab.vim'
-    use 'NLKNguyen/papercolor-theme'
-    use 'direnv/direnv.vim'
     use { 'iamcco/markdown-preview.nvim', run = 'cd app && yarn install', ft = {'markdown'} }
 
     -- language plugins
-    use 'cespare/vim-toml'
+    use { 'cespare/vim-toml', ft = {'toml'} }
     use 'jeetsukumaran/vim-pythonsense'
     use 'evanleck/vim-svelte'
-    use 'ElmCast/elm-vim'
-    use 'leafgarland/typescript-vim'
+    use { 'ElmCast/elm-vim', ft = {'elm'} }
+    use { 'leafgarland/typescript-vim', ft = {'typescript'} }
     use 'hashivim/vim-terraform'
-    use 'ziglang/zig.vim'
+    use { 'ziglang/zig.vim', ft = {'zig'} }
     use 'jparise/vim-graphql'
     use 'jjo/vim-cue'
     use 'vmchale/dhall-vim'
