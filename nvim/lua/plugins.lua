@@ -27,6 +27,7 @@ return require('packer').startup({function(use)
     use 'shumphrey/fugitive-gitlab.vim'
     use { 'iamcco/markdown-preview.nvim', run = 'cd app && yarn install', ft = {'markdown'} }
     use 'airblade/vim-gitgutter' 
+    use 'itchyny/lightline.vim'
 
     -- language plugins
     use { 'cespare/vim-toml', ft = {'toml'} }
