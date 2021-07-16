@@ -4,8 +4,8 @@ function _G.inoremap(lhs, rhs) vim.api.nvim_set_keymap('i', lhs, rhs, { noremap 
 function _G.vnoremap(lhs, rhs) vim.api.nvim_set_keymap('v', lhs, rhs, { noremap = true , silent = true}) end
 
 -- Very magic search always
-nnoremap('/', '/\\v')
-nnoremap('?', '?\\v')
+nnoremap('/', [[/\v]])
+nnoremap('?', [[?\v]])
 
 -- split navigation
 nnoremap('<C-h>', '<C-w><C-h>')
@@ -37,10 +37,10 @@ cnoremap('%%', "<c-r>=expand('%:h') . '/'<cr>")
 -- nmap <silent> <leader>l :call ToggleList("Location List", 'l')<CR>
 nnoremap('Q', ":call ToggleList('Quickfix List', 'c')<CR>")
 
-nnoremap('<leader>vr', ':source $MYVIMRC\\|echo "Reloaded!"<Cr>')
+nnoremap('<leader>vr', [[:source $MYVIMRC\|echo "Reloaded!"<Cr>]])
 nnoremap('<leader>ev', ':echo "Use <leader>ve"<Cr>')
 nnoremap('<Space>', ':nohl<cr>')
 
 -- Bind K to grep word under cursor
-nnoremap('K', ':grep! "<C-R><C-W>"<cr><cr>\\|:copen<Cr>')
+nnoremap('K', [[:grep! "<C-R><C-W>"<cr><cr>\|:copen<Cr>]])
 
