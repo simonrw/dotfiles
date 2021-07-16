@@ -43,4 +43,3 @@ nnoremap('<Space>', ':nohl<cr>')
 
 -- Bind K to grep word under cursor
 nnoremap('K', [[:grep! "<C-R><C-W>"<cr><cr>\|:copen<Cr>]])
-

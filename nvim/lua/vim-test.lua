@@ -8,4 +8,5 @@ nnoremap('ts', [[:update\|:TestSuite<Cr>]])
 vim.g['test#python#runner'] = 'pytest'
 vim.g['test#javascript#reactscripts#options'] = '--watchAll=false'
 
-
+-- Global settings
+vim.g['test#strategy'] = 'basic'
