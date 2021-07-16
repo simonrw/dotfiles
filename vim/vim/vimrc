@@ -19,49 +19,12 @@ if has('nvim-0.5')
     augroup END
 endif
 
-" Very magic search always
-nnoremap / /\v
-nnoremap ? ?\v
-
-nnoremap <C-h> <C-w><C-h>
-nnoremap <C-j> <C-w><C-j>
-nnoremap <C-k> <C-w><C-k>
-nnoremap <C-l> <C-w><C-l>
-nnoremap cp :0,$y+<Cr>
-nnoremap ' `
-nnoremap ` '
-nnoremap j gj
-nnoremap k gk
-
-cnoremap %s/ %sm/
-
-" escape with Ctrl-j
-inoremap <C-j> <esc>
-vnoremap <C-j> <esc>
-inoremap <C-c> <esc>
-vnoremap <C-c> <esc>
-
-" Reselect visual block after indent/outdent
-vnoremap < <gv
-vnoremap > >gv
 
 if executable('rg')
     let &grepprg="rg --vimgrep"
 endif
 
 let g:markdown_folding = 1
-
-" FZF
-let g:fzf_command_prefix = 'Fzf'
-let g:fzf_preview_window = []
-nnoremap <leader>f :FzfGitFiles<cr>
-nnoremap <leader>F :FzfFiles<cr>
-nnoremap gb :FzfBuffers<cr>
-nnoremap gl :FzfRg<cr>
-nnoremap gL :FzfBLines<cr>
-nnoremap <leader>gT :FzfTags<cr>
-nnoremap <leader>gt :FzfBTags<cr>
-nnoremap <leader>a :FzfRg<cr>
 
 " Configure fzf window style
 let g:fzf_layout = { 'window': { 'width': 1, 'height': 0.4, 'yoffset': 1, 'border': 'top' } }
@@ -70,12 +33,6 @@ let g:fzf_layout = { 'window': { 'width': 1, 'height': 0.4, 'yoffset': 1, 'borde
 let g:VtrStripLeadingWhitespace = 0
 let g:VtrClearEmptyLines = 1
 let g:VtrAppendNewline = 1
-
-" Expand %% to the current directory
-cnoremap %% <c-r>=expand('%:h') . '/'<cr>
-
-nnoremap <silent> <leader>vr :source $MYVIMRC\|echo "Reloaded!"<Cr>
-nnoremap <silent> <leader>ev :echo "Use <leader>ve"<Cr>
 
 " Add mapping to open/close the quickfix list
 " Taken from: http://vim.wikia.com/wiki/Toggle_to_open_or_close_the_quickfix_window
@@ -105,28 +62,6 @@ function! ToggleList(bufname, pfx)
     wincmd p
   endif
 endfunction
-
-" nmap <silent> <leader>l :call ToggleList("Location List", 'l')<CR>
-nmap <silent> Q :call ToggleList("Quickfix List", 'c')<CR>
-
-" Bind K to grep word under cursor
-nnoremap <silent> K :grep! "<C-R><C-W>"<cr><cr>\|:copen<Cr>
-
-" Switch panes
-nnoremap <leader><leader> <C-^>
-
-" remove help key
-map <F1> <Esc>
-imap <F1> <Esc>
-
-" Configure vim test
-nnoremap <silent> tf :update\|:TestFile<Cr>
-nnoremap <silent> tl :update\|:TestLast<Cr>
-nnoremap <silent> tn :update\|:TestNearest<Cr>
-nnoremap <silent> ta :update\|:TestSuite<Cr>
-nnoremap <silent> ts :update\|:TestSuite<Cr>
-let test#python#runner = 'pytest'
-let test#javascript#reactscripts#options = "--watchAll=false"
 
 nnoremap <leader>v :VtrAttachToPane<cr>
 
