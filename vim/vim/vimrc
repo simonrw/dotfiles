@@ -63,10 +63,6 @@ function! ToggleList(bufname, pfx)
   endif
 endfunction
 
-nnoremap <leader>v :VtrAttachToPane<cr>
-
-" Create shorter 'V' command which is easier to type
-command! -nargs=? V call VtrSendCommand(<f-args>)
 
 " Configure vim fugitive
 nnoremap <leader>gc :Git commit -v<cr>
