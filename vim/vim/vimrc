@@ -63,20 +63,6 @@ function! ToggleList(bufname, pfx)
   endif
 endfunction
 
-
-" Configure vim fugitive
-nnoremap <leader>gc :Git commit -v<cr>
-nnoremap <leader>gd :Gdiff<cr>
-nnoremap <leader>gw :Gwrite<cr>
-nnoremap <leader>gr :Gread<cr>
-nnoremap gs :Git<cr>
-nnoremap <leader>ga :Git commit -v --amend<cr>
-
-" create a command to show my nice log
-" nnoremap <leader>gL :Git log 
-command! GitLog Git log --graph --decorate --pretty=format:'%C(auto)%h%C(reset) %C(green)(%ar)%C(reset) %C(blue)[%an]%C(auto) %d %s%C(auto)' --exclude='refs/bugs/*' --exclude='refs/identities/*'
-nnoremap <leader>gL :GitLog<cr>
-
 augroup last_position
     autocmd!
     " When editing a file, always jump to the last known cursor position.
