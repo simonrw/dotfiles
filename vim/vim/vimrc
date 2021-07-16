@@ -5,7 +5,7 @@ let g:maplocalleader = '\\'
 autocmd!
 
 " general settings
-let g:completion_framework = "coc"
+let g:completion_framework = "ale"
 let g:include_treesitter = 1
 
 lua require('config')
@@ -409,7 +409,7 @@ elseif g:completion_framework == "ale"
     " set up signs
     let g:ale_sign_error = ">"
     let g:ale_sign_warning = "~"
-    let g:ale_virtualtext_cursor = 0
+    let g:ale_virtualtext_cursor = 1
     let g:ale_cursor_detail = 0
     let g:ale_echo_cursor = 0
     let g:ale_set_balloons = 0
@@ -454,10 +454,17 @@ nnoremap <silent> gx :call OpenURLUnderCursor()<CR>
 
 let g:lightline = {}
 let g:lightline.colorscheme = 'default'
-let g:lightline.active = {
-      \   'left': [ [ 'mode', 'paste' ],
-      \             [ 'cocstatus', 'readonly', 'filename', 'modified', 'gitstatus'] ],
-      \ }
+if g:completion_framework == 'coc'
+	let g:lightline.active = {
+		  \   'left': [ [ 'mode', 'paste' ],
+		  \             [ 'cocstatus', 'readonly', 'filename', 'modified', 'gitstatus'] ],
+		  \ }
+else
+	let g:lightline.active = {
+		  \   'left': [ [ 'mode', 'paste' ],
+		  \             [ 'readonly', 'filename', 'modified', 'gitstatus'] ],
+		  \ }
+endif
 let g:lightline.mode_map = {
         \ 'n' : 'N',
         \ 'i' : 'I',
