@@ -71,7 +71,6 @@ vim.opt.formatoptions:append('ro')
 
 -- Set up persistent undo
 vim.opt.undofile = true
-vim.opt.undodir = '~/.vimundo'
 
 vim.opt.modeline = true
 vim.opt.lazyredraw = true
