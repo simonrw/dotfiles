@@ -30,17 +30,17 @@ return require('packer').startup({function(use)
     use 'itchyny/lightline.vim'
 
     -- language plugins
-    use { 'cespare/vim-toml', ft = {'toml'} }
-    use { 'jeetsukumaran/vim-pythonsense', ft = {'python'} }
-    use { 'evanleck/vim-svelte', ft = {'svelte'} }
-    use { 'ElmCast/elm-vim', ft = {'elm'} }
-    use { 'leafgarland/typescript-vim', ft = {'typescript'} }
-    use { 'hashivim/vim-terraform', ft = {'terraform'} }
-    use { 'ziglang/zig.vim', ft = {'zig'} }
-    use { 'jparise/vim-graphql', ft = {'graphql'} }
-    use { 'jjo/vim-cue', ft = {'cue'} }
-    use { 'vmchale/dhall-vim', ft = {'dhall'} }
-    use { 'pest-parser/pest.vim', ft = {'pest'} }
+    use 'cespare/vim-toml'
+    use 'jeetsukumaran/vim-pythonsense'
+    use 'evanleck/vim-svelte'
+    use 'ElmCast/elm-vim'
+    use 'leafgarland/typescript-vim'
+    use 'hashivim/vim-terraform'
+    use 'ziglang/zig.vim'
+    use 'jparise/vim-graphql'
+    use 'jjo/vim-cue'
+    use 'vmchale/dhall-vim'
+    use 'pest-parser/pest.vim'
 
     if vim.g.completion_framework == "coc" then
         use { 'neoclide/coc.nvim', branch = 'release' }
