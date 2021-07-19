@@ -21,7 +21,7 @@ return require('packer').startup({function(use)
     use 'tpope/vim-repeat'
     use 'christoomey/vim-tmux-runner'
     use 'christoomey/vim-conflicted'
-    use { 'vim-test/vim-test', cmd = {'TestSuite', 'TestFile', 'TestLast', 'TestNearest'} }
+    use 'vim-test/vim-test'
     use 'junegunn/vim-easy-align'
     use { 'junegunn/goyo.vim', cmd = {'Goyo'} }
     use 'shumphrey/fugitive-gitlab.vim'
