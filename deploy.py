@@ -194,7 +194,11 @@ class Deployer(object):
             )
             return
 
-        subdirs = ["external/git-identity-manager", "external/mkflashdriverepo"]
+        subdirs = [
+            "external/git-identity-manager",
+            "external/mkflashdriverepo",
+            "external/hookman",
+        ]
         for subdir in subdirs:
             if not os.path.isdir(subdir):
                 continue
