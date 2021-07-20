@@ -152,26 +152,34 @@ class Deployer(object):
             logger.debug("--> linking complete")
 
     def deploy_dotconfig_files(self):
+        macos_specific_locations = {"hookman"}
         for subdir in [
-            "direnv",
             "alacritty",
-            "bspwm",
-            "polybar",
-            "sxhkd",
-            "rofi",
-            "picom",
-            "nvim",
             "bat",
+            "bspwm",
+            "direnv",
+            "hookman",
             "karabiner",
-            "starship",
             "kitty",
+            "nvim",
+            "picom",
+            "polybar",
+            "rofi",
+            "starship",
+            "sxhkd",
         ]:
-            self.deploy_dotconfig_file(subdir)
+            macos_specific = self.macos() and subdir in macos_specific_locations
+            self.deploy_dotconfig_file(subdir, macos_specific)
 
-    def deploy_dotconfig_file(self, subdir):
+    def deploy_dotconfig_file(self, subdir, macos_specific):
+        if macos_specific:
+            root = Path.home() / "Library" / "Application Support"
+        else:
+            root = self.root.resolve() / ".config"
+
         srcs = Path.cwd().joinpath(subdir).glob("*")
         for src in srcs:
-            dest = self.root.resolve().joinpath(".config", subdir, src.name)
+            dest = root.joinpath(subdir, src.name)
             self._deploy_single_file(src, dest)
 
     def deploy_kitty_config(self):
