@@ -16,31 +16,18 @@ export PATH=${HOME}/.bin:${HOME}/.poetry/bin:${HOME}/.cabal/bin:/usr/local/bin:$
 fpath=($HOME/.zsh/func $HOME/.zsh/completion $fpath)
 typeset -U fpath
 
+autoload -Uz compinit
+
 # Report the time taken for any long running command
 REPORTTIME=10
 
 # Disable Ctrl-s freezing the terminal
 stty stop undef
 
-autoload -U compinit
-
-# Optimize startup by only loading completion once per day
-# Taken from https://gist.github.com/ctechols/ca1035271ad134841284#gistcomment-3109177
-() {
-  if [[ $# -gt 0 ]]; then
-    compinit
-  else
-    compinit -C
-  fi
-} ${ZDOTDIR:-$HOME}/.zcompdump(N.mh+24)
-
 autoload add-zsh-hook
 
 # Disable non-standard implicit tee/cat behaviour
 unsetopt multios
-
-autoload -U bashcompinit
-bashcompinit
 
 # Emacs keybindings
 bindkey "^R" history-incremental-search-backward

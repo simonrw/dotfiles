@@ -46,4 +46,3 @@ _python_argcomplete() {
         compopt -o nospace
     fi
 }
-complete -o nospace -o default -o bashdefault -F _python_argcomplete pipx
