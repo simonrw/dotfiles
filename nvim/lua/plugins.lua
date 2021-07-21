@@ -41,6 +41,7 @@ return require('packer').startup({function(use)
     use 'jjo/vim-cue'
     use 'vmchale/dhall-vim'
     use 'pest-parser/pest.vim'
+    use 'lepture/vim-velocity'
 
     if vim.g.completion_framework == "coc" then
         use { 'neoclide/coc.nvim', branch = 'release' }
