@@ -4,7 +4,7 @@
 command = """
 dir="$(git rev-parse --git-dir)"
 trap 'rm -f "$dir/tags.$$"' EXIT INT TERM
-ctags --tag-relative=yes -Rf.git/tags.$$ $(git ls-files)
+ctags --tag-relative=yes -Rf.git/tags.$$ $(git ls-files) 2>/dev/null
 mv $dir/tags.$$ $dir/tags
 """
 background = true
