@@ -53,10 +53,9 @@ vim.opt.splitbelow = true
 -- updatecount (200 keystrokes) and updatetime
 -- (4 seconds) are fine
 vim.opt.swapfile = true
-vim.opt.directory:prepend('~/.vim/swap//')
 
 -- protect against crash-during-write
-vim.opt.writebackup = true
+vim.opt.writebackup = false
 -- but do not persist backup after successful write
 vim.opt.backup = false
 -- use rename-and-write-new method whenever safe
