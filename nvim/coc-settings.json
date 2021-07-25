@@ -11,6 +11,7 @@
     "rust-analyzer.inlayHints.chainingHints": false,
     "hover.target": "float",
     "rust-analyzer.completion.addCallParenthesis": false,
+    "suggest.autoTrigger": "none",
     "diagnostic.checkCurrentLine": true,
     "languageserver": {
         "golang": {
