@@ -29,7 +29,10 @@ applications = {
     },
     youtube = {
         name = "YouTube",
-    }
+    },
+    todo = {
+        name = "Reminders",
+    },
 }
 
 -- overrides

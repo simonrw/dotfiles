@@ -23,6 +23,7 @@ end
 bindKey(applications.browser, 'c')
 bindKey(applications.terminal, 't')
 bindKey(applications.documentation, 'r')
-bindKey(applications.notes, 'n', 'e')
+bindKey(applications.notes, 'n')
+bindKey(applications.todo, 'e')
 bindKey(applications.chat, 's')
 bindKey(applications.music, 'm')
