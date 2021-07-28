@@ -6,7 +6,7 @@ autocmd!
 
 " general settings
 let g:completion_framework = "nvim"
-let g:include_treesitter = 0
+let g:include_treesitter = 1
 
 lua require('config')
 
