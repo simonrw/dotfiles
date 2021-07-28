@@ -1,0 +1,10 @@
+#!/bin/sh
+
+set -euo pipefail
+
+if [ $# -ne 1 ]; then
+    echo "Usage: $0 <file>" >&2
+    exit 1
+fi
+
+ffprobe -print_format json -show_streams -show_format $1 2>/dev/null | jq .
