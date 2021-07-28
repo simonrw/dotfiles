@@ -5,8 +5,8 @@ let g:maplocalleader = '\\'
 autocmd!
 
 " general settings
-let g:completion_framework = "coc"
-let g:include_treesitter = 1
+let g:completion_framework = "ale"
+let g:include_treesitter = 0
 
 lua require('config')
 

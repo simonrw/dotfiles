@@ -23,10 +23,8 @@ return require('packer').startup({function(use)
     use 'christoomey/vim-conflicted'
     use 'vim-test/vim-test'
     use 'junegunn/vim-easy-align'
-    use { 'junegunn/goyo.vim', cmd = {'Goyo'} }
     use 'shumphrey/fugitive-gitlab.vim'
     use { 'iamcco/markdown-preview.nvim', run = 'cd app && yarn install', ft = {'markdown'} }
-    use 'airblade/vim-gitgutter' 
 
     -- language plugins
     use 'cespare/vim-toml'
