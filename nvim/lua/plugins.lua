@@ -42,7 +42,6 @@ return require('packer').startup({function(use)
 
     if vim.g.completion_framework == "coc" then
         use { 'neoclide/coc.nvim', branch = 'release' }
-        use { 'rodrigore/coc-tailwind-intellisense', run = 'npm install' }
     elseif vim.g.completion_framework == 'ale' then
         use 'dense-analysis/ale'
         use { 'fatih/vim-go', ft = {'go'} }
