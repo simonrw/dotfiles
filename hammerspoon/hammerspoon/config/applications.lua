@@ -18,7 +18,7 @@ applications = {
         name = "Dash",
     },
     notes = {
-        name = "Notes",
+        name = "Obsidian",
     },
     editor = {
         name = "Visual Studio Code",
@@ -31,7 +31,7 @@ applications = {
         name = "YouTube",
     },
     todo = {
-        name = "Reminders",
+        name = "TickTick",
     },
 }
 
