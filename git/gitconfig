@@ -44,6 +44,7 @@
     # Quickly diff the upstream remote (assume origin)
     upstream = "rev-parse --abbrev-ref --symbolic-full-name '@{u}'"
     diffup = "!git diff $(git upstream).."
+    fetchup = "fetch upstream"
     upsub = submodule foreach 'git checkout master && git pull'
 
     authors = "shortlog -s -n --all --no-merges"
