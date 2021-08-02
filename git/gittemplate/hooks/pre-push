@@ -1,0 +1,40 @@
+#!/usr/bin/env bash
+# -*- coding: utf-8 -*-
+
+set -e
+
+echo "Running tests before push"
+
+# customise the variable below
+SOURCE_DIR=src
+PYTHON_PROJECTDIRS="${SOURCE_DIR} setup.py tests"
+
+test-python() {
+    test -z "${PYTHON_PROJECTDIRS:-}" && {
+        echo "No black paths set" >&2
+        exit 1
+    }
+
+    black --check --target-version py38 $PYTHON_PROJECTDIRS --quiet || {
+        echo "Black check failed! 💥💔💥" >&2
+        exit 1
+    }
+    flake8
+    if command -v bandit >/dev/null 2>&1; then
+        bandit -r ${SOURCE_DIR}
+    fi
+    pytest --quiet --disable-warnings
+}
+
+test-rust() {
+    cargo test
+}
+
+test-go() {
+    go vet
+    go test
+}
+
+# Do not allow pushes without validating what pre-push commands are wanted
+echo "*** NO TESTS SET UP YET, BLOCKING PUSH ***"
+exit 1
