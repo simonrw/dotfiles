@@ -13,7 +13,7 @@ alias ga='git commit --amend'
 alias es='exec $SHELL'
 alias k=kubectl
 alias sourceenv="source ./venv/bin/activate"
-alias vup="vim +PackerSync +UpdateRemotePlugins"
+alias vup="nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'"
 test -d ~/.ssh && {
     alias add-keys="ssh-add $(find ~/.ssh -maxdepth 1 -type f -name "id_rsa*" | grep -v pub | grep -v bak)"
 }
