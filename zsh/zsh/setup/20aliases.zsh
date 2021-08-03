@@ -67,3 +67,7 @@ fi
 if has_executable xh; then
     alias http=xh
 fi
+
+if has_executable gojq; then
+    alias jq=gojq
+fi
