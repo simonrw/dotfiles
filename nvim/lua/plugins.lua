@@ -24,7 +24,7 @@ return require('packer').startup({function(use)
     use 'vim-test/vim-test'
     use 'junegunn/vim-easy-align'
     use 'shumphrey/fugitive-gitlab.vim'
-    use { 'iamcco/markdown-preview.nvim', run = 'cd app && yarn install', ft = {'markdown'} }
+    use { 'iamcco/markdown-preview.nvim', run = 'cd app && yarn install' }
 
     -- language plugins
     use 'cespare/vim-toml'
