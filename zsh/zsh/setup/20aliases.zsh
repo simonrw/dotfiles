@@ -38,15 +38,7 @@ fi
 
 if has_executable nvim; then
     alias vim=nvim
-fi
-
-if has_executable bat; then
-    alias cat=bat
-    alias less=bat
-    alias more=bat
-fi
-
-if has_executable nvim; then
+    alias vi=nvim
     alias vimdiff="nvim -d"
 fi
 
