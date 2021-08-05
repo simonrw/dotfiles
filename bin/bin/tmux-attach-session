@@ -6,7 +6,7 @@ set -eou pipefail
 
 
 main() {
-    readonly sessionname="$(tmux ls | sk | cut -d : -f 1)"
+    readonly sessionname="$(tmux ls -F '#S' | sk)"
     readonly sessionid="${sessionname}-$(uuidgen)"
 
     tmux new-session -s $sessionid -t ${sessionname} || true
