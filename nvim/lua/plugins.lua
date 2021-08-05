@@ -7,7 +7,7 @@ if fn.empty(fn.glob(install_path)) > 0 then
     execute('packadd packer.nvim')
 end
 
-return require('packer').startup({function(use)
+require('packer').startup({function(use)
     use 'wbthomason/packer.nvim'
     use 'lotabout/skim'
     use 'lotabout/skim.vim'
@@ -26,7 +26,7 @@ return require('packer').startup({function(use)
     use 'shumphrey/fugitive-gitlab.vim'
     use { 'iamcco/markdown-preview.nvim', run = 'cd app && yarn install' }
     use 'itchyny/lightline.vim'
-    use 'airblade/vim-gitgutter'
+    use { 'lewis6991/gitsigns.nvim', requires = { 'nvim-lua/plenary.nvim' } }
 
     -- language plugins
     use 'cespare/vim-toml'
@@ -62,3 +62,5 @@ return require('packer').startup({function(use)
 end,
 config = {}})
 
+-- package setups
+require('gitsigns').setup()
