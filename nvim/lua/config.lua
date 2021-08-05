@@ -1,3 +1,4 @@
+require('disables')
 require('settings')
 require('plugins')
 require('mappings')
