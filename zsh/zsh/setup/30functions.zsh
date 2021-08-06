@@ -354,3 +354,14 @@ function find_up() {
 function poetry-env-rm() {
     poetry env remove $(poetry env info --path)/bin/python
 }
+
+function gitignore() {
+    if [ $# -ne 1 ]; then
+        echo "Usage: gitignore <keys>" >&2
+        echo >&2
+        echo "  where keys is a comma separated list of tags" >&2
+        return 1
+    fi
+
+    curl -LsSo .gitignore https://gitignore.io/api/$1
+}
