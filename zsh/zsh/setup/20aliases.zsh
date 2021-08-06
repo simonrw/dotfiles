@@ -36,6 +36,12 @@ if has_executable task; then
     alias t=task
 fi
 
+if has_executable bat; then
+    alias cat=bat
+    alias less=bat
+    alias more=bat
+fi
+
 if has_executable nvim; then
     alias vim=nvim
     alias vi=nvim
