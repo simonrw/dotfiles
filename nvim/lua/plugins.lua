@@ -51,6 +51,9 @@ require('packer').startup({function(use)
     if vim.g.include_treesitter == 1 then
         use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
     end
+
+    -- my plugins
+    use 'mindriot101/search-in-scope.vim'
 end,
 config = {}})
 
