@@ -286,6 +286,7 @@ elseif g:completion_framework == "ale"
     let g:ale_cursor_detail = 0
     let g:ale_echo_cursor = 0
     let g:ale_set_balloons = 0
+    let g:ale_hover_cursor = 0
 
     function! LinterStatus() abort
         let l:counts = ale#statusline#Count(bufnr(''))
