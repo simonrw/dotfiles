@@ -21,7 +21,7 @@ require('packer').startup({function(use)
     use 'tpope/vim-repeat'
     use 'christoomey/vim-tmux-runner'
     use { 'christoomey/vim-conflicted', cmd = {'Conflicted'} }
-    use { 'vim-test/vim-test', cmd = {'TestSuite', 'TestNearest', 'TestFile', 'TestLast', 'TestVisit' } }
+    use 'vim-test/vim-test'
     use { 'junegunn/vim-easy-align', cmd = {'EasyAlign'} }
     use 'shumphrey/fugitive-gitlab.vim'
     use { 'iamcco/markdown-preview.nvim', run = 'cd app && yarn install' }
@@ -31,6 +31,7 @@ require('packer').startup({function(use)
 
     -- language plugins
     use 'jeetsukumaran/vim-pythonsense'
+    use 'cespare/vim-toml'
     use 'evanleck/vim-svelte'
     use 'hashivim/vim-terraform'
     use 'lepture/vim-velocity'
@@ -53,6 +54,9 @@ require('packer').startup({function(use)
         use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
     end
 
+    -- for testing
+    use 'nvim-lua/plenary.nvim'
+
     -- my plugins
     use 'mindriot101/search-in-scope.vim'
 end,
@@ -60,3 +64,7 @@ config = {}})
 
 -- package setups
 require('gitsigns').setup()
+
+require('search_in_scope').setup({
+    bind = "<leader>S",
+})
