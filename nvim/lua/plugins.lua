@@ -27,6 +27,7 @@ require('packer').startup({function(use)
     use { 'iamcco/markdown-preview.nvim', run = 'cd app && yarn install' }
     use 'itchyny/lightline.vim'
     use { 'lewis6991/gitsigns.nvim', requires = { 'nvim-lua/plenary.nvim' } }
+    use { 'kana/vim-textobj-indent', requires = { 'kana/vim-textobj-user' } }
 
     -- language plugins
     use 'jeetsukumaran/vim-pythonsense'
