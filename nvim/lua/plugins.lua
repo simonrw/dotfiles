@@ -67,4 +67,5 @@ require('gitsigns').setup()
 
 require('search_in_scope').setup({
     bind = "<leader>S",
+    indent_filetypes = {"lua"},
 })
