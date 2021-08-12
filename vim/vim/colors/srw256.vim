@@ -59,3 +59,6 @@ if has("nvim")
 endif
 hi link ALEVirtualTextError ALEErrorSign
 hi link ALEVirtualTextWarning ALEWarningSign
+
+" coc
+hi link CocUnusedHighlight CocUnderline
