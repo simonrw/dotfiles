@@ -30,7 +30,6 @@ require('packer').startup({function(use)
     use { 'kana/vim-textobj-indent', requires = { 'kana/vim-textobj-user' } }
 
     -- language plugins
-    use 'jeetsukumaran/vim-pythonsense'
     use 'cespare/vim-toml'
     use 'evanleck/vim-svelte'
     use 'hashivim/vim-terraform'
