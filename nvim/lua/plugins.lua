@@ -20,9 +20,9 @@ require('packer').startup({function(use)
     use 'tpope/vim-rhubarb'
     use 'tpope/vim-repeat'
     use 'christoomey/vim-tmux-runner'
-    use { 'christoomey/vim-conflicted', cmd = {'Conflicted'} }
+    use 'christoomey/vim-conflicted'
     use 'vim-test/vim-test'
-    use { 'junegunn/vim-easy-align', cmd = {'EasyAlign'} }
+    use 'junegunn/vim-easy-align'
     use 'shumphrey/fugitive-gitlab.vim'
     use { 'iamcco/markdown-preview.nvim', run = 'cd app && yarn install' }
     use 'itchyny/lightline.vim'
@@ -46,7 +46,7 @@ require('packer').startup({function(use)
         use 'RishabhRD/popfix'
         use 'RishabhRD/nvim-lsputils'
         use 'nvim-lua/lsp-status.nvim'
-        use { 'psf/black', branch = 'stable', ft = {'python'} }
+        use { 'psf/black', branch = 'stable' }
     end
 
     if vim.g.include_treesitter == 1 then
