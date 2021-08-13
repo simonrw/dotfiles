@@ -140,6 +140,9 @@ export GPG_TTY="$(tty)"
 
 alias g=git
 
+# Always disable pytest-sugar
+export PYTEST_ADDOPTS="-p no:sugar"
+
 # Finally source the theme
 source ${HOME}/.zsh/srwalker101.zsh-theme
 
