@@ -27,4 +27,23 @@ ensure_tmux_is_running() {
     fi
 }
 
+# helper functions
+
+# remove old tmux sessions from more than a week ago
+function tmux-prune() {
+    now="$(date +%s)"
+    cutoff="$(python3 -c "print(${now} - 604800)")"
+
+    tmux ls -F '#S #{session_activity}' | while read info; do
+        name="$(echo $info | cut -f 1 -d ' ')"
+        last_activity="$(echo $info | cut -f 2 -d ' ')"
+
+        if [ $last_activity -lt $cutoff ]; then
+            echo "Pruning tmux session $name"
+            tmux kill-session -t $name
+        fi
+    done
+}
+
+tmux-prune
 ensure_tmux_is_running
