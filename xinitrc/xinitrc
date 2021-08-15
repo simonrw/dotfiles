@@ -15,4 +15,4 @@ xmodmap ~/.Xmodmap
 bash ~/.bin/set-keyboard
 
 # Start XFCE
-exec i3
+exec mate-session
