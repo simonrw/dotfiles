@@ -1,3 +1,7 @@
+if not vim.g.completion_framework == 'nvim' then
+    return
+end
+
 vim.o.completeopt = "menuone,noselect"
 
 local lspconfig = require("lspconfig")

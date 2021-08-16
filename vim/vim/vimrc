@@ -121,10 +121,6 @@ if g:completion_framework == "coc"
     let g:go_highlight_generate_tags = 1
 endif
 
-if has('nvim-0.5') && g:include_treesitter
-luafile ~/.vim/lua/treesitterconfig.lua
-endif
-
 " Configure elm.vim
 let g:elm_format_fail_silently = 1
 
@@ -304,7 +300,6 @@ elseif g:completion_framework == "ale"
     set statusline=%<%f\ (%{ALELinterStatus()})\ %h%m%r%=%-14.(%l,%c%V%)\ %P
     let g:ale_fix_on_save = 1
 elseif g:completion_framework == "nvim" && has('nvim-0.5')
-    luafile ~/.vim/lua/customlspconfig.lua
     inoremap <silent><expr> <C-Space> compe#complete()
 endif
 
