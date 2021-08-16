@@ -109,12 +109,6 @@ export EMAIL=s.r.walker101@googlemail.com
 # Disable cowsay for ansible
 export ANSIBLE_NOCOWS=1
 
-# Set up rustup
-export CARGO_HOME=${HOME}/.cargo
-export PATH=${CARGO_HOME}/bin:${PATH}
-export RUST_NEW_ERROR_FORMAT=true
-export RUST_BACKTRACE=0
-
 # stop pip installing without a virtual environment
 export PIP_REQUIRE_VIRTUALENV=true
 
@@ -125,6 +119,12 @@ export PYENV_VIRTUALENV_DISABLE_PROMPT=1
 for file in ~/.zsh/setup/*.zsh; do
     source $file
 done
+
+# Set up rustup
+export CARGO_HOME=${HOME}/.cargo
+export PATH=${CARGO_HOME}/bin:${PATH}
+export RUST_NEW_ERROR_FORMAT=true
+export RUST_BACKTRACE=0
 
 # Source the custom zshrc.local file in the system
 if [[ -f ${HOME}/.zshrc.local ]]; then
