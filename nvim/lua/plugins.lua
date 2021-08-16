@@ -45,7 +45,6 @@ require('packer').startup({function(use)
         use 'hrsh7th/nvim-compe'
         use 'RishabhRD/popfix'
         use 'RishabhRD/nvim-lsputils'
-        use 'nvim-lua/lsp-status.nvim'
         use { 'psf/black', branch = 'stable' }
     end
 

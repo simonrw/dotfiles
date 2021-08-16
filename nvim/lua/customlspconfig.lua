@@ -6,8 +6,6 @@ vim.o.completeopt = "menuone,noselect"
 
 local lspconfig = require("lspconfig")
 local compe = require("compe")
-local lsp_status = require("lsp-status")
-lsp_status.register_progress()
 
 -- compe
 compe.setup {
@@ -66,9 +64,6 @@ local on_attach = function(client, bufnr)
             augroup END
             ]], true)
     end
-
-    -- lsp-status
-    lsp_status.on_attach(client, bufnr)
 end
 
 local t = function(str)
