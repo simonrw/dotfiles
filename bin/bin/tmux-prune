@@ -32,7 +32,7 @@ if __name__ == "__main__":
 
     now = datetime.now(tz=timezone.utc)
     if args.cutoff is None:
-        cutoff = now - timedelta(days=7)
+        cutoff = now - timedelta(weeks=2)
     else:
         cutoff = now - timedelta(days=args.cutoff)
 
