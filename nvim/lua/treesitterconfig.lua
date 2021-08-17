@@ -1,14 +1,15 @@
-if not vim.fn.has('nvim-0.5') or not vim.g.include_treesitter then
-    return
+local function setup()
+    local ts = require('nvim-treesitter.configs')
+
+    ts.setup {
+        ensure_installed = 'maintained',
+        highlight = {
+            enable = true
+        },
+    }
 end
 
-local ts = require('nvim-treesitter.configs')
-
-ts.setup {
-    ensure_installed = 'maintained',
-    highlight = {
-        enable = true
-    },
-}
-
+if vim.fn.has('nvim-0.5') and vim.g.include_treesitter then
+    setup()
+end
 
