@@ -7,6 +7,7 @@
     "python.formatting.provider": "black",
     "python.formatting.blackPath": "~/.local/pipx/bin/black",
     "python.linting.flake8Path": "~/.local/pipx/bin/flake8",
+    "pyright.organizeimports.provider": "pyright",
     "suggest.noselect": false,
     "rust-analyzer.inlayHints.chainingHints": false,
     "hover.target": "float",

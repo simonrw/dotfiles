@@ -13,6 +13,11 @@ if g:completion_framework == "nvim"
         autocmd!
         autocmd BufWritePre *.py silent Black
     augroup END
+elseif g:completion_framework == "coc"
+    augroup python_save_hooks
+        autocmd!
+        autocmd BufWritePre *.py :silent call CocAction('runCommand', 'pyright.organizeimports')
+    augroup END
 endif
 
 " override the pytest executable as pytest tries to be too clever when a
