@@ -46,6 +46,9 @@ exec_always --no-startup-id hsetroot -solid "#c2dced"
 # https://github.com/ValveSoftware/steam-for-linux/issues/1040
 for_window [class="^Steam$"] floating enable
 
+# always float qemu windows
+for_window [class="^qemu.*"] floating enable
+
 # change focus
 bindsym $mod+h focus left
 bindsym $mod+j focus down
