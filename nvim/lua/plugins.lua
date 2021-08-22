@@ -28,6 +28,7 @@ require('packer').startup({function(use)
     use 'itchyny/lightline.vim'
     use { 'lewis6991/gitsigns.nvim', requires = { 'nvim-lua/plenary.nvim' } }
     use { 'kana/vim-textobj-indent', requires = { 'kana/vim-textobj-user' } }
+    use 'David-Kunz/treesitter-unit'
 
     -- language plugins
     use 'cespare/vim-toml'
