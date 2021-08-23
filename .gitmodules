@@ -49,3 +49,6 @@
 [submodule "external/hookman"]
 	path = external/hookman
 	url = https://github.com/mindriot101/hookman.git
+[submodule "external/listprojects"]
+	path = external/listprojects
+	url = https://github.com/mindriot101/listprojects.git
