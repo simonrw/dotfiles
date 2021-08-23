@@ -2,14 +2,14 @@
 
 
 import argparse
+from contextlib import contextmanager
+import logging
+import os
 from pathlib import Path
 import platform
-import logging
-from typing import Optional
-from contextlib import contextmanager
-import subprocess as sp
-import os
 import shutil
+import subprocess as sp
+from typing import Optional
 
 
 logging.basicConfig(
@@ -206,6 +206,7 @@ class Deployer(object):
             "external/git-identity-manager",
             "external/mkflashdriverepo",
             "external/hookman",
+            "external/listprojects",
         ]
         for subdir in subdirs:
             if not os.path.isdir(subdir):
