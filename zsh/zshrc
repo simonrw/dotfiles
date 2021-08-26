@@ -124,7 +124,7 @@ done
 export CARGO_HOME=${HOME}/.cargo
 export PATH=${CARGO_HOME}/bin:${PATH}
 export RUST_NEW_ERROR_FORMAT=true
-export RUST_BACKTRACE=0
+export RUST_BACKTRACE=1
 
 # Source the custom zshrc.local file in the system
 if [[ -f ${HOME}/.zshrc.local ]]; then
