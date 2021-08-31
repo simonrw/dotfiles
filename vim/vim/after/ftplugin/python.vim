@@ -5,7 +5,7 @@ let @n='if __name__ == "__main__":'
 vnoremap <silent> <leader>t :VtrSendLinesToRunner<Cr>
 nnoremap <silent> <leader>p vip:VtrSendLinesToRunner<Cr>
 
-let b:ale_fixers = ["black", "isort"]
+let b:ale_fixers = ["black"]
 let b:ale_linters = ["pyright", "flake8"]
 
 if g:completion_framework == "nvim"
