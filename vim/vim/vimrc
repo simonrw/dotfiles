@@ -5,7 +5,7 @@ let g:maplocalleader = '\\'
 autocmd!
 
 " general settings
-let g:completion_framework = "ale"
+let g:completion_framework = "nvim"
 let g:include_treesitter = 1
 
 lua require('config')
@@ -300,7 +300,16 @@ elseif g:completion_framework == "ale"
     set statusline=%<%f\ (%{ALELinterStatus()})\ %h%m%r%=%-14.(%l,%c%V%)\ %P
     let g:ale_fix_on_save = 1
 elseif g:completion_framework == "nvim" && has('nvim-0.5')
-    inoremap <silent><expr> <C-Space> compe#complete()
+    " Use <Tab> and <S-Tab> to navigate through popup menu
+    inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
+    inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+
+    " use <Tab> as trigger keys
+    imap <Tab> <Plug>(completion_smart_tab)
+    imap <S-Tab> <Plug>(completion_smart_s_tab)
+
+    " Enable type inlay hints
+    autocmd CursorHold,CursorHoldI *.rs :lua require'lsp_extensions'.inlay_hints{ only_current_line = true }
 endif
 
 " Hack around the recent failure of gx

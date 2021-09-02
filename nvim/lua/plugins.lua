@@ -40,13 +40,13 @@ require('packer').startup({function(use)
         use { 'neoclide/coc.nvim', branch = 'release' }
     elseif vim.g.completion_framework == 'ale' then
         use 'dense-analysis/ale'
-        -- use { 'fatih/vim-go', ft = {'go'} }
+        use 'fatih/vim-go'
     elseif vim.g.completion_framework == 'nvim' then
         use 'neovim/nvim-lspconfig'
-        use 'hrsh7th/nvim-compe'
-        use 'RishabhRD/popfix'
-        use 'RishabhRD/nvim-lsputils'
+        use 'nvim-lua/lsp_extensions.nvim'
+        use 'nvim-lua/completion-nvim'
         use { 'psf/black', branch = 'stable' }
+        use 'fatih/vim-go'
     end
 
     if vim.g.include_treesitter == 1 then
