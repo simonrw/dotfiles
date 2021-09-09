@@ -26,7 +26,7 @@ require('packer').startup({function(use)
     use 'shumphrey/fugitive-gitlab.vim'
     use { 'iamcco/markdown-preview.nvim', run = 'cd app && yarn install' }
     use 'itchyny/lightline.vim'
-    use { 'lewis6991/gitsigns.nvim', requires = { 'nvim-lua/plenary.nvim' } }
+    use 'airblade/vim-gitgutter'
     use { 'kana/vim-textobj-indent', requires = { 'kana/vim-textobj-user' } }
     use 'David-Kunz/treesitter-unit'
 
@@ -61,9 +61,6 @@ require('packer').startup({function(use)
     use 'mindriot101/search-in-scope.vim'
 end,
 config = {}})
-
--- package setups
-require('gitsigns').setup()
 
 require('search_in_scope').setup({
     bind = "<leader>S",
