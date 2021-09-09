@@ -1,6 +1,6 @@
-require "config/applications"
+local applications = require("config/applications")
 
-function launchViaOsascript(application, tabName)
+local function launchViaOsascript(application, tabName)
     local tpl = [[
 set windowIndex to 1
 

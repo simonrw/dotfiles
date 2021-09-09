@@ -1,4 +1,4 @@
-applications = {
+local applications = {
     terminal = {
         name = "Kitty",
     },
@@ -41,3 +41,5 @@ for _, hostname in ipairs(hs.host.names()) do
     if string.find(hostname, "pixmac516") then
     end
 end
+
+return applications

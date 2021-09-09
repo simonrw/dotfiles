@@ -1,4 +1,4 @@
-require "config/applications"
+local applications = require("config/applications")
 
 -- helper function to bind multiple keys to a single application
 local seen_hotkeys = {}
