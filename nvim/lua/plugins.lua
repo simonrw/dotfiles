@@ -20,7 +20,6 @@ require('packer').startup({function(use)
     use 'tpope/vim-rhubarb'
     use 'tpope/vim-repeat'
     use 'christoomey/vim-tmux-runner'
-    use 'christoomey/vim-conflicted'
     use 'vim-test/vim-test'
     use 'junegunn/vim-easy-align'
     use 'shumphrey/fugitive-gitlab.vim'
