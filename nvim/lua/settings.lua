@@ -1,6 +1,7 @@
 vim.opt.mouse = 'a'
 vim.opt.scrolloff = 5
 vim.opt.number = true
+vim.opt.smartindent = true
 vim.opt.relativenumber = true
 vim.opt.cursorline = false
 vim.opt.ttimeoutlen = 10
@@ -15,7 +16,7 @@ vim.opt.wildmode = { 'list:longest', 'list:full' }
 vim.opt.history = 50
 vim.opt.complete = { '.', 'w', 'b', 'u', 't', 'i' }
 vim.opt.completeopt = { 'menuone', 'preview' }
-vim.opt.ruler = true
+vim.opt.ruler = false
 vim.opt.list = false
 vim.opt.showcmd = true
 vim.opt.incsearch = true
