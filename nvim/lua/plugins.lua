@@ -24,7 +24,6 @@ require('packer').startup({function(use)
     use 'junegunn/vim-easy-align'
     use 'shumphrey/fugitive-gitlab.vim'
     use { 'iamcco/markdown-preview.nvim', run = 'cd app && yarn install' }
-    use 'itchyny/lightline.vim'
     use 'airblade/vim-gitgutter'
     use { 'kana/vim-textobj-indent', requires = { 'kana/vim-textobj-user' } }
     use 'David-Kunz/treesitter-unit'
