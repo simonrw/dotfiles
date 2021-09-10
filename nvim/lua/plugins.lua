@@ -27,6 +27,7 @@ require('packer').startup({function(use)
     use 'airblade/vim-gitgutter'
     use { 'kana/vim-textobj-indent', requires = { 'kana/vim-textobj-user' } }
     use 'David-Kunz/treesitter-unit'
+    use 'jeetsukumaran/vim-pythonsense'
 
     -- language plugins
     use 'cespare/vim-toml'

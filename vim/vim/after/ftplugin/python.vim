@@ -24,7 +24,7 @@ endif
 " Pipfile exists
 let test#python#pytest#executable = 'pytest'
 
-set colorcolumn=89
+set textwidth=0
 
 command! -nargs=* Mypy call python#run_mypy("--strict --ignore-missing-imports", expand("%"))
 command! -nargs=* Flake8 call python#run_flake8(<f-args>)
