@@ -17,6 +17,7 @@ vim.opt.history = 50
 vim.opt.complete = { '.', 'w', 'b', 'u', 't', 'i' }
 vim.opt.completeopt = { 'menuone', 'preview' }
 vim.opt.ruler = false
+vim.opt.shiftround = true
 vim.opt.list = false
 vim.opt.showcmd = true
 vim.opt.incsearch = true
