@@ -52,3 +52,6 @@
 [submodule "external/listprojects"]
 	path = external/listprojects
 	url = https://github.com/mindriot101/listprojects.git
+[submodule "external/install-default-precommit"]
+	path = external/install-default-precommit
+	url = https://github.com/mindriot101/install-default-precommit

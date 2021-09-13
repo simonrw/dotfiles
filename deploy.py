@@ -230,6 +230,12 @@ class Deployer(object):
             cmd = ["go", "install"]
             sp.run(cmd)
 
+        # install-default-precommit
+        logger.debug("compiling and installing external/install-default-precommit")
+        with self._chdir("external/install-default-precommit"):
+            cmd = ["go", "install"]
+            sp.run(cmd)
+
     def _deploy_single_file(self, src, dest):
         dest.parent.mkdir(parents=True, exist_ok=True)
 
