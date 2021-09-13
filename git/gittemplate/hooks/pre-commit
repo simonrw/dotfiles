@@ -1,0 +1,27 @@
+#!/usr/bin/env bash
+# -*- coding: utf-8 -*-
+
+set -e
+
+echo "Running tests before commit"
+
+# customise the variable below
+SOURCE_DIR=src
+PYTHON_PROJECTDIRS="${SOURCE_DIR} setup.py tests"
+
+test-python() {
+    pytest --quiet --disable-warnings
+}
+
+test-rust() {
+    cargo test
+}
+
+test-go() {
+    go vet
+    go test
+}
+
+# Do not allow commit without validating what pre-commit commands are wanted
+echo "*** NO TESTS SET UP YET, BLOCKING COMMIT ***"
+exit 1
