@@ -14,7 +14,6 @@
     "diagnostic.virtualText": true,
     "diagnostic.messageTarget": "echo",
     "diagnostic.enableMessage": "never",
-    "suggest.autoTrigger": "none",
     "rust-analyzer.completion.addCallParenthesis": false,
     "rust-analyzer.cargo.runBuildScripts": true,
     "diagnostic.checkCurrentLine": true,
