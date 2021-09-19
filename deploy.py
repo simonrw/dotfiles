@@ -236,6 +236,12 @@ class Deployer(object):
             cmd = ["go", "install"]
             sp.run(cmd)
 
+        # install git-pm
+        logger.debug("compiling and installing external/git-pm")
+        with self._chdir("external/git-pm"):
+            cmd = ["cargo", "install", "--path", "."]
+            sp.run(cmd)
+
     def _deploy_single_file(self, src, dest):
         dest.parent.mkdir(parents=True, exist_ok=True)
 

@@ -55,3 +55,6 @@
 [submodule "external/install-default-precommit"]
 	path = external/install-default-precommit
 	url = https://github.com/mindriot101/install-default-precommit
+[submodule "external/git-pm"]
+	path = external/git-pm
+	url = https://github.com/mindriot101/git-pm
