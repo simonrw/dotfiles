@@ -382,4 +382,4 @@ if exists("$EXTRA_VIM")
 endif
 
 
-colorscheme dracula
+colorscheme srw256

@@ -26,8 +26,7 @@ require('packer').startup({function(use)
     use { 'iamcco/markdown-preview.nvim', run = 'cd app && yarn install' }
     use 'airblade/vim-gitgutter'
     use { 'kana/vim-textobj-indent', requires = { 'kana/vim-textobj-user' } }
-    use 'hoob3rt/lualine.nvim'
-    use { 'dracula/vim', as = 'dracula' }
+    -- use 'jeetsukumaran/vim-pythonsense'
 
     -- language plugins
     use 'cespare/vim-toml'
@@ -65,10 +64,4 @@ config = {}})
 require('search_in_scope').setup({
     bind = "<leader>S",
     indent_filetypes = {"lua"},
-})
-
-require('lualine').setup({
-    options = {
-       theme = 'dracula',
-    },
 })
