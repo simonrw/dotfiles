@@ -116,3 +116,4 @@ git/gitlocalconfig/*
 !git/gitlocalconfig/.gitkeep
 .coverage
 htmlcov
+nvim/plugin/packer_compiled.lua
