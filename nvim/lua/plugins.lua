@@ -26,8 +26,7 @@ require('packer').startup({function(use)
     use { 'iamcco/markdown-preview.nvim', run = 'cd app && yarn install' }
     use 'airblade/vim-gitgutter'
     use { 'kana/vim-textobj-indent', requires = { 'kana/vim-textobj-user' } }
-    use 'David-Kunz/treesitter-unit'
-    use 'jeetsukumaran/vim-pythonsense'
+    -- use 'jeetsukumaran/vim-pythonsense'
 
     -- language plugins
     use 'cespare/vim-toml'
@@ -49,7 +48,8 @@ require('packer').startup({function(use)
     end
 
     if vim.g.include_treesitter == 1 then
-        use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
+        use { 'nvim-treesitter/nvim-treesitter', branch = '0.5-compat', run = ':TSUpdate' }
+        use { 'nvim-treesitter/nvim-treesitter-textobjects', branch = '0.5-compat' }
         use 'nvim-treesitter/playground'
     end
 
