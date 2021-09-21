@@ -341,6 +341,8 @@
   :config
   (counsel-mode 1))
 
+(use-package speed-type)
+
 (add-to-list 'custom-theme-load-path "~/.emacs.d/themes")
 (load-theme 'wombat t)
 
