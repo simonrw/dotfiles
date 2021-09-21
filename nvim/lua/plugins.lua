@@ -26,7 +26,7 @@ require('packer').startup({function(use)
     use { 'iamcco/markdown-preview.nvim', run = 'cd app && yarn install' }
     use 'airblade/vim-gitgutter'
     use { 'kana/vim-textobj-indent', requires = { 'kana/vim-textobj-user' } }
-    -- use 'jeetsukumaran/vim-pythonsense'
+    use 'itchyny/lightline.vim'
 
     -- language plugins
     use 'cespare/vim-toml'
