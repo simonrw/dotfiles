@@ -15,4 +15,4 @@
 # bash ~/.bin/set-keyboard
 
 # Start XFCE
-exec mate-session
+exec startxfce4
