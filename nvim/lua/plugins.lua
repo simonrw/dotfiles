@@ -27,6 +27,7 @@ require('packer').startup({function(use)
     use 'airblade/vim-gitgutter'
     use { 'kana/vim-textobj-indent', requires = { 'kana/vim-textobj-user' } }
     use 'itchyny/lightline.vim'
+    use 'takac/vim-hardtime'
 
     -- language plugins
     use 'cespare/vim-toml'
