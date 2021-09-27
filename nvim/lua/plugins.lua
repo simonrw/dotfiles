@@ -37,6 +37,8 @@ require('packer').startup({function(use)
 
     if vim.g.completion_framework == "coc" then
         use { 'neoclide/coc.nvim', branch = 'release' }
+    elseif vim.g.completion_framework == 'coq' then
+        use { 'ms-jpq/coq_nvim', branch = 'coq' }
     elseif vim.g.completion_framework == 'ale' then
         use 'dense-analysis/ale'
         use 'fatih/vim-go'
