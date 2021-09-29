@@ -1,5 +1,5 @@
 -- constant holding the window enlargement/shrinkage factor
-local FULLSCREEN_BORDER = 0
+local FULLSCREEN_BORDER = 16
 local ENABLE_FULLSCREEN_SHORTCUT = true
 local ENABLE_SIDE_WINDOW_SHORTCUTS = true
 local WINDOW_BORDER = FULLSCREEN_BORDER
