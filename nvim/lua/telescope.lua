@@ -1,5 +1,5 @@
 nnoremap('<leader>f', [[<cmd>lua require('telescope.builtin').git_files({previewer = false})<Cr>]])
 nnoremap('<leader>F', [[<cmd>lua require('telescope.builtin').find_files({previewer = false})<Cr>]])
-nnoremap('gb', [[<cmd>lua require('telescope.builtin').buffers({previewer = false})<Cr>]])
+nnoremap('gb', [[<cmd>lua require('telescope.builtin').buffers()<Cr>]])
 nnoremap('gl', [[<cmd>lua require('telescope.builtin').live_grep()<Cr>]])
 nnoremap('<leader>gT', [[<cmd>lua require('telescope.builtin').tags()<Cr>]])
