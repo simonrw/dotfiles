@@ -7,7 +7,7 @@
 )
 
 (defalias
-    csp (tap-next esc lctl)
+    csp (tap-hold 100 esc lctl)
     fn (layer-toggle special)
 )
 
