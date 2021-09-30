@@ -311,6 +311,9 @@ elseif g:completion_framework == "nvim" && has('nvim-0.5')
     autocmd CursorHold,CursorHoldI *.rs :lua require'lsp_extensions'.inlay_hints{ only_current_line = true }
 endif
 
+" model vim-vinegar which stopped working
+nnoremap <silent> - :Explore<Cr>
+
 " Hack around the recent failure of gx
 function! OpenURLUnderCursor()
 	let s:uri = expand('<cWORD>')
