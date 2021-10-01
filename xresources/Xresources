@@ -26,6 +26,16 @@ URxvt*color14: #00FFFF
 URxvt*color7: #EEEEEE
 URxvt*color15: #FFFFFF
 
+/* Configure fonts */
+Xft.autohint: 0
+Xft.antialias: 1
+Xft.hinting: true
+Xft.hintstyle: hintslight
+Xft.dpi: 96
+Xft.rgba: rgb
+Xft.lcdfilter: lcddefault
+
+
 ! Solarized color scheme for the X Window System
 ! !
 ! ! http://ethanschoonover.com/solarized
