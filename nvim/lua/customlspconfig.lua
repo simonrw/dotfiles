@@ -3,6 +3,7 @@ local function setup()
 
     local lspconfig = require("lspconfig")
 
+
     local on_attach = function(client, bufnr)
         local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
         local function buf_set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
@@ -28,8 +29,19 @@ local function setup()
         require'completion'.on_attach(client)
     end
 
+    local rust_analyzer_on_attach = function(client, bufnr)
+        on_attach(client, bufnr)
+
+        vim.cmd([[
+            augroup RustAutoSave
+                au!
+                au BufWritePre *.rs lua vim.lsp.buf.formatting()
+            augroup END
+        ]])
+    end
+
     -- lspconfig
-    local servers = {"pyright", "rust_analyzer", "gopls", "ccls"}
+    local servers = {"pyright", "gopls", "ccls"}
     for _, lsp in ipairs(servers) do
         lspconfig[lsp].setup {
           on_attach = on_attach,
@@ -38,6 +50,24 @@ local function setup()
           }
         }
     end
+
+    lspconfig["rust_analyzer"].setup {
+        on_attach = rust_analyzer_on_attach,
+        settings = {
+            ["rust-analyzer"] = {
+                assist = {
+                    importGranularity = "module",
+                    importPrefix = "by_self",
+                },
+                cargo = {
+                    loadOutDirsFromCheck = true
+                },
+                procMacro = {
+                    enable = true
+                },
+            },
+        },
+    }
 
     vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
       vim.lsp.diagnostic.on_publish_diagnostics, {
