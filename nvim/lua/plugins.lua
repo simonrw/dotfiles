@@ -26,7 +26,6 @@ require('packer').startup({function(use)
     use 'airblade/vim-gitgutter'
     use { 'kana/vim-textobj-indent', requires = { 'kana/vim-textobj-user' } }
     use 'itchyny/lightline.vim'
-    use 'takac/vim-hardtime'
     use {
         'nvim-telescope/telescope.nvim',
         requires = { {'nvim-lua/plenary.nvim'} }
