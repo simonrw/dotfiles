@@ -333,7 +333,7 @@ endfunction
 nnoremap <silent> gx :call OpenURLUnderCursor()<CR>
 
 let g:lightline = {}
-let g:lightline.colorscheme = 'default'
+let g:lightline.colorscheme = 'PaperColor'
 if g:completion_framework == 'coc'
 	let g:lightline.active = {
 		  \   'left': [ [ 'mode', 'paste' ],
@@ -388,4 +388,5 @@ if exists("$EXTRA_VIM")
 endif
 
 
-colorscheme srw256
+set background=light
+colorscheme macvim-light
