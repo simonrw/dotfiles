@@ -42,7 +42,6 @@ cnoremap('%%', "<c-r>=expand('%:h') . '/'<cr>")
 nnoremap('Q', ":call ToggleList('Quickfix List', 'c')<CR>")
 
 nnoremap('<leader>vr', [[:source $MYVIMRC|echo "Reloaded!"<Cr>]])
-nnoremap('<leader>ev', ':echo "Use <leader>ve"<Cr>')
 nnoremap('<Space>', ':nohl<cr>')
 
 -- Bind K to grep word under cursor
