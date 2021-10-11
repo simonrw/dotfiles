@@ -26,7 +26,7 @@ local function setup()
 
         vim.cmd("command! LspFormatting lua vim.lsp.buf.formatting()")
 
-        require'completion'.on_attach(client)
+        require('completion').on_attach(client)
     end
 
     local rust_analyzer_on_attach = function(client, bufnr)

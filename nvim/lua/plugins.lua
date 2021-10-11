@@ -50,7 +50,6 @@ require('packer').startup({function(use)
         use 'neovim/nvim-lspconfig'
         use 'nvim-lua/lsp_extensions.nvim'
         use 'nvim-lua/completion-nvim'
-        use 'glepnir/lspsaga.nvim'
         use { 'psf/black', branch = 'stable' }
         use 'fatih/vim-go'
     end
@@ -75,6 +74,4 @@ require('search_in_scope').setup({
 })
 
 if vim.g.completion_framework == "nvim" then
-    local saga = require('lspsaga')
-    saga.init_lsp_saga()
 end
