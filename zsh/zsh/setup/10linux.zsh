@@ -4,4 +4,5 @@ case $OSTYPE in
         alias pbcopy='xsel --clipboard --input'
         alias pbpaste='xsel --clipboard --output'
         alias ls="ls --color=auto"
+        alias open="xdg-open"
 esac
