@@ -5,7 +5,7 @@ let g:maplocalleader = '\\'
 autocmd!
 
 " general settings
-let g:completion_framework = "coc"
+let g:completion_framework = "nvim"
 let g:include_treesitter = 1
 
 lua require('config')
@@ -303,10 +303,6 @@ elseif g:completion_framework == "nvim" && has('nvim-0.5')
     inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
     inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 
-    " use <Tab> as trigger keys
-    imap <Tab> <Plug>(completion_smart_tab)
-    imap <S-Tab> <Plug>(completion_smart_s_tab)
-
     " Enable type inlay hints
     autocmd CursorHold,CursorHoldI *.rs :lua require'lsp_extensions'.inlay_hints{ only_current_line = true }
 endif
@@ -344,6 +340,11 @@ elseif g:completion_framework == 'ale'
 		  \   'left': [ [ 'mode', 'paste' ],
 		  \             [ 'alestatus', 'readonly', 'filename', 'modified', 'gitstatus'] ],
 		  \ }
+elseif g:completion_framework == 'nvim'
+	let g:lightline.active = {
+		  \   'left': [ [ 'mode', 'paste' ],
+		  \             [ 'lsp_info', 'lsp_hints', 'lsp_errors', 'lsp_warnings', 'lsp_ok', 'lsp_status', 'readonly', 'filename', 'modified', 'gitstatus'] ],
+		  \ }
 else
 	let g:lightline.active = {
 		  \   'left': [ [ 'mode', 'paste' ],
@@ -373,6 +374,8 @@ let g:lightline.component_function = {
 function! LightlineFilename()
   return expand('%:t') !=# '' ? @% : '[No Name]'
 endfunction
+
+call lightline#lsp#register()
 
 " gitgutter
 let g:gitgutter_sign_added = '│'

@@ -49,7 +49,12 @@ require('packer').startup({function(use)
     elseif vim.g.completion_framework == 'nvim' then
         use 'neovim/nvim-lspconfig'
         use 'nvim-lua/lsp_extensions.nvim'
-        use 'nvim-lua/completion-nvim'
+        use 'hrsh7th/nvim-cmp'
+        use 'hrsh7th/cmp-nvim-lsp'
+        use 'hrsh7th/cmp-buffer'
+        use 'hrsh7th/cmp-vsnip'
+        use 'hrsh7th/vim-vsnip'
+        use 'josa42/nvim-lightline-lsp'
         use { 'psf/black', branch = 'stable' }
         use 'fatih/vim-go'
     end
@@ -74,4 +79,24 @@ require('search_in_scope').setup({
 })
 
 if vim.g.completion_framework == "nvim" then
+    local cmp = require("cmp")
+    cmp.setup({
+        snippet = {
+            expand = function(args)
+                vim.fn['vsnip#anonymous'](args.body)
+            end,
+        },
+        mapping = {
+            ['<C-d>'] = cmp.mapping.scroll_docs(-4),
+            ['<C-f>'] = cmp.mapping.scroll_docs(4),
+            ['<C-Space>'] = cmp.mapping.complete(),
+            ['<C-e>'] = cmp.mapping.close(),
+            ['<CR>'] = cmp.mapping.confirm({ select = true }),
+        },
+        sources = {
+            { name = 'vsnip' },
+            { name = 'nvim_lsp' },
+            { name = 'buffer' },
+        },
+    })
 end

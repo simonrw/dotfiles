@@ -26,8 +26,6 @@ local function setup()
         buf_set_keymap("n", "<C-Space>", [[<Plug>(completion_trigger)]], opts)
 
         vim.cmd("command! LspFormatting lua vim.lsp.buf.formatting()")
-
-        require('completion').on_attach(client)
     end
 
     local rust_analyzer_on_attach = function(client, bufnr)
@@ -45,15 +43,20 @@ local function setup()
     local servers = {"pyright", "gopls", "ccls"}
     for _, lsp in ipairs(servers) do
         lspconfig[lsp].setup {
-          on_attach = on_attach,
-          flags = {
-            debounce_text_changes = 150,
-          }
+            on_attach = on_attach,
+            flags = {
+                debounce_text_changes = 150,
+            },
+            capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities()),
         }
     end
 
     lspconfig["rust_analyzer"].setup {
         on_attach = rust_analyzer_on_attach,
+        capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities()),
+        flags = {
+            debounce_text_changes = 150,
+        },
         settings = {
             ["rust-analyzer"] = {
                 assist = {
