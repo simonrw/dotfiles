@@ -5,7 +5,7 @@ let g:maplocalleader = '\\'
 autocmd!
 
 " general settings
-let g:completion_framework = "nvim"
+let g:completion_framework = "coc"
 let g:include_treesitter = 1
 
 lua require('config')
@@ -375,7 +375,9 @@ function! LightlineFilename()
   return expand('%:t') !=# '' ? @% : '[No Name]'
 endfunction
 
-call lightline#lsp#register()
+if g:completion_framework == "nvim"
+    call lightline#lsp#register()
+endif
 
 " gitgutter
 let g:gitgutter_sign_added = '│'
