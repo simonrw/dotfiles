@@ -1,12 +1,12 @@
 
 # Handle nice suspend
-# xss-lock -- i3lock --color 333333 --show-failed-attempts &
+xss-lock -- i3lock --color 333333 --show-failed-attempts &
 
 # Set the screen configuration
-# xrandr --output DP-2 --primary --right-of DP-0
+xrandr --output DP-2 --primary --right-of DP-0
 
 # Start the notification handler
-# /usr/bin/dunst &
+/usr/bin/dunst &
 
 # Set the keyboard map
 setxkbmap gb
@@ -17,4 +17,4 @@ setxkbmap gb
 # bash ~/.bin/set-keyboard
 
 # Start XFCE
-exec mate-session
+exec i3
