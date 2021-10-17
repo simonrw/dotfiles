@@ -28,5 +28,4 @@ ensure_tmux_is_running() {
 }
 
 # run a prune in the background, but only for interactive shells
-[[ $- == *i* ]] && (tmux-prune -f &)
 ensure_tmux_is_running
