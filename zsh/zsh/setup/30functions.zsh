@@ -365,3 +365,14 @@ function gitignore() {
 
     curl -LsSo .gitignore https://gitignore.io/api/$1
 }
+
+# function to open vim with the livegrep feature
+function gl() {
+    if [ $# -eq 0 ]; then
+        vim -c "lua require('telescope.builtin').live_grep()"
+    else
+        cwd=$1
+        cmd="lua require('telescope.builtin').live_grep({ search_dirs = {'$cwd'} })"
+        vim -c "$cmd"
+    fi
+}
