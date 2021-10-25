@@ -274,9 +274,9 @@ function wakeastoria() {
     wakeonlan -i 192.168.0.255 -p 7 40:B0:76:DE:79:B3 >/dev/null
     readonly ip_address="$(nslookup astoria | grep Address | grep 192 | awk '{print $2}')"
     test -z ${ip_address} && {
-        ping -o ${ip_address} >/dev/null
-    } || {
         ping -o 192.168.0.10 >/dev/null
+    } || {
+        ping -o ${ip_address} >/dev/null
     }
 }
 
