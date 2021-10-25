@@ -329,7 +329,7 @@ endfunction
 nnoremap <silent> gx :call OpenURLUnderCursor()<CR>
 
 let g:lightline = {}
-let g:lightline.colorscheme = 'default'
+let g:lightline.colorscheme = 'github'
 if g:completion_framework == 'coc'
 	let g:lightline.active = {
 		  \   'left': [ [ 'mode', 'paste' ],
@@ -393,4 +393,5 @@ if exists("$EXTRA_VIM")
 endif
 
 
+set background=light
 colorscheme srw256
