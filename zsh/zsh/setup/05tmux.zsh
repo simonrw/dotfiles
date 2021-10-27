@@ -28,4 +28,4 @@ ensure_tmux_is_running() {
 }
 
 # run a prune in the background, but only for interactive shells
-ensure_tmux_is_running
+# ensure_tmux_is_running
