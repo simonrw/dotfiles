@@ -87,7 +87,7 @@
     autocrlf = input
     safecrlf = true
     whitespace = fix
-    editor = nvim
+    editor = "nvim -u NONE -u ~/.vim/gitcommit.vim"
     mergeoptions = --no-ff
     preloadindex = true
     excludesfile = ~/.gitignore_global
