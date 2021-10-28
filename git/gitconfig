@@ -87,7 +87,7 @@
     autocrlf = input
     safecrlf = true
     whitespace = fix
-    editor = "nvim -u NONE -u ~/.vim/gitcommit.vim"
+    editor = nvim
     mergeoptions = --no-ff
     preloadindex = true
     excludesfile = ~/.gitignore_global
@@ -96,8 +96,8 @@
     pager = delta
 [delta]
     side-by-side = false
-    diff-so-fancy = false
-    syntax-theme = "GitHub"
+    diff-so-fancy = true
+    syntax-theme = none
 [merge]
     conflictstyle = "diff3"
 [transfer]

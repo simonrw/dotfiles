@@ -9,6 +9,8 @@ end
 
 require('packer').startup({function(use)
     use 'wbthomason/packer.nvim'
+    use 'lotabout/skim'
+    use 'lotabout/skim.vim'
     use 'tpope/vim-surround'
     use 'tpope/vim-unimpaired'
     use 'tpope/vim-commentary'
@@ -16,11 +18,19 @@ require('packer').startup({function(use)
     use 'tpope/vim-fugitive'
     use 'tpope/vim-rhubarb'
     use 'tpope/vim-repeat'
+    use 'christoomey/vim-tmux-runner'
+    use 'vim-test/vim-test'
+    use 'junegunn/vim-easy-align'
+    use 'shumphrey/fugitive-gitlab.vim'
+    use { 'iamcco/markdown-preview.nvim', run = 'cd app && yarn install' }
+    use 'airblade/vim-gitgutter'
+    use { 'kana/vim-textobj-indent', requires = { 'kana/vim-textobj-user' } }
+    use 'itchyny/lightline.vim'
     use {
         'nvim-telescope/telescope.nvim',
         requires = { {'nvim-lua/plenary.nvim'} }
     }
-    use 'cormacrelf/vim-colors-github'
+
 
     -- language plugins
     use 'cespare/vim-toml'
@@ -54,8 +64,19 @@ require('packer').startup({function(use)
         use { 'nvim-treesitter/nvim-treesitter-textobjects', branch = '0.5-compat' }
         use 'nvim-treesitter/playground'
     end
+
+    -- for testing
+    use 'nvim-lua/plenary.nvim'
+
+    -- my plugins
+    use 'mindriot101/search-in-scope.vim'
 end,
 config = {}})
+
+require('search_in_scope').setup({
+    bind = "<leader>S",
+    indent_filetypes = {"lua"},
+})
 
 if vim.g.completion_framework == "nvim" then
     local cmp = require("cmp")
