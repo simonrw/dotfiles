@@ -22,6 +22,7 @@ end
 
 bindKey(applications.browser, 'c')
 bindKey(applications.terminal, 't')
+bindKey(applications.editor, 'y')
 bindKey(applications.documentation, 'r')
 bindKey(applications.notes, 'e')
 bindKey(applications.todo, 'n')
