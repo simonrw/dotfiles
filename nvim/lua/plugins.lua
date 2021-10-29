@@ -25,7 +25,6 @@ require('packer').startup({function(use)
     use { 'iamcco/markdown-preview.nvim', run = 'cd app && yarn install' }
     use 'airblade/vim-gitgutter'
     use { 'kana/vim-textobj-indent', requires = { 'kana/vim-textobj-user' } }
-    use 'itchyny/lightline.vim'
     use {
         'nvim-telescope/telescope.nvim',
         requires = { {'nvim-lua/plenary.nvim'} }
@@ -54,7 +53,6 @@ require('packer').startup({function(use)
         use 'hrsh7th/cmp-buffer'
         use 'hrsh7th/cmp-vsnip'
         use 'hrsh7th/vim-vsnip'
-        use 'josa42/nvim-lightline-lsp'
         use { 'psf/black', branch = 'stable' }
         use 'fatih/vim-go'
     end
