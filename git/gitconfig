@@ -146,3 +146,10 @@
 	path = ~/.gitlocalconfig/local
 [pull]
 	ff = only
+
+# path specific configuration
+[includeIf "gitdir:~/dev/"]
+path = ~/dev/.gitconfig
+
+[includeIf "gitdir:~/work/"]
+path = ~/work/.gitconfig
