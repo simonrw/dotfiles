@@ -5,6 +5,7 @@ require('mappings')
 require('customlspconfig')
 require('treesitterconfig')
 require('completion')
+require('statusconfig')
 
 -- plugins
 require('fzf')
