@@ -1,8 +1,6 @@
 local function setup()
-    vim.o.completeopt = "menuone,noinsert,noselect"
-
     local lspconfig = require("lspconfig")
-
+    local cmp_nvim_lsp = require("cmp_nvim_lsp")
 
     local on_attach = function(client, bufnr)
         local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
@@ -33,8 +31,8 @@ local function setup()
 
         vim.cmd([[
             augroup RustAutoSave
-                au!
-                au BufWritePre *.rs lua vim.lsp.buf.formatting()
+                au! BufWritePre <buffer>
+                au BufWritePre <buffer> lua vim.lsp.buf.formatting_sync()
             augroup END
         ]])
     end
@@ -47,28 +45,20 @@ local function setup()
             flags = {
                 debounce_text_changes = 150,
             },
+            capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities()),
         }
     end
 
     lspconfig["rust_analyzer"].setup {
         on_attach = rust_analyzer_on_attach,
         flags = {
-            debounce_text_changes = 150,
+            debounce_text_changes = 50,
         },
         settings = {
             ["rust-analyzer"] = {
-                assist = {
-                    importGranularity = "module",
-                    importPrefix = "by_self",
-                },
-                cargo = {
-                    loadOutDirsFromCheck = true
-                },
-                procMacro = {
-                    enable = true
-                },
             },
         },
+        capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities()),
     }
 
     vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
