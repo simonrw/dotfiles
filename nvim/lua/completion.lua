@@ -22,7 +22,7 @@ function setup()
             { name = "nvim_lsp" },
             { name = "path" },
             { name = "luasnip" },
-            { name = "buffer", keyword_length = 5 },
+            { name = "buffer", keyword_length = 5, max_item_count = 10 },
         },
         snippet = {
             expand = function(args)

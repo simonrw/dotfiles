@@ -51,6 +51,7 @@ require('packer').startup({function(use)
         use 'nvim-lua/lsp_extensions.nvim'
         use { 'psf/black', branch = 'stable' }
         use 'fatih/vim-go'
+        use 'L3MON4D3/LuaSnip'
 
         -- completion
         use "hrsh7th/nvim-cmp"
