@@ -47,13 +47,11 @@ local function setup()
             flags = {
                 debounce_text_changes = 150,
             },
-            capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities()),
         }
     end
 
     lspconfig["rust_analyzer"].setup {
         on_attach = rust_analyzer_on_attach,
-        capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities()),
         flags = {
             debounce_text_changes = 150,
         },
