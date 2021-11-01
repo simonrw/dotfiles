@@ -36,6 +36,7 @@ require('packer').startup({function(use)
     use 'evanleck/vim-svelte'
     use 'hashivim/vim-terraform'
     use 'lepture/vim-velocity'
+    use 'NoahTheDuke/vim-just'
 
     if vim.g.completion_framework == "coc" then
         use { 'neoclide/coc.nvim', branch = 'release' }
