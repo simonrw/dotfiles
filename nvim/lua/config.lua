@@ -3,7 +3,9 @@ require('settings')
 require('plugins')
 require('mappings')
 require('customlspconfig')
-require('treesitterconfig')
+if vim.g.include_treesitter == 1 then
+    require('treesitterconfig')
+end
 require('completion')
 require('statusconfig')
 
@@ -12,5 +14,7 @@ require('fzf')
 require('vim-test')
 require('vtr')
 require('fugitive')
-require('treesitter-unit-config')
+if vim.g.include_treesitter == 1 then
+    require('treesitter-unit-config')
+end
 require('telescopeconfig')
