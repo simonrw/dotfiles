@@ -63,8 +63,8 @@ require('packer').startup({function(use)
     end
 
     if vim.g.include_treesitter == 1 then
-        use { 'nvim-treesitter/nvim-treesitter', branch = '0.5-compat', run = ':TSUpdate' }
-        use { 'nvim-treesitter/nvim-treesitter-textobjects', branch = '0.5-compat' }
+        use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
+        use { 'nvim-treesitter/nvim-treesitter-textobjects' }
         use 'nvim-treesitter/playground'
     end
 
