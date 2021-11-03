@@ -27,5 +27,4 @@ ensure_tmux_is_running() {
     fi
 }
 
-[[ $- == *i* ]] && tmux-prune -f
 ensure_tmux_is_running
