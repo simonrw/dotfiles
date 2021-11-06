@@ -22,7 +22,7 @@ require('packer').startup({function(use)
     use 'vim-test/vim-test'
     use 'junegunn/vim-easy-align'
     use 'shumphrey/fugitive-gitlab.vim'
-    use { 'iamcco/markdown-preview.nvim', run = 'cd app && yarn install' }
+    use { 'iamcco/markdown-preview.nvim', run = "mkdp#util#install()" }
     use 'airblade/vim-gitgutter'
     use { 'kana/vim-textobj-indent', requires = { 'kana/vim-textobj-user' } }
     use 'itchyny/lightline.vim'
