@@ -99,6 +99,7 @@
     diff-so-fancy = true
     syntax-theme = none
 [merge]
+    tool = conflicted
     conflictstyle = "diff3"
 [transfer]
     fsckobjects = true
@@ -115,6 +116,17 @@
     cmd = icdiff --line-numbers $LOCAL $REMOTE
 [difftool "opendiff"]
     path = opendiff
+[mergetool "diffconflicts"]
+    cmd = "diffconflicts vim $BASE $LOCAL $REMOTE $MERGED"
+    trustExitCode = true
+    keepBackup = false
+[mergetool "splice"]
+    cmd = "vim $BASE $LOCAL $REMOTE $MERGED -c 'SpliceInit'"
+    trustExitCode = true
+[mergetool "ediff"]
+    cmd = emacs --eval \"(ediff-merge-files-with-ancestor \\\"$LOCAL\\\" \\\"$REMOTE\\\"    \\\"$BASE\\\" nil \\\"$MERGED\\\")\"
+[mergetool "conflicted"]
+    cmd = "nvim +Conflicted"
 [fetch]
     # Always prune when fetching and pulling
     prune = 1
