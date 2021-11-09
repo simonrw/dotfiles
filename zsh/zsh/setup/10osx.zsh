@@ -5,8 +5,9 @@ case $OSTYPE in
 
         # Configure homebrew
         export HOMEBREW_NO_ANALYTICS=1
-        # Only update every week
-        export HOMEBREW_AUTO_UPDATE_SECS=604800
+        export HOMEBREW_NO_INSTALL_CLEANUP=1
+        export HOMEBREW_NO_AUTO_UPDATE=1
+        export HOMEBREW_NO_INSTALL_UPGRADE=1
 
         eval $(brew shellenv)
 
