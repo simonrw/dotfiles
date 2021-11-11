@@ -5,7 +5,7 @@ let g:maplocalleader = '\\'
 autocmd!
 
 " general settings
-let g:completion_framework = "nvim"
+let g:completion_framework = "ale"
 let g:include_treesitter = 1
 
 lua require('config')
@@ -283,7 +283,7 @@ elseif g:completion_framework == "ale"
     let g:ale_echo_cursor = 0
     let g:ale_set_balloons = 0
     let g:ale_hover_cursor = 0
-    let g:ale_completion_enabled = 1
+    let g:ale_completion_enabled = 0
 
     set omnifunc=ale#completion#OmniFunc
 
