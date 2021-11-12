@@ -25,6 +25,11 @@
 
     untracked = ls-files --others
 
+    # ignore modifications to files
+    ignore-modifications = update-index --skip-worktree --
+    reset-ignore-modifications = "!f() { git list-ignored-modifications | xargs git update-index --no-skip-worktree; }; f"
+    list-ignored-modifications = "!f() { git ls-files -v | grep '^S' | cut -f 2 -d ' '; }; f"
+
     # Other aliases
     ff = !"f() { git merge --ff-only origin/$(git branch-name); }; f"
     st = status
