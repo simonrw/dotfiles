@@ -11,7 +11,7 @@ vim.opt.smartcase = true
 vim.opt.expandtab = true
 vim.opt.ignorecase = true
 vim.opt.hidden = true
-vim.opt.tags:append('.git/tags')
+vim.opt.tags = { '.git/tags' }
 vim.opt.wildmode = { 'list:longest', 'list:full' }
 vim.opt.history = 50
 vim.opt.complete = { '.', 'w', 'b', 'u', 't', 'i' }
