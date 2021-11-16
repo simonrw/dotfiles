@@ -54,16 +54,7 @@ require('packer').startup({function(use)
         use 'nvim-lua/lsp_extensions.nvim'
         use { 'psf/black', branch = 'stable' }
         use 'fatih/vim-go'
-        use 'L3MON4D3/LuaSnip'
         use 'josa42/nvim-lightline-lsp'
-
-        -- completion
-        use "hrsh7th/nvim-cmp"
-        use "hrsh7th/cmp-buffer"
-        use "hrsh7th/cmp-path"
-        use "hrsh7th/cmp-nvim-lua"
-        use "hrsh7th/cmp-nvim-lsp"
-        use "saadparwaiz1/cmp_luasnip"
     end
 
     if vim.g.include_treesitter == 1 then
