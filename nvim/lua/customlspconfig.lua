@@ -1,6 +1,5 @@
 local function setup()
     local lspconfig = require("lspconfig")
-    local cmp_nvim_lsp = require("cmp_nvim_lsp")
 
     local on_attach = function(client, bufnr)
         local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
@@ -45,7 +44,6 @@ local function setup()
             flags = {
                 debounce_text_changes = 150,
             },
-            capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities()),
         }
     end
 
@@ -58,7 +56,6 @@ local function setup()
             ["rust-analyzer"] = {
             },
         },
-        capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities()),
     }
 
     vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
