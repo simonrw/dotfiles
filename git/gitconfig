@@ -7,6 +7,9 @@
     graphviz = !"f() { echo 'digraph git {' ; git log --pretty='format:  %h -> { %p }' \"$@\" | sed 's/[0-9a-f][0-9a-f]*/\"&\"/g' ; echo '}'; }; f"
     trust = "!f() { echo 'marking current directory as safe (includes ./bin on PATH)' && mkdir -p .git/safe; }; f"
 
+    update-commit = commit --amend --no-edit
+    uc = update-commit
+
     graph = log --graph --all --decorate --stat --date iso
     # Scripting aliases
     # -- always run command at the root of the git repo
