@@ -326,16 +326,6 @@ function cwd-of() {
     esac
 }
 
-function s() {
-    clear
-    figlet "pwd"
-    pwd
-    figlet "ls"
-    ls
-    figlet "git status"
-    git status
-}
-
 function find_up() {
   (
     while true; do
