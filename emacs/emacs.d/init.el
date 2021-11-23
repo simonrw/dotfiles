@@ -171,7 +171,7 @@
   (setq evil-want-C-u-scroll t)
   (setq evil-want-C-i-jump nil)
   :config
-  (evil-mode 1)
+  (evil-mode 0)
 
   (define-key evil-insert-state-map (kbd "C-g") 'evil-normal-state)
   (define-key evil-insert-state-map (kbd "C-h") 'evil-delete-backward-char-and-join)
@@ -342,6 +342,24 @@
   (counsel-mode 1))
 
 (use-package speed-type)
+
+(use-package lsp-mode
+  :init
+  (setq lsp-keymap-prefix "C-c l")
+  :hook ((python-mode . lsp-deferred)
+		 (lsp-mode . lsp-enable-which-key-integration))
+  :commands lsp-deferred)
+
+(use-package lsp-ui :commands lsp-ui-mode)
+(use-package lsp-ivy
+  :commands lsp-ivy-workspace-symbol)
+(use-package dap-mode)
+(use-package lsp-pyright
+  :ensure t
+  :hook (python-mode . (lambda ()
+                         (require 'lsp-pyright)
+                         (lsp-deferred))))
+
 
 (add-to-list 'custom-theme-load-path "~/.emacs.d/themes")
 (load-theme 'wombat t)
