@@ -9,4 +9,6 @@ endif
 " configure ale
 let b:ale_linters = ['analyzer', 'cargo']
 let b:ale_fixers = ["rustfmt"]
-let g:ale_rust_rustfmt_options = "--edition 2018"
+let g:ale_rust_rustfmt_options = "--edition 2021"
+let g:ale_rust_cargo_use_clippy = 1
+let g:ale_rust_cargo_use_check = 0
