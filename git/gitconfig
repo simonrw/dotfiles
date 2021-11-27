@@ -171,5 +171,8 @@
 [includeIf "gitdir:~/dev/"]
 path = ~/dev/.gitconfig
 
+[includeIf "gitdir:/tmp/"]
+path = ~/dev/.gitconfig
+
 [includeIf "gitdir:~/work/"]
 path = ~/work/.gitconfig
