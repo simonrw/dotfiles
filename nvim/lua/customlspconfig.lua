@@ -56,6 +56,12 @@ local function setup()
                 ".git/",
             },
             languages = {
+                go = {
+                    {
+                        formatCommand = "go fmt",
+                        formatStdin = false,
+                    },
+                },
                 python = {
                     {
                         formatCommand = "black --quiet -",
