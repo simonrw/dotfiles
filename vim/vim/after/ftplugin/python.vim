@@ -9,9 +9,9 @@ let b:ale_fixers = ["black"]
 let b:ale_linters = ["pyright", "flake8"]
 
 if g:completion_framework == "nvim"
-    augroup python_format
+    augroup python_save_hooks
         autocmd!
-        autocmd BufWritePre *.py silent Black
+        autocmd BufWritePre *.py :silent lua vim.lsp.buf.formatting_sync()
     augroup END
 elseif g:completion_framework == "coc"
     augroup python_save_hooks

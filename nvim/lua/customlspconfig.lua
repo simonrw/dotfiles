@@ -1,5 +1,6 @@
 local function setup()
     local lspconfig = require("lspconfig")
+    local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
 
     local on_attach = function(client, bufnr)
         local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
@@ -33,6 +34,7 @@ local function setup()
             flags = {
                 debounce_text_changes = 150,
             },
+            capabilities = capabilities,
         }
     end
 
@@ -44,6 +46,25 @@ local function setup()
       }
     )
 
+    -- set up efm langserver
+    lspconfig.efm.setup {
+        init_options = {
+            documentFormatting = true,
+        },
+        settings = {
+            rootMarkers = {
+                ".git/",
+            },
+            languages = {
+                python = {
+                    {
+                        formatCommand = "black --quiet -",
+                        formatStdin = true,
+                    },
+                },
+            },
+        },
+    }
 end
 
 if vim.g.completion_framework == 'nvim' then

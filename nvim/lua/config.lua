@@ -4,6 +4,7 @@ require('plugins')
 require('mappings')
 require('gutentags')
 require('customlspconfig')
+require('completionconfig')
 if vim.g.include_treesitter == 1 then
     require('treesitterconfig')
 end
