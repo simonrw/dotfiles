@@ -24,8 +24,4 @@ cmp.setup({
     }, {
         { name = 'buffer', keyword_length = 3 }
     }),
-    experimental = {
-        ghost_text = true,
-        native_menu = true,
-    },
 })
