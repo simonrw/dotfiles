@@ -25,19 +25,8 @@ local function setup()
         vim.cmd("command! LspFormatting lua vim.lsp.buf.formatting()")
     end
 
-    local rust_analyzer_on_attach = function(client, bufnr)
-        on_attach(client, bufnr)
-
-        vim.cmd([[
-            augroup RustAutoSave
-                au! BufWritePre <buffer>
-                au BufWritePre <buffer> lua vim.lsp.buf.formatting_sync()
-            augroup END
-        ]])
-    end
-
     -- lspconfig
-    local servers = {"pyright", "gopls", "ccls"}
+    local servers = {"pyright", "gopls", "ccls", "rust_analyzer"}
     for _, lsp in ipairs(servers) do
         lspconfig[lsp].setup {
             on_attach = on_attach,
@@ -46,17 +35,6 @@ local function setup()
             },
         }
     end
-
-    lspconfig["rust_analyzer"].setup {
-        on_attach = rust_analyzer_on_attach,
-        flags = {
-            debounce_text_changes = 50,
-        },
-        settings = {
-            ["rust-analyzer"] = {
-            },
-        },
-    }
 
     vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
       vim.lsp.diagnostic.on_publish_diagnostics, {
