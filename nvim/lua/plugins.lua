@@ -56,14 +56,6 @@ require('packer').startup({function(use)
         use 'psf/black'
         use 'fatih/vim-go'
         use 'josa42/nvim-lightline-lsp'
-
-        -- Completion
-        use 'hrsh7th/cmp-nvim-lsp'
-        use 'hrsh7th/cmp-buffer'
-        use 'hrsh7th/cmp-path'
-        use 'hrsh7th/nvim-cmp'
-        use 'hrsh7th/cmp-vsnip'
-        use 'hrsh7th/vim-vsnip'
     end
 
     if vim.g.include_treesitter == 1 then
