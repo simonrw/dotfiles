@@ -11,7 +11,7 @@ let b:ale_linters = ["pyright", "flake8"]
 if g:completion_framework == "nvim"
     augroup python_save_hooks
         autocmd!
-        autocmd BufWritePre *.py :silent lua vim.lsp.buf.formatting()
+        autocmd BufWritePre *.py :silent lua vim.lsp.buf.formatting_sync()
     augroup END
 elseif g:completion_framework == "coc"
     augroup python_save_hooks
