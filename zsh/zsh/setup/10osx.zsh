@@ -1,7 +1,7 @@
 # OSX setup
 case $OSTYPE in
     darwin*)
-        export PATH=/usr/local/opt/coreutils/libexec/gnubin:/sbin:/usr/sbin:/usr/local/opt/curl/bin:${PATH}
+        export PATH=/opt/homebrew/bin:/usr/local/opt/coreutils/libexec/gnubin:/sbin:/usr/sbin:/usr/local/opt/curl/bin:${PATH}
 
         # Configure homebrew
         export HOMEBREW_NO_ANALYTICS=1
