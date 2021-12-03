@@ -10,6 +10,7 @@ tap "homebrew/services"
 
 # Formulae
 
+brew "awscli"
 brew "ansible"
 brew "asdf"
 brew "bat"
