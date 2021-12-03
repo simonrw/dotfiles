@@ -10,9 +10,9 @@ tap "homebrew/services"
 
 # Formulae
 
-brew "awscli"
 brew "ansible"
 brew "asdf"
+brew "awscli"
 brew "bat"
 brew "coreutils"
 brew "ctags"
@@ -25,6 +25,7 @@ brew "fd"
 brew "git"
 brew "gnu-sed"
 brew "gnu-tar"
+brew "gnupg"
 brew "grep"
 brew "htop"
 brew "hub"
