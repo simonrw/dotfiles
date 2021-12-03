@@ -2231,6 +2231,12 @@
         "options": {
           "full_name": "google-chrome"
         }
+      },
+      "bitwarden": {
+        "version": "1.29.1",
+        "options": {
+          "full_name": "bitwarden"
+        }
       }
     },
     "mas": {

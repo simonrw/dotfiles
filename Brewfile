@@ -44,10 +44,11 @@ brew "zsh"
 # Casks
 
 cask "alfred"
+cask "bitwarden"
 cask "dash"
 cask "drawio"
-cask "hammerspoon"
 cask "google-chrome"
+cask "hammerspoon"
 cask "karabiner-elements"
 cask "kitty"
 cask "vlc"
