@@ -171,7 +171,7 @@
   (setq evil-want-C-u-scroll t)
   (setq evil-want-C-i-jump nil)
   :config
-  (evil-mode 0)
+  (evil-mode 1)
 
   (define-key evil-insert-state-map (kbd "C-g") 'evil-normal-state)
   (define-key evil-insert-state-map (kbd "C-h") 'evil-delete-backward-char-and-join)
@@ -199,8 +199,6 @@
   (projectile-mode 1)
   :bind-keymap
   ("C-c p" . projectile-command-map)
-  :custom
-  ((projectile-completion-system 'ivy))
   :init
   (when (file-directory-p "~/work")
 	(setq projectile-project-search-path '("~/work")))
@@ -315,23 +313,6 @@
   :config
   (direnv-mode))
 
-(use-package ivy
-  :diminish
-  :config
-  (ivy-mode 1))
-
-(use-package ivy-rich
-  :after (ivy counsel)
-  :init
-  (ivy-rich-mode 1))
-
-(use-package ivy-prescient
-  :after ivy
-  :custom
-  (ivy-prescient-enable-filtering nil)
-  :config
-  (ivy-prescient-mode 1))
-
 (use-package counsel
   :bind (("C-M-j" . 'counsel-switch-buffer)
 		 :map minibuffer-local-map
@@ -339,6 +320,7 @@
   :custom
   (counsel-linux-app-format-function #'counsel-linux-app-format-function-name-only)
   :config
+  (define-key counsel-mode-map [remap find-file] nil)
   (counsel-mode 1))
 
 (use-package speed-type)
@@ -351,8 +333,6 @@
   :commands lsp-deferred)
 
 (use-package lsp-ui :commands lsp-ui-mode)
-(use-package lsp-ivy
-  :commands lsp-ivy-workspace-symbol)
 (use-package dap-mode)
 (use-package lsp-pyright
   :ensure t
