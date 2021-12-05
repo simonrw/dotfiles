@@ -2289,7 +2289,7 @@
         }
       },
       "slack": {
-        "version": null,
+        "version": "4.22.0",
         "options": {
           "full_name": "slack"
         }
