@@ -11,6 +11,7 @@
     "suggest.enablePreview": true,
     "suggest.noselect": false,
     "rust-analyzer.inlayHints.chainingHints": false,
+    "rust-analyzer.checkOnSave.command": "clippy",
     "hover.target": "float",
     "diagnostic.virtualText": true,
     "diagnostic.messageTarget": "echo",
