@@ -125,9 +125,6 @@ export CARGO_HOME=${HOME}/.cargo
 export PATH=${CARGO_HOME}/bin:${PATH}
 export RUST_NEW_ERROR_FORMAT=true
 export RUST_BACKTRACE=0
-if has_executable sccache; then
-    export RUSTC_WRAPPER=$(which sccache)
-fi
 
 # Source the custom zshrc.local file in the system
 if [[ -f ${HOME}/.zshrc.local ]]; then
