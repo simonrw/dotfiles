@@ -9,7 +9,7 @@
     "python.linting.flake8Path": "~/.local/pipx/bin/flake8",
     "pyright.organizeimports.provider": "pyright",
     "suggest.enablePreview": true,
-    "suggest.noselect": false,
+    "suggest.noselect": true,
     "rust-analyzer.inlayHints.chainingHints": false,
     "rust-analyzer.checkOnSave.command": "clippy",
     "hover.target": "float",
