@@ -224,6 +224,8 @@ if g:completion_framework == "coc"
     " Use K to show documentation in preview window.
     nnoremap <silent> <leader>d :call <SID>show_documentation()<CR>
 
+    autocmd CursorHold * silent call CocActionAsync("highlight")
+
     function! s:check_back_space() abort
         let col = col(".") - 1
         return !col || getline(".")[col - 1] =~# '\s'
