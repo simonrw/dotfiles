@@ -226,6 +226,15 @@ if g:completion_framework == "coc"
 
     autocmd CursorHold * silent call CocActionAsync("highlight")
 
+    if has('nvim-0.4.0') || has('patch-8.2.0750')
+        nnoremap <silent><nowait><expr> <C-e> coc#float#has_scroll() ? coc#float#scroll(1, 5) : "\<C-f>"
+        nnoremap <silent><nowait><expr> <C-y> coc#float#has_scroll() ? coc#float#scroll(0, 5) : "\<C-b>"
+        inoremap <silent><nowait><expr> <C-e> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(1, 5)\<cr>" : "\<Right>"
+        inoremap <silent><nowait><expr> <C-y> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(0, 5)\<cr>" : "\<Left>"
+        vnoremap <silent><nowait><expr> <C-e> coc#float#has_scroll() ? coc#float#scroll(1, 5) : "\<C-f>"
+        vnoremap <silent><nowait><expr> <C-y> coc#float#has_scroll() ? coc#float#scroll(0, 5) : "\<C-b>"
+    endif
+
     function! s:check_back_space() abort
         let col = col(".") - 1
         return !col || getline(".")[col - 1] =~# '\s'
@@ -256,13 +265,6 @@ if g:completion_framework == "coc"
 
     " Show available actions
     nnoremap <silent> <leader>ca :CocAction<cr>
-
-    if has('nvim-0.4.0') || has('patch-8.2.0750')
-        nnoremap <nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
-        nnoremap <nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
-        inoremap <nowait><expr> <C-f> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(1)\<cr>" : "\<Right>"
-        inoremap <nowait><expr> <C-b> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(0)\<cr>" : "\<Left>"
-    endif
 
     " highlighting overrides for plugins
     hi CocUnderline gui=none cterm=none
