@@ -50,7 +50,6 @@ brew "zsh"
 # Casks
 
 cask "alfred"
-cask "bitwarden"
 cask "dash"
 cask "drawio"
 cask "firefox"
@@ -61,3 +60,5 @@ cask "kitty"
 cask "slack"
 cask "vlc"
 cask "whatsapp"
+
+mas "1352778147"  # bitwarden
