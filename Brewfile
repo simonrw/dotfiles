@@ -31,6 +31,7 @@ brew "htop"
 brew "hub"
 brew "jq"
 brew "lab"
+brew "mas"
 brew "neovim"
 brew "noti"
 brew "openssh"
@@ -61,4 +62,4 @@ cask "slack"
 cask "vlc"
 cask "whatsapp"
 
-mas "1352778147"  # bitwarden
+mas "Bitwarden", id: 1352778147
