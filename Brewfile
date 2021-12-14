@@ -46,6 +46,7 @@ brew "tmux"
 brew "trash"
 brew "tree"
 brew "universal-ctags"
+brew "wakeonlan"
 brew "watch"
 brew "zsh"
 
