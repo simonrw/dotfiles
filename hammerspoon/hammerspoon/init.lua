@@ -19,4 +19,7 @@ configWatcher = hs.pathwatcher.new(os.getenv('HOME') .. '/.hammerspoon/', functi
     end
 end):start()
 
+-- load the included spoons
+hs.loadSpoon("CapsLockEscape"):start()
+
 hs.alert.show('Config reloaded')
