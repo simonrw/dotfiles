@@ -26,7 +26,6 @@ bindKey(applications.editor, 'y')
 bindKey(applications.documentation, 'r')
 bindKey(applications.notes, 'e')
 bindKey(applications.todo, 'n')
-bindKey(applications.chat, 's')
 bindKey(applications.music, 'm')
 
 local BundleCache = {}
