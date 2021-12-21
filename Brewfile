@@ -62,6 +62,7 @@ cask "hammerspoon"
 cask "karabiner-elements"
 cask "kitty"
 cask "slack"
+cask "visual-studio-code"
 cask "vlc"
 cask "whatsapp"
 
