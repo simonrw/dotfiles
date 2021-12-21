@@ -2627,6 +2627,12 @@
         "options": {
           "full_name": "bitwarden"
         }
+      },
+      "element": {
+        "version": "1.9.5",
+        "options": {
+          "full_name": "element"
+        }
       }
     },
     "mas": {
@@ -2664,7 +2670,7 @@
         "HOMEBREW_PREFIX": "/opt/homebrew",
         "Homebrew/homebrew-core": "5f7d01c7570fb81f56bacd98f98d44f97acba8d0",
         "CLT": "13.1.0.0.1.1633545042",
-        "Xcode": "13.1",
+        "Xcode": "13.2.1",
         "macOS": "12.0.1"
       }
     }
