@@ -8,6 +8,7 @@ tap "homebrew/cask-versions"
 tap "homebrew/core"
 tap "homebrew/services"
 tap "messense/macos-cross-toolchains"
+tap "mhanberg/zk"
 
 # Formulae
 
@@ -22,6 +23,7 @@ brew "direnv"
 brew "dos2unix"
 brew "exa"
 brew "fd"
+brew "fzf"
 brew "git"
 brew "git-delta"
 brew "gnu-sed"
@@ -33,6 +35,7 @@ brew "hub"
 brew "jq"
 brew "lab"
 brew "mas"
+brew "mhanberg/zk/zk"
 brew "mosh", args: ["HEAD"]
 brew "neovim"
 brew "noti"

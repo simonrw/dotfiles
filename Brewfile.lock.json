@@ -33,6 +33,9 @@
       },
       "messense/macos-cross-toolchains": {
         "revision": "558b4ea4d338802ad61636b7f5919b052794be8d"
+      },
+      "mhanberg/zk": {
+        "revision": "f68416306398cf4ea11dd3161defa23301b8a4ae"
       }
     },
     "brew": {
@@ -2505,6 +2508,64 @@
       "aarch64-unknown-linux-gnu": {
         "version": "10.3.0",
         "bottle": false
+      },
+      "mhanberg/zk/zk": {
+        "version": "0.9.0",
+        "bottle": {
+          "rebuild": 0,
+          "root_url": "https://github.com/mhanberg/homebrew-zk/releases/download/zk-0.9.0",
+          "files": {
+            "big_sur": {
+              "cellar": ":any",
+              "url": "https://github.com/mhanberg/homebrew-zk/releases/download/zk-0.9.0/zk-0.9.0.big_sur.bottle.tar.gz",
+              "sha256": "972cc0e12c3a275a208f74e97991bd25f6e4bfb4ac8416964188d972191e0442"
+            },
+            "x86_64_linux": {
+              "cellar": ":any_skip_relocation",
+              "url": "https://github.com/mhanberg/homebrew-zk/releases/download/zk-0.9.0/zk-0.9.0.x86_64_linux.bottle.tar.gz",
+              "sha256": "e5687d3e89b780cba6778067e681e7055b315cbf005ae3a7cc08bc1832a2de84"
+            }
+          }
+        }
+      },
+      "fzf": {
+        "version": "0.28.0",
+        "bottle": {
+          "rebuild": 0,
+          "root_url": "https://ghcr.io/v2/homebrew/core",
+          "files": {
+            "arm64_monterey": {
+              "cellar": ":any_skip_relocation",
+              "url": "https://ghcr.io/v2/homebrew/core/fzf/blobs/sha256:f332e7c67b385d437ec7c7e89f70fb3df2241110a78e9a431fba6316d925a428",
+              "sha256": "f332e7c67b385d437ec7c7e89f70fb3df2241110a78e9a431fba6316d925a428"
+            },
+            "arm64_big_sur": {
+              "cellar": ":any_skip_relocation",
+              "url": "https://ghcr.io/v2/homebrew/core/fzf/blobs/sha256:f332e7c67b385d437ec7c7e89f70fb3df2241110a78e9a431fba6316d925a428",
+              "sha256": "f332e7c67b385d437ec7c7e89f70fb3df2241110a78e9a431fba6316d925a428"
+            },
+            "monterey": {
+              "cellar": ":any_skip_relocation",
+              "url": "https://ghcr.io/v2/homebrew/core/fzf/blobs/sha256:04b9060dad2714767d95e19a1d3d7fdd0afe0f35643f5e72936002010060be74",
+              "sha256": "04b9060dad2714767d95e19a1d3d7fdd0afe0f35643f5e72936002010060be74"
+            },
+            "big_sur": {
+              "cellar": ":any_skip_relocation",
+              "url": "https://ghcr.io/v2/homebrew/core/fzf/blobs/sha256:04b9060dad2714767d95e19a1d3d7fdd0afe0f35643f5e72936002010060be74",
+              "sha256": "04b9060dad2714767d95e19a1d3d7fdd0afe0f35643f5e72936002010060be74"
+            },
+            "catalina": {
+              "cellar": ":any_skip_relocation",
+              "url": "https://ghcr.io/v2/homebrew/core/fzf/blobs/sha256:04b9060dad2714767d95e19a1d3d7fdd0afe0f35643f5e72936002010060be74",
+              "sha256": "04b9060dad2714767d95e19a1d3d7fdd0afe0f35643f5e72936002010060be74"
+            },
+            "x86_64_linux": {
+              "cellar": ":any_skip_relocation",
+              "url": "https://ghcr.io/v2/homebrew/core/fzf/blobs/sha256:055d03f36d01613b6b46fb1dfd5c8ab845639afb6c564388baf2fa8363838281",
+              "sha256": "055d03f36d01613b6b46fb1dfd5c8ab845639afb6c564388baf2fa8363838281"
+            }
+          }
+        }
       }
     },
     "cask": {
