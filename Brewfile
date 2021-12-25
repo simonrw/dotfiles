@@ -7,6 +7,7 @@ tap "homebrew/cask-fonts"
 tap "homebrew/cask-versions"
 tap "homebrew/core"
 tap "homebrew/services"
+tap "messense/macos-cross-toolchains"
 
 # Formulae
 
@@ -32,6 +33,7 @@ brew "hub"
 brew "jq"
 brew "lab"
 brew "mas"
+brew "mosh", args: ["HEAD"]
 brew "neovim"
 brew "noti"
 brew "openssh"
@@ -49,6 +51,10 @@ brew "universal-ctags"
 brew "wakeonlan"
 brew "watch"
 brew "zsh"
+
+# cross-compilation toolchains
+brew "x86_64-unknown-linux-gnu"
+brew "aarch64-unknown-linux-gnu"
 
 # Casks
 
