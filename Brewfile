@@ -9,6 +9,7 @@ tap "homebrew/core"
 tap "homebrew/services"
 tap "messense/macos-cross-toolchains"
 tap "mhanberg/zk"
+tap "railwaycat/emacsmacport"
 
 # Formulae
 
@@ -18,6 +19,7 @@ brew "bat"
 brew "cfitsio"
 brew "coreutils"
 brew "curl"
+brew "railwaycat/emacsmacport/emacs-mac", args: ["with-modules"]
 brew "dark-mode"
 brew "direnv"
 brew "dos2unix"

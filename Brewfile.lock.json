@@ -36,6 +36,12 @@
       },
       "mhanberg/zk": {
         "revision": "f68416306398cf4ea11dd3161defa23301b8a4ae"
+      },
+      "d12frosted/emacs-plus": {
+        "revision": "aaf5811a00bf2a826fbe8d91a24f9e5029af1e97"
+      },
+      "railwaycat/emacsmacport": {
+        "revision": "d039f7483cdd8fc0354dfcaaf8748f0ce29b3eec"
       }
     },
     "brew": {
@@ -2565,6 +2571,19 @@
               "sha256": "055d03f36d01613b6b46fb1dfd5c8ab845639afb6c564388baf2fa8363838281"
             }
           }
+        }
+      },
+      "d12frosted/emacs-plus/emacs-plus": {
+        "version": "27.2",
+        "bottle": false
+      },
+      "railwaycat/emacsmacport/emacs-mac": {
+        "version": "emacs-27.2-mac-8.3",
+        "bottle": false,
+        "options": {
+          "args": [
+            "with-modules"
+          ]
         }
       }
     },
