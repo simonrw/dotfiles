@@ -19,7 +19,6 @@ brew "bat"
 brew "cfitsio"
 brew "coreutils"
 brew "curl"
-brew "railwaycat/emacsmacport/emacs-mac", args: ["with-modules"]
 brew "dark-mode"
 brew "direnv"
 brew "dos2unix"
@@ -42,8 +41,10 @@ brew "mosh", args: ["HEAD"]
 brew "neovim"
 brew "noti"
 brew "openssh"
+brew "pandoc"
 brew "pkg-config"
 brew "pstree"
+brew "railwaycat/emacsmacport/emacs-mac", args: ["with-modules"]
 brew "reattach-to-user-namespace"
 brew "ripgrep"
 brew "rlwrap"
