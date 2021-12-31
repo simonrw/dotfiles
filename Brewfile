@@ -10,10 +10,12 @@ tap "homebrew/services"
 tap "messense/macos-cross-toolchains"
 tap "mhanberg/zk"
 tap "railwaycat/emacsmacport"
+tap "aquasecurity/trivy"
 
 # Formulae
 
 brew "ansible"
+brew "aquasecurity/trivy/trivy"
 brew "awscli"
 brew "bat"
 brew "cfitsio"

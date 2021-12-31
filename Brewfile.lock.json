@@ -42,6 +42,9 @@
       },
       "railwaycat/emacsmacport": {
         "revision": "d039f7483cdd8fc0354dfcaaf8748f0ce29b3eec"
+      },
+      "aquasecurity/trivy": {
+        "revision": "5abdf828864e6811171ebe5924f1bcc19f6c879d"
       }
     },
     "brew": {
@@ -2686,6 +2689,10 @@
             }
           }
         }
+      },
+      "aquasecurity/trivy/trivy": {
+        "version": "0.22.0",
+        "bottle": false
       }
     },
     "cask": {
