@@ -9,6 +9,9 @@
 # In any project, we want to ignore the "scratch" subdirectories
 scratch
 
+# Ignore Session.vim files created by obsession.vim
+Session.vim
+
 # Ignore tags files
 tags
 tags.lock

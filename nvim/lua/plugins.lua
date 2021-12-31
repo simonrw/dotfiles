@@ -12,6 +12,7 @@ require('packer').startup({function(use)
     use 'lotabout/skim'
     use 'lotabout/skim.vim'
     use 'tpope/vim-surround'
+    use 'tpope/vim-obsession'
     use 'tpope/vim-unimpaired'
     use 'tpope/vim-commentary'
     use 'tpope/vim-eunuch'

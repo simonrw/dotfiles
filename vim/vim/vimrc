@@ -224,8 +224,6 @@ if g:completion_framework == "coc"
     " Use K to show documentation in preview window.
     nnoremap <silent> <leader>d :call <SID>show_documentation()<CR>
 
-    autocmd CursorHold * silent call CocActionAsync("highlight")
-
     if has('nvim-0.4.0') || has('patch-8.2.0750')
         nnoremap <silent><nowait><expr> <C-e> coc#float#has_scroll() ? coc#float#scroll(1, 5) : "\<C-f>"
         nnoremap <silent><nowait><expr> <C-y> coc#float#has_scroll() ? coc#float#scroll(0, 5) : "\<C-b>"
@@ -347,22 +345,22 @@ let g:lightline.colorscheme = 'default'
 if g:completion_framework == 'coc'
 	let g:lightline.active = {
 		  \   'left': [ [ 'mode', 'paste' ],
-		  \             [ 'cocstatus', 'readonly', 'filename', 'modified', 'tagstatus', 'gitstatus'] ],
+		  \             [ 'cocstatus', 'readonly', 'filename', 'modified', 'tagstatus', 'gitstatus', 'obsessionstatus' ] ],
 		  \ }
 elseif g:completion_framework == 'ale'
 	let g:lightline.active = {
 		  \   'left': [ [ 'mode', 'paste' ],
-		  \             [ 'alestatus', 'readonly', 'filename', 'modified', 'tagstatus', 'gitstatus'] ],
+		  \             [ 'alestatus', 'readonly', 'filename', 'modified', 'tagstatus', 'gitstatus', 'obsessionstatus' ] ],
 		  \ }
 elseif g:completion_framework == 'nvim'
 	let g:lightline.active = {
 		  \   'left': [ [ 'mode', 'paste' ],
-		  \             [ 'lsp_info', 'lsp_hints', 'lsp_errors', 'lsp_warnings', 'lsp_ok', 'lsp_status', 'readonly', 'filename', 'modified', 'tagstatus', 'gitstatus'] ],
+		  \             [ 'lsp_info', 'lsp_hints', 'lsp_errors', 'lsp_warnings', 'lsp_ok', 'lsp_status', 'readonly', 'filename', 'modified', 'tagstatus', 'gitstatus', 'obsessionstatus' ] ],
 		  \ }
 else
 	let g:lightline.active = {
 		  \   'left': [ [ 'mode', 'paste' ],
-		  \             [ 'readonly', 'filename', 'modified', 'tagstatus', 'gitstatus'] ],
+		  \             [ 'readonly', 'filename', 'modified', 'tagstatus', 'gitstatus', 'obsessionstatus' ] ],
 		  \ }
 endif
 let g:lightline.mode_map = {
@@ -385,6 +383,7 @@ let g:lightline.component_function = {
       \   'gitstatus': 'FugitiveStatusline',
       \   'alestatus': 'ALELinterStatus',
       \   'tagstatus': 'gutentags#statusline',
+      \   'obsessionstatus': 'ObsessionStatus',
       \ }
 function! LightlineFilename()
   return expand('%:t') !=# '' ? @% : '[No Name]'
