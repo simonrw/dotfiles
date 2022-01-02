@@ -83,5 +83,6 @@ cask "slack"
 cask "visual-studio-code"
 cask "vlc"
 cask "whatsapp"
+cask "zoom"
 
 mas "Bitwarden", id: 1352778147

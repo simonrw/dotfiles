@@ -2926,6 +2926,12 @@
         "options": {
           "full_name": "obsidian"
         }
+      },
+      "zoom": {
+        "version": "5.8.6.2879",
+        "options": {
+          "full_name": "zoom"
+        }
       }
     },
     "mas": {
