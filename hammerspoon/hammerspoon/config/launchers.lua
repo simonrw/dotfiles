@@ -21,11 +21,13 @@ local function bindKey(application, ...)
 end
 
 bindKey(applications.browser, 'c')
+bindKey(applications.terminal, 't')
+bindKey(applications.editor, 'y')
 bindKey(applications.documentation, 'r')
 bindKey(applications.notes, 'e')
 bindKey(applications.todo, 'n')
 bindKey(applications.music, 'm')
-bindKey(applications.editor, 't', 'y')
+bindKey(applications.editor, 'y')
 
 local BundleCache = {}
 BundleCache.__index = BundleCache
