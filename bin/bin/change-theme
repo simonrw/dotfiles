@@ -40,14 +40,12 @@ THEME_MAPS = {
 }
 TMUX_COLOURS = {
     "light": {
-        "status_bg": "#eeeeee",
         "accent_color": "colour6",
         "text_color": "colour7",
         "active_text_color": "colour6",
         "pane_border_color": "colour6",
     },
     "dark": {
-        "status_bg": "#2b2b2b",
         "accent_color": "colour12",
         "text_color": "colour7",
         "active_text_color": "colour12",
@@ -158,10 +156,10 @@ class ThemeChooser:
         self.replacer.replace_in_file(gitconfig, pattern, replacement)
 
     def update_fzf(self):
-        config_file = HOME_DIR / ".zsh" / "setup" / "60sk.zsh"
-        pattern = r"SKIM_DEFAULT_OPTIONS=\"--color (light|dark)"
-        replacement = f'SKIM_DEFAULT_OPTIONS="--color {self.theme_name}'
-        self.replacer.replace_in_file(config_file, pattern, replacement)
+        zshrc = HOME_DIR / ".zshrc"
+        pattern = r"^export FZF_DEFAULT_OPTS=\"--color (light|dark)"
+        replacement = f'export FZF_DEFAULT_OPTS="--color {self.theme_name}'
+        self.replacer.replace_in_file(zshrc, pattern, replacement)
 
     def update_ipython(self):
         try:
