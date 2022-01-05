@@ -267,7 +267,7 @@ if g:completion_framework == "coc"
     " highlighting overrides for plugins
     hi CocUnderline gui=none cterm=none
 
-    let g:coc_global_extensions = [ 'coc-pyright', 'coc-json', 'coc-go', 'coc-rust-analyzer', 'coc-html' ]
+    let g:coc_global_extensions = [ 'coc-pyright', 'coc-json', 'coc-rust-analyzer', 'coc-html' ]
 elseif g:completion_framework == "ale"
     " ALE
     nmap <silent> [g <Plug>(ale_previous_wrap)
