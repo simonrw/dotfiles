@@ -1,5 +1,5 @@
 # Set up skim
-export SKIM_DEFAULT_OPTIONS="--tiebreak begin --color dark,matched_bg:-1 --ansi --no-mouse --tabstop 4 --inline-info"
+export SKIM_DEFAULT_OPTIONS="--tiebreak begin --color light,matched_bg:-1 --ansi --no-mouse --tabstop 4 --inline-info"
 export SKIM_DEFAULT_COMMAND='rg --files --no-ignore --hidden --follow -g "!{.git,venv,node_modules}/*" 2> /dev/null'
 
 
@@ -50,7 +50,7 @@ skim-history-widget() {
   local selected num
   setopt localoptions noglobsubst noposixbuiltins pipefail no_aliases 2> /dev/null
   selected=( $(fc -rl 1 | perl -ne 'print if !$seen{(/^\s*[0-9]+\**\s+(.*)/, $1)}++' |
-    SKIM_DEFAULT_OPTIONS="--height ${SKIM_TMUX_HEIGHT:-40%} --color dark,matched_bg:-1 --ansi --no-mouse --tabstop 4 --inline-info -n2..,.. --tiebreak=index --bind=ctrl-r:toggle-sort $SKIM_CTRL_R_OPTS --query=${(qqq)LBUFFER} --no-multi" $(__skimcmd)) )
+    SKIM_DEFAULT_OPTIONS="--height ${SKIM_TMUX_HEIGHT:-40%} --color light,matched_bg:-1 --ansi --no-mouse --tabstop 4 --inline-info -n2..,.. --tiebreak=index --bind=ctrl-r:toggle-sort $SKIM_CTRL_R_OPTS --query=${(qqq)LBUFFER} --no-multi" $(__skimcmd)) )
   local ret=$?
   if [ -n "$selected" ]; then
     num=$selected[1]
