@@ -44,32 +44,6 @@ local function setup()
           update_in_insert = true,
       }
     )
-
-    -- set up efm langserver
-    lspconfig.efm.setup {
-        init_options = {
-            documentFormatting = true,
-        },
-        settings = {
-            rootMarkers = {
-                ".git/",
-            },
-            languages = {
-                go = {
-                    {
-                        formatCommand = "go fmt",
-                        formatStdin = false,
-                    },
-                },
-                python = {
-                    {
-                        formatCommand = "black --quiet -",
-                        formatStdin = true,
-                    },
-                },
-            },
-        },
-    }
 end
 
 if vim.g.completion_framework == 'nvim' then
