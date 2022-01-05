@@ -43,6 +43,8 @@ require('packer').startup({function(use)
     use 'NoahTheDuke/vim-just'
     use 'rust-lang/rust.vim'
 
+    use 'NLKNguyen/papercolor-theme'
+
     if vim.g.completion_framework == "coc" then
         use { 'neoclide/coc.nvim', branch = 'release' }
         use 'fannheyward/telescope-coc.nvim'
