@@ -17,6 +17,7 @@ fpath=($HOME/.zsh/func $HOME/.zsh/completion $fpath)
 typeset -U fpath
 
 autoload -Uz compinit
+compinit
 
 # Report the time taken for any long running command
 REPORTTIME=10
