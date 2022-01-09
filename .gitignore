@@ -117,3 +117,5 @@ git/gitlocalconfig/*
 .coverage
 htmlcov
 nvim/plugin/packer_compiled.lua
+fish/completions/
+fish/fish_variables

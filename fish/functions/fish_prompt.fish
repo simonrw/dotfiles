@@ -1,22 +1,21 @@
 function fish_prompt
-	set -l njobs (jobs | wc -l | sed 's/ //g')
-	set -l status_color
+    # This is a simple prompt. It looks like
+    # alfa@nobby /path/to/dir $
+    # with the path shortened and colored
+    # and a "#" instead of a "$" when run as root.
+    set -l symbol ' $ '
+    set -l color $fish_color_cwd
+    if fish_is_root_user
+        set symbol ' # '
+        set -q fish_color_cwd_root
+        and set color $fish_color_cwd_root
+    end
 
-	if test $status -eq 0
-		set status_color green
-	else
-		set status_color red
-	end
+    echo -n $USER@$hostname
 
-	set -l prompt_njobs_char
-	if test $njobs -eq 0
-		set prompt_njobs_char ''
-	else
-		set prompt_njobs_char '= '
-	end
+    set_color $color
+    echo -n (prompt_pwd)
+    set_color normal
 
-	set -l prompt_symbol (set_color $status_color)"\$"(set_color normal)
-	set -l prompt_njobs_symbol (set_color yellow)$prompt_njobs_char(set_color normal)
-
-	printf "\n%s%s " $prompt_njobs_symbol $prompt_symbol
+    echo -n $symbol
 end
