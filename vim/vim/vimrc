@@ -1,4 +1,3 @@
-set shell=/bin/bash
 let g:mapleader = ","
 let g:maplocalleader = '\\'
 
@@ -177,15 +176,8 @@ let g:hardtime_ignore_quickfix = 1
 let g:hardtime_allow_different_key = 1
 let g:hardtime_maxcount = 2
 
-" Command to split a terminal window with the fish shell
-function! s:open_terminal(...)
-    if a:1 == ""
-        :term fish
-    else
-        :execute "term " . a:1
-    endif
-endfunction
-command! -nargs=* -complete=shellcmd T split | resize 30 | call <SID>open_terminal("<args>")
+" Command to split a terminal window
+command! -nargs=* -complete=shellcmd T split | resize 30 | term <args>
 
 " configure fugitive-gitlab
 let g:fugitive_gitlab_domains = ["https://gitlab.pixsystem.net", "https://gitlab.com"]
