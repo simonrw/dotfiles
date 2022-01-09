@@ -96,8 +96,6 @@
 (set-face-attribute 'fixed-pitch nil :family "Source Code Pro" :height 130)
 (set-face-attribute 'variable-pitch nil :family "Cantarell" :height 130)
 
-(use-package no-littering)
-
 ;; Get correct path from system shell
 (use-package exec-path-from-shell
   :init
@@ -108,12 +106,6 @@
   (exec-path-from-shell-copy-env "RUST_SRC_PATH")
   (exec-path-from-shell-copy-env "SSH_AGENT_PID")
   (exec-path-from-shell-copy-env "SSH_AUTH_SOCK"))
-
-
-;; Editorconfig
-(use-package editorconfig
-  :config
-  (editorconfig-mode 1))
 
 ;; Magit
 (use-package magit
@@ -164,126 +156,12 @@
 (use-package graphviz-dot-mode
   :mode "\\.dot\\'")
 
-(use-package evil
-  :init
-  (setq evil-want-integration t)
-  (setq evil-want-keybinding nil)
-  (setq evil-want-C-u-scroll t)
-  (setq evil-want-C-i-jump nil)
-  :config
-  (evil-mode 1)
-
-  (define-key evil-insert-state-map (kbd "C-g") 'evil-normal-state)
-  (define-key evil-insert-state-map (kbd "C-h") 'evil-delete-backward-char-and-join)
-
-  (evil-global-set-key 'motion "j" 'evil-next-visual-line)
-  (evil-global-set-key 'motion "k" 'evil-previous-visual-line))
-
-(use-package evil-collection
-  :after evil
-  :config
-  (evil-collection-init))
-
-(use-package evil-leader
-  :after evil
-  :config
-  (global-evil-leader-mode)
-  (evil-leader/set-leader ",")
-  (evil-leader/set-key "f" 'projectile-find-file))
-
-(use-package lua-mode)
-
-(use-package projectile
-  :diminish
-  :config
-  (projectile-mode 1)
-  :bind-keymap
-  ("C-c p" . projectile-command-map)
-  :init
-  (when (file-directory-p "~/work")
-	(setq projectile-project-search-path '("~/work")))
-  (when (file-directory-p "~/dev")
-	(setq projectile-project-search-path '("~/dev"))))
-
-(use-package org
-  :commands (org-capture org-agenda)
-  :hook (org-mode-hook . org-mode-setup)
-  :bind (("C-c a" . 'org-agenda))
-  :config
-  (setq org-startup-indented t)
-  (setq org-startup-folded "showall")
-  (setq org-directory "~/org")
-  (org-babel-do-load-languages
-   'org-babel-load-languages
-   '((plantuml . t)))
-  (setq org-plantuml-jar-path "/usr/local/opt/plantuml/libexec/plantuml.jar")
-  (setq org-agenda-files (list "~/org/todo.org"))
-  (setq org-todo-keywords
-		'((sequence "TODO(!)" "|" "DONE(!)")))
-  (org-babel-do-load-languages
-   'org-babel-load-languages
-   '((emacs-lisp . t)
-	 (R . t)
-	 (dot . t)
-	 (ruby . t)
-	 (plantuml . t)
-	 (gnuplot . t)
-	 (python . t)))
-  (org-font-setup))
-
 (use-package python-pytest
   :init
   (add-hook 'python-mode
             (advice-add 'python-pytest-file :before
                         (lambda (&rest args)
                           (setq python-pytest-executable (+python-executable-find "pytest"))))))
-
-(use-package org-preview-html
-  :after (org))
-
-(use-package org-bullets
-  :after (org)
-  :init
-  (add-hook 'org-mode-hook (lambda () org-bullets-mode 1)))
-
-(use-package org-roam
-  :after (org)
-  :hook (after-init-hook . org-roam-mode)
-  :config
-  (setq org-roam-directory "~/org-roam"))
-
-(defun org-font-setup ()
-  (font-lock-add-keywords 'org-mode
-                          '(("^ *\\([-]\\) "
-                             (0 (prog1 () (compose-region (match-beginning 1) (match-end 1) "•"))))))
-  (dolist (face '((org-level-1 . 2.0)
-                  (org-level-2 . 1.5)
-                  (org-level-3 . 1.0)
-                  (org-level-4 . 1.0)
-                  (org-level-5 . 1.1)
-                  (org-level-6 . 1.1)
-                  (org-level-7 . 1.1)
-                  (org-level-8 . 1.1)))
-    (set-face-attribute (car face) nil :font "Cantarell" :weight 'regular :height (cdr face)))
-
-  ;; Ensure that anything that should be fixed-pitch in Org files appears that way
-  (set-face-attribute 'org-block nil    :foreground nil :inherit 'fixed-pitch)
-  (set-face-attribute 'org-table nil    :inherit 'fixed-pitch)
-  (set-face-attribute 'org-formula nil  :inherit 'fixed-pitch)
-  (set-face-attribute 'org-code nil     :inherit '(shadow fixed-pitch))
-  (set-face-attribute 'org-table nil    :inherit '(shadow fixed-pitch))
-  (set-face-attribute 'org-verbatim nil :inherit '(shadow fixed-pitch))
-  (set-face-attribute 'org-special-keyword nil :inherit '(font-lock-comment-face fixed-pitch))
-  (set-face-attribute 'org-meta-line nil :inherit '(font-lock-comment-face fixed-pitch))
-  (set-face-attribute 'org-checkbox nil  :inherit 'fixed-pitch)
-  (set-face-attribute 'line-number nil :inherit 'fixed-pitch)
-  (set-face-attribute 'line-number-current-line nil :inherit 'fixed-pitch))
-
-(defun org-mode-setup ()
-  (org-indent-mode)
-  (variable-pitch-mode 1)
-  (visual-line-mode 1))
-
 
 (use-package go-mode
   :mode "\\.go\\'"
@@ -298,9 +176,7 @@
   :mode "\\.yml\\'")
 
 (use-package php-mode
-  :mode "\\.php\\'"
-  :config
-  (message "Loaded php mode"))
+  :mode "\\.php\\'")
 
 (use-package which-key
   :defer 0
@@ -309,40 +185,12 @@
   (which-key-mode)
   (setq which-key-idle-delay 1))
 
-(use-package direnv
-  :config
-  (direnv-mode))
-
-(use-package counsel
-  :bind (("C-M-j" . 'counsel-switch-buffer)
-		 :map minibuffer-local-map
-		 ("C-r" . 'counsel-minibuffer-history))
-  :custom
-  (counsel-linux-app-format-function #'counsel-linux-app-format-function-name-only)
-  :config
-  (define-key counsel-mode-map [remap find-file] nil)
-  (counsel-mode 1))
-
 (use-package speed-type)
 
-(use-package lsp-mode
-  :init
-  (setq lsp-keymap-prefix "C-c l")
-  :hook ((python-mode . lsp-deferred)
-		 (lsp-mode . lsp-enable-which-key-integration))
-  :commands lsp-deferred)
+(use-package company
+  :config
+  (add-hook 'after-init-hook 'global-company-mode))
 
-(use-package lsp-ui :commands lsp-ui-mode)
-(use-package dap-mode)
-(use-package lsp-pyright
-  :ensure t
-  :hook (python-mode . (lambda ()
-                         (require 'lsp-pyright)
-                         (lsp-deferred))))
-
-
-(add-to-list 'custom-theme-load-path "~/.emacs.d/themes")
 (load-theme 'wombat t)
 
 (provide 'init)
-;;; init.el ends here
