@@ -191,6 +191,8 @@
 
 (use-package speed-type)
 
+(use-package vterm)
+
 (use-package company
   :config
   (add-hook 'after-init-hook 'global-company-mode))
