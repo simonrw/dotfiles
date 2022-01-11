@@ -32,7 +32,7 @@ local function setup()
             debounce_text_changes = 150,
         },
         capabilities = capabilities,
-        cmd = { '~/.local/share/nvim/lsp_servers/python/node_modules/.bin/pyright-langserver' },
+        cmd = { vim.fn.stdpath("data") .. '/lsp_servers/python/node_modules/.bin/pyright-langserver' },
     }
 
     lspconfig.gopls.setup {
@@ -41,7 +41,7 @@ local function setup()
             debounce_text_changes = 150,
         },
         capabilities = capabilities,
-        cmd = { '~/.local/share/nvim/lsp_servers/go/gopls' },
+        cmd = { vim.fn.stdpath("data") .. '/lsp_servers/go/gopls' },
     }
 
     lspconfig.rust_analyzer.setup {
@@ -50,7 +50,7 @@ local function setup()
             debounce_text_changes = 150,
         },
         capabilities = capabilities,
-        cmd = { '~/.local/share/nvim/lsp_servers/rust/rust-analyzer' },
+        cmd = { vim.fn.stdpath("data") .. '/lsp_servers/rust/rust-analyzer' },
     }
 
     vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
