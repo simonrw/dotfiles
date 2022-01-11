@@ -26,16 +26,32 @@ local function setup()
     end
 
     -- lspconfig
-    local servers = {"pyright", "gopls", "ccls", "rust_analyzer"}
-    for _, lsp in ipairs(servers) do
-        lspconfig[lsp].setup {
-            on_attach = on_attach,
-            flags = {
-                debounce_text_changes = 150,
-            },
-            capabilities = capabilities,
-        }
-    end
+    lspconfig.pyright.setup {
+        on_attach = on_attach,
+        flags = {
+            debounce_text_changes = 150,
+        },
+        capabilities = capabilities,
+        cmd = { '~/.local/share/nvim/lsp_servers/python/node_modules/.bin/pyright-langserver' },
+    }
+
+    lspconfig.gopls.setup {
+        on_attach = on_attach,
+        flags = {
+            debounce_text_changes = 150,
+        },
+        capabilities = capabilities,
+        cmd = { '~/.local/share/nvim/lsp_servers/go/gopls' },
+    }
+
+    lspconfig.rust_analyzer.setup {
+        on_attach = on_attach,
+        flags = {
+            debounce_text_changes = 150,
+        },
+        capabilities = capabilities,
+        cmd = { '~/.local/share/nvim/lsp_servers/rust/rust-analyzer' },
+    }
 
     vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
       vim.lsp.diagnostic.on_publish_diagnostics, {

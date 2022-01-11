@@ -56,8 +56,8 @@ require('packer').startup({function(use)
         use 'neovim/nvim-lspconfig'
         use 'nvim-lua/lsp_extensions.nvim'
         use 'psf/black'
-        use 'fatih/vim-go'
         use 'josa42/nvim-lightline-lsp'
+        use 'williamboman/nvim-lsp-installer'
     end
 
     if vim.g.include_treesitter == 1 then
