@@ -32,7 +32,7 @@ local function setup()
             debounce_text_changes = 150,
         },
         capabilities = capabilities,
-        cmd = { vim.fn.stdpath("data") .. '/lsp_servers/python/node_modules/.bin/pyright-langserver' },
+        cmd = { vim.fn.stdpath("data") .. '/lsp_servers/python/node_modules/.bin/pyright-langserver', '--stdio' },
     }
 
     lspconfig.gopls.setup {
