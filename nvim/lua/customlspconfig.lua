@@ -1,3 +1,5 @@
+local target_servers = {"pyright", "gopls", "rust_analyzer", "yamlls"}
+
 local on_attach = function(client, bufnr)
     local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
     local function buf_set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
@@ -25,6 +27,15 @@ end
 local function setup()
     local lspconfig = require("lspconfig")
     local lsp_installer = require("nvim-lsp-installer")
+
+    -- Install required servers
+    for _, target_server in ipairs(target_servers) do
+        _, server = lsp_installer.get_server(target_server)
+        if not server:is_installed() then
+            print("Installing LSP: " .. target_server)
+            server:install(nil)
+        end
+    end
 
     lsp_installer.on_server_ready(function(server)
         local opts = {
