@@ -100,6 +100,10 @@
 (set-face-attribute 'fixed-pitch nil :family "Source Code Pro" :height 130)
 (set-face-attribute 'variable-pitch nil :family "Cantarell" :height 130)
 
+;; custom keybindings
+(global-set-key (kbd "C-c C-t") 'compile)
+(global-set-key (kbd "C-c C-y") 'recompile)
+
 ;; Get correct path from system shell
 (use-package exec-path-from-shell
   :init
