@@ -103,8 +103,8 @@
 	attributesFile = ~/.gitattributes_global
     pager = delta
 [delta]
-    side-by-side = false
-    diff-so-fancy = true
+    side-by-side = true
+    diff-so-fancy = false
     syntax-theme = none
 [merge]
     tool = conflicted
