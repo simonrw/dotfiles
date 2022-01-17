@@ -45,22 +45,20 @@ local function setup()
     lsp_installer.on_server_ready(function(server)
         local opts = {
             on_attach = on_attach,
-            flags = {
-                debounce_text_changes = 150,
-            },
             capabilities = capabilities,
         }
 
-        vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
-            vim.lsp.diagnostic.on_publish_diagnostics, {
-                virtual_text = true,
-                signs = true,
-                update_in_insert = true,
-            }
-        )
-
         server:setup(opts)
     end)
+
+    vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
+        vim.lsp.diagnostic.on_publish_diagnostics, {
+            virtual_text = true,
+            signs = true,
+            update_in_insert = true,
+        }
+    )
+
 end
 
 if vim.g.completion_framework == 'nvim' then

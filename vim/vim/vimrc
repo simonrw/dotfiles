@@ -271,10 +271,6 @@ if g:completion_framework == "coc"
 elseif g:completion_framework == "ale"
     " handled in after/plugin/ale
 elseif g:completion_framework == "nvim" && has('nvim-0.5')
-    " Use <Tab> and <S-Tab> to navigate through popup menu
-    inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
-    inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
-
     " Enable type inlay hints
     autocmd CursorHold,CursorHoldI *.rs :lua require'lsp_extensions'.inlay_hints{ only_current_line = true }
 endif
