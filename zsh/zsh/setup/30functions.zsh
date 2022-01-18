@@ -366,3 +366,19 @@ function gl() {
         vim -c "$cmd"
     fi
 }
+
+# for bringing a cloudformation stack down and waiting for it to be deleted
+function delete-stack() {
+    if [ $# -ne 1 ]; then
+        echo "Usage: delete-stack <stack-name>" >&2
+        return 1
+    fi
+
+    local stack_name="$1"
+    aws cloudformation delete-stack --stack-name "${stack_name}"
+    if [ $? -ne 0 ]; then
+        return 1
+    fi
+
+    aws cloudformation wait stack-delete-complete --stack-name "${stack_name}"
+}
