@@ -2932,6 +2932,12 @@
         "options": {
           "full_name": "zoom"
         }
+      },
+      "skype": {
+        "version": "8.79.0.92",
+        "options": {
+          "full_name": "skype"
+        }
       }
     },
     "mas": {
