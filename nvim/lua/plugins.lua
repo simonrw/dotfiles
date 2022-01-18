@@ -60,12 +60,16 @@ require('packer').startup({function(use)
         use 'williamboman/nvim-lsp-installer'
 
         -- Completion
-        use { 'hrsh7th/cmp-nvim-lsp', branch = "main" }
-        use { 'hrsh7th/cmp-buffer', branch = "main" }
-        use { 'hrsh7th/cmp-path', branch = "main" }
-        use { 'hrsh7th/nvim-cmp', branch = "main" }
-        use { 'hrsh7th/cmp-vsnip', branch = "main" }
+        use 'hrsh7th/cmp-nvim-lsp'
+        use 'hrsh7th/cmp-buffer'
+        use 'hrsh7th/nvim-cmp'
+        use 'hrsh7th/cmp-vsnip'
         use 'hrsh7th/vim-vsnip'
+
+        use { 'glepnir/lspsaga.nvim', config = function()
+            local saga = require("lspsaga")
+            saga.init_lsp_saga()
+        end }
     end
 
     if vim.g.include_treesitter == 1 then
