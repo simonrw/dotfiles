@@ -36,7 +36,7 @@ vim.opt.gdefault = true
 -- Configure minimum window width
 vim.opt.winwidth = 80
 -- speed up UI updates
-vim.opt.updatetime = 100
+vim.opt.updatetime = 250
 -- If buffer is already open when switching, switch to it
 vim.opt.switchbuf:append('useopen')
 -- configure concealing things
