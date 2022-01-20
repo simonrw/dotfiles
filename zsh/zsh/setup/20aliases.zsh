@@ -71,3 +71,7 @@ fi
 if has_executable gojq; then
     alias jq=gojq
 fi
+
+if has_executable noti; then
+    alias n=noti
+fi
