@@ -70,6 +70,7 @@ brew "aarch64-unknown-linux-gnu"
 # Casks
 
 cask "alfred"
+cask "barrier"
 cask "dash"
 cask "drawio"
 cask "element"
