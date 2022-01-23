@@ -2736,7 +2736,7 @@
     },
     "cask": {
       "docker": {
-        "version": "2.2.0.5,43884",
+        "version": "4.3.0,71786",
         "options": {
           "full_name": "docker"
         }
