@@ -199,16 +199,33 @@
 
 (use-package company
   :config
-  (add-hook 'after-init-hook 'global-company-mode))
+  (add-hook 'after-init-hook 'global-company-mode)
+  (setq company-minimum-prefix-length 1
+		company-idle-delay 0.0))
 
 (use-package projectile
   :bind (:map projectile-mode-map
-			  ("C-c C-p" . projectile-command-map))
+			  ("M-p" . projectile-command-map))
   :init
-  (setq projectile-project-search-path '(("~/work" . 1) "~/dev"))
+  (setq projectile-project-search-path '(("~/work" . 3) "~/dev"))
   (projectile-mode +1))
 
 (use-package ripgrep)
+
+(use-package lsp-mode
+  :init
+  (setq lsp-keymap-prefix "C-l")
+  :hook ((lsp-mode . lsp-enable-which-key-integration))
+  :commands (lsp lsp-deferred))
+
+(use-package lsp-ui)
+
+;; lsp servers
+(use-package lsp-pyright
+  :hook
+  (python-mode . (lambda ()
+				   (require 'lsp-pyright)
+				   (lsp-deferred))))
 
 (load-theme 'wombat t)
 
