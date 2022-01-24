@@ -201,6 +201,15 @@
   :config
   (add-hook 'after-init-hook 'global-company-mode))
 
+(use-package projectile
+  :bind (:map projectile-mode-map
+			  ("C-c C-p" . projectile-command-map))
+  :init
+  (setq projectile-project-search-path '(("~/work" . 1) "~/dev"))
+  (projectile-mode +1))
+
+(use-package ripgrep)
+
 (load-theme 'wombat t)
 
 (provide 'init)
