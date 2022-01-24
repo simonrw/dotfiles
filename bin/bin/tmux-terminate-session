@@ -1,13 +1,15 @@
 #!/bin/bash
 
 main() {
-    SESSION="$(tmux list-sessions -F '#S' | sk)"
+    SESSION="$(tmux list-sessions -F '#S' | sk-tmux -m)"
     if [ -z "$SESSION" ]; then
         echo "No session selected" >&2
         return
     fi
 
-    tmux kill-session -t "$SESSION"
+    for name in ${SESSION[@]}; do
+        tmux kill-session -t "$name"
+    done
 }
 
 main
