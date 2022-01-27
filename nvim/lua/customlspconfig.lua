@@ -48,6 +48,38 @@ local function setup()
             capabilities = capabilities,
         }
 
+        -- configure yamlls to include cloudformation tags
+        if server.name == "yamlls" then
+            opts.filetypes = { "cloudformation", "yaml", "yaml.docker-compose", "yaml.cloudformation" }
+            opts.settings = {
+                yaml = {
+                    schemas = {
+                        ["https://raw.githubusercontent.com/awslabs/goformation/v5.2.11/schema/sam.schema.json"] = "./cloudformation.yml",
+                    },
+                    customTags = {
+                        "!fn",
+                        "!And",
+                        "!If",
+                        "!Not",
+                        "!Equals",
+                        "!Or",
+                        "!FindInMap sequence",
+                        "!Base64",
+                        "!Cidr",
+                        "!Ref",
+                        "!Ref Scalar",
+                        "!Sub",
+                        "!GetAtt",
+                        "!GetAZs",
+                        "!ImportValue",
+                        "!Select",
+                        "!Split",
+                        "!Join sequence"
+                    },
+                },
+            }
+        end
+
         server:setup(opts)
     end)
 
