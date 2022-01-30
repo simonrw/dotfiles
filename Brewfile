@@ -40,6 +40,7 @@ brew "lab"
 brew "mas"
 brew "mhanberg/zk/zk"
 brew "mosh", args: ["HEAD"]
+brew "ncdu"
 brew "neovim"
 brew "noti"
 brew "openssh"
