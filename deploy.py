@@ -98,7 +98,6 @@ class Deployer(object):
                 homebrew.install_packages()
 
         if self.compile:
-            self.install_rust_packages()
             self.install_custom_binaries()
         else:
             logger.warning(
@@ -207,6 +206,7 @@ class Deployer(object):
             "external/mkflashdriverepo",
             "external/hookman",
             "external/listprojects",
+            "external/pm",
         ]
         for subdir in subdirs:
             if not os.path.isdir(subdir):
@@ -236,11 +236,12 @@ class Deployer(object):
             cmd = ["go", "install"]
             sp.run(cmd)
 
-        # install git-pm
-        logger.debug("compiling and installing external/git-pm")
-        with self._chdir("external/git-pm"):
-            cmd = ["cargo", "install", "--path", "."]
+        logger.debug("compiling and installing external/listprojects")
+        with self._chdir("external/listprojects"):
+            cmd = ["go", "install"]
             sp.run(cmd)
+
+        self.install_rust_packages()
 
     def _deploy_single_file(self, src, dest):
         dest.parent.mkdir(parents=True, exist_ok=True)
