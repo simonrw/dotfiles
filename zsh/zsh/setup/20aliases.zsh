@@ -21,6 +21,7 @@ test -d ~/.ssh && {
 alias gpe="git push && exit"
 alias gpr="git pull --rebase"
 alias pip='python3 -m pip'
+alias tl="tmux-last"
 
 if has_executable git-change; then
     alias gc="git change"
