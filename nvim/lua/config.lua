@@ -7,7 +7,7 @@ require('customlspconfig')
 if vim.g.include_treesitter == 1 then
     require('treesitterconfig')
 end
-require('completionconfig')
+-- require('completionconfig')
 
 -- plugins
 require('fzf')
