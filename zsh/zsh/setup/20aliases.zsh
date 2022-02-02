@@ -51,10 +51,10 @@ if has_executable nvim; then
     alias vimdiff="nvim -d"
 fi
 
-if has_executable lab; then
-    alias lpb="lab project browse"
-    alias mr="lab mr browse"
-    alias ci="lab ci view"
+if has_executable glab; then
+    alias lpb="glab project view -w"
+    alias mr="glab mr view -w"
+    alias ci="glab ci view"
 fi
 
 if has_executable paru; then
