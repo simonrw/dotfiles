@@ -2961,6 +2961,12 @@
         "options": {
           "full_name": "skype"
         }
+      },
+      "gimp": {
+        "version": "2.10.28",
+        "options": {
+          "full_name": "gimp"
+        }
       }
     },
     "mas": {
