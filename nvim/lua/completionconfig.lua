@@ -21,7 +21,7 @@ cmp.setup({
     sources = cmp.config.sources({
         { name = 'nvim_lsp' },
     }, {
-        { name = 'buffer' }
+        { name = 'buffer', keyword_length = 5 }
     }),
     experimental = {
         ghost_text = true,
