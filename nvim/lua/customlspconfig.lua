@@ -1,4 +1,4 @@
-local target_servers = {"pyright", "gopls", "rust_analyzer", "yamlls", "terraformls", "hls"}
+local target_servers = {"pyright", "gopls", "rust_analyzer", "yamlls", "terraformls", "efm"}
 
 local on_attach = function(client, bufnr)
     local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
