@@ -110,7 +110,8 @@
   (setq exec-path-from-shell-check-startup-files nil)
   (setq exec-path-from-shell-arguments '("-l" "-i"))
   :config
-  (exec-path-from-shell-initialize)
+  (when (memq window-system '(mac ns x))
+	(exec-path-from-shell-initialize))
   (exec-path-from-shell-copy-env "RUST_SRC_PATH")
   (exec-path-from-shell-copy-env "SSH_AGENT_PID")
   (exec-path-from-shell-copy-env "SSH_AUTH_SOCK"))
