@@ -1,6 +1,7 @@
 local applications = {
     terminal = {
         name = "iTerm",
+        windowTitle = "iTerm2"
     },
     browser = {
         name = "Google Chrome",
