@@ -1,0 +1,17 @@
+#!/bin/bash
+
+set -euo pipefail
+
+TICKET_FILE=./.git/TICKET
+
+main() {
+    FILENAME=$1
+
+    if [ -f ${TICKET_FILE} ]; then
+        printf "%s: " "$(< ${TICKET_FILE})" > ${FILENAME}.tmp
+        cat ${FILENAME} >> ${FILENAME}.tmp
+        mv ${FILENAME}.tmp ${FILENAME}
+    fi
+}
+
+main $*
