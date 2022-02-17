@@ -21,9 +21,28 @@ cmp.setup({
     sources = cmp.config.sources({
         { name = 'nvim_lsp' },
     }, {
-        { name = 'buffer', keyword_length = 3 }
+        {
+            name = 'buffer',
+            keyword_length = 5,
+            get_bufnrs = function()
+                return vim.api.nvim_list_bufs()
+            end,
+        },
     }),
+    view = {
+        entries = "native",
+    },
     experimental = {
         ghost_text = true,
+    },
+    formatting = {
+        format = require("lspkind").cmp_format({
+            mode = 'text',
+            menu = ({
+                buffer = "[Buffer]",
+                nvim_lsp = "[LSP]",
+                luasnip = "[LuaSnip]",
+            }),
+        }),
     },
 })
