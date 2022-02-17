@@ -4,7 +4,7 @@ local applications = {
         windowTitle = "iTerm2"
     },
     browser = {
-        name = "Firefox",
+        name = "Google Chrome",
     },
     email = {
         name = "Mail",
