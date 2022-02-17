@@ -152,30 +152,3 @@ if [[ "$PROFILE_STARTUP" == true ]]; then
     exec 2>&3 3>&-
     zprof
 fi
-
-function __real_git_command() {
-    =git $@
-}
-
-function git() {
-    if [[ $1 == "commit" ]] || [[ $1 == "ci" ]]; then
-        local found="0"
-        for arg in $@; do
-            if [[ $arg == "-m" ]] || [[ $arg == "--message" ]]; then
-                found="1"
-                break
-            fi
-        done
-
-        if [[ $found == "1" ]]; then
-            echo >&2 "Use longform commit messages!!!"
-            return 1
-        else
-            __real_git_command $@
-        fi
-    else
-        __real_git_command $@
-    fi
-}
-
-alias g=git
