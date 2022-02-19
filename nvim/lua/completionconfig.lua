@@ -28,6 +28,11 @@ cmp.setup({
                 return vim.api.nvim_list_bufs()
             end,
         },
+    },
+    {
+        {
+            name = "emoji",
+        },
     }),
     view = {
         entries = "native",
