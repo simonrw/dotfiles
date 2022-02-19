@@ -42,6 +42,7 @@ require('packer').startup({function(use)
     use 'lepture/vim-velocity'
     use 'NoahTheDuke/vim-just'
     use 'rust-lang/rust.vim'
+    use 'tweekmonster/django-plus.vim'
 
     if vim.g.completion_framework == "coc" then
         use { 'neoclide/coc.nvim', branch = 'release' }
