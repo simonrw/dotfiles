@@ -105,7 +105,7 @@
 	attributesFile = ~/.gitattributes_global
     pager = delta
 [delta]
-    side-by-side = true
+    side-by-side = false
     diff-so-fancy = true
     syntax-theme = none
 [merge]
