@@ -181,3 +181,6 @@ path = ~/dev/.gitconfig
 
 [includeIf "gitdir:~/work/"]
 path = ~/work/.gitconfig
+
+[commit]
+	template = ~/.gitcommittemplate
