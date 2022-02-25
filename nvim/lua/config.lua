@@ -13,6 +13,7 @@ if vim.g.include_treesitter == 1 then
     require('treesitterconfig')
 end
 require('completionconfig')
+require('nulllsconfig')
 
 -- plugins
 require('fzf')
