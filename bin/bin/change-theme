@@ -84,7 +84,6 @@ class ThemeChooser:
             "update_vim",
             "update_tmux",
             "update_kitty",
-            "update_gitconfig",
             "update_fzf",
             "update_ipython",
             "update_alacritty",
@@ -144,21 +143,10 @@ class ThemeChooser:
             kitty_conf, r"^include themes/.*$", f"include themes/{theme_name}"
         )
 
-    def update_gitconfig(self):
-        gitconfig = HOME_DIR / ".gitconfig"
-        pattern = r"^\[delta\]\s*\n\s*(light|dark) = true"
-        if self.theme_name == "light":
-            replacement = """[delta]
-    light = true"""
-        else:
-            replacement = """[delta]
-    dark = true"""
-        self.replacer.replace_in_file(gitconfig, pattern, replacement)
-
     def update_fzf(self):
-        zshrc = HOME_DIR / ".zshrc"
-        pattern = r"^export FZF_DEFAULT_OPTS=\"--color (light|dark)"
-        replacement = f'export FZF_DEFAULT_OPTS="--color {self.theme_name}'
+        zshrc = HOME_DIR / ".zsh" / "setup" / "60sk.zsh"
+        pattern = r"^export SKIM_DEFAULT_OPTIONS=\"--color (light|dark)"
+        replacement = f'export SKIM_DEFAULT_OPTIONS="--color {self.theme_name}'
         self.replacer.replace_in_file(zshrc, pattern, replacement)
 
     def update_ipython(self):
