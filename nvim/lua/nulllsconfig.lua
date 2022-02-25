@@ -2,7 +2,7 @@
 --
 -- https://github.com/jose-elias-alvarez/null-ls.nvim/wiki/Async-formatting
 --
-_G.formatting = function(bufnr)
+_G.formatting_async = function(bufnr, encoding_offset)
     bufnr = tonumber(bufnr) or vim.api.nvim_get_current_buf()
 
     vim.lsp.buf_request(
@@ -23,7 +23,7 @@ _G.formatting = function(bufnr)
             end
 
             if res then
-                vim.lsp.util.apply_text_edits(res, bufnr, "utf-8")
+                vim.lsp.util.apply_text_edits(res, bufnr, encoding_offset)
                 vim.api.nvim_buf_call(bufnr, function()
                     vim.cmd("silent noautocmd update")
                 end)
@@ -44,13 +44,14 @@ null_ls.setup({
     },
     on_attach = function(client, bufnr)
         if client.supports_method("textDocument/formatting") then
+            local encoding_offset = client.offset_encoding
             -- wrap in an augroup to prevent duplicate autocmds
-            vim.cmd([[
+            vim.cmd(string.format([[
             augroup LspFormatting
             autocmd! * <buffer>
-            autocmd BufWritePost <buffer> lua formatting(vim.fn.expand("<abuf>"))
+            autocmd BufWritePost <buffer> lua formatting_async(vim.fn.expand("<abuf>"), "%s")
             augroup END
-            ]])
+            ]], encoding_offset))
         end
     end,
 })
