@@ -1,3 +1,8 @@
+-- set up global function
+_G.P = function(any)
+    print(vim.inspect(any))
+end
+
 require('disables')
 require('settings')
 require('plugins')
