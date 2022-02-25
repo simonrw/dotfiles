@@ -1,10 +1,15 @@
 local target_servers = {"pyright", "gopls", "rust_analyzer", "yamlls", "terraformls"}
 
-local on_attach = function(client, bufnr)
+local on_attach = function(client, bufnr, include_formatting)
     local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
     local function buf_set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
 
     buf_set_option('omnifunc', 'v:lua.vim.lsp.omnifunc')
+
+    if not include_formatting then
+        client.resolved_capabilities.document_formatting = false
+        client.resolved_capabilities.document_range_formatting = false
+    end
 
     -- mappings
     local opts = { noremap=true, silent=true }
@@ -40,7 +45,13 @@ local function setup()
 
     lsp_installer.on_server_ready(function(server)
         local opts = {
-            on_attach = on_attach,
+            on_attach = function(client, bufnr)
+                if server.name ~= "gopls" then
+                    return on_attach(client, bufnr, true)
+                else
+                    return on_attach(client, bufnr, false)
+                end
+            end,
             capabilities = capabilities,
         }
 
