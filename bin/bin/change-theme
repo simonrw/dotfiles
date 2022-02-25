@@ -18,7 +18,6 @@ THEME_MAPS = {
             "colourscheme": "srw256",
             "lightline": "default",
         },
-        "tmux": "srw.conf",
         "kitty": "srw.conf",
         "ipython": "Linux",
         "alacritty": "colors_default",
@@ -30,10 +29,18 @@ THEME_MAPS = {
             "colourscheme": "PaperColor",
             "lightline": "PaperColor",
         },
-        "tmux": "srw.conf",
         "kitty": "papercolor-light.conf",
         "ipython": "LightBG",
         "alacritty": "colors_papercolor",
+        "bat": "GitHub",
+        "emacs": "whiteboard",
+    },
+    "solarized-light": {
+        "vim": {
+            "colourscheme": "NeoSolarized",
+            "lightline": "solarized",
+        },
+        "kitty": "Solarized_Light.conf",
         "bat": "GitHub",
         "emacs": "whiteboard",
     },
@@ -46,10 +53,18 @@ TMUX_COLOURS = {
         "pane_border_color": "colour6",
     },
     "dark": {
+        "status_bg": "#2b2b2b",
         "accent_color": "colour12",
         "text_color": "colour7",
         "active_text_color": "colour12",
         "pane_border_color": "colour240",
+    },
+    "solarized-light": {
+        "status_bg": "#fdf6e3",
+        "accent_color": "colour6",
+        "text_color": "colour7",
+        "active_text_color": "colour6",
+        "pane_border_color": "colour6",
     },
 }
 
@@ -115,12 +130,25 @@ class ThemeChooser:
 
     def update_vim(self):
         vimrc = HOME_DIR / ".vim" / "vimrc"
-        theme_name = THEME_MAPS[self.theme_name]["vim"]
+        theme_name = self._theme_map("vim")
+        if not theme_name:
+            return
         theme = theme_name["colourscheme"]
         self.replacer.replace_in_file(
             vimrc, r"^colorscheme .*$", f"colorscheme {theme}"
         )
-        lightline_theme = theme_name["lightline"]
+
+        if theme == "dark":
+            background = "dark"
+        else:
+            background = "light"
+        self.replacer.replace_in_file(
+            vimrc, r"^set background=(dark|light)", f"set background={background}"
+        )
+        lightline_theme = theme_name.get("lightline")
+        if not lightline_theme:
+            logging.warning("no lightline theme found")
+            return
         self.replacer.replace_in_file(
             vimrc,
             r"^let g:lightline.colorscheme.*$",
@@ -138,7 +166,9 @@ class ThemeChooser:
 
     def update_kitty(self):
         kitty_conf = HOME_DIR / ".config" / "kitty" / "kitty.conf"
-        theme_name = THEME_MAPS[self.theme_name]["kitty"]
+        theme_name = self._theme_map("kitty")
+        if not theme_name:
+            return
         self.replacer.replace_in_file(
             kitty_conf, r"^include themes/.*$", f"include themes/{theme_name}"
         )
@@ -146,14 +176,20 @@ class ThemeChooser:
     def update_fzf(self):
         zshrc = HOME_DIR / ".zsh" / "setup" / "60sk.zsh"
         pattern = r"^export SKIM_DEFAULT_OPTIONS=\"--color (light|dark)"
-        replacement = f'export SKIM_DEFAULT_OPTIONS="--color {self.theme_name}'
+        background = "dark"
+        if self.theme_name != "dark":
+            background = "light"
+
+        replacement = f'export SKIM_DEFAULT_OPTIONS="--color {background}'
         self.replacer.replace_in_file(zshrc, pattern, replacement)
 
     def update_ipython(self):
         try:
             config = HOME_DIR / ".ipython" / "profile_default" / "ipython_config.py"
             pattern = r"^c.TerminalInteractiveShell.colors = .*"
-            theme_name = THEME_MAPS[self.theme_name]["ipython"]
+            theme_name = self._theme_map("ipython")
+            if not theme_name:
+                return
             replacement = f'c.TerminalInteractiveShell.colors = "{theme_name}"'
             self.replacer.replace_in_file(config, pattern, replacement)
         except Exception as e:
@@ -162,23 +198,35 @@ class ThemeChooser:
     def update_alacritty(self):
         config = HOME_DIR / ".config" / "alacritty" / "alacritty.yml"
         pattern = r"^colors: \*.*$"
-        theme_name = THEME_MAPS[self.theme_name]["alacritty"]
+        theme_name = self._theme_map("alacritty")
+        if not theme_name:
+            return
         replacement = f"colors: *{theme_name}"
         self.replacer.replace_in_file(config, pattern, replacement)
 
     def update_bat(self):
         config = HOME_DIR / ".config" / "bat" / "config"
         pattern = r"^--theme=.*"
-        theme_name = THEME_MAPS[self.theme_name]["bat"]
+        theme_name = self._theme_map("bat")
+        if not theme_name:
+            return
         replacement = f'--theme="{theme_name}"'
         self.replacer.replace_in_file(config, pattern, replacement)
 
     def update_emacs(self):
         emacsrc = HOME_DIR / ".emacs.d" / "init.el"
-        theme_name = THEME_MAPS[self.theme_name]["emacs"]
+        theme_name = self._theme_map("emacs")
+        if not theme_name:
+            return
         self.replacer.replace_in_file(
             emacsrc, r"^\(load-theme.*$", f"(load-theme '{theme_name} t)"
         )
+
+    def _theme_map(self, property):
+        theme_name = THEME_MAPS[self.theme_name].get(property)
+        if not theme_name:
+            logging.warning(f"could not find theme for {property}")
+        return theme_name
 
 
 if __name__ == "__main__":

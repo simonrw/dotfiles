@@ -33,6 +33,7 @@ require('packer').startup({function(use)
         requires = { {'nvim-lua/plenary.nvim'} }
     }
     use 'ludovicchabant/vim-gutentags'
+    use 'overcache/NeoSolarized'
 
 
     -- language plugins
