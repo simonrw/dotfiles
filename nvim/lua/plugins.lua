@@ -56,16 +56,12 @@ require('packer').startup({function(use)
     elseif vim.g.completion_framework == 'nvim' then
         use 'neovim/nvim-lspconfig'
         use 'nvim-lua/lsp_extensions.nvim'
-        use 'psf/black'
         use 'josa42/nvim-lightline-lsp'
         use 'williamboman/nvim-lsp-installer'
-        use { 'ray-x/go.nvim', config = function()
-            require("go").setup()
-
-            vim.api.nvim_exec([[
-                autocmd BufWritePre *.go :silent! lua require('go.format').goimport()
-            ]], false)
-        end }
+        use {
+            'jose-elias-alvarez/null-ls.nvim',
+            requires = { {'nvim-lua/plenary.nvim'} },
+        }
 
         -- Completion
         use 'hrsh7th/cmp-nvim-lsp'
