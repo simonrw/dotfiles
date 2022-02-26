@@ -34,6 +34,7 @@ require('packer').startup({function(use)
     }
     use 'ludovicchabant/vim-gutentags'
     use 'overcache/NeoSolarized'
+    use 'pappasam/papercolor-theme-slim'
 
 
     -- language plugins

@@ -26,7 +26,7 @@ THEME_MAPS = {
     },
     "light": {
         "vim": {
-            "colourscheme": "PaperColor",
+            "colourscheme": "PaperColorSlim",
             "lightline": "PaperColor",
         },
         "kitty": "papercolor-light.conf",
@@ -47,6 +47,7 @@ THEME_MAPS = {
 }
 TMUX_COLOURS = {
     "light": {
+        "status_bg": "#eeeeee",
         "accent_color": "colour6",
         "text_color": "colour7",
         "active_text_color": "colour6",
