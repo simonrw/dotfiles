@@ -1,8 +1,3 @@
--- set up global function
-_G.P = function(any)
-    print(vim.inspect(any))
-end
-
 require('disables')
 require('settings')
 require('plugins')
@@ -13,7 +8,6 @@ if vim.g.include_treesitter == 1 then
     require('treesitterconfig')
 end
 require('completionconfig')
-require('nulllsconfig')
 
 -- plugins
 require('fzf')
