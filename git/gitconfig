@@ -106,8 +106,9 @@
     pager = delta
 [delta]
     side-by-side = false
-    diff-so-fancy = true
-    syntax-theme = none
+    diff-so-fancy = false
+    syntax-theme = Github
+    light = true
 [merge]
     tool = conflicted
     conflictstyle = "diff3"
