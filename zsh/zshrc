@@ -141,6 +141,9 @@ export GPG_TTY="$(tty)"
 
 alias g=git
 
+# default name for the main branch of a repository
+export REVIEW_BASE=main
+
 # Always disable pytest-sugar
 export PYTEST_ADDOPTS="-p no:sugar"
 
