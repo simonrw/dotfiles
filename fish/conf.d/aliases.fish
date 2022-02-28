@@ -2,16 +2,14 @@ alias ta=_tmux_attach
 alias ll='ls -lh'
 alias e="$EDITOR"
 alias lr='ls -thor'
-alias ipy=ipython
-alias py=python
+abbr -a ipy ipython
+abbr -a py python
 alias pydoc='=python -m pydoc'
 alias pylab='ipython --pylab'
 alias clear-pycs='find {$PWD} -name "*.pyc" -delete'
-alias g='git'
-alias gs="git status"
-alias ga='git commit --amend'
+abbr -a g git
 alias es='exec $SHELL'
-alias k=kubectl
+abbr -a k kubectl
 alias sourceenv="source ./venv/bin/activate"
 alias vup="nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'"
 test -d ~/.ssh && alias add-keys='ssh-add (find ~/.ssh -maxdepth 1 -type f -name "id_rsa*" | grep -v pub | grep -v bak)'
@@ -33,7 +31,7 @@ else
 end
 
 if type -q task
-    alias t=task
+    abbr -a t task
 end
 
 if type -q bat
