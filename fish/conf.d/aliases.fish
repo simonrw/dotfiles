@@ -1,12 +1,3 @@
-function has_executable --argument-names command
-    if not test -n "$command"
-        echo "has_executable requires one argument" >&2
-        return 1
-    end
-
-    command -v "$command" >/dev/null 2>/dev/null
-end
-
 alias ta=_tmux_attach
 alias ll='ls -lh'
 alias e="$EDITOR"
@@ -29,56 +20,56 @@ alias gpr="git pull --rebase"
 alias pip='python3 -m pip'
 alias tl="tmux-last"
 
-if has_executable git-change
+if type -q git-change
     alias gc="git change"
 end
  
-if has_executable rg
+if type -q rg
     alias grep=rg
-else if has_executable ag
+else if type -q ag
     alias grep=ag
 else
     alias grep='grep --color=auto'
 end
 
-if has_executable task
+if type -q task
     alias t=task
 end
 
-if has_executable bat
+if type -q bat
     alias cat=bat
     alias less=bat
     alias more=bat
 end
 
-if has_executable nvim
+if type -q nvim
     alias vim=nvim
     alias vi=nvim
     alias vimdiff="nvim -d"
 end
 
-if has_executable glab
+if type -q glab
     alias lpb="glab project view -w"
     alias mr="glab mr view -w"
     alias ci="glab ci view"
 end
 
-if has_executable paru
+if type -q paru
     alias pacman=paru
 end
 
-if has_executable edit-dotfiles
+if type -q edit-dotfiles
     alias dotfiles=edit-dotfiles
 end
 
-if has_executable xh
+if type -q xh
     alias http=xh
 end
 
-if has_executable gojq
+if type -q gojq
     alias jq=gojq
 end
 
-if has_executable noti
+if type -q noti
     alias n=noti
 end
