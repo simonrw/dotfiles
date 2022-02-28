@@ -36,6 +36,13 @@ function fish_prompt --description 'Write out the prompt'
         set jobs_prompt "= "
     end
 
+    set -l suffix_color ''
+    if test $__fish_last_status = 0
+        set suffix_color (set_color green)
+    else
+        set suffix_color (set_color red)
+    end
+
     echo
-    echo -n -s {$bgjobs_color} {$jobs_prompt} {$normal} {$prompt_status} {$suffix} " "
+    echo -n -s {$bgjobs_color} {$jobs_prompt} {$suffix_color} {$suffix} {$normal} " "
 end
