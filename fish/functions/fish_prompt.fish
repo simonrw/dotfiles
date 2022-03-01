@@ -7,7 +7,7 @@ function fish_prompt --description 'Write out the prompt'
 
     # Color the prompt differently when we're root
     set -l color_cwd $fish_color_cwd
-    set -l suffix '>'
+    set -l suffix '$'
     if functions -q fish_is_root_user; and fish_is_root_user
         if set -q fish_color_cwd_root
             set color_cwd $fish_color_cwd_root
@@ -26,6 +26,23 @@ function fish_prompt --description 'Write out the prompt'
     set -l status_color (set_color $fish_color_status)
     set -l statusb_color (set_color $bold_flag $fish_color_status)
     set -l prompt_status (__fish_print_pipestatus "[" "]" "|" "$status_color" "$statusb_color" $last_pipestatus)
+    set -l bgjobs_color (set_color yellow)
 
-    echo -n -s (prompt_login)' ' (set_color $color_cwd) (prompt_pwd) $normal (fish_vcs_prompt) $normal " "$prompt_status $suffix " "
+    set -l num_bg_jobs (count (jobs))
+    set -l jobs_prompt ''
+    if test $num_bg_jobs = 0
+        set jobs_prompt ''
+    else
+        set jobs_prompt "= "
+    end
+
+    set -l suffix_color ''
+    if test $__fish_last_status = 0
+        set suffix_color (set_color green)
+    else
+        set suffix_color (set_color red)
+    end
+
+    echo
+    echo -n -s {$bgjobs_color} {$jobs_prompt} {$suffix_color} {$suffix} {$normal} " "
 end
