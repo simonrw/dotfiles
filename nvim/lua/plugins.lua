@@ -69,6 +69,10 @@ require('packer').startup({function(use)
             ]], false)
         end }
 
+        -- debugging
+        use { "rcarriga/nvim-dap-ui", requires = {"mfussenegger/nvim-dap"} }
+        use 'leoluz/nvim-dap-go'
+
         -- Completion
         use 'hrsh7th/cmp-nvim-lsp'
         use 'hrsh7th/cmp-buffer'
