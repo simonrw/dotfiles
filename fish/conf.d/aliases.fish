@@ -1,6 +1,5 @@
 alias ta=_tmux_attach
 alias ll='ls -lh'
-alias e="$EDITOR"
 alias lr='ls -thor'
 abbr -a ipy ipython
 abbr -a py python
