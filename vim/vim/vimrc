@@ -356,6 +356,9 @@ if g:completion_framework == "nvim"
     call lightline#lsp#register()
 endif
 
+" shortcut for markdown preview
+nnoremap <leader>mdp <cmd>MarkdownPreview<cr>
+
 " Support directory local vimrc files
 " https://github.com/direnv/direnv/wiki/Vim
 if exists("$EXTRA_VIM")
