@@ -28,7 +28,8 @@ client.focused_inactive         $inactive-bg-color      $inactive-bg-color      
 client.urgent                   $urgent-bg-color        $urgent-bg-color        $text-color             #7eecf2
 
 # Add caps lock as a control key
-exec_always xmodmap ~/.xmodmap
+exec_always bash ~/.bin/set-keyboard
+exec_always PATH=/usr/bin:/usr/local/bin python3 ~/.i3/scripts/focus-last.py
 
 # font for window titles. ISO 10646 = Unicode
 font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
@@ -110,7 +111,7 @@ bindsym $mod+7 workspace number 7
 bindsym $mod+8 workspace number 8
 bindsym $mod+9 workspace number 9
 bindsym $mod+0 workspace number 10
-bindsym $mod+Tab workspace back_and_forth
+bindsym $mod+Tab exec PATH=/usr/bin:/usr/local/bin python3 ~/.i3/scripts/focus-last.py --switch
 
 # move focused container to workspace
 bindsym $mod+Shift+exclam move container to workspace 1
