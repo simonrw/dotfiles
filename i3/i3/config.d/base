@@ -113,6 +113,9 @@ bindsym $mod+9 workspace number 9
 bindsym $mod+0 workspace number 10
 bindsym $mod+Tab exec PATH=/usr/bin:/usr/local/bin python3 ~/.i3/scripts/focus-last.py --switch
 
+bindsym $mod+n workspace next
+bindsym $mod+p workspace prev
+
 # move focused container to workspace
 bindsym $mod+Shift+exclam move container to workspace 1
 bindsym $mod+Shift+quotedbl move container to workspace 2
@@ -161,9 +164,21 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
+mode "naming" {
+    bindsym n exec i3-input -F 'rename workspace to "%s"' -P "New name for this workspace: "
+    bindsym l workspace next
+    bindsym h workspace prev
+
+    # back to normal: Enter or Escape
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+bindsym $mod+Shift+n mode "naming"
+
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
   position top
   status_command i3status
+  workspace_min_width 40
 }
