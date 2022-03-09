@@ -1,14 +1,17 @@
+# abbreviations
+abbr -a -g  ipy ipython
+abbr -a -g  py python
+abbr -a -g  g git
+abbr -a -g  k kubectl
+
+# aliases
 alias ta=_tmux_attach
 alias ll='ls -lh'
 alias lr='ls -thor'
-abbr -a ipy ipython
-abbr -a py python
 alias pydoc='=python -m pydoc'
 alias pylab='ipython --pylab'
 alias clear-pycs='find {$PWD} -name "*.pyc" -delete'
-abbr -a g git
 alias es='exec $SHELL'
-abbr -a k kubectl
 alias sourceenv="source ./venv/bin/activate"
 alias vup="nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'"
 test -d ~/.ssh && alias add-keys='ssh-add (find ~/.ssh -maxdepth 1 -type f -name "id_rsa*" | grep -v pub | grep -v bak)'
@@ -30,7 +33,7 @@ else
 end
 
 if type -q task
-    abbr -a t task
+    abbr -a -g t task
 end
 
 if type -q bat
