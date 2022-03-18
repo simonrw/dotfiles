@@ -78,3 +78,6 @@ vim.opt.lazyredraw = true
 
 vim.opt.background = 'dark'
 
+if vim.fn.has('nvim-0.7') then
+    vim.opt.laststatus = 3
+end
