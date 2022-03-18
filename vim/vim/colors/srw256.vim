@@ -59,3 +59,7 @@ if has("nvim")
 endif
 hi link ALEVirtualTextError ALEErrorSign
 hi link ALEVirtualTextWarning ALEWarningSign
+
+if has("nvim-0.7")
+    hi WinSeparator guifg=#888888 guibg=none
+endif
