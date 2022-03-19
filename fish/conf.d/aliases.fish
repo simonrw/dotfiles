@@ -62,10 +62,6 @@ if type -q edit-dotfiles
     alias dotfiles=edit-dotfiles
 end
 
-if type -q xh
-    alias http=xh
-end
-
 if type -q gojq
     alias jq=gojq
 end
