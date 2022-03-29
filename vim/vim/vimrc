@@ -304,7 +304,7 @@ let g:gitgutter_sign_modified = '│'
 let g:gitgutter_sign_modified_removed = '~'
 
 let g:lightline = {}
-let g:lightline.colorscheme = 'solarized'
+let g:lightline.colorscheme = 'default'
 if g:completion_framework == 'coc'
 	let g:lightline.active = {
 		  \   'left': [ [ 'mode', 'paste' ],
@@ -368,5 +368,5 @@ if exists("$EXTRA_VIM")
 endif
 
 
-set background=light
-colorscheme NeoSolarized
+set background=dark
+colorscheme srw256

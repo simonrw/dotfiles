@@ -62,9 +62,9 @@ TMUX_COLOURS = {
     },
     "solarized-light": {
         "status_bg": "#fdf6e3",
-        "accent_color": "colour9",
+        "accent_color": "colour6",
         "text_color": "colour7",
-        "active_text_color": "colour9",
+        "active_text_color": "colour6",
         "pane_border_color": "colour6",
     },
 }
