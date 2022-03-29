@@ -73,7 +73,7 @@ function delete-stack -a stackname
     end
 
     aws cloudformation delete-stack --stack-name "$stackname"
-    if $status -ne 0
+    if test $status -ne 0
         return 1
     end
 
