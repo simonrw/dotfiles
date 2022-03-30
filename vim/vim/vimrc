@@ -369,4 +369,4 @@ endif
 
 
 set background=light
-colorscheme PaperColorSlim
+colorscheme github_light

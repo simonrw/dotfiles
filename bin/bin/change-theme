@@ -26,10 +26,10 @@ THEME_MAPS = {
     },
     "light": {
         "vim": {
-            "colourscheme": "PaperColorSlim",
+            "colourscheme": "github_light",
             "lightline": "PaperColor",
         },
-        "kitty": "papercolor-light.conf",
+        "kitty": "github_light.conf",
         "ipython": "LightBG",
         "alacritty": "colors_papercolor",
         "bat": "GitHub",
@@ -47,10 +47,10 @@ THEME_MAPS = {
 }
 TMUX_COLOURS = {
     "light": {
-        "status_bg": "#eeeeee",
-        "accent_color": "colour6",
+        "status_bg": "#ffffff",
+        "accent_color": "#032f62",
         "text_color": "colour7",
-        "active_text_color": "colour6",
+        "active_text_color": "#032f62",
         "pane_border_color": "colour6",
     },
     "dark": {
