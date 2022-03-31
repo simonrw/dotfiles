@@ -27,6 +27,11 @@ local on_attach = function(client, bufnr, include_formatting)
     buf_set_keymap("n", "<leader>dl", "<cmd>Telescope diagnostics<cr>", opts)
 
     buf_set_keymap("n", "<C-Space>", [[<Plug>(completion_trigger)]], opts)
+
+    -- autoformat on save
+    vim.api.nvim_command("au BufWritePost <buffer> lua vim.lsp.buf.formatting()")
+
+    vim.cmd("command! LspFormatting lua vim.lsp.buf.formatting()")
 end
 
 local function setup()
