@@ -29,9 +29,17 @@ local on_attach = function(client, bufnr, include_formatting)
     buf_set_keymap("n", "<C-Space>", [[<Plug>(completion_trigger)]], opts)
 
     -- autoformat on save
-    vim.api.nvim_command("au BufWritePost <buffer> lua vim.lsp.buf.formatting()")
-
-    vim.cmd("command! LspFormatting lua vim.lsp.buf.formatting()")
+    if client.resolved_capabilities.document_formatting then
+        if vim.fn.has('nvim-0.7') then
+            local group = vim.api.nvim_create_augroup("Formatting", { clear = true })
+            vim.api.nvim_create_autocmd("BufWritePost", { callback = function()
+                vim.lsp.buf.formatting_sync({}, 10000)
+            end, group = group })
+        else
+            vim.api.nvim_command("au BufWritePost <buffer> lua vim.lsp.buf.formatting()")
+        end
+        vim.cmd("command! LspFormatting lua vim.lsp.buf.formatting_sync()")
+    end
 end
 
 local function setup()
