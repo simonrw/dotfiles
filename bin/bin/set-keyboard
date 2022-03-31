@@ -4,5 +4,5 @@ set -eou pipefail
 
 setxkbmap gb
 setxkbmap -option caps:ctrl_modifier
-# setxkbmap -option altwin:swap_alt_win
+setxkbmap -option altwin:swap_alt_win
 xcape -t 100 -e 'Caps_Lock=Escape;Control_L=Escape;Control_R=Escape'
