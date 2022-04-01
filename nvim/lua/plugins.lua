@@ -36,7 +36,8 @@ require('packer').startup({function(use)
     use 'overcache/NeoSolarized'
     use 'pappasam/papercolor-theme-slim'
     use 'mvpopuk/inspired-github.vim'
-    use "projekt0n/github-nvim-theme"
+    use 'projekt0n/github-nvim-theme'
+    use { 'FraserLee/ScratchPad', opt = true, cmd = { 'ScratchPad' } }
 
     -- language plugins
     use 'cespare/vim-toml'
