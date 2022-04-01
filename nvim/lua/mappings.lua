@@ -47,7 +47,4 @@ nnoremap('<Space>', ':nohl<cr>')
 -- Bind K to grep word under cursor
 nnoremap('K', [[:grep! "\b<C-R><C-W>\b"<cr><cr>|:copen<Cr>]])
 
--- scratchpad
-nnoremap('gp', [[:ScratchPad<cr>]])
-
 return _G
