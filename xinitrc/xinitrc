@@ -14,5 +14,7 @@ xmodmap ~/.Xmodmap
 # Configure keyboard map
 bash ~/.bin/set-keyboard
 
-# Start XFCE
-exec startxfce4
+# Start GNOME
+export XDG_SESSION_TYPE=x11
+export GDK_BACKEND=x11
+exec gnome-session
