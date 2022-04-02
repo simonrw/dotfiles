@@ -1,4 +1,13 @@
 local target_servers = {"pyright", "gopls", "rust_analyzer", "yamlls", "terraformls", "efm"}
+local lsp_status = require('lsp-status')
+lsp_status.register_progress()
+
+function merge_tables(a, b)
+    for _, v in pairs(b) do
+        table.insert(a, v)
+    end
+    return a
+end
 
 local on_attach = function(client, bufnr, include_formatting)
     local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
@@ -40,12 +49,16 @@ local on_attach = function(client, bufnr, include_formatting)
         end
         vim.cmd("command! LspFormatting lua vim.lsp.buf.formatting_sync()")
     end
+    return lsp_status.on_attach(client)
 end
 
 local function setup()
     local lspconfig = require("lspconfig")
     local lsp_installer = require("nvim-lsp-installer")
-    local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
+    local capabilities = vim.tbl_extend('keep',
+            require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities()),
+            lsp_status.capabilities
+            )
 
     -- Install required servers
     for _, target_server in ipairs(target_servers) do

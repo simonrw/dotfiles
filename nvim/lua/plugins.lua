@@ -27,7 +27,6 @@ require('packer').startup({function(use)
     use { 'iamcco/markdown-preview.nvim', run = "cd app && yarn install" }
     use 'airblade/vim-gitgutter'
     use { 'kana/vim-textobj-indent', requires = { 'kana/vim-textobj-user' } }
-    use 'itchyny/lightline.vim'
     use {
         'nvim-telescope/telescope.nvim',
         requires = { {'nvim-lua/plenary.nvim'} }
@@ -37,6 +36,11 @@ require('packer').startup({function(use)
     use 'pappasam/papercolor-theme-slim'
     use 'mvpopuk/inspired-github.vim'
     use "projekt0n/github-nvim-theme"
+
+    use {
+        'nvim-lualine/lualine.nvim',
+        requires = { 'kyazdani42/nvim-web-devicons', opt = true }
+    }
 
     -- language plugins
     use 'cespare/vim-toml'
@@ -60,7 +64,6 @@ require('packer').startup({function(use)
         use 'neovim/nvim-lspconfig'
         use 'nvim-lua/lsp_extensions.nvim'
         use 'psf/black'
-        use 'josa42/nvim-lightline-lsp'
         use 'williamboman/nvim-lsp-installer'
         use { 'ray-x/go.nvim', config = function()
             require("go").setup()
@@ -69,6 +72,8 @@ require('packer').startup({function(use)
                 autocmd BufWritePre *.go :silent! lua require('go.format').goimport()
             ]], false)
         end }
+
+        use 'nvim-lua/lsp-status.nvim'
 
         -- debugging
         use { "rcarriga/nvim-dap-ui", requires = {"mfussenegger/nvim-dap"} }

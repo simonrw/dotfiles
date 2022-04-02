@@ -303,59 +303,6 @@ let g:gitgutter_sign_added = '│'
 let g:gitgutter_sign_modified = '│'
 let g:gitgutter_sign_modified_removed = '~'
 
-let g:lightline = {}
-let g:lightline.colorscheme = 'PaperColor'
-if g:completion_framework == 'coc'
-	let g:lightline.active = {
-		  \   'left': [ [ 'mode', 'paste' ],
-		  \             [ 'cocstatus', 'readonly', 'filename', 'modified', 'tagstatus', 'gitstatus', 'obsessionstatus' ] ],
-		  \ }
-elseif g:completion_framework == 'ale'
-	let g:lightline.active = {
-		  \   'left': [ [ 'mode', 'paste' ],
-		  \             [ 'alestatus', 'readonly', 'filename', 'modified', 'tagstatus', 'gitstatus', 'obsessionstatus' ] ],
-		  \ }
-elseif g:completion_framework == 'nvim'
-	let g:lightline.active = {
-		  \   'left': [ [ 'mode', 'paste' ],
-		  \             [ 'lsp_info', 'lsp_hints', 'lsp_errors', 'lsp_warnings', 'lsp_ok', 'lsp_status', 'readonly', 'filename', 'modified', 'tagstatus', 'gitstatus', 'obsessionstatus' ] ],
-		  \ }
-else
-	let g:lightline.active = {
-		  \   'left': [ [ 'mode', 'paste' ],
-		  \             [ 'readonly', 'filename', 'modified', 'tagstatus', 'gitstatus', 'obsessionstatus' ] ],
-		  \ }
-endif
-let g:lightline.mode_map = {
-        \ 'n' : 'N',
-        \ 'i' : 'I',
-        \ 'R' : 'R',
-        \ 'v' : 'V',
-        \ 'V' : 'VL',
-        \ "\<C-v>": 'VB',
-        \ 'c' : 'C',
-        \ 's' : 'S',
-        \ 'S' : 'SL',
-        \ "\<C-s>": 'SB',
-        \ 't': 'T',
-        \ }
-let g:lightline.inactive = g:lightline.active
-let g:lightline.component_function = {
-      \   'filename': 'LightlineFilename',
-      \   'cocstatus': 'coc#status',
-      \   'gitstatus': 'FugitiveStatusline',
-      \   'alestatus': 'ALELinterStatus',
-      \   'tagstatus': 'gutentags#statusline',
-      \   'obsessionstatus': 'ObsessionStatus',
-      \ }
-function! LightlineFilename()
-  return expand('%:t') !=# '' ? @% : '[No Name]'
-endfunction
-
-if g:completion_framework == "nvim"
-    call lightline#lsp#register()
-endif
-
 " shortcut for markdown preview
 nnoremap <leader>mdp <cmd>MarkdownPreview<cr>
 
