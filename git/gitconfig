@@ -111,9 +111,10 @@
 	attributesFile = ~/.gitattributes_global
     pager = delta
 [delta]
+    light = true
     side-by-side = false
-    diff-so-fancy = true
-    syntax-theme = none
+    diff-so-fancy = false
+    syntax-theme = GitHub
 [merge]
     tool = conflicted
     conflictstyle = "diff3"
