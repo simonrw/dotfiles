@@ -3,6 +3,8 @@ set shell=zsh
 let g:mapleader = ","
 let g:maplocalleader = '\\'
 
+let g:do_filetype_lua = 1
+
 " remove all existing autocmds
 autocmd!
 
