@@ -6,9 +6,7 @@ local function lsp()
     local messages = require('lsp-status').messages()
     -- just take the first for now
     if messages[1] ~= nil then
-        if messages[1].message ~= nil then
-            return messages[1].title
-        end
+        return messages[1].title or ""
     end
     return ""
 end
