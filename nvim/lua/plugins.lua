@@ -36,7 +36,11 @@ require('packer').startup({function(use)
     use 'pappasam/papercolor-theme-slim'
     use 'mvpopuk/inspired-github.vim'
     use "projekt0n/github-nvim-theme"
-    use 'nvim-lualine/lualine.nvim'
+
+    use {
+        'nvim-lualine/lualine.nvim',
+        requires = { 'kyazdani42/nvim-web-devicons', opt = true }
+    }
 
     -- language plugins
     use 'cespare/vim-toml'
