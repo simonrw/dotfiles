@@ -24,7 +24,7 @@ require('packer').startup({function(use)
     use 'vim-test/vim-test'
     use 'junegunn/vim-easy-align'
     use 'shumphrey/fugitive-gitlab.vim'
-    use { 'iamcco/markdown-preview.nvim', run = "cd app && yarn install" }
+    use { 'iamcco/markdown-preview.nvim', run = 'cd app && yarn install' }
     use 'airblade/vim-gitgutter'
     use { 'kana/vim-textobj-indent', requires = { 'kana/vim-textobj-user' } }
     use {
@@ -35,7 +35,7 @@ require('packer').startup({function(use)
     use 'overcache/NeoSolarized'
     use 'pappasam/papercolor-theme-slim'
     use 'mvpopuk/inspired-github.vim'
-    use "projekt0n/github-nvim-theme"
+    use 'projekt0n/github-nvim-theme'
 
     use {
         'nvim-lualine/lualine.nvim',
@@ -51,7 +51,7 @@ require('packer').startup({function(use)
     use 'rust-lang/rust.vim'
     use 'tweekmonster/django-plus.vim'
 
-    if vim.g.completion_framework == "coc" then
+    if vim.g.completion_framework == 'coc' then
         use { 'neoclide/coc.nvim', branch = 'release' }
         use 'fannheyward/telescope-coc.nvim'
         use 'ray-x/go.nvim'
@@ -66,7 +66,7 @@ require('packer').startup({function(use)
         use 'psf/black'
         use 'williamboman/nvim-lsp-installer'
         use { 'ray-x/go.nvim', config = function()
-            require("go").setup()
+            require('go').setup()
 
             vim.api.nvim_exec([[
                 autocmd BufWritePre *.go :silent! lua require('go.format').goimport()
@@ -76,7 +76,7 @@ require('packer').startup({function(use)
         use 'nvim-lua/lsp-status.nvim'
 
         -- debugging
-        use { "rcarriga/nvim-dap-ui", requires = {"mfussenegger/nvim-dap"} }
+        use { 'rcarriga/nvim-dap-ui', requires = {'mfussenegger/nvim-dap'} }
         use 'leoluz/nvim-dap-go'
 
         -- Completion
@@ -103,6 +103,6 @@ end,
 config = {}})
 
 require('search_in_scope').setup({
-    bind = "<leader>S",
-    indent_filetypes = {"lua"},
+    bind = '<leader>S',
+    indent_filetypes = {'lua'},
 })
