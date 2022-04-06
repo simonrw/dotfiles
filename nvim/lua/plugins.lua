@@ -36,6 +36,7 @@ require('packer').startup({function(use)
     use 'pappasam/papercolor-theme-slim'
     use 'mvpopuk/inspired-github.vim'
     use 'projekt0n/github-nvim-theme'
+    use 'editorconfig/editorconfig-vim'
 
     use {
         'nvim-lualine/lualine.nvim',
