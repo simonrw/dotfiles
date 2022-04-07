@@ -1,4 +1,4 @@
-local target_servers = {"pyright", "gopls", "rust_analyzer", "yamlls", "terraformls", "efm"}
+local target_servers = {"pyright", "gopls", "rust_analyzer", "yamlls", "terraformls"}
 local lsp_status = require('lsp-status')
 lsp_status.register_progress()
 
