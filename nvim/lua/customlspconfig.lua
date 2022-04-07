@@ -38,7 +38,7 @@ local on_attach = function(client, bufnr, include_formatting)
     buf_set_keymap("n", "<C-Space>", [[<Plug>(completion_trigger)]], opts)
 
     -- autoformat on save
-    if client.resolved_capabilities.document_formatting then
+    if client.resolved_capabilities.document_formatting and include_formatting then
         if vim.fn.has('nvim-0.7') then
             local group = vim.api.nvim_create_augroup("Formatting", { clear = true })
             vim.api.nvim_create_autocmd("BufWritePost", { callback = function()
@@ -72,10 +72,12 @@ local function setup()
     lsp_installer.on_server_ready(function(server)
         local opts = {
             on_attach = function(client, bufnr)
-                if server.name ~= "gopls" then
-                    return on_attach(client, bufnr, true)
-                else
+                if server.name == "gopls" then
                     return on_attach(client, bufnr, false)
+                elseif server.name == "tsserver" then
+                    return on_attach(client, bufnr, false)
+                else
+                    return on_attach(client, bufnr, true)
                 end
             end,
             capabilities = capabilities,
