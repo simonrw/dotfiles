@@ -318,4 +318,4 @@ endif
 
 
 set background=light
-colorscheme github_light
+colorscheme srw256

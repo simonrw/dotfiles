@@ -228,6 +228,6 @@
 				   (require 'lsp-pyright)
 				   (lsp-deferred))))
 
-(load-theme 'whiteboard t)
+(load-theme 'wombat t)
 
 (provide 'init)
