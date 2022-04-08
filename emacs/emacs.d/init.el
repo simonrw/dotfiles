@@ -213,13 +213,10 @@
 
 (use-package ripgrep)
 
-(use-package lsp-mode
-  :init
-  (setq lsp-keymap-prefix "C-l")
-  :hook ((lsp-mode . lsp-enable-which-key-integration))
-  :commands (lsp lsp-deferred))
-
-(use-package lsp-ui)
+(use-package eglot
+  :config
+  (add-hook 'rust-mode-hook 'eglot-ensure)
+  (add-hook 'python-mode-hook 'eglot-ensure))
 
 ;; lsp servers
 (use-package lsp-pyright
