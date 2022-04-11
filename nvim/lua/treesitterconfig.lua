@@ -2,7 +2,7 @@ local function setup()
     local ts = require('nvim-treesitter.configs')
 
     ts.setup {
-        ensure_installed = 'maintained',
+        ensure_installed = 'all',
         highlight = {
             enable = true,
             use_languagetree = true,
