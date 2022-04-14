@@ -9,3 +9,7 @@ set -x SHELL (command -v fish)
 set host_config ~/.config/fish/conf.d/per-host/config.(hostname).fish
 test -r $host_config; and source $host_config
 set -e host_config
+
+# some key variables
+set -x GOPATH {$HOME}/dev/gocode
+set -x PATH {$PATH} {$GOPATH}/bin
