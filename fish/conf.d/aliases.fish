@@ -1,8 +1,9 @@
 # abbreviations
-abbr -a -g  ipy ipython
-abbr -a -g  py python
-abbr -a -g  g git
-abbr -a -g  k kubectl
+abbr -a -g ipy ipython
+abbr -a -g py python
+abbr -a -g g git
+abbr -a -g k kubectl
+abbr -a -g gp 'git pull'
 
 # aliases
 alias ta=_tmux_attach
