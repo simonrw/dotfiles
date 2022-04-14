@@ -33,6 +33,10 @@ else
     alias grep='grep --color=auto'
 end
 
+if type -q exa
+    alias ls=exa
+end
+
 if type -q task
     abbr -a -g t task
 end
