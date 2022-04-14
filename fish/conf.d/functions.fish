@@ -54,7 +54,7 @@ function gitignore -a keys
         return 1
     end
 
-    curl -LsSo .gitignore https://gitignore.io/api/$1
+    curl -LsSo .gitignore https://gitignore.io/api/$keys
 end
 
 function gl
