@@ -81,12 +81,12 @@ local function setup()
                 end
             end,
             capabilities = capabilities,
-        }
-
-        -- configure yamlls to include cloudformation tags
-        if server.name == "yamlls" then
-            opts.filetypes = { "cloudformation", "yaml", "yaml.docker-compose" }
-            opts.settings = {
+            settings = {
+                ["rust-analyzer"] = {
+                    checkOnSave = {
+                        command = "clippy",
+                    },
+                },
                 redhat = { telemetry = { enabled = false } },
                 yaml = {
                     schemas = {
@@ -113,7 +113,12 @@ local function setup()
                         "!Join sequence"
                     },
                 },
-            }
+            },
+        }
+
+        -- configure yamlls to include cloudformation tags
+        if server.name == "yamlls" then
+            opts.filetypes = { "cloudformation", "yaml", "yaml.docker-compose" }
         end
 
         server:setup(opts)
