@@ -4,6 +4,7 @@ abbr -a -g py python
 abbr -a -g g git
 abbr -a -g k kubectl
 abbr -a -g gp 'git pull'
+abbr -a -g gco 'git checkout'
 
 # aliases
 alias ta=_tmux_attach
