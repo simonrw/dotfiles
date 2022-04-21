@@ -317,5 +317,5 @@ if exists("$EXTRA_VIM")
 endif
 
 
-set background=light
+set background=dark
 colorscheme srw256
