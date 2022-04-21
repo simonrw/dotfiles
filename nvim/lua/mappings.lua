@@ -25,11 +25,8 @@ nnoremap('k', 'gk')
 
 cnoremap('%s/', '%sm/')
 
--- escape with Ctrl-j
-inoremap('<C-j>', '<esc>')
-vnoremap('<C-j>', '<esc>')
+-- escape with Ctrl-c
 inoremap('<C-c>', '<esc>')
-vnoremap('<C-c>', '<esc>')
 
 -- Reselect visual block after indent/outdent
 vnoremap('<', '<gv')
