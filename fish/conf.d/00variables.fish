@@ -4,3 +4,4 @@ set -x GOPATH {$HOME}/dev/gocode
 set -x EDITOR nvim
 set -x REVIEW_BASE main
 set -x PYTEST_ADDOPTS "-p no:sugar"
+set -x LANG en_GB.UTF-8
