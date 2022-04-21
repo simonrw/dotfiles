@@ -1,6 +1,6 @@
 local applications = {
     terminal = {
-        name = "Kitty",
+        name = "Alacritty",
     },
     browser = {
         name = "Firefox",
