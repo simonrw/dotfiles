@@ -20,4 +20,3 @@ end
 require('telescopeconfig')
 require('dapconfig')
 require('lualineconfig')
-require('nulllsconfig')

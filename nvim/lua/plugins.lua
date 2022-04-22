@@ -71,7 +71,6 @@ require('packer').startup({function(use)
         end }
 
         use 'nvim-lua/lsp-status.nvim'
-        use { 'jose-elias-alvarez/null-ls.nvim', requires = {"nvim-lua/plenary.nvim"} }
 
         -- debugging
         use { 'rcarriga/nvim-dap-ui', requires = {'mfussenegger/nvim-dap'} }
