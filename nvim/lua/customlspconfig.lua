@@ -1,4 +1,4 @@
-local target_servers = {"pyright", "gopls", "rust_analyzer", "yamlls", "terraformls"}
+local target_servers = {"pyright", "gopls", "rust_analyzer", "yamlls", "terraformls", "efm"}
 local lsp_status = require('lsp-status')
 lsp_status.register_progress()
 
@@ -115,6 +115,12 @@ local function setup()
                 },
             },
         }
+
+        if server.name == "efm" then
+            opts.init_options = {
+                documentFormatting = true,
+            }
+        end
 
         -- configure yamlls to include cloudformation tags
         if server.name == "yamlls" then

@@ -157,6 +157,7 @@ class Deployer(object):
             "bat",
             "bspwm",
             "direnv",
+            "efm-langserver",
             "hookman",
             "karabiner",
             "kitty",
