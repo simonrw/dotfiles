@@ -38,7 +38,6 @@ require('packer').startup({function(use)
     use 'projekt0n/github-nvim-theme'
     use 'editorconfig/editorconfig-vim'
     use 'nvim-lualine/lualine.nvim'
-    use { 'dracula/vim', { as = 'dracula' } }
 
     -- language plugins
     use 'cespare/vim-toml'

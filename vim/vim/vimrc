@@ -318,4 +318,4 @@ endif
 
 
 set background=dark
-colorscheme dracula
+colorscheme srw256

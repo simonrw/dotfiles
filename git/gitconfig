@@ -114,7 +114,7 @@
     dark = true
     side-by-side = true
     diff-so-fancy = true
-    syntax-theme = Dracula
+    syntax-theme = Monokai Extended
 [merge]
     tool = conflicted
     conflictstyle = "diff3"
