@@ -225,6 +225,6 @@
 				   (require 'lsp-pyright)
 				   (lsp-deferred))))
 
-(load-theme 'wombat t)
+(load-theme 'whiteboard t)
 
 (provide 'init)
