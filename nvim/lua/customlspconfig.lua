@@ -120,6 +120,7 @@ local function setup()
             opts.init_options = {
                 documentFormatting = true,
             }
+            opts.filetypes = {"lua", "python"}
         end
 
         -- configure yamlls to include cloudformation tags
