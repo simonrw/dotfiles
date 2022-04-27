@@ -7,4 +7,4 @@ if [ $# -ne 1 ]; then
     exit 1
 fi
 
-ffprobe -print_format json -show_streams -show_format $1 2>/dev/null | jq .
+mediainfo --Output=JSON -f $1 | jq .
