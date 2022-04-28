@@ -19,7 +19,6 @@ alias vup="nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSy
 test -d ~/.ssh && alias add-keys='ssh-add (find ~/.ssh -maxdepth 1 -type f -name "id_rsa*" | grep -v pub | grep -v bak)'
 alias gpe="git push && exit"
 alias gpr="git pull --rebase"
-alias pip='python3 -m pip'
 alias tl="tmux-last"
 
 if type -q git-change
