@@ -158,6 +158,7 @@ class Deployer(object):
             "bspwm",
             "direnv",
             "efm-langserver",
+            "helix",
             "hookman",
             "karabiner",
             "kitty",
