@@ -10,7 +10,6 @@ abbr -a -g gco 'git checkout'
 alias ta=_tmux_attach
 alias ll='ls -lh'
 alias lr='ls -thor'
-alias pydoc='=python -m pydoc'
 alias pylab='ipython --pylab'
 alias clear-pycs='find {$PWD} -name "*.pyc" -delete'
 alias es='exec $SHELL'
