@@ -38,7 +38,6 @@ require('packer').startup({function(use)
     use 'projekt0n/github-nvim-theme'
     use 'editorconfig/editorconfig-vim'
     use 'nvim-lualine/lualine.nvim'
-    use 'sainnhe/sonokai'
 
     -- language plugins
     use 'cespare/vim-toml'
