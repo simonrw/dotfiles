@@ -319,4 +319,7 @@ endif
 
 
 set background=dark
-colorscheme srw256
+let g:sonokai_style = 'shusia'
+let sonokai_better_performance = 1
+colorscheme sonokai
+highlight Normal guibg=none
