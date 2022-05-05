@@ -96,9 +96,10 @@
 	(setq-default mac-emulate-three-button-mouse t)
 	(global-set-key (kbd "M-`") 'other-frame)))
 
-(set-face-attribute 'default nil :family "Source Code Pro" :height 130)
-(set-face-attribute 'fixed-pitch nil :family "Source Code Pro" :height 130)
-(set-face-attribute 'variable-pitch nil :family "Cantarell" :height 130)
+(set-face-attribute 'default nil :family "Source Code Pro" :height 150)
+(set-face-attribute 'fixed-pitch nil :family "Source Code Pro" :height 150)
+(set-face-attribute 'variable-pitch nil :family "Cantarell" :height 150)
+(set-face-attribute 'default (selected-frame) :height 150)
 
 ;; custom keybindings
 (global-set-key (kbd "C-c C-t") 'compile)
