@@ -58,3 +58,6 @@
 [submodule "external/git-pm"]
 	path = external/git-pm
 	url = https://github.com/mindriot101/git-pm
+[submodule "external/s3-open"]
+	path = external/s3-open
+	url = https://github.com/mindriot101/s3-open
