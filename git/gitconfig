@@ -111,10 +111,10 @@
 	attributesFile = ~/.gitattributes_global
     pager = delta
 [delta]
-    dark = true
+    light = true
     side-by-side = true
     diff-so-fancy = true
-    syntax-theme = Monokai Extended
+    syntax-theme = GitHub
 [merge]
     tool = conflicted
     conflictstyle = "diff3"

@@ -2,7 +2,7 @@
 
 set -euo pipefail
 
-SESSIONNAME="$(tmux list-sessions -F '#S' | sk --color 'dark,matched_bg:-1')"  #  | xargs tmux switch-client -t
+SESSIONNAME="$(tmux list-sessions -F '#S' | sk)"  #  | xargs tmux switch-client -t
 if [[ ! -z "${SESSIONNAME}" ]]; then
     tmux switch-client -t "${SESSIONNAME}"
 fi
