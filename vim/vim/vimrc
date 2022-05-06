@@ -318,5 +318,5 @@ if exists("$EXTRA_VIM")
 endif
 
 
-set background=light
-colorscheme github_light
+set background=dark
+colorscheme srw256
