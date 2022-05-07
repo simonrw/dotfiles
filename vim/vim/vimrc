@@ -320,3 +320,4 @@ endif
 
 set background=dark
 colorscheme monokai
+hi Normal guibg=none
