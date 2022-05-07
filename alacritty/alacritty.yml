@@ -115,15 +115,15 @@ font:
     #style: Bold
 
   # Italic font face
-  #italic:
+  italic:
     # Font family
     #
     # If the italic family is not specified, it will fall back to the
     # value specified for the normal font.
-    #family: monospace
+    family: Source Code Pro
 
     # The `style` can be specified to pick a specific face.
-    #style: Italic
+    style: Regular
 
   # Bold italic font face
   #bold_italic:
@@ -174,6 +174,34 @@ font:
 # Colors (Tomorrow Night)
 
 available_schemes:
+  monokai: &colors_monokai
+    # Default colors
+    primary:
+      background: '#26292C'
+      foreground: '#F8F8F2'
+
+    # Normal colors
+    normal:
+      black:   '#272822'
+      red:     '#F92672'
+      green:   '#A6E22E'
+      yellow:  '#F4BF75'
+      blue:    '#66D9EF'
+      magenta: '#AE81FF'
+      cyan:    '#A1EFE4'
+      white:   '#F8F8F2'
+
+    # Bright colors
+    bright:
+      black:   '#75715E'
+      red:     '#F92672'
+      green:   '#A6E22E'
+      yellow:  '#F4BF75'
+      blue:    '#66D9EF'
+      magenta: '#AE81FF'
+      cyan:    '#A1EFE4'
+      white:   '#F9F8F5'
+
   gruvbox_dark: &colors_gruvbox_dark
     primary:
       # hard contrast: background = '#1d2021'
@@ -441,7 +469,7 @@ available_schemes:
       text: '#eeeeee'
       cursor: '#444444'
 
-colors: *colors_default
+colors: *colors_monokai
 
 # Visual Bell
 #
