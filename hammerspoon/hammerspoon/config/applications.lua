@@ -12,7 +12,7 @@ local applications = {
         name = "Slack",
     },
     music = {
-        name = "SomaFM",
+        name = "Spotify",
     },
     documentation = {
         name = "Dash",
