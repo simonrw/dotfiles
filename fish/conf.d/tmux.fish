@@ -14,6 +14,10 @@ function _not_inside_vscode_term
     test "$TERM_PROGRAM" != "vscode"
 end
 
+function _not_inside_zellij
+    test -z "$ZELLIJ_SESSION_NAME"
+end
+
 function _inside_x_session
     switch (uname)
         case Linux
@@ -24,7 +28,7 @@ function _inside_x_session
 end
 
 function ensure_tmux_is_running
-    if _not_inside_tmux && _not_inside_neovim && _not_inside_emacs && _inside_x_session && _not_inside_vscode_term
+    if _not_inside_tmux && _not_inside_neovim && _not_inside_emacs && _inside_x_session && _not_inside_vscode_term && _not_inside_zellij
         tat
     end
 end
