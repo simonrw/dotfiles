@@ -177,7 +177,7 @@ available_schemes:
   monokai: &colors_monokai
     # Default colors
     primary:
-      background: '#26292C'
+      background: '#181818'
       foreground: '#F8F8F2'
 
     # Normal colors

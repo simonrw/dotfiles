@@ -310,3 +310,5 @@ endif
 set background=dark
 colorscheme monokai
 hi Normal guibg=none
+hi SignColumn guibg=none
+hi TelescopeNormal guibg=none
