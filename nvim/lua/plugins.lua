@@ -31,6 +31,7 @@ require('packer').startup({function(use)
         'nvim-telescope/telescope.nvim',
         requires = { {'nvim-lua/plenary.nvim'} }
     }
+    use {'nvim-telescope/telescope-ui-select.nvim' }
     use 'ludovicchabant/vim-gutentags'
     use 'overcache/NeoSolarized'
     use 'pappasam/papercolor-theme-slim'

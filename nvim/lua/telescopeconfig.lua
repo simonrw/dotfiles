@@ -12,3 +12,12 @@ if vim.g.completion_framework == 'coc' then
 elseif vim.g.completion_framework == 'nvim' then
     mappings.nnoremap('<leader>gt', [[<cmd>lua require('telescope.builtin').lsp_workspace_symbols()<Cr>]])
 end
+
+require("telescope").setup({
+  extensions = {
+    ["ui-select"] = {
+    }
+  }
+})
+
+require("telescope").load_extension("ui-select")
