@@ -28,7 +28,11 @@ lualine.setup({
     sections = {
         lualine_a = {'mode'},
         lualine_b = {'branch', 'diff', 'diagnostics'},
-        lualine_c = {'filename', lsp},
+        lualine_c = {
+            { 'filename',
+              file_status = false,
+              path = 1,
+            }, lsp},
         lualine_x = {obsession_status, 'encoding', 'filetype'},
         lualine_y = {'progress'},
         lualine_z = {'location'}
