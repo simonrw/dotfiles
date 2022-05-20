@@ -469,6 +469,44 @@ available_schemes:
       text: '#eeeeee'
       cursor: '#444444'
 
+  default: &colors_github
+    # Default colors
+    primary:
+      foreground: '#ffffff'
+      background: '#ffffff'
+
+    # Normal colors
+    normal:
+      black:   '#24292e'
+      red:     '#d73a49'
+      green:   '#28a745'
+      yellow:  '#dbab09'
+      blue:    '#0366d6'
+      magenta: '#5a32a3'
+      cyan:    '#0598bc'
+      white:   '#6a737d'
+
+    # Bright colors
+    bright:
+      black:   '#959da5'
+      red:     '#cb2431'
+      green:   '#22863a'
+      yellow:  '#b08800'
+      blue:    '#005cc5'
+      magenta: '#5a32a3'
+      cyan:    '#3192aa'
+      white:   '#d1d5da'
+
+    # Cursor colors
+    cursor:
+      text: '#24292f'
+      cursor: '#044289'
+
+    # Vi mode cursor colors
+    vi_mode_cursor:
+      text: '#eeeeee'
+      cursor: '#444444'
+
 colors: *colors_monokai
 
 # Visual Bell
