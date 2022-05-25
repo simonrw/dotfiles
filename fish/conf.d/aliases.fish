@@ -66,10 +66,6 @@ if type -q edit-dotfiles
     alias dotfiles=edit-dotfiles
 end
 
-if type -q gojq
-    alias jq=gojq
-end
-
 if type -q noti
     alias n=noti
 end
