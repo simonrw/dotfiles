@@ -308,7 +308,7 @@ endif
 
 
 set background=dark
-colorscheme monokai
+colorscheme srw256
 hi Normal guibg=none
 hi SignColumn guibg=none
 hi TelescopeNormal guibg=none
