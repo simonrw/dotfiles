@@ -40,6 +40,13 @@ require('packer').startup({function(use)
     use 'editorconfig/editorconfig-vim'
     use 'nvim-lualine/lualine.nvim'
     use 'tanvirtin/monokai.nvim'
+    use {
+        "folke/zen-mode.nvim",
+        config = function()
+            require("zen-mode").setup {}
+        end
+    }
+
 
     -- language plugins
     use 'cespare/vim-toml'
