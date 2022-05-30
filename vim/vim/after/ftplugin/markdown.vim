@@ -1,7 +1,7 @@
-setlocal nowrap
+setlocal wrap
 setlocal nocindent
 setlocal expandtab
-setlocal tw=120
+setlocal tw=0
 
 setlocal spell
 setlocal foldlevel=99
