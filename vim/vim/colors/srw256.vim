@@ -4,7 +4,6 @@ runtime colors/lucius.vim
 
 let g:colors_name = "srw256"
 
-highlight ColorColumn ctermbg=243 guibg=#424242
 if has("nvim")
     highlight Normal guibg=none
     highlight LineNr guibg=none
@@ -63,3 +62,4 @@ hi link ALEVirtualTextWarning ALEWarningSign
 if has("nvim-0.7")
     hi WinSeparator guifg=#888888 guibg=none
 endif
+highlight ColorColumn ctermbg=243 guibg=#222222
