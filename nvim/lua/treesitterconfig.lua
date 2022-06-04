@@ -3,7 +3,7 @@ local function setup()
 
     ts.setup {
         ensure_installed = 'all',
-        ignore_install = { "phpdoc", "swift" },
+        ignore_install = { "phpdoc", "swift", "r" },
         highlight = {
             enable = true,
             use_languagetree = true,
