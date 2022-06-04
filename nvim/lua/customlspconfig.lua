@@ -33,7 +33,7 @@ local on_attach = function(client, bufnr, include_formatting)
     buf_set_keymap("n", "[g", "<cmd>lua vim.diagnostic.goto_prev()<CR>", opts)
     buf_set_keymap("n", "<leader>ca", [[<cmd>lua vim.lsp.buf.code_action({ source = { organizeImports = true }})<CR>]], opts)
     buf_set_keymap("n", "<leader>e", "<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>", opts)
-    buf_set_keymap("n", "<leader>dl", "<cmd>Telescope diagnostics<cr>", opts)
+    buf_set_keymap("n", "<leader>D", "<cmd>Telescope diagnostics<cr>", opts)
 
     buf_set_keymap("n", "<C-Space>", [[<Plug>(completion_trigger)]], opts)
 
