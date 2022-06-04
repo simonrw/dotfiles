@@ -56,7 +56,7 @@
     c = commit -m
     q = quick
     edit = "!vim `git ls-files -m`"
-    cleanup = "!git rebase -i $(git rev-parse --abbrev-ref --symbolic-full-name '@{u}')"
+    cleanup = "!git rebase -i $REVIEW_BASE"
     # Quickly diff the upstream remote (assume origin)
     upstream = "rev-parse --abbrev-ref --symbolic-full-name '@{u}'"
     diffup = "!git diff $(git upstream).."
