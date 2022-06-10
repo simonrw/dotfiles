@@ -46,8 +46,6 @@ require('packer').startup({function(use)
             require("zen-mode").setup {}
         end
     }
-    use 'takac/vim-hardtime'
-
 
     -- language plugins
     use 'cespare/vim-toml'
