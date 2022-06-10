@@ -23,7 +23,7 @@ cmp.setup({
     }, {
         {
             name = 'buffer',
-            keyword_length = 5,
+            keyword_length = 3,
             get_bufnrs = function()
                 return vim.api.nvim_list_bufs()
             end,
