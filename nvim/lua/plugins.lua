@@ -83,6 +83,7 @@ require('packer').startup({function(use)
         -- debugging
         use { 'rcarriga/nvim-dap-ui', requires = {'mfussenegger/nvim-dap'} }
         use 'leoluz/nvim-dap-go'
+        use 'mfussenegger/nvim-dap-python'
 
         -- Completion
         use 'hrsh7th/cmp-nvim-lsp'
