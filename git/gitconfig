@@ -195,3 +195,5 @@ path = ~/work/.gitconfig
 	template = ~/.gitcommittemplate
 
 # vim: ft=gitconfig
+[feature]
+	manyFiles = 1
