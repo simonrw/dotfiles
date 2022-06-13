@@ -1,6 +1,6 @@
 local applications = {
     terminal = {
-        name = "Kitty",
+        name = "Alacritty",
     },
     browser = {
         name = "Firefox",
@@ -39,7 +39,6 @@ local applications = {
 
 for _, hostname in ipairs(hs.host.names()) do
     if string.find(hostname, "pixmac516") then
-        applications.terminal.name = "Alacritty"
     end
 end
 
