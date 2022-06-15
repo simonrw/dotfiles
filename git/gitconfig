@@ -153,7 +153,6 @@
     branch = 1
     submoduleSummary = true
 [init]
-    templatedir = ~/.gittemplate
 	defaultBranch = main
 [filter "lfs"]
 	clean = git-lfs clean -- %f
