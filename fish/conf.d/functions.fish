@@ -48,15 +48,6 @@ function poetry-env-rm -d "Remove current poetry environment"
     poetry env remove (poetry env info --path)/bin/python
 end
 
-function gitignore -a keys
-    if test -z "$keys"
-        echo "No keys given"
-        return 1
-    end
-
-    curl -LsSo .gitignore https://gitignore.io/api/$keys
-end
-
 function gl
     if test (count $argv) -gt 0
         set searchdir $argv[1]
