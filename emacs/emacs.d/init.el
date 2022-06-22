@@ -226,6 +226,13 @@
 				   (require 'lsp-pyright)
 				   (lsp-deferred))))
 
+;; colours in compile mode
+(use-package ansi-color
+  :config
+  (defun colorize-compilation-buffer ()
+	(ansi-color-apply-on-region compilation-filter-start (point)))
+  (add-hook 'compilation-filter-hook 'colorize-compilation-buffer))
+
 (load-theme 'wombat t)
 
 (provide 'init)
