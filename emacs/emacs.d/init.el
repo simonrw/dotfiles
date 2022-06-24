@@ -214,17 +214,17 @@
 
 (use-package ripgrep)
 
-(use-package eglot
-  :config
-  (add-hook 'rust-mode-hook 'eglot-ensure)
-  (add-hook 'python-mode-hook 'eglot-ensure))
+;; (use-package eglot
+;;   :config
+;;   (add-hook 'rust-mode-hook 'eglot-ensure)
+;;   (add-hook 'python-mode-hook 'eglot-ensure))
 
-;; lsp servers
-(use-package lsp-pyright
-  :hook
-  (python-mode . (lambda ()
-				   (require 'lsp-pyright)
-				   (lsp-deferred))))
+;; ;; lsp servers
+;; (use-package lsp-pyright
+;;   :hook
+;;   (python-mode . (lambda ()
+;; 				   (require 'lsp-pyright)
+;; 				   (lsp-deferred))))
 
 ;; colours in compile mode
 (use-package ansi-color
