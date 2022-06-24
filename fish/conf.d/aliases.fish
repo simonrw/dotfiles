@@ -69,3 +69,8 @@ end
 if type -q noti
     alias n=noti
 end
+
+if type -q curlie
+    alias curl=curlie
+    alias http=curlie
+end
