@@ -2,7 +2,7 @@ local wezterm = require("wezterm")
 
 return {
     color_scheme = "Lucius",
-    font = wezterm.font("Source Code Pro", { weight = "Bold" }),
+    font = wezterm.font("Source Code Pro Semibold"),
     automatically_reload_config = true,
     freetype_load_target = "HorizontalLcd",
     freetype_load_flags = "DEFAULT",
