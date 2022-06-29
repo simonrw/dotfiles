@@ -5,7 +5,7 @@ return {
     font = wezterm.font("Source Code Pro Semibold"),
     automatically_reload_config = true,
     freetype_load_target = "HorizontalLcd",
-    freetype_load_flags = "DEFAULT",
+    freetype_render_target = "Light",
     enable_tab_bar = false,
 
     color_schemes = {
