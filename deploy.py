@@ -168,6 +168,7 @@ class Deployer(object):
             "rofi",
             "starship",
             "sxhkd",
+            "wezterm",
         ]:
             macos_specific = self.macos() and subdir in macos_specific_locations
             self.deploy_dotconfig_file(subdir, macos_specific)
