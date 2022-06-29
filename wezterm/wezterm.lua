@@ -1,7 +1,7 @@
 local wezterm = require("wezterm")
 
 return {
-    font = wezterm.font("Source Code Pro", { weight = "Bold" }),
+    font = wezterm.font("Source Code Pro"),
     enable_tab_bar = false,
     font_size = 14.0,
     colors = {
