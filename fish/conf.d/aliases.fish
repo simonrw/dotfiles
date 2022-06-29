@@ -67,7 +67,7 @@ if type -q edit-dotfiles
 end
 
 if type -q noti
-    alias n=noti
+    abbr -a -g n noti
 end
 
 if type -q curlie
