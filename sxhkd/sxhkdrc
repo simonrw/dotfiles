@@ -8,7 +8,7 @@ super + Return
 
 # browser
 super + c
-    firefox
+    google-chrome-stable
 
 # program launcher
 super + @space
