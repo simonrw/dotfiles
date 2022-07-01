@@ -30,10 +30,13 @@ function fish_prompt --description 'Write out the prompt'
 
     set -l num_bg_jobs (count (jobs))
     set -l jobs_prompt ''
+    set -l current_pwd (prompt_pwd)
+    set -l space ' '
     if test $num_bg_jobs = 0
         set jobs_prompt ''
     else
-        set jobs_prompt "= "
+        set jobs_prompt "="
+        set space ''
     end
 
     set -l suffix_color ''
@@ -43,6 +46,5 @@ function fish_prompt --description 'Write out the prompt'
         set suffix_color (set_color red)
     end
 
-    echo
-    echo -n -s {$bgjobs_color} {$jobs_prompt} {$suffix_color} {$suffix} {$normal} " "
+    echo -n -s (set_color blue) {$current_pwd} {$space} {$bgjobs_color} {$jobs_prompt} {$suffix_color} {$suffix} {$normal} " "
 end
