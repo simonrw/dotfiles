@@ -52,6 +52,6 @@ function fish_prompt --description 'Write out the prompt'
         set suffix_color (set_color red)
     end
 
-    # echo -n -s (set_color blue) {$current_pwd} {$space} {$bgjobs_color} {$jobs_prompt} {$suffix_color} {$suffix} {$normal} " "
+    echo
     echo -n -s (set_color brblack) "[" (date "+%H:%M") "] " (set_color blue) (hostname) (set_color brblack) ":" (set_color cyan) (basename $PWD) (set_color green) {$space} {$bgjobs_color} {$jobs_prompt} {$suffix_color} '| ' (set_color normal)
 end
