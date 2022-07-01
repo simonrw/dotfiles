@@ -58,25 +58,15 @@ require('packer').startup({function(use)
     if vim.g.completion_framework == 'coc' then
         use { 'neoclide/coc.nvim', branch = 'release' }
         use 'fannheyward/telescope-coc.nvim'
-        use 'ray-x/go.nvim'
     elseif vim.g.completion_framework == 'coq' then
         use { 'ms-jpq/coq_nvim', branch = 'coq' }
     elseif vim.g.completion_framework == 'ale' then
         use 'dense-analysis/ale'
-        use 'ray-x/go.nvim'
     elseif vim.g.completion_framework == 'nvim' then
         use 'neovim/nvim-lspconfig'
         use 'nvim-lua/lsp_extensions.nvim'
         use 'psf/black'
         use 'williamboman/nvim-lsp-installer'
-        use { 'ray-x/go.nvim', config = function()
-            require('go').setup()
-
-            vim.api.nvim_exec([[
-                autocmd BufWritePre *.go :silent! lua require('go.format').goimport()
-            ]], false)
-        end }
-
         use 'nvim-lua/lsp-status.nvim'
 
         -- debugging
