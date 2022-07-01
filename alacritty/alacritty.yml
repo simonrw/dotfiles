@@ -380,7 +380,7 @@ available_schemes:
   default: &colors_default
     # Default colors
     primary:
-      background: '#181818'
+      background: '#07151a'
       foreground: '#ffffff'
 
     # Normal colors
