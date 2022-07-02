@@ -73,3 +73,8 @@ execute 'highlight GitGutterChange guibg=' . g:linenr_background
 highlight TabLine guibg=none
 highlight TabLineSel guibg=none
 highlight TabLineFill guibg=none
+execute 'highlight DiagnosticSignError ctermfg=1 guifg=Red guibg=' . g:linenr_background
+execute 'highlight DiagnosticSignHint ctermfg=7 guifg=LightGrey guibg=' . g:linenr_background
+execute 'highlight DiagnosticSignInfo ctermfg=4 guifg=LightBlue guibg=' . g:linenr_background
+execute 'highlight DiagnosticSignWarn ctermfg=3 guifg=Orange guibg=' . g:linenr_background
+highlight DiagnosticUnderlineHint guifg=Grey guisp=Grey
