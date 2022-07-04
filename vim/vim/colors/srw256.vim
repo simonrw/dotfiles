@@ -64,7 +64,7 @@ if has("nvim-0.7")
 endif
 highlight ColorColumn ctermbg=243 guibg=#222222
 
-let g:linenr_background = '#2a2a2a'
+let g:linenr_background = 'none'
 execute 'highlight LineNr guibg=' . g:linenr_background
 execute 'highlight SignColumn guibg=' . g:linenr_background
 execute 'highlight GitGutterAdd guibg=' . g:linenr_background
