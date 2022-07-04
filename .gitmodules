@@ -61,3 +61,6 @@
 [submodule "external/s3-open"]
 	path = external/s3-open
 	url = https://github.com/mindriot101/s3-open
+[submodule "external/run-command-on-git-revisions"]
+	path = external/run-command-on-git-revisions
+	url = https://github.com/mindriot101/run-command-on-git-revisions.git
