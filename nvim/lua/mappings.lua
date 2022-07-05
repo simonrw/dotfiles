@@ -43,4 +43,7 @@ nnoremap('<Space>', ':nohl<cr>')
 -- Bind K to grep word under cursor
 nnoremap('K', [[:grep! "\b<C-R><C-W>\b"<cr><cr>|:copen<Cr>]])
 
+-- Bind <leader>W to saving the session
+nnoremap('<leader>W', ':lua require("srw.helpers").save_session()<cr>')
+
 return _G
