@@ -64,3 +64,6 @@
 [submodule "external/run-command-on-git-revisions"]
 	path = external/run-command-on-git-revisions
 	url = https://github.com/mindriot101/run-command-on-git-revisions.git
+[submodule "vscode/vscode-lucius-theme"]
+	path = vscode/vscode-lucius-theme
+	url = git@github.com:mindriot101/vscode-lucius-theme.git

@@ -85,17 +85,19 @@ class Deployer(object):
         return self.args.homebrew
 
     def run(self) -> None:
-        self.deploy_standard_dirs()
-        self.deploy_dotconfig_files()
-        if self.macos():
-            if not self.homebrew:
-                logger.warning(
-                    "not installing homebrew packages as `-H/--homebrew` not specified"
-                )
-            else:
-                homebrew = Homebrew()
-                homebrew.install()
-                homebrew.install_packages()
+        # self.deploy_standard_dirs()
+        # self.deploy_dotconfig_files()
+        # if self.macos():
+        #     if not self.homebrew:
+        #         logger.warning(
+        #             "not installing homebrew packages as `-H/--homebrew` not specified"
+        #         )
+        #     else:
+        #         homebrew = Homebrew()
+        #         homebrew.install()
+        #         homebrew.install_packages()
+        self.deploy_vscode_extensions()
+        exit()
 
         if self.compile:
             self.install_custom_binaries()
@@ -172,6 +174,18 @@ class Deployer(object):
         ]:
             macos_specific = self.macos() and subdir in macos_specific_locations
             self.deploy_dotconfig_file(subdir, macos_specific)
+
+    def deploy_vscode_extensions(self):
+        logger.info("deploying vs code extensions")
+        dest = Path.home() / ".vscode" / "extensions"
+        dest.mkdir(exist_ok=True, parents=True)
+
+        src = Path.cwd() / "vscode"
+        logger.debug(f"installing extensions from {src} to {dest}")
+        for extension in src.glob("*"):
+            stub = dest / extension.name
+            logger.debug(f"installing {extension} to {stub}")
+            self._force_symlink_to(extension, stub)
 
     def deploy_dotconfig_file(self, subdir, macos_specific):
         if macos_specific:
