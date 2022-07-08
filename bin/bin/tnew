@@ -11,7 +11,7 @@ cd $dirname
 
 tmuxname=$(basename $(dirname $(pwd)))/$(basename $(pwd))
 
-if [ -z $TMUX ]; then
+if [ -z ${TMUX:-} ]; then
     tmux attach -t "$tmuxname"
 else
     tmux switch-client -t "$tmuxname"
