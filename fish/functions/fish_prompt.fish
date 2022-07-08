@@ -1,9 +1,3 @@
-set __fish_git_prompt_showuntrackedfiles 'yes'
-set __fish_git_prompt_showdirtystate 'yes'
-set __fish_git_prompt_showstashstate ''
-set __fish_git_prompt_showupstream 'none'
-set -g fish_prompt_pwd_dir_length 3
-
 function fish_prompt --description 'Write out the prompt'
     set -l last_pipestatus $pipestatus
     set -lx __fish_last_status $status # Export for __fish_print_pipestatus.
@@ -53,5 +47,5 @@ function fish_prompt --description 'Write out the prompt'
     end
 
     echo
-    echo -n -s (set_color brblack) "[" (date "+%H:%M") "] " (set_color blue) (hostname) (set_color brblack) ":" (set_color cyan) (basename $PWD) (set_color green) {$space} {$bgjobs_color} {$jobs_prompt} {$suffix_color} '| ' (set_color normal)
+    echo -n -s {$space} {$bgjobs_color} {$jobs_prompt} {$suffix_color} {$suffix} {$normal} " "
 end
