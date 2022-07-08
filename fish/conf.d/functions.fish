@@ -8,32 +8,6 @@ function mcd -a newpath
     cd "$newpath"
 end
 
-function tnew
-    if test (count $argv) -gt 0
-        if test (count $argv) -gt 1
-            return
-        end
-
-        set dirname $argv[1]
-        if not test -d "$dirname"
-            mkdir "$dirname"
-        end
-    else
-        set dirname (pwd)
-    end
-
-    cd $dirname
-
-    set tmuxname (basename (dirname (pwd)))/(basename (pwd))
-    tmux new-session -d -s "$tmuxname" -n ''
-
-    if not set -q TMUX
-        tmux attach -t "$tmuxname"
-    else
-        tmux switch-client -t "$tmuxname"
-    end
-end
-
 function wakeastoria
     wakeonlan -i 192.168.0.255 -p 7 40:B0:76:DE:79:B3 >/dev/null
     set ip_address "(nslookup astoria | grep Address | grep 192 | awk '{print $2}')"
