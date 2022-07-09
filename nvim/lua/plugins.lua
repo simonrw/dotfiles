@@ -45,6 +45,11 @@ require('packer').startup({function(use)
             require("zen-mode").setup {}
         end
     }
+    use { 'luukvbaal/stabilize.nvim',
+        config = function()
+            require('stabalize').setup()
+        end
+    }
 
     -- language plugins
     use 'cespare/vim-toml'
