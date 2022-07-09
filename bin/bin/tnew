@@ -11,8 +11,14 @@ cd $dirname
 
 tmuxname=$(basename $(dirname $(pwd)))/$(basename $(pwd))
 
+# does the session exist?
+
 if [ -z ${TMUX:-} ]; then
-    tmux attach -t "$tmuxname"
+    if [ $(tmux ls -F '#S') | grep $tmuxname >/dev/null 2>/dev/null ]; then
+        tmux attach -t "$tmuxname"
+    else
+        tmux new-session -s "$tmuxname"
+    fi
 else
     tmux switch-client -t "$tmuxname"
 fi
