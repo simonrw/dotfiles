@@ -47,7 +47,7 @@ require('packer').startup({function(use)
     }
     use { 'luukvbaal/stabilize.nvim',
         config = function()
-            require('stabalize').setup()
+            require('stabilize').setup()
         end
     }
 
