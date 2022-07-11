@@ -109,11 +109,9 @@
     excludesfile = ~/.gitignore_global
 	ignorecase = false
 	attributesFile = ~/.gitattributes_global
+    pager = delta
 [delta]
-    dark = true
-    side-by-side = false
     diff-so-fancy = true
-    syntax-theme = Monokai Extended
 [merge]
     tool = conflicted
     conflictstyle = "diff3"
