@@ -47,5 +47,5 @@ function fish_prompt --description 'Write out the prompt'
     end
 
     echo
-    echo -n -s {$space} {$bgjobs_color} {$jobs_prompt} {$suffix_color} {$suffix} {$normal} " "
+    echo -n -s {$bgjobs_color} {$jobs_prompt} {$suffix_color} {$suffix} {$normal} " "
 end
