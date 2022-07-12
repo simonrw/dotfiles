@@ -15,9 +15,12 @@ end
 
 require("telescope").setup({
   extensions = {
-    ["ui-select"] = {
-    }
+    ["ui-select"] = {},
+    ["tele_tabby"] = {},
   }
 })
 
 require("telescope").load_extension("ui-select")
+require("telescope").load_extension("tele_tabby")
+
+mappings.nnoremap('<leader>T', [[<cmd>lua require('telescope').extensions.tele_tabby.list()<Cr>]])

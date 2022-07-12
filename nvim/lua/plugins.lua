@@ -30,6 +30,7 @@ require('packer').startup({function(use)
         'nvim-telescope/telescope.nvim',
         requires = { {'nvim-lua/plenary.nvim'} }
     }
+    use 'TC72/telescope-tele-tabby.nvim'
     use {'nvim-telescope/telescope-ui-select.nvim' }
     use 'ludovicchabant/vim-gutentags'
     use 'overcache/NeoSolarized'
