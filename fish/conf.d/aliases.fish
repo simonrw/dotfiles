@@ -9,7 +9,6 @@ abbr -a -g gco 'git checkout'
 # aliases
 alias ta=_tmux_attach
 alias ll='ls -lh'
-alias lr='ls -thor'
 alias pylab='ipython --pylab'
 alias clear-pycs='find {$PWD} -name "*.pyc" -delete'
 alias es='exec $SHELL'
@@ -34,6 +33,11 @@ end
 
 if type -q exa
     alias ls=exa
+    alias tree="exa -T"
+    alias thor="exa -s modified -l"
+    alias lr=thor
+else
+    alias lr='ls -thor'
 end
 
 if type -q task

@@ -12,9 +12,11 @@ switch (uname)
 
         set -x DYLD_LIBRARY_PATH {$BUILD_PREFIX}/lib {$DYLD_LIBRARY_PATH}
 
-        if type -q gls
-            alias ls "gls --color=auto"
-            alias thor "gls -thor"
+        if not type -q exa
+            if type -q gls
+                alias ls "gls --color=auto"
+                alias thor "gls -thor"
+            end
         end
     case '*'
 end
