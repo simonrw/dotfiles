@@ -1,17 +1,14 @@
 local lualine = require('lualine')
+local lsp_status = require('lsp-status')
+local lspconfig = require('lspconfig')
 
-if vim.g.completion_framework == "nvim" then
-    local function lsp()
-        local messages = require('lsp-status').messages()
-        -- just take the first for now
-        if messages[1] ~= nil then
-            return messages[1].title or ""
-        end
-        return ""
+local function lsp()
+    local messages = require('lsp-status').messages()
+    -- just take the first for now
+    if messages[1] ~= nil then
+        return messages[1].title or ""
     end
-else
-    local function lsp()
-    end
+    return ""
 end
 
 lualine.setup({
