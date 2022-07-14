@@ -1,4 +1,4 @@
-set shell=zsh
+set shell=fish
 
 let g:mapleader = ","
 let g:maplocalleader = '\\'
