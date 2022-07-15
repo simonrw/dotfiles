@@ -18,6 +18,7 @@ test -d ~/.ssh && alias add-keys='ssh-add (find ~/.ssh -maxdepth 1 -type f -name
 alias gpe="git push && exit"
 alias gpr="git pull --rebase"
 alias tl="tmux-last"
+alias gs="git status"
 
 if type -q git-change
     alias gc="git change"
