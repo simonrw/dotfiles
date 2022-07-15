@@ -10,7 +10,7 @@ let g:did_load_filetypes = 0
 autocmd!
 
 " general settings
-let g:completion_framework = "nvim"
+let g:completion_framework = "coc"
 let g:include_treesitter = 1
 
 lua require('config')
