@@ -5,6 +5,7 @@ abbr -a -g g git
 abbr -a -g k kubectl
 abbr -a -g gp 'git pull'
 abbr -a -g gco 'git checkout'
+abbr -a -g ca cargo
 
 # aliases
 alias ta=_tmux_attach
