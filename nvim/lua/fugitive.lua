@@ -1,5 +1,5 @@
 nnoremap('<leader>gc', ':Git commit -v<cr>')
-nnoremap('<leader>gd', ':Gdiff<cr>')
+nnoremap('<leader>gd', ':Gvdiff<cr>')
 nnoremap('<leader>gw', ':Gwrite<cr>')
 nnoremap('<leader>gr', ':Gread<cr>')
 nnoremap('gs', ':Git<cr>')
