@@ -44,5 +44,6 @@ function fish_prompt --description 'Write out the prompt'
     end
 
     echo
+    echo -s (prompt_pwd --dir-length 2 --full-length-dirs 1)
     echo -n -s {$suffix_color} {$suffix} {$normal} " "
 end
