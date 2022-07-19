@@ -3,11 +3,14 @@ require('settings')
 require('plugins')
 require('mappings')
 require('gutentags')
-require('customlspconfig')
+if vim.g.include_treesitter == 'nvim' then
+    require('customlspconfig')
+    require('completionconfig')
+    require('dapconfig')
+end
 if vim.g.include_treesitter == 1 then
     require('treesitterconfig')
 end
-require('completionconfig')
 
 -- plugins
 require('fzf')
@@ -18,5 +21,4 @@ if vim.g.include_treesitter == 1 then
     require('treesitter-unit-config')
 end
 require('telescopeconfig')
-require('dapconfig')
 require('lualineconfig')
