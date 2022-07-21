@@ -308,7 +308,7 @@ endif
 
 
 set background=dark
-colorscheme monokai
+colorscheme jellybeans
 hi Normal guibg=none
 let g:linenr_background = 'none'
 execute 'highlight TelescopeNormal guibg=' . g:linenr_background
