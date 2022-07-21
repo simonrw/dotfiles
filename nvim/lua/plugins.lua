@@ -33,14 +33,8 @@ require('packer').startup({function(use)
     use 'TC72/telescope-tele-tabby.nvim'
     use {'nvim-telescope/telescope-ui-select.nvim' }
     use 'ludovicchabant/vim-gutentags'
-    use 'overcache/NeoSolarized'
-    use 'pappasam/papercolor-theme-slim'
-    use 'nanotech/jellybeans.vim'
-    use 'mvpopuk/inspired-github.vim'
-    use 'projekt0n/github-nvim-theme'
     use 'editorconfig/editorconfig-vim'
     use 'nvim-lualine/lualine.nvim'
-    use 'tanvirtin/monokai.nvim'
     use {
         "folke/zen-mode.nvim",
         config = function()
