@@ -14,7 +14,7 @@ tmuxname=$(basename $(dirname $(pwd)))/$(basename $(pwd))
 # does the session exist?
 
 if [ -z ${TMUX:-} ]; then
-    if [ $(tmux ls -F '#S') | grep $tmuxname >/dev/null 2>/dev/null ]; then
+    if [ $(tmux ls -F '#S' | grep $tmuxname >/dev/null 2>/dev/null) ]; then
         tmux attach -t "$tmuxname"
     else
         tmux new-session -s "$tmuxname"
