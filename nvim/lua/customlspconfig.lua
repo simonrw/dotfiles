@@ -42,7 +42,7 @@ local on_attach = function(client, bufnr, include_formatting)
         if vim.fn.has('nvim-0.7') then
             local group = vim.api.nvim_create_augroup("Formatting", { clear = true })
             vim.api.nvim_create_autocmd("BufWritePost", { callback = function()
-                vim.lsp.buf.formatting_sync({}, 10000)
+                vim.lsp.buf.formatting()
             end, group = group })
         else
             vim.api.nvim_command("au BufWritePost <buffer> lua vim.lsp.buf.formatting()")
