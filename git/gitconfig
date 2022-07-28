@@ -97,7 +97,7 @@
     unstage = reset HEAD
 	up = update
 [color]
-    ui = auto
+	ui = true
 [core]
     abbrev = 12
     autocrlf = input
@@ -109,7 +109,7 @@
     excludesfile = ~/.gitignore_global
 	ignorecase = false
 	attributesFile = ~/.gitattributes_global
-    pager = delta
+    pager = diff-so-fancy | less --tabs=4 -RFX
 [delta]
     side-by-side = true
     diff-so-fancy = true
@@ -195,3 +195,5 @@ path = ~/work/.gitconfig
 # vim: ft=gitconfig
 [feature]
 	manyFiles = 1
+[interactive]
+	diffFilter = diff-so-fancy --patch
