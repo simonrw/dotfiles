@@ -68,6 +68,10 @@ function! ToggleList(bufname, pfx)
   endif
 endfunction
 
+if exists('g:neovide')
+    let g:neovide_cursor_animation_length = 0
+endif
+
 " Configure neovim's terminal mode
 if has('nvim')
     tnoremap <Esc> <C-\><C-n>
