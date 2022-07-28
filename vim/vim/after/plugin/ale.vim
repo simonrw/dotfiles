@@ -11,7 +11,7 @@ if g:completion_framework == "ale"
     let g:ale_sign_warning = "~"
     let g:ale_virtualtext_cursor = 1
     let g:ale_cursor_detail = 0
-    let g:ale_echo_cursor = 0
+    let g:ale_echo_cursor = 1
     let g:ale_set_balloons = 0
     let g:ale_hover_cursor = 0
     let g:ale_completion_enabled = 1
