@@ -64,6 +64,7 @@ require('packer').startup({function(use)
         use 'psf/black'
         use 'williamboman/nvim-lsp-installer'
         use 'nvim-lua/lsp-status.nvim'
+        use "lukas-reineke/lsp-format.nvim"
 
         -- debugging
         use { 'rcarriga/nvim-dap-ui', requires = {'mfussenegger/nvim-dap'} }
