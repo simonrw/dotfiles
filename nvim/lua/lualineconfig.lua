@@ -1,6 +1,4 @@
 local lualine = require('lualine')
-local lsp_status = require('lsp-status')
-local lspconfig = require('lspconfig')
 
 local function lsp()
     local messages = require('lsp-status').messages()
@@ -9,6 +7,21 @@ local function lsp()
         return messages[1].title or ""
     end
     return ""
+end
+
+local lualine_c
+if vim.g.completion_framework == 'nvim' then
+    lualine_c = {
+            { 'filename',
+              file_status = false,
+              path = 1,
+            }, lsp}
+else
+    lualine_c = {
+            { 'filename',
+              file_status = false,
+              path = 1,
+            }}
 end
 
 lualine.setup({
@@ -24,11 +37,7 @@ lualine.setup({
     sections = {
         lualine_a = {'mode'},
         lualine_b = {'branch', 'diff'},
-        lualine_c = {
-            { 'filename',
-              file_status = false,
-              path = 1,
-            }, lsp},
+        lualine_c = lualine_c,
         lualine_x = {'encoding', 'filetype'},
         lualine_y = {'progress'},
         lualine_z = {'location'}
