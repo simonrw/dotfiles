@@ -11,6 +11,10 @@ if vim.g.include_treesitter == 1 then
     require('treesitterconfig')
 end
 
+if vim.fn.exists('g:neovide') then
+    require('neovideconfig')
+end
+
 -- plugins
 require('fzf')
 require('vim-test')
