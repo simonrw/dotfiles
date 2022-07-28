@@ -3,7 +3,7 @@ function _not_inside_tmux
 end
 
 function _not_inside_neovim
-    test -z "$NVIM_LISTEN_ADDRESS"
+    test -z "$NVIM"
 end
 
 function _not_inside_emacs
