@@ -109,9 +109,9 @@
     excludesfile = ~/.gitignore_global
 	ignorecase = false
 	attributesFile = ~/.gitattributes_global
-    pager = diff-so-fancy | less --tabs=4 -RFX
+    pager = delta
 [delta]
-    side-by-side = true
+    side-by-side = false
     diff-so-fancy = true
 [merge]
     tool = conflicted
