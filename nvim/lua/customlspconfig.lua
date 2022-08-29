@@ -1,6 +1,7 @@
 local target_servers = {"pyright", "gopls", "rust_analyzer", "yamlls", "terraformls", "efm", "clangd"}
 local lsp_status = require('lsp-status')
 local lsp_format = require('lsp-format')
+lsp_format.setup {}
 lsp_status.register_progress()
 
 function merge_tables(a, b)
@@ -63,9 +64,7 @@ local function setup()
     lsp_installer.on_server_ready(function(server)
         local opts = {
             on_attach = function(client, bufnr)
-                if server.name == "gopls" then
-                    return on_attach(client, bufnr, false)
-                elseif server.name == "tsserver" then
+                if server.name == "tsserver" then
                     return on_attach(client, bufnr, false)
                 else
                     return on_attach(client, bufnr, true)
