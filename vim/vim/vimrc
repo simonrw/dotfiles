@@ -308,7 +308,7 @@ endif
 
 
 set background=dark
-colorscheme srw256
+colorscheme dracula
 hi Normal guibg=none
 let g:linenr_background = 'none'
 execute 'highlight TelescopeNormal guibg=' . g:linenr_background
@@ -325,3 +325,4 @@ execute 'highlight DiagnosticSignHint ctermfg=7 guifg=LightGrey guibg=' . g:line
 execute 'highlight DiagnosticSignInfo ctermfg=4 guifg=LightBlue guibg=' . g:linenr_background
 execute 'highlight DiagnosticSignWarn ctermfg=3 guifg=Orange guibg=' . g:linenr_background
 highlight DiagnosticUnderlineHint guifg=Grey guisp=Grey
+highlight ColorColumn guibg=#44475a
