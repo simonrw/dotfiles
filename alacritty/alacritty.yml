@@ -507,7 +507,7 @@ available_schemes:
       text: '#eeeeee'
       cursor: '#444444'
 
-colors: *colors_dracula
+colors: *colors_default
 
 # Visual Bell
 #
