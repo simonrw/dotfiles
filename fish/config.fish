@@ -13,3 +13,9 @@ set -e host_config
 # some key variables
 set -x GOPATH {$HOME}/dev/gocode
 set -x PATH {$PATH} {$GOPATH}/bin
+
+# include foreign env
+set fish_function_path $fish_function_path {$HOME}/dotfiles/external/plugin-foreign-env/functions
+
+# set up nix
+test -f {$HOME}/.nix-profile/etc/profile.d/nix.sh; and fenv source {$HOME}/.nix-profile/etc/profile.d/nix.sh

@@ -67,3 +67,6 @@
 [submodule "vscode/vscode-lucius-theme"]
 	path = vscode/vscode-lucius-theme
 	url = git@github.com:mindriot101/vscode-lucius-theme.git
+[submodule "external/plugin-foreign-env"]
+	path = external/plugin-foreign-env
+	url = https://github.com/oh-my-fish/plugin-foreign-env
