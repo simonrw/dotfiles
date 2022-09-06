@@ -4,9 +4,6 @@ switch (uname)
 
         # configure homebrew
         set -x HOMEBREW_NO_ANALYTICS 1
-        set -x HOMEBREW_NO_INSTALL_CLEANUP 1
-        set -x HOMEBREW_NO_AUTO_UPDATE 1
-        set -x HOMEBREW_NO_INSTALL_UPGRADE 1
 
         eval (brew shellenv)
 
