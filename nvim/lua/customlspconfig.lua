@@ -1,6 +1,10 @@
 local target_servers = {"pyright", "gopls", "rust_analyzer", "yamlls", "terraformls", "efm", "clangd"}
 local lsp_status = require('lsp-status')
 local lsp_format = require('lsp-format')
+require('mason').setup()
+require("mason-lspconfig").setup({
+    ensure_installed = target_servers
+})
 lsp_format.setup {}
 lsp_status.register_progress()
 
@@ -46,80 +50,15 @@ end
 
 local function setup()
     local lspconfig = require("lspconfig")
-    local lsp_installer = require("nvim-lsp-installer")
     local capabilities = vim.tbl_extend('keep',
             require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities()),
             lsp_status.capabilities
             )
 
-    -- Install required servers
-    for _, target_server in ipairs(target_servers) do
-        _, server = lsp_installer.get_server(target_server)
-        if not server:is_installed() then
-            print("Installing LSP: " .. target_server)
-            server:install(nil)
-        end
-    end
 
-    lsp_installer.on_server_ready(function(server)
-        local opts = {
-            on_attach = function(client, bufnr)
-                if server.name == "tsserver" then
-                    return on_attach(client, bufnr, false)
-                else
-                    return on_attach(client, bufnr, true)
-                end
-            end,
-            capabilities = capabilities,
-            settings = {
-                ["rust-analyzer"] = {
-                    checkOnSave = {
-                        command = "clippy",
-                    },
-                },
-                redhat = { telemetry = { enabled = false } },
-                yaml = {
-                    schemas = {
-                        ["https://raw.githubusercontent.com/awslabs/goformation/v5.2.11/schema/cloudformation.schema.json"] = "/cloudformation*",
-                    },
-                    customTags = {
-                        "!fn",
-                        "!And",
-                        "!If",
-                        "!Not",
-                        "!Equals",
-                        "!Or",
-                        "!FindInMap sequence",
-                        "!Base64",
-                        "!Cidr",
-                        "!Ref",
-                        "!Ref Scalar",
-                        "!Sub",
-                        "!GetAtt",
-                        "!GetAZs",
-                        "!ImportValue",
-                        "!Select",
-                        "!Split",
-                        "!Join sequence"
-                    },
-                },
-            },
-        }
-
-        if server.name == "efm" then
-            opts.init_options = {
-                documentFormatting = true,
-            }
-            opts.filetypes = {"lua", "python"}
-        end
-
-        -- configure yamlls to include cloudformation tags
-        if server.name == "yamlls" then
-            opts.filetypes = { "cloudformation", "yaml", "yaml.docker-compose" }
-        end
-
-        server:setup(opts)
-    end)
+    require('lspconfig')['pyright'].setup({
+        on_attach = on_attach,
+    })
 
     vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
         vim.lsp.diagnostic.on_publish_diagnostics, {

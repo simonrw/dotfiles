@@ -62,7 +62,8 @@ require('packer').startup({function(use)
         use 'neovim/nvim-lspconfig'
         use 'nvim-lua/lsp_extensions.nvim'
         use 'psf/black'
-        use 'williamboman/nvim-lsp-installer'
+        use "williamboman/mason.nvim" 
+        use 'williamboman/mason-lspconfig.nvim'
         use 'nvim-lua/lsp-status.nvim'
         use "lukas-reineke/lsp-format.nvim"
 
