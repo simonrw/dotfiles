@@ -1,4 +1,4 @@
-local target_servers = {"pyright", "gopls", "rust_analyzer", "yamlls", "terraformls", "efm", "clangd"}
+local target_servers = {"pyright", "gopls", "rust_analyzer", "yamlls", "terraformls", "efm", "clangd", "rnix"}
 local lsp_status = require('lsp-status')
 local lsp_format = require('lsp-format')
 require('mason').setup()
