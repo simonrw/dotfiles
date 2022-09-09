@@ -70,4 +70,3 @@ end
 if vim.g.completion_framework == 'nvim' then
     setup()
 end
-
