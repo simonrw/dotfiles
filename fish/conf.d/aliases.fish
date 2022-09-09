@@ -59,11 +59,6 @@ if type -q nvim
     alias vimdiff="nvim -d"
 end
 
-if type -q hx
-    alias vim=hx
-    alias vi=hx
-end
-
 if type -q glab
     alias lpb="glab project view -w"
     alias mr="glab mr view -w"
