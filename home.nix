@@ -112,8 +112,8 @@
     delta = {
       enable = true;
       options = {
-        side-by-side = false;
-        diff-so-fancy = true;
+        side-by-side = true;
+        diff-so-fancy = false;
       };
     };
     includes = [
