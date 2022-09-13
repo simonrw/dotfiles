@@ -22,6 +22,8 @@ in
       ctags
       exa
       ripgrep
+      skim
+      tmux
 
       # custom derivations
       hammerspoonDerivation
