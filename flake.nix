@@ -12,12 +12,19 @@
     };
   };
 
-  outputs = { nixpkgs, home-manager, ... }:
+  outputs = { nixpkgs, darwin, home-manager, ... }:
     let
       system = "aarch64-darwin";
       pkgs = nixpkgs.legacyPackages.${system};
     in
     {
+      darwinConfigurations."mba" = darwin.lib.darwinSystem {
+        inherit system;
+        modules = [
+          ./configuration.nix
+        ];
+        inputs = { inherit darwin nixpkgs; };
+      };
       homeConfigurations.simon = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
 
