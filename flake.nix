@@ -16,21 +16,26 @@
     let
       system = "aarch64-darwin";
       pkgs = nixpkgs.legacyPackages.${system};
+      nixpkgsConfig = {
+        config = {
+          allowUnfree = true;
+        };
+      };
     in
     {
       darwinConfigurations."mba" = darwin.lib.darwinSystem {
         inherit system;
         modules = [
           ./configuration.nix
+          home-manager.darwinModules.home-manager
+          {
+            nixpkgs = nixpkgsConfig;
+            home-manager.useGlobalPkgs = true;
+            home-manager.useUserPackages = true;
+            home-manager.users.simon = import ./home.nix;
+          }
         ];
         inputs = { inherit darwin nixpkgs; };
-      };
-      homeConfigurations.simon = home-manager.lib.homeManagerConfiguration {
-        inherit pkgs;
-
-        modules = [
-          ./home.nix
-        ];
       };
     };
 }

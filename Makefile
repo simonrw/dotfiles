@@ -1,7 +1,7 @@
 ARGS ?=
 
 switch:
-	home-manager switch --flake '.#simon' ${ARGS}
+	darwin-rebuild switch --flake '.#mba' ${ARGS}
 
 build:
-	home-manager build --flake '.#simon' ${ARGS}
+	darwin-rebuild build --flake '.#mba' ${ARGS}
