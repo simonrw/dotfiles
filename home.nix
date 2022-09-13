@@ -1,4 +1,7 @@
 { config, pkgs, ... }:
+let
+  hammerspoonDerivation = (import ./derivations/hammerspoon.nix) { inherit pkgs; };
+in
 {
   home = {
     username = "simon";
@@ -13,6 +16,10 @@
       PAGER = "bat";
       MANPAGER = "sh -c 'col -bx | ${pkgs.bat}/bin/bat -l man -p'";
     };
+
+    packages = [
+      hammerspoonDerivation
+    ];
   };
 
   programs.bat = {
@@ -301,6 +308,25 @@
     ];
     lfs = {
       enable = true;
+    };
+  };
+
+  programs.neovim = {
+    enable = true;
+    viAlias = true;
+    vimAlias = true;
+    vimdiffAlias = true;
+    withPython3 = true;
+    extraPython3Packages = (ps: with ps; [
+      pynvim
+    ]);
+  };
+
+  xdg = {
+    enable = true;
+    configFile.nvim = {
+      source = ./nvim;
+      recursive = true;
     };
   };
 }
