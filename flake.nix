@@ -21,6 +21,7 @@
           allowUnfree = true;
         };
       };
+
     in
     {
       darwinConfigurations."mba" = darwin.lib.darwinSystem {

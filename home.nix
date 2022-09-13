@@ -17,7 +17,13 @@ in
       MANPAGER = "sh -c 'col -bx | ${pkgs.bat}/bin/bat -l man -p'";
     };
 
-    packages = [
+    packages = with pkgs; [
+      bat
+      ctags
+      exa
+      ripgrep
+
+      # custom derivations
       hammerspoonDerivation
     ];
   };
@@ -46,7 +52,7 @@ in
         set -x SHELL (command -v fish)
 
         set -x BUILD_PREFIX {$HOME}/.local
-        set -x PATH {$BUILD_PREFIX}/bin {$HOME}/.bin {$HOME}/.poetry/bin /usr/local/bin {$HOME}/.cargo/bin {$PATH} {$HOME}/bin {$GOPATH}/bin
+        set -x PATH {$BUILD_PREFIX}/bin {$HOME}/.bin {$HOME}/.poetry/bin /usr/local/bin {$HOME}/.cargo/bin {$HOME}/bin {$GOPATH}/bin {$PATH}
         set -x GOPATH {$HOME}/dev/gocode
         set -x EDITOR nvim
         set -x REVIEW_BASE main
@@ -123,8 +129,8 @@ in
             case '*'
         end
 
-      # configure nix
-      set -x PATH /run/current-system/sw/bin {$PATH}
+      # fix nix path
+      set -x PATH /etc/profiles/per-user/(whoami)/bin {$PATH}
     '';
     shellAliases = {
       pbcopy = "xclip";

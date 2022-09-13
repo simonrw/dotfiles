@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, lib, ... }:
 {
   environment.systemPackages = [
   ];
@@ -8,9 +8,14 @@
   documentation.enable = true;
   nix.extraOptions = ''
     experimental-features = nix-command flakes
+  '' + lib.optionalString (pkgs.system == "aarch64-darwin") ''
+    extra-platforms = x86_64-darwin aarch64-darwin
   '';
 
-  fonts.fonts = with pkgs; [
-    source-code-pro
-  ];
+  programs.fish.enable = true;
+  programs.zsh.enable = true;
+  programs.nix-index.enable = true;
+
+  system.keyboard.enableKeyMapping = true;
+  system.keyboard.remapCapsLockToEscape = true;
 }
