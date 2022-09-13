@@ -322,6 +322,13 @@ in
     ]);
   };
 
+  home.file = {
+    ".bin" = {
+      source = ./bin;
+      recursive = true;
+    };
+  };
+
   xdg = {
     enable = true;
     configFile.nvim = {

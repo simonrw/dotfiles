@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+SESSION_NAME="$(tmux ls -F '#S #{session_activity}' | sort -n -k 2 | tail -n 1 | awk '{print $1}')"
+if [ ! -z "${SESSION_NAME}" ]; then
+    if [ ! -z "${TMUX:-}" ]; then
+        CURRENT_SESSION="$(tmux display-message -p '#S')"
+        if [ "${CURRENT_SESSION}" = "${SESSION_NAME}" ]; then
+            tmux switch-client -l
+        else
+            tmux switch-client -t "${SESSION_NAME}"
+        fi
+    else
+        tmux attach -t "${SESSION_NAME}"
+    fi
+fi

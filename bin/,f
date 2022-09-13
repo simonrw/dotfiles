@@ -1,0 +1,6 @@
+#!/bin/sh
+
+set -euo pipefail
+
+chosen="$(git ls-files | sk-tmux)"
+exec nvim "${chosen}"

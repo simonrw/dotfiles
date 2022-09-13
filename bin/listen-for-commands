@@ -1,0 +1,69 @@
+#!/usr/bin/env bash
+
+# Enable overriding from the command line
+fifo_name=${fifo_name:-.fifo}
+command_to_run_shell=${command_to_run_shell:-"${SHELL} -i"}
+
+ensure_fifo() {
+    if [ ! -p ${fifo_name} ]; then
+        if [ -f ${fifo_name} ]; then
+            echo "Regular file ${fifo_name} exists, removing"
+            rm ${fifo_name}
+        fi
+        mkfifo ${fifo_name}
+    fi
+}
+
+ensure_fifo_missing() {
+    if [ -p ${fifo_name} ]; then
+        rm ${fifo_name}
+    fi
+}
+
+header() {
+    echo "Listening for commands on named pipe '${fifo_name}'"
+    echo "Send commands by 'echo'ing it to the fifo"
+    echo "e.g. 'echo \"ls\" > ${fifo_name}'"
+    echo
+}
+
+echo_command() {
+    local GREEN='\033[1;32m'
+    local RESET='\033[0m'
+    echo -e "${GREEN}${1}${RESET}"
+}
+
+run_command() {
+    ${command_to_run_shell} -c "${1}"
+    echo
+}
+
+main_loop() {
+    while true
+    do
+        local cmd_to_run=$(cat ${fifo_name})
+        echo_command "${cmd_to_run}"
+        run_command "${cmd_to_run}"
+    done
+}
+
+cleanup() {
+    echo
+    echo "Cleaning up"
+    ensure_fifo_missing
+    exit 0
+}
+
+main() {
+    ensure_fifo
+    header
+
+    trap "cleanup" SIGINT
+
+    main_loop
+}
+
+main
+
+
+# vim: ft=sh

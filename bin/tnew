@@ -1,0 +1,29 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+dirname=$(pwd)
+if [[ $# -eq 1 ]]; then
+    dirname=$(readlink -f $1)
+fi
+mkdir -p $dirname
+cd $dirname
+
+tmuxname=$(basename $(dirname $(pwd)))/$(basename $(pwd))
+
+# does the session exist?
+
+if [ -z ${TMUX:-} ]; then
+    # no tmux session
+    if [ $(tmux ls -F '#S' | grep $tmuxname >/dev/null 2>/dev/null) ]; then
+        tmux attach -t "$tmuxname"
+    else
+        tmux new-session -s "$tmuxname"
+    fi
+else
+    if [ $(tmux ls -F '#S' | grep $tmuxname >/dev/null 2>/dev/null) ]; then
+        tmux new-session -s "$tmuxname"
+    else
+        tmux switch-client -t "$tmuxname"
+    fi
+fi

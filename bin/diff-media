@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+main() {
+    nvim -d <(probe-media $1) <(probe-media $2)
+}
+
+main "$@"

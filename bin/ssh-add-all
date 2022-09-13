@@ -1,0 +1,53 @@
+#!/usr/bin/env python3
+
+
+from pathlib import Path
+import subprocess as sp
+import logging
+import argparse
+
+
+logging.basicConfig(level=logging.INFO)
+
+
+if __name__ == "__main__":
+    parser = argparse.ArgumentParser()
+    parser.add_argument("-r", "--root-dir", required=False, type=Path)
+    parser.add_argument(
+        "-n",
+        "--dry-run",
+        action="store_true",
+        default=False,
+        help="Do not actually add the keys",
+    )
+    parser.add_argument("-v", "--verbose", action="store_true", default=False)
+    args = parser.parse_args()
+
+    if args.verbose:
+        logging.getLogger().setLevel(logging.DEBUG)
+
+    if args.root_dir is None:
+        root_dir = (Path.home() / ".ssh").resolve()
+    else:
+        root_dir = args.root_dir.resolve()
+
+    logging.debug(f"root_dir: {root_dir}")
+
+    files = []
+    for path in root_dir.glob("*"):
+        if not str(path.name).startswith("id_"):
+            continue
+
+        if str(path).endswith(".pub") or str(path).endswith(".bak"):
+            continue
+
+        logging.debug(f"adding {path}")
+        files.append(str(path))
+
+    cmd = ["ssh-add"] + files
+
+    if args.dry_run:
+        logging.info(f"Adding keys: {files}")
+    else:
+        logging.debug(f"running command {cmd}")
+        sp.run(cmd, check=True)
