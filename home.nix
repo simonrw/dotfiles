@@ -174,6 +174,9 @@ in
         tool = "icdiff";
         colorMoved = "default";
       };
+      mergetool.conflicted = {
+        cmd = "nvim +Conflicted";
+      };
       github = {
         user = "mindriot101";
       };
