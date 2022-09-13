@@ -3,6 +3,12 @@
   environment.systemPackages = [
   ];
 
+  users.users.simon = {
+  	name = "simon";
+	home = "/Users/simon";
+	shell = pkgs.fish;
+  };
+
   services.nix-daemon.enable = true;
   nix.package = pkgs.nix;
   documentation.enable = true;

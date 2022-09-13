@@ -5,7 +5,7 @@ in
 {
   home = {
     username = "simon";
-    # homeDirectory = "/Users/simon";
+    homeDirectory = "/Users/simon";
     stateVersion = "22.05";
 
     sessionVariables = {
