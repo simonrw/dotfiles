@@ -20,7 +20,12 @@ in
     packages = with pkgs; [
       bat
       ctags
+      curl
+      entr
       exa
+      fd
+      python3
+      reattach-to-user-namespace
       ripgrep
       skim
       tmux
