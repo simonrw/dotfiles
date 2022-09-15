@@ -14,8 +14,6 @@
 
   outputs = { nixpkgs, darwin, home-manager, ... }:
     let
-      system = "aarch64-darwin";
-      pkgs = nixpkgs.legacyPackages.${system};
       nixpkgsConfig = {
         config = {
           allowUnfree = true;
@@ -26,7 +24,7 @@
     {
       darwinConfigurations = {
         mba = darwin.lib.darwinSystem {
-          inherit system;
+          system = "aarch64-darwin";
           modules = [
             ./configuration.nix
             home-manager.darwinModules.home-manager

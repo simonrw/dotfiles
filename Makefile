@@ -2,7 +2,9 @@ ARGS ?=
 HOSTNAME ?= $(shell hostname -s)
 
 switch:
-	darwin-rebuild switch --flake '.#${HOSTNAME}' ${ARGS}
+	nix build .#darwinConfigurations.${HOSTNAME}.system
+	./result/sw/bin/darwin-rebuild switch --flake '.#${HOSTNAME}' ${ARGS}
 
 build:
-	darwin-rebuild build --flake '.#${HOSTNAME}' ${ARGS}
+	nix build .#darwinConfigurations.${HOSTNAME}.system
+	./result/sw/bin/darwin-rebuild build --flake '.#${HOSTNAME}' ${ARGS}
