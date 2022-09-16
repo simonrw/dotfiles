@@ -32,8 +32,10 @@ in
       multitail
       noti
       openssh
-      pre-commit
+      # why does this compile a version of nodejs from scratch?
+      # pre-commit
       python3
+      python3Packages.pipx
       qemu
       reattach-to-user-namespace
       ripgrep
