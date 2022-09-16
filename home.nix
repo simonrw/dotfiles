@@ -24,10 +24,21 @@ in
       entr
       exa
       fd
+      fzf
+      graphviz
+      hey
+      htop
+      mkcert
+      multitail
+      noti
+      openssh
+      pre-commit
       python3
+      qemu
       reattach-to-user-namespace
       ripgrep
       skim
+      universal-ctags
 
       # custom derivations
       hammerspoonDerivation
@@ -44,6 +55,7 @@ in
   };
 
   programs.home-manager.enable = true;
+  programs.jq.enable = true;
 
   programs.direnv = {
     enable = true;
