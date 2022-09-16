@@ -9,6 +9,10 @@
     shell = pkgs.fish;
   };
 
+  environment.shells = [
+    pkgs.fish
+  ];
+
   services.nix-daemon.enable = true;
   nix.package = pkgs.nix;
   documentation.enable = true;
