@@ -184,6 +184,7 @@ in
       ci = "glab ci view";
       curl = "curlie";
       http = "curlie";
+      nr = "nix repl --file '<nixpkgs>'";
     };
     shellAbbrs = {
       ipy = "ipython";
