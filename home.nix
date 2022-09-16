@@ -32,18 +32,19 @@ in
       noti
       openssh
       # why does this compile a version of nodejs from scratch?
-      # pre-commit
+      pre-commit
       python3
       python3Packages.pipx
-      qemu
-      reattach-to-user-namespace
       ripgrep
       skim
       universal-ctags
 
       # custom derivations
       hammerspoonDerivation
-    ];
+    ] ++ (lib.optionals stdenv.isDarwin [
+      # macos only
+      reattach-to-user-namespace
+    ]);
   };
 
   programs.bat = {
