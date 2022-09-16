@@ -19,7 +19,6 @@ in
 
     packages = with pkgs; [
       bat
-      ctags
       curl
       entr
       exa
