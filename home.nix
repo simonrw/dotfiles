@@ -775,10 +775,4 @@ in
       recursive = true;
     };
   };
-
-  # set up onepassword
-  # https://github.com/schickling/dotfiles/blob/a249dfb52a8d708ffbd9caf4e9060760c511d80b/nixpkgs/darwin/mbp2021/configuration.nix#L45
-  nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
-    "1password-cli"
-  ];
 }
