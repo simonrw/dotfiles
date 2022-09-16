@@ -12,24 +12,27 @@
     };
   };
 
-  outputs = { nixpkgs, darwin, home-manager, ... }:
-    {
-      homeConfigurations = {
-        simon = home-manager.lib.homeManagerConfiguration {
-          pkgs = nixpkgs.legacyPackages.aarch64-darwin;
-          modules = [
-            ./home.nix
-          ];
+  outputs = { nixpkgs, darwin, flake-utils, home-manager, ... }:
+    flake-utils.lib.eachDefaultSystem (system:
+      let pkgs = nixpkgs.legacyPackages.${system}; in
+      {
+        homeConfigurations = {
+          simon = home-manager.lib.homeManagerConfiguration {
+            pkgs = pkgs;
+            modules = [
+              ./home.nix
+            ];
+          };
         };
-      };
-      darwinConfigurations = {
-        mba = darwin.lib.darwinSystem {
-          system = "aarch64-darwin";
-          modules = [
-            ./configuration.nix
-          ];
-          inputs = { inherit darwin nixpkgs; };
+        darwinConfigurations = {
+          mba = darwin.lib.darwinSystem {
+            system = "aarch64-darwin";
+            modules = [
+              ./configuration.nix
+            ];
+            inputs = { inherit darwin nixpkgs; };
+          };
         };
-      };
-    };
+      }
+    );
 }
