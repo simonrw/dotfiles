@@ -13,27 +13,20 @@
   };
 
   outputs = { nixpkgs, darwin, home-manager, ... }:
-    let
-      nixpkgsConfig = {
-        config = {
-          allowUnfree = true;
+    {
+      homeConfigurations = {
+        mba = home-manager.lib.homeManagerConfiguration {
+          pkgs = nixpkgs.legacyPackages.aarch64-darwin;
+          modules = [
+            ./home.nix
+          ];
         };
       };
-
-    in
-    {
       darwinConfigurations = {
         mba = darwin.lib.darwinSystem {
           system = "aarch64-darwin";
           modules = [
             ./configuration.nix
-            home-manager.darwinModules.home-manager
-            {
-              nixpkgs = nixpkgsConfig;
-              home-manager.useGlobalPkgs = true;
-              home-manager.useUserPackages = true;
-              home-manager.users.simon = import ./home.nix;
-            }
           ];
           inputs = { inherit darwin nixpkgs; };
         };
