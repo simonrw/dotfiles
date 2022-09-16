@@ -196,5 +196,3 @@ path = ~/work/.gitconfig
 # vim: ft=gitconfig
 [feature]
     manyFiles = 1
-[interactive]
-    diffFilter = diff-so-fancy --patch
