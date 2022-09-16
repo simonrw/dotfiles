@@ -6,9 +6,9 @@ os/switch:
 	./result/sw/bin/darwin-rebuild switch --flake '.#${HOSTNAME}' ${ARGS}
 
 switch:
-	nix build .#homeConfigurations.${HOSTNAME}.activationPackage
+	nix build .#homeConfigurations.simon.activationPackage
 	./result/activate
 
-build:
+os/build:
 	nix build .#darwinConfigurations.${HOSTNAME}.system
 	./result/sw/bin/darwin-rebuild build --flake '.#${HOSTNAME}' ${ARGS}

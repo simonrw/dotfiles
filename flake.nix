@@ -15,7 +15,7 @@
   outputs = { nixpkgs, darwin, home-manager, ... }:
     {
       homeConfigurations = {
-        mba = home-manager.lib.homeManagerConfiguration {
+        simon = home-manager.lib.homeManagerConfiguration {
           pkgs = nixpkgs.legacyPackages.aarch64-darwin;
           modules = [
             ./home.nix
