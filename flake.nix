@@ -14,7 +14,12 @@
 
   outputs = { nixpkgs, darwin, flake-utils, home-manager, ... }:
     flake-utils.lib.eachDefaultSystem (system:
-      let pkgs = nixpkgs.legacyPackages.${system}; in
+      let
+        pkgs = import nixpkgs {
+          inherit system;
+          config.allowUnfree = true;
+        };
+      in
       {
         homeConfigurations = {
           simon = home-manager.lib.homeManagerConfiguration {
@@ -30,7 +35,7 @@
             modules = [
               ./system/configuration.nix
             ];
-            inputs = { inherit darwin nixpkgs; };
+            inputs = { inherit darwin pkgs; };
           };
         };
       }
