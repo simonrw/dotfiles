@@ -40,7 +40,7 @@ in
       universal-ctags
 
       # custom derivations
-      hammerspoonDerivation
+      # hammerspoonDerivation
     ] ++ (lib.optionals stdenv.isDarwin [
       # macos only
       reattach-to-user-namespace
