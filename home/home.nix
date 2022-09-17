@@ -27,6 +27,7 @@ in
       graphviz
       hey
       htop
+      httpie
       mkcert
       multitail
       noti
@@ -183,8 +184,6 @@ in
       lpb = "glab project view -w";
       mr = "glab mr view -w";
       ci = "glab ci view";
-      curl = "curlie";
-      http = "curlie";
       nr = "nix repl --file '<nixpkgs>'";
     };
     shellAbbrs = {
