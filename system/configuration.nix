@@ -1,6 +1,8 @@
 { pkgs, lib, ... }:
 {
+  nixpkgs.config.allowUnfree = true;
   environment.systemPackages = [
+    pkgs._1password
   ];
 
   users.users.simon = {
