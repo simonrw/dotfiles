@@ -20,7 +20,7 @@
           simon = home-manager.lib.homeManagerConfiguration {
             pkgs = pkgs;
             modules = [
-              ./home.nix
+              ./home/home.nix
             ];
           };
         };
@@ -28,7 +28,7 @@
           mba = darwin.lib.darwinSystem {
             system = "aarch64-darwin";
             modules = [
-              ./configuration.nix
+              ./system/configuration.nix
             ];
             inputs = { inherit darwin nixpkgs; };
           };
