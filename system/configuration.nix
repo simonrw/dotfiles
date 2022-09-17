@@ -50,5 +50,9 @@
       "visual-studio-code"
       "vlc"
     ];
+    masApps =
+      {
+        DaisyDisk = 411643860;
+      };
   };
 }
