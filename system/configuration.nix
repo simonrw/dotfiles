@@ -44,6 +44,7 @@
       "docker"
       "element"
       "firefox"
+      "gimp"
       "google-chrome"
       "hammerspoon"
       "karabiner-elements"
