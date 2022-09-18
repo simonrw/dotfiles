@@ -28,6 +28,7 @@ in
       hey
       htop
       httpie
+      hub
       mkcert
       multitail
       noti
