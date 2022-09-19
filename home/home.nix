@@ -719,6 +719,13 @@ in
     extraPython3Packages = (ps: with ps; [
       pynvim
     ]);
+    extraConfig = ''
+      source ~/.config/nvim/nixinit.vim
+    '';
+    plugins = with pkgs.vimPlugins; [
+      (nvim-treesitter.withPlugins (_: pkgs.tree-sitter.allGrammars))
+      vim-nix
+    ];
   };
 
   programs.tmux = {
