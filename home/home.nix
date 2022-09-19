@@ -832,5 +832,9 @@ in
       source = ./nvim;
       recursive = true;
     };
+    configFile.alacritty = {
+      source = ./alacritty;
+      recursive = true;
+    };
   };
 }
