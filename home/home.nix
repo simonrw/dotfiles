@@ -157,8 +157,6 @@ in
       set -x PATH /etc/profiles/per-user/(whoami)/bin {$PATH}
     '';
     shellAliases = {
-      pbcopy = "xclip";
-      pbpaste = "xclip -o";
       ta = "_tmux_attach";
       ll = "ls -lh";
       pylab = "ipython - -pylab";
@@ -186,6 +184,9 @@ in
       mr = "glab mr view -w";
       ci = "glab ci view";
       nr = "nix repl --file '<nixpkgs>'";
+    } // lib.optionalAttrs pkgs.stdenv.isLinux {
+      pbcopy = "xclip";
+      pbpaste = "xclip -o";
     };
     shellAbbrs = {
       ipy = "ipython";
