@@ -24,6 +24,7 @@ in
       exa
       fd
       fzf
+      gh
       graphviz
       hey
       htop
