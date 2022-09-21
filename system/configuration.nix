@@ -11,6 +11,14 @@
     shell = pkgs.fish;
   };
 
+  nix.gc = {
+    automatic = true;
+    interval = {
+      Weekday = 0;
+      Hour = 2;
+    };
+  };
+
   fonts = {
     fontDir.enable = true;
     fonts = with pkgs; [
