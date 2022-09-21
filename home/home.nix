@@ -754,6 +754,7 @@ in
       vim-terraform
       rust-vim
       octo-nvim
+      nvim-web-devicons
 
       # lsps
       nvim-lspconfig
