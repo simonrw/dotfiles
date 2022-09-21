@@ -517,7 +517,7 @@ in
       enable = true;
       options = {
         side-by-side = true;
-        diff-so-fancy = false;
+        diff-so-fancy = true;
       };
     };
     includes = [
