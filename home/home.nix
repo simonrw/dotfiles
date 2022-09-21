@@ -752,6 +752,8 @@ in
       vim-svelte
       vim-terraform
       rust-vim
+      octo-nvim
+
       # lsps
       nvim-lspconfig
       lsp_extensions-nvim

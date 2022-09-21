@@ -25,3 +25,4 @@ if vim.g.include_treesitter == 1 then
 end
 require('telescopeconfig')
 require('lualineconfig')
+require('octoconfig')
