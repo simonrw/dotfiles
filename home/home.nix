@@ -824,7 +824,7 @@
       recursive = true;
     };
 
-    ".hammerspoon" = {
+    ".hammerspoon" = lib.mkIf pkgs.stdenv.isDarwin {
       source = ./hammerspoon;
       recursive = true;
     };
