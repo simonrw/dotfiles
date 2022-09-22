@@ -1,7 +1,4 @@
 { config, pkgs, lib, ... }:
-let
-  hammerspoonDerivation = (import ./derivations/hammerspoon.nix) { inherit pkgs; };
-in
 {
   home = {
     username = "simon";
@@ -41,9 +38,6 @@ in
       ripgrep
       skim
       universal-ctags
-
-      # custom derivations
-      # hammerspoonDerivation
     ] ++ (lib.optionals stdenv.isDarwin [
       # macos only
       reattach-to-user-namespace
