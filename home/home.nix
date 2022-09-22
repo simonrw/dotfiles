@@ -840,5 +840,9 @@
       source = ./alacritty;
       recursive = true;
     };
+    configFile.karabiner = lib.mkIf pkgs.stdenv.isDarwin {
+      source = ./karabiner;
+      recursive = true;
+    };
   };
 }
