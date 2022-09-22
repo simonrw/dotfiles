@@ -54,6 +54,7 @@
   homebrew = {
     enable = true;
     casks = [
+      "1password"
       "alacritty"
       "alfred"
       "barrier"
