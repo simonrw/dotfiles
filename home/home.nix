@@ -823,6 +823,11 @@
       source = ./bin;
       recursive = true;
     };
+
+    ".hammerspoon" = {
+      source = ./hammerspoon;
+      recursive = true;
+    };
   };
 
   xdg = {
