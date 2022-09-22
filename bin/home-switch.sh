@@ -6,5 +6,5 @@ set -euo pipefail
 
 NIXARCH="$(nixarch)"
 
-nix --extra-experimental-features "nix-command flakes" build .#homeConfigurations.${NIXARCH}.${USER}.activationPackage
+nix --extra-experimental-features "nix-command flakes" build ".#homeConfigurations.${NIXARCH}.${USER}.activationPackage" $*
 ./result/activate
