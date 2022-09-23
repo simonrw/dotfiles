@@ -1,8 +1,9 @@
 { pkgs, lib, ... }:
 {
   nixpkgs.config.allowUnfree = true;
-  environment.systemPackages = [
-    pkgs._1password
+  environment.systemPackages = with pkgs; [
+    _1password
+    obsidian
   ];
 
   users.users.simon = {
