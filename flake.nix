@@ -38,6 +38,12 @@
             inputs = { inherit darwin pkgs; };
           };
         };
+        devShells.default = pkgs.mkShell {
+          buildInputs = with pkgs; [
+            python310
+            python310Packages.black
+          ];
+        };
       }
     );
 }
