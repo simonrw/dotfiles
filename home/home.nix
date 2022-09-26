@@ -57,6 +57,7 @@ in
       # linux only
       rofi
       firefox
+      _1password-gui
     ]);
   };
 
