@@ -12,46 +12,50 @@
     };
   };
 
-  outputs = { nixpkgs, darwin, flake-utils, home-manager, ... }: {
-    nixosConfigurations.nixos = nixpkgs.lib.nixosSystem
-      {
-        system = "x86_64-linux";
-        modules = [
-          ./system/nixos/nixos/configuration.nix
-        ];
-      } //
-    flake-utils.lib.eachDefaultSystem (system:
-      let
-        pkgs = import nixpkgs {
-          inherit system;
-          config.allowUnfree = true;
-        };
-      in
-      {
-        homeConfigurations = {
-          simon = home-manager.lib.homeManagerConfiguration {
-            pkgs = pkgs;
-            modules = [
-              ./home/home.nix
-            ];
-          };
-        };
-        darwinConfigurations = {
-          mba = darwin.lib.darwinSystem {
-            system = "aarch64-darwin";
-            modules = [
-              ./system/darwin/configuration.nix
-            ];
-            inputs = { inherit darwin pkgs; };
-          };
-        };
-        devShells.default = pkgs.mkShell {
-          buildInputs = with pkgs; [
-            python310
-            python310Packages.black
+  outputs = { nixpkgs, darwin, flake-utils, home-manager, ... }:
+    let
+      mkNixOSConfiguration =
+        name: nixpkgs.lib.nixosSystem {
+          system = "x86_64-linux";
+          modules = [
+            ./system/nixos/${name}/configuration.nix
           ];
         };
-      }
-    );
-  };
+    in
+    {
+      nixosConfigurations.nixos = mkNixOSConfiguration "nixos" //
+        flake-utils.lib.eachDefaultSystem (system:
+          let
+            pkgs = import nixpkgs {
+              inherit system;
+              config.allowUnfree = true;
+            };
+          in
+          {
+            homeConfigurations = {
+              simon = home-manager.lib.homeManagerConfiguration {
+                pkgs = pkgs;
+                modules = [
+                  ./home/home.nix
+                ];
+              };
+            };
+            darwinConfigurations = {
+              mba = darwin.lib.darwinSystem {
+                system = "aarch64-darwin";
+                modules = [
+                  ./system/darwin/configuration.nix
+                ];
+                inputs = { inherit darwin pkgs; };
+              };
+            };
+            devShells.default = pkgs.mkShell {
+              buildInputs = with pkgs; [
+                python310
+                python310Packages.black
+              ];
+            };
+          }
+        );
+    };
 }

@@ -7,6 +7,17 @@ set -euo pipefail
 NIXARCH="$(nixarch)"
 HOSTNAME="$(hostname -s)"
 
-nix --extra-experimental-features "nix-command flakes" build ".#darwinConfigurations.${NIXARCH}.${HOSTNAME}.system"
-./result/sw/bin/darwin-rebuild build --flake ".#${NIXARCH}.${HOSTNAME}" $*
+case ${NIXARCH} in
+    *-linux)
+        sudo nixos-rebuild build --flake .
+        ;;
+    *-darwin)
+        nix --extra-experimental-features "nix-command flakes" build ".#darwinConfigurations.${NIXARCH}.${HOSTNAME}.system"
+        ./result/sw/bin/darwin-rebuild build --flake ".#${NIXARCH}.${HOSTNAME}" $*
+        ;;
+    *)
+        echo "Unhandled architecture: ${NIXARCH}" >&2
+        exit 1
+    ;;
+esac
 
