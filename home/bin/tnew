@@ -13,7 +13,11 @@ logger = logging.getLogger("tnew")
 
 
 def list_sessions():
-    sessions = run_tmux("ls", "-F", "#S")
+    try:
+        sessions = run_tmux("ls", "-F", "#S")
+    except sp.CalledProcessError:
+        return []
+
     yield from sessions.split()
 
 
