@@ -56,6 +56,7 @@ in
     ]) ++ (lib.optionals stdenv.isLinux [
       # linux only
       rofi
+      firefox
     ]);
   };
 
@@ -190,9 +191,9 @@ in
           # exit i3 (logs you out of your X session)
           "${mod}+Ctrl+Shift+E" = "exit";
 
-          "${mod}+c" = "exec firefox";
-          "${mod}+Return" = "exec alacritty";
-          "${mod}+d" = "exec rofi -show drun";
+          "${mod}+c" = "exec ${pkgs.firefox}/bin/firefox";
+          "${mod}+Return" = "exec ${pkgs.alacritty}/bin/alacritty";
+          "${mod}+d" = "exec ${pkgs.rofi}/bin/rofi -show drun";
         };
       };
     };
