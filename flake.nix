@@ -22,6 +22,16 @@
           ];
         };
 
+      appendNixOSConfiguration =
+        attrs: name: attrs // {
+          "${name}" = mkNixOSConfiguration name;
+        };
+
+      nixOsConfigurations =
+        names: {
+          nixosConfigurations = builtins.foldl' appendNixOSConfiguration { } names;
+        };
+
       # these definitions are per system
       perSystemConfigurations = flake-utils.lib.eachDefaultSystem (system:
         let
@@ -57,8 +67,7 @@
         }
       );
     in
-    {
-      # nixos configurations
-      nixosConfigurations.nixos = mkNixOSConfiguration "nixos";
-    } // perSystemConfigurations;
+    nixOsConfigurations [
+      "nixos"
+    ] // perSystemConfigurations;
 }
