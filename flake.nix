@@ -12,7 +12,14 @@
     };
   };
 
-  outputs = { nixpkgs, darwin, flake-utils, home-manager, ... }:
+  outputs = { nixpkgs, darwin, flake-utils, home-manager, ... }: {
+    nixosConfigurations.nixos = nixpkgs.lib.nixosSystem
+      {
+        system = "x86_64-linux";
+        modules = [
+          ./system/nixos/nixos/configuration.nix
+        ];
+      } //
     flake-utils.lib.eachDefaultSystem (system:
       let
         pkgs = import nixpkgs {
@@ -33,7 +40,7 @@
           mba = darwin.lib.darwinSystem {
             system = "aarch64-darwin";
             modules = [
-              ./system/configuration.nix
+              ./system/darwin/configuration.nix
             ];
             inputs = { inherit darwin pkgs; };
           };
@@ -46,4 +53,5 @@
         };
       }
     );
+  };
 }
