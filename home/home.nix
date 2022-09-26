@@ -9,11 +9,13 @@ let
 
   loadProgramConfigs =
     names: builtins.foldl' appendConfig { } names;
+
+  homeDir = if pkgs.stdenv.isDarwin then "Users" else "home";
 in
 {
   home = {
     username = "simon";
-    homeDirectory = "/Users/simon";
+    homeDirectory = "/${homeDir}/simon";
     stateVersion = "22.05";
 
     sessionVariables = {
