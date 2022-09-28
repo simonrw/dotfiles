@@ -3,7 +3,7 @@ local applications = {
         name = "Alacritty",
     },
     browser = {
-        name = "Google Chrome",
+        name = "Firefox",
     },
     email = {
         name = "Mail",
@@ -19,10 +19,6 @@ local applications = {
     },
     notes = {
         name = "Obsidian",
-    },
-    editor = {
-        name = "Visual Studio Code",
-        windowTitle = "Code",
     },
     video = {
         name = "Zoom Meeting",

@@ -26,7 +26,6 @@ bindKey(applications.documentation, 'r')
 bindKey(applications.notes, 'e')
 bindKey(applications.todo, 'n')
 bindKey(applications.music, 'm')
-bindKey(applications.editor, 'y')
 
 for _, hostname in ipairs(hs.host.names()) do
     if string.find(hostname, "pixmac516") then
