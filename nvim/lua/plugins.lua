@@ -34,13 +34,13 @@ require('packer').startup({function(use)
     use {'nvim-telescope/telescope-ui-select.nvim' }
     use 'ludovicchabant/vim-gutentags'
     use 'editorconfig/editorconfig-vim'
-    use 'nvim-lualine/lualine.nvim'
     use {
         "folke/zen-mode.nvim",
         config = function()
             require("zen-mode").setup {}
         end
     }
+    use 'nvim-lualine/lualine.nvim'
 
     -- language plugins
     use 'cespare/vim-toml'
@@ -64,7 +64,14 @@ require('packer').startup({function(use)
         use 'psf/black'
         use "williamboman/mason.nvim" 
         use 'williamboman/mason-lspconfig.nvim'
-        use 'nvim-lua/lsp-status.nvim'
+        use {
+            'nvim-lua/lsp-status.nvim',
+            config = function()
+                require('lsp-status').config({
+
+                })
+            end,
+        }
         use "lukas-reineke/lsp-format.nvim"
 
         -- debugging
