@@ -4,23 +4,21 @@ require('plugins')
 require('mappings')
 require('telescopeconfig')
 
-vim.defer_fn(function()
-    if vim.g.include_treesitter == 1 then
-        require('treesitterconfig')
-    end
+if vim.g.include_treesitter == 1 then
+    require('treesitterconfig')
+end
 
-    require('gutentags')
+require('gutentags')
 
-    if vim.g.completion_framework == 'nvim' then
-        require('customlspconfig')
-        require('completionconfig')
-        require('dapconfig')
-    end
+if vim.g.completion_framework == 'nvim' then
+    require('customlspconfig')
+    require('completionconfig')
+    require('dapconfig')
+end
 
-    -- plugins
-    require('fzf')
-    require('vim-test')
-    require('vtr')
-    require('fugitive')
-    require('octoconfig')
-end, 0)
+-- plugins
+require('fzf')
+require('vim-test')
+require('vtr')
+require('fugitive')
+require('octoconfig')
