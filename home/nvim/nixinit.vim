@@ -143,18 +143,6 @@ let g:vim_markdown_new_list_item_indent= 0
 let g:vim_markdown_no_default_key_mappings = 1
 let g:markdown_fenced_languages = ["python", "javascript", "toml", "rust", "json", "html"]
 
-" configure python3 for neovim
-"
-" We ensure that a global python installation with the python3 file is set 
-let s:python3_venv_path = expand("~/.local/share/nvim/venv3")
-let s:python3_interp_path = s:python3_venv_path . "/bin/python"
-if filereadable(s:python3_interp_path)
-    let g:python3_host_prog = s:python3_interp_path
-else
-    echoerr "Python3 virtual environment not set up at " . s:python3_venv_path
-        \ . ". Create virtual environment there and install `pynvim`."
-endif
-
 " configure abbreviations
 source ~/.config/nvim/abbreviations.vim
 
