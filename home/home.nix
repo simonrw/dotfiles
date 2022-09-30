@@ -28,6 +28,7 @@ in
     };
 
     packages = with pkgs; [
+      alacritty
       bat
       curl
       entr

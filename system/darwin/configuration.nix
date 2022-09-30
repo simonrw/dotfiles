@@ -50,13 +50,13 @@
   programs.nix-index.enable = true;
 
   system.keyboard.enableKeyMapping = true;
-  system.keyboard.remapCapsLockToEscape = true;
+  system.keyboard.remapCapsLockToControl = true;
 
   homebrew = {
     enable = true;
     casks = [
       "1password"
-      "alacritty"
+      # "alacritty"
       "alfred"
       "barrier"
       "dash"
