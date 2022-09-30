@@ -52,6 +52,7 @@ in
       universal-ctags
     ] ++ (lib.optionals stdenv.isDarwin [
       # macos only
+      dark-mode
       reattach-to-user-namespace
     ]) ++ (lib.optionals stdenv.isLinux [
       # linux only

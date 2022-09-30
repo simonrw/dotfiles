@@ -39,12 +39,22 @@
             inherit system;
             config.allowUnfree = true;
           };
+
+          # overlays
+          dark-mode-overlay = final: prev: {
+            dark-mode = pkgs.callPackage ./overlays/dark-mode/default.nix { };
+          };
+
+          overlays = [
+            dark-mode-overlay
+          ];
         in
         {
           homeConfigurations = {
             simon = home-manager.lib.homeManagerConfiguration {
               pkgs = pkgs;
               modules = [
+                { nixpkgs.overlays = overlays; }
                 ./home/home.nix
               ];
             };
