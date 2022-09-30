@@ -9,7 +9,7 @@
   keyMode = "vi";
   sensibleOnTop = true;
   shortcut = "s";
-  terminal = "xterm-256color";
+  terminal = "screen-256color";
   shell = "${pkgs.fish}/bin/fish";
   secureSocket = true;
   plugins = with pkgs; [
