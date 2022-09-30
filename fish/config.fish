@@ -13,6 +13,7 @@ set -e host_config
 # some key variables
 set -x GOPATH {$HOME}/dev/gocode
 set -x PATH {$PATH} {$GOPATH}/bin
+set -x PYTHONBREAKPOINT pudb.set_trace
 
 # include foreign env
 set fish_function_path $fish_function_path {$HOME}/dotfiles/external/plugin-foreign-env/functions
