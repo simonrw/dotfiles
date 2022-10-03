@@ -25,7 +25,7 @@ layout_python-venv() {
     export VIRTUAL_ENV
     if [[ ! -d $VIRTUAL_ENV ]]; then
         log_status "no venv found; creating $VIRTUAL_ENV"
-        "$python" -m venv "$VIRTUAL_ENV"
+        virtualenv --python "$python" "$VIRTUAL_ENV"
     fi
 
     PATH="${VIRTUAL_ENV}/bin:${PATH}"

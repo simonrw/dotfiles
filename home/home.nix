@@ -48,6 +48,7 @@ in
       pre-commit
       python3
       python3Packages.pipx
+      python3Packages.virtualenv
       ripgrep
       skim
       universal-ctags
