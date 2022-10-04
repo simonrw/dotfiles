@@ -1,0 +1,62 @@
+#!/usr/bin/env python3
+
+import argparse
+import subprocess as sp
+import sys
+
+
+class OSAScript:
+    @classmethod
+    def toggle(cls):
+        if cls.is_dark_mode():
+            cls.set_not_dark_mode()
+        else:
+            cls.set_dark_mode()
+
+    @classmethod
+    def is_dark_mode(cls) -> bool:
+        cmd = ["defaults", "read", "-g", "AppleInterfaceStyle"]
+        ret = sp.run(cmd, check=False, capture_output=True)
+        if ret.returncode != 0:
+            return False
+
+        if ret.stdout.decode().strip() == "Dark":
+            return True
+
+        raise ValueError("unknown if system is in dark mode or not")
+
+    @classmethod
+    def set_dark_mode(cls):
+        cmd = [
+            "osascript",
+            "-e",
+            'tell app "System Events" to tell appearance preferences to set dark mode to true',
+        ]
+        sp.run(cmd, check=True, capture_output=True)
+
+    @classmethod
+    def set_not_dark_mode(cls):
+        cmd = [
+            "osascript",
+            "-e",
+            'tell app "System Events" to tell appearance preferences to set dark mode to false',
+        ]
+        sp.run(cmd, check=True, capture_output=True)
+
+
+if __name__ == "__main__":
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--dark", action="store_true", default=False)
+    parser.add_argument("--light", action="store_true", default=False)
+    args = parser.parse_args()
+
+    if args.dark and args.light:
+        print("Cannot specify dark and light", file=sys.stderr)
+        raise SystemExit(1)
+
+    if args.dark:
+        OSAScript.set_dark_mode()
+    elif args.light:
+        OSAScript.set_not_dark_mode()
+    else:
+        OSAScript.toggle()
