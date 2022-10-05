@@ -1,19 +1,8 @@
-local target_servers = {"pyright", "gopls", "rust_analyzer", "yamlls", "terraformls", "efm", "clangd", "rnix"}
+local target_servers = {"pyright", "gopls", "rust_analyzer", "yamlls", "terraformls", "efm", "clangd", "rnix", "tsserver"}
 local lsp_status = require('lsp-status')
 local lsp_format = require('lsp-format')
-require('mason').setup()
-require("mason-lspconfig").setup({
-    ensure_installed = target_servers
-})
 lsp_format.setup {}
 lsp_status.register_progress()
-
-function merge_tables(a, b)
-    for _, v in pairs(b) do
-        table.insert(a, v)
-    end
-    return a
-end
 
 local on_attach = function(client, bufnr)
     local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
@@ -43,30 +32,15 @@ local on_attach = function(client, bufnr)
     return lsp_status.on_attach(client)
 end
 
-local function setup()
-    local lspconfig = require("lspconfig")
-    local capabilities = vim.tbl_extend('keep',
-            require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities()),
-            lsp_status.capabilities
-            )
-
-
-    for _, server in ipairs(target_servers) do
-        require('lspconfig')[server].setup({
+require('mason').setup()
+require("mason-lspconfig").setup({
+    ensure_installed = target_servers,
+    automatic_installation = true,
+})
+require('mason-lspconfig').setup_handlers({
+    function (server_name)
+        require('lspconfig')[server_name].setup({
             on_attach = on_attach,
         })
-    end
-
-    vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
-        vim.lsp.diagnostic.on_publish_diagnostics, {
-            virtual_text = true,
-            signs = true,
-            update_in_insert = true,
-        }
-    )
-
-end
-
-if vim.g.completion_framework == 'nvim' then
-    setup()
-end
+    end,
+})
