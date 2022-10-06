@@ -7,9 +7,6 @@ cmp.setup({
             vim.fn["vsnip#anonymous"](args.body)
         end,
     },
-    completion = {
-        autocomplete = false,
-    },
     mapping = {
         ['<C-b>'] = cmp.mapping(cmp.mapping.scroll_docs(-4), { 'i', 'c' }),
         ['<C-f>'] = cmp.mapping(cmp.mapping.scroll_docs(4), { 'i', 'c' }),
