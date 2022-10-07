@@ -59,10 +59,10 @@ if type -q nvim
     alias vimdiff="nvim -d"
 end
 
-if type -q glab
-    alias lpb="glab project view -w"
-    alias mr="glab mr view -w"
-    alias ci="glab ci view"
+if type -q lab
+    alias lpb="lab project browse"
+    alias mr="lab mr browse"
+    alias ci="lab ci view"
 end
 
 if type -q paru
