@@ -4,6 +4,7 @@
   environment.systemPackages = with pkgs; [
     _1password
     obsidian
+    jetbrains.pycharm-community
   ];
 
   users.users.simon = {
