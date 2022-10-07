@@ -6,6 +6,8 @@ _not_inside_emacs() { [[ -z "$INSIDE_EMACS" && -z "$EMACS" ]] }
 
 _not_inside_vscode_term() { [[ "$TERM_PROGRAM" != "vscode" ]] }
 
+_not_inside_pycharm() { [[ "$PYCHARM" != "1" ]] }
+
 # We only want tmux to run when were inside a X session i.e. not at a virtual
 # console. On macos we have to pretend that an Xsession is running so hard code
 # the result.
@@ -22,7 +24,7 @@ _inside_x_session() {
 }
 
 ensure_tmux_is_running() {
-    if _not_inside_tmux && _not_inside_neovim && _not_inside_emacs && _inside_x_session && _not_inside_vscode_term; then
+    if _not_inside_tmux && _not_inside_neovim && _not_inside_emacs && _inside_x_session && _not_inside_vscode_term && _not_inside_pycharm; then
         tat
     fi
 }
