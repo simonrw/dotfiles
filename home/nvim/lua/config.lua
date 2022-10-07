@@ -22,3 +22,5 @@ require('vim-test')
 require('vtr')
 require('fugitive')
 require('octoconfig')
+
+require('lualineconfig')
