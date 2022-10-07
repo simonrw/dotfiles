@@ -1,4 +1,4 @@
-local target_servers = {"pyright", "gopls", "rust_analyzer", "yamlls", "terraformls", "efm", "clangd", "rnix", "tsserver"}
+local target_servers = {"pyright", "gopls", "rust_analyzer", "yamlls", "terraformls", "clangd", "rnix", "tsserver"}
 local lsp_status = require('lsp-status')
 local lsp_format = require('lsp-format')
 lsp_format.setup {}
@@ -43,4 +43,13 @@ require('mason-lspconfig').setup_handlers({
             on_attach = on_attach,
         })
     end,
+})
+
+local null_ls = require('null-ls')
+null_ls.setup({
+    sources = {
+        null_ls.builtins.completion.tags,
+        null_ls.builtins.diagnostics.cfn_lint,
+        null_ls.builtins.diagnostics.deadnix,
+    },
 })

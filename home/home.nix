@@ -31,6 +31,7 @@ in
       alacritty
       bat
       curl
+      deadnix
       entr
       exa
       fd
