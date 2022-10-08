@@ -296,9 +296,7 @@ endif
 
 
 set background=dark
-" colorscheme srw256
-let g:github_transparent = 1
-colorscheme github_dark_default
+colorscheme srw256
 hi Normal guibg=none
 let g:linenr_background = 'none'
 execute 'highlight TelescopeNormal guibg=' . g:linenr_background

@@ -34,7 +34,6 @@
     telescope-ui-select-nvim
     vim-gutentags
     editorconfig-nvim
-    lualine-nvim
     zen-mode-nvim
     vim-toml
     vim-svelte
