@@ -10,6 +10,8 @@
       url = "github:lnl7/nix-darwin/master";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    nixgl.url = "github:guibou/nixGL";
+    nixgl.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   outputs = { nixpkgs, darwin, flake-utils, home-manager, ... }:
