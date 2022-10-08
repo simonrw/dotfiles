@@ -49,6 +49,7 @@
     lsp-format-nvim
     nvim-dap
     nvim-dap-ui
+    null-ls-nvim
 
     # completion
     cmp-nvim-lsp
