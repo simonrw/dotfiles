@@ -59,7 +59,6 @@ require('packer').startup({function(use)
     use 'christoomey/vim-tmux-runner'
     use 'christoomey/vim-conflicted'
     use 'vim-test/vim-test'
-    use 'junegunn/vim-easy-align'
     use 'shumphrey/fugitive-gitlab.vim'
     use { 'iamcco/markdown-preview.nvim', run = 'cd app && yarn install' }
     use 'airblade/vim-gitgutter'
@@ -71,18 +70,14 @@ require('packer').startup({function(use)
         setup = telescope_setup,
         config = telescope_config,
     }
-    use 'TC72/telescope-tele-tabby.nvim'
-    use {'nvim-telescope/telescope-ui-select.nvim' }
+    use { 'TC72/telescope-tele-tabby.nvim', after = 'telescope.nvim' }
+    use { 'nvim-telescope/telescope-ui-select.nvim', after = 'telescope.nvim' }
     use 'ludovicchabant/vim-gutentags'
-    use 'editorconfig/editorconfig-vim'
     use 'nvim-lualine/lualine.nvim'
 
     -- language plugins
     use 'cespare/vim-toml'
-    use 'evanleck/vim-svelte'
     use 'hashivim/vim-terraform'
-    use 'lepture/vim-velocity'
-    use 'NoahTheDuke/vim-just'
     use 'rust-lang/rust.vim'
     use 'tweekmonster/django-plus.vim'
 
@@ -96,7 +91,6 @@ require('packer').startup({function(use)
     elseif vim.g.completion_framework == 'nvim' then
         use 'neovim/nvim-lspconfig'
         use 'nvim-lua/lsp_extensions.nvim'
-        use 'psf/black'
         use "williamboman/mason.nvim" 
         use 'williamboman/mason-lspconfig.nvim'
         use {
@@ -125,15 +119,14 @@ require('packer').startup({function(use)
         use 'nvim-treesitter/playground'
     end
 
-    -- for testing
-    use 'nvim-lua/plenary.nvim'
-
     -- my plugins
-    use 'mindriot101/search-in-scope.vim'
+    use { 'mindriot101/search-in-scope.vim',
+        config = function()
+            require('search_in_scope').setup({
+                bind = '<leader>S',
+                indent_filetypes = {'lua'},
+            })
+        end,
+    }
 end,
 config = {}})
-
-require('search_in_scope').setup({
-    bind = '<leader>S',
-    indent_filetypes = {'lua'},
-})
