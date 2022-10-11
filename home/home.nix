@@ -56,9 +56,10 @@ in
       reattach-to-user-namespace
     ]) ++ (lib.optionals stdenv.isLinux [
       # linux only
-      rofi
-      firefox
       _1password-gui
+      alacritty
+      firefox
+      rofi
     ]);
 
     # copy applications so spotlight can index them
