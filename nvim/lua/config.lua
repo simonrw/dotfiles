@@ -6,13 +6,9 @@ require('gutentags')
 if vim.g.completion_framework == 'nvim' then
     require('customlspconfig')
     require('completionconfig')
-    require('dapconfig') end
+end
 if vim.g.include_treesitter == 1 then
     require('treesitterconfig')
-end
-
-if vim.fn.exists('g:neovide') then
-    require('neovideconfig')
 end
 
 -- plugins
@@ -23,5 +19,4 @@ require('fugitive')
 if vim.g.include_treesitter == 1 then
     require('treesitter-unit-config')
 end
-require('telescopeconfig')
 require('lualineconfig')

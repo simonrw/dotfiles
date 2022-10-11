@@ -7,6 +7,44 @@ if fn.empty(fn.glob(install_path)) > 0 then
     execute('packadd packer.nvim')
 end
 
+function telescope_setup()
+    local mappings = require('mappings')
+
+    mappings.nnoremap('<leader>f', [[<cmd>lua require('telescope.builtin').git_files({previewer = false})<Cr>]])
+    mappings.nnoremap('<leader>F', [[<cmd>lua require('telescope.builtin').find_files({previewer = false})<Cr>]])
+    mappings.nnoremap('gb', [[<cmd>lua require('telescope.builtin').buffers()<Cr>]])
+    mappings.nnoremap('gl', [[<cmd>lua require('telescope.builtin').live_grep()<Cr>]])
+    mappings.nnoremap('<leader>gT', [[<cmd>lua require('telescope.builtin').tags()<Cr>]])
+end
+
+function telescope_config()
+    local mappings = require('mappings')
+    if vim.g.completion_framework == 'coc' then
+        require('telescope').load_extension('coc')
+        mappings.nnoremap('<leader>gt', [[<cmd>Telescope coc workspace_symbols<Cr>]])
+    elseif vim.g.completion_framework == 'nvim' then
+        mappings.nnoremap('<leader>gt', [[<cmd>lua require('telescope.builtin').lsp_workspace_symbols()<Cr>]])
+    end
+
+    mappings.nnoremap('<leader>f', [[<cmd>lua require('telescope.builtin').git_files({previewer = false})<Cr>]])
+    mappings.nnoremap('<leader>F', [[<cmd>lua require('telescope.builtin').find_files({previewer = false})<Cr>]])
+    mappings.nnoremap('gb', [[<cmd>lua require('telescope.builtin').buffers()<Cr>]])
+    mappings.nnoremap('gl', [[<cmd>lua require('telescope.builtin').live_grep()<Cr>]])
+    mappings.nnoremap('<leader>gT', [[<cmd>lua require('telescope.builtin').tags()<Cr>]])
+
+    require("telescope").setup({
+    extensions = {
+        ["ui-select"] = {},
+        ["tele_tabby"] = {},
+    }
+    })
+
+    require("telescope").load_extension("ui-select")
+    require("telescope").load_extension("tele_tabby")
+
+    mappings.nnoremap('<leader>T', [[<cmd>lua require('telescope').extensions.tele_tabby.list()<Cr>]])
+end
+
 require('packer').startup({function(use)
     use 'wbthomason/packer.nvim'
     use 'lotabout/skim'
@@ -28,18 +66,15 @@ require('packer').startup({function(use)
     use { 'kana/vim-textobj-indent', requires = { 'kana/vim-textobj-user' } }
     use {
         'nvim-telescope/telescope.nvim',
-        requires = { {'nvim-lua/plenary.nvim'} }
+        requires = { {'nvim-lua/plenary.nvim'} },
+        keys = { '<leader>f', },
+        setup = telescope_setup,
+        config = telescope_config,
     }
     use 'TC72/telescope-tele-tabby.nvim'
     use {'nvim-telescope/telescope-ui-select.nvim' }
     use 'ludovicchabant/vim-gutentags'
     use 'editorconfig/editorconfig-vim'
-    use {
-        "folke/zen-mode.nvim",
-        config = function()
-            require("zen-mode").setup {}
-        end
-    }
     use 'nvim-lualine/lualine.nvim'
 
     -- language plugins
@@ -73,11 +108,6 @@ require('packer').startup({function(use)
             end,
         }
         use "lukas-reineke/lsp-format.nvim"
-
-        -- debugging
-        use { 'rcarriga/nvim-dap-ui', requires = {'mfussenegger/nvim-dap'} }
-        use 'leoluz/nvim-dap-go'
-        use 'mfussenegger/nvim-dap-python'
 
         -- Completion
         use 'hrsh7th/cmp-nvim-lsp'

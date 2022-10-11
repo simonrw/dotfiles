@@ -79,3 +79,7 @@ vim.opt.modeline = true
 vim.opt.lazyredraw = true
 
 vim.opt.background = 'dark'
+
+if vim.version().major >= 1 or vim.version().minor >= 8 then
+    vim.opt.mousemodel = 'extend'
+end
