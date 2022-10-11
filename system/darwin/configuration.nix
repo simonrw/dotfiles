@@ -45,7 +45,7 @@
   nix.package = pkgs.nix;
   documentation.enable = true;
   nix.extraOptions = ''
-    keep-outputs = true
+    keep-outputs = false
     keep-derivations = true
     auto-optimise-store = true
     experimental-features = nix-command flakes
