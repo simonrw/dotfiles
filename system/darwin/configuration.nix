@@ -3,6 +3,7 @@
   nixpkgs.config.allowUnfree = true;
   environment.systemPackages = with pkgs; [
     _1password
+    alacritty
     obsidian
     jetbrains.pycharm-community
   ];
@@ -12,6 +13,8 @@
     home = "/Users/simon";
     shell = pkgs.fish;
   };
+
+  nix.settings.auto-optimise-store = true;
 
   nix.gc = {
     automatic = true;
@@ -24,15 +27,19 @@
   fonts = {
     fontDir.enable = true;
     fonts = with pkgs; [
-      (nerdfonts.override {
-        fonts = [ "SourceCodePro" ];
-      })
+      fantasque-sans-mono
+      jetbrains-mono
+      fira-code
+      source-code-pro
     ];
   };
 
   environment.shells = [
     pkgs.fish
   ];
+
+  environment.variables.SHELL = "${pkgs.fish}/bin/fish";
+  environment.loginShell = "${pkgs.fish}/bin/fish";
 
   services.nix-daemon.enable = true;
   nix.package = pkgs.nix;
