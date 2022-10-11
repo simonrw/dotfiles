@@ -51,7 +51,6 @@ in
       python3Packages.pipx
       python3Packages.virtualenv
       ripgrep
-      skim
       universal-ctags
     ] ++ (lib.optionals stdenv.isDarwin [
       # macos only
