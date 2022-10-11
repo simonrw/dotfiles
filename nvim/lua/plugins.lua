@@ -66,12 +66,12 @@ require('packer').startup({function(use)
     use {
         'nvim-telescope/telescope.nvim',
         requires = { {'nvim-lua/plenary.nvim'} },
-        keys = { '<leader>f', },
+        keys = { '<leader>f', '<leader>F', 'gl', 'gb', '<leader>gT' },
         setup = telescope_setup,
         config = telescope_config,
     }
-    use { 'TC72/telescope-tele-tabby.nvim', after = 'telescope.nvim' }
-    use { 'nvim-telescope/telescope-ui-select.nvim', after = 'telescope.nvim' }
+    use { 'TC72/telescope-tele-tabby.nvim' }
+    use { 'nvim-telescope/telescope-ui-select.nvim' }
     use 'ludovicchabant/vim-gutentags'
     use 'nvim-lualine/lualine.nvim'
 
