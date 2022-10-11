@@ -3,6 +3,7 @@ vim.opt.scrolloff = 5
 vim.opt.smartindent = true
 vim.opt.number = true
 vim.opt.relativenumber = true
+vim.opt.guicursor = ""
 vim.opt.cursorline = false
 vim.opt.ttimeoutlen = 10
 vim.opt.shiftwidth = 4
