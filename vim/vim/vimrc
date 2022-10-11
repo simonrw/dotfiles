@@ -3,8 +3,10 @@ set shell=fish
 let g:mapleader = ","
 let g:maplocalleader = '\\'
 
-let g:do_filetype_lua = 1
-let g:did_load_filetypes = 0
+if !has('nvim-0.8')
+    let g:do_filetype_lua = 1
+    let g:did_load_filetypes = 0
+end
 
 " remove all existing autocmds
 autocmd!
