@@ -123,7 +123,6 @@ require('packer').startup({function(use)
         use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
         use 'romgrk/nvim-treesitter-context'
         use 'nvim-treesitter/playground'
-        use 'nvim-treesitter/nvim-treesitter-textobjects'
     end
 
     -- for testing
