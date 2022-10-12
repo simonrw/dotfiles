@@ -57,7 +57,7 @@ require('packer').startup({function(use)
     use 'tpope/vim-rhubarb'
     use 'tpope/vim-repeat'
     use 'christoomey/vim-tmux-runner'
-    use 'christoomey/vim-conflicted'
+    use { 'christoomey/vim-conflicted', cmd = "Conflicted" }
     use 'vim-test/vim-test'
     use 'shumphrey/fugitive-gitlab.vim'
     use { 'iamcco/markdown-preview.nvim', run = 'cd app && yarn install' }
