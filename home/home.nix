@@ -51,6 +51,8 @@ in
       python3Packages.virtualenv
       ripgrep
       universal-ctags
+      # local packages
+      listprojects
     ] ++ (lib.optionals stdenv.isDarwin [
       # macos only
       reattach-to-user-namespace

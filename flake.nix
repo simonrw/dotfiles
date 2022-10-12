@@ -43,7 +43,11 @@
           };
 
           # overlays
-          overlays = [ ];
+          overlays = [
+            (final: prev: {
+              listprojects = final.callPackage ./derivations/listprojects/default.nix { };
+            })
+          ];
         in
         {
           homeConfigurations = {
