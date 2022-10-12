@@ -47,8 +47,6 @@ end
 
 require('packer').startup({function(use)
     use 'wbthomason/packer.nvim'
-    use 'lotabout/skim'
-    use 'lotabout/skim.vim'
     use 'tpope/vim-surround'
     use 'tpope/vim-unimpaired'
     use 'tpope/vim-commentary'

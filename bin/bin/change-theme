@@ -176,12 +176,12 @@ class ThemeChooser:
 
     def update_fzf(self):
         zshrc = HOME_DIR / ".zsh" / "setup" / "60sk.zsh"
-        pattern = r"^export SKIM_DEFAULT_OPTIONS=\"--color (light|dark)"
+        pattern = r"^export FZF_DEFAULT_OPTIONS=\"--color (light|dark)"
         background = "dark"
         if self.theme_name != "dark":
             background = "light"
 
-        replacement = f'export SKIM_DEFAULT_OPTIONS="--color {background}'
+        replacement = f'export FZF_DEFAULT_OPTIONS="--color {background}'
         self.replacer.replace_in_file(zshrc, pattern, replacement)
 
     def update_ipython(self):

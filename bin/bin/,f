@@ -2,5 +2,5 @@
 
 set -euo pipefail
 
-chosen="$(git ls-files | sk-tmux)"
+chosen="$(git ls-files | fzf-tmux)"
 exec nvim "${chosen}"

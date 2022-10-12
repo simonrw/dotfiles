@@ -3,7 +3,7 @@
 set -e
 
 unmount_darwin() {
-    DEVICE=$(diskutil list | grep '/dev' | cut -d ' ' -f 1 | sk --preview 'diskutil info {}')
+    DEVICE=$(diskutil list | grep '/dev' | cut -d ' ' -f 1 | fzf --preview 'diskutil info {}')
 
     # Sanity check the device
     diskutil info $DEVICE | grep "Device Location" | grep -q External || {
