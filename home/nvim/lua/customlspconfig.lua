@@ -44,12 +44,3 @@ require('mason-lspconfig').setup_handlers({
         })
     end,
 })
-
-local null_ls = require('null-ls')
-null_ls.setup({
-    sources = {
-        null_ls.builtins.completion.tags,
-        null_ls.builtins.diagnostics.cfn_lint,
-        null_ls.builtins.diagnostics.deadnix,
-    },
-})
