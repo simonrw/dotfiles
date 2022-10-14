@@ -32,6 +32,7 @@
     vim-gitgutter
     telescope-nvim
     telescope-ui-select-nvim
+    telescope-fzf-native-nvim
     vim-gutentags
     editorconfig-nvim
     zen-mode-nvim
