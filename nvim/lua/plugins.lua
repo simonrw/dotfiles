@@ -33,14 +33,21 @@ function telescope_config()
     mappings.nnoremap('<leader>gT', [[<cmd>lua require('telescope.builtin').tags()<Cr>]])
 
     require("telescope").setup({
-    extensions = {
-        ["ui-select"] = {},
-        ["tele_tabby"] = {},
-    }
+        extensions = {
+            ["ui-select"] = {},
+            ["tele_tabby"] = {},
+            fzf = {
+                fuzzy = true,
+                override_generic_sorter = true,
+                override_file_sorter = true,
+                case_mode = "smart_case",
+            },
+        }
     })
 
     require("telescope").load_extension("ui-select")
     require("telescope").load_extension("tele_tabby")
+    require("telescope").load_extension("fzf")
 
     mappings.nnoremap('<leader>T', [[<cmd>lua require('telescope').extensions.tele_tabby.list()<Cr>]])
 end
@@ -68,8 +75,9 @@ require('packer').startup({function(use)
         setup = telescope_setup,
         config = telescope_config,
     }
-    use { 'TC72/telescope-tele-tabby.nvim' }
-    use { 'nvim-telescope/telescope-ui-select.nvim' }
+    use { 'TC72/telescope-tele-tabby.nvim', before = "telescope.nvim" }
+    use { 'nvim-telescope/telescope-ui-select.nvim', before = "telescope.nvim" }
+    use {'nvim-telescope/telescope-fzf-native.nvim', run = 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build', before = "telescope.nvim" }
     use 'ludovicchabant/vim-gutentags'
     use 'nvim-lualine/lualine.nvim'
 
