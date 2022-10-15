@@ -90,46 +90,46 @@ in
     set -x PATH /etc/profiles/per-user/(whoami)/bin {$PATH}
   '';
   shellAliases = {
-    ta = "_tmux_attach";
-    ll = "ls -lh";
-    pylab = "ipython - -pylab";
-    clear-pycs = "find { $PWD } -name '*.pyc' -delete";
-    es = ''exec $SHELL'';
-    sourceenv = "source ./venv/bin/activate";
-    vup = "nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'";
     add-keys = ''ssh-add (find ~/.ssh - maxdepth 1 - type f - name "id_rsa*" | grep - v pub | grep - v bak)'';
+    cat = "bat";
+    ci = "glab ci view";
+    clear-pycs = "find { $PWD } -name '*.pyc' -delete";
+    da = "direnv allow";
+    de = "direnv edit";
+    es = ''exec $SHELL'';
     gpe = "git push && exit";
     gpr = "git pull --rebase";
-    tl = "tmux-last";
-    gs = "git status";
-    de = "direnv edit";
-    da = "direnv allow";
     grep = "rg";
-    ls = "exa";
-    tree = "exa -T";
-    thor = "exa -s modified -l";
-    lr = "thor";
-    cat = "bat";
+    gs = "git status";
     less = "bat";
-    more = "bat";
-    n = "noti";
+    ll = "ls -lh";
     lpb = "glab project view -w";
+    lr = "thor";
+    ls = "exa";
+    more = "bat";
     mr = "glab mr view -w";
-    ci = "glab ci view";
     nr = "nix repl --file '<nixpkgs>'";
+    pylab = "ipython - -pylab";
+    sourceenv = "source ./venv/bin/activate";
+    ta = "_tmux_attach";
+    thor = "exa -s modified -l";
+    tl = "tmux-last";
+    tree = "exa -T";
+    vup = "nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'";
   } // lib.optionalAttrs stdenv.isLinux {
     pbcopy = "xclip";
     pbpaste = "xclip -o";
   };
   shellAbbrs = {
-    ipy = "ipython";
-    py = "python";
-    g = "git";
-    k = "kubectl";
-    gp = "git pull";
-    gco = "git checkout";
-    v = "vim";
     c = "cargo";
+    gco = "git checkout";
+    g = "git";
+    gp = "git pull";
+    ipy = "ipython";
+    k = "kubectl";
+    n = "noti";
+    py = "python";
+    v = "vim";
   };
   plugins = [
     {
