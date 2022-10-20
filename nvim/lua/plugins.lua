@@ -80,7 +80,6 @@ require('packer').startup({function(use)
     use {'nvim-telescope/telescope-fzf-native.nvim', run = 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build', before = "telescope.nvim" }
     use 'ludovicchabant/vim-gutentags'
     use 'nvim-lualine/lualine.nvim'
-    use 'haishanh/night-owl.vim'
 
     -- language plugins
     use 'cespare/vim-toml'
