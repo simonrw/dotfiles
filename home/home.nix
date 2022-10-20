@@ -43,6 +43,7 @@ in
       hub
       mkcert
       multitail
+      nixpkgs-fmt
       noti
       openssh
       pre-commit
@@ -53,6 +54,7 @@ in
       universal-ctags
       # local packages
       listprojects
+      brave
     ] ++ (lib.optionals stdenv.isDarwin [
       # macos only
       reattach-to-user-namespace

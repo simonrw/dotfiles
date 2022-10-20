@@ -46,6 +46,7 @@
           overlays = [
             (final: prev: {
               listprojects = final.callPackage ./derivations/listprojects/default.nix { };
+              brave = final.callPackage ./derivations/brave/default.nix { };
             })
           ];
         in
