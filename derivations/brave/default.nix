@@ -1,6 +1,6 @@
 { pkgs ? import <nixpkgs> { } }:
 let
-  inherit (pkgs) system fetchFromGitHub stdenv fetchurl;
+  inherit (pkgs) lib system fetchFromGitHub stdenv fetchurl;
 
   pname = "brave";
   version = "1.45.108";
@@ -10,8 +10,15 @@ let
     x86_64-darwin = "44a700f70cdfe765a66884d65fa1d20b1124bfb0aadbb933d3ef9e5ff5ed1589";
   };
 
+  meta = with lib; {
+    homepage = "https://brave.com";
+    description = "Next generation Brave browser for Android, Linux, macOS, Windows";
+    license = licenses.mpl20;
+    maintainers = with maintainers; [ ];
+  };
+
   darwin = stdenv.mkDerivation rec {
-    inherit pname version;
+    inherit pname version meta;
 
     buildInputs = with pkgs; [
       cpio
