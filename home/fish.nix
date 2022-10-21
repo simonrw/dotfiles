@@ -114,6 +114,7 @@ in
     ta = "_tmux_attach";
     thor = "exa -s modified -l";
     tl = "tmux-last";
+    trash = "send2trash";
     tree = "exa -T";
     vup = "nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'";
   } // lib.optionalAttrs stdenv.isLinux {

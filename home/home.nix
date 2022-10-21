@@ -49,6 +49,7 @@ in
       pre-commit
       python3
       python3Packages.pipx
+      python3Packages.send2trash
       python3Packages.virtualenv
       ripgrep
       universal-ctags
