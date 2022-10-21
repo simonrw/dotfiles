@@ -90,6 +90,7 @@ in
     "jq"
     "neovim"
     "tmux"
+    "vscode"
   ];
 
   xsession.windowManager.i3 =
