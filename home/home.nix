@@ -73,7 +73,7 @@ in
         appSrc1="${config.home.homeDirectory}/Applications/Nix Apps/"
         appSrc2="${config.home.homeDirectory}/.nix-profile/Applications/"
         rsyncArgs="--archive --checksum --chmod=-w --copy-unsafe-links --delete"
-        baseDir="$HOME/Applications/Home Manager Apps"
+        baseDir="${config.home.homeDirectory}/Applications/Home Manager Apps"
         $DRY_RUN_CMD mkdir -p "$baseDir"
         $DRY_RUN_CMD ${pkgs.rsync}/bin/rsync ''${VERBOSE_ARG:+-v} $rsyncArgs "$appSrc1" "$appSrc2" "$baseDir"
       '';
