@@ -28,6 +28,7 @@ in
     };
 
     packages = with pkgs; [
+      awscli2
       bat
       curl
       deadnix
