@@ -227,6 +227,12 @@ in
       recursive = true;
     };
 
+    ".profile" = {
+      source = pkgs.writeText ".profile" ''
+        export XDG_DATA_DIRS=$HOME/.nix-profile/share/applications:$XDG_DATA_DIRS
+      '';
+    };
+
     ".hammerspoon" = lib.mkIf pkgs.stdenv.isDarwin {
       source = ./hammerspoon;
       recursive = true;
