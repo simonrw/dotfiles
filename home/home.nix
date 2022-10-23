@@ -32,6 +32,7 @@ in
       bat
       curl
       deadnix
+      du-dust
       entr
       exa
       fd
