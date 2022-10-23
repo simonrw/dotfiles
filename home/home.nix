@@ -44,6 +44,7 @@ in
       hub
       mkcert
       multitail
+      ncdu
       nixpkgs-fmt
       noti
       openssh
