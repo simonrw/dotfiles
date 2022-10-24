@@ -1,4 +1,4 @@
-local target_servers = {"pyright", "gopls", "rust_analyzer", "yamlls", "terraformls", "efm", "clangd", "rnix", "tsserver"}
+local target_servers = {"pyright", "gopls", "rust_analyzer", "yamlls", "terraformls", "efm", "clangd", "rnix", "tsserver", "prettier"}
 local lsp_status = require('lsp-status')
 local lsp_format = require('lsp-format')
 lsp_format.setup {}
