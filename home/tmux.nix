@@ -41,7 +41,7 @@
       # these require access to the pkgs attribute set, so place them here
       customLines = [
         ''
-          bind-key a split-window -v "${pkgs.zsh}/bin/zsh -c '${pkgs.listprojects}/bin/project'"
+          bind-key a split-window -v "${pkgs.fish}/bin/fish -c '${pkgs.listprojects}/bin/project'"
         ''
       ];
     in
