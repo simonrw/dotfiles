@@ -81,7 +81,6 @@
 ;; eglot
 (add-hook 'rust-mode-hook 'eglot-ensure)
 (add-hook 'python-mode-hook 'eglot-ensure)
-(add-to-list 'eglot-server-programs '(rust-mode . "rust-analyzer"))
 
 ;; Theming
 (load-theme 'wombat t)
