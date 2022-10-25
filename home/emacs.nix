@@ -7,6 +7,7 @@
     markdown-mode
     rust-mode
     nix-mode
+    nixpkgs-fmt
     cargo
     toml-mode
     cmake-mode
@@ -20,6 +21,12 @@
     company
     projectile
     ripgrep
+    fzf
+    eglot
   ];
-  extraConfig = builtins.readFile ./emacs/init.el;
+  extraConfig = (builtins.readFile ./emacs/init.el) + ''
+    (setq explicit-shell-file-name "${pkgs.fish}/bin/fish")
+    (setq shell-file-name "fish")
+    (setenv "SHELL" shell-file-name)
+  '';
 }

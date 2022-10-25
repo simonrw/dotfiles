@@ -71,6 +71,18 @@
 (set-face-attribute 'variable-pitch nil :family "Cantarell" :height 150)
 (set-face-attribute 'default (selected-frame) :height 150)
 
+;; plugin configuration
+;; fzf
+(global-set-key (kbd "C-c C-f") 'fzf-git)
+
+;; company
+(company-mode t)
+
+;; eglot
+(add-hook 'rust-mode-hook 'eglot-ensure)
+(add-hook 'python-mode-hook 'eglot-ensure)
+
+;; Theming
 (load-theme 'wombat t)
 
 (provide 'init)
