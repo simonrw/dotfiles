@@ -38,6 +38,12 @@
       darwinFiles = lib.optionals stdenv.isDarwin [
         (builtins.readFile ./tmux/tmux-osx.conf)
       ];
+      # these require access to the pkgs attribute set, so place them here
+      customLines = [
+        ''
+          bind-key a split-window -v "${pkgs.zsh}/bin/zsh -c '${pkgs.listprojects}/bin/project'"
+        ''
+      ];
     in
-    (builtins.concatStringsSep "\n" (commonFiles ++ darwinFiles));
+    (builtins.concatStringsSep "\n" (commonFiles ++ darwinFiles ++ customLines));
 }
