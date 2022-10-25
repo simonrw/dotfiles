@@ -18,10 +18,6 @@
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
 (global-visual-line-mode t)
 (set-fringe-mode 10)
-(setq explicit-shell-file-name "/usr/local/bin/zsh")
-(setq shell-file-name "zsh")
-(setq explicit-zsh.exe-args '("-i"))
-(setenv "SHELL" shell-file-name)
 
 ;; Enable nicer window moving
 (when (fboundp 'windmove-default-keybindings)
