@@ -87,7 +87,8 @@ in
   programs = loadProgramConfigs [
     "bat"
     "direnv"
-    "emacs"
+    "doom-emacs"
+    # "emacs"
     "fish"
     "git"
     "home-manager"
