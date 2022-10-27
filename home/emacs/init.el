@@ -78,7 +78,7 @@
 (global-set-key (kbd "C-c C-f") 'fzf-git)
 
 ;; company
-(company-mode t)
+(global-company-mode)
 
 ;; eglot
 (add-hook 'rust-mode-hook 'eglot-ensure)
