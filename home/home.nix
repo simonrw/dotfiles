@@ -36,6 +36,7 @@ in
       entr
       exa
       fd
+      fx
       fzf
       gh
       graphviz
