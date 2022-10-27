@@ -1,6 +1,8 @@
 ;; Init file
 
 ;;; Defaults
+(setq frame-inhibit-implied-resize t)
+(setq pixel-scroll-mode t)
 (blink-cursor-mode 0)
 (setq inhibit-splash-screen t)
 (setq inhibit-startup-message t)
