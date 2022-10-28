@@ -46,10 +46,6 @@
           overlays = [
             (final: prev: {
               listprojects = final.callPackage ./derivations/listprojects/default.nix { };
-              brave =
-                if pkgs.stdenv.isDarwin then
-                  (final.callPackage ./derivations/brave/default.nix { })
-                else prev.brave;
             })
           ];
         in
