@@ -12,10 +12,9 @@
     };
     nixgl.url = "github:guibou/nixGL";
     nixgl.inputs.nixpkgs.follows = "nixpkgs";
-    nix-doom-emacs.url = "github:nix-community/nix-doom-emacs";
   };
 
-  outputs = { nixpkgs, darwin, flake-utils, home-manager, nix-doom-emacs, ... }:
+  outputs = { nixpkgs, darwin, flake-utils, home-manager, ... }:
     let
       mkNixOSConfiguration =
         name: nixpkgs.lib.nixosSystem {
@@ -60,7 +59,6 @@
               pkgs = pkgs;
               modules = [
                 { nixpkgs.overlays = overlays; }
-                nix-doom-emacs.hmModule
                 ./home/home.nix
               ];
             };

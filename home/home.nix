@@ -88,8 +88,6 @@ in
   programs = loadProgramConfigs [
     "bat"
     "direnv"
-    "doom-emacs"
-    # "emacs"
     "fish"
     "git"
     "home-manager"
