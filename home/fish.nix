@@ -94,6 +94,7 @@ in
     cat = "bat";
     ci = "glab ci view";
     clear-pycs = "find { $PWD } -name '*.pyc' -delete";
+    curl = "curlie";
     da = "direnv allow";
     de = "direnv edit";
     es = ''exec $SHELL'';
@@ -101,6 +102,7 @@ in
     gpr = "git pull --rebase";
     grep = "rg";
     gs = "git status";
+    http = "curlie";
     less = "bat";
     ll = "ls -lh";
     lpb = "glab project view -w";

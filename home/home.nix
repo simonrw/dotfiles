@@ -31,6 +31,7 @@ in
       awscli2
       bat
       curl
+      curlie
       deadnix
       du-dust
       entr
