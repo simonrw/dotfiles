@@ -59,6 +59,7 @@
               pkgs = pkgs;
               modules = [
                 { nixpkgs.overlays = overlays; }
+                ./home/modules/darwin.nix
                 ./home/home.nix
               ];
             };

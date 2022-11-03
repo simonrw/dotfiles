@@ -71,21 +71,6 @@ in
       firefox
       rofi
     ]);
-
-    # copy applications so spotlight can index them
-    # https://github.com/reckenrode/nixos-configs/blob/2acd7b0699fd57628deb7b8855b4d5f0ea8f8cb1/common/darwin/home-manager/copyApplications.nix
-    activation = lib.optionalAttrs pkgs.stdenv.isDarwin {
-      copyApplications = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
-        appsSrc="$newGenPath/home-path/Applications/"
-        if [ -d "$appsSrc" ]; then
-          baseDir="$HOME/Applications/Home Manager Apps"
-          rsyncArgs="--archive --checksum --chmod=-w --copy-unsafe-links --delete"
-          $DRY_RUN_CMD mkdir -p "$baseDir"
-          $DRY_RUN_CMD ${pkgs.rsync}/bin/rsync ''${VERBOSE_ARG:+-v} $rsyncArgs "$appsSrc" "$baseDir"
-        fi
-
-      '';
-    };
   };
 
   programs = loadProgramConfigs [
@@ -99,6 +84,10 @@ in
     "tmux"
     "vscode"
   ];
+
+  # copy applications
+  darwin.installApps = true;
+  darwin.fullCopies = true;
 
   xsession.windowManager.i3 =
     let mod = "Mod1";
