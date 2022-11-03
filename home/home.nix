@@ -57,6 +57,7 @@ in
       python3Packages.send2trash
       python3Packages.virtualenv
       ripgrep
+      rnix-lsp
       universal-ctags
       # local packages
       listprojects

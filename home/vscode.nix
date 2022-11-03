@@ -100,6 +100,7 @@
     ];
   userSettings = {
     "git.verboseCommit" = true;
+    "nix.enableLanguageServer" = true;
     "editor.lineNumbers" = "off";
     "git.enableSmartCommit" = true;
     "python.formatting.provider" = "black";
