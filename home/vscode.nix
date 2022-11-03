@@ -11,6 +11,8 @@
     ms-python.python
     ms-vscode-remote.remote-ssh
     vscodevim.vim
+    haskell.haskell
+    justusadam.language-haskell
   ];
   enableExtensionUpdateCheck = true;
   enableUpdateCheck = true;
