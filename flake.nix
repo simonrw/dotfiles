@@ -37,28 +37,49 @@
       # these definitions are per system
       perSystemConfigurations = flake-utils.lib.eachDefaultSystem (system:
         let
-          pkgs = import nixpkgs {
-            inherit system;
-            config.allowUnfree = true;
-          };
-
-          # overlays
           overlays = [
             (final: prev: {
               listprojects = final.callPackage ./derivations/listprojects/default.nix { };
               brave =
-                if pkgs.stdenv.isDarwin then
+                if final.stdenv.isDarwin then
                   (final.callPackage ./derivations/brave/default.nix { })
                 else prev.brave;
             })
+            # override the version of xattr for poetry
+            (
+              let
+                xattr-override = {
+                  packageOverrides = pyself: pysuper: {
+                    xattr = pysuper.xattr.overrideAttrs (o: rec {
+                      pname = o.pname;
+                      version = "0.9.9";
+                      src = pysuper.fetchPypi {
+                        inherit pname version;
+                        sha256 = "09cb7e1efb3aa1b4991d6be4eb25b73dc518b4fe894f0915f5b0dcede972f346";
+                      };
+                    });
+                  };
+                };
+              in
+              self: super: {
+                python310 = super.python310.override xattr-override;
+                python39 = super.python39.override xattr-override;
+                python38 = super.python38.override xattr-override;
+              }
+            )
           ];
+
+          pkgs = import nixpkgs {
+            inherit system overlays;
+            config.allowUnfree = true;
+          };
+
         in
         {
           homeConfigurations = {
             simon = home-manager.lib.homeManagerConfiguration {
               pkgs = pkgs;
               modules = [
-                { nixpkgs.overlays = overlays; }
                 ./home/modules/darwin.nix
                 ./home/home.nix
               ];
