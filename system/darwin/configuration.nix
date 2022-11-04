@@ -75,7 +75,6 @@
       "google-chrome"
       "hammerspoon"
       "karabiner-elements"
-      "visual-studio-code"
       "vlc"
     ];
     masApps =
