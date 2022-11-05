@@ -7,6 +7,8 @@
       line-number = "relative";
       auto-pairs = false;
       true-color = true;
+      indent-guides.render = true;
+      shell = [ "${pkgs.fish}/bin/fish" "-c" ];
     };
   };
   languages = [
