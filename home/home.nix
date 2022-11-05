@@ -52,12 +52,14 @@ in
       noti
       openssh
       pre-commit
+      pyright
       python3
       python3Packages.pipx
       python3Packages.send2trash
       python3Packages.virtualenv
       ripgrep
       rnix-lsp
+      rust-analyzer
       universal-ctags
       # local packages
       listprojects
@@ -78,6 +80,7 @@ in
     "bat"
     "direnv"
     "fish"
+    "helix"
     "git"
     "home-manager"
     "jq"
