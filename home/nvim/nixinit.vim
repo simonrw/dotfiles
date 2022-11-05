@@ -1,6 +1,6 @@
 set shell=fish
 
-let g:mapleader = ","
+let g:mapleader = "\<space>"
 let g:maplocalleader = '\\'
 
 if !has('nvim-0.8')
