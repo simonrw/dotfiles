@@ -48,7 +48,7 @@
             # override the version of xattr for poetry
             (
               let
-                xattr-override = {
+                python-overrides = {
                   packageOverrides = pyself: pysuper: {
                     xattr = pysuper.xattr.overrideAttrs (o: rec {
                       pname = o.pname;
@@ -58,13 +58,19 @@
                         sha256 = "09cb7e1efb3aa1b4991d6be4eb25b73dc518b4fe894f0915f5b0dcede972f346";
                       };
                     });
+                    cherrypy = pysuper.cherrypy.overrideAttrs (o: rec {
+                      doInstallCheck = !pkgs.stdenv.isDarwin;
+                    });
+                    debugpy = pysuper.debugpy.overrideAttrs (o: rec {
+                      doInstallCheck = !pkgs.stdenv.isDarwin;
+                    });
                   };
                 };
               in
               self: super: {
-                python310 = super.python310.override xattr-override;
-                python39 = super.python39.override xattr-override;
-                python38 = super.python38.override xattr-override;
+                python310 = super.python310.override python-overrides;
+                python39 = super.python39.override python-overrides;
+                python38 = super.python38.override python-overrides;
               }
             )
           ];
