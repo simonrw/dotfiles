@@ -10,7 +10,7 @@ in
       set -x BUILD_PREFIX {$HOME}/.local
       set -x PATH {$BUILD_PREFIX}/bin {$HOME}/.bin {$HOME}/.poetry/bin /usr/local/bin {$HOME}/.cargo/bin {$HOME}/bin {$GOPATH}/bin {$PATH}
       set -x GOPATH {$HOME}/dev/gocode
-      set -x EDITOR nvim
+      set -x EDITOR hx
       set -x REVIEW_BASE main
       set -x PYTEST_ADDOPTS "-p no:sugar"
       set -x LANG en_GB.UTF-8
@@ -119,6 +119,9 @@ in
     trash = "send2trash";
     tree = "exa -T";
     vup = "nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'";
+    vim = "hx";
+    nvim = "hx";
+    vi = "hx";
   } // lib.optionalAttrs stdenv.isLinux {
     pbcopy = "xclip";
     pbpaste = "xclip -o";

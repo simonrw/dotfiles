@@ -1,8 +1,6 @@
 { pkgs }:
 {
   enable = true;
-  viAlias = true;
-  vimAlias = true;
   vimdiffAlias = true;
   withPython3 = true;
   extraPython3Packages = (ps: with ps; [
