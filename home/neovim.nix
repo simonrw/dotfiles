@@ -12,7 +12,6 @@
     source ~/.config/nvim/nixinit.vim
   '';
   plugins = with pkgs.vimPlugins; [
-    (nvim-treesitter.withPlugins (_: pkgs.tree-sitter.allGrammars))
     vim-nix
     # pkgs.vimPlugins.skim
     # skim-vim
@@ -61,9 +60,8 @@
     lspkind-nvim
 
     # treesitter
-    nvim-treesitter-context
-    playground
-    nvim-treesitter-textobjects
+    # nvim-treesitter-context
+    # playground
     plenary-nvim
   ];
 }
