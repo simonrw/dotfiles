@@ -39,7 +39,6 @@
     vim-terraform
     rust-vim
     octo-nvim
-    lualine-nvim
 
     # lsps
     nvim-lspconfig
