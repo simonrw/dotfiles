@@ -67,6 +67,7 @@
       # "alacritty"
       "alfred"
       "barrier"
+      "brave-browser"
       "dash"
       "docker"
       "element"

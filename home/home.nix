@@ -63,7 +63,6 @@ in
       universal-ctags
       # local packages
       listprojects
-      brave
     ] ++ (lib.optionals stdenv.isDarwin [
       # macos only
       reattach-to-user-namespace
@@ -71,6 +70,7 @@ in
       # linux only
       _1password-gui
       alacritty
+      brave
       firefox
       rofi
     ]);
