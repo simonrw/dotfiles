@@ -34,7 +34,6 @@
     telescope-fzf-native-nvim
     vim-gutentags
     editorconfig-nvim
-    zen-mode-nvim
     vim-toml
     vim-svelte
     vim-terraform
@@ -47,8 +46,6 @@
     lsp_extensions-nvim
     lsp-status-nvim
     lsp-format-nvim
-    nvim-dap
-    nvim-dap-ui
 
     # completion
     cmp-nvim-lsp

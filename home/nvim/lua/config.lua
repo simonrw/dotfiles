@@ -14,7 +14,6 @@ require('gutentags')
 if vim.g.completion_framework == 'nvim' then
     require('customlspconfig')
     require('completionconfig')
-    require('dapconfig')
 end
 
 -- plugins
