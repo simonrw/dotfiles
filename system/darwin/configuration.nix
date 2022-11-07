@@ -3,9 +3,6 @@
   nixpkgs.config.allowUnfree = true;
   environment.systemPackages = with pkgs; [
     _1password
-    alacritty
-    obsidian
-    jetbrains.pycharm-community
   ];
 
   users.users.simon = {
@@ -64,7 +61,7 @@
     enable = true;
     casks = [
       "1password"
-      # "alacritty"
+      "alacritty"
       "alfred"
       "barrier"
       "brave-browser"
@@ -76,6 +73,8 @@
       "google-chrome"
       "hammerspoon"
       "karabiner-elements"
+      "obsidian"
+      "pycharm-ce"
       "vlc"
     ];
     masApps =
