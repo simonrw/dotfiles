@@ -73,6 +73,7 @@ in
       brave
       firefox
       rofi
+      slack
     ]);
   };
 
