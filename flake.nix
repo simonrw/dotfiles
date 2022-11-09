@@ -74,6 +74,7 @@
           pkgs = import nixpkgs {
             inherit system overlays;
             config.allowUnfree = true;
+            config.input-fonts.acceptLicense = true;
           };
 
         in
