@@ -106,6 +106,10 @@
       path = "~/work/.gitconfig";
       condition = "gitdir:~/work/";
     }
+    {
+      path = "~/work/localstack/.gitconfig";
+      condition = "gitdir:~/work/localstack/";
+    }
   ];
   extraConfig = {
     branch = {
