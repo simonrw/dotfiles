@@ -56,8 +56,13 @@
     lspkind-nvim
 
     # treesitter
-    # nvim-treesitter-context
-    # playground
+    (nvim-treesitter.withPlugins
+      (p: [
+        p.tree-sitter-python
+        p.tree-sitter-rust
+      ]))
+    nvim-treesitter-context
+    playground
     plenary-nvim
   ];
 }

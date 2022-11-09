@@ -24,14 +24,6 @@ require('packer').startup({function(use)
     use 'leoluz/nvim-dap-go'
     use 'mfussenegger/nvim-dap-python'
 
-    -- treesitter
-    if vim.g.include_treesitter == 1 then
-        use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
-        use 'romgrk/nvim-treesitter-context'
-        use 'nvim-treesitter/playground'
-        use 'nvim-treesitter/nvim-treesitter-textobjects'
-    end
-
     -- my plugins
     use 'mindriot101/search-in-scope.vim'
 end,
