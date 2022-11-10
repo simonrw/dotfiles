@@ -1,12 +1,19 @@
 local lualine = require('lualine')
 
 local function lsp()
-    local messages = require('lsp-status').messages()
-    -- just take the first for now
-    if messages[1] ~= nil then
-        return messages[1].title or ""
+    if #vim.lsp.buf_get_clients() > 0 then
+        return require('lsp-status').status()
     end
+
     return ""
+
+    -- local messages = require('lsp-status').messages()
+    -- -- just take the first for now
+    -- if messages[1] ~= nil then
+    --     return messages[1].title or ""
+    -- end
+
+
 end
 
 local lualine_c
@@ -33,6 +40,9 @@ lualine.setup({
         disabled_filetypes = {},
         always_divide_middle = true,
         globalstatus = false,
+        refresh = {
+            statusline = 100,
+        },
     },
     sections = {
         lualine_a = {'mode'},

@@ -41,8 +41,10 @@ require("mason-lspconfig").setup({
 })
 require('mason-lspconfig').setup_handlers({
     function (server_name)
-        require('lspconfig')[server_name].setup({
+        local config = {
             on_attach = on_attach,
-        })
+            capabilities = lsp_status.capabilities,
+        }
+        require('lspconfig')[server_name].setup(config)
     end,
 })
