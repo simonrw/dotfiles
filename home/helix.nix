@@ -2,7 +2,7 @@
 {
   enable = true;
   settings = {
-    theme = "ayu_dark";
+    theme = "autumn_night";
     editor = {
       line-number = "relative";
       auto-pairs = false;
