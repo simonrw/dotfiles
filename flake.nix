@@ -39,7 +39,8 @@
         let
           overlays = [
             (final: prev: {
-              listprojects = final.callPackage ./derivations/listprojects/default.nix { };
+              listprojects = final.callPackage ./derivations/listprojects { };
+              ntfy = final.callPackage ./derivations/ntfy { };
             })
             # override the version of xattr for poetry
             (

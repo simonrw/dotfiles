@@ -64,6 +64,7 @@ in
       universal-ctags
       # local packages
       listprojects
+      ntfy
     ] ++ (lib.optionals stdenv.isDarwin [
       # macos only
       reattach-to-user-namespace
