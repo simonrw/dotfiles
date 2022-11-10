@@ -61,6 +61,7 @@
       (p: [
         p.tree-sitter-python
         p.tree-sitter-rust
+        p.tree-sitter-elm
       ]))
     nvim-treesitter-context
     playground
