@@ -10,12 +10,12 @@ let
 
     x86_64-darwin = (attrs: pkgs.fetchurl {
       url = "https://github.com/binwiederhier/${attrs.pname}/releases/download/v${attrs.version}/${attrs.pname}_${attrs.version}_macOS_all.tar.gz";
-      hash = pkgs.lib.fakeHash;
+      hash = "sha256-oMaDYb5ZdMFP7hmqjWaEVdyqFMILfuPykBCSWF2s7OA=";
     });
 
     aarch64-darwin = (attrs: pkgs.fetchurl {
       url = "https://github.com/binwiederhier/${attrs.pname}/releases/download/v${attrs.version}/${attrs.pname}_${attrs.version}_macOS_all.tar.gz";
-      hash = pkgs.lib.fakeHash;
+      hash = "sha256-oMaDYb5ZdMFP7hmqjWaEVdyqFMILfuPykBCSWF2s7OA=";
     });
   };
 in
