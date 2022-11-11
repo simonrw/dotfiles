@@ -88,6 +88,12 @@ in
 
     # fix nix path
     set -x PATH /etc/profiles/per-user/(whoami)/bin {$PATH}
+
+    # fish-command-timer
+    set fish_command_timer_status_enabled 0
+    set fish_command_timer_color black
+    set fish_command_timer_time_format '%X %x'
+    set fish_command_timer_millis 0
   '';
   shellAliases = {
     add-keys = ''ssh-add (find ~/.ssh - maxdepth 1 - type f - name "id_rsa*" | grep - v pub | grep - v bak)'';
@@ -162,6 +168,15 @@ in
         sha256 = "RG/0rfhgq6aEKNZ0XwIqOaZ6K5S4+/Y5EEMnIdtfPhk=";
       };
     }
+    {
+      name = "fish-command-timer";
+      src = pkgs.fetchFromGitHub {
+        owner = "jichu4n";
+        repo = "fish-command-timer";
+        rev = "ba68bd0a1d06ea99aadefe5a4f32ff512783d432";
+        hash = "sha256-Ip677gZlcO8L/xukD7Qoa+C+EcI2kGd+BSOi2CDOzM4=";
+      };
+    }
   ];
   functions = {
     fish_greeting = {
@@ -174,12 +189,6 @@ in
     };
     fish_user_key_bindings = {
       body = builtins.readFile ./fish/key-bindings.fish;
-    };
-    fish_right_prompt = {
-      description = "Print right prompt";
-      body = ''
-        set_color black; date +"%X %x"
-      '';
     };
     fish_prompt = {
       description = "Write out the prompt";
@@ -234,3 +243,4 @@ in
     };
   };
 }
+
