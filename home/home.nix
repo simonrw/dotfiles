@@ -64,6 +64,7 @@ in
       universal-ctags
       # local packages
       listprojects
+      cftail
       ntfy
     ] ++ (lib.optionals stdenv.isDarwin [
       # macos only

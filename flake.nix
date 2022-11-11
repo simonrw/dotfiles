@@ -41,6 +41,7 @@
             (final: prev: {
               listprojects = final.callPackage ./derivations/listprojects { };
               ntfy = final.callPackage ./derivations/ntfy { };
+              cftail = final.callPackage ./derivations/cftail { };
             })
             # override the version of xattr for poetry
             (
