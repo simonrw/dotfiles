@@ -175,6 +175,12 @@ in
     fish_user_key_bindings = {
       body = builtins.readFile ./fish/key-bindings.fish;
     };
+    fish_right_prompt = {
+      description = "Print right prompt";
+      body = ''
+        set_color black; date +"%X %x"
+      '';
+    };
     fish_prompt = {
       description = "Write out the prompt";
       body = ''
