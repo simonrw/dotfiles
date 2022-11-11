@@ -23,13 +23,5 @@ require('packer').startup({function(use)
     -- debugging
     use 'leoluz/nvim-dap-go'
     use 'mfussenegger/nvim-dap-python'
-
-    -- my plugins
-    use 'simonrw/search-in-scope.vim'
 end,
 config = {}})
-
-require('search_in_scope').setup({
-    bind = '<leader>S',
-    indent_filetypes = {'lua'},
-})
