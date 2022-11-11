@@ -7,7 +7,7 @@ pkgs.rustPlatform.buildRustPackage rec {
   version = "0.1.0";
 
   src = fetchFromGitHub {
-    owner = "mindriot101";
+    owner = "simonrw";
     repo = "listprojects";
     rev = "4b94543c1943d8f772ef14283f6276333d5a98b1";
     sha256 = "sha256-I+7bGfk0GSI7TRhPGPqYuT4eA5BspUELrqMO4l829G0=";

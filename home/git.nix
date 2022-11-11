@@ -141,7 +141,7 @@
       cmd = "nvim +Conflicted";
     };
     github = {
-      user = "mindriot101";
+      user = "simonrw";
     };
     push = {
       default = "tracking";

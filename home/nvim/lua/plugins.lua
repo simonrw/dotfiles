@@ -25,7 +25,7 @@ require('packer').startup({function(use)
     use 'mfussenegger/nvim-dap-python'
 
     -- my plugins
-    use 'mindriot101/search-in-scope.vim'
+    use 'simonrw/search-in-scope.vim'
 end,
 config = {}})
 
