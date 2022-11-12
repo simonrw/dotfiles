@@ -12,9 +12,13 @@
     };
     nixgl.url = "github:guibou/nixGL";
     nixgl.inputs.nixpkgs.follows = "nixpkgs";
+    crane.url = "github:ipetkov/crane";
+    crane.inputs.nixpkgs.follows = "nixpkgs";
+    cftail.url = "github:simonrw/cftail";
+    cftail.inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  outputs = { nixpkgs, darwin, flake-utils, home-manager, ... }:
+  outputs = { nixpkgs, darwin, flake-utils, home-manager, crane, cftail, ... }:
     let
       mkNixOSConfiguration =
         name: nixpkgs.lib.nixosSystem {
@@ -41,7 +45,7 @@
             (final: prev: {
               listprojects = final.callPackage ./derivations/listprojects { };
               ntfy = final.callPackage ./derivations/ntfy { };
-              cftail = final.callPackage ./derivations/cftail { };
+              cftail = cftail.packages.${system}.default;
             })
             # override the version of xattr for poetry
             (
