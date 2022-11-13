@@ -114,5 +114,6 @@
     in
     nixOsConfigurations [
       "nixos"
+      "astoria"
     ] // perSystemConfigurations;
 }
