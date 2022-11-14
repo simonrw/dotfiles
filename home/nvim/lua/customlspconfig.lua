@@ -24,8 +24,7 @@ local on_attach = function(client, bufnr)
     buf_set_keymap("n", "[d", "<cmd>lua vim.diagnostic.goto_prev()<CR>", opts)
     buf_set_keymap("n", "<leader>a", [[<cmd>lua vim.lsp.buf.code_action({ source = { organizeImports = true }})<CR>]], opts)
     buf_set_keymap("n", "<leader>d", "<cmd>Telescope diagnostics<cr>", opts)
-    buf_set_keymap("n", "<leader>s", "<cmd>Telescope lsp_document_symbols<cr>", opts)
-    buf_set_keymap("n", "<leader>S", "<cmd>Telescope lsp_dynamic_workspace_symbols<cr>", opts)
+    buf_set_keymap("n", "<leader>s", "<cmd>Telescope lsp_dynamic_workspace_symbols<cr>", opts)
 
     buf_set_keymap("n", "<C-Space>", [[<Plug>(completion_trigger)]], opts)
 
