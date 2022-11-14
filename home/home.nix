@@ -45,7 +45,6 @@ in
       htop
       httpie
       hub
-      input-fonts
       mkcert
       multitail
       ncdu
