@@ -31,7 +31,7 @@
     list-ignored-modifications = "!f() { git ls-files -v | grep '^S' | cut -f 2 -d ' '; }; f";
 
     # Other aliases
-    ff = "f() { git merge --ff-only origin/$(git branch-name); }; f";
+    ff = "!f() { git merge --ff-only origin/$(git branch-name); }; f";
     st = "status";
     co = "checkout";
     su = "submodule update --init --recursive";
