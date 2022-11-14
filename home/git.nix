@@ -169,6 +169,9 @@
       branch = 1;
       submoduleSummary = true;
     };
+    user = {
+      signingkey = "1DFE114D7AE271B7";
+    };
   };
   ignores = [
     ".vscode"
