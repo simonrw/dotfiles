@@ -20,6 +20,22 @@ require('packer').startup({function(use)
     use "williamboman/mason.nvim" 
     use 'williamboman/mason-lspconfig.nvim'
 
+    use {
+        'pwntester/octo.nvim',
+        requires = {
+            'nvim-lua/plenary.nvim',
+            'nvim-telescope/telescope.nvim',
+            'kyazdani42/nvim-web-devicons',
+        },
+        config = function()
+            require('octo').setup({
+                file_panel = {
+                    use_icons = false,
+                },
+            })
+        end,
+    }
+
     -- debugging
     use 'leoluz/nvim-dap-go'
     use 'mfussenegger/nvim-dap-python'
