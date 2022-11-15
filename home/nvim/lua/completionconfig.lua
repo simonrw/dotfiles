@@ -20,6 +20,7 @@ cmp.setup({
     },
     sources = cmp.config.sources({
         { name = 'nvim_lsp' },
+        { name = 'git' },
     }, {
         {
             name = 'buffer',
@@ -57,3 +58,5 @@ cmp.setup({
         }),
     },
 })
+
+require('cmp_git').setup()

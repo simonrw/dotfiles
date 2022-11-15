@@ -50,6 +50,7 @@
     # completion
     cmp-nvim-lsp
     cmp-buffer
+    cmp-git
     nvim-cmp
     cmp-vsnip
     cmp-emoji
