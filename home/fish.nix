@@ -111,7 +111,7 @@ in
     ll = "ls -lh";
     lpb = "glab project view -w";
     lr = "thor";
-    ls = "exa";
+    ls = "exa -l";
     more = "bat";
     mr = "glab mr view -w";
     nr = "nix repl --file '<nixpkgs>'";
