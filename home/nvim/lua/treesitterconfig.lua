@@ -7,7 +7,7 @@ local function setup()
             use_languagetree = true,
         },
         indent = {
-            enable = false,
+            enable = true,
         },
         textobjects = {
             select = {
