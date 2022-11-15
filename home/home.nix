@@ -101,10 +101,11 @@ in
   # TODO: this will not be required on true nixos
   targets.genericLinux.enable = pkgs.stdenv.isLinux;
 
+  # TODO: disabled for now
   xsession.windowManager.i3 =
     let mod = "Mod1";
     in
-    lib.mkIf pkgs.stdenv.isLinux {
+    lib.mkIf false {
       enable = true;
       config = {
         modifier = mod;
