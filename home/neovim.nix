@@ -63,7 +63,6 @@
         p.tree-sitter-c
         p.tree-sitter-cmake
         p.tree-sitter-cpp
-        p.tree-sitter-diff
         p.tree-sitter-dot
         p.tree-sitter-elm
         p.tree-sitter-fish
