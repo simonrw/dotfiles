@@ -39,6 +39,7 @@
     vim-terraform
     rust-vim
     lualine-nvim
+    which-key-nvim
 
     # lsps
     nvim-lspconfig
