@@ -62,6 +62,7 @@ in
       rnix-lsp
       rust-analyzer
       universal-ctags
+      zsh
       # local packages
       listprojects
       cftail
