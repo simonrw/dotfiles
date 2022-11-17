@@ -64,9 +64,10 @@ in
       universal-ctags
       zsh
       # local packages
-      listprojects
       cftail
+      listprojects
       ntfy
+      snslistener
     ] ++ (lib.optionals stdenv.isDarwin [
       # macos only
       reattach-to-user-namespace
