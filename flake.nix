@@ -74,6 +74,11 @@
                 python310 = super.python310.override python-overrides;
                 python39 = super.python39.override python-overrides;
                 python38 = super.python38.override python-overrides;
+
+                # enable a specific python version to run debugpy
+                python-for-debugging = super.python3.withPackages (ps: [
+                  ps.debugpy
+                ]);
               }
             )
           ];

@@ -55,9 +55,9 @@ in
       pre-commit
       pyright
       python3
-      python3Packages.pipx
-      python3Packages.send2trash
-      python3Packages.virtualenv
+      python3.pkgs.pipx
+      python3.pkgs.send2trash
+      python3.pkgs.virtualenv
       ripgrep
       rnix-lsp
       rust-analyzer

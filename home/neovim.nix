@@ -10,6 +10,9 @@
   ]);
   extraConfig = ''
     source ~/.config/nvim/nixinit.vim
+
+    " set up debugpy
+    lua require('dap-python').setup('${pkgs.python-for-debugging}/bin/python')
   '';
   plugins = with pkgs.vimPlugins; [
     vim-nix
@@ -56,6 +59,10 @@
     cmp-emoji
     vim-vsnip
     lspkind-nvim
+
+    # debugging
+    nvim-dap
+    nvim-dap-ui
 
     # treesitter
     (nvim-treesitter.withPlugins
