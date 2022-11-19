@@ -78,7 +78,6 @@
         p.tree-sitter-git_rebase
         p.tree-sitter-go
         p.tree-sitter-graphql
-        p.tree-sitter-html
         p.tree-sitter-http
         p.tree-sitter-javascript
         p.tree-sitter-json
