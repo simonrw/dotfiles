@@ -1,15 +1,18 @@
 local dapui = require('dapui')
 dapui.setup()
 local dap = require("dap")
+local dap_python = require('dap-python')
+
+dap_python.test_runner = "pytest"
 
 dap.listeners.after.event_initialized["dapui_config"] = function()
-  dapui.open()
+    dapui.open()
 end
 dap.listeners.before.event_terminated["dapui_config"] = function()
-  dapui.close()
+    dapui.close()
 end
 dap.listeners.before.event_exited["dapui_config"] = function()
-  dapui.close()
+    dapui.close()
 end
 
 -- bindings
@@ -67,4 +70,20 @@ add_dap_mapping(
         dap.terminate()
     end,
     "Stop debugging"
+)
+
+add_dap_mapping(
+    '<leader>tdm',
+    function()
+        dap_python.test_method()
+    end,
+    "Debug test method"
+)
+
+add_dap_mapping(
+    '<leader>tdc',
+    function()
+        dap_python.test_class()
+    end,
+    "Debug test class"
 )
