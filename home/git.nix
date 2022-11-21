@@ -78,7 +78,7 @@
   delta = {
     enable = true;
     options = {
-      side-by-side = false;
+      side-by-side = true;
       diff-so-fancy = true;
     };
   };
