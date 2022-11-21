@@ -46,6 +46,7 @@ in
       httpie
       hub
       input-fonts
+      lsof
       mkcert
       multitail
       ncdu
@@ -63,6 +64,7 @@ in
       rust-analyzer
       universal-ctags
       zsh
+    ] ++ [
       # local packages
       cftail
       listprojects
