@@ -16,6 +16,7 @@ in
       set -x LANG en_GB.UTF-8
       set -x CARGO_TARGET_DIR {$HOME}/.cargo/cache
       set -x NIXPKGS_ALLOW_UNFREE 1
+      set -x NTFY_TOPIC simonrw-notify
 
       # experimental: enable cargo sparse registry for faster downloads
       set -x CARGO_UNSTABLE_SPARSE_REGISTRY true
