@@ -93,6 +93,9 @@ in
 
     # fix nix path
     set -x PATH /etc/profiles/per-user/(whoami)/bin {$PATH}
+
+    # fix gpg tty
+    set -x GPG_TTY (tty)
   '';
   shellAliases = {
     add-keys = ''ssh-add (find ~/.ssh - maxdepth 1 - type f - name "id_rsa*" | grep - v pub | grep - v bak)'';
