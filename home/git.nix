@@ -172,6 +172,9 @@
     user = {
       signingkey = "1DFE114D7AE271B7";
     };
+    commit.gpgsign = true;
+    tag.gpgsign = true;
+    gpg.program = "gpg";
   };
   ignores = [
     ".vscode"
