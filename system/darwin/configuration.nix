@@ -46,6 +46,7 @@
     keep-derivations = true
     auto-optimise-store = true
     experimental-features = nix-command flakes
+    trusted-users = simon root
   '' + lib.optionalString (pkgs.system == "aarch64-darwin") ''
     extra-platforms = x86_64-darwin aarch64-darwin
   '';
