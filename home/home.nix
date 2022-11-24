@@ -30,6 +30,7 @@ in
     packages = with pkgs; [
       awscli2
       bat
+      cachix
       curl
       curlie
       deadnix
