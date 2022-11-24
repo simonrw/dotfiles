@@ -28,6 +28,7 @@ in
     };
 
     packages = with pkgs; [
+      _1password
       awscli2
       bat
       cachix
