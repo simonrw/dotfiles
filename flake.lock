@@ -345,11 +345,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1669247180,
-        "narHash": "sha256-np/hUwDFOZVpssa9kbs/5LF6ICNXyJwZMBL27vJrDbY=",
+        "lastModified": 1669248854,
+        "narHash": "sha256-uSueEnAUQhvQEIWpEeJkfhRFVV5jueDjVdBMvzR0wTc=",
         "owner": "simonrw",
         "repo": "aws-event-listener",
-        "rev": "b5220f35409d53242f5def881c39db0386e2e2f4",
+        "rev": "0a4cb1f009e76741a8e80dac8c9bfb9893c7619a",
         "type": "github"
       },
       "original": {
