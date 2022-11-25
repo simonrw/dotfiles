@@ -37,7 +37,6 @@
     su = "submodule update --init --recursive";
     pr = "pull --rebase --prune";
     mergeff = "merge --ff-only";
-    sync = "!git pr && git push";
     ci = "commit -v";
     edit = "!vim `git ls-files -m`";
     cleanup = "!git rebase -i $REVIEW_BASE";
