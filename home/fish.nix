@@ -110,6 +110,7 @@ in
     gpr = "git pull --rebase";
     grep = "rg";
     gs = "git status";
+    git = "${pkgs.git-branchless}/bin/git-branchless wrap --";
     http = "curlie";
     less = "bat";
     ll = "ls -lh";

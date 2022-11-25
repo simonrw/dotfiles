@@ -42,6 +42,7 @@ in
       fx
       fzf
       gh
+      git-branchless
       graphviz
       hey
       htop
