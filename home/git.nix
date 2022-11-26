@@ -168,12 +168,6 @@
       branch = 1;
       submoduleSummary = true;
     };
-    user = {
-      signingkey = "1DFE114D7AE271B7";
-    };
-    commit.gpgsign = true;
-    tag.gpgsign = true;
-    gpg.program = "gpg";
   };
   ignores = [
     ".vscode"
@@ -280,5 +274,10 @@
   ];
   lfs = {
     enable = true;
+  };
+  signing = {
+    gpgPath = "${pkgs.gnupg}/bin/gpg";
+    key = "1DFE114D7AE271B7";
+    signByDefault = true;
   };
 }
