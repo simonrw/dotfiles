@@ -234,7 +234,7 @@ in
       recursive = true;
     };
 
-    ".gnupg/gpg-agent.conf" = {
+    ".gnupg/gpg-agent.conf" = lib.mkIf pkgs.stdenv.isDarwin {
       text = ''
         default-cache-ttl 600
         max-cache-ttl 7200
