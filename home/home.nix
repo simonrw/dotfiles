@@ -85,10 +85,6 @@ in
     ]);
   };
 
-  # copy applications
-  darwin.installApps = true;
-  darwin.fullCopies = true;
-
   # behave like generic linux
   # TODO: this will not be required on true nixos
   targets.genericLinux.enable = pkgs.stdenv.isLinux;

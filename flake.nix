@@ -95,15 +95,14 @@
             simon = home-manager.lib.homeManagerConfiguration {
               pkgs = pkgs;
               modules = [
-                ./home/modules/darwin.nix
                 ./home/home.nix
                 # per program configuration
-                ./home/git.nix
                 ./home/bat.nix
                 ./home/direnv.nix
                 ./home/fish.nix
                 ./home/fzf.nix
                 ./home/gh.nix
+                ./home/git.nix
                 ./home/gpg.nix
                 ./home/helix.nix
                 ./home/home-manager.nix
