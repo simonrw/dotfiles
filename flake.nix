@@ -97,6 +97,20 @@
               modules = [
                 ./home/modules/darwin.nix
                 ./home/home.nix
+                # per program configuration
+                ./home/git.nix
+                ./home/bat.nix
+                ./home/direnv.nix
+                ./home/fish.nix
+                ./home/fzf.nix
+                ./home/gh.nix
+                ./home/gpg.nix
+                ./home/helix.nix
+                ./home/home-manager.nix
+                ./home/jq.nix
+                ./home/neovim.nix
+                ./home/tmux.nix
+                ./home/vscode.nix
               ];
             };
           };

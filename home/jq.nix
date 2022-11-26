@@ -1,4 +1,6 @@
-{ pkgs }:
+{ pkgs, ... }:
 {
-  enable = true;
+  programs.jq = {
+    enable = true;
+  };
 }

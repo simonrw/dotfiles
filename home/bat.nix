@@ -1,9 +1,11 @@
-{ pkgs }:
+{ pkgs, ... }:
 {
-  enable = true;
+  programs.bat = {
+    enable = true;
 
-  config = {
-    theme = "Monokai Extended";
-    style = "plain";
+    config = {
+      theme = "Monokai Extended";
+      style = "plain";
+    };
   };
 }

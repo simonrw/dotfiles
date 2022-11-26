@@ -40,7 +40,6 @@ in
       exa
       fd
       fx
-      gh
       git-branchless
       graphviz
       hey
@@ -85,21 +84,6 @@ in
       slack
     ]);
   };
-
-  programs = loadProgramConfigs [
-    "bat"
-    "direnv"
-    "fish"
-    "fzf"
-    "git"
-    "gpg"
-    "helix"
-    "home-manager"
-    "jq"
-    "neovim"
-    "tmux"
-    "vscode"
-  ];
 
   # copy applications
   darwin.installApps = true;
