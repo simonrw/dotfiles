@@ -26,10 +26,6 @@ in
       test -r $host_config; and source $host_config
       set -e host_config
 
-      # fzf configuration
-      set -x FZF_DEFAULT_OPTIONS "--color dark,matched_bg:-1 --tiebreak begin --ansi --no-mouse --tabstop 4 --inline-info"
-      set -x FZF_DEFAULT_COMMAND 'rg --files --no-ignore --hidden --follow -g "!{.git,venv,node_modules}/*" 2> /dev/null'
-
       function fs
           tmux-session-history
       end
@@ -182,9 +178,6 @@ in
     mcd = {
       description = "Create and move into new directory";
       body = "mkdir -p $argv[1]; and cd $argv[1]";
-    };
-    fish_user_key_bindings = {
-      body = builtins.readFile ./fish/key-bindings.fish;
     };
     fish_prompt = {
       description = "Write out the prompt";

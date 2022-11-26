@@ -40,7 +40,6 @@ in
       exa
       fd
       fx
-      fzf
       gh
       git-branchless
       graphviz
@@ -91,6 +90,7 @@ in
     "bat"
     "direnv"
     "fish"
+    "fzf"
     "git"
     "gpg"
     "helix"
