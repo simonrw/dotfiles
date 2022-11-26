@@ -5,7 +5,7 @@
     enableFishIntegration = true;
     defaultCommand = ''rg --files --no-ignore --hidden --follow -g "!{.git,venv,node_modules}/*" 2> /dev/null'';
     defaultOptions = [
-      "--color dark,matched_bg:-1"
+      "--color dark"
       "--tiebreak begin"
       "--ansi"
       "--no-mouse"
