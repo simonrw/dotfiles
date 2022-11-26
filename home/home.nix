@@ -91,8 +91,9 @@ in
     "bat"
     "direnv"
     "fish"
-    "helix"
     "git"
+    "gpg"
+    "helix"
     "home-manager"
     "jq"
     "neovim"
@@ -252,6 +253,14 @@ in
       source = ./hammerspoon;
       recursive = true;
     };
+
+    ".gnupg/gpg-agent.conf" = {
+      text = ''
+        default-cache-ttl 600
+        max-cache-ttl 7200
+        pinentry-program ${pkgs.pinentry-curses}/bin/pinentry-curses
+      '';
+    };
   };
 
   xdg = {
@@ -272,4 +281,11 @@ in
 
   # currently this is broken
   disabledModules = [ "targets/darwin/linkapps.nix" ];
+
+  services.gpg-agent = lib.mkIf pkgs.stdenv.isLinux {
+    enable = true;
+    pinentryFlavor = "curses";
+    enableFishIntegration = true;
+    enableBashIntegration = true;
+  };
 }

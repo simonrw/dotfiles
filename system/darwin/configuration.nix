@@ -54,6 +54,7 @@
   programs.fish.enable = true;
   programs.zsh.enable = true;
   programs.nix-index.enable = true;
+  programs.gnupg.agent.enable = true;
 
   system.keyboard.enableKeyMapping = true;
   system.keyboard.remapCapsLockToControl = true;
