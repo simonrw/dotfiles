@@ -77,7 +77,7 @@
     };
     difftastic = {
       enable = true;
-      background = "dark";
+      background = "light";
       display = "side-by-side-show-both";
     };
     includes = [
