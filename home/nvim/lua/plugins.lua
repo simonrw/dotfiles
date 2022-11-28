@@ -11,7 +11,6 @@ require('packer').startup({function(use)
     use 'wbthomason/packer.nvim'
     use 'christoomey/vim-tmux-runner'
     use 'christoomey/vim-conflicted'
-    use 'TC72/telescope-tele-tabby.nvim'
 
     -- language plugins
     use 'lepture/vim-velocity'

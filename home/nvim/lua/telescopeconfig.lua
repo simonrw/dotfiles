@@ -15,7 +15,6 @@ require("telescope").setup({
     },
   extensions = {
     ["ui-select"] = {},
-    ["tele_tabby"] = {},
     fzf = {
         fuzzy = true,
         override_generic_sorter = true,
@@ -26,7 +25,4 @@ require("telescope").setup({
 })
 
 require("telescope").load_extension("ui-select")
-require("telescope").load_extension("tele_tabby")
 require("telescope").load_extension("fzf")
-
-mappings.nnoremap('<leader>T', [[<cmd>lua require('telescope').extensions.tele_tabby.list()<Cr>]])
