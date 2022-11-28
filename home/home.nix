@@ -40,7 +40,6 @@ in
       exa
       fd
       fx
-      git-branchless
       graphviz
       hey
       htop
