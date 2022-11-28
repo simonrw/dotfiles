@@ -263,7 +263,7 @@ in
 
   services.gpg-agent = lib.mkIf pkgs.stdenv.isLinux {
     enable = true;
-    pinentryFlavor = "curses";
+    pinentryFlavor = "gtk2";
     enableFishIntegration = true;
     enableBashIntegration = true;
   };
