@@ -75,10 +75,12 @@
       last = "log -1";
       up = "update";
     };
-    difftastic = {
+    delta = {
       enable = true;
-      background = "light";
-      display = "side-by-side-show-both";
+      options = {
+        side-by-side = true;
+        diff-so-fancy = true;
+      };
     };
     includes = [
       {
