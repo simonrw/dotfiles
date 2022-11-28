@@ -21,6 +21,11 @@ local function setup()
                 },
             },
         },
+        yati = {
+            enable = true;
+            default_lazy = true,
+            default_fallback = "auto",
+        },
     }
 end
 

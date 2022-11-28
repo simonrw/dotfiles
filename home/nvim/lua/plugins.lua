@@ -35,6 +35,8 @@ require('packer').startup({function(use)
         end,
     }
 
+    use { "yioneko/nvim-yati", tag = "*" }
+
     -- debugging
     use 'leoluz/nvim-dap-go'
     use 'mfussenegger/nvim-dap-python'
