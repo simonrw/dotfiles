@@ -134,8 +134,12 @@
       };
       diff = {
         algorithm = "patience";
-        tool = "icdiff";
+        tool = "meld";
         colorMoved = "default";
+      };
+      difftool.prompt = false;
+      difftool.meld = {
+        cmd = "${pkgs.meld}/bin/meld $LOCAL $REMOTE";
       };
       mergetool.conflicted = {
         cmd = "nvim +Conflicted";
