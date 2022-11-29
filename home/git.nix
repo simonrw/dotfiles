@@ -278,7 +278,7 @@
     };
     signing = {
       gpgPath = "${pkgs.gnupg}/bin/gpg";
-      key = "1DFE114D7AE271B7";
+      key = "0x7A7C803A4612CE7C";
       signByDefault = true;
     };
   };
