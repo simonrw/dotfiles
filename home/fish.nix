@@ -127,8 +127,8 @@ in
       tree = "exa -T";
       vup = "nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'";
     } // lib.optionalAttrs stdenv.isLinux {
-      pbcopy = "xclip";
-      pbpaste = "xclip -o";
+      pbcopy = "xclip -selection clipboard";
+      pbpaste = "xclip -selection clipboard -o";
     };
     shellAbbrs = {
       c = "cargo";
