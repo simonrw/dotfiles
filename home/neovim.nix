@@ -8,6 +8,7 @@
     withPython3 = true;
     extraPython3Packages = (ps: with ps; [
       pynvim
+      black
     ]);
     extraConfig = ''
       source ~/.config/nvim/nixinit.vim
