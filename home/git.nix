@@ -75,13 +75,6 @@
       last = "log -1";
       up = "update";
     };
-    delta = {
-      enable = true;
-      options = {
-        side-by-side = true;
-        diff-so-fancy = true;
-      };
-    };
     includes = [
       {
         path = "~/.gitlocalconfig/local";
