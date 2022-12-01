@@ -75,6 +75,14 @@
       last = "log -1";
       up = "update";
     };
+    delta = {
+      enable = true;
+      options = {
+        side-by-side = false;
+        diff-so-fancy = false;
+        syntax-theme = "TwoDark";
+      };
+    };
     includes = [
       {
         path = "~/.gitlocalconfig/local";
