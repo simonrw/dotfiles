@@ -95,6 +95,9 @@ in
       if isatty
         set -x GPG_TTY (tty)
       end
+
+      # wrap awslocal completion
+      complete -c awslocal -w aws
     '';
     shellAliases = {
       add-keys = ''ssh-add (find ~/.ssh - maxdepth 1 - type f - name "id_rsa*" | grep - v pub | grep - v bak)'';
