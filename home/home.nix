@@ -1,15 +1,5 @@
 { config, pkgs, lib, ... }:
 let
-  loadConfig =
-    name: import ./${name}.nix { inherit pkgs; };
-
-  appendConfig = attrs: name: attrs // {
-    "${name}" = loadConfig name;
-  };
-
-  loadProgramConfigs =
-    names: builtins.foldl' appendConfig { } names;
-
   homeDir = if pkgs.stdenv.isDarwin then "Users" else "home";
 in
 {
