@@ -1,6 +1,26 @@
 { config, pkgs, lib, ... }:
 let
   homeDir = if pkgs.stdenv.isDarwin then "Users" else "home";
+
+  notify-wrapper = pkgs.writeShellScriptBin "notify-wrapper" ''
+    set -o pipefail
+
+    # wraps ntfy to handle success or failure
+    cmd=$*
+    if [ -z $1 ]; then
+        echo "no command specified" >&2
+        exit 1
+    fi
+
+    $cmd
+    status=$?
+
+    if [ $status -eq 0 ]; then
+        ntfy pub --tags tada -P "Task \`$cmd\` success"
+    else
+        ntfy pub --tags x -P "Task \`$cmd\` failed"
+    fi
+  '';
 in
 {
   home = {
@@ -60,6 +80,7 @@ in
       listprojects
       ntfy
       snslistener
+      notify-wrapper
     ] ++ (lib.optionals stdenv.isDarwin [
       # macos only
       reattach-to-user-namespace
