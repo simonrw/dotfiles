@@ -53,14 +53,6 @@
               let
                 python-overrides = {
                   packageOverrides = pyself: pysuper: {
-                    xattr = pysuper.xattr.overrideAttrs (o: rec {
-                      pname = o.pname;
-                      version = "0.9.9";
-                      src = pysuper.fetchPypi {
-                        inherit pname version;
-                        sha256 = "09cb7e1efb3aa1b4991d6be4eb25b73dc518b4fe894f0915f5b0dcede972f346";
-                      };
-                    });
                     cherrypy = pysuper.cherrypy.overrideAttrs (o: rec {
                       doInstallCheck = !pkgs.stdenv.isDarwin;
                     });
