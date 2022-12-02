@@ -90,8 +90,6 @@ in
     ]) ++ (lib.optionals stdenv.isLinux [
       # linux only
       _1password-gui
-      alacritty
-      kitty
       brave
       firefox
       rofi

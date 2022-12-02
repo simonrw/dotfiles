@@ -100,10 +100,12 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-    firefox
-    git
-    vim
     alacritty
+    firefox
+    google-chrome
+    git
+    kitty
+    vim
   ];
 
   environment.shells = with pkgs; [
