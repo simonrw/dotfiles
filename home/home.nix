@@ -91,6 +91,7 @@ in
       # linux only
       _1password-gui
       alacritty
+      kitty
       brave
       firefox
       rofi
@@ -268,6 +269,10 @@ in
     };
     configFile.karabiner = lib.mkIf pkgs.stdenv.isDarwin {
       source = ./karabiner;
+      recursive = true;
+    };
+    configFile.kitty = {
+      source = ./kitty;
       recursive = true;
     };
   };
