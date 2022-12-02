@@ -15,7 +15,7 @@ let
 
     aarch64-darwin = (attrs: pkgs.fetchurl {
       url = "https://github.com/binwiederhier/${attrs.pname}/releases/download/v${attrs.version}/${attrs.pname}_${attrs.version}_macOS_all.tar.gz";
-      hash = "";
+      hash = "sha256-fPg/WHIQpWr2mN6WBh5wtYfQRY7CuSC65niNgheEYFc=";
     });
   };
 in
