@@ -75,6 +75,7 @@
       "google-chrome"
       "hammerspoon"
       "karabiner-elements"
+      "kitty"
       "obsidian"
       "pycharm-ce"
       "vlc"
