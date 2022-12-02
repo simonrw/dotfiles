@@ -24,7 +24,7 @@
       # https://blog.jez.io/cli-code-review/?utm_source=pocket_mylist
       files = "!git diff --name-only $(git merge-base HEAD \"$REVIEW_BASE\")";
       stat = "!git diff --stat $(git merge-base HEAD \"$REVIEW_BASE\")";
-      review = "!nvim -p $(git files) +\"tabdo Gvdiff $REVIEW_BASE\"";
+      review = "!nvim -c 'set nosplitright' -p $(git files) -c \"tabdo Gvdiff $REVIEW_BASE\" -c 'set splitright'";
 
       # ignore modifications to files
       ignore-modifications = "update-index --skip-worktree --";
