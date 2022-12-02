@@ -12,8 +12,4 @@ let b:ale_linters = ["pyright", "flake8"]
 " Pipfile exists
 let test#python#pytest#executable = 'pytest'
 
-" format with black
-nnoremap <buffer><silent> <c-q> <cmd>call Black()<cr>
-inoremap <buffer><silent> <c-q> <cmd>call Black()<cr>
-
 set textwidth=0
