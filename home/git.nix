@@ -80,7 +80,7 @@
       options = {
         side-by-side = false;
         diff-so-fancy = false;
-        syntax-theme = "TwoDark";
+        dark = true;
       };
     };
     includes = [
