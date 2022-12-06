@@ -1,6 +1,6 @@
 { pkgs ? import <nixpkgs> { } }:
 let
-  inherit (pkgs) lib system fetchFromGitHub stdenv fetchurl;
+  inherit (pkgs) lib stdenv fetchurl;
 in
 stdenv.mkDerivation rec {
   pname = "brave";

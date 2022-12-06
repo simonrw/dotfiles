@@ -42,7 +42,7 @@
       perSystemConfigurations = flake-utils.lib.eachDefaultSystem (system:
         let
           overlays = [
-            (final: prev: {
+            (final: _: {
               listprojects = final.callPackage ./derivations/listprojects { };
               ntfy = final.callPackage ./derivations/ntfy { };
               cftail = cftail.packages.${system}.default;
@@ -52,17 +52,17 @@
             (
               let
                 python-overrides = {
-                  packageOverrides = pyself: pysuper: {
-                    cherrypy = pysuper.cherrypy.overrideAttrs (o: rec {
+                  packageOverrides = _: pysuper: {
+                    cherrypy = pysuper.cherrypy.overrideAttrs (_: rec {
                       doInstallCheck = !pkgs.stdenv.isDarwin;
                     });
-                    debugpy = pysuper.debugpy.overrideAttrs (o: rec {
+                    debugpy = pysuper.debugpy.overrideAttrs (_: rec {
                       doInstallCheck = !pkgs.stdenv.isDarwin;
                     });
                   };
                 };
               in
-              self: super: {
+              _: super: {
                 python310 = super.python310.override python-overrides;
                 python39 = super.python39.override python-overrides;
                 python38 = super.python38.override python-overrides;

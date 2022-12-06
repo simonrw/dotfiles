@@ -1,6 +1,5 @@
 { pkgs ? import <nixpkgs> { } }:
 let
-  traceSeq = pkgs.lib.traceSeq;
 
   sources = {
     x86_64-linux = (attrs: pkgs.fetchurl {
