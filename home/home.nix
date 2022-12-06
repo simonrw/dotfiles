@@ -90,7 +90,6 @@ in
     ]) ++ (lib.optionals stdenv.isLinux [
       # linux only
       _1password-gui
-      brave
       firefox
       rofi
       slack
