@@ -1,0 +1,9 @@
+---
+repos:
+  - repo: https://github.com/astro/deadnix
+    rev: 901f6c741d70d8d108be4d899f9bbbf44f699b20
+    hooks:
+      - id: deadnix
+        args: [--edit]
+        stages: [commit]
+fail_fast: true
