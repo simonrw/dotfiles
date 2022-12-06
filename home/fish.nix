@@ -121,6 +121,7 @@ in
       more = "bat";
       mr = "glab mr view -w";
       nr = "nix repl --file '<nixpkgs>'";
+      ntfy = "notify-wrapper";
       pylab = "ipython - -pylab";
       sourceenv = "source ./venv/bin/activate";
       ta = "_tmux_attach";
@@ -140,7 +141,7 @@ in
       gp = "git pull";
       ipy = "ipython";
       k = "kubectl";
-      n = "noti";
+      n = "notify-wrapper";
       py = "python";
       v = "vim";
     };
