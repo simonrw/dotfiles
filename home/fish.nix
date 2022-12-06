@@ -98,6 +98,9 @@ in
 
       # wrap awslocal completion
       complete -c awslocal -w aws
+
+      # wrap tflocal completion
+      complete -c tflocal -w terraform
     '';
     shellAliases = {
       add-keys = ''ssh-add (find ~/.ssh - maxdepth 1 - type f - name "id_rsa*" | grep - v pub | grep - v bak)'';
