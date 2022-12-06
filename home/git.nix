@@ -79,7 +79,8 @@
       enable = true;
       options = {
         side-by-side = false;
-        diff-so-fancy = true;
+        diff-so-fancy = false;
+        dark = true;
       };
     };
     includes = [
