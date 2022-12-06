@@ -1,17 +1,37 @@
 { pkgs ? import <nixpkgs> { } }:
-let
-  inherit (pkgs) fetchFromGitHub;
-in
-pkgs.rustPlatform.buildRustPackage rec {
-  pname = "listprojects";
+pkgs.stdenv.mkDerivation {
+  name = "project";
   version = "0.1.0";
 
-  src = fetchFromGitHub {
-    owner = "simonrw";
-    repo = "listprojects";
-    rev = "4b94543c1943d8f772ef14283f6276333d5a98b1";
-    sha256 = "sha256-I+7bGfk0GSI7TRhPGPqYuT4eA5BspUELrqMO4l829G0=";
-  };
+  buildInputs = [
+    pkgs.python3
+    pkgs.fzf
+    pkgs.fd
+    pkgs.tmux
+  ];
 
-  cargoHash = "sha256-2mY9c9dxwd0FeO1R/VA0FG1zNljPckipF32ASzMPJxo=";
+  src = pkgs.lib.cleanSource ./.;
+
+  postPatch = ''
+    substituteInPlace project.py \
+      --replace \
+      '"fzf-tmux"' "\"${pkgs.fzf}/bin/fzf-tmux\""
+
+    substituteInPlace project.py \
+      --replace \
+      '"fzf"' "\"${pkgs.fzf}/bin/fzf\""
+
+    substituteInPlace project.py \
+      --replace \
+      '"fd"' "\"${pkgs.fd}/bin/fd\""
+
+    substituteInPlace project.py \
+      --replace \
+      '"tmux"' "\"${pkgs.tmux}/bin/tmux\""
+  '';
+
+  buildPhase = ":";
+  installPhase = ''
+    install -D -m 0755 ./project.py $out/bin/project
+  '';
 }
