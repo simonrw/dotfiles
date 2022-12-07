@@ -9,7 +9,7 @@ in
         set -x SHELL (command -v fish)
 
         set -x BUILD_PREFIX {$HOME}/.local
-        set -x PATH {$BUILD_PREFIX}/bin {$HOME}/.bin {$HOME}/.poetry/bin /usr/local/bin {$HOME}/.cargo/bin {$HOME}/bin {$GOPATH}/bin {$PATH}
+        set -x PATH {$BUILD_PREFIX}/bin {$HOME}/.bin {$HOME}/.poetry/bin /usr/local/bin {$HOME}/.cargo/bin {$HOME}/bin {$GOPATH}/bin {$PATH} {$HOME}/.local/share/JetBrains/Toolbox/scripts
         set -x GOPATH {$HOME}/dev/gocode
         set -x EDITOR nvim
         set -x REVIEW_BASE main
