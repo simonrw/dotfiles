@@ -47,6 +47,7 @@
               ntfy = final.callPackage ./derivations/ntfy { };
               cftail = cftail.packages.${system}.default;
               snslistener = snslistener.packages.${system}.default;
+              notify-wrapper = final.callPackage ./derivations/notify-wrapper { };
             })
             # override the version of xattr for poetry
             (
