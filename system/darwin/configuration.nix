@@ -42,10 +42,18 @@
   nix.package = pkgs.nix;
   documentation.enable = true;
   nix.extraOptions = ''
+    # https://jackson.dev/post/nix-reasonable-defaults/
+    connect-timeout = 5
+    log-lines = 25
+
+    experimental-features = nix-command flakes
+    fallback = true
+    warn-dirty = false
+    auto-optimise-store = true
+
+    # additional settings
     keep-outputs = false
     keep-derivations = true
-    auto-optimise-store = true
-    experimental-features = nix-command flakes
     trusted-users = simon root
   '' + lib.optionalString (pkgs.system == "aarch64-darwin") ''
     extra-platforms = x86_64-darwin aarch64-darwin
