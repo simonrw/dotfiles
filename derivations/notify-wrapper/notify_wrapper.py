@@ -19,7 +19,7 @@ class Ntfy:
             "Title": "Watched task finished",
             "Tags": ",".join(tags),
         }
-        r = self.session.post(url, data=message, headers=headers)
+        r = self.session.post(url, data=message.encode("utf-8"), headers=headers)
         r.raise_for_status()
 
 
