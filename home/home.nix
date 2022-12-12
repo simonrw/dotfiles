@@ -229,6 +229,10 @@ in
         pinentry-program ${pkgs.pinentry_mac}/${pkgs.pinentry_mac.binaryPath}
       '';
     };
+
+    ".ideavimrc" = {
+      source = ./ideavimrc;
+    };
   };
 
   xdg = {

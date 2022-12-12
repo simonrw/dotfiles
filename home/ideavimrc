@@ -1,0 +1,13 @@
+let mapleader = " "
+
+" plugins
+set surround
+set commentary
+
+" settings
+set incsearch
+set smartcase
+set ignorecase
+set scrolloff=5
+set relativenumber
+set number
