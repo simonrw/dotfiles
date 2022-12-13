@@ -22,6 +22,7 @@ in
       awscli2
       bat
       cachix
+      comma
       curl
       curlie
       deadnix
