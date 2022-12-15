@@ -244,10 +244,23 @@ in
       source = ./nvim;
       recursive = true;
     };
-    configFile.alacritty = {
-      source = ./alacritty;
-      recursive = true;
-    };
+    configFile."alacritty/alacritty.yml" =
+      let
+        theme =
+          if config.dark-mode
+          then "colors_default"
+          else "colors_papercolor";
+
+        originalText =
+          builtins.readFile ./alacritty/alacritty.yml;
+
+        replacedText =
+          lib.replaceStrings [ "CHOSEN_COLOR_THEME" ] [ theme ] originalText;
+      in
+      {
+        # source = ./alacritty/alacritty.yml;
+        text = replacedText;
+      };
     configFile.karabiner = lib.mkIf pkgs.stdenv.isDarwin {
       source = ./karabiner;
       recursive = true;

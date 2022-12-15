@@ -507,7 +507,8 @@ available_schemes:
       text: '#eeeeee'
       cursor: '#444444'
 
-colors: *colors_default
+# placeholder replaced by nix
+colors: *CHOSEN_COLOR_THEME
 
 # Visual Bell
 #
