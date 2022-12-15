@@ -1,4 +1,15 @@
-{ pkgs, ... }:
+{ config, pkgs, ... }:
+let
+  dark-mode-config =
+    if config.dark-mode then
+      '' 
+      set background=dark
+      colorscheme srw256
+      '' else ''
+      set background=light
+      colorscheme PaperColor
+    '';
+in
 {
   programs.neovim = {
     enable = true;
@@ -15,6 +26,23 @@
 
       " set up debugpy
       lua require('dap-python').setup('${pkgs.python-for-debugging}/bin/python')
+    '' + dark-mode-config + ''
+      hi Normal guibg=none
+      let g:linenr_background = 'none'
+      execute 'highlight TelescopeNormal guibg=' . g:linenr_background
+      execute 'highlight LineNr guibg=' . g:linenr_background
+      execute 'highlight SignColumn guibg=' . g:linenr_background
+      execute 'highlight GitGutterAdd guibg=' . g:linenr_background
+      execute 'highlight GitGutterDelete guibg=' . g:linenr_background
+      execute 'highlight GitGutterChange guibg=' . g:linenr_background
+      highlight TabLine guibg=none
+      highlight TabLineSel guibg=none
+      highlight TabLineFill guibg=none
+      execute 'highlight DiagnosticSignError ctermfg=1 guifg=Red guibg=' . g:linenr_background
+      execute 'highlight DiagnosticSignHint ctermfg=7 guifg=LightGrey guibg=' . g:linenr_background
+      execute 'highlight DiagnosticSignInfo ctermfg=4 guifg=LightBlue guibg=' . g:linenr_background
+      execute 'highlight DiagnosticSignWarn ctermfg=3 guifg=Orange guibg=' . g:linenr_background
+      highlight DiagnosticUnderlineHint guifg=Grey guisp=Grey
     '';
     plugins = with pkgs.vimPlugins; [
       vim-nix
@@ -45,6 +73,7 @@
       rust-vim
       lualine-nvim
       which-key-nvim
+      papercolor-theme
 
       # lsps
       nvim-lspconfig

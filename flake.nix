@@ -103,6 +103,7 @@
                 ./home/neovim.nix
                 ./home/tmux.nix
                 ./home/vscode.nix
+                ./home/dark-mode.nix
               ];
             };
           };
