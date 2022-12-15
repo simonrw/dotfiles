@@ -65,6 +65,7 @@ in
     ] ++ (lib.optionals stdenv.isDarwin [
       # macos only
       reattach-to-user-namespace
+      coreutils
     ]) ++ (lib.optionals stdenv.isLinux [
       # linux only
       _1password-gui
@@ -249,7 +250,7 @@ in
         theme =
           if config.dark-mode
           then "colors_default"
-          else "colors_papercolor";
+          else "colors_github";
 
         originalText =
           builtins.readFile ./alacritty/alacritty.yml;

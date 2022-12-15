@@ -472,7 +472,7 @@ available_schemes:
   default: &colors_github
     # Default colors
     primary:
-      foreground: '#ffffff'
+      foreground: '#24292f'
       background: '#ffffff'
 
     # Normal colors
