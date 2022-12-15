@@ -48,6 +48,7 @@
               cftail = cftail.packages.${system}.default;
               snslistener = snslistener.packages.${system}.default;
               notify-wrapper = final.callPackage ./derivations/notify-wrapper { };
+              notion = final.callPackage ./derivations/notion { };
             })
             # override the version of xattr for poetry
             (

@@ -70,6 +70,7 @@ in
       # linux only
       _1password-gui
       firefox
+      notion
       rofi
       slack
     ]);
