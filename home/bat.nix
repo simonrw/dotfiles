@@ -1,10 +1,10 @@
-{ ... }:
+{ config, ... }:
 {
   programs.bat = {
     enable = true;
 
     config = {
-      theme = "Monokai Extended";
+      theme = if config.dark-mode then "Monokai Extended" else "GitHub";
       style = "plain";
     };
   };
