@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ config, pkgs, ... }:
 {
   programs.tmux = {
     enable = true;
@@ -32,10 +32,16 @@
     ];
     extraConfig = with pkgs;
       let
+        colourschemeFile =
+          if config.dark-mode then
+            ./tmux/dark-colourscheme.conf
+          else ./tmux/light-colourscheme.conf;
+
         commonFiles = with builtins; [
           (readFile ./tmux/tmux.conf)
-          (readFile ./tmux/srw-colourscheme.conf)
+          (readFile colourschemeFile)
         ];
+
         darwinFiles = lib.optionals stdenv.isDarwin [
           (builtins.readFile ./tmux/tmux-osx.conf)
         ];
