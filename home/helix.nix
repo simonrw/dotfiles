@@ -1,9 +1,9 @@
-{ pkgs, ... }:
+{ config, pkgs, ... }:
 {
   programs.helix = {
     enable = true;
     settings = {
-      theme = "srw";
+      theme = if config.dark-mode then "srw" else "onelight";
       editor = {
         line-number = "relative";
         auto-pairs = false;
