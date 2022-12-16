@@ -307,7 +307,7 @@ available_schemes:
     #
     indexed_colors: []
 
-  default: &colors_base16_tomorrow
+  base16_tomorrow: &colors_base16_tomorrow
     # Default colors
     primary:
       background: '#ffffff'
@@ -431,7 +431,7 @@ available_schemes:
       cyan:    '#5b7d78'
       white:   '#828482'
 
-  default: &colors_papercolor
+  papercolor: &colors_papercolor
     # Default colors
     primary:
       foreground: '#444444'
@@ -469,43 +469,38 @@ available_schemes:
       text: '#eeeeee'
       cursor: '#444444'
 
-  default: &colors_github
+  # github Alacritty Colors
+  github: &colors_github
     # Default colors
     primary:
-      foreground: '#24292f'
-      background: '#ffffff'
+      background: '0xffffff'
+      foreground: '0x4d5566'
 
     # Normal colors
     normal:
-      black:   '#24292e'
-      red:     '#d73a49'
-      green:   '#28a745'
-      yellow:  '#dbab09'
-      blue:    '#0366d6'
-      magenta: '#5a32a3'
-      cyan:    '#0598bc'
-      white:   '#6a737d'
+      black:   '0x24292e'
+      red:     '0xd73a49'
+      green:   '0x22863a'
+      yellow:  '0xb08800'
+      blue:    '0x0366d6'
+      magenta: '0x6f42c1'
+      cyan:    '0x1b7c83'
+      white:   '0x4d5566'
 
     # Bright colors
     bright:
-      black:   '#959da5'
-      red:     '#cb2431'
-      green:   '#22863a'
-      yellow:  '#b08800'
-      blue:    '#005cc5'
-      magenta: '#5a32a3'
-      cyan:    '#3192aa'
-      white:   '#d1d5da'
+      black:   '0x586069'
+      red:     '0xcb2431'
+      green:   '0x28a745'
+      yellow:  '0xdbab09'
+      blue:    '0x2188ff'
+      magenta: '0x8a63d2'
+      cyan:    '0x1b7c83'
+      white:   '0x4d5566'
 
-    # Cursor colors
-    cursor:
-      text: '#24292f'
-      cursor: '#044289'
-
-    # Vi mode cursor colors
-    vi_mode_cursor:
-      text: '#eeeeee'
-      cursor: '#444444'
+    indexed_colors:
+      - { index: 16, color: '0xd18616' }
+      - { index: 17, color: '0xcb2431' }
 
 # placeholder replaced by nix
 colors: *CHOSEN_COLOR_THEME
