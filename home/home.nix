@@ -80,7 +80,7 @@ in
   # TODO: this will not be required on true nixos
   targets.genericLinux.enable = pkgs.stdenv.isLinux;
 
-  dark-mode = true;
+  dark-mode = false;
 
   # TODO: disabled for now
   xsession.windowManager.i3 =
