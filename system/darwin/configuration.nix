@@ -83,6 +83,7 @@
       "hammerspoon"
       "karabiner-elements"
       "kitty"
+      "notion"
       "obsidian"
       "pycharm-ce"
       "vlc"
