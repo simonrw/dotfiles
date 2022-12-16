@@ -104,6 +104,7 @@ in
 
       # wrap awslocal completion
       complete -c awslocal -w aws
+      complete -c laws -w aws
 
       # wrap tflocal completion
       complete -c tflocal -w terraform
