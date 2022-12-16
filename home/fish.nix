@@ -1,6 +1,12 @@
-{ pkgs, ... }:
+{ config, pkgs, ... }:
 let
   inherit (pkgs) lib stdenv;
+
+  colour-theme-text =
+    if
+      config.dark-mode
+    then (builtins.readFile ./fish/dark-theme.fish)
+    else (builtins.readFile ./fish/light-theme.fish);
 in
 {
   programs.fish = {
@@ -101,7 +107,7 @@ in
 
       # wrap tflocal completion
       complete -c tflocal -w terraform
-    '';
+    '' + colour-theme-text;
     shellAliases = {
       add-keys = ''ssh-add (find ~/.ssh - maxdepth 1 - type f - name "id_rsa*" | grep - v pub | grep - v bak)'';
       cat = "bat";
