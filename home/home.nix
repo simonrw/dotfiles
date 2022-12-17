@@ -69,7 +69,6 @@ in
     ]) ++ (lib.optionals stdenv.isLinux [
       # linux only
       _1password-gui
-      firefox
       notion
       rofi
       slack
