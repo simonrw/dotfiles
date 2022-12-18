@@ -17,3 +17,5 @@ require('vim-test')
 require('vtr')
 require('fugitive')
 require('which-key').setup()
+
+require('completionconfig')
