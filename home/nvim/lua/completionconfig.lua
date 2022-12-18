@@ -56,6 +56,15 @@ vim.diagnostic.config({
     virtual_text = true,
 })
 
+-- remove snippets
+lsp.setup_nvim_cmp({
+    sources = {
+        { name = 'path' },
+        { name = 'nvim_lsp', keyword_length = 3 },
+        { name = 'buffer', keyword_length = 3 },
+    }
+})
+
 -- configure lua lsp
 lsp.configure('sumneko_lua', {
     settings = {
