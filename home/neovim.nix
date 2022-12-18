@@ -73,6 +73,9 @@ in
       which-key-nvim
       papercolor-theme
 
+      lsp-status-nvim
+      lsp-format-nvim
+
       # treesitter
       (nvim-treesitter.withPlugins
         (p: [
