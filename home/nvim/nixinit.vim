@@ -254,9 +254,6 @@ if g:completion_framework == "coc"
     let g:coc_global_extensions = [ 'coc-pyright', 'coc-json', 'coc-rust-analyzer', 'coc-html' ]
 elseif g:completion_framework == "ale"
     " handled in after/plugin/ale
-elseif g:completion_framework == "nvim" && has('nvim-0.5')
-    " Enable type inlay hints
-    autocmd CursorHold,CursorHoldI *.rs :lua require'lsp_extensions'.inlay_hints{ only_current_line = true }
 endif
 
 " model vim-vinegar which stopped working

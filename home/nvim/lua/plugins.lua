@@ -17,9 +17,6 @@ require('packer').startup({function(use)
     use 'lepture/vim-velocity'
     use 'tweekmonster/django-plus.vim'
 
-    use "williamboman/mason.nvim" 
-    use 'williamboman/mason-lspconfig.nvim'
-
     use 'averms/black-nvim'
 
     use {
@@ -36,9 +33,25 @@ require('packer').startup({function(use)
             })
         end,
     }
+    use {
+        'VonHeikemen/lsp-zero.nvim',
+        requires = {
+            -- LSP Support
+            {'neovim/nvim-lspconfig'},
+            {'williamboman/mason.nvim'},
+            {'williamboman/mason-lspconfig.nvim'},
 
-    -- debugging
-    use 'leoluz/nvim-dap-go'
-    use 'mfussenegger/nvim-dap-python'
+            -- Autocompletion
+            {'hrsh7th/nvim-cmp'},
+            {'hrsh7th/cmp-buffer'},
+            {'hrsh7th/cmp-path'},
+            {'saadparwaiz1/cmp_luasnip'},
+            {'hrsh7th/cmp-nvim-lsp'},
+            {'hrsh7th/cmp-nvim-lua'},
+
+            -- Snippets
+            {'L3MON4D3/LuaSnip'},
+        }
+    }
 end,
 config = {}})
