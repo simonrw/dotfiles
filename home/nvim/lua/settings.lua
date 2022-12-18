@@ -1,5 +1,5 @@
 vim.opt.mouse = 'a'
-vim.opt.scrolloff = 5
+vim.opt.scrolloff = 8
 vim.opt.smartindent = true
 vim.opt.guicursor = ''
 vim.opt.number = true
@@ -38,7 +38,7 @@ vim.opt.gdefault = true
 -- Configure minimum window width
 vim.opt.winwidth = 80
 -- speed up UI updates
-vim.opt.updatetime = 250
+vim.opt.updatetime = 50
 -- If buffer is already open when switching, switch to it
 vim.opt.switchbuf:append('useopen')
 -- configure concealing things
