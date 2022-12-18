@@ -2,7 +2,7 @@
 
 set -euo pipefail
 
-. "$(dirname $(readlink -f $0))/utils.sh"
+. "$(dirname "$(readlink -f "$0")")/utils.sh"
 
 NIXARCH="$(nixarch)"
 HOSTNAME="$(hostname -s)"
@@ -13,7 +13,7 @@ case ${NIXARCH} in
         ;;
     *-darwin)
         nix --extra-experimental-features "nix-command flakes" build ".#darwinConfigurations.${NIXARCH}.${HOSTNAME}.system"
-        ./result/sw/bin/darwin-rebuild switch --flake ".#${NIXARCH}.${HOSTNAME}" $*
+        ./result/sw/bin/darwin-rebuild switch --flake ".#${NIXARCH}.${HOSTNAME}" "$@"
         ;;
     *)
         echo "Unhandled architecture: ${NIXARCH}" >&2
