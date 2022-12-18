@@ -24,9 +24,6 @@ in
     ]);
     extraConfig = ''
       source ~/.config/nvim/nixinit.vim
-
-      " set up debugpy
-      lua require('dap-python').setup('${pkgs.python-for-debugging}/bin/python')
     '' + dark-mode-config + ''
       hi Normal guibg=none
       let g:linenr_background = 'none'
@@ -75,26 +72,6 @@ in
       lualine-nvim
       which-key-nvim
       papercolor-theme
-
-      # lsps
-      nvim-lspconfig
-      lsp_extensions-nvim
-      lsp-status-nvim
-      lsp-format-nvim
-
-      # completion
-      cmp-nvim-lsp
-      cmp-buffer
-      cmp-git
-      nvim-cmp
-      cmp-vsnip
-      cmp-emoji
-      vim-vsnip
-      lspkind-nvim
-
-      # debugging
-      nvim-dap
-      nvim-dap-ui
 
       # treesitter
       (nvim-treesitter.withPlugins

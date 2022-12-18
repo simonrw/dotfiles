@@ -17,9 +17,6 @@ require('packer').startup({function(use)
     use 'lepture/vim-velocity'
     use 'tweekmonster/django-plus.vim'
 
-    use "williamboman/mason.nvim" 
-    use 'williamboman/mason-lspconfig.nvim'
-
     use 'averms/black-nvim'
 
     use {
@@ -37,8 +34,5 @@ require('packer').startup({function(use)
         end,
     }
 
-    -- debugging
-    use 'leoluz/nvim-dap-go'
-    use 'mfussenegger/nvim-dap-python'
 end,
 config = {}})

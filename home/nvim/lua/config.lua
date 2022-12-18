@@ -11,15 +11,9 @@ end
 
 require('gutentags')
 
-if vim.g.completion_framework == 'nvim' then
-    require('customlspconfig')
-    require('completionconfig')
-end
-
 -- plugins
 require('fzf')
 require('vim-test')
 require('vtr')
 require('fugitive')
 require('which-key').setup()
-require('dapconfig')
