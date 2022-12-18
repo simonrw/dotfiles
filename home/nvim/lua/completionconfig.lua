@@ -52,4 +52,19 @@ lsp.set_preferences({
     sign_icons = {}
 })
 
+vim.diagnostic.config({
+    virtual_text = true,
+})
+
+-- configure lua lsp
+lsp.configure('sumneko_lua', {
+    settings = {
+        Lua = {
+            diagnostics = {
+                globals = { "vim" },
+            },
+        },
+    },
+})
+
 lsp.setup()
