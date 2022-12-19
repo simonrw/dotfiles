@@ -1,6 +1,18 @@
+-- imports
 local lsp = require('lsp-zero')
 local lsp_status = require('lsp-status')
 local lsp_format = require('lsp-format')
+local null_ls = require("null-ls")
+
+-- set up null-ls
+
+null_ls.setup({
+    sources = {
+        null_ls.builtins.diagnostics.mypy,
+        null_ls.builtins.diagnostics.flake8,
+        null_ls.builtins.formatting.black,
+    },
+})
 
 lsp_format.setup {}
 lsp_status.register_progress()
