@@ -123,18 +123,6 @@
               python310Packages.black
             ];
           };
-          devShells.neovim-package = pkgs.mkShell {
-            buildInputs = with pkgs; [
-              unzip
-              zip
-              nodejs
-              cargo
-              rustc
-              go
-              gcc
-              libiconv
-            ];
-          };
         }
       );
     in

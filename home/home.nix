@@ -22,6 +22,7 @@ in
       awscli2
       bat
       cachix
+      cargo
       comma
       curl
       curlie
@@ -31,6 +32,8 @@ in
       exa
       fd
       fx
+      gcc
+      go
       graphviz
       hey
       htop
@@ -42,6 +45,7 @@ in
       multitail
       ncdu
       nixpkgs-fmt
+      nodejs
       noti
       openssh
       pre-commit
@@ -53,7 +57,10 @@ in
       ripgrep
       rnix-lsp
       rust-analyzer
+      rustc
       universal-ctags
+      unzip
+      zip
       zsh
     ] ++ [
       # local packages
@@ -66,6 +73,7 @@ in
       # macos only
       reattach-to-user-namespace
       coreutils
+      libiconv
     ]) ++ (lib.optionals stdenv.isLinux [
       # linux only
       _1password-gui
