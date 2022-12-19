@@ -258,7 +258,7 @@ in
         theme =
           if config.dark-mode
           then "colors_default"
-          else "colors_github";
+          else "colors_papercolor";
 
         originalText =
           builtins.readFile ./alacritty/alacritty.yml;

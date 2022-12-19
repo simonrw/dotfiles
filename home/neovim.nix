@@ -7,8 +7,8 @@ let
       colorscheme srw256
       '' else ''
       set background=light
-      colorscheme github_light
-      hi TreesitterContext guibg=#eeeeee
+      colorscheme PaperColor
+      hi TreesitterContext guibg=#dddddd
     '';
 in
 {
