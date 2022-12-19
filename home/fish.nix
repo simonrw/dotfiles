@@ -7,6 +7,9 @@ let
       config.dark-mode
     then (builtins.readFile ./fish/dark-theme.fish)
     else (builtins.readFile ./fish/light-theme.fish);
+
+  # style output of go "glamour" programs e.g. gh
+  glamour-style = if config.dark-mode then "dark" else "light";
 in
 {
   programs.fish = {
@@ -24,6 +27,7 @@ in
         set -x CARGO_TARGET_DIR {$HOME}/.cargo/cache
         set -x NIXPKGS_ALLOW_UNFREE 1
         set -x NTFY_TOPIC simonrw-notify
+        set -x GLAMOUR_STYLE ${glamour-style}
 
         # experimental: enable cargo sparse registry for faster downloads
         set -x CARGO_UNSTABLE_SPARSE_REGISTRY true
