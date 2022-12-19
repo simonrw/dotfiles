@@ -77,11 +77,15 @@
     };
     delta = {
       enable = true;
-      options = {
-        side-by-side = false;
-        diff-so-fancy = false;
-        syntax-theme = if config.dark-mode then "1337" else "GitHub";
-      };
+      options =
+        if config.dark-mode then {
+          side-by-side = false;
+          diff-so-fancy = true;
+        } else {
+          side-by-side = false;
+          diff-so-fancy = false;
+          syntax-theme = "GitHub";
+        };
     };
     includes = [
       {
