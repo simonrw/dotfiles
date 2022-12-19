@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ config, pkgs, ... }:
 {
   programs.git = {
     enable = true;
@@ -79,7 +79,8 @@
       enable = true;
       options = {
         side-by-side = false;
-        diff-so-fancy = true;
+        diff-so-fancy = false;
+        syntax-theme = if config.dark-mode then "1337" else "GitHub";
       };
     };
     includes = [
