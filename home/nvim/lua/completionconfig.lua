@@ -39,9 +39,11 @@ lsp.on_attach(function(client, bufnr)
     local opts = { buffer = bufnr, remap = false }
 
     -- match helix bindings
-    vim.keymap.set("n", "gd", function() vim.lsp.buf.definition() end, opts)
+    vim.keymap.set("n", "gd", function()
+        require('telescope.builtin').lsp_definitions()
+    end, opts)
     vim.keymap.set("n", "gy", function() vim.lsp.buf.type_definition() end, opts)
-    vim.keymap.set("n", "gr", function() vim.lsp.buf.references() end, opts)
+    vim.keymap.set("n", "gr", function() require('telescope.builtin').lsp_references() end, opts)
     vim.keymap.set("n", "gi", function() vim.lsp.buf.implementation() end, opts)
     vim.keymap.set("n", "<leader>k", function() vim.lsp.buf.hover() end, opts)
     vim.keymap.set("n", "<leader>r", function() vim.lsp.buf.rename() end, opts)
@@ -49,9 +51,8 @@ lsp.on_attach(function(client, bufnr)
     vim.keymap.set("n", "[d", function() vim.diagnostic.goto_prev() end, opts)
     vim.keymap.set("n", "<leader>a", function() vim.lsp.buf.code_action({ source = { organizeImports = true } }) end,
         opts)
-    vim.keymap.set("n", "<leader>g", "<cmd>Telescope diagnostics<cr>", opts)
-    vim.keymap.set("n", "<leader>s", "<cmd>Telescope lsp_dynamic_workspace_symbols<cr>", opts)
-    vim.keymap.set("n", "<leader>S", "<cmd>Telescope lsp_dynamic_workspace_symbols symbols=function<cr>", opts)
+    vim.keymap.set("n", "<leader>g", function() require('telescope.builtin').diagnostics() end, opts)
+    vim.keymap.set("n", "<leader>s", function() require('telescope.builtin').lsp_dynamic_workspace_symbols() end, opts)
     vim.keymap.set("i", "<C-h>", function() vim.lsp.buf.signature_help() end, opts)
 
     vim.keymap.set("n", "<C-Space>", [[<Plug>(completion_trigger)]], opts)
