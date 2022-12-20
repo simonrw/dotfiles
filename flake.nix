@@ -16,9 +16,11 @@
     cftail.inputs.nixpkgs.follows = "nixpkgs";
     snslistener.url = "github:simonrw/aws-event-listener";
     snslistener.inputs.nixpkgs.follows = "nixpkgs";
+    tree-grepper.url = "github:simonrw/tree-grepper/add-python-support";
+    tree-grepper.inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  outputs = { nixpkgs, darwin, flake-utils, home-manager, cftail, snslistener, ... }:
+  outputs = { nixpkgs, darwin, flake-utils, home-manager, cftail, snslistener, tree-grepper, ... }:
     let
       mkNixOSConfiguration =
         name: nixpkgs.lib.nixosSystem {
@@ -75,6 +77,7 @@
                 ]);
               }
             )
+            tree-grepper.overlay.${system}
           ];
 
           pkgs = import nixpkgs {

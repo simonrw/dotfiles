@@ -58,6 +58,7 @@ in
       rnix-lsp
       rust-analyzer
       rustc
+      tree-grepper
       universal-ctags
       unzip
       zip
