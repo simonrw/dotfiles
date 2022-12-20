@@ -16,7 +16,7 @@
     cftail.inputs.nixpkgs.follows = "nixpkgs";
     snslistener.url = "github:simonrw/aws-event-listener";
     snslistener.inputs.nixpkgs.follows = "nixpkgs";
-    tree-grepper.url = "github:simonrw/tree-grepper/add-python-support";
+    tree-grepper.url = "github:BrianHicks/tree-grepper";
     tree-grepper.inputs.nixpkgs.follows = "nixpkgs";
   };
 
