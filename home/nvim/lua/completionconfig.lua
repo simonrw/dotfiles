@@ -27,6 +27,7 @@ local cmp_mappings = lsp.defaults.cmp_mappings({
     ['<C-n>'] = cmp.mapping.select_next_item(cmp_select),
     ['<C-y>'] = cmp.mapping.confirm({ select = true }),
     ['<C-space>'] = cmp.mapping.complete(),
+    ['<C-e>'] = cmp.config.disable,
 })
 
 lsp.setup_nvim_cmp({
