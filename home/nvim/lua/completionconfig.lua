@@ -66,10 +66,6 @@ lsp.set_preferences({
     sign_icons = {}
 })
 
-vim.diagnostic.config({
-    virtual_text = true,
-})
-
 -- remove snippets
 lsp.setup_nvim_cmp({
     sources = {
@@ -91,3 +87,8 @@ lsp.configure('sumneko_lua', {
 })
 
 lsp.setup()
+
+-- must come after lsp.setup
+vim.diagnostic.config({
+    virtual_text = true,
+})
