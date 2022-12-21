@@ -1,6 +1,5 @@
 -- imports
 local lsp = require('lsp-zero')
-local lsp_status = require('lsp-status')
 local lsp_format = require('lsp-format')
 local null_ls = require("null-ls")
 
@@ -16,7 +15,6 @@ null_ls.setup({
 })
 
 lsp_format.setup {}
-lsp_status.register_progress()
 
 lsp.preset('recommended')
 
@@ -57,9 +55,7 @@ lsp.on_attach(function(client, bufnr)
 
     vim.keymap.set("n", "<C-Space>", [[<Plug>(completion_trigger)]], opts)
 
-    lsp_format.on_attach(client)
-
-    return lsp_status.on_attach(client)
+    return lsp_format.on_attach(client)
 end)
 
 
@@ -92,4 +88,13 @@ lsp.setup()
 -- must come after lsp.setup
 vim.diagnostic.config({
     virtual_text = true,
+})
+
+require('fidget').setup({
+    align = {
+        bottom = false,
+    },
+    window = {
+        blend = 0,
+    },
 })

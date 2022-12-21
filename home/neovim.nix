@@ -73,8 +73,8 @@ in
       which-key-nvim
       papercolor-theme
       null-ls-nvim
+      fidget-nvim
 
-      lsp-status-nvim
       lsp-format-nvim
 
       # treesitter
