@@ -149,9 +149,6 @@
       mergetool.conflicted = {
         cmd = "nvim +Conflicted";
       };
-      mergetool.meld = {
-        cmd = "${pkgs.meld}/bin/meld $LOCAL $MERGED $REMOTE --output $MERGED";
-      };
       github = {
         user = "simonrw";
       };
@@ -170,7 +167,7 @@
         defaultBranch = "main";
       };
       merge = {
-        tool = "meld";
+        tool = "conflicted";
         conflictstyle = "diff3";
       };
       transfer = {
