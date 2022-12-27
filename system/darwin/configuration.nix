@@ -86,6 +86,7 @@
       "notion"
       "obsidian"
       "pycharm-ce"
+      "syncthing"
       "vlc"
     ];
     masApps =
