@@ -67,7 +67,7 @@ lsp.set_preferences({
 lsp.setup_nvim_cmp({
     sources = {
         { name = 'path' },
-        { name = 'nvim_lsp', keyword_length = 3 },
+        { name = 'nvim_lsp' },
         { name = 'buffer', keyword_length = 3 },
     }
 })
