@@ -40,6 +40,7 @@ in
       httpie
       hub
       input-fonts
+      jetbrains.pycharm-community
       lsof
       mkcert
       multitail
