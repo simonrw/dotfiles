@@ -80,6 +80,7 @@ in
       # linux only
       _1password-gui
       notion
+      obsidian
       rofi
       slack
     ]);
