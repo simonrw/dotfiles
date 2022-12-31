@@ -4,7 +4,7 @@ set -U fish_color_command normal
 set -U fish_color_quote 9ce781
 set -U fish_color_redirection FFF
 set -U fish_color_end 009900
-set -U fish_color_error F22
+set -U fish_color_error FFA779
 set -U fish_color_param ccccff
 set -U fish_color_comment 888 --italics
 set -U fish_color_match 0AA
