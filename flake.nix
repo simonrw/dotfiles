@@ -108,6 +108,7 @@
                 ./home/home.nix
                 # per program configuration
                 ./home/bat.nix
+                ./home/dark-mode.nix
                 ./home/direnv.nix
                 ./home/fish.nix
                 ./home/fzf.nix
@@ -118,9 +119,9 @@
                 ./home/home-manager.nix
                 ./home/jq.nix
                 ./home/neovim.nix
+                ./home/nix-index.nix
                 ./home/tmux.nix
                 ./home/vscode.nix
-                ./home/dark-mode.nix
               ];
             };
           };
