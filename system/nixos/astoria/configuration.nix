@@ -47,6 +47,7 @@
 
   # Enable the X11 windowing system.
   services.xserver.enable = true;
+  services.xserver.videoDrivers = ["nvidia"];
 
   fonts.fonts = with pkgs; [
     source-code-pro
