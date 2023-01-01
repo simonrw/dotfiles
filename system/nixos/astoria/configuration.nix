@@ -95,7 +95,7 @@
   users.users.simon = {
     isNormalUser = true;
     description = "Simon Walker";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [ "networkmanager" "wheel" "libvirtd" ];
     packages = with pkgs; [
     ];
     shell = pkgs.fish;
@@ -107,6 +107,9 @@
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
+
+  # Configure virtualisation
+  virtualisation.libvirtd.enable = true;
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
