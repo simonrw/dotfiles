@@ -112,9 +112,10 @@
   environment.systemPackages = with pkgs; [
     alacritty
     firefox
-    google-chrome
     git
+    google-chrome
     kitty
+    steam
     vim
   ];
 
