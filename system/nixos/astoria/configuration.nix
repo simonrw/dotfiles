@@ -13,9 +13,9 @@
     ];
 
   # Bootloader.
-  boot.loader.grub.enable = true;
-  boot.loader.grub.device = "/dev/vda";
-  boot.loader.grub.useOSProber = true;
+  boot.loader.systemd-boot.enable = true;
+  boot.loader.efi.canTouchEfiVariables = true;
+  boot.loader.efi.efiSysMountPoint = "/boot/efi";
 
   networking.hostName = "astoria"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
@@ -27,14 +27,23 @@
   # Enable networking
   networking.networkmanager.enable = true;
 
-  # Enable network manager applet
-  programs.nm-applet.enable = true;
-
   # Set your time zone.
   time.timeZone = "Europe/London";
 
   # Select internationalisation properties.
   i18n.defaultLocale = "en_GB.utf8";
+
+  i18n.extraLocaleSettings = {
+    LC_ADDRESS = "en_GB.UTF-8";
+    LC_IDENTIFICATION = "en_GB.UTF-8";
+    LC_MEASUREMENT = "en_GB.UTF-8";
+    LC_MONETARY = "en_GB.UTF-8";
+    LC_NAME = "en_GB.UTF-8";
+    LC_NUMERIC = "en_GB.UTF-8";
+    LC_PAPER = "en_GB.UTF-8";
+    LC_TELEPHONE = "en_GB.UTF-8";
+    LC_TIME = "en_GB.UTF-8";
+  };
 
   # Enable the X11 windowing system.
   services.xserver.enable = true;
@@ -44,9 +53,9 @@
     fira-code
   ];
 
-  # Enable the MATE Desktop Environment.
-  services.xserver.displayManager.lightdm.enable = true;
-  services.xserver.desktopManager.mate.enable = true;
+  # Desktop environment
+  services.xserver.displayManager.sddm.enable = true;
+  services.xserver.desktopManager.plasma5.enable = true;
 
   # Configure keymap in X11
   services.xserver = {
@@ -131,10 +140,11 @@
   services.openssh.permitRootLogin = "no";
 
   # Open ports in the firewall.
-  networking.firewall.allowedTCPPorts = [ 22 ];
+  # networking.firewall.allowedTCPPorts = [ 22 ];
   # networking.firewall.allowedUDPPorts = [ ... ];
   # Or disable the firewall altogether.
-  # networking.firewall.enable = false;
+  # TODO
+  networking.firewall.enable = false;
 
   nix.extraOptions = ''
     # https://jackson.dev/post/nix-reasonable-defaults/
