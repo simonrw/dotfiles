@@ -79,6 +79,7 @@ in
     ]) ++ (lib.optionals stdenv.isLinux [
       # linux only
       _1password-gui
+      element-desktop
       notion
       obsidian
       pinentry-gtk2
