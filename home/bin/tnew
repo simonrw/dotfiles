@@ -38,7 +38,7 @@ def attach_to_session(session_name):
 
 def create_session(session_name):
     logger.debug(f"creating new session {session_name}")
-    run_tmux("new-session", "-s", session_name)
+    run_tmux("new-session", "-d", "-s", session_name)
 
 
 def switch_client(session_name):
@@ -75,6 +75,7 @@ if os.getenv("TMUX"):
         switch_client(tmux_name)
     else:
         create_session(tmux_name)
+        switch_client(tmux_name)
 else:
     logger.debug("not in tmux session")
     if session_exists(tmux_name):
