@@ -168,6 +168,10 @@
   '';
   nix.settings.trusted-users = [ "root" "simon" ];
 
+  # remote desktop
+  services.xrdp.enable = true;
+  services.xrdp.defaultWindowManager = "startplasma-x11";
+
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
   # on your system were taken. It‘s perfectly fine and recommended to leave
