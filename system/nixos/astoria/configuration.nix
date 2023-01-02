@@ -45,24 +45,25 @@
     LC_TIME = "en_GB.UTF-8";
   };
 
-  # Enable the X11 windowing system.
-  services.xserver.enable = true;
-  services.xserver.videoDrivers = [ "nvidia" ];
-
   fonts.fonts = with pkgs; [
     source-code-pro
     fira-code
   ];
 
-  # Desktop environment
-  services.xserver.displayManager.sddm.enable = true;
-  services.xserver.desktopManager.plasma5.enable = true;
-
   # Configure keymap in X11
   services.xserver = {
+    enable = true;
+    videoDrivers = [ "nvidia" ];
     layout = "gb";
     xkbVariant = "";
     xkbOptions = "ctrl:nocaps";
+    displayManager = {
+      sddm.enable = true;
+      defaultSession = "xfce";
+      # Disable automatic login for the user.
+      autoLogin.enable = false;
+    };
+    desktopManager.xfce.enable = true;
   };
 
   # Configure console keymap
@@ -101,9 +102,6 @@
     shell = pkgs.fish;
     home = "/home/simon";
   };
-
-  # Disable automatic login for the user.
-  services.xserver.displayManager.autoLogin.enable = false;
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
@@ -167,10 +165,6 @@
     trusted-users = simon root
   '';
   nix.settings.trusted-users = [ "root" "simon" ];
-
-  # remote desktop
-  services.xrdp.enable = true;
-  services.xrdp.defaultWindowManager = "startplasma-x11";
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
