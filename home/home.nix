@@ -40,7 +40,6 @@ in
       httpie
       hub
       input-fonts
-      jetbrains.pycharm-community
       lsof
       mkcert
       multitail
@@ -80,6 +79,7 @@ in
       # linux only
       _1password-gui
       element-desktop
+      jetbrains.pycharm-community
       notion
       obsidian
       pinentry-gtk2
