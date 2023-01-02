@@ -117,8 +117,10 @@
     git
     google-chrome
     kitty
+    pavucontrol
     steam
     vim
+    xfce.xfce4-pulseaudio-plugin
   ];
 
   environment.shells = with pkgs; [
