@@ -117,6 +117,7 @@
     firefox
     git
     google-chrome
+    killall
     kitty
     pavucontrol
     steam
