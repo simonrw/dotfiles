@@ -1,4 +1,4 @@
-{ pkgs, lib, ... }:
+{ pkgs, ... }:
 {
   nixpkgs.config.allowUnfree = true;
   environment.systemPackages = with pkgs; [
@@ -11,15 +11,7 @@
     shell = pkgs.fish;
   };
 
-  nix.settings.auto-optimise-store = true;
-
-  nix.gc = {
-    automatic = true;
-    interval = {
-      Weekday = 0;
-      Hour = 2;
-    };
-  };
+  nix = import ../../common/nix-settings.nix { inherit pkgs; };
 
   fonts = {
     fontDir.enable = true;
@@ -39,25 +31,7 @@
   environment.loginShell = "${pkgs.fish}/bin/fish";
 
   services.nix-daemon.enable = true;
-  nix.package = pkgs.nix;
   documentation.enable = true;
-  nix.extraOptions = ''
-    # https://jackson.dev/post/nix-reasonable-defaults/
-    connect-timeout = 5
-    log-lines = 25
-
-    experimental-features = nix-command flakes
-    fallback = true
-    warn-dirty = false
-    auto-optimise-store = true
-
-    # additional settings
-    keep-outputs = false
-    keep-derivations = true
-    trusted-users = simon root
-  '' + lib.optionalString (pkgs.system == "aarch64-darwin") ''
-    extra-platforms = x86_64-darwin aarch64-darwin
-  '';
 
   programs.fish.enable = true;
   programs.zsh.enable = true;

@@ -194,22 +194,7 @@
   # TODO
   networking.firewall.enable = false;
 
-  nix.extraOptions = ''
-    # https://jackson.dev/post/nix-reasonable-defaults/
-    connect-timeout = 5
-    log-lines = 25
-
-    experimental-features = nix-command flakes
-    fallback = true
-    warn-dirty = false
-    auto-optimise-store = true
-
-    # additional settings
-    keep-outputs = false
-    keep-derivations = true
-    trusted-users = simon root
-  '';
-  nix.settings.trusted-users = [ "root" "simon" ];
+  nix = import ../../../common/nix-settings.nix { inherit pkgs; };
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
