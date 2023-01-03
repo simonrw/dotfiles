@@ -10,6 +10,7 @@
       # Include the results of the hardware scan.
       ./hardware-configuration.nix
       ./syncthing.nix
+      ./yubikey.nix
     ];
 
   # Bootloader.
