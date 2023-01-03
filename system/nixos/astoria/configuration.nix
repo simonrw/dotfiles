@@ -47,11 +47,6 @@
   };
 
   fonts = {
-    fontconfig = {
-      antialias = true;
-      hinting.enable = true;
-      hinting.autohint = true;
-    };
     fonts = with pkgs; [
       source-code-pro
       fira-code
