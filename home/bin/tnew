@@ -82,3 +82,4 @@ else:
         attach_to_session(tmux_name)
     else:
         create_session(tmux_name)
+        switch_client(tmux_name)
