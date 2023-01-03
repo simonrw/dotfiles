@@ -113,6 +113,16 @@
 
   # Configure virtualisation
   virtualisation.libvirtd.enable = true;
+  virtualisation.podman = {
+    enable = true;
+    dockerCompat = true;
+    autoPrune = {
+      enable = true;
+      flags = [
+        "--all"
+      ];
+    };
+  };
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
