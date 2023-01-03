@@ -85,6 +85,7 @@ in
       pinentry-gtk2
       rofi
       slack
+      telegram-desktop
     ]);
   };
 
