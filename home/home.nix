@@ -105,6 +105,7 @@ in
       rofi
       slack
       telegram-desktop
+      zeal
     ]);
   };
 
