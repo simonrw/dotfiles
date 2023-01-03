@@ -121,6 +121,7 @@
     pavucontrol
     steam
     vim
+    xclip
     xfce.xfce4-pulseaudio-plugin
   ];
 
