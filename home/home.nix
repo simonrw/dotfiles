@@ -3,6 +3,24 @@ let
   homeDir = if pkgs.stdenv.isDarwin then "Users" else "home";
 in
 {
+  imports = [
+    ./bat.nix
+    ./dark-mode.nix
+    ./direnv.nix
+    ./fish.nix
+    ./fzf.nix
+    ./gh.nix
+    ./git.nix
+    ./gpg.nix
+    ./helix.nix
+    ./home-manager.nix
+    ./jq.nix
+    ./neovim.nix
+    ./nix-index.nix
+    ./tmux.nix
+    ./vscode.nix
+  ];
+
   home = {
     username = "simon";
     homeDirectory = "/${homeDir}/simon";
