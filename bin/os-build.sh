@@ -9,7 +9,7 @@ HOSTNAME="$(hostname -s)"
 
 case ${NIXARCH} in
     *-linux)
-        sudo nixos-rebuild build --flake .
+        nixos-rebuild build --flake .
         ;;
     *-darwin)
         nix --extra-experimental-features "nix-command flakes" build ".#darwinConfigurations.${NIXARCH}.${HOSTNAME}.system"
