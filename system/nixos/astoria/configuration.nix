@@ -101,7 +101,7 @@
   users.users.simon = {
     isNormalUser = true;
     description = "Simon Walker";
-    extraGroups = [ "networkmanager" "wheel" "libvirtd" ];
+    extraGroups = [ "networkmanager" "wheel" "libvirtd" "docker" "podman" ];
     packages = with pkgs; [
     ];
     shell = pkgs.fish;
@@ -115,7 +115,15 @@
   virtualisation.libvirtd.enable = true;
   virtualisation.podman = {
     enable = true;
-    dockerCompat = true;
+    autoPrune = {
+      enable = true;
+      flags = [
+        "--all"
+      ];
+    };
+  };
+  virtualisation.docker = {
+    enable = true;
     autoPrune = {
       enable = true;
       flags = [
