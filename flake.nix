@@ -84,13 +84,17 @@
             # NOTE: temporary until https://github.com/NixOS/nixpkgs/pull/201931 is merged
             (_self: super: {
               jetbrains = super.jetbrains // {
-                pycharm-community = super.jetbrains.pycharm-community.overrideAttrs (_old: {
-                  version = "2022.3";
-                  src = builtins.fetchurl {
-                    url = "https://download.jetbrains.com/python/pycharm-community-2022.3.tar.gz";
-                    sha256 = "sha256:1dv1287nfz84r2rx70npgggpbw5pkvknvp9lara71ncdqgkf68ra";
-                  };
-                });
+                pycharm-community = super.jetbrains.pycharm-community.overrideAttrs (_old:
+                  let
+                    version = "2022.3.1";
+                  in
+                  {
+                    inherit version;
+                    src = builtins.fetchurl {
+                      url = "https://download.jetbrains.com/python/pycharm-community-${version}.tar.gz";
+                      sha256 = "sha256:05mksyn81378h5p79sawfma22mh1ybc6fmigd8867dyg4wzi0hxj";
+                    };
+                  });
               };
             })
           ];
