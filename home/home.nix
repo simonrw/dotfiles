@@ -65,6 +65,7 @@ in
       nixpkgs-fmt
       nodejs
       noti
+      nurl
       openssh
       pre-commit
       pyright

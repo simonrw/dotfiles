@@ -10,17 +10,17 @@
       url = "github:lnl7/nix-darwin/master";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    nixgl.url = "github:guibou/nixGL";
-    nixgl.inputs.nixpkgs.follows = "nixpkgs";
     cftail.url = "github:simonrw/cftail";
     cftail.inputs.nixpkgs.follows = "nixpkgs";
     snslistener.url = "github:simonrw/aws-event-listener";
     snslistener.inputs.nixpkgs.follows = "nixpkgs";
     tree-grepper.url = "github:BrianHicks/tree-grepper";
     tree-grepper.inputs.nixpkgs.follows = "nixpkgs";
+    nurl.url = "github:nix-community/nurl";
+    nurl.inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  outputs = { nixpkgs, darwin, flake-utils, home-manager, cftail, snslistener, tree-grepper, ... }:
+  outputs = { nixpkgs, darwin, flake-utils, home-manager, cftail, snslistener, tree-grepper, nurl, ... }:
     let
       mkNixOSConfiguration =
         name: nixpkgs.lib.nixosSystem {
@@ -52,6 +52,7 @@
               notify-wrapper = final.callPackage ./derivations/notify-wrapper { };
               notion = final.callPackage ./derivations/notion { };
               telegram-desktop = final.callPackage ./derivations/telegram-desktop { };
+              nurl = nurl.packages.${system}.default;
             })
             # override the version of xattr for poetry
             (
