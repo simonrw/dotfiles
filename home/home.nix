@@ -102,6 +102,7 @@ in
       notion
       obsidian
       pinentry-gtk2
+      playerctl
       rofi
       slack
       telegram-desktop
