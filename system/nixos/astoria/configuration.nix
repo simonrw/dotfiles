@@ -144,6 +144,7 @@
     firefox
     git
     google-chrome
+    groff
     killall
     kitty
     pavucontrol
