@@ -67,6 +67,7 @@
       autoLogin.enable = false;
     };
     desktopManager.xfce.enable = true;
+    wacom.enable = true;
   };
 
   # Configure console keymap
