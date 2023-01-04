@@ -1,12 +1,20 @@
 { pkgs ? import <nixpkgs> { } }:
+let
+  # settings are different between nixos and nix-darwin
+  interval =
+    if pkgs.stdenv.isLinux then {
+      dates = "weekly";
+    } else {
+      interval = {
+        Weekday = 0;
+        Hour = 2;
+      };
+    };
+in
 {
   gc = {
     automatic = true;
-    interval = {
-      Weekday = 0;
-      Hour = 2;
-    };
-  };
+  } // interval;
   settings = {
     auto-optimise-store = true;
     trusted-users = [ "root" "simon" ];
