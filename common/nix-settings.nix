@@ -2,7 +2,10 @@
 {
   gc = {
     automatic = true;
-    dates = "weekly";
+    interval = {
+      Weekday = 0;
+      Hour = 2;
+    };
   };
   settings = {
     auto-optimise-store = true;
