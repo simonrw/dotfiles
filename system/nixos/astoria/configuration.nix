@@ -151,10 +151,11 @@
     vim
     wmctrl
     xclip
-    xfce.xfce4-systemload-plugin
-    xfce.xfce4-cpugraph-plugin
     xfce.xfce4-cpufreq-plugin
+    xfce.xfce4-cpugraph-plugin
     xfce.xfce4-pulseaudio-plugin
+    xfce.xfce4-systemload-plugin
+    xfce.xfce4-xkb-plugin
   ];
 
   environment.shells = with pkgs; [
