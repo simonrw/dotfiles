@@ -18,9 +18,22 @@
     tree-grepper.inputs.nixpkgs.follows = "nixpkgs";
     nurl.url = "github:nix-community/nurl";
     nurl.inputs.nixpkgs.follows = "nixpkgs";
+    jetbrains-updater.url = "gitlab:genericnerdyusername/jetbrains-updater";
+    jetbrains-updater.inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  outputs = { nixpkgs, darwin, flake-utils, home-manager, cftail, snslistener, tree-grepper, nurl, ... }:
+  outputs =
+    { nixpkgs
+    , darwin
+    , flake-utils
+    , home-manager
+    , cftail
+    , snslistener
+    , tree-grepper
+    , nurl
+    , jetbrains-updater
+    , ...
+    }:
     let
       mkNixOSConfiguration =
         name: nixpkgs.lib.nixosSystem {
@@ -80,23 +93,7 @@
               }
             )
             tree-grepper.overlay.${system}
-            # latest pycharm version
-            # NOTE: temporary until https://github.com/NixOS/nixpkgs/pull/201931 is merged
-            (_self: super: {
-              jetbrains = super.jetbrains // {
-                pycharm-community = super.jetbrains.pycharm-community.overrideAttrs (_old:
-                  let
-                    version = "2022.3.1";
-                  in
-                  {
-                    inherit version;
-                    src = builtins.fetchurl {
-                      url = "https://download.jetbrains.com/python/pycharm-community-${version}.tar.gz";
-                      sha256 = "sha256:05mksyn81378h5p79sawfma22mh1ybc6fmigd8867dyg4wzi0hxj";
-                    };
-                  });
-              };
-            })
+            jetbrains-updater.overlay
           ];
 
           pkgs = import nixpkgs {

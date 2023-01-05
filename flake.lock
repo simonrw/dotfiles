@@ -233,6 +233,26 @@
         "type": "github"
       }
     },
+    "jetbrains-updater": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1672272332,
+        "narHash": "sha256-AUN7uBub7GI8mCO+7PUcJoLxWqgAYN7VxgOi7oBoCNE=",
+        "owner": "genericnerdyusername",
+        "repo": "jetbrains-updater",
+        "rev": "7eea36d1fb8517badff78ff8f747bc1f83a87d1e",
+        "type": "gitlab"
+      },
+      "original": {
+        "owner": "genericnerdyusername",
+        "repo": "jetbrains-updater",
+        "type": "gitlab"
+      }
+    },
     "naersk": {
       "inputs": {
         "nixpkgs": [
@@ -296,6 +316,7 @@
         "darwin": "darwin",
         "flake-utils": "flake-utils_3",
         "home-manager": "home-manager",
+        "jetbrains-updater": "jetbrains-updater",
         "nixpkgs": "nixpkgs",
         "nurl": "nurl",
         "snslistener": "snslistener",
