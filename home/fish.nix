@@ -135,6 +135,7 @@ in
       more = "bat";
       mr = "glab mr view -w";
       nr = "nix repl --file '<nixpkgs>'";
+      ns = "nix-shell --run fish";
       ntfy = "notify-wrapper";
       pylab = "ipython - -pylab";
       sourceenv = "source ./venv/bin/activate";
