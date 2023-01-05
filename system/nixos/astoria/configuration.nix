@@ -18,6 +18,13 @@
   boot.loader.efi.canTouchEfiVariables = true;
   boot.loader.efi.efiSysMountPoint = "/boot/efi";
 
+  # sysctl
+  # up the map count for pypi warehouse
+  boot.kernel.sysctl = {
+    # https://warehouse.pypa.io/development/getting-started.html#running-the-warehouse-container-and-services
+    "vm.max_map_count" = 262144;
+  };
+
   networking.hostName = "astoria"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
