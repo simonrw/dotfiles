@@ -233,7 +233,7 @@
       };
       "workbench.iconTheme" = "Monokai Pro Icons";
       "workbench.sideBar.location" = "right";
-      "workbench.colorTheme" = "Dracula Soft";
+      "workbench.colorTheme" = "Monokai";
       "C_Cpp.intelliSenseEngine" = "disabled";
       "[jsonc]" = {
         "editor.defaultFormatter" = "esbenp.prettier-vscode";
