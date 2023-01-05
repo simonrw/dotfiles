@@ -17,7 +17,7 @@
     ];
     enableExtensionUpdateCheck = true;
     enableUpdateCheck = true;
-    mutableExtensionsDir = false;
+    mutableExtensionsDir = true;
     keybindings =
       [
         {
