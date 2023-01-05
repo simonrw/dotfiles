@@ -1,18 +1,6 @@
 -- imports
 local lsp = require('lsp-zero')
 local lsp_format = require('lsp-format')
-local null_ls = require("null-ls")
-
--- set up null-ls
-
-null_ls.setup({
-    sources = {
-        null_ls.builtins.diagnostics.mypy,
-        null_ls.builtins.diagnostics.flake8,
-        null_ls.builtins.formatting.black,
-        null_ls.builtins.formatting.prettier
-    },
-})
 
 lsp_format.setup {}
 

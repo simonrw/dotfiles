@@ -72,7 +72,6 @@ in
       lualine-nvim
       which-key-nvim
       papercolor-theme
-      null-ls-nvim
       fidget-nvim
 
       lsp-format-nvim
