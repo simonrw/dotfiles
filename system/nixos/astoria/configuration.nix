@@ -152,6 +152,7 @@
     git
     google-chrome
     groff
+    heroic
     killall
     kitty
     pavucontrol
