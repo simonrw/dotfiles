@@ -22,9 +22,12 @@
 
       # review shortcuts
       # https://blog.jez.io/cli-code-review/?utm_source=pocket_mylist
-      files = "!git diff --name-only $(git merge-base HEAD \"$REVIEW_BASE\")";
-      stat = "!git diff --stat $(git merge-base HEAD \"$REVIEW_BASE\")";
+      files = "!git diff --name-only $(git base-commit)";
+      stat = "!git diff --stat $(git base-commit)";
       review = "!nvim -c 'set nosplitright' -p $(git files) -c \"tabdo Gvdiff $REVIEW_BASE\" -c 'set splitright'";
+      base-commit = "merge-base HEAD \"$REVIEW_BASE\"";
+      review-commits = "!nvim -c 'Gclog --reverse $REVIEW_BASE..'";
+      log-base = "log --stat --reverse $REVIEW_BASE..";
 
       # ignore modifications to files
       ignore-modifications = "update-index --skip-worktree --";
@@ -57,8 +60,8 @@
       precommit = "diff --cached --diff-algorithm=minimal -w";
       pre = "precommit";
       # diff between the current commit and the most recent common ancestor to master (mimics gitlab's interface)
-      diff-base = "!git diff $(git merge-base $REVIEW_BASE HEAD)";
-      cleanup-base = "!git rebase -i $(git merge-base $REVIEW_BASE $(git rev-parse --abbrev-ref HEAD))";
+      diff-base = "!git diff $(git base-commit)";
+      cleanup-base = "!git rebase -i $(git base-commit)";
       # Logging from Gary Bernhardt
       l = "log --graph --decorate --pretty=format:'%C(auto)%h%C(reset) %C(green)(%ar)%C(reset) %C(blue)[%an]%C(auto) %d %s%C(auto)' --exclude='refs/bugs/*' --exclude='refs/identities/*'";
       la = "l --all";
