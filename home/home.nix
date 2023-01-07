@@ -1,6 +1,7 @@
 { config, pkgs, lib, ... }:
 let
   homeDir = if pkgs.stdenv.isDarwin then "Users" else "home";
+  homeDirectory = "/${homeDir}/simon";
 in
 {
   imports = [
@@ -22,8 +23,8 @@ in
   ];
 
   home = {
+    inherit homeDirectory;
     username = "simon";
-    homeDirectory = "/${homeDir}/simon";
     stateVersion = "22.05";
 
     sessionVariables = {
@@ -249,6 +250,12 @@ in
     ".profile" = {
       source = pkgs.writeText ".profile" ''
         export XDG_DATA_DIRS=$HOME/.nix-profile/share/applications:$XDG_DATA_DIRS
+      '';
+    };
+
+    ".npmrc" = {
+      text = ''
+        prefix = ${homeDirectory}/.npm-packages
       '';
     };
 
