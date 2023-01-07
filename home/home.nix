@@ -110,7 +110,7 @@ in
     ]);
   };
 
-  dark-mode = true;
+  dark-mode = false;
 
   # TODO: disabled for now
   xsession.windowManager.i3 =
