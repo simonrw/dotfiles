@@ -1,6 +1,6 @@
-{ config, pkgs, lib, ... }:
+{ config, pkgs, isLinux, isDarwin, lib, ... }:
 let
-  homeDir = if pkgs.stdenv.isDarwin then "Users" else "home";
+  homeDir = if isDarwin then "Users" else "home";
   homeDirectory = "/${homeDir}/simon";
 in
 {
@@ -20,6 +20,7 @@ in
     ./nix-index.nix
     ./tmux.nix
     ./vscode.nix
+  ] ++ lib.optionals isLinux [
     ./xfce.nix
   ];
 
@@ -91,12 +92,12 @@ in
       ntfy
       snslistener
       notify-wrapper
-    ] ++ (lib.optionals stdenv.isDarwin [
+    ] ++ (lib.optionals isDarwin [
       # macos only
       reattach-to-user-namespace
       coreutils
       libiconv
-    ]) ++ (lib.optionals stdenv.isLinux [
+    ]) ++ (lib.optionals isLinux [
       # linux only
       _1password-gui
       element-desktop
@@ -260,12 +261,12 @@ in
       '';
     };
 
-    ".hammerspoon" = lib.mkIf pkgs.stdenv.isDarwin {
+    ".hammerspoon" = lib.mkIf isDarwin {
       source = ./hammerspoon;
       recursive = true;
     };
 
-    ".gnupg/gpg-agent.conf" = lib.mkIf pkgs.stdenv.isDarwin {
+    ".gnupg/gpg-agent.conf" = lib.mkIf isDarwin {
       text = ''
         default-cache-ttl 600
         max-cache-ttl 7200
@@ -301,7 +302,7 @@ in
         # source = ./alacritty/alacritty.yml;
         text = replacedText;
       };
-    configFile.karabiner = lib.mkIf pkgs.stdenv.isDarwin {
+    configFile.karabiner = lib.mkIf isDarwin {
       source = ./karabiner;
       recursive = true;
     };
@@ -314,7 +315,7 @@ in
   # currently this is broken
   disabledModules = [ "targets/darwin/linkapps.nix" ];
 
-  services.gpg-agent = lib.mkIf pkgs.stdenv.isLinux {
+  services.gpg-agent = lib.mkIf isLinux {
     enable = true;
     pinentryFlavor = "gtk2";
     enableFishIntegration = true;

@@ -1,6 +1,6 @@
-{ config, pkgs, ... }:
+{ config, pkgs, isLinux, ... }:
 let
-  inherit (pkgs) lib stdenv;
+  inherit (pkgs) lib;
 
   colour-theme-text =
     if
@@ -146,7 +146,7 @@ in
       trash = "send2trash";
       tree = "exa -T";
       vup = "nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'";
-    } // lib.optionalAttrs stdenv.isLinux {
+    } // lib.optionalAttrs isLinux {
       pbcopy = "xclip -selection clipboard";
       pbpaste = "xclip -selection clipboard -o";
     };

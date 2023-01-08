@@ -10,6 +10,7 @@ let
       package' = if package != null then package else pkgs.${appName};
     in
     ''${pkgs.wmctrl}/bin/wmctrl -x -a ${appName} || ${package'}/bin/${binName'}'';
+
   settings = {
     xfce4-panel = {
       "panels/dark-mode" = config.dark-mode;
@@ -36,6 +37,5 @@ let
   };
 in
 {
-  xfconf.settings =
-    if pkgs.stdenv.isLinux then settings else null;
+  xfconf.settings = settings;
 }

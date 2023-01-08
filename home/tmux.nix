@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, isDarwin, ... }:
 {
   programs.tmux = {
     enable = true;
@@ -42,7 +42,7 @@
           (readFile colourschemeFile)
         ];
 
-        darwinFiles = lib.optionals stdenv.isDarwin [
+        darwinFiles = lib.optionals isDarwin [
           (builtins.readFile ./tmux/tmux-osx.conf)
         ];
         # these require access to the pkgs attribute set, so place them here

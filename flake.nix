@@ -110,6 +110,12 @@
               modules = [
                 ./home/home.nix
               ];
+              # stop infinite recusion when trying to access
+              # pkgs.stdenv.is{Linux,Darwin} from within a module
+              extraSpecialArgs = {
+                isLinux = pkgs.stdenv.isLinux;
+                isDarwin = pkgs.stdenv.isDarwin;
+              };
             };
           };
           darwinConfigurations = {
