@@ -30,6 +30,13 @@ in
         set -x NTFY_TOPIC simonrw-notify
         set -x GLAMOUR_STYLE ${glamour-style}
 
+        set -x LANG "en_GB.UTF-8"
+        set -x LC_CTYPE "en_GB.UTF-8"
+        set -x LC_ALL "en_GB.UTF-8"
+        set -x EDITOR "${pkgs.neovim}/bin/nvim"
+        set -x PAGER "${pkgs.bat}/bin/bat"
+        set -x MANPAGER "sh -c 'col -bx | ${pkgs.bat}/bin/bat -l man -p'"
+
         # experimental: enable cargo sparse registry for faster downloads
         set -x CARGO_UNSTABLE_SPARSE_REGISTRY true
 
