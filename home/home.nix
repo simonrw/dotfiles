@@ -20,6 +20,7 @@ in
     ./nix-index.nix
     ./tmux.nix
     ./vscode.nix
+    ./xfce.nix
   ];
 
   home = {
