@@ -9,7 +9,7 @@ let
       binName' = if binName != null then binName else appName;
       package' = if package != null then package else pkgs.${appName};
     in
-    ''${pkgs.wmctrl}/bin/wmctrl -x -a ${appName} || ${package'}/bin/${binName'}'';
+    ''sh -c "${pkgs.wmctrl}/bin/wmctrl -x -a ${appName} || ${package'}/bin/${binName'}"'';
 
   settings = {
     xfce4-panel = {
