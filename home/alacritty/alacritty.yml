@@ -435,7 +435,7 @@ available_schemes:
     # Default colors
     primary:
       foreground: '#444444'
-      background: '#eeeeee'
+      background: '#f7f7f7'
 
     # Normal colors
     normal:
