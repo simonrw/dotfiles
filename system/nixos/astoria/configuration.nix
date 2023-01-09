@@ -125,6 +125,7 @@
     enable = true;
     autoPrune = {
       enable = true;
+      dates = "monthly";
       flags = [
         "--all"
       ];
@@ -133,6 +134,7 @@
   virtualisation.docker = {
     enable = true;
     autoPrune = {
+      dates = "monthly";
       enable = true;
       flags = [
         "--all"
