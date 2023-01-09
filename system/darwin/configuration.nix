@@ -51,6 +51,7 @@
       "dash"
       "docker"
       "element"
+      "pocket-casts"
       "firefox"
       "gimp"
       "google-chrome"
