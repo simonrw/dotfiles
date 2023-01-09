@@ -146,6 +146,7 @@
   # $ nix search wget
   environment.systemPackages = with pkgs; [
     alacritty
+    dig
     firefox
     git
     google-chrome
