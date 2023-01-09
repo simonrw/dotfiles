@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ config, pkgs, ... }:
 {
   programs.vscode = {
     enable = true;
@@ -233,7 +233,7 @@
       };
       "workbench.iconTheme" = "Monokai Pro Icons";
       "workbench.sideBar.location" = "right";
-      "workbench.colorTheme" = "Monokai";
+      "workbench.colorTheme" = if config.dark-mode then "Monokai" else "Default Light+";
       "C_Cpp.intelliSenseEngine" = "disabled";
       "[jsonc]" = {
         "editor.defaultFormatter" = "esbenp.prettier-vscode";
