@@ -86,8 +86,8 @@ in
           p.tree-sitter-dot
           p.tree-sitter-elm
           p.tree-sitter-fish
-          p.tree-sitter-gitignore
           p.tree-sitter-git_rebase
+          p.tree-sitter-gitignore
           p.tree-sitter-go
           p.tree-sitter-graphql
           p.tree-sitter-http
@@ -98,6 +98,7 @@ in
           p.tree-sitter-markdown
           p.tree-sitter-nix
           p.tree-sitter-python
+          p.tree-sitter-query
           p.tree-sitter-rust
           p.tree-sitter-sql
           p.tree-sitter-toml
