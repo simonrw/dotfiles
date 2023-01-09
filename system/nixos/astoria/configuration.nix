@@ -83,10 +83,6 @@
   # Enable CUPS to print documents.
   services.printing.enable = true;
 
-  # remote desktop
-  services.xrdp.enable = true;
-  services.xrdp.defaultWindowManager = "startxfce4";
-
   # Enable sound with pipewire.
   sound.enable = true;
   hardware.pulseaudio.enable = false;
