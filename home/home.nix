@@ -36,7 +36,9 @@ in
       cachix
       cargo
       comma
-      curl
+      (curl.override {
+        c-aresSupport = true;
+      })
       curlie
       deadnix
       du-dust
