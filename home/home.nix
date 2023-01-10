@@ -271,6 +271,12 @@ in
     ".ideavimrc" = {
       source = ./ideavimrc;
     };
+
+    ".digrc" = {
+      text = ''
+        +noall +answer
+      '';
+    };
   };
 
   xdg = {
