@@ -8,6 +8,7 @@ in
     ./bat.nix
     ./dark-mode.nix
     ./direnv.nix
+    ./emacs.nix
     ./fish.nix
     ./fzf.nix
     ./gh.nix
