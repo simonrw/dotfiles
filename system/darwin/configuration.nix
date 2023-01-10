@@ -41,6 +41,10 @@
   system.keyboard.enableKeyMapping = true;
   system.keyboard.remapCapsLockToControl = true;
 
+  system.defaults = {
+    dock.autohide = true;
+  };
+
   homebrew = {
     enable = true;
     casks = [
