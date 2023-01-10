@@ -1,5 +1,7 @@
 # Simon's dotfiles
 
+**DEPRECATED: I've now switched to using https://github.com/simonrw/macos-nix-config for my configuration**
+
 The traditional dotfiles repository.
 
 ## Installation of configs
