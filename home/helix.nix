@@ -8,6 +8,17 @@
         line-number = "relative";
         auto-pairs = false;
         true-color = true;
+        lsp.display-messages = true;
+      };
+      keys.normal = {
+        "G" = "goto_file_end";
+        "g" = {
+          "q" = ":reflow";
+        };
+        "space" = {
+          "q" = ":quit";
+          "w" = ":write";
+        };
       };
     };
     languages = [
