@@ -14,9 +14,9 @@ in
 {
   programs.neovim = {
     enable = true;
-    viAlias = false;
-    vimAlias = false;
-    vimdiffAlias = false;
+    viAlias = true;
+    vimAlias = true;
+    vimdiffAlias = true;
     withPython3 = true;
     extraPython3Packages = (ps: with ps; [
       pynvim
