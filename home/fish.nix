@@ -153,6 +153,8 @@ in
       trash = "send2trash";
       tree = "exa -T";
       vup = "nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'";
+      vim = "hx";
+      nvim = "hx";
     } // lib.optionalAttrs isLinux {
       pbcopy = "xclip -selection clipboard";
       pbpaste = "xclip -selection clipboard -o";
