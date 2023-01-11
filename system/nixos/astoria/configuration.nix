@@ -11,6 +11,7 @@
       ./hardware-configuration.nix
       ./syncthing.nix
       ./yubikey.nix
+      ./wm.nix
     ];
 
   # Bootloader.
@@ -69,11 +70,9 @@
     xkbOptions = "ctrl:nocaps";
     displayManager = {
       sddm.enable = true;
-      defaultSession = "xfce";
       # Disable automatic login for the user.
       autoLogin.enable = false;
     };
-    desktopManager.xfce.enable = true;
     wacom.enable = true;
   };
 
@@ -159,11 +158,6 @@
     vim
     wmctrl
     xclip
-    xfce.xfce4-cpufreq-plugin
-    xfce.xfce4-cpugraph-plugin
-    xfce.xfce4-pulseaudio-plugin
-    xfce.xfce4-systemload-plugin
-    xfce.xfce4-xkb-plugin
   ];
 
   environment.shells = with pkgs; [
