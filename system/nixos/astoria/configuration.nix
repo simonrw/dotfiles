@@ -33,7 +33,13 @@
   # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
 
   # Enable networking
-  networking.networkmanager.enable = true;
+  networking.networkmanager = {
+    enable = true;
+    dns = "systemd-resolved";
+  };
+  # This command causes a failure to rebuild
+  # https://github.com/NixOS/nixpkgs/issues/180175
+  systemd.services.NetworkManager-wait-online.enable = false;
 
   # Set your time zone.
   time.timeZone = "Europe/London";
@@ -184,6 +190,7 @@
   # };
 
   # List services that you want to enable:
+  services.resolved.enable = true;
 
   # Enable the OpenSSH daemon.
   services.openssh.enable = true;
