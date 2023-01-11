@@ -104,6 +104,7 @@ in
       rofi
       slack
       telegram-desktop
+      virt-manager
       zeal
     ]);
   };
