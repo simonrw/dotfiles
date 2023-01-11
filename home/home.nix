@@ -60,6 +60,7 @@ in
       multitail
       ncdu
       nixpkgs-fmt
+      nix-tree
       nodejs
       noti
       nurl
