@@ -12,6 +12,8 @@ let
     epkgs.projectile
     epkgs.ripgrep
     epkgs.eglot
+    epkgs.blacken
+    epkgs.direnv
   ]);
   extraConfig = ''
     (blink-cursor-mode 0)
@@ -52,6 +54,13 @@ let
     (add-hook 'after-init-hook 'global-company-mode)
     (setq company-minimum-prefix-length 1
           company-idle-delay 0.0)
+
+    ;; Enable eglot
+    (add-hook 'python-mode-hook 'eglot-ensure)
+    (add-hook 'rust-mode-hook 'eglot-ensure)
+
+    ;; blacken
+    (add-hook 'python-mode-hook 'blacken-mode)
   '';
 in
 {
