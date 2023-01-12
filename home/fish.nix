@@ -10,6 +10,9 @@ let
 
   # style output of go "glamour" programs e.g. gh
   glamour-style = if config.dark-mode then "dark" else "light";
+
+  # the complete neovim package
+  neovim = config.programs.neovim.finalPackage;
 in
 {
   programs.fish = {
@@ -21,7 +24,6 @@ in
         set -x PATH {$BUILD_PREFIX}/bin {$HOME}/.bin {$HOME}/.poetry/bin /usr/local/bin {$HOME}/.cargo/bin {$HOME}/bin {$GOPATH}/bin {$HOME}/.npm-packages/bin {$PATH}
         set -x NODE_PATH {$HOME}/.npm-packages/lib/node_modules
         set -x GOPATH {$HOME}/dev/gocode
-        set -x EDITOR nvim
         set -x REVIEW_BASE main
         set -x PYTEST_ADDOPTS "-p no:sugar"
         set -x LANG en_GB.UTF-8
@@ -33,7 +35,7 @@ in
         set -x LANG "en_GB.UTF-8"
         set -x LC_CTYPE "en_GB.UTF-8"
         set -x LC_ALL "en_GB.UTF-8"
-        set -x EDITOR "${pkgs.neovim}/bin/nvim"
+        set -x EDITOR "${neovim}/bin/nvim"
         set -x PAGER "${pkgs.bat}/bin/bat"
         set -x MANPAGER "sh -c 'col -bx | ${pkgs.bat}/bin/bat -l man -p'"
 
