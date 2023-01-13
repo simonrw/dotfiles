@@ -165,7 +165,6 @@ in
           lib.replaceStrings [ "CHOSEN_COLOR_THEME" ] [ theme ] originalText;
       in
       {
-        # source = ./alacritty/alacritty.yml;
         text = replacedText;
       };
     configFile.karabiner = lib.mkIf isDarwin {

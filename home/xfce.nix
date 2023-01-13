@@ -25,7 +25,7 @@ let
         appName = "firefox";
       });
       "commands/custom/<Alt><Super>t" = (mkShortcut {
-        appName = "alacritty";
+        appName = "kitty";
       });
       "commands/custom/<Alt><Super>e" = (mkShortcut {
         appName = "obsidian";

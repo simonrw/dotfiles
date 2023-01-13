@@ -189,7 +189,7 @@ font pango:$font 10
 bindsym $mod+c exec firefox
 
 # start a terminal
-bindsym $mod+Return exec alacritty
+bindsym $mod+Return exec kitty
 
 # gaps config
 for_window [class=".*"] border pixel 0

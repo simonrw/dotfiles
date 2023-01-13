@@ -139,7 +139,7 @@ in
             (execAlways ''hsetroot -solid "#c2dced"'')
             (execAlways ''bash ~/.bin/set-keyboard'')
           ];
-        terminal = "${pkgs.alacritty}/bin/alacritty";
+        terminal = "${pkgs.kitty}/bin/kitty";
         menu = "${pkgs.rofi}/bin/rofi -show drun";
         window = {
           titlebar = false;
@@ -234,7 +234,7 @@ in
           "${mod}+Ctrl+Shift+E" = "exit";
 
           "${mod}+c" = "exec ${pkgs.firefox}/bin/firefox";
-          "${mod}+Return" = "exec ${pkgs.alacritty}/bin/alacritty";
+          "${mod}+Return" = "exec ${pkgs.kitty}/bin/kitty";
           "${mod}+d" = "exec ${pkgs.rofi}/bin/rofi -show drun";
         };
       };
@@ -302,7 +302,6 @@ in
           lib.replaceStrings [ "CHOSEN_COLOR_THEME" ] [ theme ] originalText;
       in
       {
-        # source = ./alacritty/alacritty.yml;
         text = replacedText;
       };
     configFile.karabiner = lib.mkIf isDarwin {
