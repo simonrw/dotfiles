@@ -117,6 +117,18 @@
                 isDarwin = pkgs.stdenv.isDarwin;
               };
             };
+            work = home-manager.lib.homeManagerConfiguration {
+              pkgs = pkgs;
+              modules = [
+                ./home/work.nix
+              ];
+              # stop infinite recusion when trying to access
+              # pkgs.stdenv.is{Linux,Darwin} from within a module
+              extraSpecialArgs = {
+                isLinux = pkgs.stdenv.isLinux;
+                isDarwin = pkgs.stdenv.isDarwin;
+              };
+            };
           };
           darwinConfigurations = {
             mba = darwin.lib.darwinSystem {
