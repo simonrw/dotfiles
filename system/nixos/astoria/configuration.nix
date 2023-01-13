@@ -108,14 +108,23 @@
   # services.xserver.libinput.enable = true;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users.simon = {
-    isNormalUser = true;
-    description = "Simon Walker";
-    extraGroups = [ "networkmanager" "wheel" "libvirtd" "docker" "podman" ];
-    packages = with pkgs; [
-    ];
-    shell = pkgs.fish;
-    home = "/home/simon";
+  users.users = {
+    simon = {
+      isNormalUser = true;
+      description = "Simon Walker";
+      extraGroups = [ "networkmanager" "wheel" "libvirtd" "docker" "podman" ];
+      packages = with pkgs; [
+      ];
+      shell = pkgs.fish;
+      home = "/home/simon";
+    };
+    work = {
+      isNormalUser = true;
+      description = "Work account";
+      extraGroups = [ "networkmanager" "docker" "podman" ];
+      shell = pkgs.fish;
+      home = "/home/work";
+    };
   };
 
   # Allow unfree packages
