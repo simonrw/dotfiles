@@ -1,10 +1,6 @@
 { config, pkgs, isLinux, isDarwin, lib, ... }:
 let
   homeDirectory = "/home/work";
-
-  customCurl = pkgs.curl.override {
-    c-aresSupport = true;
-  };
 in
 {
   imports = [
@@ -32,74 +28,6 @@ in
     inherit homeDirectory;
     username = "work";
     stateVersion = "22.05";
-
-    packages = with pkgs; [
-      _1password
-      _1password-gui
-      awscli2
-      bat
-      cargo
-      comma
-      curlie
-      customCurl
-      deadnix
-      du-dust
-      element-desktop
-      entr
-      exa
-      fd
-      fx
-      gcc
-      go
-      graphviz
-      hey
-      htop
-      httpie
-      hub
-      input-fonts
-      jetbrains.pycharm-community
-      lsof
-      mkcert
-      multitail
-      ncdu
-      nixpkgs-fmt
-      nix-tree
-      nodejs
-      noti
-      notion
-      nurl
-      obsidian
-      openssh
-      pinentry-gtk2
-      playerctl
-      pre-commit
-      pyright
-      python3
-      python3.pkgs.pipx
-      python3.pkgs.send2trash
-      python3.pkgs.virtualenv
-      ripgrep
-      rnix-lsp
-      rofi
-      rust-analyzer
-      rustc
-      slack
-      telegram-desktop
-      tree-grepper
-      universal-ctags
-      unzip
-      virt-manager
-      zeal
-      zip
-      zsh
-    ] ++ [
-      # local packages
-      cftail
-      listprojects
-      ntfy
-      snslistener
-      notify-wrapper
-    ];
   };
 
   dark-mode = false;
