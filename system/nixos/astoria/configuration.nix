@@ -61,6 +61,7 @@
     fonts = with pkgs; [
       source-code-pro
       fira-code
+      jetbrains-mono
     ];
   };
 
