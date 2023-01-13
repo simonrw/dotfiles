@@ -103,6 +103,7 @@ in
       playerctl
       rofi
       slack
+      steam
       telegram-desktop
       virt-manager
       zeal

@@ -157,7 +157,6 @@
     killall
     kitty
     pavucontrol
-    steam
     vim
     wmctrl
     xclip
