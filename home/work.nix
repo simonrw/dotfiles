@@ -20,6 +20,7 @@ in
     ./helix.nix
     ./home-manager.nix
     ./jq.nix
+    ./kitty.nix
     ./neovim.nix
     ./nix-index.nix
     ./tmux.nix
@@ -169,10 +170,6 @@ in
       };
     configFile.karabiner = lib.mkIf isDarwin {
       source = ./karabiner;
-      recursive = true;
-    };
-    configFile.kitty = {
-      source = ./kitty;
       recursive = true;
     };
   };
