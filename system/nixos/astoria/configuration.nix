@@ -114,8 +114,6 @@
       isNormalUser = true;
       description = "Simon Walker";
       extraGroups = [ "networkmanager" "wheel" "libvirtd" "docker" "podman" ];
-      packages = with pkgs; [
-      ];
       shell = pkgs.fish;
       home = "/home/simon";
     };
