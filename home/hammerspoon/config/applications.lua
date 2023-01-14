@@ -18,7 +18,7 @@ local applications = {
         name = "Dash",
     },
     notes = {
-        name = "Notion",
+        name = "Obsidian",
     },
     editor = {
         name = "Visual Studio Code",
