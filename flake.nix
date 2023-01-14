@@ -59,7 +59,6 @@
           overlays = [
             (final: _: {
               listprojects = final.callPackage ./derivations/listprojects { };
-              ntfy = final.callPackage ./derivations/ntfy { };
               cftail = cftail.packages.${system}.default;
               snslistener = snslistener.packages.${system}.default;
               notify-wrapper = final.callPackage ./derivations/notify-wrapper { };

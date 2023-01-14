@@ -54,7 +54,6 @@
     # local packages
     cftail
     listprojects
-    ntfy
     snslistener
     notify-wrapper
   ] ++ (lib.optionals isDarwin [
