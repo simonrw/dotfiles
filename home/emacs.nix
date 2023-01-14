@@ -69,8 +69,10 @@ in
     enable = true;
     package = emacs-package;
   };
-  services.emacs = {
-    enable = true;
-    package = emacs-package;
-  };
-}
+} // (if isLinux then
+  {
+    services.emacs = {
+      enable = true;
+      package = emacs-package;
+    };
+  } else { })
