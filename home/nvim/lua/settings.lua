@@ -1,7 +1,6 @@
 vim.opt.mouse = 'a'
 vim.opt.scrolloff = 8
 vim.opt.smartindent = true
-vim.opt.guicursor = ''
 vim.opt.number = true
 vim.opt.relativenumber = true
 vim.opt.cursorline = false
