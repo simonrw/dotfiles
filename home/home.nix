@@ -24,7 +24,8 @@ in
     ./tmux.nix
     ./vscode.nix
   ] ++ lib.optionals isLinux [
-    # ./xfce.nix
+    ./xfce.nix
+    # ./gnome.nix
   ];
 
   home = {

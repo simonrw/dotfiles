@@ -38,4 +38,4 @@ let
     '';
   };
 in
-gnome-settings
+xfce-settings
