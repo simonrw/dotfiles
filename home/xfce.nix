@@ -22,9 +22,7 @@ let
     };
     xfce4-keyboard-shortcuts = {
       "commands/custom/<Alt><Super>c" = (mkShortcut {
-        appName = "google-chrome";
-        package = pkgs.google-chrome;
-        binName = "google-chrome-stable";
+        appName = "chromium";
       });
       "commands/custom/<Alt><Super>t" = (mkShortcut {
         appName = "kitty";
