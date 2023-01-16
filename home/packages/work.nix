@@ -15,6 +15,7 @@
     entr
     exa
     fd
+    file
     fx
     gcc
     go
