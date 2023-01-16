@@ -30,6 +30,12 @@ let
       gnome.gnome-tweaks
       gnomeExtensions.appindicator
     ];
+
+    services.xserver.desktopManager.gnome.extraGSettingsOverrides = ''
+      [org.gnome.desktop.wm.preferences]
+      resize-with-right-button=true
+      mouse-button-modifier='<Alt>'
+    '';
   };
 in
 gnome-settings
