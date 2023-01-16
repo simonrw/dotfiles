@@ -34,7 +34,7 @@ in
     stateVersion = "22.05";
   };
 
-  dark-mode = false;
+  dark-mode = true;
 
   home.file = {
     ".bin" = {
