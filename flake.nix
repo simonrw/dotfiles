@@ -35,12 +35,72 @@
     , ...
     }:
     let
+      mkOverlays = system: [
+        (final: _: {
+          listprojects = final.callPackage ./derivations/listprojects { };
+          cftail = cftail.packages.${system}.default;
+          snslistener = snslistener.packages.${system}.default;
+          notify-wrapper = final.callPackage ./derivations/notify-wrapper { };
+          notion = final.callPackage ./derivations/notion { };
+          telegram-desktop = final.callPackage ./derivations/telegram-desktop { };
+          nurl = nurl.packages.${system}.default;
+        })
+        # override the version of xattr for poetry
+        (
+          let
+            python-overrides = self: {
+              packageOverrides = _: pysuper: {
+                cherrypy = pysuper.cherrypy.overrideAttrs (_: rec {
+                  doInstallCheck = !self.stdenv.isDarwin;
+                });
+                debugpy = pysuper.debugpy.overrideAttrs (_: rec {
+                  doInstallCheck = !self.stdenv.isDarwin;
+                });
+              };
+            };
+          in
+          self: super: {
+            python310 = super.python310.override (python-overrides self);
+            python39 = super.python39.override (python-overrides self);
+            python38 = super.python38.override (python-overrides self);
+
+            # enable a specific python version to run debugpy
+            python-for-debugging = super.python3.withPackages (ps: [
+              ps.debugpy
+            ]);
+          }
+        )
+        tree-grepper.overlay.${system}
+        jetbrains-updater.overlay
+      ];
       mkNixOSConfiguration =
-        name: nixpkgs.lib.nixosSystem {
+        let
           system = "x86_64-linux";
-          modules = [
-            ./system/nixos/${name}/configuration.nix
-          ];
+
+          pkgs = import nixpkgs {
+            inherit system;
+            overlays = mkOverlays system;
+            config.allowUnfree = true;
+            config.input-fonts.acceptLicense = true;
+          };
+        in
+        name: nixpkgs.lib.nixosSystem {
+          inherit pkgs system;
+          modules =
+            [
+              ./system/nixos/${name}/configuration.nix
+              home-manager.nixosModules.home-manager
+              {
+                home-manager.useGlobalPkgs = true;
+                home-manager.useUserPackages = true;
+                home-manager.extraSpecialArgs = {
+                  isLinux = pkgs.stdenv.isLinux;
+                  isDarwin = pkgs.stdenv.isDarwin;
+                };
+
+                home-manager.users.simon = import ./home/home.nix;
+              }
+            ];
         };
 
       appendNixOSConfiguration =
@@ -53,47 +113,44 @@
           nixosConfigurations = builtins.foldl' appendNixOSConfiguration { } names;
         };
 
+      darwinConfigurations =
+        {
+          darwinConfigurations =
+            let
+              system = "aarch64-darwin";
+
+              pkgs = import nixpkgs {
+                inherit system;
+                overlays = mkOverlays system;
+                config.allowUnfree = true;
+                config.input-fonts.acceptLicense = true;
+              };
+            in
+            {
+              mba = darwin.lib.darwinSystem {
+                inherit pkgs system;
+                modules = [
+                  ./system/darwin/configuration.nix
+                  home-manager.darwinModules.home-manager
+                  {
+                    home-manager.useGlobalPkgs = true;
+                    home-manager.useUserPackages = true;
+                    home-manager.extraSpecialArgs = {
+                      isLinux = pkgs.stdenv.isLinux;
+                      isDarwin = pkgs.stdenv.isDarwin;
+                    };
+
+                    home-manager.users.simon = import ./home/home.nix;
+                  }
+                ];
+              };
+            };
+        };
+
       # these definitions are per system
       perSystemConfigurations = flake-utils.lib.eachDefaultSystem (system:
         let
-          overlays = [
-            (final: _: {
-              listprojects = final.callPackage ./derivations/listprojects { };
-              cftail = cftail.packages.${system}.default;
-              snslistener = snslistener.packages.${system}.default;
-              notify-wrapper = final.callPackage ./derivations/notify-wrapper { };
-              notion = final.callPackage ./derivations/notion { };
-              telegram-desktop = final.callPackage ./derivations/telegram-desktop { };
-              nurl = nurl.packages.${system}.default;
-            })
-            # override the version of xattr for poetry
-            (
-              let
-                python-overrides = {
-                  packageOverrides = _: pysuper: {
-                    cherrypy = pysuper.cherrypy.overrideAttrs (_: rec {
-                      doInstallCheck = !pkgs.stdenv.isDarwin;
-                    });
-                    debugpy = pysuper.debugpy.overrideAttrs (_: rec {
-                      doInstallCheck = !pkgs.stdenv.isDarwin;
-                    });
-                  };
-                };
-              in
-              _: super: {
-                python310 = super.python310.override python-overrides;
-                python39 = super.python39.override python-overrides;
-                python38 = super.python38.override python-overrides;
-
-                # enable a specific python version to run debugpy
-                python-for-debugging = super.python3.withPackages (ps: [
-                  ps.debugpy
-                ]);
-              }
-            )
-            tree-grepper.overlay.${system}
-            jetbrains-updater.overlay
-          ];
+          overlays = mkOverlays system;
 
           pkgs = import nixpkgs {
             inherit system overlays;
@@ -105,7 +162,7 @@
         {
           homeConfigurations = {
             simon = home-manager.lib.homeManagerConfiguration {
-              pkgs = pkgs;
+              inherit pkgs;
               modules = [
                 ./home/home.nix
               ];
@@ -116,34 +173,27 @@
                 isDarwin = pkgs.stdenv.isDarwin;
               };
             };
-            work = home-manager.lib.homeManagerConfiguration {
-              pkgs = pkgs;
-              modules = [
-                ./home/work.nix
-              ];
-              # stop infinite recusion when trying to access
-              # pkgs.stdenv.is{Linux,Darwin} from within a module
-              extraSpecialArgs = {
-                isLinux = pkgs.stdenv.isLinux;
-                isDarwin = pkgs.stdenv.isDarwin;
+            work = home-manager.lib.homeManagerConfiguration
+              {
+                inherit pkgs;
+                modules = [
+                  ./home/work.nix
+                ];
+                # stop infinite recusion when trying to access
+                # pkgs.stdenv.is{Linux,Darwin} from within a module
+                extraSpecialArgs = {
+                  isLinux = pkgs.stdenv.isLinux;
+                  isDarwin = pkgs.stdenv.isDarwin;
+                };
               };
-            };
           };
-          darwinConfigurations = {
-            mba = darwin.lib.darwinSystem {
-              system = "aarch64-darwin";
-              modules = [
-                ./system/darwin/configuration.nix
+          devShells.default = pkgs.mkShell
+            {
+              buildInputs = with pkgs; [
+                python310
+                python310Packages.black
               ];
-              inputs = { inherit darwin pkgs; };
             };
-          };
-          devShells.default = pkgs.mkShell {
-            buildInputs = with pkgs; [
-              python310
-              python310Packages.black
-            ];
-          };
         }
       );
     in
@@ -151,5 +201,5 @@
       [
         "nixos"
         "astoria"
-      ] // perSystemConfigurations;
+      ] // darwinConfigurations // perSystemConfigurations;
 }
