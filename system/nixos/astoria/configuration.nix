@@ -73,7 +73,7 @@
     xkbVariant = "";
     xkbOptions = "ctrl:nocaps";
     displayManager = {
-      sddm.enable = true;
+      gdm.enable = true;
       # Disable automatic login for the user.
       autoLogin.enable = false;
     };
