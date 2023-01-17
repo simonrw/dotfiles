@@ -76,7 +76,6 @@
     xkbVariant = "";
     xkbOptions = "ctrl:nocaps";
     displayManager = {
-      gdm.enable = true;
       # Disable automatic login for the user.
       autoLogin.enable = false;
     };
@@ -201,8 +200,6 @@
   services.openssh.enable = true;
   services.openssh.passwordAuthentication = false;
   services.openssh.permitRootLogin = "no";
-
-  services.blueman.enable = true;
 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ 22 ];

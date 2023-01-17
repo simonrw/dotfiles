@@ -4,6 +4,7 @@ let
     {
       services.xserver.displayManager.defaultSession = "xfce";
       services.xserver.desktopManager.xfce.enable = true;
+      services.xserver.displayManager.sddm.enable = true;
 
       environment.systemPackages = with pkgs; [
         gnome.adwaita-icon-theme
@@ -20,6 +21,7 @@ let
   gnome-settings = {
     services.xserver.displayManager.defaultSession = "gnome-xorg";
     services.xserver.desktopManager.gnome.enable = true;
+    services.xserver.displayManager.gdm.enable = true;
     services.udev.packages = with pkgs;
       [
         gnome.gnome-settings-daemon
@@ -37,5 +39,12 @@ let
       mouse-button-modifier='<Alt>'
     '';
   };
+
+  kde-settings = {
+    services.xserver.desktopManager.plasma5.enable = true;
+    services.xserver.displayManager.defaultSession = "plasma";
+    services.xserver.displayManager.sddm.enable = true;
+    programs.dconf.enable = true;
+  };
 in
-xfce-settings
+kde-settings
