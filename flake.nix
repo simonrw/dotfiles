@@ -199,7 +199,6 @@
     in
     nixOsConfigurations
       [
-        "nixos"
         "astoria"
       ] // darwinConfigurations // perSystemConfigurations;
 }
