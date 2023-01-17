@@ -16,6 +16,7 @@ let
   settings = {
     xsettings = {
       "Net/ThemeName" = theme;
+      "Gtk/KeyThemeName" = "Emacs";
     };
     xfce4-panel = {
       "panels/dark-mode" = config.dark-mode;
