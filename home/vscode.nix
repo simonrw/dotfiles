@@ -14,6 +14,7 @@
       vscodevim.vim
       haskell.haskell
       justusadam.language-haskell
+      github.github-vscode-theme
     ];
     enableExtensionUpdateCheck = true;
     enableUpdateCheck = true;
@@ -116,7 +117,7 @@
       "editor.autoClosingBrackets" = "never";
       "explorer.confirmDelete" = false;
       "python.languageServer" = "Pylance";
-      "editor.fontFamily" = "Source Code Pro";
+      "editor.fontFamily" = "Iosevka";
       # Custom tags for the parser to use
       "workbench.startupEditor" = "none";
       "[rust]" = {
@@ -233,7 +234,7 @@
       };
       "workbench.iconTheme" = "Monokai Pro Icons";
       "workbench.sideBar.location" = "right";
-      "workbench.colorTheme" = if config.dark-mode then "Monokai" else "Default Light+";
+      "workbench.colorTheme" = if config.dark-mode then "GitHub Dark" else "Default Light+";
       "C_Cpp.intelliSenseEngine" = "disabled";
       "[jsonc]" = {
         "editor.defaultFormatter" = "esbenp.prettier-vscode";
