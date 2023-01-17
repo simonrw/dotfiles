@@ -72,6 +72,10 @@
     wacom.enable = true;
   };
 
+  # configure the video card
+  hardware.opengl.enable = true;
+  hardware.nvidia.package = config.boot.kernelPackages.nvidiaPackages.beta;
+
   # Configure console keymap
   console.keyMap = "uk";
 
