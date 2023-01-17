@@ -57,14 +57,6 @@
     LC_TIME = "en_GB.UTF-8";
   };
 
-  fonts = {
-    fonts = with pkgs; [
-      source-code-pro
-      fira-code
-      jetbrains-mono
-    ];
-  };
-
   # Configure keymap in X11
   services.xserver = {
     enable = true;

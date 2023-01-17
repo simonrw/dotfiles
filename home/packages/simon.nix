@@ -1,4 +1,14 @@
 { pkgs, lib, isLinux, isDarwin, ... }:
+let
+  fonts = with pkgs; [
+    source-code-pro
+    fira-code
+    jetbrains-mono
+    iosevka
+    ibm-plex
+    input-fonts
+  ];
+in
 {
   home.packages = with pkgs; [
     _1password
@@ -25,7 +35,6 @@
     htop
     httpie
     hub
-    input-fonts
     lsof
     mkcert
     multitail
@@ -51,7 +60,7 @@
     unzip
     zip
     zsh
-  ] ++ [
+  ] ++ fonts ++ [
     # local packages
     cftail
     listprojects
