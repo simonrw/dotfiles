@@ -9,11 +9,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1671192175,
-        "narHash": "sha256-cacENLpsTXCKQhmBumsHmYgd8yXkZwgaWjpVP4qrIzo=",
+        "lastModified": 1673904089,
+        "narHash": "sha256-Na4qvRe9ETicKdIr6CgZWnfNCRIxTxlVtFKYVNgMNs4=",
         "owner": "simonrw",
         "repo": "cftail",
-        "rev": "58d272588d419bd239d471a7e52f257708c37069",
+        "rev": "6cf464bd2cb193b6fb3dbc60d61ca8d889033ff0",
         "type": "github"
       },
       "original": {

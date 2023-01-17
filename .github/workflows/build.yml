@@ -10,7 +10,7 @@ on:
       - bin
       - .pre-commit-config.yaml
 jobs:
-  build:
+  linux:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -23,3 +23,10 @@ jobs:
           name: '${{ secrets.CACHIX_NAME }}'
           authToken: '${{ secrets.CACHIX_AUTH_TOKEN }}'
       - run: nix build '.#homeConfigurations.x86_64-linux.simon.activationPackage'
+
+  macos:
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: cachix/install-nix-action@v18
+      - run: nix build '.#homeConfigurations.x86_64-darwin.simon.activationPackage'
