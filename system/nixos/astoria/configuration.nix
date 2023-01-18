@@ -122,6 +122,7 @@
       extraGroups = [ "networkmanager" "wheel" "libvirtd" "docker" "podman" ];
       shell = pkgs.fish;
       home = "/home/simon";
+      initialPassword = "test.1234";
     };
     work = {
       isNormalUser = true;
@@ -129,6 +130,7 @@
       extraGroups = [ "networkmanager" "docker" "podman" ];
       shell = pkgs.fish;
       home = "/home/work";
+      initialPassword = "test.1234";
     };
   };
 
