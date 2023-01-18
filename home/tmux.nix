@@ -6,7 +6,7 @@
     baseIndex = 1;
     clock24 = true;
     escapeTime = 0;
-    historyLimit = 10000;
+    historyLimit = 100000;
     keyMode = "vi";
     sensibleOnTop = true;
     shortcut = "s";
