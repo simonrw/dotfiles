@@ -10,6 +10,7 @@ in
     ./direnv.nix
     ./emacs.nix
     ./fish.nix
+    ./font.nix
     ./fzf.nix
     ./gh.nix
     ./git.nix
@@ -36,7 +37,9 @@ in
     stateVersion = "22.05";
   };
 
+  # custom properties
   dark-mode = true;
+  editor-font = "JetBrains Mono";
 
   home.file = {
     ".bin" = {

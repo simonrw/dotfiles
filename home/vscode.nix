@@ -117,7 +117,6 @@
       "editor.autoClosingBrackets" = "never";
       "explorer.confirmDelete" = false;
       "python.languageServer" = "Pylance";
-      "editor.fontFamily" = "Iosevka";
       # Custom tags for the parser to use
       "workbench.startupEditor" = "none";
       "[rust]" = {
