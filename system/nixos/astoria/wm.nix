@@ -32,6 +32,7 @@ let
       gnome.gnome-tweaks
       gnomeExtensions.appindicator
       gnomeExtensions.gtile
+      gnomeExtensions.dash-to-dock
     ];
 
     services.xserver.desktopManager.gnome.extraGSettingsOverrides = ''
