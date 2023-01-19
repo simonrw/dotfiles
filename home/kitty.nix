@@ -1,4 +1,4 @@
-{ config, ... }:
+{ config, pkgs, ... }:
 let
   dark-theme = {
     foreground = "#ffffff";
@@ -97,7 +97,8 @@ in
 {
   config = {
     programs.kitty = {
-      enable = true;
+      # kitty is broken on macos CI
+      enable = !pkgs.kitty.meta.broken;
       settings = {
         font_family = font;
         font_size = "14.0";
