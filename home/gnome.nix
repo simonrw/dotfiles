@@ -27,6 +27,11 @@
       name = "Documentation";
     };
     "org/gnome/settings-daemon/plugins/media-keys" = {
+      play = [ "<Super>F9" ];
+      volume-down = [ "<Super>F11" ];
+      volume-up = [ "<Super>F12" ];
+    };
+    "org/gnome/settings-daemon/plugins/media-keys" = {
       custom-keybindings = [
         "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/"
         "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/"
@@ -39,6 +44,7 @@
       disable-user-extensions = false;
       enabled-extensions = [
         "drive-menu@gnome-shell-extensions.gcampax.github.com"
+        "dash-to-dock@micxgx.gmail.com"
       ];
       disabled-extensions = [ ];
     };
