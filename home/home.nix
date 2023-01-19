@@ -5,6 +5,7 @@ let
 in
 {
   imports = [
+    ./alacritty.nix
     ./bat.nix
     ./dark-mode.nix
     ./direnv.nix
@@ -83,22 +84,6 @@ in
       source = ./nvim;
       recursive = true;
     };
-    configFile."alacritty/alacritty.yml" =
-      let
-        theme =
-          if config.dark-mode
-          then "colors_default"
-          else "colors_papercolor";
-
-        originalText =
-          builtins.readFile ./alacritty/alacritty.yml;
-
-        replacedText =
-          lib.replaceStrings [ "CHOSEN_COLOR_THEME" ] [ theme ] originalText;
-      in
-      {
-        text = replacedText;
-      };
     configFile.karabiner = lib.mkIf isDarwin {
       source = ./karabiner;
       recursive = true;
