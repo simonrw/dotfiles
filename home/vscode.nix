@@ -1,20 +1,21 @@
-{ config, pkgs, ... }:
+{ config, pkgs, isLinux, lib, ... }:
 {
   programs.vscode = {
     enable = true;
     extensions = with pkgs.vscode-extensions; [
-      dracula-theme.theme-dracula
-      matklad.rust-analyzer
       arrterian.nix-env-selector
       bbenoist.nix
+      dracula-theme.theme-dracula
+      github.github-vscode-theme
+      haskell.haskell
       jnoortheen.nix-ide
+      justusadam.language-haskell
+      matklad.rust-analyzer
       ms-python.vscode-pylance
-      ms-python.python
       ms-vscode-remote.remote-ssh
       vscodevim.vim
-      haskell.haskell
-      justusadam.language-haskell
-      github.github-vscode-theme
+    ] ++ lib.optionals isLinux [
+      ms-python.python
     ];
     enableExtensionUpdateCheck = true;
     enableUpdateCheck = true;
