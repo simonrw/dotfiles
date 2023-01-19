@@ -31,6 +31,7 @@ let
       gnome.adwaita-icon-theme
       gnome.gnome-tweaks
       gnomeExtensions.appindicator
+      gnomeExtensions.gtile
     ];
 
     services.xserver.desktopManager.gnome.extraGSettingsOverrides = ''

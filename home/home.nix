@@ -27,9 +27,9 @@ in
     ./vscode.nix
   ] ++ lib.optionals isLinux [
     ./chromium.nix
-    ./kde.nix
+    # ./kde.nix
     # ./xfce.nix
-    # ./gnome.nix
+    ./gnome.nix
   ];
 
   home = {

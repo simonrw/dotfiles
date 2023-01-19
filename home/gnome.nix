@@ -35,6 +35,13 @@
         "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom4/"
       ];
     };
+    "org/gnome/shell" = {
+      disable-user-extensions = false;
+      enabled-extensions = [
+        "drive-menu@gnome-shell-extensions.gcampax.github.com"
+      ];
+      disabled-extensions = [ ];
+    };
   };
 }
 
