@@ -96,7 +96,8 @@ in
           p.tree-sitter-lua
           p.tree-sitter-make
           p.tree-sitter-markdown
-          p.tree-sitter-nix
+          # See https://github.com/nvim-treesitter/nvim-treesitter/issues/4143
+          # p.tree-sitter-nix
           p.tree-sitter-python
           p.tree-sitter-query
           p.tree-sitter-rust
