@@ -3,6 +3,7 @@
 import argparse
 import os
 import subprocess as sp
+import shlex
 from typing import List
 
 import requests
@@ -25,17 +26,17 @@ class Ntfy:
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
-    parser.add_argument("cmd")
     parser.add_argument("-m", "--message", required=False)
-    args = parser.parse_args()
+    args, cmd = parser.parse_known_args()
     ntfy = Ntfy()
 
-    ret = sp.run(args.cmd, shell=True)
+    command = shlex.join(cmd)
+    ret = sp.run(command, shell=True)
     if ret.returncode == 0:
-        message = args.message if args.message is not None else f"Task {args.cmd} success"
+        message = args.message if args.message is not None else f"Task {command} success"
         tag = "tada"
     else:
-        message = args.message if args.message is not None else f"Task {args.cmd} failed"
+        message = args.message if args.message is not None else f"Task {command} failed"
         tag = "x"
 
     ntfy.publish(message, tags=[tag])
