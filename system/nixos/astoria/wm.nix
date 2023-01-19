@@ -33,6 +33,7 @@ let
       gnomeExtensions.appindicator
       gnomeExtensions.gtile
       gnomeExtensions.dash-to-dock
+      gnomeExtensions.advanced-alttab-window-switcher
     ];
 
     services.xserver.desktopManager.gnome.extraGSettingsOverrides = ''
