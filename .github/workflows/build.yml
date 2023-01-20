@@ -9,6 +9,7 @@ on:
     paths-ignore:
       - bin
       - .pre-commit-config.yaml
+      - README.md
 jobs:
   linux:
     runs-on: ubuntu-latest
