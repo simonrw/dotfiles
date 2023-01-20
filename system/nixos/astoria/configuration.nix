@@ -171,6 +171,7 @@
     google-chrome
     groff
     heroic
+    inkscape
     killall
     kitty
     pavucontrol
