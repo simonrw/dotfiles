@@ -3,6 +3,11 @@ on:
   pull_request:
     branches:
       - main
+    paths-ignore:
+      - bin
+      - .pre-commit-config.yaml
+      - README.md
+      - LICENSE
   push:
     branches:
       - main
@@ -10,6 +15,7 @@ on:
       - bin
       - .pre-commit-config.yaml
       - README.md
+      - LICENSE
 jobs:
   linux:
     runs-on: ubuntu-latest
