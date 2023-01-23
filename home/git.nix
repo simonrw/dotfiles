@@ -95,28 +95,20 @@
         path = "~/.gitlocalconfig/local";
       }
       {
-        path = "~/dev/.gitconfig";
         condition = "gitdir:~/dev/";
+        path = "~/dev/.gitconfig";
       }
       {
-        path = "~/dev/.gitconfig";
         condition = "gitdir:~/tmp/";
+        path = "~/dev/.gitconfig";
       }
       {
-        path = "~/dev/.gitconfig";
         condition = "gitdir:/tmp/";
-      }
-      {
         path = "~/dev/.gitconfig";
-        condition = "gitdir:~/dotfiles/";
       }
       {
-        path = "~/work/.gitconfig";
-        condition = "gitdir:~/work/";
-      }
-      {
-        path = "~/work/localstack/.gitconfig";
         condition = "gitdir:~/work/localstack/";
+        path = "~/work/localstack/.gitconfig";
       }
     ];
     extraConfig = {
