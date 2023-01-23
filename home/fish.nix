@@ -123,7 +123,6 @@ in
     shellAliases = {
       add-keys = ''ssh-add (find ~/.ssh - maxdepth 1 - type f - name "id_rsa*" | grep - v pub | grep - v bak)'';
       cat = "bat";
-      ci = "glab ci view";
       clear-pycs = "find { $PWD } -name '*.pyc' -delete";
       curl = "curlie";
       da = "direnv allow";
@@ -136,10 +135,8 @@ in
       http = "curlie";
       less = "bat";
       ll = "ls -lh";
-      lpb = "glab project view -w";
       lr = "thor";
       more = "bat";
-      mr = "glab mr view -w";
       nr = "nix repl --file '<nixpkgs>'";
       ntfy = "notify-wrapper";
       pylab = "ipython - -pylab";
