@@ -32,6 +32,8 @@
   services.nix-daemon.enable = true;
   documentation.enable = true;
 
+  services.tailscale.enable = true;
+
   programs.fish.enable = true;
   programs.zsh.enable = true;
   programs.nix-index.enable = true;
