@@ -26,7 +26,6 @@ in
     ./nix-index.nix
     ./packages/simon.nix
     ./tmux.nix
-    ./vscode.nix
   ] ++ lib.optionals isLinux [
     ./chromium.nix
     # ./kde.nix

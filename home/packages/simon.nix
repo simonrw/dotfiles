@@ -57,6 +57,7 @@ in
     tree-grepper
     universal-ctags
     unzip
+    vscode
     zip
     zsh
   ] ++ fonts ++ [
