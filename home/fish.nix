@@ -108,9 +108,6 @@ in
             case '*'
         end
 
-      # fix nix path
-      set -x PATH /etc/profiles/per-user/(whoami)/bin {$PATH}
-
       # fix gpg tty
       if isatty
         set -x GPG_TTY (tty)
@@ -141,7 +138,6 @@ in
       ll = "ls -lh";
       lpb = "glab project view -w";
       lr = "thor";
-      ls = "exa -l";
       more = "bat";
       mr = "glab mr view -w";
       nr = "nix repl --file '<nixpkgs>'";
