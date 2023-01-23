@@ -24,7 +24,6 @@ in
     deadnix
     du-dust
     entr
-    exa
     fd
     file
     fx

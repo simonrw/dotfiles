@@ -134,7 +134,6 @@ in
       gs = "git status";
       http = "curlie";
       less = "bat";
-      ll = "ls -lh";
       lr = "thor";
       more = "bat";
       nr = "nix repl --file '<nixpkgs>'";

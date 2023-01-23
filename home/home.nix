@@ -10,6 +10,7 @@ in
     ./dark-mode.nix
     ./direnv.nix
     ./emacs.nix
+    ./exa.nix
     ./fish.nix
     ./font.nix
     ./fzf.nix

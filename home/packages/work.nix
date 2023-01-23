@@ -13,7 +13,6 @@
     du-dust
     element-desktop
     entr
-    exa
     fd
     file
     fx
