@@ -101,7 +101,7 @@ in
       enable = !pkgs.kitty.meta.broken;
       settings = {
         font_family = font;
-        font_size = "14.0";
+        font_size = "10.0";
         background_opacity = "1.0";
         cursor_shape = "block";
         select_by_word_characters = ":@-./_~?&=%+#";
