@@ -141,7 +141,6 @@ in
       more = "bat";
       mr = "glab mr view -w";
       nr = "nix repl --file '<nixpkgs>'";
-      ns = "nix-shell --run fish";
       ntfy = "notify-wrapper";
       pylab = "ipython - -pylab";
       sourceenv = "source ./venv/bin/activate";
@@ -163,6 +162,7 @@ in
       ipy = "ipython";
       k = "kubectl";
       n = "notify-wrapper";
+      nd = "nix develop --command fish";
       py = "python";
       v = "vim";
     };
