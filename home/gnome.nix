@@ -44,7 +44,6 @@
       disable-user-extensions = false;
       enabled-extensions = [
         "drive-menu@gnome-shell-extensions.gcampax.github.com"
-        "dash-to-dock@micxgx.gmail.com"
       ];
       disabled-extensions = [ ];
     };

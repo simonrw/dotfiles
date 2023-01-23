@@ -32,7 +32,6 @@ let
       gnome.gnome-tweaks
       gnomeExtensions.appindicator
       gnomeExtensions.gtile
-      gnomeExtensions.dash-to-dock
       gnomeExtensions.advanced-alttab-window-switcher
     ];
 
