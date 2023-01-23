@@ -27,11 +27,13 @@ in
       "https://mindriot101-home.cachix.org"
       "https://snslistener.cachix.org"
       "https://tree-grepper.cachix.org"
+      "https://github-inbox.cachix.org"
     ];
     trusted-public-keys = [
       "mindriot101-home.cachix.org-1:6M7zAD5oYiwfVPobA5LPtwM+5FewBv4fEMvCgrLACR4="
       "snslistener.cachix.org-1:hUizuaVKug4WDmgLEiErlCMsoDW5+dyJWP0b0mfN/IY="
       "tree-grepper.cachix.org-1:Tm/owXM+dl3GnT8gZg+GTI3AW+yX1XFVYXspZa7ejHg="
+      "github-inbox.cachix.org-1:S9UjpqvGC8oDtEdfwpHQmHALF4eP8EgPzRnWoMr4obc="
     ];
   };
   extraOptions = ''
