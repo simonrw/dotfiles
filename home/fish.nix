@@ -256,8 +256,13 @@ in
               end
           end
 
-          echo
-          echo -n -s {$suffix_color} {$suffix} {$normal} " "
+          set -l nix_shell_str ""
+          if test "$IN_NIX_SHELL" = ""
+          else
+              set nix_shell_str "(nix) "
+          end
+
+          echo -n -s {$nix_shell_str} {$suffix_color} {$suffix} {$normal} " "
         '';
       };
     };
