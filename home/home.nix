@@ -21,6 +21,7 @@ in
     ./home-manager.nix
     ./jq.nix
     ./kitty.nix
+    ./mpv.nix
     ./neovim.nix
     ./nix-index.nix
     ./packages/simon.nix
