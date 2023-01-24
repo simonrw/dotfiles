@@ -37,11 +37,11 @@ in
     inherit homeDirectory;
     username = "simon";
     stateVersion = "22.05";
-  };
 
-  sessionVariables = {
-    # XXX work around https://github.com/NixOS/nixpkgs/issues/32580
-    WEBKIT_DISABLE_COMPOSITING_MODE = 1;
+    sessionVariables = {
+      # XXX work around https://github.com/NixOS/nixpkgs/issues/32580
+      WEBKIT_DISABLE_COMPOSITING_MODE = 1;
+    };
   };
 
   # custom properties
