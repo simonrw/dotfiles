@@ -49,4 +49,4 @@ let
     programs.dconf.enable = true;
   };
 in
-gnome-settings
+kde-settings
