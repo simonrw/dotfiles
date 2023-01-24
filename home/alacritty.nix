@@ -125,7 +125,7 @@ in
           {
             key = "N";
             mods = "Command";
-            chars = "SpawnNewInstance";
+            action = "SpawnNewInstance";
           }
         ];
       };
