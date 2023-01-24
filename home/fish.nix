@@ -99,7 +99,7 @@ in
             case Darwin
                 # set -x DYLD_LIBRARY_PATH {$BUILD_PREFIX}/lib {$DYLD_LIBRARY_PATH}
                 #
-              # fix nix path
+                # fix nix path
                 set -x PATH /etc/profiles/per-user/(whoami)/bin {$PATH}
   
                 if not type -q exa
