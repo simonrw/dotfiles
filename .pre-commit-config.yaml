@@ -1,0 +1,14 @@
+---
+repos:
+  - repo: local
+    hooks:
+      - id: flake-check
+        name: Nix flake check
+        entry: nix flake check --no-build
+        language: system
+        always_run: false
+        pass_filenames: false
+        stages:
+          - commit
+        types:
+          - nix
