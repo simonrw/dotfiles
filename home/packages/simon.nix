@@ -15,7 +15,6 @@ in
     awscli2
     bat
     cachix
-    cargo
     comma
     (curl.override {
       c-aresSupport = true;
@@ -51,9 +50,6 @@ in
     python3.pkgs.send2trash
     python3.pkgs.virtualenv
     ripgrep
-    rnix-lsp
-    rust-analyzer
-    rustc
     tree-grepper
     universal-ctags
     unzip

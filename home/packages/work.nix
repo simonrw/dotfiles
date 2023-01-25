@@ -5,7 +5,6 @@
     _1password-gui
     awscli2
     bat
-    cargo
     comma
     curlie
     customCurl
@@ -46,10 +45,7 @@
     python3.pkgs.send2trash
     python3.pkgs.virtualenv
     ripgrep
-    rnix-lsp
     rofi
-    rust-analyzer
-    rustc
     slack
     telegram-desktop
     tree-grepper
