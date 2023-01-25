@@ -212,6 +212,19 @@ in
         description = "Create and move into new directory";
         body = "mkdir -p $argv[1]; and cd $argv[1]";
       };
+      fish_right_prompt = {
+        description = "Right hand prompt";
+        body = ''
+          set -l colour (set_color black)
+          set -l nix_shell_str ""
+          if test "$IN_NIX_SHELL" = ""
+          else
+              set nix_shell_str "(nix)"
+          end
+          echo -n -s {$colour} {$nix_shell_str}
+
+        '';
+      };
       fish_prompt = {
         description = "Write out the prompt";
         body = ''
@@ -258,13 +271,6 @@ in
                   set suffix_color (set_color -u red)
               end
           end
-
-          set -l nix_shell_str ""
-          if test "$IN_NIX_SHELL" = ""
-          else
-              set nix_shell_str "(nix) "
-          end
-
           echo -n -s {$nix_shell_str} {$suffix_color} {$suffix} {$normal} " "
         '';
       };
