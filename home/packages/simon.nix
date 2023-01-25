@@ -54,6 +54,7 @@ in
     universal-ctags
     unzip
     vscode
+    wget
     zip
     zsh
   ] ++ fonts ++ [

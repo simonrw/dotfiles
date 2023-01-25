@@ -52,6 +52,7 @@
     universal-ctags
     unzip
     virt-manager
+    wget
     zeal
     zip
     zsh
