@@ -176,6 +176,7 @@
     inkscape
     killall
     kitty
+    mosh
     pavucontrol
     vim
     wmctrl
