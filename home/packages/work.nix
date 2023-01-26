@@ -23,6 +23,7 @@
     httpie
     hub
     input-fonts
+    insomnia
     jetbrains.pycharm-community
     lsof
     mkcert

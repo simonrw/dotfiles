@@ -72,6 +72,7 @@ in
     # linux only
     _1password-gui
     element-desktop
+    insomnia
     jetbrains.pycharm-community
     notion
     obsidian
