@@ -47,7 +47,7 @@ in
 
   # custom properties
   dark-mode = true;
-  editor-font = "JetBrains Mono";
+  editor-font = "Input Mono";
 
   home.file = {
     ".bin" = {
