@@ -31,7 +31,6 @@ let
       gnome.adwaita-icon-theme
       gnome.gnome-tweaks
       gnomeExtensions.appindicator
-      gnomeExtensions.gtile
       gnomeExtensions.advanced-alttab-window-switcher
     ];
 
