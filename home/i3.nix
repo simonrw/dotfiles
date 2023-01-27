@@ -27,7 +27,7 @@ in
             (execAlways ''hsetroot -solid "#c2dced"'')
             (execAlways ''bash ~/.bin/set-keyboard'')
           ];
-        terminal = "${pkgs.kitty}/bin/kitty";
+        terminal = "${pkgs.alacritty}/bin/alacritty";
         menu = "${pkgs.rofi}/bin/rofi -show drun";
         window = {
           titlebar = false;
@@ -122,7 +122,7 @@ in
           "${mod}+Ctrl+Shift+E" = "exit";
 
           "${mod}+c" = "exec ${pkgs.google-chrome}/bin/google-chrome-stable";
-          "${mod}+Return" = "exec ${pkgs.kitty}/bin/kitty";
+          "${mod}+Return" = "exec ${pkgs.alacritty}/bin/alacritty";
           "${mod}+d" = "exec ${pkgs.rofi}/bin/rofi -show drun";
         };
       };

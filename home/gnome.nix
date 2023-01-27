@@ -8,7 +8,7 @@
     };
     "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1" = {
       binding = "<Alt><Super>t";
-      command = "sh -c 'wmctrl -x -a kitty || kitty'";
+      command = "sh -c 'wmctrl -x -a alacritty || alacritty'";
       name = "Terminal";
     };
     "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom2" = {

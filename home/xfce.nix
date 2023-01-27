@@ -26,7 +26,7 @@ let
         appName = "chromium";
       });
       "commands/custom/<Alt><Super>t" = (mkShortcut {
-        appName = "kitty";
+        appName = "alacritty";
       });
       "commands/custom/<Alt><Super>e" = (mkShortcut {
         appName = "obsidian";
