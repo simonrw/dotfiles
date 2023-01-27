@@ -120,6 +120,7 @@ in
         macos_option_as_alt = "yes";
         shell_integration = "disabled";
         cursor_blink_interval = "0";
+        disable_ligatures = "always";
       } // theme;
     };
   };
