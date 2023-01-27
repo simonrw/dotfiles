@@ -10,7 +10,7 @@ in
         modifier = mod;
         fonts = {
           names = [
-            "Input Mono"
+            "JetBrains Mono"
           ];
           style = "Regular";
           size = 11.0;
