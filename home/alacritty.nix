@@ -109,17 +109,17 @@ in
           {
             key = "F";
             mods = "Alt";
-            chars = "\x1bf";
+            chars = "\\x1bf";
           }
           {
             key = "B";
             mods = "Alt";
-            chars = "\x1bb";
+            chars = "\\x1bb";
           }
           {
             key = "D";
             mods = "Alt";
-            chars = "\x1bd";
+            chars = "\\x1bd";
 
           }
           {
