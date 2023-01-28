@@ -6,7 +6,6 @@ let
     jetbrains-mono
     iosevka
     ibm-plex
-    input-fonts
   ];
 in
 {

@@ -81,7 +81,6 @@
             inherit system;
             overlays = mkOverlays system;
             config.allowUnfree = true;
-            config.input-fonts.acceptLicense = true;
           };
         in
         name: nixpkgs.lib.nixosSystem {
@@ -126,7 +125,6 @@
                 inherit system;
                 overlays = mkOverlays system;
                 config.allowUnfree = true;
-                config.input-fonts.acceptLicense = true;
               };
             in
             {
@@ -161,7 +159,6 @@
           pkgs = import nixpkgs {
             inherit system overlays;
             config.allowUnfree = true;
-            config.input-fonts.acceptLicense = true;
           };
 
         in

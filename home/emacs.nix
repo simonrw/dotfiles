@@ -45,8 +45,8 @@ let
     (setq indent-tabs-mode nil)
     (setq-default tab-width 4)
 
-    (set-face-attribute 'default nil :family "Input Mono" :height 120)
-    (set-face-attribute 'fixed-pitch nil :family "Input Mono" :height 120)
+    (set-face-attribute 'default nil :family "JetBrains Mono" :height 120)
+    (set-face-attribute 'fixed-pitch nil :family "JetBrains Mono" :height 120)
     ;; (set-face-attribute 'variable-pitch nil :family "Cantarell" :height 120)
     (set-face-attribute 'default (selected-frame) :height 120)
 
