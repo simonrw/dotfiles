@@ -29,8 +29,6 @@ jobs:
             dependencies
             automated
           token: ${{ secrets.PIPELINE_TOKEN }}
-      - name: Build the new configuration
-        run: nix build '.#homeConfigurations.x86_64-linux.simon.activationPackage' -o result
       - name: Compute the diff
         run: |
           set -euo pipefail
