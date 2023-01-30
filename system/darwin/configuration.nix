@@ -63,7 +63,6 @@
       "inkscape"
       "karabiner-elements"
       "kitty"
-      "libreoffice"
       "notion"
       "obsidian"
       "pocket-casts"
