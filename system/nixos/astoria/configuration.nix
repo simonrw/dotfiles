@@ -175,6 +175,7 @@
     inkscape
     killall
     kitty
+    libreoffice
     mosh
     pavucontrol
     vim
