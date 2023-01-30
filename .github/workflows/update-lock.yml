@@ -19,8 +19,6 @@ jobs:
         with:
           name: '${{ secrets.CACHIX_NAME }}'
           authToken: '${{ secrets.CACHIX_AUTH_TOKEN }}'
-      - name: Build the previous configuration
-        run: nix build '.#homeConfigurations.x86_64-linux.simon.activationPackage' -o result-old
       - name: Update flake.lock
         uses: DeterminateSystems/update-flake-lock@v15
         with:
@@ -29,12 +27,3 @@ jobs:
             dependencies
             automated
           token: ${{ secrets.PIPELINE_TOKEN }}
-      - name: Compute the diff
-        run: |
-          set -euo pipefail
-          set -x
-
-          echo "# Package diff" > $GITHUB_STEP_SUMMARY
-          echo "\`\`\`" >> $GITHUB_STEP_SUMMARY
-          nix store diff-closures ./result-old ./result >> $GITHUB_STEP_SUMMARY
-          echo "\`\`\`" >> $GITHUB_STEP_SUMMARY
