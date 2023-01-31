@@ -199,9 +199,15 @@
             };
         }
       );
+      templates = {
+        each-system = {
+          path = ./templates/each-system;
+          description = "Wrapper around numtide/flake-utils#each-system";
+        };
+      };
     in
     nixOsConfigurations
       [
         "astoria"
-      ] // darwinConfigurations // perSystemConfigurations;
+      ] // darwinConfigurations // perSystemConfigurations // templates;
 }
