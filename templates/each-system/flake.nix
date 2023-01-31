@@ -31,7 +31,7 @@
               rust-analyzer
               clippy
               rustfmt
-            ] + pkgs.lib.optionals pkgs.stdenv.isDarwin [
+            ] ++ pkgs.lib.optionals pkgs.stdenv.isDarwin [
               libiconv
             ];
 
