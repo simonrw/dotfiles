@@ -4,7 +4,7 @@ let
     if config.dark-mode then
       '' 
       set background=dark
-      colorscheme srw256
+      colorscheme github_dark
       '' else ''
       set background=light
       colorscheme PaperColor

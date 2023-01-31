@@ -2,52 +2,41 @@
 let
   theme =
     if config.dark-mode then {
+      # github Alacritty Colors
+      # Default colors
       primary = {
-        background = "#07151a";
-        foreground = "#ffffff";
+        background = "0x24292e";
+        foreground = "0xd1d5da";
       };
+
+      # Normal colors
       normal = {
-        black = "0x616261";
-        red = "0xfd8272";
-        green = "0xb4fa73";
-        yellow = "0xfefcc3";
-        blue = "0xa5d5fe";
-        magenta = "0xfd8ffd";
-        cyan = "0xd0d1fe";
-        white = "0xf1f0f2";
+        black = "0x586069";
+        red = "0xea4a5a";
+        green = "0x34d058";
+        yellow = "0xffea7f";
+        blue = "0x2188ff";
+        magenta = "0xb392f0";
+        cyan = "0x39c5cf";
+        white = "0xd1d5da";
       };
+
+      # Bright colors
       bright = {
-        black = "0x8d8e8d";
-        red = "0xfec4bd";
-        green = "0xd6fcb9";
-        yellow = "0xfefdd5";
-        blue = "0xc1e3fe";
-        magenta = "0xfdb1fe";
-        cyan = "0xe5e6fe";
-        white = "0xfefffe";
+        black = "0x959da5";
+        red = "0xf97583";
+        green = "0x85e89d";
+        yellow = "0xffea7f";
+        blue = "0x79b8ff";
+        magenta = "0xb392f0";
+        cyan = "0x56d4dd";
+        white = "0xfafbfc";
       };
-      cursor = {
-        text = "#000000";
-        cursor = "#ffffff";
-      };
-      vi_mode_cusor = {
-        text = "#000000";
-        cursor = "#ffffff";
-      };
-      selection = {
-        text = "#eaeaea";
-        background = "#404040";
-      };
-      dim = {
-        black = "#131415";
-        red = "#864343";
-        green = "#777c44";
-        yellow = "#9e824c";
-        blue = "#556a7d";
-        magenta = "#75617b";
-        cyan = "#5b7d78";
-        white = "#828482";
-      };
+
+      indexed_colors = [
+        { index = 16; color = "0xd18616"; }
+        { index = 17; color = "0xf97583"; }
+      ];
     } else {
       primary = {
         foreground = "#444444";
