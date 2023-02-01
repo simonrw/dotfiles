@@ -5,8 +5,8 @@ let
       # github Alacritty Colors
       # Default colors
       primary = {
-        background = "0x24292e";
-        foreground = "0xedf0f2";
+        background = config.simonrw.colours.background;
+        foreground = config.simonrw.colours.foreground;
       };
 
       # Normal colors

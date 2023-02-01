@@ -7,6 +7,7 @@ in
   imports = [
     ./alacritty.nix
     ./bat.nix
+    ./colours.nix
     ./dark-mode.nix
     ./direnv.nix
     ./emacs.nix
