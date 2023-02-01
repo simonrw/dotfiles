@@ -7,6 +7,7 @@ let
       colorscheme github_dark
       " brighten normal text a bit
       hi Normal guifg=${config.simonrw.colours.foreground}
+      hi! link NormalNC Normal
       '' else ''
       set background=light
       colorscheme PaperColor
