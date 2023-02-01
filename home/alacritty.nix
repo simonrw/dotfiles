@@ -15,7 +15,7 @@ let
         red = "0xea4a5a";
         green = "0x34d058";
         yellow = "0xffea7f";
-        blue = "0x2188ff";
+        blue = "0x5f9fe8";
         magenta = "0xb392f0";
         cyan = "0x39c5cf";
         white = "0xd1d5da";
