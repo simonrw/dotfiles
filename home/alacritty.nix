@@ -6,7 +6,7 @@ let
       # Default colors
       primary = {
         background = "0x24292e";
-        foreground = "0xd1d5da";
+        foreground = "0xedf0f2";
       };
 
       # Normal colors
