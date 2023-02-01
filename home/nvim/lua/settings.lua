@@ -46,7 +46,6 @@ vim.opt.conceallevel = 0
 vim.opt.shortmess = 'tToOFIWa'
 -- -- Do not hide sign column
 vim.opt.signcolumn = 'yes'
-vim.opt.colorcolumn = { "80" }
 
 -- Sane splits
 vim.opt.splitright = true
