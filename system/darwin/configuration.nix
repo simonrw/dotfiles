@@ -69,6 +69,7 @@
       "pycharm-ce"
       "syncthing"
       "vlc"
+      "xquartz"
     ];
     masApps =
       {
