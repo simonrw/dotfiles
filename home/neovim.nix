@@ -5,6 +5,8 @@ let
       '' 
       set background=dark
       colorscheme github_dark
+      " brighten normal text a bit
+      hi Normal guifg=#edf0f2
       '' else ''
       set background=light
       colorscheme PaperColor
