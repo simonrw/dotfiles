@@ -58,10 +58,11 @@ in
     zsh
   ] ++ fonts ++ [
     # local packages
+    cargo-dist
     cftail
     listprojects
-    snslistener
     notify-wrapper
+    snslistener
   ] ++ (lib.optionals isDarwin [
     # macos only
     reattach-to-user-namespace

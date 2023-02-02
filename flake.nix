@@ -44,6 +44,7 @@
           notion = final.callPackage ./derivations/notion { };
           telegram-desktop = final.callPackage ./derivations/telegram-desktop { };
           nurl = nurl.packages.${system}.default;
+          cargo-dist = final.callPackage ./derivations/cargo-dist { };
           godot-beta =
             final.symlinkJoin {
               name = "godot-beta";
