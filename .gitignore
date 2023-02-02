@@ -1,3 +1,5 @@
 result
 home/nvim/plugin/packaer_compiled.lua
 /result*
+# built vm hdds
+*.qcow2
