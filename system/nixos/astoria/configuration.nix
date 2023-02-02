@@ -166,6 +166,7 @@
   # $ nix search wget
   environment.systemPackages = with pkgs; [
     alacritty
+    barrier
     chromium
     dig
     firefox
