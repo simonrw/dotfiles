@@ -171,6 +171,7 @@
     dig
     firefox
     git
+    godot-beta
     google-chrome
     groff
     heroic

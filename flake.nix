@@ -36,7 +36,7 @@
     }:
     let
       mkOverlays = system: [
-        (final: _: {
+        (final: prev: {
           listprojects = final.callPackage ./derivations/listprojects { };
           cftail = cftail.packages.${system}.default;
           snslistener = snslistener.packages.${system}.default;
@@ -44,6 +44,22 @@
           notion = final.callPackage ./derivations/notion { };
           telegram-desktop = final.callPackage ./derivations/telegram-desktop { };
           nurl = nurl.packages.${system}.default;
+          godot-beta =
+            final.symlinkJoin {
+              name = "godot-beta";
+              paths = [
+                final.godot_4
+              ];
+              buildInputs = [
+                final.makeWrapper
+              ];
+              postBuild = ''
+                wrapProgram $out/bin/godot \
+                  --set LD_LIBRARY_PATH /run/opengl-driver/lib:${final.lib.makeLibraryPath ([final.libGL final.libGLU])}
+
+                ${final.gnused}/bin/sed -i "s#Exec=.*#Exec=$out/bin/godot#" "$out/share/applications/org.godotengine.Godot.desktop"
+              '';
+            };
         })
         # override the version of xattr for poetry
         (
@@ -205,3 +221,4 @@
         "astoria"
       ] // darwinConfigurations // perSystemConfigurations;
 }
+
