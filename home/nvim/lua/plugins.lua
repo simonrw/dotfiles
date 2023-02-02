@@ -17,6 +17,7 @@ require('packer').startup({ function(use)
     use 'lepture/vim-velocity'
     use 'DingDean/wgsl.vim'
     use 'tweekmonster/django-plus.vim'
+    use 'terrastruct/d2-vim'
 
     use 'averms/black-nvim'
 
