@@ -35,7 +35,6 @@ in
     lsof
     mkcert
     multitail
-    ncdu
     nixpkgs-fmt
     nix-tree
     nodejs
