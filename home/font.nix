@@ -10,7 +10,6 @@ in
         "Fira Code"
         "Hack"
         "IBM Plex"
-        "Iosevka"
         "JetBrains Mono"
         "Source Code Pro"
       ];

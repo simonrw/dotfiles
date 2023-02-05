@@ -63,7 +63,6 @@
       source-code-pro
       fira-code
       jetbrains-mono
-      iosevka
       ibm-plex
     ];
   };

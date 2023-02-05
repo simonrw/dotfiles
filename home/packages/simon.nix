@@ -4,7 +4,6 @@ let
     source-code-pro
     fira-code
     jetbrains-mono
-    iosevka
     ibm-plex
   ];
 in
@@ -35,7 +34,6 @@ in
     lsof
     mkcert
     multitail
-    ncdu
     nixpkgs-fmt
     nix-tree
     nodejs
