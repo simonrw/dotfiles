@@ -34,8 +34,8 @@ in
     lsof
     mkcert
     multitail
-    nixpkgs-fmt
     nix-tree
+    nixpkgs-fmt
     nodejs
     noti
     nurl
@@ -51,6 +51,7 @@ in
     universal-ctags
     unzip
     vscode
+    watch
     wget
     zip
     zsh
