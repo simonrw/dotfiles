@@ -74,7 +74,6 @@ in
       vim-terraform
       rust-vim
       lualine-nvim
-      which-key-nvim
       papercolor-theme
       fidget-nvim
 
