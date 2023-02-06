@@ -10,6 +10,7 @@ if vim.g.include_treesitter == 1 then
 end
 
 require('gutentags')
+require('hardtime')
 
 -- plugins
 require('fzf')
