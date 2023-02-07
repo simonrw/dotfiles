@@ -49,6 +49,9 @@
       ];
       disabled-extensions = [ ];
     };
+    "org/gnome/shell/extensions/useless-gaps" = {
+      gap-size = "8";
+    };
   };
 }
 
