@@ -28,6 +28,10 @@
 
   networking.hostName = "astoria"; # Define your hostname.
   networking.enableIPv6 = false;
+  # add an extra host for debugging networking
+  networking.extraHosts = ''
+    127.0.0.1 extra-host
+  '';
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
   # Configure network proxy if necessary
