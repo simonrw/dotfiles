@@ -36,7 +36,6 @@ let
         gnome.adwaita-icon-theme
         gnome.gnome-tweaks
         gnomeExtensions.appindicator
-        gnomeExtensions.blur-my-shell
         xfce.xfce4-cpufreq-plugin
         xfce.xfce4-cpugraph-plugin
         xfce.xfce4-pulseaudio-plugin
@@ -59,6 +58,7 @@ let
       gnome.gnome-tweaks
       gnomeExtensions.appindicator
       gnomeExtensions.advanced-alttab-window-switcher
+      gnomeExtensions.blur-my-shell
     ];
 
     services.xserver.desktopManager.gnome.extraGSettingsOverrides = ''
