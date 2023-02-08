@@ -20,6 +20,7 @@ in
     viAlias = true;
     vimAlias = true;
     vimdiffAlias = true;
+    defaultEditor = true;
     withPython3 = true;
     extraPython3Packages = (ps: with ps; [
       pynvim
