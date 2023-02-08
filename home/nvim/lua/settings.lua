@@ -78,3 +78,6 @@ vim.opt.modeline = true
 vim.opt.lazyredraw = true
 
 vim.opt.background = 'dark'
+
+-- spelling
+vim.opt.spellfile = '~/.vimspell.en.utf-8.add'
