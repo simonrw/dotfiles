@@ -43,9 +43,10 @@
     "org/gnome/shell" = {
       disable-user-extensions = false;
       enabled-extensions = [
-        "drive-menu@gnome-shell-extensions.gcampax.github.com"
         "advanced-alt-tab@G-dH.github.com"
         "appindicatorsupport@rgcjonas.gmail.com"
+        "blur-my-shell@aunetx"
+        "drive-menu@gnome-shell-extensions.gcampax.github.com"
       ];
       disabled-extensions = [ ];
     };
