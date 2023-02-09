@@ -77,7 +77,6 @@ in
     obsidian
     pinentry-gtk2
     playerctl
-    rofi
     slack
     steam
     telegram-desktop

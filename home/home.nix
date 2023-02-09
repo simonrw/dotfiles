@@ -28,6 +28,7 @@ in
     ./packages/simon.nix
     ./tmux.nix
   ] ++ lib.optionals isLinux [
+    ./rofi.nix
     ./chromium.nix
     # ./kde.nix
     # ./xfce.nix
