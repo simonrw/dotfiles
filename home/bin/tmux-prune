@@ -19,6 +19,8 @@ def kill_session(name):
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument("-f", "--force", action="store_true", default=False)
+    parser.add_argument("-C", "--created", action="store_true", default=False,
+                        help="Use session created at rather than last activity")
     parser.add_argument(
         "-c",
         "--cutoff",
@@ -46,8 +48,11 @@ if __name__ == "__main__":
     logger.info(f"cutoff:\t{cutoff}")
 
     to_prune = []
+
+    timestamp_key = "session_created" if args.created else "session_activity"
+    cmd = ["tmux", "ls", "-F", "#S #{%s}" % timestamp_key]
     output = (
-        sp.check_output(["tmux", "ls", "-F", "#S #{session_activity}"])
+        sp.check_output(cmd)
         .decode()
         .split("\n")
     )
