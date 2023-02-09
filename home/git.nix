@@ -181,7 +181,7 @@
       ".vscode"
       # direnv stuff
       ".direnv"
-      ".envrc"
+      ".env"
       # Ignore coc.vim local vim dir
       ".vim"
       # In any project, we want to ignore the "scratch" subdirectories
