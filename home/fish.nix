@@ -101,7 +101,7 @@ in
                 # set -x DYLD_LIBRARY_PATH {$BUILD_PREFIX}/lib {$DYLD_LIBRARY_PATH}
                 #
                 # fix nix path
-                set -x PATH /etc/profiles/per-user/(whoami)/bin {$PATH}
+                set -x PATH /etc/profiles/per-user/(whoami)/bin {$PATH} /opt/homebrew/bin
   
                 if not type -q exa
                     if type -q gls
