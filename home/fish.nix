@@ -2,11 +2,12 @@
 let
   inherit (pkgs) lib;
 
-  colour-theme-text =
+  colour-theme-name =
     if
       config.dark-mode
-    then (builtins.readFile ./fish/dark-theme.fish)
-    else (builtins.readFile ./fish/light-theme.fish);
+    then "Just a Touch"
+    else
+      (throw "Light theme not configured yet");
 
   # style output of go "glamour" programs e.g. gh
   glamour-style = if config.dark-mode then "dark" else "light";
@@ -123,7 +124,10 @@ in
 
       # wrap tflocal completion
       complete -c tflocal -w terraform
-    '' + colour-theme-text;
+
+      # configure colour theme
+      fish_config theme choose "${colour-theme-name}"
+    '';
     shellAliases = {
       add-keys = ''ssh-add (find ~/.ssh - maxdepth 1 - type f - name "id_rsa*" | grep - v pub | grep - v bak)'';
       cat = "${pkgs.bat}/bin/bat";
