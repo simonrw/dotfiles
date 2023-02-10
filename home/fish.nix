@@ -5,7 +5,7 @@ let
   colour-theme-name =
     if
       config.dark-mode
-    then "Just a Touch"
+    then "Tomorrow Night Bright"
     else
       (throw "Light theme not configured yet");
 
