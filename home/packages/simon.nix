@@ -82,5 +82,6 @@ in
     telegram-desktop
     virt-manager
     zeal
+    zoom-us
   ]);
 }
