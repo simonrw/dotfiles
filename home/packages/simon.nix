@@ -71,6 +71,7 @@ in
     # linux only
     _1password-gui
     element-desktop
+    gimp
     insomnia
     jetbrains.pycharm-community
     notion
