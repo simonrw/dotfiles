@@ -16,8 +16,6 @@
     snslistener.inputs.nixpkgs.follows = "nixpkgs";
     tree-grepper.url = "github:simonrw/tree-grepper";
     tree-grepper.inputs.nixpkgs.follows = "nixpkgs";
-    nurl.url = "github:nix-community/nurl";
-    nurl.inputs.nixpkgs.follows = "nixpkgs";
     jetbrains-updater.url = "gitlab:genericnerdyusername/jetbrains-updater";
     jetbrains-updater.inputs.nixpkgs.follows = "nixpkgs";
   };
@@ -30,7 +28,6 @@
     , cftail
     , snslistener
     , tree-grepper
-    , nurl
     , jetbrains-updater
     , ...
     }:
@@ -43,7 +40,6 @@
           notify-wrapper = final.callPackage ./derivations/notify-wrapper { };
           notion = final.callPackage ./derivations/notion { };
           telegram-desktop = final.callPackage ./derivations/telegram-desktop { };
-          nurl = nurl.packages.${system}.default;
           cargo-dist = final.callPackage ./derivations/cargo-dist { };
           godot-beta =
             final.symlinkJoin {
