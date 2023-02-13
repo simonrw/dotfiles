@@ -67,6 +67,7 @@
       "obsidian"
       "pocket-casts"
       "pycharm-ce"
+      "shotcut"
       "syncthing"
       "vlc"
       "xquartz"

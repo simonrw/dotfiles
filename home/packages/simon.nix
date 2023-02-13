@@ -78,6 +78,7 @@ in
     obsidian
     pinentry-gtk2
     playerctl
+    shotcut
     slack
     steam
     telegram-desktop
