@@ -33,7 +33,7 @@
     extraConfig = with pkgs;
       let
         colourschemeFile =
-          if config.dark-mode then
+          if config.me.dark-mode then
             ./tmux/dark-colourscheme.conf
           else ./tmux/light-colourscheme.conf;
 

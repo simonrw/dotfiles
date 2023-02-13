@@ -11,7 +11,7 @@ let
     in
     ''${pkgs.bash}/bin/bash -c "${pkgs.wmctrl}/bin/wmctrl -x -a ${appName} || ${package'}/bin/${binName'}"'';
 
-  theme = if config.dark-mode then "Adwaita-dark" else "Adwaita";
+  theme = if config.me.dark-mode then "Adwaita-dark" else "Adwaita";
 
   settings = {
     xsettings = {
@@ -19,7 +19,7 @@ let
       "Gtk/KeyThemeName" = "Emacs";
     };
     xfce4-panel = {
-      "panels/dark-mode" = config.dark-mode;
+      "panels/dark-mode" = config.me.dark-mode;
     };
     xfce4-keyboard-shortcuts = {
       "commands/custom/<Alt><Super>c" = (mkShortcut {

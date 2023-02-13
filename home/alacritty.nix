@@ -1,7 +1,7 @@
 { config, ... }:
 let
   theme =
-    if config.dark-mode then {
+    if config.me.dark-mode then {
       # github Alacritty Colors
       # Default colors
       primary = {
@@ -83,15 +83,6 @@ in
         window.dimensions = {
           columns = 120;
           lines = 40;
-        };
-        font.size = 12.0;
-        font.normal = {
-          family = config.editor-font;
-          style = "Regular";
-        };
-        font.italic = {
-          family = config.editor-font;
-          style = "Regular";
         };
         colors = theme;
         "key_bindings" = [

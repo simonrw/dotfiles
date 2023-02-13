@@ -81,7 +81,7 @@
     delta = {
       enable = true;
       options =
-        if config.dark-mode then {
+        if config.me.dark-mode then {
           side-by-side = false;
           diff-so-fancy = true;
         } else {

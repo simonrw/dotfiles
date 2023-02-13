@@ -48,8 +48,11 @@ in
   };
 
   # custom properties
-  dark-mode = true;
-  editor-font = "JetBrains Mono";
+  me = {
+    dark-mode = true;
+    font-name = "Inconsolata";
+    font-size = 12.0;
+  };
 
   home.file = {
     ".bin" = {

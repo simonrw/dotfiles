@@ -1,11 +1,12 @@
 { pkgs, lib, isLinux, isDarwin, ... }:
 let
-  fonts = with pkgs; [
-    source-code-pro
-    fira-code
-    jetbrains-mono
-    ibm-plex
-  ];
+  # fonts = with pkgs; [
+  #   source-code-pro
+  #   fira-code
+  #   jetbrains-mono
+  #   ibm-plex
+  #   inconsolata
+  # ];
 in
 {
   home.packages = with pkgs; [
@@ -38,7 +39,6 @@ in
     nixpkgs-fmt
     nodejs
     noti
-    nurl
     openssh
     pre-commit
     pyright
@@ -55,7 +55,7 @@ in
     wget
     zip
     zsh
-  ] ++ fonts ++ [
+  ] ++ [
     # local packages
     cargo-dist
     cftail

@@ -4,13 +4,13 @@ let
 
   colour-theme-name =
     if
-      config.dark-mode
+      config.me.dark-mode
     then "Tomorrow Night Bright"
     else
       (throw "Light theme not configured yet");
 
   # style output of go "glamour" programs e.g. gh
-  glamour-style = if config.dark-mode then "dark" else "light";
+  glamour-style = if config.me.dark-mode then "dark" else "light";
 
   # the complete neovim package
   neovim = config.programs.neovim.finalPackage;

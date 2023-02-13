@@ -4,7 +4,7 @@
     enable = true;
 
     config = {
-      theme = if config.dark-mode then "Monokai Extended" else "GitHub";
+      theme = if config.me.dark-mode then "Monokai Extended" else "GitHub";
       style = "plain";
     };
   };

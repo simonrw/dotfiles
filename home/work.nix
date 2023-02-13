@@ -83,7 +83,7 @@ in
     configFile."alacritty/alacritty.yml" =
       let
         theme =
-          if config.dark-mode
+          if config.me.dark-mode
           then "colors_default"
           else "colors_papercolor";
 

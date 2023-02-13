@@ -13,7 +13,7 @@ with lib;
   };
   config = {
     simonrw.colours =
-      if config.dark-mode then {
+      if config.me.dark-mode then {
         foreground = "#edf0f2";
         background = "#24292e";
       } else { };

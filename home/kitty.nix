@@ -88,11 +88,9 @@ let
   };
 
   theme =
-    if config.dark-mode
+    if config.me.dark-mode
     then dark-theme
     else light-theme;
-
-  font = config.editor-font;
 in
 {
   config = {
@@ -100,8 +98,6 @@ in
       # kitty is broken on macos CI
       enable = !pkgs.kitty.meta.broken;
       settings = {
-        font_family = font;
-        font_size = "10.0";
         background_opacity = "1.0";
         cursor_shape = "block";
         select_by_word_characters = ":@-./_~?&=%+#";

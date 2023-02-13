@@ -33,7 +33,6 @@
     nodejs
     noti
     notion
-    nurl
     obsidian
     openssh
     pinentry-gtk2

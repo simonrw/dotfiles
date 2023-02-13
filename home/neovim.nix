@@ -1,7 +1,7 @@
 { config, pkgs, ... }:
 let
   dark-mode-config =
-    if config.dark-mode then
+    if config.me.dark-mode then
       '' 
       set background=dark
       colorscheme github_dark

@@ -10,7 +10,7 @@
       "--no-mouse"
       "--tabstop 4"
       "--inline-info"
-    ] ++ (if config.dark-mode then [ "--color dark" ] else [ "--color light" ]);
+    ] ++ (if config.me.dark-mode then [ "--color dark" ] else [ "--color light" ]);
     tmux.enableShellIntegration = true;
   };
 }
