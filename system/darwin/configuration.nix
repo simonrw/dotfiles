@@ -19,6 +19,7 @@
       jetbrains-mono
       fira-code
       source-code-pro
+      inconsolata
     ];
   };
 
