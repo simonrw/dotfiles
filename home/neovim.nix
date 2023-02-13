@@ -79,7 +79,6 @@ in
       fidget-nvim
 
       lsp-format-nvim
-      lsp_signature-nvim
 
       # treesitter
       nvim-treesitter.withAllGrammars

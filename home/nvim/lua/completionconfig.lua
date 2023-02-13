@@ -1,7 +1,6 @@
 -- imports
 local lsp = require('lsp-zero')
 local lsp_format = require('lsp-format')
-local lsp_signature = require('lsp_signature')
 
 lsp_format.setup {}
 
@@ -20,12 +19,6 @@ local cmp_mappings = lsp.defaults.cmp_mappings({
 lsp.setup_nvim_cmp({
     mapping = cmp_mappings,
 })
-
-local signature_setup = {
-    handler_opts = {
-        border = "none",
-    },
-}
 
 lsp.on_attach(function(client, bufnr)
     -- mappings
@@ -49,8 +42,6 @@ lsp.on_attach(function(client, bufnr)
     vim.keymap.set("i", "<C-h>", function() vim.lsp.buf.signature_help() end, opts)
 
     vim.keymap.set("n", "<C-Space>", [[<Plug>(completion_trigger)]], opts)
-
-    lsp_signature.on_attach(signature_setup, bufnr)
 
     return lsp_format.on_attach(client)
 end)
