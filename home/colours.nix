@@ -2,7 +2,7 @@
 with lib;
 {
   options = {
-    simonrw.colours = {
+    me.colours = {
       foreground = mkOption {
         type = types.str;
       };
@@ -12,7 +12,7 @@ with lib;
     };
   };
   config = {
-    simonrw.colours =
+    me.colours =
       if config.me.dark-mode then {
         foreground = "#edf0f2";
         background = "#24292e";
