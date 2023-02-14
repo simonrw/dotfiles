@@ -13,6 +13,7 @@ in
         "JetBrains Mono"
         "Source Code Pro"
         "Inconsolata"
+        "MesloLGS NF"
       ];
       description = ''
         Which font to use
@@ -30,6 +31,8 @@ in
     let
       font-package = {
         "Inconsolata" = pkgs.inconsolata;
+        "JetBrains Mono" = pkgs.jetbrains-mono;
+        "MesloLGS NF" = pkgs.meslo-lgs-nf;
       }.${cfg.font-name};
     in
     {
@@ -42,8 +45,6 @@ in
         italic.style = "Regular";
       };
       programs.alacritty.settings.font.size = cfg.font-size;
-      programs.kitty.settings.font_family = cfg.font-name;
-      programs.kitty.settings.font_size = builtins.toString cfg.font-size;
 
       home.packages = [
         font-package

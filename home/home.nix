@@ -21,7 +21,6 @@ in
     ./helix.nix
     ./home-manager.nix
     ./jq.nix
-    ./kitty.nix
     ./mpv.nix
     ./neovim.nix
     ./nix-index.nix
@@ -50,8 +49,9 @@ in
   # custom properties
   me = {
     dark-mode = true;
-    font-name = "Inconsolata";
+    font-name = "MesloLGS NF";
     font-size = 12.0;
+    theme = "github";
   };
 
   home.file = {

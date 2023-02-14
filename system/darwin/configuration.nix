@@ -63,7 +63,6 @@
       "hammerspoon"
       "inkscape"
       "karabiner-elements"
-      "kitty"
       "notion"
       "obsidian"
       "pocket-casts"

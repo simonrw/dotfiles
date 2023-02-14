@@ -1,19 +1,4 @@
 { config, pkgs, ... }:
-let
-  dark-mode-config =
-    if config.me.dark-mode then
-      '' 
-      set background=dark
-      colorscheme github_dark
-      " brighten normal text a bit
-      hi Normal guifg=${config.simonrw.colours.foreground}
-      hi! link NormalNC Normal
-      '' else ''
-      set background=light
-      colorscheme PaperColor
-      hi TreesitterContext guibg=#dddddd
-    '';
-in
 {
   programs.neovim = {
     enable = true;
@@ -28,23 +13,6 @@ in
     ]);
     extraConfig = ''
       source ~/.config/nvim/nixinit.vim
-    '' + dark-mode-config + ''
-      hi Normal guibg=none
-      let g:linenr_background = 'none'
-      execute 'highlight TelescopeNormal guibg=' . g:linenr_background
-      execute 'highlight LineNr guibg=' . g:linenr_background
-      execute 'highlight SignColumn guibg=' . g:linenr_background
-      execute 'highlight GitGutterAdd guibg=' . g:linenr_background
-      execute 'highlight GitGutterDelete guibg=' . g:linenr_background
-      execute 'highlight GitGutterChange guibg=' . g:linenr_background
-      highlight TabLine guibg=none
-      highlight TabLineSel guibg=none
-      highlight TabLineFill guibg=none
-      execute 'highlight DiagnosticSignError ctermfg=1 guifg=Red guibg=' . g:linenr_background
-      execute 'highlight DiagnosticSignHint ctermfg=7 guifg=LightGrey guibg=' . g:linenr_background
-      execute 'highlight DiagnosticSignInfo ctermfg=4 guifg=LightBlue guibg=' . g:linenr_background
-      execute 'highlight DiagnosticSignWarn ctermfg=3 guifg=Orange guibg=' . g:linenr_background
-      highlight DiagnosticUnderlineHint guifg=Grey guisp=Grey
     '';
     plugins = with pkgs.vimPlugins; [
       vim-nix
@@ -77,6 +45,7 @@ in
       lualine-nvim
       papercolor-theme
       fidget-nvim
+      nvim-base16
 
       lsp-format-nvim
 

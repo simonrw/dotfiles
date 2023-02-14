@@ -16,7 +16,6 @@ in
     ./helix.nix
     ./home-manager.nix
     ./jq.nix
-    ./kitty.nix
     ./neovim.nix
     ./nix-index.nix
     ./tmux.nix

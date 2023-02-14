@@ -14,6 +14,8 @@ let
     epkgs.eglot
     epkgs.blacken
     epkgs.direnv
+    epkgs.rustic
+    epkgs.evil
   ]);
   extraConfig = ''
     (blink-cursor-mode 0)
@@ -59,8 +61,20 @@ let
     (add-hook 'python-mode-hook 'eglot-ensure)
     (add-hook 'rust-mode-hook 'eglot-ensure)
 
-    ;; blacken
+    ;; use direnv
+    (direnv-mode)
+
+    ;; Blacken
     (add-hook 'python-mode-hook 'blacken-mode)
+
+    ;; of course vim
+    (evil-mode)
+
+    ;; better rust
+    (setq rustic-lsp-client 'eglot)
+
+    ;; theming
+    (load-theme 'wombat)
   '';
 in
 {
