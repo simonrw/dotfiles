@@ -30,6 +30,7 @@ in
     let
       font-package = {
         "Inconsolata" = pkgs.inconsolata;
+        "JetBrains Mono" = pkgs.jetbrains-mono;
       }.${cfg.font-name};
     in
     {
