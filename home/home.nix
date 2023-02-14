@@ -51,6 +51,7 @@ in
     dark-mode = true;
     font-name = "Inconsolata";
     font-size = 12.0;
+    theme = "github";
   };
 
   home.file = {

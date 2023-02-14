@@ -1,77 +1,4 @@
 { config, ... }:
-let
-  theme =
-    if config.me.dark-mode then {
-      # github Alacritty Colors
-      # Default colors
-      primary = {
-        background = config.me.colours.background;
-        foreground = config.me.colours.foreground;
-      };
-
-      # Normal colors
-      normal = {
-        black = "0x586069";
-        red = "0xea4a5a";
-        green = "0x34d058";
-        yellow = "0xffea7f";
-        blue = "0x5f9fe8";
-        magenta = "0xb392f0";
-        cyan = "0x39c5cf";
-        white = "0xd1d5da";
-      };
-
-      # Bright colors
-      bright = {
-        black = "0x959da5";
-        red = "0xf97583";
-        green = "0x85e89d";
-        yellow = "0xffea7f";
-        blue = "0x79b8ff";
-        magenta = "0xb392f0";
-        cyan = "0x56d4dd";
-        white = "0xfafbfc";
-      };
-
-      indexed_colors = [
-        { index = 16; color = "0xd18616"; }
-        { index = 17; color = "0xf97583"; }
-      ];
-    } else {
-      primary = {
-        foreground = "#444444";
-        background = "#f7f7f7";
-      };
-      normal = {
-        black = "0xeeeeee";
-        red = "0xaf0000";
-        green = "0x008700";
-        yellow = "0x5f8700";
-        blue = "0x0087af";
-        magenta = "0x878787";
-        cyan = "0x005f87";
-        white = "0x444444";
-      };
-      bright = {
-        black = "0xbcbcbc";
-        red = "0xd70000";
-        green = "0xd70087";
-        yellow = "0x8700af";
-        blue = "0xd75f00";
-        magenta = "0xfdb1fe";
-        cyan = "0x005faf";
-        white = "0x005f87";
-      };
-      cursor = {
-        text = "#eeeeee";
-        cursor = "#444444";
-      };
-      vi_mode_cusor = {
-        text = "#eeeeee";
-        cursor = "#444444";
-      };
-    };
-in
 {
   config = {
     programs.alacritty = {
@@ -84,7 +11,6 @@ in
           columns = 120;
           lines = 40;
         };
-        colors = theme;
         "key_bindings" = [
           {
             key = "F";
