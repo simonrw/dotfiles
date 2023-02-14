@@ -42,8 +42,6 @@ in
         italic.style = "Regular";
       };
       programs.alacritty.settings.font.size = cfg.font-size;
-      programs.kitty.settings.font_family = cfg.font-name;
-      programs.kitty.settings.font_size = builtins.toString cfg.font-size;
 
       home.packages = [
         font-package
