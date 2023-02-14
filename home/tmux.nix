@@ -32,14 +32,8 @@
     ];
     extraConfig = with pkgs;
       let
-        colourschemeFile =
-          if config.me.dark-mode then
-            ./tmux/dark-colourscheme.conf
-          else ./tmux/light-colourscheme.conf;
-
         commonFiles = with builtins; [
           (readFile ./tmux/tmux.conf)
-          (readFile colourschemeFile)
         ];
 
         darwinFiles = lib.optionals isDarwin [
