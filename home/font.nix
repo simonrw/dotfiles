@@ -13,6 +13,7 @@ in
         "JetBrains Mono"
         "Source Code Pro"
         "Inconsolata"
+        "MesloLGS NF"
       ];
       description = ''
         Which font to use
@@ -31,6 +32,7 @@ in
       font-package = {
         "Inconsolata" = pkgs.inconsolata;
         "JetBrains Mono" = pkgs.jetbrains-mono;
+        "MesloLGS NF" = pkgs.meslo-lgs-nf;
       }.${cfg.font-name};
     in
     {

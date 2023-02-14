@@ -49,7 +49,7 @@ in
   # custom properties
   me = {
     dark-mode = true;
-    font-name = "JetBrains Mono";
+    font-name = "MesloLGS NF";
     font-size = 12.0;
     theme = "github";
   };
