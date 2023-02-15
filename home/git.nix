@@ -82,10 +82,11 @@
       enable = true;
       options =
         if config.me.dark-mode then {
-          side-by-side = false;
-          diff-so-fancy = true;
+          side-by-side = true;
+          diff-so-fancy = false;
+          syntax-theme = "zenburn";
         } else {
-          side-by-side = false;
+          side-by-side = true;
           diff-so-fancy = false;
           syntax-theme = "GitHub";
         };
