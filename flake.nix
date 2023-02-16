@@ -41,22 +41,6 @@
           notion = final.callPackage ./derivations/notion { };
           telegram-desktop = final.callPackage ./derivations/telegram-desktop { };
           cargo-dist = final.callPackage ./derivations/cargo-dist { };
-          godot-beta =
-            final.symlinkJoin {
-              name = "godot-beta";
-              paths = [
-                final.godot_4
-              ];
-              buildInputs = [
-                final.makeWrapper
-              ];
-              postBuild = ''
-                wrapProgram $out/bin/godot \
-                  --set LD_LIBRARY_PATH /run/opengl-driver/lib:${final.lib.makeLibraryPath ([final.libGL final.libGLU])}
-
-                ${final.gnused}/bin/sed -i "s#Exec=.*#Exec=$out/bin/godot#" "$out/share/applications/org.godotengine.Godot.desktop"
-              '';
-            };
         })
         # override the version of xattr for poetry
         (
