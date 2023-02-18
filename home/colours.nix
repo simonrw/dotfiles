@@ -78,6 +78,70 @@ let
         { index = 17; color = "#f97583"; }
       ];
     };
+    srw = rec {
+      # Default colors
+      primary = {
+        background = "#07151a";
+        foreground = "#ffffff";
+      };
+
+      tmux-colour = normal.blue;
+
+      # Normal colors
+      normal = {
+        black = "#616261";
+        red = "#fd8272";
+        green = "#b4fa73";
+        yellow = "#fefcc3";
+        blue = "#a5d5fe";
+        magenta = "#fd8ffd";
+        cyan = "#d0d1fe";
+        white = "#f1f0f2";
+      };
+
+      # Bright colors
+      bright = {
+        black = "#8d8e8d";
+        red = "#fec4bd";
+        green = "#d6fcb9";
+        yellow = "#fefdd5";
+        blue = "#c1e3fe";
+        magenta = "#fdb1fe";
+        cyan = "#e5e6fe";
+        white = "#fefffe";
+      };
+
+      # Cursor colors
+      cursor = {
+        text = "#000000";
+        cursor = "#ffffff";
+      };
+
+      # Vi mode cursor colors
+      vi_mode_cursor = {
+        text = "#000000";
+        cursor = "#ffffff";
+      };
+
+      # Selection colors
+      selection = {
+        text = "#eaeaea";
+        background = "#404040";
+      };
+
+      # Dim colors
+      dim = {
+        black = "#131415";
+        red = "#864343";
+        green = "#777c44";
+        yellow = "#9e824c";
+        blue = "#556a7d";
+        magenta = "#75617b";
+        cyan = "#5b7d78";
+        white = "#828482";
+      };
+
+    };
   };
   neovim-theme-blocks = {
     github = ''
@@ -93,6 +157,26 @@ let
       highlight Comment guifg=#e69340   " brighten comments
       highlight TSComment guifg=#e69340   " brighten comments
     '';
+    srw = ''
+      set background=dark
+      colorscheme srw256
+      hi Normal guibg=none
+      let g:linenr_background = 'none'
+      execute 'highlight TelescopeNormal guibg=' . g:linenr_background
+      execute 'highlight LineNr guibg=' . g:linenr_background
+      execute 'highlight SignColumn guibg=' . g:linenr_background
+      execute 'highlight GitGutterAdd guibg=' . g:linenr_background
+      execute 'highlight GitGutterDelete guibg=' . g:linenr_background
+      execute 'highlight GitGutterChange guibg=' . g:linenr_background
+      highlight TabLine guibg=none
+      highlight TabLineSel guibg=none
+      highlight TabLineFill guibg=none
+      execute 'highlight DiagnosticSignError ctermfg=1 guifg=Red guibg=' . g:linenr_background
+      execute 'highlight DiagnosticSignHint ctermfg=7 guifg=LightGrey guibg=' . g:linenr_background
+      execute 'highlight DiagnosticSignInfo ctermfg=4 guifg=LightBlue guibg=' . g:linenr_background
+      execute 'highlight DiagnosticSignWarn ctermfg=3 guifg=Orange guibg=' . g:linenr_background
+      highlight DiagnosticUnderlineHint guifg=Grey guisp=Grey
+    '';
   };
 
   tmux-primary-colour = themes.${config.me.theme}.tmux-colour;
@@ -105,6 +189,7 @@ with lib;
     me.theme = mkOption {
       type = types.enum [
         "github"
+        "srw"
         "gruvbox"
       ];
     };
