@@ -14,8 +14,6 @@
     cftail.inputs.nixpkgs.follows = "nixpkgs";
     snslistener.url = "github:simonrw/aws-event-listener";
     snslistener.inputs.nixpkgs.follows = "nixpkgs";
-    tree-grepper.url = "github:simonrw/tree-grepper";
-    tree-grepper.inputs.nixpkgs.follows = "nixpkgs";
     jetbrains-updater.url = "gitlab:genericnerdyusername/jetbrains-updater";
     jetbrains-updater.inputs.nixpkgs.follows = "nixpkgs";
   };
@@ -27,7 +25,6 @@
     , home-manager
     , cftail
     , snslistener
-    , tree-grepper
     , jetbrains-updater
     , ...
     }:
@@ -67,7 +64,6 @@
             ]);
           }
         )
-        tree-grepper.overlay.${system}
         jetbrains-updater.overlay
       ];
       mkNixOSConfiguration =
