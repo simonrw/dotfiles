@@ -49,7 +49,7 @@ in
   # custom properties
   me = {
     dark-mode = true;
-    font-name = "MesloLGS NF";
+    font-name = "Inconsolata";
     font-size = 12.0;
     theme = "srw";
   };
