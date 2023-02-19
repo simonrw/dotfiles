@@ -16,7 +16,6 @@
     '';
     plugins = with pkgs.vimPlugins; [
       vim-nix
-      vim-hardtime
       # pkgs.vimPlugins.skim
       # skim-vim
       vim-surround
