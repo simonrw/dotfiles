@@ -51,7 +51,7 @@ in
     dark-mode = true;
     font-name = "MesloLGS NF";
     font-size = 12.0;
-    theme = "srw";
+    theme = "github";
   };
 
   home.file = {
