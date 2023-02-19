@@ -47,7 +47,6 @@
     rofi
     slack
     telegram-desktop
-    tree-grepper
     universal-ctags
     unzip
     virt-manager

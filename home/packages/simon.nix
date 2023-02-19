@@ -47,7 +47,6 @@ in
     python3.pkgs.send2trash
     python3.pkgs.virtualenv
     ripgrep
-    tree-grepper
     universal-ctags
     unzip
     vscode
