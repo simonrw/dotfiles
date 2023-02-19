@@ -3,6 +3,7 @@ let
   themes = {
     gruvbox = rec {
       tmux-colour = normal.yellow;
+      fish-theme = (throw "not set");
 
       primary = {
         background = "#1d2021";
@@ -48,6 +49,7 @@ let
       };
 
       tmux-colour = normal.blue;
+      fish-theme = "Tomorrow Night Bright";
 
       # Normal colors
       normal = {
@@ -86,6 +88,7 @@ let
       };
 
       tmux-colour = normal.blue;
+      fish-theme = "fish default";
 
       # Normal colors
       normal = {
@@ -181,6 +184,7 @@ let
 
   tmux-primary-colour = themes.${config.me.theme}.tmux-colour;
   tmux-background-colour = themes.${config.me.theme}.primary.background;
+  fish-theme = themes.${config.me.theme}.fish-theme;
 in
 with lib;
 
@@ -195,6 +199,10 @@ with lib;
     };
   };
   config = {
+    programs.fish.interactiveShellInit = ''
+      # configure colour theme
+      fish_config theme choose "${fish-theme}"
+    '';
     programs.alacritty.settings.colors = themes.${config.me.theme};
     programs.neovim.extraConfig = neovim-theme-blocks.${config.me.theme};
     programs.tmux.extraConfig = ''
