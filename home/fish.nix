@@ -151,7 +151,7 @@ in
       tl = "tmux-last";
       trash = "${pkgs.python3Packages.send2trash}/bin/send2trash";
       tree = "${pkgs.exa}/bin/exa -T";
-      vup = "${pkgs.neovim}/bin/nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'";
+      vup = "${neovim}/bin/nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'";
     } // lib.optionalAttrs isLinux {
       pbcopy = "${pkgs.xclip}/bin/xclip -selection clipboard";
       pbpaste = "${pkgs.xclip}/bin/xclip -selection clipboard -o";
