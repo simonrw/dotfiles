@@ -127,6 +127,11 @@ in
       curl = "${pkgs.curlie}/bin/curlie";
       da = "${pkgs.direnv}/bin/direnv allow";
       de = "${pkgs.direnv}/bin/direnv edit";
+      # docker compose
+      dcd = "${pkgs.docker}/bin/docker compose down";
+      dce = "${pkgs.docker}/bin/docker compose exec";
+      dcr = "${pkgs.docker}/bin/docker compose run";
+      dcu = "${pkgs.docker}/bin/docker compose up";
       es = ''exec $SHELL'';
       gpe = "${pkgs.git}/bin/git push && exit";
       gpr = "${pkgs.git}/bin/git pull --rebase";
