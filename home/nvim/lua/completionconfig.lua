@@ -16,10 +16,6 @@ local cmp_mappings = lsp.defaults.cmp_mappings({
     ['<C-e>'] = cmp.config.disable,
 })
 
-lsp.setup_nvim_cmp({
-    mapping = cmp_mappings,
-})
-
 lsp.on_attach(function(client, bufnr)
     -- mappings
     local opts = { buffer = bufnr, remap = false }
@@ -53,6 +49,12 @@ lsp.set_preferences({
 
 -- remove snippets
 lsp.setup_nvim_cmp({
+    mapping = cmp_mappings,
+    preselect = 'none',
+    completion = {
+        completeopt = 'menu,menuone,noinsert,noselect',
+        autocomplete = false,
+    },
     sources = {
         { name = 'path' },
         { name = 'nvim_lsp' },
