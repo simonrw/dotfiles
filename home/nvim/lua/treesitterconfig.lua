@@ -5,6 +5,9 @@ local function setup()
         highlight = {
             enable = true,
             use_languagetree = true,
+            disable = {
+                "gitcommit",
+            },
         },
         indent = {
             enable = false,
