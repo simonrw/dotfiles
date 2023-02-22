@@ -27,7 +27,9 @@
       name = "Documentation";
     };
     "org/gnome/settings-daemon/plugins/media-keys" = {
+      previous = [ "<Super>F7" ];
       play = [ "<Super>F8" ];
+      next = [ "<Super>F9" ];
       volume-down = [ "<Super>F11" ];
       volume-up = [ "<Super>F12" ];
     };
