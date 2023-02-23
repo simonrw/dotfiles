@@ -83,8 +83,7 @@
       options =
         if config.me.dark-mode then {
           side-by-side = false;
-          diff-so-fancy = false;
-          syntax-theme = "zenburn";
+          diff-so-fancy = true;
         } else {
           side-by-side = false;
           diff-so-fancy = false;
