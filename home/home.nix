@@ -49,7 +49,7 @@ in
   # custom properties
   me = {
     dark-mode = true;
-    font-name = "Inconsolata";
+    font-name = "JetBrains Mono";
     font-size = 12.0;
     theme = "srw";
   };
