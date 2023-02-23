@@ -1,6 +1,3 @@
-require('illuminate').configure({
-    -- instant appearance
-    delay = 0,
-})
+require('illuminate').configure()
 
 -- highlight configuration is set up in after/plugin/illuminateconfig.vim
