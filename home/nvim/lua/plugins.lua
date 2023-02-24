@@ -22,20 +22,6 @@ require('packer').startup({ function(use)
     use 'averms/black-nvim'
 
     use {
-        'pwntester/octo.nvim',
-        requires = {
-            'nvim-lua/plenary.nvim',
-            'nvim-telescope/telescope.nvim',
-        },
-        config = function()
-            require('octo').setup({
-                file_panel = {
-                    icons = false,
-                },
-            })
-        end,
-    }
-    use {
         'VonHeikemen/lsp-zero.nvim',
         requires = {
             -- LSP Support
