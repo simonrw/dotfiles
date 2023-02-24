@@ -22,6 +22,9 @@ local function setup()
                     ["ac"] = "@class.outer",
                     ["ic"] = "@class.inner",
                 },
+                include_surrounding_whitespace = function(query_string, selection_mode)
+                    return query_string == "@function.outer" or query_string == "@class.outer"
+                end,
             },
         },
     }
