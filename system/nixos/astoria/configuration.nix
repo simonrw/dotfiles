@@ -11,6 +11,7 @@
       ./hardware-configuration.nix
       ./syncthing.nix
       ./yubikey.nix
+      ./logitech.nix
       ./wm.nix
     ];
 
