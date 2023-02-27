@@ -186,7 +186,7 @@ bar {
 set $font "Noto Sans Mono Regular"
 font pango:$font 10
 
-bindsym $mod+c exec firefox
+bindsym $mod+c exec google-chrome-stable
 
 # start a terminal
 bindsym $mod+Return exec alacritty
