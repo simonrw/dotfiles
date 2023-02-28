@@ -3,7 +3,7 @@
   programs.helix = {
     enable = true;
     settings = {
-      theme = if config.me.dark-mode then "srw" else "onelight";
+      theme = if config.me.dark-mode then "monokai" else "onelight";
       editor = {
         line-number = "relative";
         auto-pairs = false;
