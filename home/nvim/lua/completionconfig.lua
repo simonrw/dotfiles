@@ -50,11 +50,6 @@ lsp.set_preferences({
 -- remove snippets
 lsp.setup_nvim_cmp({
     mapping = cmp_mappings,
-    preselect = 'none',
-    completion = {
-        completeopt = 'menu,menuone,noinsert,noselect',
-        autocomplete = false,
-    },
     sources = {
         { name = 'path' },
         { name = 'nvim_lsp' },
