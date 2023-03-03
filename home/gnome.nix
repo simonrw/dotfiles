@@ -13,7 +13,7 @@
     };
     "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom2" = {
       binding = "<Alt><Super>c";
-      command = "sh -c 'wmctrl -x -a google-chrome || google-chrome-stable'";
+      command = "sh -c 'wmctrl -x -a brave || brave'";
       name = "Browser";
     };
     "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom3" = {
