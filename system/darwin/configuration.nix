@@ -54,7 +54,6 @@
       "alacritty"
       "alfred"
       "barrier"
-      "brave"
       "dash"
       "docker"
       "element"

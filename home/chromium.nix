@@ -3,7 +3,7 @@
   config = {
     programs.chromium = {
       enable = true;
-      package = pkgs.brave;
+      package = pkgs.google-chrome;
       extensions = [
         "aeblfdkhhhdcdjpifhhbdiojplfjncoa" # 1password
         "cjpalhdlnbpafiamejdnhcphjbkeiagm" # ublock-origin
