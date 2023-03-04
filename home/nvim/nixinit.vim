@@ -155,6 +155,12 @@ augroup diff_mode
     autocmd BufWritePost * if &diff == 1 | diffupdate | endif
 augroup END
 
+" Return to last edit position when opening files
+autocmd BufReadPost *
+     \ if line("'\"") > 0 && line("'\"") <= line("$") |
+     \   exe "normal! g`\"" |
+     \ endif
+
 let g:hardtime_default_on = 1
 let g:hardtime_ignore_quickfix = 1
 let g:hardtime_allow_different_key = 1
