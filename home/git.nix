@@ -25,9 +25,9 @@
       files = "!git diff --name-only $(git base-commit)";
       stat = "!git diff --stat $(git base-commit)";
       review = "!nvim -c 'set nosplitright' -p $(git files) -c \"tabdo Gvdiff $REVIEW_BASE\" -c 'set splitright'";
-      base-commit = "merge-base HEAD \"$REVIEW_BASE\"";
+      base-commit = "!git merge-base HEAD $REVIEW_BASE";
       review-commits = "!nvim -c 'Gclog --reverse $REVIEW_BASE..'";
-      log-base = "log --stat --reverse $REVIEW_BASE..";
+      log-base = "!git log --stat --reverse $REVIEW_BASE..";
 
       # ignore modifications to files
       ignore-modifications = "update-index --skip-worktree --";
