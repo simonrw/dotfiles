@@ -45,7 +45,6 @@
       papercolor-theme
       fidget-nvim
       nvim-base16
-      vim-illuminate
 
       lsp-format-nvim
 

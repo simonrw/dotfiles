@@ -19,4 +19,3 @@ require('vtr')
 require('fugitive')
 
 require('completionconfig')
-require('illuminateconfig')
