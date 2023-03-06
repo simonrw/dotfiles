@@ -10,10 +10,6 @@
       url = "github:lnl7/nix-darwin/master";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    cftail.url = "github:simonrw/cftail";
-    cftail.inputs.nixpkgs.follows = "nixpkgs";
-    snslistener.url = "github:simonrw/aws-event-listener";
-    snslistener.inputs.nixpkgs.follows = "nixpkgs";
     jetbrains-updater.url = "gitlab:genericnerdyusername/jetbrains-updater";
     jetbrains-updater.inputs.nixpkgs.follows = "nixpkgs";
   };
@@ -23,8 +19,6 @@
     , darwin
     , flake-utils
     , home-manager
-    , cftail
-    , snslistener
     , jetbrains-updater
     , ...
     }:
@@ -32,8 +26,6 @@
       mkOverlays = system: [
         (final: prev: {
           listprojects = final.callPackage ./derivations/listprojects { };
-          cftail = cftail.packages.${system}.default;
-          snslistener = snslistener.packages.${system}.default;
           notify-wrapper = final.callPackage ./derivations/notify-wrapper { };
           notion = final.callPackage ./derivations/notion { };
           telegram-desktop = final.callPackage ./derivations/telegram-desktop { };

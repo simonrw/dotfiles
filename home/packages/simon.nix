@@ -57,10 +57,8 @@ in
   ] ++ [
     # local packages
     cargo-dist
-    cftail
     listprojects
     notify-wrapper
-    snslistener
   ] ++ (lib.optionals isDarwin [
     # macos only
     reattach-to-user-namespace
