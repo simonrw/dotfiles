@@ -56,9 +56,7 @@
     zsh
   ] ++ [
     # local packages
-    cftail
     listprojects
-    snslistener
     notify-wrapper
   ];
 }
