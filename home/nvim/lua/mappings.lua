@@ -27,6 +27,7 @@ cnoremap('%s/', '%sm/')
 
 -- escape with Ctrl-c
 inoremap('<C-c>', '<esc>')
+inoremap('<esc>', '<nop>')
 
 -- Reselect visual block after indent/outdent
 vnoremap('<', '<gv')
