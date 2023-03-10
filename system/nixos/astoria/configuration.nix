@@ -183,7 +183,7 @@
     dig
     firefox
     git
-    godot
+    godot_4
     google-chrome
     groff
     heroic
