@@ -229,6 +229,12 @@
   # TODO
   networking.firewall.enable = false;
 
+  # enable support for monitoring traffic via wireshark
+  programs.wireshark = {
+    enable = true;
+    package = pkgs.wireshark;
+  };
+
   nix = import ../../../common/nix-settings.nix { inherit pkgs; };
 
   # This value determines the NixOS release from which the default
