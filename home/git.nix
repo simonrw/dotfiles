@@ -144,9 +144,9 @@
       mergetool.conflicted = {
         cmd = "nvim +Conflicted";
       };
-      mergetool.pycharm = {
-        cmd = ''${pkgs.jetbrains.pycharm-community}/bin/pycharm-community merge "$LOCAL" "$REMOTE" "$BASE" "$MERGED"'';
-      };
+      # mergetool.pycharm = {
+      #   cmd = ''${pkgs.jetbrains.pycharm-community}/bin/pycharm-community merge "$LOCAL" "$REMOTE" "$BASE" "$MERGED"'';
+      # };
       github = {
         user = "simonrw";
       };
