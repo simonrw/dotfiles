@@ -7,7 +7,9 @@
     bat
     comma
     curlie
-    customCurl
+    (curl.override {
+      c-aresSupport = true;
+    })
     deadnix
     du-dust
     element-desktop

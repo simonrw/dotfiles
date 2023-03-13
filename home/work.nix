@@ -5,22 +5,25 @@ in
 {
   imports = [
     ./bat.nix
+    ./colours.nix
     ./dark-mode.nix
     ./direnv.nix
     ./emacs.nix
     ./fish.nix
+    ./font.nix
     ./fzf.nix
     ./gh.nix
     ./git.nix
+    ./gnome.nix
     ./gpg.nix
     ./helix.nix
     ./home-manager.nix
     ./jq.nix
     ./neovim.nix
     ./nix-index.nix
+    ./packages/work.nix
     ./tmux.nix
-    ./vscode.nix
-    ./xfce.nix
+    # ./vscode.nix
   ];
 
   home = {
@@ -29,7 +32,12 @@ in
     stateVersion = "22.05";
   };
 
-  dark-mode = false;
+  me = {
+    dark-mode = true;
+    font-name = "JetBrains Mono";
+    font-size = 12.0;
+    theme = "srw";
+  };
 
   home.file = {
     ".bin" = {
