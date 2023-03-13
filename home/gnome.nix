@@ -54,6 +54,29 @@
       ];
       disabled-extensions = [ ];
     };
+    # search result options
+    "org/gnome/desktop/search-providers" = {
+      disabled = [
+        "org.gnome.Photos.desktop"
+        "org.gnome.Contacts.desktop"
+        "org.gnome.clocks.desktop"
+        "org.gnome.Epiphany.desktop"
+      ];
+    };
+    "org/gnome/desktop/interface" = {
+      enable-hot-corners = false;
+    };
+    "org/gnome/mutter" = {
+      workspaces-only-on-primary = false;
+    };
+    "org/gnome/system/location" = {
+      enabled = false;
+    };
+    # default to dark mode for now
+    # TODO: add configuration
+    "org/gnome/desktop/interface" = {
+      color-scheme = "prefer-dark";
+    };
   };
 }
 
