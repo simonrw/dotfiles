@@ -49,10 +49,9 @@
       enabled-extensions = [
         "advanced-alt-tab@G-dH.github.com"
         "appindicatorsupport@rgcjonas.gmail.com"
-        "blur-my-shell@aunetx"
         "drive-menu@gnome-shell-extensions.gcampax.github.com"
       ];
-      disabled-extensions = [ ];
+      disabled-extensions = [];
     };
     # search result options
     "org/gnome/desktop/search-providers" = {
