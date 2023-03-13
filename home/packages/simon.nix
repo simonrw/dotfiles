@@ -70,7 +70,8 @@ in
     element-desktop
     gimp
     insomnia
-    jetbrains.pycharm-community
+    # Currently broken
+    # jetbrains.pycharm-community
     notion
     obsidian
     pinentry-gtk2

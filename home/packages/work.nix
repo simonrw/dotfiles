@@ -25,7 +25,8 @@
     httpie
     hub
     insomnia
-    jetbrains.pycharm-community
+    # currently broken
+    # jetbrains.pycharm-community
     lsof
     mkcert
     multitail
