@@ -34,8 +34,8 @@
       volume-up = [ "<Super>F12" ];
     };
     "org/gnome/settings-daemon/plugins/media-keys" = {
-      screenreader = [];
-      magnifier = [];
+      screenreader = [ ];
+      magnifier = [ ];
       custom-keybindings = [
         "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/"
         "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/"
@@ -51,7 +51,7 @@
         "appindicatorsupport@rgcjonas.gmail.com"
         "drive-menu@gnome-shell-extensions.gcampax.github.com"
       ];
-      disabled-extensions = [];
+      disabled-extensions = [ ];
     };
     # search result options
     "org/gnome/desktop/search-providers" = {
@@ -64,6 +64,12 @@
     };
     "org/gnome/desktop/interface" = {
       enable-hot-corners = false;
+      font-name = "Cantarell 11";
+      document-font-name = "Cantarell 11";
+      monospace-font-name = "JetBrains Mono 10"; # TODO: match with global font configuration
+      titlebar-font = "Cantarell Bold 11";
+      font-hinting = "slight";
+      font-antialiasing = "grayscale";
     };
     "org/gnome/mutter" = {
       workspaces-only-on-primary = false;
@@ -71,10 +77,24 @@
     "org/gnome/system/location" = {
       enabled = false;
     };
+    "org/gnome/desktop/wm/preferences" = {
+      mouse-button-modifier = "<Alt>";
+      focus-mode = "click";
+      # apple style button layout
+      button-layout = "close,minimize,maximize:";
+    };
+    "org/gnome/desktop/peripherals/mouse" = {
+      accel-profile = "flat";
+      gtk-enable-primary-paste = false;
+    };
+    "org/gnome/desktop/sound" = {
+      allow-volume-above-100-percent = true;
+    };
     # default to dark mode for now
     # TODO: add configuration
     "org/gnome/desktop/interface" = {
       color-scheme = "prefer-dark";
+      gtk-theme = "Adwaita-dark";
     };
   };
 }
