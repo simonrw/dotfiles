@@ -119,6 +119,11 @@ in
 
       # wrap tflocal completion
       complete -c tflocal -w terraform
+
+      # if a local configuration override file exists, source it
+      if test -f $HOME/.config/fish/local.fish;
+        source $HOME/.config/fish/local.fish
+      end
     '';
     shellAliases = {
       add-keys = ''ssh-add (find ~/.ssh - maxdepth 1 - type f - name "id_rsa*" | grep - v pub | grep - v bak)'';

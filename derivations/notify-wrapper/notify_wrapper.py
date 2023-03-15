@@ -13,6 +13,7 @@ class Ntfy:
     def __init__(self) -> None:
         self.session = requests.Session()
         self.topic_name = os.environ["NTFY_TOPIC"]
+        self.auth_token = os.getenv("NTFY_TOKEN")
 
     def publish(self, message: str, tags: List[str]) -> None:
         url = f"https://ntfy.sh/{self.topic_name}"
@@ -20,8 +21,15 @@ class Ntfy:
             "Title": "Watched task finished",
             "Tags": ",".join(tags),
         }
+        if self.authorized:
+            headers["Authorization"] = f"Bearer {self.auth_token}"
+
         r = self.session.post(url, data=message.encode("utf-8"), headers=headers)
         r.raise_for_status()
+
+    @property
+    def authorized(self) -> bool:
+        return self.auth_token is not None
 
 
 if __name__ == "__main__":
