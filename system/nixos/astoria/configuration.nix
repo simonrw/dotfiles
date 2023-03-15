@@ -40,6 +40,18 @@
     127.0.0.1 hostname-external
     127.0.0.1 localstack-hostname
   '';
+
+  # use local dns cache with coredns
+  services.coredns = {
+    enable = true;
+    config = ''
+      . {
+        forward . 192.168.0.2
+        cache
+        prometheus
+      }
+    '';
+  };
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
   # Configure network proxy if necessary
@@ -47,7 +59,11 @@
   # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
 
   # Enable networking
-  networking.networkmanager.enable = true;
+  networking.networkmanager = {
+    enable = true;
+    # use the local DNS cache
+    insertNameservers = [ "127.0.0.1" ];
+  };
   # This command causes a failure to rebuild
   # https://github.com/NixOS/nixpkgs/issues/180175
   systemd.services.NetworkManager-wait-online.enable = false;
