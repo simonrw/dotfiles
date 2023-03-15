@@ -141,7 +141,8 @@
     work = {
       isNormalUser = true;
       description = "Work account";
-      extraGroups = [ "networkmanager" "docker" "podman" ];
+      # wheel is required for running LocalStack :(
+      extraGroups = [ "networkmanager" "wheel" "libvirtd" "docker" "podman" ];
       shell = pkgs.fish;
       home = "/home/work";
       initialPassword = "test.1234";
