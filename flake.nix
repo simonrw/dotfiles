@@ -85,7 +85,10 @@
                   isDarwin = pkgs.stdenv.isDarwin;
                 };
 
-                home-manager.users.simon = import ./home/home.nix;
+                home-manager.users = {
+                  simon = import ./home/home.nix;
+                  work = import ./home/work.nix;
+                };
               }
             ];
         };
