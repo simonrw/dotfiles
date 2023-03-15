@@ -68,6 +68,49 @@
   # https://github.com/NixOS/nixpkgs/issues/180175
   systemd.services.NetworkManager-wait-online.enable = false;
 
+  # enable prometheus metrics collecting
+  services.prometheus = {
+    enable = true;
+    exporters = {
+      node = {
+        enable = true;
+        enabledCollectors = [ "systemd" ];
+      };
+    };
+    scrapeConfigs = [
+      {
+        job_name = "astoria";
+        static_configs = [{
+          targets = [ "127.0.0.1:${toString config.services.prometheus.exporters.node.port}" ];
+        }];
+      }
+      {
+        job_name = "dns";
+        static_configs = [{
+          targets = [ "127.0.0.1:9153" ];
+        }];
+      }
+    ];
+  };
+  services.grafana = {
+    enable = true;
+    settings.server.http_addr = "127.0.0.1";
+  };
+  services.loki = {
+    enable = true;
+    configFile = ./loki-local-config.yaml;
+  };
+  systemd.services.promtail = {
+    description = "Promtail service for Loki";
+    wantedBy = [ "multi-user.target" ];
+
+    serviceConfig = {
+      ExecStart = ''
+        ${pkgs.grafana-loki}/bin/promtail --config.file ${./promtail.yaml}
+      '';
+    };
+  };
+
   # Set your time zone.
   time.timeZone = "Europe/London";
 
