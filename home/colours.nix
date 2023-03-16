@@ -211,8 +211,8 @@ with lib;
 
       set -g mode-style "fg=#d5e1ed,bg=#456075"
 
-      set -g message-style "fg=#c9d1d9,bg=$bg_colour"
-      set -g message-command-style "fg=#c9d1d9,bg=$bg_colour"
+      set -g message-style "fg=#dddddd,bg=$bg_colour"
+      set -g message-command-style "fg=#dddddd,bg=$bg_colour"
 
       set -g pane-border-style "fg=#444c56"
       set -g pane-active-border-style "fg=$fg_colour"
