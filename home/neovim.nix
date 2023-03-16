@@ -36,6 +36,7 @@
       telescope-ui-select-nvim
       telescope-fzf-native-nvim
       vim-gutentags
+      editorconfig-nvim
       vim-toml
       vim-svelte
       vim-terraform
