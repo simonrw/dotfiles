@@ -38,8 +38,8 @@ cnoremap('%%', "<c-r>=expand('%:h') . '/'<cr>")
 -- nmap <silent> <leader>l :call ToggleList("Location List", 'l')<CR>
 nnoremap('Q', ":call ToggleList('Quickfix List', 'c')<CR>")
 
--- Bind K to grep word under cursor
-nnoremap('K', [[:grep! "\b<C-R><C-W>\b"<cr><cr>|:copen<Cr>]])
+-- Bind leader K to grep word under cursor
+nnoremap('<leader>K', [[:grep! "\b<C-R><C-W>\b"<cr><cr>|:copen<Cr>]])
 
 -- Bind <leader>W to saving the session
 nnoremap('<leader>W', ':lua require("srw.helpers").save_session()<cr>')
