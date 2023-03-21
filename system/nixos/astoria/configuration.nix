@@ -76,6 +76,10 @@
         enable = true;
         enabledCollectors = [ "systemd" ];
       };
+      snmp = {
+        enable = true;
+        configurationPath = "${pkgs.prometheus-snmp-exporter.src}/snmp.yml";
+      };
     };
     scrapeConfigs = [
       {
@@ -89,6 +93,14 @@
         static_configs = [{
           targets = [ "127.0.0.1:9153" ];
         }];
+      }
+      {
+        job_name = "router";
+        static_configs = [{
+          targets = [ "127.0.0.1:${toString config.services.prometheus.exporters.snmp.port}" ];
+        }];
+        metrics_path = "/snmp";
+        params = { module = [ "if_mib" ]; target = [ "192.168.0.1" ]; };
       }
     ];
   };
