@@ -88,6 +88,13 @@ in
     ".ideavimrc" = {
       source = ./ideavimrc;
     };
+
+    ".cargo/config.toml" = {
+      text = ''
+        [registries.crates-io]
+        protocol = "sparse"
+      '';
+    };
   };
 
   xdg = {
