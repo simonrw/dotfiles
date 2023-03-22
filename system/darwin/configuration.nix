@@ -82,4 +82,7 @@
         "Microsoft Remote Desktop" = 1295203466;
       };
   };
+
+  # configure system defaults
+  system.defaults.".GlobalPreferences"."com.apple.mouse.scaling" = "-1";
 }
