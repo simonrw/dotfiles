@@ -37,14 +37,17 @@ in
         "JetBrains Mono" = pkgs.jetbrains-mono;
         "MesloLGS NF" = pkgs.meslo-lgs-nf;
       }.${cfg.font-name};
+      alacritty-font-renamed = {
+        "IBM Plex" = "IBM Plex Mono";
+      }.${cfg.font-name} or cfg.font-name;
     in
     {
       # vs code font
       programs.vscode.userSettings."editor.fontFamily" = cfg.font-name;
       programs.alacritty.settings.font = {
-        normal.family = cfg.font-name;
+        normal.family = alacritty-font-renamed;
         normal.style = font-style;
-        italic.family = cfg.font-name;
+        italic.family = alacritty-font-renamed;
         italic.style = font-style;
       };
       programs.alacritty.settings.font.size = cfg.font-size;
