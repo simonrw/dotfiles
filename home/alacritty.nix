@@ -1,6 +1,6 @@
 { config, isDarwin, ... }:
 let
-  mod-key = if isDarwin then "Command" else "Super";
+  mod-key = if isDarwin then "Command" else "Alt";
 in
 {
   config = {
