@@ -1,4 +1,7 @@
-{ config, ... }:
+{ config, isDarwin, ... }:
+let
+  mod-key = if isDarwin then "Command" else "Super";
+in
 {
   config = {
     programs.alacritty = {
@@ -30,7 +33,7 @@
           }
           {
             key = "N";
-            mods = "Command";
+            mods = mod-key;
             action = "SpawnNewInstance";
           }
         ];
