@@ -4,7 +4,7 @@ let
   cfg = config.me;
 
   # bump up the font size on linux since the font rendering is not so nice
-  font-style = if isLinux then "Bold" else "Regular";
+  font-style = if isLinux then "Semibold" else "Regular";
 in
 {
   options = {
@@ -36,6 +36,7 @@ in
         "Inconsolata" = pkgs.inconsolata;
         "JetBrains Mono" = pkgs.jetbrains-mono;
         "MesloLGS NF" = pkgs.meslo-lgs-nf;
+        "IBM Plex" = pkgs.ibm-plex;
       }.${cfg.font-name};
       alacritty-font-renamed = {
         "IBM Plex" = "IBM Plex Mono";
