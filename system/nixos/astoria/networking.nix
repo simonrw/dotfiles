@@ -9,18 +9,6 @@
     127.0.0.1 localstack-hostname
   '';
 
-  # use local dns cache with coredns
-  services.coredns = {
-    enable = true;
-    config = ''
-      . {
-        forward . 192.168.0.2
-        cache
-        prometheus
-      }
-    '';
-  };
-
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
   # Configure network proxy if necessary
@@ -30,16 +18,15 @@
   # Enable networking
   services.resolved = {
     enable = true;
-    fallbackDns = [ "127.0.0.1" ];
+    domains = [ "lan" ];
+    fallbackDns = [ "192.168.0.2" ];
     extraConfig = ''
-      DNS=127.0.0.1
+      DNS=192.168.0.2
     '';
   };
 
   networking.networkmanager = {
     enable = true;
-    # use the local DNS cache
-    insertNameservers = [ "127.0.0.1" ];
   };
   # This command causes a failure to rebuild
   # https://github.com/NixOS/nixpkgs/issues/180175
