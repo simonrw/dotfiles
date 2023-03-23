@@ -28,6 +28,14 @@
   # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
 
   # Enable networking
+  services.resolved = {
+    enable = true;
+    fallbackDns = [ "127.0.0.1" ];
+    extraConfig = ''
+      DNS=127.0.0.1
+    '';
+  };
+
   networking.networkmanager = {
     enable = true;
     # use the local DNS cache
