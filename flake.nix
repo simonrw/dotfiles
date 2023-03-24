@@ -12,6 +12,8 @@
     };
     jetbrains-updater.url = "gitlab:genericnerdyusername/jetbrains-updater";
     jetbrains-updater.inputs.nixpkgs.follows = "nixpkgs";
+    nix-index-database.url = "github:Mic92/nix-index-database";
+    nix-index-database.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   outputs =
@@ -20,6 +22,7 @@
     , flake-utils
     , home-manager
     , jetbrains-updater
+    , nix-index-database
     , ...
     }:
     let
@@ -156,6 +159,7 @@
               inherit pkgs;
               modules = [
                 ./home/home.nix
+                nix-index-database.hmModules.nix-index
               ];
               # stop infinite recusion when trying to access
               # pkgs.stdenv.is{Linux,Darwin} from within a module
