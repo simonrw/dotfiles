@@ -13,7 +13,7 @@ def check_privileged_port(port: int):
 def check_port(port: int, sudo: bool = False):
     cmd = ["lsof", "-P", "-i", f":{port}"]
     if sudo:
-        cmd = ["sudo", "--prompt", "Sudo required for checking privileged port"] + cmd
+        cmd = ["sudo", "--prompt", "sudo required for checking privileged port: "] + cmd
 
     child = sp.run(cmd, stdout=sp.PIPE, stderr=sp.PIPE)
     if child.returncode != 0:
