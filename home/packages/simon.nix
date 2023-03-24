@@ -35,8 +35,8 @@ in
     lsof
     mkcert
     multitail
-    nix-tree
     nixpkgs-fmt
+    nix-tree
     nodejs
     noti
     openssh
@@ -47,6 +47,7 @@ in
     python3.pkgs.send2trash
     python3.pkgs.virtualenv
     ripgrep
+    rustup
     universal-ctags
     unzip
     vscode
