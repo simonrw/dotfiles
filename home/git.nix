@@ -16,6 +16,9 @@
       uc = "update-commit";
       graph = "log --graph --all --decorate --stat --date iso";
 
+      # reset $REVIEW_BASE to upstream
+      sync = ''!f() { git fetch origin && git branch -f "$REVIEW_BASE" origin/"$REVIEW_BASE"; }; f'';
+
       # Taken from http://www.theodo.fr/blog/2017/06/git-game-advanced-git-aliases/
       # Ignore whatever is passed
       ignore = "!f() { echo \"$1\" >> .gitignore; }; f";
