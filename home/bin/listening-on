@@ -1,0 +1,58 @@
+#!/usr/bin/env python
+
+import argparse
+import json
+import sys
+import subprocess as sp
+
+
+def check_privileged_port(port: int):
+    check_port(port, sudo=True)
+
+
+def check_port(port: int, sudo: bool = False):
+    cmd = ["lsof", "-P", "-i", f":{port}"]
+    if sudo:
+        cmd = ["sudo", "--prompt", "Sudo required for checking privileged port"] + cmd
+
+    child = sp.run(cmd, stdout=sp.PIPE, stderr=sp.PIPE)
+    if child.returncode != 0:
+        stderr = child.stderr.decode().strip()
+        if stderr:
+            # we got an error message
+            print(f"Error checking port: {stderr}", file=sys.stderr)
+            raise SystemExit(1)
+        else:
+            print(json.dumps([], indent=2))
+            raise SystemExit(0)
+
+    # we got some output
+    output = child.stdout.decode()
+    res = []
+    for line in output.split("\n"):
+        line = line.strip()
+        if "(LISTEN)" not in line:
+            continue
+
+        name, pid, owner, _, _, _, _, type, address, _ = line.split(maxsplit=10)
+        res.append(
+            {
+                "name": name,
+                "pid": pid,
+                "owner": owner,
+                "type": type,
+                "address": address,
+            }
+        )
+    print(json.dumps(res, indent=2))
+
+
+if __name__ == "__main__":
+    parser = argparse.ArgumentParser()
+    parser.add_argument("port", type=int, help="Port to check")
+    args = parser.parse_args()
+
+    if args.port < 1024:
+        check_privileged_port(args.port)
+    else:
+        check_port(args.port)
