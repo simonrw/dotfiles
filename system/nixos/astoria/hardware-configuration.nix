@@ -46,8 +46,6 @@
       enable = true;
       driSupport32Bit = true;
     };
-    # high-resolution display
-    video.hidpi.enable = lib.mkDefault true;
     bluetooth.enable = true;
   };
 }
