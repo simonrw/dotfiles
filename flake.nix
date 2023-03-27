@@ -33,6 +33,7 @@
           notion = final.callPackage ./derivations/notion { };
           telegram-desktop = final.callPackage ./derivations/telegram-desktop { };
           cargo-dist = final.callPackage ./derivations/cargo-dist { };
+          database = nix-index-database.legacyPackages.x86_64-linux.database;
         })
         # override the version of xattr for poetry
         (
@@ -92,6 +93,7 @@
                   simon = import ./home/home.nix;
                 };
               }
+              nix-index-database.nixosModules.nix-index
             ];
         };
 
@@ -136,6 +138,7 @@
 
                     home-manager.users.simon = import ./home/home.nix;
                   }
+                  nix-index-database.darwinModules.nix-index
                 ];
               };
             };
@@ -158,7 +161,6 @@
               inherit pkgs;
               modules = [
                 ./home/home.nix
-                nix-index-database.hmModules.nix-index
               ];
               # stop infinite recusion when trying to access
               # pkgs.stdenv.is{Linux,Darwin} from within a module

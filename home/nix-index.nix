@@ -1,5 +1,5 @@
-{ ... }:
+# add symlink to nix-index database
+{ lib, pkgs, config, ... }:
 {
-  programs.nix-index.enable = true;
-  programs.nix-index.enableFishIntegration = true;
+  home.file."${config.xdg.cacheHome}/nix-index/files".source = pkgs.database;
 }

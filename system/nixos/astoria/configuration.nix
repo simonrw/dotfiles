@@ -241,6 +241,8 @@
 
   # enable fish system-wide for completion
   programs.fish.enable = true;
+  # disable command-not-found in favour of nix-index
+  programs.command-not-found.enable = false;
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
