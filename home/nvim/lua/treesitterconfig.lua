@@ -10,7 +10,7 @@ local function setup()
             },
         },
         indent = {
-            enable = false,
+            enable = true,
         },
         textobjects = {
             select = {
