@@ -146,7 +146,7 @@ in
       less = "${pkgs.bat}/bin/bat";
       lr = "thor";
       more = "${pkgs.bat}/bin/bat";
-      nl = "nix-locate --top-level";
+      nl = "nix-locate --regex --top-level";
       nr = "nix repl --file '<nixpkgs>'";
       ntfy = "notify-wrapper";
       pylab = "ipython - -pylab";
