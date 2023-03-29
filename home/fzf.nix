@@ -12,5 +12,9 @@
       "--inline-info"
     ] ++ (if config.me.dark-mode then [ "--color dark" ] else [ "--color light" ]);
     tmux.enableShellIntegration = true;
+    fileWidgetCommand = "fd --no-ignore --type f";
+    fileWidgetOptions = [
+      "--preview 'bat --color always {}'"
+    ];
   };
 }
