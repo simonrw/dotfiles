@@ -41,6 +41,7 @@ in
     noti
     openssh
     pre-commit
+    pstree
     pyright
     python3
     python3.pkgs.pipx
