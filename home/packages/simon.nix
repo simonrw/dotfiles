@@ -75,6 +75,7 @@ in
     jetbrains.pycharm-community
     notion
     obsidian
+    obs-studio
     pinentry-gtk2
     playerctl
     shotcut
