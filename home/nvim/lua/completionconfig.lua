@@ -34,8 +34,8 @@ lsp.on_attach(function(client, bufnr)
     -- mappings
     local opts = { buffer = bufnr, remap = false }
 
-    -- disable formatting for dockerls
-    if client.name == 'dockerls' then
+    -- disable formatting for docker language servers
+    if client.name == 'dockerls' or client.name == "docker_compose_language_service" then
         client.server_capabilities.documentFormattingProvider = false
     end
 
