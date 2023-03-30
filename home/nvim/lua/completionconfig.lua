@@ -34,6 +34,11 @@ lsp.on_attach(function(client, bufnr)
     -- mappings
     local opts = { buffer = bufnr, remap = false }
 
+    -- disable formatting for dockerls
+    if client.name == 'dockerls' then
+        client.server_capabilities.documentFormattingProvider = false
+    end
+
     -- match helix bindings
     vim.keymap.set("n", "gd", function()
         require('telescope.builtin').lsp_definitions()
