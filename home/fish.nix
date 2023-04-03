@@ -82,8 +82,12 @@ in
             end
         end
 
+        function _not_disabled
+          test -z "$TMUX_DISABLED"
+        end
+
         function ensure_tmux_is_running
-            if _not_inside_tmux && _not_inside_neovim && _not_inside_emacs && _inside_x_session && _not_inside_vscode_term && _not_inside_zellij && _not_inside_pycharm
+            if _not_disabled && _not_inside_tmux && _not_inside_neovim && _not_inside_emacs && _inside_x_session && _not_inside_vscode_term && _not_inside_zellij && _not_inside_pycharm
                 tat
             end
         end
@@ -212,6 +216,17 @@ in
       }
     ];
     functions = {
+      ssh-notmux = {
+        description = "SSH into a host disabling automatic tmux on the destination host";
+        body = ''
+          if test (count $argv) -gt 1
+              ssh -t $argv[1] env TMUX_DISABLED=1 $argv[2..-1]
+          else
+              ssh -t $argv[1] env TMUX_DISABLED=1 fish
+          end
+        '';
+        wraps = "ssh";
+      };
       fish_greeting = {
         description = "Greeting to show when starting a fish shell";
         body = "";
