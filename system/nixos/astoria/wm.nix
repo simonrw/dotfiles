@@ -58,7 +58,6 @@ let
       gnome.gnome-tweaks
       gnomeExtensions.appindicator
       gnomeExtensions.advanced-alttab-window-switcher
-      gnomeExtensions.blur-my-shell
     ];
 
     services.xserver.desktopManager.gnome.extraGSettingsOverrides = ''

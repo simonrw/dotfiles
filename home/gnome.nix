@@ -50,7 +50,6 @@
         "advanced-alt-tab@G-dH.github.com"
         "appindicatorsupport@rgcjonas.gmail.com"
         "drive-menu@gnome-shell-extensions.gcampax.github.com"
-        "blur-my-shell@aunetx"
       ];
       disabled-extensions = [ ];
     };
