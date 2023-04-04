@@ -29,6 +29,7 @@
         '';
       }
       tmuxPlugins.open
+      tmuxPlugins.vim-tmux-navigator
     ];
     extraConfig = with pkgs;
       let

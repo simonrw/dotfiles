@@ -28,6 +28,7 @@
       # vim-tmux-runner
       # vim-conflicted
       vim-test
+      vim-tmux-navigator
       vim-easy-align
       fugitive-gitlab-vim
       markdown-preview-nvim
