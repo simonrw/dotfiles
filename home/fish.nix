@@ -70,7 +70,7 @@ in
         end
 
         function _not_inside_pycharm
-          test -z "$PYCHARM_JDK"
+          test -z "$INSIDE_PYCHARM"
         end
 
         function _inside_x_session
