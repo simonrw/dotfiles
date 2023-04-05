@@ -10,7 +10,7 @@ local function setup()
             },
         },
         indent = {
-            enable = true,
+            enable = false,
         },
         textobjects = {
             select = {
@@ -33,4 +33,3 @@ end
 if vim.fn.has('nvim-0.5') and vim.g.include_treesitter then
     setup()
 end
-
