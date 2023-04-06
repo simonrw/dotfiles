@@ -32,6 +32,9 @@ in
         set -x NTFY_TOPIC simonrw-notify
         set -x GLAMOUR_STYLE ${glamour-style}
 
+        # centralise where python puts its .pyc files
+        set -x PYTHONPYCACHEPREFIX {$HOME}/.python-cache
+
         set -x LANG "en_GB.UTF-8"
         set -x LC_CTYPE "en_GB.UTF-8"
         set -x LC_ALL "en_GB.UTF-8"
