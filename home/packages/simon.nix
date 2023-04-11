@@ -7,6 +7,9 @@ let
   #   ibm-plex
   #   inconsolata
   # ];
+  custom-curl = pkgs.curl.override {
+    c-aresSupport = true;
+  };
 in
 {
   home.packages = with pkgs; [
@@ -15,10 +18,8 @@ in
     bat
     cachix
     comma
-    (curl.override {
-      c-aresSupport = true;
-    })
     curlie
+    custom-curl
     deadnix
     du-dust
     entr
