@@ -143,7 +143,6 @@ let
         cyan = "#5b7d78";
         white = "#828482";
       };
-
     };
   };
   neovim-theme-blocks = {
@@ -182,9 +181,10 @@ let
     '';
   };
 
-  tmux-primary-colour = themes.${config.me.theme}.tmux-colour;
-  tmux-background-colour = themes.${config.me.theme}.primary.background;
-  fish-theme = themes.${config.me.theme}.fish-theme;
+  current-theme = themes.${config.me.theme};
+  tmux-primary-colour = current-theme.tmux-colour;
+  tmux-background-colour = current-theme.primary.background;
+  fish-theme = current-theme.fish-theme;
 in
 with lib;
 
@@ -237,5 +237,30 @@ with lib;
       setw -g window-status-format "#[fg=#777777]#I #W:#{pane_current_command}#F"
       setw -g window-status-current-format "#[fg=#dddddd]#I #W:#{pane_current_command}#F"
     '';
+    programs.kitty.settings = {
+      background = current-theme.primary.background;
+      foreground = current-theme.primary.foreground;
+
+      selection_foreground = current-theme.selection.text;
+      selection_background = current-theme.selection.background;
+
+      color0 = current-theme.normal.black;
+      color1 = current-theme.normal.red;
+      color2 = current-theme.normal.green;
+      color3 = current-theme.normal.yellow;
+      color4 = current-theme.normal.blue;
+      color5 = current-theme.normal.magenta;
+      color6 = current-theme.normal.cyan;
+      color7 = current-theme.normal.white;
+
+      color8 = current-theme.bright.black;
+      color9 = current-theme.bright.red;
+      color10 = current-theme.bright.green;
+      color11 = current-theme.bright.yellow;
+      color12 = current-theme.bright.blue;
+      color13 = current-theme.bright.magenta;
+      color14 = current-theme.bright.cyan;
+      color15 = current-theme.bright.white;
+    };
   };
 }
