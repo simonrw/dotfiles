@@ -2,32 +2,40 @@
 let
   terminal = "kitty";
   browser = "firefox";
+  mkShortcutCommand = application:
+    let
+      app' =
+        if builtins.isString application then
+          { name = application; }
+        else application;
+    in
+    "sh -c 'wmctrl -x -a ${app'.name} || ${app'.command or app'.name}'";
 in
 {
   dconf.settings = {
     "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0" = {
       binding = "<Alt><Super>s";
-      command = "sh -c 'wmctrl -x -a slack || slack'";
+      command = mkShortcutCommand "slack";
       name = "Slack";
     };
     "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1" = {
       binding = "<Alt><Super>t";
-      command = "sh -c 'wmctrl -x -a ${terminal} || ${terminal}'";
+      command = mkShortcutCommand terminal;
       name = "Terminal";
     };
     "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom2" = {
       binding = "<Alt><Super>c";
-      command = "sh -c 'wmctrl -x -a ${browser} || ${browser}'";
+      command = mkShortcutCommand browser;
       name = "Browser";
     };
     "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom3" = {
       binding = "<Alt><Super>e";
-      command = "sh -c 'wmctrl -x -a obsidian || obsidian'";
+      command = mkShortcutCommand "obsidian";
       name = "Notes";
     };
     "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom4" = {
       binding = "<Alt><Super>r";
-      command = "sh -c 'wmctrl -x -a zeal || zeal'";
+      command = mkShortcutCommand "zeal";
       name = "Documentation";
     };
     "org/gnome/settings-daemon/plugins/media-keys" = {
