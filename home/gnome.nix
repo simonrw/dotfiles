@@ -1,4 +1,8 @@
 { ... }:
+let
+  terminal = "kitty";
+  browser = "firefox";
+in
 {
   dconf.settings = {
     "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0" = {
@@ -8,12 +12,12 @@
     };
     "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1" = {
       binding = "<Alt><Super>t";
-      command = "sh -c 'wmctrl -x -a alacritty || alacritty'";
+      command = "sh -c 'wmctrl -x -a ${terminal} || ${terminal}'";
       name = "Terminal";
     };
     "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom2" = {
       binding = "<Alt><Super>c";
-      command = "sh -c 'wmctrl -x -a firefox || firefox'";
+      command = "sh -c 'wmctrl -x -a ${browser} || ${browser}'";
       name = "Browser";
     };
     "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom3" = {
