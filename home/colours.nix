@@ -241,6 +241,9 @@ with lib;
       background = current-theme.primary.background;
       foreground = current-theme.primary.foreground;
 
+      cursor = current-theme.cursor.cursor;
+      cursor_text_color = current-theme.cursor.text;
+
       selection_foreground = current-theme.selection.text;
       selection_background = current-theme.selection.background;
 

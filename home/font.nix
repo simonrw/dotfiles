@@ -52,7 +52,7 @@ in
       };
       programs.alacritty.settings.font.size = cfg.font-size;
       programs.kitty.settings = {
-        font_family = cfg.font-name;
+        font_family = "${cfg.font-name} ${font-style}";
         font_size = builtins.toString cfg.font-size;
       };
 
