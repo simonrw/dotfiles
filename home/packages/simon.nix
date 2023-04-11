@@ -50,6 +50,7 @@ in
     python3.pkgs.virtualenv
     ripgrep
     rustup
+    sqlite-interactive
     universal-ctags
     unzip
     vscode
