@@ -234,8 +234,8 @@ with lib;
 
       setw -g window-status-activity-style "underscore,fg=#d1d5da,bg=$bg_colour"
       setw -g window-status-separator ""
-      setw -g window-status-format "#[fg=#777777]#I #W:#{pane_current_command}#F"
-      setw -g window-status-current-format "#[fg=#dddddd]#I #W:#{pane_current_command}#F"
+      setw -g window-status-format " #[fg=#777777]#I #W:#{pane_current_command}#F "
+      setw -g window-status-current-format " #[fg=#dddddd]#I #W:#{pane_current_command}#F "
     '';
     programs.kitty.settings = {
       background = current-theme.primary.background;
