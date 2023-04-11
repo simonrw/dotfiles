@@ -1,7 +1,10 @@
 { ... }:
 let
   terminal = "kitty";
-  browser = "firefox";
+  browser = {
+    name = "google-chrome";
+    command = "google-chrome-stable";
+  };
   mkShortcutCommand = application:
     let
       app' =
