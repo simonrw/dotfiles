@@ -70,6 +70,7 @@ in
     # linux only
     _1password-gui
     element-desktop
+    freetube
     gimp
     insomnia
     jetbrains.pycharm-community
