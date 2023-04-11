@@ -1,7 +1,7 @@
 { pkgs, ... }:
 {
   programs.kitty = {
-    enable = !pkgs.kitty.meta.broken;
+    enable = true;
     settings = {
       allow_remote_control = "no";
       background_opacity = "1.0";
