@@ -27,6 +27,11 @@
       device = "/dev/disk/by-uuid/DC84-18FB";
       fsType = "vfat";
     };
+  fileSystems."/mnt/data" = {
+    device = "/dev/disk/by-uuid/893193eb-7680-48e9-a459-7af16e918548";
+    fsType = "ext4";
+    options = [ "rw" "user" "defaults" "noatime" ];
+  };
 
   swapDevices =
     [{ device = "/dev/disk/by-uuid/780f83aa-7f7c-4f77-bc7c-b0c173fc57d1"; }];
