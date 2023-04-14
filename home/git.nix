@@ -85,11 +85,10 @@
       enable = true;
       options =
         if config.me.dark-mode then {
-          side-by-side = true;
-          diff-so-fancy = true;
+          side-by-side = false;
+          syntax-theme = "Monokai Extended Bright";
         } else {
-          side-by-side = true;
-          diff-so-fancy = false;
+          side-by-side = false;
           syntax-theme = "GitHub";
         };
     };
