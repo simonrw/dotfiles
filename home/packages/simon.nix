@@ -43,6 +43,7 @@ in
     openssh
     pre-commit
     pstree
+    pv
     pyright
     python3
     python3.pkgs.pipx
