@@ -223,7 +223,8 @@
     godot_4
     google-chrome
     groff
-    heroic
+    # currently broken
+    # heroic
     inkscape
     killall
     mosh
