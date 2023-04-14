@@ -9,7 +9,7 @@ HOSTNAME="$(hostname -s)"
 
 case ${NIXARCH} in
     *-linux)
-        sudo nixos-rebuild boot --flake .
+        sudo nixos-rebuild boot --flake . $*
         ;;
     *)
         echo "Unhandled architecture: ${NIXARCH}" >&2

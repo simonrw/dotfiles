@@ -9,11 +9,11 @@ HOSTNAME="$(hostname -s)"
 
 case ${NIXARCH} in
     *-linux)
-        nixos-rebuild build --flake .
+        nixos-rebuild build --flake . $*
         ;;
     *-darwin)
         nix --extra-experimental-features "nix-command flakes" build ".#darwinConfigurations.${HOSTNAME}.system"
-        ./result/sw/bin/darwin-rebuild build --flake ".#${HOSTNAME}" "$@"
+        ./result/sw/bin/darwin-rebuild build --flake ".#${HOSTNAME}" $*
         ;;
     *)
         echo "Unhandled architecture: ${NIXARCH}" >&2
