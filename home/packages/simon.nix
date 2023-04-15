@@ -27,6 +27,7 @@ in
     file
     fx
     gcc
+    git-branchless
     go
     graphviz
     hey
@@ -36,8 +37,8 @@ in
     lsof
     mkcert
     multitail
-    nixpkgs-fmt
     nix-tree
+    nixpkgs-fmt
     nodejs
     noti
     openssh
