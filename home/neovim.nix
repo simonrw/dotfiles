@@ -44,6 +44,7 @@
       papercolor-theme
       fidget-nvim
       nvim-base16
+      aerial-nvim
 
       lsp-format-nvim
 
