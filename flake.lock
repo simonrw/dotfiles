@@ -123,7 +123,8 @@
         "jetbrains-updater": "jetbrains-updater",
         "nix-index-database": "nix-index-database",
         "nixpkgs": "nixpkgs",
-        "utils": "utils_2"
+        "utils": "utils_2",
+        "vscode-server": "vscode-server"
       }
     },
     "systems": {
@@ -186,6 +187,26 @@
       "original": {
         "owner": "numtide",
         "repo": "flake-utils",
+        "type": "github"
+      }
+    },
+    "vscode-server": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1676501444,
+        "narHash": "sha256-H+uQetkzd5GIga56HmCDwl5eihdQgeN2jVdNrkXzDyo=",
+        "owner": "msteen",
+        "repo": "nixos-vscode-server",
+        "rev": "57f1716bc625d2892579294cc207956679e3d94c",
+        "type": "github"
+      },
+      "original": {
+        "owner": "msteen",
+        "repo": "nixos-vscode-server",
         "type": "github"
       }
     }

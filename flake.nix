@@ -14,6 +14,8 @@
     jetbrains-updater.inputs.nixpkgs.follows = "nixpkgs";
     nix-index-database.url = "github:Mic92/nix-index-database";
     nix-index-database.inputs.nixpkgs.follows = "nixpkgs";
+    vscode-server.url = "github:msteen/nixos-vscode-server";
+    vscode-server.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   outputs =
@@ -23,6 +25,7 @@
     , home-manager
     , jetbrains-updater
     , nix-index-database
+    , vscode-server
     , ...
     }:
     let
@@ -94,6 +97,10 @@
                 };
               }
               nix-index-database.nixosModules.nix-index
+              vscode-server.nixosModule
+              ({ config, pkgs, ... }: {
+                services.vscode-server.enable = true;
+              })
             ];
         };
 
