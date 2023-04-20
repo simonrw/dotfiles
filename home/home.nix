@@ -21,7 +21,6 @@ in
     ./helix.nix
     ./home-manager.nix
     ./jq.nix
-    ./kitty.nix
     ./mpv.nix
     ./neovim.nix
     ./nix-index.nix
@@ -30,6 +29,7 @@ in
   ] ++ lib.optionals isLinux [
     ./rofi.nix
     ./chromium.nix
+    ./kitty.nix
     # ./kde.nix
     # ./xfce.nix
     ./gnome.nix
