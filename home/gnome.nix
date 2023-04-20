@@ -1,6 +1,6 @@
 { ... }:
 let
-  terminal = "alacritty";
+  terminal = "kitty";
   browser = {
     name = "google-chrome";
     command = "google-chrome-stable";
