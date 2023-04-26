@@ -37,8 +37,9 @@ in
     lsof
     mkcert
     multitail
-    nix-tree
+    nix-output-monitor
     nixpkgs-fmt
+    nix-tree
     nodejs
     noti
     openssh
