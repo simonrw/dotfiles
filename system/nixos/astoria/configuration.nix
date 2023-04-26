@@ -213,6 +213,11 @@
       ];
     };
   };
+  # settings to add if this is a virtual machine
+  virtualisation.vmVariant = {
+    virtualisation.qemu.options = [ "-vga virtio" "-smp 4" "-m 16384" ];
+    documentation.enable = false;
+  };
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
