@@ -46,8 +46,6 @@
       nvim-base16
       aerial-nvim
 
-      lsp-format-nvim
-
       # treesitter
       (nvim-treesitter.withPlugins
         (p: [

@@ -86,6 +86,7 @@ let
     environment.mate.excludePackages = with pkgs; [
       mate.mate-terminal
     ];
+    services.picom.enable = true;
   };
 in
 mate-settings
