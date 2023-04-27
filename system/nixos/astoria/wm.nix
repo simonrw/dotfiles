@@ -73,5 +73,14 @@ let
     services.xserver.displayManager.sddm.enable = true;
     programs.dconf.enable = true;
   };
+  mate-settings = {
+    services.xserver.displayManager.gdm.enable = true;
+    services.xserver.desktopManager.mate = {
+      enable = true;
+    };
+    environment.systemPackages = [
+      pkgs.gnome.gnome-themes-extra
+    ];
+  };
 in
-gnome-settings
+mate-settings
