@@ -41,5 +41,12 @@ in
       action = mkShortcutCommand "zeal";
       name = "Documentation";
     };
+    "org/mate/settings-daemon/plugins/media-keys" = {
+      volume-up = "<Mod4>F12";
+      volume-down = "<Mod4>F11";
+      previous = "<Mod4>F7";
+      play = "<Mod4>F8";
+      next = "<Mod4>F9";
+    };
   };
 }
