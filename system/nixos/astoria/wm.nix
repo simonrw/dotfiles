@@ -89,5 +89,4 @@ let
     ];
     services.picom.enable = true;
   };
-in
-mate-settings
+in gnome-settings
