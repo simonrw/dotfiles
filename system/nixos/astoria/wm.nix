@@ -59,6 +59,7 @@ let
       gnome.gnome-tweaks
       gnomeExtensions.appindicator
       gnomeExtensions.advanced-alttab-window-switcher
+      orchis-theme
     ];
 
     services.xserver.desktopManager.gnome.extraGSettingsOverrides = ''

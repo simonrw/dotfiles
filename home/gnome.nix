@@ -56,6 +56,9 @@ in
         "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom4/"
       ];
     };
+    "org/gnome/shell/extensions/user-theme" = {
+      name = "Orchis-Compact";
+    };
     "org/gnome/shell" = {
       disable-user-extensions = false;
       enabled-extensions = [
