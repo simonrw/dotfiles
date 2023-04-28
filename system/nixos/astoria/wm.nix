@@ -31,6 +31,7 @@ let
       services.xserver.displayManager.defaultSession = "xfce";
       services.xserver.desktopManager.xfce.enable = true;
       services.xserver.displayManager.sddm.enable = true;
+      services.picom.enable = true;
 
       environment.systemPackages = with pkgs; [
         gnome.adwaita-icon-theme
