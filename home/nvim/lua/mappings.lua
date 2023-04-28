@@ -44,4 +44,7 @@ nnoremap('<leader>K', [[:grep! "\b<C-R><C-W>\b"<cr><cr>|:copen<Cr>]])
 -- Bind <leader>W to saving the session
 nnoremap('<leader>W', ':lua require("srw.helpers").save_session()<cr>')
 
+-- add key for formatting
+nnoremap('<leader>y', ':lua vim.lsp.buf.format({ async=true })<cr>')
+
 return _G
