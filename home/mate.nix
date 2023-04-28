@@ -1,7 +1,5 @@
-{ ... }:
+{ config, ... }:
 let
-  terminal = "kitty";
-  browser = "brave";
   mkShortcutCommand = application:
     let
       app' =
@@ -15,7 +13,7 @@ in
   dconf.settings = {
     "org/mate/desktop/keybindings/custom0" = {
       binding = "<Alt><Mod4>t";
-      action = mkShortcutCommand terminal;
+      action = mkShortcutCommand config.me.defaults.terminal;
       name = "Terminal";
     };
     "org/mate/desktop/keybindings/custom1" = {
@@ -25,7 +23,7 @@ in
     };
     "org/mate/desktop/keybindings/custom2" = {
       binding = "<Alt><Mod4>c";
-      action = mkShortcutCommand browser;
+      action = mkShortcutCommand config.me.defaults.browser;
       name = "Browser";
     };
     "org/mate/desktop/keybindings/custom3" = {

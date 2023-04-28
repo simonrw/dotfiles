@@ -23,10 +23,10 @@ let
     };
     xfce4-keyboard-shortcuts = {
       "commands/custom/<Alt><Super>c" = (mkShortcut {
-        appName = "chromium";
+        appName = config.me.defaults.browser;
       });
       "commands/custom/<Alt><Super>t" = (mkShortcut {
-        appName = "alacritty";
+        appName = config.me.defaults.terminal;
       });
       "commands/custom/<Alt><Super>e" = (mkShortcut {
         appName = "obsidian";

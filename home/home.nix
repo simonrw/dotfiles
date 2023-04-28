@@ -9,6 +9,7 @@ in
     ./bat.nix
     ./colours.nix
     ./dark-mode.nix
+    ./default-applications.nix
     ./direnv.nix
     ./emacs.nix
     ./exa.nix
@@ -55,6 +56,10 @@ in
     font-name = "JetBrains Mono";
     font-size = 12.0;
     theme = "srw";
+    defaults = {
+      browser = "brave";
+      terminal = "kitty";
+    };
   };
 
   home.file = {

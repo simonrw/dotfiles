@@ -1,10 +1,7 @@
-{ ... }:
+{ config, ... }:
 let
-  terminal = "kitty";
-  browser = {
-    name = "google-chrome";
-    command = "google-chrome-stable";
-  };
+  terminal = config.me.defaults.terminal;
+  browser = config.me.defaults.browser;
   mkShortcutCommand = application:
     let
       app' =
