@@ -57,7 +57,10 @@ in
       ];
     };
     "org/gnome/shell/extensions/user-theme" = {
-      name = "Orchis-Compact";
+      name = "Orchis-Dark-Compact";
+    };
+    "org/gnome/desktop/interface" = {
+      gtk-theme = "Orchis-Dark-Compact";
     };
     "org/gnome/shell" = {
       disable-user-extensions = false;
