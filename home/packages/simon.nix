@@ -67,12 +67,10 @@ in
     listprojects
     notify-wrapper
   ] ++ (lib.optionals isDarwin [
-    # macos only
     reattach-to-user-namespace
     coreutils
     libiconv
   ]) ++ (lib.optionals isLinux [
-    # linux only
     _1password-gui
     element-desktop
     freetube
@@ -89,6 +87,7 @@ in
     steam
     telegram-desktop
     virt-manager
+    vlc
     zeal
     zoom-us
   ]);
