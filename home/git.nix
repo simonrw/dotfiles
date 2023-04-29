@@ -87,11 +87,11 @@
         if config.me.dark-mode then {
           side-by-side = true;
           syntax-theme = "Monokai Extended Bright";
-          diff-so-fancy = false;
+          diff-so-fancy = true;
         } else {
           side-by-side = true;
           syntax-theme = "GitHub";
-          diff-so-fancy = false;
+          diff-so-fancy = true;
         };
     };
     includes = [
