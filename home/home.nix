@@ -35,7 +35,6 @@ in
     # ./xfce.nix
     # ./gnome.nix
     # ./i3.nix
-    ./gtk.nix
     ./mate.nix
   ];
 
