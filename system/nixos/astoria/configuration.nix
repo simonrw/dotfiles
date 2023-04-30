@@ -262,6 +262,17 @@
     package = pkgs.wireshark;
   };
 
+  # configure process limits for users
+  security.pam.loginLimits = [
+    # increase the soft limit of number of open files
+    {
+      domain = "*";
+      type = "soft";
+      item = "nofile";
+      value = "4096";
+    }
+  ];
+
   nix = import ../../../common/nix-settings.nix { inherit pkgs; };
 
   # This value determines the NixOS release from which the default
