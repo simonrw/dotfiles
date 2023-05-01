@@ -53,6 +53,7 @@
       "1password"
       "alacritty"
       "alfred"
+      "brave-browser"
       "barrier"
       "dash"
       "docker"
