@@ -15,3 +15,4 @@ set number
 " configure mappings
 map <leader>f <Action>(GotoFile)
 map <leader>s <Action>(GotoSymbol)
+map gb <Action>(RecentFiles)
