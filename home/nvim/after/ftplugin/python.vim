@@ -8,7 +8,7 @@ nnoremap <silent> <leader>p vip:VtrSendLinesToRunner<Cr>
 let b:ale_fixers = ["black"]
 let b:ale_linters = ["pyright", "flake8"]
 
-nnoremap <silent> <leader>y mm:%!black -q -<cr>`m
+nnoremap <silent> <leader>y <cmd>call Black()<cr>
 
 " override the pytest executable as pytest tries to be too clever when a
 " Pipfile exists
