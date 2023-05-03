@@ -199,6 +199,18 @@ let
     github-light = ''
       set background=light
       colorscheme github_light
+      highlight DiagnosticError guifg=Red
+      highlight DiagnosticHint guifg=Orange
+      highlight DiagnosticWarn guifg=Orange
+      highlight DiagnosticInfo guifg=LightBlue
+      highlight DiagnosticFloatingError guifg=Red
+      highlight DiagnosticFloatingHint guifg=Orange
+      highlight DiagnosticFloatingInfo guifg=LightBlue
+      highlight DiagnosticFloatingWarn guifg=Orange
+      highlight DiagnosticVirtualTextError guifg=Red
+      highlight DiagnosticVirtualTextHint guifg=Orange
+      highlight DiagnosticVirtualTextInfo guifg=LightBlue
+      highlight DiagnosticVirtualTextWarn guifg=Orange
     '';
     github = ''
       set background=dark
