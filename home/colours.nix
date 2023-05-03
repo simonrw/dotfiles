@@ -18,6 +18,8 @@ let
       };
 
       tmux-colour = normal.blue;
+      tmux-active-pane-colour = normal.black;
+      tmux-pane-colour = normal.blue;
       fish-theme = "Tomorrow";
 
       # Normal colors
@@ -236,6 +238,8 @@ let
   current-theme = themes.${config.me.theme};
   tmux-primary-colour = current-theme.tmux-colour;
   tmux-background-colour = current-theme.primary.background;
+  tmux-active-pane-text-colour = current-theme.tmux-active-pane-colour;
+  tmux-pane-text-colour = current-theme.tmux-pane-colour;
   fish-theme = current-theme.fish-theme;
 in
 with lib;
@@ -264,8 +268,8 @@ with lib;
 
       set -g mode-style "fg=#d5e1ed,bg=#456075"
 
-      set -g message-style "fg=#dddddd,bg=$bg_colour"
-      set -g message-command-style "fg=#dddddd,bg=$bg_colour"
+      set -g message-style "fg=${tmux-active-pane-text-colour},bg=$bg_colour"
+      set -g message-command-style "fg=${tmux-active-pane-text-colour},bg=$bg_colour"
 
       set -g pane-border-style "fg=#444c56"
       set -g pane-active-border-style "fg=$fg_colour"
@@ -287,8 +291,8 @@ with lib;
 
       setw -g window-status-activity-style "underscore,fg=#d1d5da,bg=$bg_colour"
       setw -g window-status-separator ""
-      setw -g window-status-format " #[fg=#777777]#I #W:#{pane_current_command}#F "
-      setw -g window-status-current-format " #[fg=#dddddd]#I #W:#{pane_current_command}#F "
+      setw -g window-status-format " #[fg=${tmux-pane-text-colour}]#I #W:#{pane_current_command}#F "
+      setw -g window-status-current-format " #[fg=${tmux-active-pane-text-colour}]#I #W:#{pane_current_command}#F "
     '';
     programs.kitty.settings = {
       background = current-theme.primary.background;
