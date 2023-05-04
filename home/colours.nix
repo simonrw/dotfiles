@@ -18,8 +18,8 @@ let
       };
 
       tmux-colour = normal.blue;
-      tmux-active-pane-colour = normal.black;
-      tmux-pane-colour = normal.blue;
+      tmux-active-pane-colour = normal.blue;
+      tmux-pane-colour = normal.black;
       fish-theme = "Tomorrow";
 
       # Normal colors
