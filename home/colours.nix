@@ -211,6 +211,7 @@ let
       highlight DiagnosticVirtualTextHint guifg=Orange
       highlight DiagnosticVirtualTextInfo guifg=LightBlue
       highlight DiagnosticVirtualTextWarn guifg=Orange
+      highlight Comment guifg=#e69340   " brighten comments
     '';
     github = ''
       set background=dark
