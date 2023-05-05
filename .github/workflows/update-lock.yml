@@ -1,4 +1,7 @@
 name: update-flake-lock
+concurrency:
+  group: ${{ github.ref }}
+  cancel-in-progress: true
 on:
   workflow_dispatch: # allows manual triggering
   schedule:
