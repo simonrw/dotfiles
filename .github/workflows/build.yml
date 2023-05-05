@@ -28,7 +28,7 @@ jobs:
             access-tokens = github.com=${{ secrets.GITHUB_TOKEN }}
       - uses: cachix/cachix-action@v11
         with:
-          name: '${{ secrets.CACHIX_NAME }}'
+          name: mindriot101-home
           authToken: '${{ secrets.CACHIX_AUTH_TOKEN }}'
       - run: nix build '.#homeConfigurations.x86_64-linux.simon.activationPackage'
 
@@ -42,6 +42,6 @@ jobs:
             access-tokens = github.com=${{ secrets.GITHUB_TOKEN }}
       - uses: cachix/cachix-action@v11
         with:
-          name: '${{ secrets.CACHIX_NAME }}'
+          name: mindriot101-home
           authToken: '${{ secrets.CACHIX_AUTH_TOKEN }}'
       - run: nix build '.#homeConfigurations.x86_64-darwin.simon.activationPackage'
