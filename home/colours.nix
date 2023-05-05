@@ -1,6 +1,7 @@
 { config, lib, ... }:
 let
   themes = {
+    # light themes
     github-light = rec {
       primary = {
         background = "#ffffff";
@@ -51,6 +52,7 @@ let
         { index = 17; color = "#cb2431"; }
       ];
     };
+    # dark themes
     gruvbox = rec {
       tmux-colour = normal.yellow;
       fish-theme = (throw "not set");
@@ -248,12 +250,18 @@ let
     '';
   };
 
+  pudb-theme = {
+    github-light = "vim";
+  }.${config.me.theme};
+
   current-theme = themes.${config.me.theme};
   tmux-primary-colour = current-theme.tmux-colour;
   tmux-background-colour = current-theme.primary.background;
   tmux-active-pane-text-colour = current-theme.tmux-active-pane-colour;
   tmux-pane-text-colour = current-theme.tmux-pane-colour;
   fish-theme = current-theme.fish-theme;
+
+
 in
 with lib;
 
@@ -269,6 +277,7 @@ with lib;
     };
   };
   config = {
+    programs.pudb.theme = pudb-theme;
     programs.fish.interactiveShellInit = ''
       # configure colour theme
       fish_config theme choose "${fish-theme}"
