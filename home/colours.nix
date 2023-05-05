@@ -212,6 +212,7 @@ let
       highlight DiagnosticVirtualTextInfo guifg=LightBlue
       highlight DiagnosticVirtualTextWarn guifg=Orange
       highlight Comment guifg=#e69340   " brighten comments
+      highlight TreesitterContext guibg=#eeeeee
     '';
     github = ''
       set background=dark
