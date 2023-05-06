@@ -57,7 +57,7 @@ in
     font-size = 12.0;
     theme = "srw";
     defaults = {
-      browser = "brave";
+      browser = "firefox";
       terminal = "kitty";
     };
   };
