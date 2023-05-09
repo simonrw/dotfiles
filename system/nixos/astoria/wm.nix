@@ -90,4 +90,4 @@ let
     ];
     services.picom.enable = true;
   };
-in xfce-settings
+in gnome-settings
