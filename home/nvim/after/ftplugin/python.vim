@@ -7,6 +7,9 @@ nnoremap <silent> <leader>p vip:VtrSendLinesToRunner<Cr>
 
 let b:ale_fixers = ["black"]
 let b:ale_linters = ["pyright", "flake8"]
+let g:black#settings = {
+    \ 'line_length': 100
+    \}
 
 nnoremap <silent> <leader>y <cmd>call Black()<cr>
 
