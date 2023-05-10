@@ -59,6 +59,9 @@ in
     "org/gnome/shell/extensions/user-theme" = {
       name = "Orchis-Dark-Compact";
     };
+    "org/gnome/desktop/interface" = {
+      gtk-theme = "Orchis-Dark-Compact";
+    };
     "org/gnome/shell" = {
       disable-user-extensions = false;
       enabled-extensions = [
@@ -109,7 +112,7 @@ in
     # TODO: add configuration
     "org/gnome/desktop/interface" = {
       color-scheme = "prefer-dark";
-      gtk-theme = "Orchis-Dark-Compact";
+      gtk-theme = "Adwaita-dark";
     };
   };
 }
