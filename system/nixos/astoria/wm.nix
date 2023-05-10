@@ -42,6 +42,7 @@ let
         xfce.xfce4-pulseaudio-plugin
         xfce.xfce4-systemload-plugin
         xfce.xfce4-xkb-plugin
+        xfce.thunar-archive-plugin
       ];
     };
 
