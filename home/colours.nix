@@ -231,7 +231,7 @@ let
     '';
     srw = ''
       set background=dark
-      colorscheme monokai-pro
+      colorscheme srw256
       hi Normal guibg=none
       let g:linenr_background = 'none'
       execute 'highlight TelescopeNormal guibg=' . g:linenr_background
@@ -248,8 +248,6 @@ let
       execute 'highlight DiagnosticSignInfo ctermfg=4 guifg=LightBlue guibg=' . g:linenr_background
       execute 'highlight DiagnosticSignWarn ctermfg=3 guifg=Orange guibg=' . g:linenr_background
       highlight DiagnosticUnderlineHint guifg=Grey guisp=Grey
-      highlight Comment guifg=#e69340   " brighten comments
-      highlight TSComment guifg=#e69340   " brighten comments
     '';
   };
 
