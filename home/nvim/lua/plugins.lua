@@ -20,6 +20,7 @@ require('packer').startup({ function(use)
     use 'terrastruct/d2-vim'
 
     use 'averms/black-nvim'
+    use 'loctvl842/monokai-pro.nvim'
 
     use {
         'VonHeikemen/lsp-zero.nvim',
