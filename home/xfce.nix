@@ -40,6 +40,8 @@ let
       "commands/custom/<Super>F12" = ''bash -c "${pkgs.alsaUtils}/bin/amixer sset Master playback '5%+'"'';
       "commands/custom/<Super>F11" = ''bash -c "${pkgs.alsaUtils}/bin/amixer sset Master playback '5%-'"'';
       "commands/custom/<Super>F9" = ''bash -c "${pkgs.playerctl}/bin/playerctl play-pause"'';
+      "xfwm4/custom/<Super>Left" = "tile_left_key";
+      "xfwm4/custom/<Super>Right" = "tile_right_key";
     };
   };
 in
