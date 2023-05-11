@@ -30,7 +30,7 @@
   fileSystems."/mnt/data" = {
     device = "/dev/disk/by-uuid/893193eb-7680-48e9-a459-7af16e918548";
     fsType = "ext4";
-    options = [ "rw" "user" "defaults" "noatime" ];
+    options = [ "rw" "user" "exec" "noatime" ];
   };
 
   swapDevices =
