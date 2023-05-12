@@ -77,6 +77,7 @@ in
     gimp
     insomnia
     jetbrains.pycharm-community
+    lorien
     notion
     obsidian
     obs-studio
