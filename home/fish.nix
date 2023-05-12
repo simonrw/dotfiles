@@ -285,6 +285,7 @@ in
               end
           end
 
+          echo
           echo -n -s {$nix_shell_str} {$suffix_color} {$suffix} {$normal} " "
         '';
       };
