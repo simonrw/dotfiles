@@ -3,7 +3,7 @@ with lib;
 {
   options.me.defaults = {
     browser = mkOption {
-      type = types.str;
+      type = types.oneOf [ types.str types.attrs ];
       description = "Which browser to use";
     };
     terminal = mkOption {

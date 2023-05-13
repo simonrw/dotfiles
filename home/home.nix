@@ -57,7 +57,10 @@ in
     font-size = 12.0;
     theme = "srw";
     defaults = {
-      browser = "firefox";
+      browser = {
+        command = "google-chrome-stable";
+        name = "google-chrome";
+      };
       terminal = "kitty";
     };
   };
