@@ -52,5 +52,6 @@
       driSupport32Bit = true;
     };
     bluetooth.enable = true;
+    nvidia.powerManagement.enable = true;
   };
 }
