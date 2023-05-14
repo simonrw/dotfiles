@@ -50,6 +50,7 @@ let
     services.xserver.displayManager.defaultSession = "gnome-xorg";
     services.xserver.desktopManager.gnome.enable = true;
     services.xserver.displayManager.gdm.enable = true;
+    services.xserver.displayManager.gdm.wayland = true;
     services.udev.packages = with pkgs;
       [
         gnome.gnome-settings-daemon
@@ -62,6 +63,8 @@ let
       gnomeExtensions.advanced-alttab-window-switcher
       orchis-theme
     ];
+
+    programs.xwayland.enable = true;
 
     services.xserver.desktopManager.gnome.extraGSettingsOverrides = ''
       [org.gnome.desktop.wm.preferences]
@@ -91,4 +94,5 @@ let
     ];
     services.picom.enable = true;
   };
-in gnome-settings
+in
+gnome-settings
