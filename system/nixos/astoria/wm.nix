@@ -50,7 +50,7 @@ let
     services.xserver.displayManager.defaultSession = "gnome-xorg";
     services.xserver.desktopManager.gnome.enable = true;
     services.xserver.displayManager.gdm.enable = true;
-    services.xserver.displayManager.gdm.wayland = true;
+    services.xserver.displayManager.gdm.wayland = false;
     services.udev.packages = with pkgs;
       [
         gnome.gnome-settings-daemon
@@ -64,7 +64,7 @@ let
       orchis-theme
     ];
 
-    programs.xwayland.enable = true;
+    programs.xwayland.enable = false;
 
     services.xserver.desktopManager.gnome.extraGSettingsOverrides = ''
       [org.gnome.desktop.wm.preferences]
