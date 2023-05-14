@@ -61,7 +61,7 @@ in
         command = "google-chrome-stable";
         name = "google-chrome";
       };
-      terminal = "kitty";
+      terminal = "alacritty";
     };
   };
 
