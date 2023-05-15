@@ -10,13 +10,6 @@ let
   custom-curl = pkgs.curl.override {
     c-aresSupport = true;
   };
-
-  custom-slack = pkgs.slack.overrideAttrs (prev: {
-    postInstall = ''
-      substituteInPlace $out/share/applications/slack.desktop \
-        --replace bin/slack "bin/slack --ozone-platform-hint=auto --enable-features=WaylandWindowDecorations --enable-webrtc-pipewire-capturer"
-    '';
-  });
 in
 {
   home.packages = with pkgs; [
@@ -91,7 +84,7 @@ in
     pinentry-gtk2
     playerctl
     shotcut
-    custom-slack
+    slack
     steam
     telegram-desktop
     virt-manager
