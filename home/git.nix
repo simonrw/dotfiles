@@ -68,6 +68,7 @@
       # Logging from Gary Bernhardt
       l = "log --graph --decorate --pretty=format:'%C(auto)%h%C(reset) %C(green)(%ar)%C(reset) %C(blue)[%an]%C(auto) %d %s%C(auto)' --exclude='refs/bugs/*' --exclude='refs/identities/*'";
       la = "l --all";
+      lm = "!git l $(git branch-name) $REVIEW_BASE";
       head = "l -1";
       h = "head";
       r = "l -20";
