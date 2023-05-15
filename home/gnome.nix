@@ -56,15 +56,13 @@ in
         "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom4/"
       ];
     };
-    "org/gnome/shell/extensions/user-theme" = {
-      name = "Orchis-Dark-Compact";
-    };
     "org/gnome/shell" = {
       disable-user-extensions = false;
       enabled-extensions = [
         "advanced-alt-tab@G-dH.github.com"
         "appindicatorsupport@rgcjonas.gmail.com"
         "drive-menu@gnome-shell-extensions.gcampax.github.com"
+        "user-theme@gnome-shell-extensions.gcampax.github.com"
       ];
       disabled-extensions = [ ];
     };
@@ -104,6 +102,9 @@ in
     };
     "org/gnome/desktop/sound" = {
       allow-volume-above-100-percent = true;
+    };
+    "org/gnome/shell/extensions/user-theme" = {
+      name = "";
     };
     # default to dark mode for now
     # TODO: add configuration
