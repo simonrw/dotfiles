@@ -19,3 +19,4 @@ map <leader>s <Action>(GotoSymbol)
 map gb <Action>(RecentFiles)
 map [c <Action>(VcsShowPrevChangeMarker)
 map ]c <Action>(VcsShowNextChangeMarker)
+map <space> :nohl<Cr>
