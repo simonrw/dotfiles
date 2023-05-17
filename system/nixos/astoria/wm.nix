@@ -94,5 +94,10 @@ let
     ];
     services.picom.enable = true;
   };
+
+  cinnamon-settings = {
+    services.xserver.desktopManager.cinnamon.enable = true;
+    services.xserver.displayManager.gdm.enable = true;
+  };
 in
-gnome-settings
+cinnamon-settings
