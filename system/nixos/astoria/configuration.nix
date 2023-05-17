@@ -153,7 +153,7 @@
     simon = {
       isNormalUser = true;
       description = "Simon Walker";
-      extraGroups = [ "networkmanager" "wheel" "libvirtd" "docker" "podman" ];
+      extraGroups = [ "networkmanager" "wheel" "libvirtd" "docker" "podman" "input" "bluetooth" ];
       shell = pkgs.fish;
       home = "/home/simon";
       initialPassword = "test.1234";
