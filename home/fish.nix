@@ -136,7 +136,6 @@ in
       add-keys = ''ssh-add (find ~/.ssh - maxdepth 1 - type f - name "id_rsa*" | grep - v pub | grep - v bak)'';
       cat = "${pkgs.bat}/bin/bat";
       clear-pycs = "find { $PWD } -name '*.pyc' -delete";
-      curl = "${pkgs.curlie}/bin/curlie";
       da = "${pkgs.direnv}/bin/direnv allow";
       de = "${pkgs.direnv}/bin/direnv edit";
       # docker compose
@@ -149,7 +148,6 @@ in
       gpr = "${pkgs.git}/bin/git pull --rebase";
       grep = "${pkgs.ripgrep}/bin/rg";
       gs = "${pkgs.git}/bin/git status";
-      http = "${pkgs.curlie}/bin/curlie";
       less = "${pkgs.bat}/bin/bat";
       lr = "thor";
       more = "${pkgs.bat}/bin/bat";
