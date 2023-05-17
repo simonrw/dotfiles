@@ -158,15 +158,6 @@
       home = "/home/simon";
       initialPassword = "test.1234";
     };
-    work = {
-      isNormalUser = true;
-      description = "Work account";
-      # wheel is required for running LocalStack :(
-      extraGroups = [ "networkmanager" "wheel" "libvirtd" "docker" "podman" ];
-      shell = pkgs.fish;
-      home = "/home/work";
-      initialPassword = "test.1234";
-    };
   };
 
   # Allow unfree packages
