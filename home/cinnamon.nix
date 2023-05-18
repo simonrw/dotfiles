@@ -19,6 +19,7 @@ let
 in
 {
   dconf.settings = {
+    # custom keybindings
     "org/cinnamon/desktop/keybindings/custom-keybindings/custom0" = {
       binding = [ "<Alt><Super>s" ];
       command = mkShortcutCommand "slack";
@@ -47,6 +48,16 @@ in
     "org/cinnamon/desktop/keybindings" = {
       custom-list = [ "__dummy__" "custom0" "custom1" "custom2" "custom3" "custom4" ];
     };
+    # media keys
+    "org/cinnamon/desktop/keybindings/media-keys" = {
+      previous = [ "XF86AudioPrev" "<Super>F7" ];
+      play = [ "XF86AudioPlay" "<Super>F8" ];
+      next = [ "XF86AudioNext" "<Super>F9" ];
+      mute = [ "XF86AudioMute" "<Super>F10" ];
+      volume-down = [ "XF86AudioLowerVolume" "<Super>F11" ];
+      volume-up = [ "XF86AudioRaiseVolume" "<Super>F12" ];
+    };
+    # other
     "org/cinnamon/desktop/wm/preferences" = {
       button-layout = "close,maximize,minimize:";
     };
