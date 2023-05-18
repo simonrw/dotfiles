@@ -32,9 +32,6 @@
       fugitive-gitlab-vim
       markdown-preview-nvim
       vim-gitgutter
-      telescope-nvim
-      telescope-ui-select-nvim
-      telescope-fzf-native-nvim
       vim-gutentags
       vim-toml
       vim-svelte
@@ -45,6 +42,8 @@
       fidget-nvim
       nvim-base16
       aerial-nvim
+      # has native plugin so requires nix
+      telescope-fzf-native-nvim
 
       # treesitter
       (nvim-treesitter.withPlugins

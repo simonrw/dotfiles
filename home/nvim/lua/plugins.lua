@@ -19,6 +19,10 @@ require('packer').startup({ function(use)
     use 'tweekmonster/django-plus.vim'
     use 'terrastruct/d2-vim'
 
+    -- load telescope in here so we get the latest and greatest
+    use 'nvim-telescope/telescope.nvim'
+    use 'nvim-telescope/telescope-ui-select.nvim'
+
     use 'averms/black-nvim'
 
     use {
