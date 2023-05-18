@@ -53,10 +53,10 @@ in
 
   # custom properties
   me = {
-    dark-mode = false;
+    dark-mode = true;
     font-name = "JetBrains Mono";
     font-size = 12.0;
-    theme = "github-light";
+    theme = "srw";
     defaults = {
       browser = {
         command = "google-chrome-stable";
