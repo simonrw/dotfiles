@@ -32,11 +32,16 @@ in
 
   config =
     let
-      font-package = {
-        "Inconsolata" = pkgs.inconsolata;
-        "JetBrains Mono" = pkgs.jetbrains-mono;
-        "MesloLGS NF" = pkgs.meslo-lgs-nf;
-      }.${cfg.font-name};
+      nerdfont-name-map = {
+        "JetBrains Mono" = "JetBrainsMono";
+      };
+      font-package = pkgs.nerdfonts.override { fonts = [ nerdfont-name-map.${cfg.font-name} ]; };
+
+      # font-package = {
+      #   "Inconsolata" = pkgs.inconsolata;
+      #   "JetBrains Mono" = pkgs.jetbrains-mono;
+      #   "MesloLGS NF" = pkgs.meslo-lgs-nf;
+      # }.${cfg.font-name};
       alacritty-font-renamed = {
         "IBM Plex" = "IBM Plex Mono";
       }.${cfg.font-name} or cfg.font-name;
