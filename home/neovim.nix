@@ -10,6 +10,7 @@
     extraPython3Packages = (ps: with ps; [
       pynvim
       black
+      debugpy
     ]);
     extraConfig = ''
       source ~/.config/nvim/nixinit.vim
@@ -44,6 +45,12 @@
       aerial-nvim
       # has native plugin so requires nix
       telescope-fzf-native-nvim
+
+      # debugging
+      nvim-dap
+      nvim-dap-python
+      nvim-dap-go
+      nvim-dap-ui
 
       # treesitter
       (nvim-treesitter.withPlugins

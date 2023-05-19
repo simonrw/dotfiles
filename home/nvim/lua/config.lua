@@ -21,3 +21,6 @@ require('fugitive')
 require('completionconfig')
 require('editorconfigconfig')
 require('aerialconfig')
+
+-- debugging
+require('dapconfig')
