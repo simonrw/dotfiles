@@ -35,6 +35,9 @@
     "vm.max_map_count" = 262144;
   };
 
+  # enable graphical cpu governer selection
+  services.cpupower-gui.enable = true;
+
   # enable prometheus metrics collecting
   services.prometheus = {
     enable = true;
