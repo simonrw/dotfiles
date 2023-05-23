@@ -29,6 +29,7 @@ in
       "https://tree-grepper.cachix.org"
       "https://github-inbox.cachix.org"
       "https://nix-community.cachix.org"
+      "https://cftail.cachix.org"
     ];
     trusted-public-keys = [
       "mindriot101-home.cachix.org-1:6M7zAD5oYiwfVPobA5LPtwM+5FewBv4fEMvCgrLACR4="
@@ -36,6 +37,7 @@ in
       "tree-grepper.cachix.org-1:Tm/owXM+dl3GnT8gZg+GTI3AW+yX1XFVYXspZa7ejHg="
       "github-inbox.cachix.org-1:S9UjpqvGC8oDtEdfwpHQmHALF4eP8EgPzRnWoMr4obc="
       "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
+      "cftail.cachix.org-1:/TvaKTN25wL/+JMBEkOmxM03HWUDY3UcuMa5ld3PPXw="
     ];
   };
   extraOptions = ''
