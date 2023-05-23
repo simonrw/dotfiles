@@ -86,13 +86,13 @@
       enable = true;
       options =
         if config.me.dark-mode then {
-          side-by-side = true;
-          syntax-theme = "Monokai Extended Bright";
-          diff-so-fancy = true;
+          side-by-side = false;
+          syntax-theme = "zenburn";
+          diff-so-fancy = false;
         } else {
-          side-by-side = true;
+          side-by-side = false;
           syntax-theme = "GitHub";
-          diff-so-fancy = true;
+          diff-so-fancy = false;
         };
     };
     includes = [
