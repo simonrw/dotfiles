@@ -56,7 +56,6 @@ in
     sqlite-interactive
     universal-ctags
     unzip
-    vscode
     watch
     wget
     zip

@@ -28,6 +28,7 @@ in
     ./nix-index.nix
     ./packages/simon.nix
     ./tmux.nix
+    ./vscode.nix
     ./zoxide.nix
   ] ++ lib.optionals isLinux [
     ./rofi.nix
