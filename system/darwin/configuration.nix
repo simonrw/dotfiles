@@ -53,8 +53,8 @@
       "1password"
       "alacritty"
       "alfred"
-      "brave-browser"
       "barrier"
+      "brave-browser"
       "dash"
       "docker"
       "element"
@@ -69,6 +69,7 @@
       "pocket-casts"
       "pycharm-ce"
       "shotcut"
+      "visual-studio-code"
       "vlc"
       "xquartz"
     ];
