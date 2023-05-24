@@ -79,6 +79,7 @@
           p.tree-sitter-rust
           p.tree-sitter-sql
           p.tree-sitter-toml
+          p.tree-sitter-typescript
           p.tree-sitter-yaml
           p.tree-sitter-zig
         ]))
