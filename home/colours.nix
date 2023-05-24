@@ -98,8 +98,20 @@ let
         foreground = "#edf0f2";
       };
 
-      tmux-colour = normal.blue;
+      tmux-colour = "#a5d6ff";
+      tmux-active-pane-colour = tmux-colour;
+      tmux-pane-colour = normal.black;
+
       fish-theme = "Tomorrow Night Bright";
+      cursor = {
+        text = normal.black;
+        cursor = normal.white;
+      };
+
+      selection = {
+        text = normal.white;
+        background = normal.blue;
+      };
 
       # Normal colors
       normal = {
@@ -222,6 +234,8 @@ let
       " overrides
       highlight Comment guifg=#e69340   " brighten comments
       highlight TSComment guifg=#e69340   " brighten comments
+      highlight Normal guibg=none
+      highlight NormalNC guibg=none
     '';
     gruvbox = ''
       set background=dark

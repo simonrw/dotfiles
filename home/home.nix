@@ -57,7 +57,7 @@ in
     dark-mode = true;
     font-name = "JetBrains Mono";
     font-size = if isLinux then 10.0 else 12.0;
-    theme = "srw";
+    theme = "github";
     defaults = {
       browser = {
         command = "google-chrome-stable";
