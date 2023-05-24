@@ -208,6 +208,51 @@ let
         white = "#828482";
       };
     };
+    monokai-pro = rec {
+      cursor = {
+        text = normal.black;
+        cursor = normal.white;
+      };
+
+      selection = {
+        text = normal.white;
+        background = normal.blue;
+      };
+
+      primary = {
+        background = "#2D2A2E";
+        foreground = "#fff1f3";
+      };
+
+      # Normal colors
+      normal = {
+        black = "#2c2525";
+        red = "#fd6883";
+        green = "#adda78";
+        yellow = "#f9cc6c";
+        blue = "#f38d70";
+        magenta = "#a8a9eb";
+        cyan = "#85dacc";
+        white = "#fff1f3";
+      };
+
+      # Bright colors
+      bright = {
+        black = "#72696a";
+        red = "#fd6883";
+        green = "#adda78";
+        yellow = "#f9cc6c";
+        blue = "#f38d70";
+        magenta = "#a8a9eb";
+        cyan = "#85dacc";
+        white = "#fff1f3";
+      };
+
+      tmux-colour = normal.yellow;
+      tmux-active-pane-colour = normal.white;
+      tmux-pane-colour = normal.yellow;
+      fish-theme = "Base16 Default Dark";
+    };
   };
   neovim-theme-blocks = {
     github-light = ''
@@ -263,6 +308,13 @@ let
       execute 'highlight DiagnosticSignWarn ctermfg=3 guifg=Orange guibg=' . g:linenr_background
       highlight DiagnosticUnderlineHint guifg=Grey guisp=Grey
     '';
+    monokai-pro = ''
+      set background=dark
+      colorscheme monokai-pro
+      highlight Comment guifg=#e69340   " brighten comments
+      highlight TSComment guifg=#e69340   " brighten comments
+      highlight NormalFloat guibg=#343136
+    '';
   };
 
   current-theme = themes.${config.me.theme};
@@ -278,9 +330,12 @@ with lib;
   options = {
     me.theme = mkOption {
       type = types.enum [
+        # dark themes
         "github"
         "srw"
         "gruvbox"
+        "monokai-pro"
+        # light themes
         "github-light"
       ];
     };
