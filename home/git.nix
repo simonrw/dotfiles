@@ -87,7 +87,7 @@
       options =
         if config.me.dark-mode then {
           side-by-side = false;
-          syntax-theme = "zenburn";
+          syntax-theme = "Monokai Extended";
           diff-so-fancy = false;
         } else {
           side-by-side = false;
