@@ -37,6 +37,10 @@
       }
     ];
     themes = {
+      monokai-pro-custom = {
+        inherits = "monokai_pro";
+        comment = "#e69340";
+      };
       srw =
         let
           my_black = "#111111";       # Cursorline

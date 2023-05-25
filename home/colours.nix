@@ -321,7 +321,7 @@ let
   };
 
   helix-theme = {
-    monokai-pro = "monokai_pro";
+    monokai-pro = "monokai-pro-custom";
   }.${config.me.theme};
 
   current-theme = themes.${config.me.theme};
