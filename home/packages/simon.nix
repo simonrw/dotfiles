@@ -14,6 +14,7 @@ in
 {
   home.packages = with pkgs; [
     _1password
+    ansi
     awscli2
     bat
     cachix

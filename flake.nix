@@ -37,6 +37,7 @@
           telegram-desktop = final.callPackage ./derivations/telegram-desktop { };
           cargo-dist = final.callPackage ./derivations/cargo-dist { };
           database = nix-index-database.legacyPackages.x86_64-linux.database;
+          ansi = final.callPackage ./derivations/ansi { };
         })
         # override the version of xattr for poetry
         (
