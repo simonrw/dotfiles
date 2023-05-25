@@ -327,6 +327,10 @@ let
   tmux-active-pane-text-colour = current-theme.tmux-active-pane-colour;
   tmux-pane-text-colour = current-theme.tmux-pane-colour;
   fish-theme = current-theme.fish-theme;
+
+  delta-theme = {
+    monokai-pro = "Monokai Extended";
+  }.${config.me.theme};
 in
 with lib;
 
@@ -412,5 +416,7 @@ with lib;
       color14 = current-theme.bright.cyan;
       color15 = current-theme.bright.white;
     };
+
+    programs.git.delta.options.syntax-theme = delta-theme;
   };
 }
