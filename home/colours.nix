@@ -230,8 +230,8 @@ let
         red = "#fd6883";
         green = "#adda78";
         yellow = "#f9cc6c";
-        blue = "#f38d70";
-        magenta = "#a8a9eb";
+        blue = "#a8a9eb";
+        magenta = "#f38d70";
         cyan = "#85dacc";
         white = "#fff1f3";
       };
@@ -242,8 +242,8 @@ let
         red = "#fd6883";
         green = "#adda78";
         yellow = "#f9cc6c";
-        blue = "#f38d70";
-        magenta = "#a8a9eb";
+        blue = "#a8a9eb";
+        magenta = "#f38d70";
         cyan = "#85dacc";
         white = "#fff1f3";
       };
@@ -314,6 +314,9 @@ let
       highlight Comment guifg=#e69340   " brighten comments
       highlight TSComment guifg=#e69340   " brighten comments
       highlight NormalFloat guibg=#343136
+      highlight TabLine gui=none guibg=none
+      highlight TabLine gui=none guibg=none
+      highlight TabLineFill gui=none guibg=none
     '';
   };
 
