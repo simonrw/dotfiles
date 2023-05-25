@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, lib, pkgs, ... }:
 {
   programs.helix = {
     enable = true;
@@ -34,6 +34,12 @@
           ];
         };
         config = { };
+      }
+      {
+        name = "nix";
+        language-server = {
+          command = "${lib.getExe pkgs.rnix-lsp}";
+        };
       }
     ];
     themes = {
