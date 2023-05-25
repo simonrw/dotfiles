@@ -84,14 +84,9 @@
     };
     delta = {
       enable = true;
-      options =
-        if config.me.dark-mode then {
+      options = {
           side-by-side = false;
-          syntax-theme = "zenburn";
-          diff-so-fancy = false;
-        } else {
-          side-by-side = false;
-          syntax-theme = "GitHub";
+          diff-highlight = true;
           diff-so-fancy = false;
         };
     };

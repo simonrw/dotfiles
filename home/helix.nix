@@ -3,12 +3,15 @@
   programs.helix = {
     enable = true;
     settings = {
-      theme = if config.me.dark-mode then "monokai" else "onelight";
       editor = {
-        line-number = "relative";
         auto-pairs = false;
         true-color = true;
         lsp.display-messages = true;
+        gutters.layout = [
+          "diagnostics"
+          "spacer"
+          "diff"
+        ];
       };
       keys.normal = {
         "G" = "goto_file_end";

@@ -26,6 +26,13 @@ require('packer').startup({ function(use)
     use 'averms/black-nvim'
 
     use {
+        "loctvl842/monokai-pro.nvim",
+        config = function()
+            require("monokai-pro").setup()
+        end
+    }
+
+    use {
         'VonHeikemen/lsp-zero.nvim',
         requires = {
             -- LSP Support
