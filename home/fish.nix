@@ -14,6 +14,7 @@ let
 
   # the complete neovim package
   neovim = config.programs.neovim.finalPackage;
+  editor = pkgs.helix;
 in
 {
   programs.fish = {
@@ -38,7 +39,7 @@ in
         set -x LANG "en_GB.UTF-8"
         set -x LC_CTYPE "en_GB.UTF-8"
         set -x LC_ALL "en_GB.UTF-8"
-        set -x EDITOR "${neovim}/bin/nvim"
+        set -x EDITOR "${lib.getExe editor}"
         set -x PAGER "${pkgs.bat}/bin/bat"
         set -x MANPAGER "sh -c 'col -bx | ${pkgs.bat}/bin/bat -l man -p'"
 
@@ -161,7 +162,9 @@ in
       tl = "tmux-last";
       trash = "${pkgs.python3Packages.send2trash}/bin/send2trash";
       tree = "${pkgs.exa}/bin/exa -T";
-      vup = "${neovim}/bin/nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'";
+      vim = "${lib.getExe editor}";
+      nvim = "${lib.getExe editor}";
+      vi = "${lib.getExe editor}";
     } // lib.optionalAttrs isLinux {
       pbcopy = "${pkgs.xclip}/bin/xclip -selection clipboard";
       pbpaste = "${pkgs.xclip}/bin/xclip -selection clipboard -o";
