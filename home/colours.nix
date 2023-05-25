@@ -251,7 +251,7 @@ let
       tmux-colour = normal.yellow;
       tmux-active-pane-colour = normal.white;
       tmux-pane-colour = normal.yellow;
-      fish-theme = "Base16 Default Dark";
+      fish-theme = "ayu Dark";
     };
   };
   neovim-theme-blocks = {
