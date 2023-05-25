@@ -314,8 +314,8 @@ let
       highlight Comment guifg=#e69340   " brighten comments
       highlight TSComment guifg=#e69340   " brighten comments
       highlight NormalFloat guibg=#343136
-      highlight TabLine gui=none guibg=none
-      highlight TabLine gui=none guibg=none
+      highlight TabLine gui=none guibg=none guifg=${themes.monokai-pro.normal.yellow}
+      highlight TabLineSel gui=none guibg=none guifg=${themes.monokai-pro.normal.white}
       highlight TabLineFill gui=none guibg=none
     '';
   };
