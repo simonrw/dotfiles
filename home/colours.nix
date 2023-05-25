@@ -317,6 +317,10 @@ let
     '';
   };
 
+  helix-theme = {
+    monokai-pro = "monokai_pro";
+  }.${config.me.theme};
+
   current-theme = themes.${config.me.theme};
   tmux-primary-colour = current-theme.tmux-colour;
   tmux-background-colour = current-theme.primary.background;
@@ -341,6 +345,7 @@ with lib;
     };
   };
   config = {
+    programs.helix.settings.theme = helix-theme;
     programs.fish.interactiveShellInit = ''
       # configure colour theme
       fish_config theme choose "${fish-theme}"
