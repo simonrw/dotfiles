@@ -1,44 +1,4 @@
 { pkgs, isLinux, ... }:
-let
-  custom-extensions = pkgs.vscode-utils.extensionsFromVscodeMarketplace [
-    {
-      name = "theme-monokai-pro-vscode";
-      publisher = "monokai";
-      version = "1.2.1";
-      sha256 = "sha256-tRMuAqI6zqjvOCoESbJfD4fjgnA93pQ06ppvPDuwceQ=";
-    }
-    {
-      name = "nix-extension-pack";
-      publisher = "pinage404";
-      version = "3.0.0";
-      sha256 = "sha256-cWXd6AlyxBroZF+cXZzzWZbYPDuOqwCZIK67cEP5sNk=";
-    }
-    {
-      name = "vscode-test-explorer";
-      publisher = "hbenl";
-      version = "2.21.1";
-      sha256 = "sha256-fHyePd8fYPt7zPHBGiVmd8fRx+IM3/cSBCyiI/C0VAg=";
-    }
-    {
-      name = "vscode-python-test-adapter";
-      publisher = "littlefoxteam";
-      version = "0.7.1";
-      sha256 = "sha256-XnFgQTXU7h8Po9pI8oeKfzHHpz+dyDff0RkqTyaKS+o=";
-    }
-    {
-      name = "test-adapter-converter";
-      publisher = "ms-vscode";
-      version = "0.1.7";
-      sha256 = "sha256-W5t0X8LwpI6ZL7sx6edo/0jy/ujHHZU+xZWR4f7sbec=";
-    }
-    {
-      name = "remote-containers";
-      publisher = "ms-vscode-remote";
-      version = "0.292.0";
-      sha256 = "sha256-U1ZuxfoUBWdnOy+t4Zp7B5jyvGt89xsufrqnX09gm4U=";
-    }
-  ];
-in
 {
   programs.vscode = {
     enable = isLinux;
@@ -60,7 +20,14 @@ in
       svelte.svelte-vscode
       vadimcn.vscode-lldb
       vscodevim.vim
-    ] ++ custom-extensions;
+    ] ++ (with pkgs.vscode-marketplace; [
+      monokai.theme-monokai-pro-vscode
+      pinage404.nix-extension-pack
+      hbenl.vscode-test-explorer
+      littlefoxteam.vscode-python-test-adapter
+      ms-vscode.test-adapter-converter
+      ms-vscode-remote.remote-containers
+    ]);
     mutableExtensionsDir = false;
     userSettings = {
       "editor.minimap.enabled" = false;
