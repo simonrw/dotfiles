@@ -45,10 +45,14 @@ in
       alacritty-font-renamed = {
         "IBM Plex" = "IBM Plex Mono";
       }.${cfg.font-name} or cfg.font-name;
+
+      vscode-font = {
+        "JetBrains Mono" = "JetBrains Mono Semibold";
+      }.${cfg.font-name};
     in
     {
       # vs code font
-      programs.vscode.userSettings."editor.fontFamily" = cfg.font-name;
+      programs.vscode.userSettings."editor.fontFamily" = vscode-font;
       programs.alacritty.settings.font = {
         normal.family = alacritty-font-renamed;
         normal.style = font-style;

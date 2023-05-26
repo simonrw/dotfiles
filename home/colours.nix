@@ -334,6 +334,10 @@ let
   delta-theme = {
     monokai-pro = "Monokai Extended";
   }.${config.me.theme};
+
+  vscode-theme = {
+    monokai-pro = "Monokai Pro";
+  }.${config.me.theme};
 in
 with lib;
 
@@ -421,5 +425,8 @@ with lib;
     };
 
     programs.git.delta.options.syntax-theme = delta-theme;
+    programs.vscode.userSettings = {
+      "workbench.colorTheme" = vscode-theme;
+    };
   };
 }
