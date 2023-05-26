@@ -79,6 +79,7 @@ in
     jetbrains.pycharm-community
     lorien
     notion
+    wally-cli
     obsidian
     obs-studio
     pinentry-gtk2

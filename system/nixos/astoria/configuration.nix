@@ -156,7 +156,7 @@
     simon = {
       isNormalUser = true;
       description = "Simon Walker";
-      extraGroups = [ "networkmanager" "wheel" "libvirtd" "docker" "podman" "input" "bluetooth" ];
+      extraGroups = [ "networkmanager" "wheel" "libvirtd" "docker" "podman" "input" "bluetooth" "plugdev" ];
       shell = pkgs.fish;
       home = "/home/simon";
       initialPassword = "test.1234";
@@ -261,7 +261,11 @@
       value = "4096";
     }
   ];
-
+  # udev rules for moonlander
+  services.udev.extraRules = ''
+    # Wally Flashing rules for the Moonlander and Planck EZ
+    SUBSYSTEMS=="usb", ATTRS{idVendor}=="0483", ATTRS{idProduct}=="df11", MODE:="0666", SYMLINK+="stm32_dfu"
+  '';
   nix = import ../../../common/nix-settings.nix { inherit pkgs; };
 
   # This value determines the NixOS release from which the default
