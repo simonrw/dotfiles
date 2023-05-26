@@ -23,25 +23,26 @@
           "w" = ":write";
         };
       };
+      language =
+        [
+          {
+            name = "python";
+            language-server = {
+              command = "${pkgs.pyright}/bin/pyright-langserver";
+              args = [
+                "--stdio"
+              ];
+            };
+            config = { };
+          }
+          {
+            name = "nix";
+            language-server = {
+              command = "${lib.getExe pkgs.rnix-lsp}";
+            };
+          }
+        ];
     };
-    languages = [
-      {
-        name = "python";
-        language-server = {
-          command = "${pkgs.pyright}/bin/pyright-langserver";
-          args = [
-            "--stdio"
-          ];
-        };
-        config = { };
-      }
-      {
-        name = "nix";
-        language-server = {
-          command = "${lib.getExe pkgs.rnix-lsp}";
-        };
-      }
-    ];
     themes = {
       monokai-pro-custom = {
         inherits = "monokai_pro";
