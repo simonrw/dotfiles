@@ -10,6 +10,17 @@ let
   custom-curl = pkgs.curl.override {
     c-aresSupport = true;
   };
+
+  fhs = (
+    let base = pkgs.appimageTools.defaultFhsEnvArgs; in
+    pkgs.buildFHSUserEnv (base // {
+      name = "fhs";
+      targetPkgs = pkgs: (base.targetPkgs pkgs) ++ [ pkgs.pkg-config ];
+      profile = "export FHS=1";
+      runScript = "fish";
+      extraOutputsToInstall = [ "dev" ];
+    })
+  );
 in
 {
   home.packages = with pkgs; [
@@ -73,13 +84,13 @@ in
   ]) ++ (lib.optionals isLinux [
     _1password-gui
     element-desktop
+    fhs
     freetube
     gimp
     insomnia
     jetbrains.pycharm-community
     lorien
     notion
-    wally-cli
     obsidian
     obs-studio
     pinentry-gtk2
@@ -90,6 +101,7 @@ in
     telegram-desktop
     virt-manager
     vlc
+    wally-cli
     zeal
     zoom-us
   ]);
