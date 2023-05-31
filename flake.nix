@@ -42,6 +42,7 @@
           cargo-dist = final.callPackage ./derivations/cargo-dist { };
           database = nix-index-database.legacyPackages.x86_64-linux.database;
           ansi = final.callPackage ./derivations/ansi { };
+          wally = final.callPackage ./derivations/wally { };
         })
         # override the version of xattr for poetry
         (

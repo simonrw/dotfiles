@@ -101,6 +101,7 @@ in
     telegram-desktop
     virt-manager
     vlc
+    wally
     wally-cli
     zeal
     zoom-us

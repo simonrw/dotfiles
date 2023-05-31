@@ -261,11 +261,10 @@
       value = "4096";
     }
   ];
-  # udev rules for moonlander
-  services.udev.extraRules = ''
-    # Wally Flashing rules for the Moonlander and Planck EZ
-    SUBSYSTEMS=="usb", ATTRS{idVendor}=="0483", ATTRS{idProduct}=="df11", MODE:="0666", SYMLINK+="stm32_dfu"
-  '';
+
+  # configure the system for zsa keyboards
+  hardware.keyboard.zsa.enable = true;
+
   nix = import ../../../common/nix-settings.nix { inherit pkgs; };
 
   # This value determines the NixOS release from which the default
