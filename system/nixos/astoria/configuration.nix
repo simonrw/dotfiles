@@ -187,6 +187,7 @@
         "--all"
       ];
     };
+    enableOnBoot = false;
   };
   # settings to add if this is a virtual machine
   virtualisation.vmVariant = {
