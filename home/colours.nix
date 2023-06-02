@@ -320,9 +320,7 @@ let
     '';
   };
 
-  helix-theme = {
-    monokai-pro = "monokai-pro-custom";
-  }.${config.me.theme};
+  helix-theme = { }.${config.me.theme} or "monokai-pro-custom";
 
   current-theme = themes.${config.me.theme};
   tmux-primary-colour = current-theme.tmux-colour;
@@ -331,13 +329,9 @@ let
   tmux-pane-text-colour = current-theme.tmux-pane-colour;
   fish-theme = current-theme.fish-theme;
 
-  delta-theme = {
-    monokai-pro = "Monokai Extended";
-  }.${config.me.theme};
+  delta-theme = { }.${config.me.theme} or "Monokai Extended";
 
-  vscode-theme = {
-    monokai-pro = "Monokai Pro";
-  }.${config.me.theme};
+  vscode-theme = { }.${config.me.theme} or "Monokai Pro";
 in
 with lib;
 
