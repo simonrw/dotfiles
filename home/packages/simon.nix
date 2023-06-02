@@ -85,6 +85,7 @@ in
     _1password-gui
     element-desktop
     fhs
+    flameshot
     freetube
     gimp
     insomnia
