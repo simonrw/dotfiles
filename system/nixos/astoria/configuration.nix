@@ -240,10 +240,12 @@
   # List services that you want to enable:
 
   # Enable the OpenSSH daemon.
-  services.openssh.enable = true;
-  services.openssh.settings = {
-    permitRootLogin = "no";
-    passwordAuthentication = false;
+  services.openssh = {
+    enable = true;
+    settings = {
+      PermitRootLogin = "no";
+      PasswordAuthentication = false;
+    };
   };
 
   # enable support for monitoring traffic via wireshark

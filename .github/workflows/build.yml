@@ -24,6 +24,12 @@ jobs:
   linux:
     runs-on: ubuntu-latest
     steps:
+      - run: df -h
+      - name: Increase build space
+        run: |
+          sudo rm -rf /usr/local/lib/android
+          sudo rm -rf /usr/share/dotnet
+      - run: df -h
       - uses: actions/checkout@v3
       - uses: cachix/install-nix-action@v21
         with:
