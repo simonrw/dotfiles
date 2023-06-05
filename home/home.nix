@@ -39,6 +39,7 @@ in
     # ./i3.nix
     # ./mate.nix
     ./cinnamon.nix
+    ./xcape.nix
   ];
 
   home = {
