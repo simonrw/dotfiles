@@ -83,6 +83,7 @@ in
     libiconv
   ]) ++ (lib.optionals isLinux [
     _1password-gui
+    discord
     element-desktop
     fhs
     flameshot
