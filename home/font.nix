@@ -46,6 +46,10 @@ in
         "IBM Plex" = "IBM Plex Mono";
       }.${cfg.font-name} or cfg.font-name;
 
+      alacritty-font-style-renamed = {
+        Semibold = "Bold";
+      }.${font-style} or font-style;
+
       vscode-font = {
         "JetBrains Mono" = "JetBrains Mono Semibold";
       }.${cfg.font-name};
@@ -55,9 +59,9 @@ in
       programs.vscode.userSettings."editor.fontFamily" = vscode-font;
       programs.alacritty.settings.font = {
         normal.family = alacritty-font-renamed;
-        normal.style = font-style;
+        normal.style = alacritty-font-style-renamed;
         italic.family = alacritty-font-renamed;
-        italic.style = font-style;
+        italic.style = alacritty-font-style-renamed;
       };
       programs.alacritty.settings.font.size = cfg.font-size;
       programs.kitty.settings = {
