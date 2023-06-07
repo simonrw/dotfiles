@@ -23,8 +23,10 @@
       # Ignore whatever is passed
       ignore = "!f() { echo \"$1\" >> .gitignore; }; f";
 
+      fo = "fetch origin";
+
       # review shortcuts
-      # https://blog.jez.io/cli-code-review/?utm_source=pocket_mylist
+      # https://blog.jez.io/cli-code-review
       files = "!git diff --name-only $(git base-commit)";
       stat = "!git diff --stat $(git base-commit)";
       review = "!nvim -c 'set nosplitright' -p $(git files) -c \"tabdo Gvdiff $REVIEW_BASE\" -c 'set splitright'";
