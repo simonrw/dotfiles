@@ -46,6 +46,7 @@ in
     htop
     httpie
     hub
+    jujutsu
     lsof
     mkcert
     multitail
