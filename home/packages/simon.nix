@@ -99,7 +99,6 @@ in
     playerctl
     shotcut
     slack
-    steam
     telegram-desktop
     virt-manager
     vlc
