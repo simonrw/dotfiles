@@ -39,45 +39,45 @@
   services.cpupower-gui.enable = true;
 
   # enable prometheus metrics collecting
-  services.prometheus = {
-    enable = true;
-    exporters = {
-      node = {
-        enable = true;
-        enabledCollectors = [ "systemd" ];
-      };
-      snmp = {
-        enable = true;
-        configurationPath = "${pkgs.prometheus-snmp-exporter.src}/snmp.yml";
-      };
-    };
-    scrapeConfigs = [
-      {
-        job_name = "astoria";
-        static_configs = [{
-          targets = [ "127.0.0.1:${toString config.services.prometheus.exporters.node.port}" ];
-        }];
-      }
-      {
-        job_name = "dns";
-        static_configs = [{
-          targets = [ "127.0.0.1:9153" ];
-        }];
-      }
-      {
-        job_name = "router";
-        static_configs = [{
-          targets = [ "127.0.0.1:${toString config.services.prometheus.exporters.snmp.port}" ];
-        }];
-        metrics_path = "/snmp";
-        params = { module = [ "if_mib" ]; target = [ "192.168.0.1" ]; };
-      }
-    ];
-  };
-  services.grafana = {
-    enable = true;
-    settings.server.http_addr = "127.0.0.1";
-  };
+  # services.prometheus = {
+  #   enable = true;
+  #   exporters = {
+  #     node = {
+  #       enable = true;
+  #       enabledCollectors = [ "systemd" ];
+  #     };
+  #     snmp = {
+  #       enable = true;
+  #       configurationPath = "${pkgs.prometheus-snmp-exporter.src}/snmp.yml";
+  #     };
+  #   };
+  #   scrapeConfigs = [
+  #     {
+  #       job_name = "astoria";
+  #       static_configs = [{
+  #         targets = [ "127.0.0.1:${toString config.services.prometheus.exporters.node.port}" ];
+  #       }];
+  #     }
+  #     {
+  #       job_name = "dns";
+  #       static_configs = [{
+  #         targets = [ "127.0.0.1:9153" ];
+  #       }];
+  #     }
+  #     {
+  #       job_name = "router";
+  #       static_configs = [{
+  #         targets = [ "127.0.0.1:${toString config.services.prometheus.exporters.snmp.port}" ];
+  #       }];
+  #       metrics_path = "/snmp";
+  #       params = { module = [ "if_mib" ]; target = [ "192.168.0.1" ]; };
+  #     }
+  #   ];
+  # };
+  # services.grafana = {
+  #   enable = true;
+  #   settings.server.http_addr = "127.0.0.1";
+  # };
 
   # Set your time zone.
   time.timeZone = "Europe/London";
