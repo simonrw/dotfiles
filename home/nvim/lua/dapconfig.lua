@@ -2,6 +2,8 @@ local dap_python = require('dap-python')
 
 dap_python.setup()
 
+require('nvim-dap-virtual-text').setup()
+
 -- keybindings
 vim.keymap.set('n', '<F8>', ":lua require('dap').step_over()<cr>")
 vim.keymap.set('n', '<F9>', ":lua require('dap').continue()<cr>")

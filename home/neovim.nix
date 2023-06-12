@@ -51,6 +51,7 @@
       nvim-dap-python
       nvim-dap-go
       nvim-dap-ui
+      nvim-dap-virtual-text
 
       # treesitter
       (nvim-treesitter.withPlugins
