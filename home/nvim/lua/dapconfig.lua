@@ -1,4 +1,5 @@
 local dap_python = require('dap-python')
+require('dap-go').setup()
 
 dap_python.setup()
 
