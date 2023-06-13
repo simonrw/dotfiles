@@ -26,3 +26,18 @@ end
 
 -- configure dap-python
 dap_python.test_runner = "pytest"
+
+-- add extra configurations
+table.insert(dap.configurations.python, {
+    type = 'python',
+    request = 'launch',
+    name = 'Launch module',
+    module = function()
+        local module_name = vim.fn.input("Module: ")
+        return module_name
+    end,
+    args = function()
+        local extra_args = vim.fn.input("Arguments: ")
+        return vim.split(extra_args, " +")
+    end,
+})
