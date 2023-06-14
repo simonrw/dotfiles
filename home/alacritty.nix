@@ -37,6 +37,13 @@ in
             mods = mod-key;
             action = "SpawnNewInstance";
           }
+        ] ++ lib.optionals isDarwin [
+          # disable backwards search
+          {
+            key = "B";
+            mods = "Command";
+            action = "ReceiveChar";
+          }
         ];
       };
     };
