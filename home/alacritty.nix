@@ -1,4 +1,4 @@
-{ config, isDarwin, ... }:
+{ config, isDarwin, lib, ... }:
 let
   mod-key = if isDarwin then "Command" else "Alt";
 in
@@ -14,6 +14,7 @@ in
           columns = 120;
           lines = 40;
         };
+        option_as_alt = if isDarwin then "Both" else "None";
         "key_bindings" = [
           {
             key = "F";
