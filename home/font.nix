@@ -34,14 +34,10 @@ in
     let
       nerdfont-name-map = {
         "JetBrains Mono" = "JetBrainsMono";
+        "Source Code Pro" = "SourceCodePro";
       };
       font-package = pkgs.nerdfonts.override { fonts = [ nerdfont-name-map.${cfg.font-name} ]; };
 
-      # font-package = {
-      #   "Inconsolata" = pkgs.inconsolata;
-      #   "JetBrains Mono" = pkgs.jetbrains-mono;
-      #   "MesloLGS NF" = pkgs.meslo-lgs-nf;
-      # }.${cfg.font-name};
       alacritty-font-renamed = {
         "IBM Plex" = "IBM Plex Mono";
       }.${cfg.font-name} or cfg.font-name;
