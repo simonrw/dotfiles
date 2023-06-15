@@ -22,7 +22,8 @@
   };
 
   outputs =
-    { nixpkgs
+    { self
+    , nixpkgs
     , darwin
     , flake-utils
     , home-manager
@@ -86,9 +87,7 @@
           inherit pkgs system;
           modules =
             [
-              {
-                nix.registry.nixpkgs.flake = nixpkgs;
-              }
+              self.nixosModules.nix
               ./system/nixos/${name}/configuration.nix
               home-manager.nixosModules.home-manager
               {
@@ -137,9 +136,7 @@
               mba = darwin.lib.darwinSystem {
                 inherit pkgs system;
                 modules = [
-                  {
-                    nix.registry.nixpkgs.flake = nixpkgs;
-                  }
+                  self.nixosModules.nix
                   ./system/darwin/configuration.nix
                   home-manager.darwinModules.home-manager
                   {
@@ -193,10 +190,21 @@
             };
         }
       );
+
+      modules.nixosModules = {
+        # common module to configure nix 
+        nix = { ... }: {
+          nix.registry.nixpkgs.flake = nixpkgs;
+          # set the system "nixpkgs" to the nixpkgs defined in this flake
+          # https://dataswamp.org/~solene/2022-07-20-nixos-flakes-command-sync-with-system.html#_nix-shell_vs_nix_shell
+          nix.nixPath = [ "nixpkgs=/etc/channels/nixpkgs" "/nix/var/nix/profiles/per-user/root/channels" ];
+          environment.etc."channels/nixpkgs".source = nixpkgs.outPath;
+        };
+      };
     in
     nixOsConfigurations
       [
         "astoria"
-      ] // darwinConfigurations // perSystemConfigurations;
+      ] // darwinConfigurations // perSystemConfigurations // modules;
 }
 
