@@ -1,10 +1,9 @@
-{ config, lib, pkgs, isLinux, ... }:
+{ config, lib, pkgs, ... }:
 with lib;
 let
   cfg = config.me;
 
-  # bump up the font size on linux since the font rendering is not so nice
-  font-style = if isLinux then "Semibold" else "Regular";
+  font-style = "Semibold";
 in
 {
   options = {
