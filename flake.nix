@@ -87,24 +87,7 @@
           inherit pkgs system;
           modules =
             [
-              self.modules.nix
-              (self.modules.nixos { inherit name; })
-              home-manager.nixosModules.home-manager
-              {
-                home-manager.useGlobalPkgs = true;
-                home-manager.useUserPackages = true;
-                home-manager.extraSpecialArgs = {
-                  isLinux = pkgs.stdenv.isLinux;
-                  isDarwin = pkgs.stdenv.isDarwin;
-                };
-
-                home-manager.users.simon = import ./home/home.nix;
-              }
-              nix-index-database.nixosModules.nix-index
-              vscode-server.nixosModule
-              ({ config, pkgs, ... }: {
-                services.vscode-server.enable = true;
-              })
+              self.modules.nixos
             ];
         };
 
@@ -134,22 +117,7 @@
               mba = darwin.lib.darwinSystem {
                 inherit pkgs system;
                 modules = [
-                  self.modules.nix
-                  (self.modules.darwin {
-                    name = "mba";
-                  })
-                  home-manager.darwinModules.home-manager
-                  {
-                    home-manager.useGlobalPkgs = true;
-                    home-manager.useUserPackages = true;
-                    home-manager.extraSpecialArgs = {
-                      isLinux = pkgs.stdenv.isLinux;
-                      isDarwin = pkgs.stdenv.isDarwin;
-                    };
-
-                    home-manager.users.simon = import ./home/home.nix;
-                  }
-                  nix-index-database.darwinModules.nix-index
+                  (self.modules.darwin { name = "mba"; })
                 ];
               };
             };
@@ -200,8 +168,46 @@
           nix.nixPath = [ "nixpkgs=/etc/channels/nixpkgs" "/nix/var/nix/profiles/per-user/root/channels" ];
           environment.etc."channels/nixpkgs".source = nixpkgs.outPath;
         };
-        nixos = { name ? "" }: import ./system/nixos/${name}/configuration.nix;
-        darwin = { name ? "" }: import ./system/darwin/${name}/configuration.nix;
+        nixos = { name ? "" }: { pkgs, ... }: {
+          imports = [
+            self.modules.nix
+            ./system/nixos/${name}/configuration.nix
+            home-manager.nixosModules.home-manager
+            {
+              home-manager.useGlobalPkgs = true;
+              home-manager.useUserPackages = true;
+              home-manager.extraSpecialArgs = {
+                isLinux = pkgs.stdenv.isLinux;
+                isDarwin = pkgs.stdenv.isDarwin;
+              };
+
+              home-manager.users.simon = import ./home/home.nix;
+            }
+            nix-index-database.nixosModules.nix-index
+            vscode-server.nixosModule
+            ({ ... }: {
+              services.vscode-server.enable = true;
+            })
+          ];
+        };
+        darwin = { name ? "" }: { pkgs, ... }: {
+          imports = [
+            self.modules.nix
+            home-manager.darwinModules.home-manager
+            {
+              home-manager.useGlobalPkgs = true;
+              home-manager.useUserPackages = true;
+              home-manager.extraSpecialArgs = {
+                isLinux = pkgs.stdenv.isLinux;
+                isDarwin = pkgs.stdenv.isDarwin;
+              };
+
+              home-manager.users.simon = import ./home/home.nix;
+            }
+            nix-index-database.darwinModules.nix-index
+          ];
+        };
+        vm = { ... }: { };
       };
     in
     nixOsConfigurations
