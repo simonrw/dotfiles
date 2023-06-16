@@ -10,7 +10,7 @@
     shell = pkgs.fish;
   };
 
-  nix = import ../../common/nix-settings.nix { inherit pkgs; };
+  nix = import ../../../common/nix-settings.nix { inherit pkgs; };
 
   fonts = {
     fontDir.enable = true;

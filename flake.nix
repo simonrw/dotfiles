@@ -88,7 +88,7 @@
           modules =
             [
               self.modules.nix
-              ./system/nixos/${name}/configuration.nix
+              (self.modules.nixos { inherit name; })
               home-manager.nixosModules.home-manager
               {
                 home-manager.useGlobalPkgs = true;
@@ -98,9 +98,7 @@
                   isDarwin = pkgs.stdenv.isDarwin;
                 };
 
-                home-manager.users = {
-                  simon = import ./home/home.nix;
-                };
+                home-manager.users.simon = import ./home/home.nix;
               }
               nix-index-database.nixosModules.nix-index
               vscode-server.nixosModule
@@ -137,7 +135,9 @@
                 inherit pkgs system;
                 modules = [
                   self.modules.nix
-                  ./system/darwin/configuration.nix
+                  (self.modules.darwin {
+                    name = "mba";
+                  })
                   home-manager.darwinModules.home-manager
                   {
                     home-manager.useGlobalPkgs = true;
@@ -200,6 +200,8 @@
           nix.nixPath = [ "nixpkgs=/etc/channels/nixpkgs" "/nix/var/nix/profiles/per-user/root/channels" ];
           environment.etc."channels/nixpkgs".source = nixpkgs.outPath;
         };
+        nixos = { name ? "" }: import ./system/nixos/${name}/configuration.nix;
+        darwin = { name ? "" }: import ./system/darwin/${name}/configuration.nix;
       };
     in
     nixOsConfigurations
