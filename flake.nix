@@ -87,7 +87,7 @@
           inherit pkgs system;
           modules =
             [
-              self.nixosModules.nix
+              self.modules.nix
               ./system/nixos/${name}/configuration.nix
               home-manager.nixosModules.home-manager
               {
@@ -136,7 +136,7 @@
               mba = darwin.lib.darwinSystem {
                 inherit pkgs system;
                 modules = [
-                  self.nixosModules.nix
+                  self.modules.nix
                   ./system/darwin/configuration.nix
                   home-manager.darwinModules.home-manager
                   {
@@ -191,7 +191,7 @@
         }
       );
 
-      modules.nixosModules = {
+      modules.modules = {
         # common module to configure nix 
         nix = { ... }: {
           nix.registry.nixpkgs.flake = nixpkgs;
