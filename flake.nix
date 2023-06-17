@@ -87,7 +87,7 @@
           inherit pkgs system;
           modules =
             [
-              self.modules.nixos
+              (self.modules.nixos { inherit name; })
             ];
         };
 
