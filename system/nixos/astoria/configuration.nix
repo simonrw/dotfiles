@@ -79,6 +79,13 @@
   #   settings.server.http_addr = "127.0.0.1";
   # };
 
+  # enable 1password
+  programs._1password.enable = true;
+  programs._1password-gui = {
+    enable = true;
+    polkitPolicyOwners = [ "simon" ];
+  };
+
   # Set your time zone.
   time.timeZone = "Europe/London";
 

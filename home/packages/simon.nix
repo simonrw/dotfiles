@@ -24,7 +24,6 @@ let
 in
 {
   home.packages = with pkgs; [
-    _1password
     ansi
     awscli2
     bat
@@ -83,7 +82,6 @@ in
     coreutils
     libiconv
   ]) ++ (lib.optionals isLinux [
-    _1password-gui
     discord
     element-desktop
     fhs
