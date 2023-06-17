@@ -19,10 +19,10 @@
   services.resolved = {
     enable = true;
     domains = [ "lan" ];
-    # fallbackDns = [ "192.168.0.2" ];
-    # extraConfig = ''
-    #   DNS=192.168.0.2
-    # '';
+    fallbackDns = [ "192.168.0.2" ];
+    extraConfig = ''
+      DNS=192.168.0.2
+    '';
   };
 
   networking.networkmanager = {
