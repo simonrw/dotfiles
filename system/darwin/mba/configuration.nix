@@ -1,9 +1,5 @@
 { pkgs, ... }:
 {
-  environment.systemPackages = with pkgs; [
-    _1password
-  ];
-
   users.users.simon = {
     name = "simon";
     home = "/Users/simon";
