@@ -1,4 +1,4 @@
-{ config, lib, pkgs, ... }:
+{ config, lib, pkgs, isLinux, ... }:
 with lib;
 let
   cfg = config.me;
@@ -35,12 +35,14 @@ in
       nerdfont-name = {
         "JetBrains Mono" = "JetBrainsMono";
         "Source Code Pro" = "SourceCodePro";
+        "Inconsolata" = "Inconsolata";
       }.${cfg.font-name} or null;
       # TODO: hard-code comic mono here
       font-package = if nerdfont-name != null then (pkgs.nerdfonts.override { fonts = [ nerdfont-name ]; }) else pkgs.comic-mono;
 
       alacritty-font-renamed = {
         "IBM Plex" = "IBM Plex Mono";
+        "Inconsolata" = "Inconsolata Nerd Font Mono";
       }.${cfg.font-name} or cfg.font-name;
 
       alacritty-font-style-renamed = {
