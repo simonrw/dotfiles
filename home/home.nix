@@ -66,6 +66,7 @@ in
       };
       terminal = "alacritty";
     };
+    cinnamon.theme = "Mint-Y-Aqua";
   };
 
   home.file = {
