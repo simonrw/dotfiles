@@ -16,6 +16,7 @@ in
         "Source Code Pro"
         "Inconsolata"
         "MesloLGS NF"
+        "Comic Mono"
       ];
       description = ''
         Which font to use
@@ -31,11 +32,12 @@ in
 
   config =
     let
-      nerdfont-name-map = {
+      nerdfont-name = {
         "JetBrains Mono" = "JetBrainsMono";
         "Source Code Pro" = "SourceCodePro";
-      };
-      font-package = pkgs.nerdfonts.override { fonts = [ nerdfont-name-map.${cfg.font-name} ]; };
+      }.${cfg.font-name} or null;
+      # TODO: hard-code comic mono here
+      font-package = if nerdfont-name != null then (pkgs.nerdfonts.override { fonts = [ nerdfont-name ]; }) else pkgs.comic-mono;
 
       alacritty-font-renamed = {
         "IBM Plex" = "IBM Plex Mono";
