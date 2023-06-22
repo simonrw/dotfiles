@@ -24,6 +24,11 @@ require('packer').startup({ function(use)
     use 'nvim-telescope/telescope-ui-select.nvim'
 
     use 'averms/black-nvim'
+    use {
+        'j-hui/fidget.nvim',
+        -- prevent warning about changing behaviour
+        tag = "legacy",
+    }
 
     use {
         "loctvl842/monokai-pro.nvim",

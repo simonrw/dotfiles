@@ -40,7 +40,6 @@
       rust-vim
       lualine-nvim
       papercolor-theme
-      fidget-nvim
       nvim-base16
       aerial-nvim
       # has native plugin so requires nix
