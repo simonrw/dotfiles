@@ -43,7 +43,7 @@ in
   ];
 
   home = {
-    homeDirectory = lib.mkForce homeDirectory;
+    inherit homeDirectory;
     username = "simon";
     stateVersion = "22.05";
 
