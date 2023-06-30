@@ -5,6 +5,7 @@
     extensions = with pkgs.vscode-extensions; [
       arrterian.nix-env-selector
       bungcip.better-toml
+      dracula-theme.theme-dracula
       esbenp.prettier-vscode
       github.github-vscode-theme
       github.vscode-github-actions

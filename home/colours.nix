@@ -332,6 +332,7 @@ let
   delta-theme = { }.${config.me.theme} or "Monokai Extended";
 
   vscode-theme = { }.${config.me.theme} or "Monokai Pro";
+
 in
 with lib;
 
@@ -347,6 +348,12 @@ with lib;
         # light themes
         "github-light"
       ];
+    };
+
+    me.vscode-theme = mkOption {
+      type = types.nullOr types.str;
+      description = "Custom vscode theme if different";
+      default = null;
     };
   };
   config = {
@@ -420,7 +427,7 @@ with lib;
 
     programs.git.delta.options.syntax-theme = delta-theme;
     programs.vscode.userSettings = {
-      "workbench.colorTheme" = vscode-theme;
+      "workbench.colorTheme" = config.me.vscode-theme or ({ }.${config.me.theme} or "Monokai Pro");
     };
   };
 }
