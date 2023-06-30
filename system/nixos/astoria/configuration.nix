@@ -109,7 +109,6 @@
       source-code-pro
       fira-code
       jetbrains-mono
-      ibm-plex
       inconsolata
     ];
   };
