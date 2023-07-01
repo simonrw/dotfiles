@@ -63,6 +63,7 @@ in
       # other
       "org/cinnamon/desktop/wm/preferences" = {
         button-layout = "close,maximize,minimize:";
+        titlebar-font = "Ubuntu Bold 10";
       };
       "org/cinnamon" = {
         alttab-switcher-style = "icons+preview";
@@ -72,6 +73,10 @@ in
       "org/cinnamon/desktop/interface" = {
         gtk-theme = cfg.theme;
         icon-theme = cfg.theme;
+        font-name = "Ubuntu Medium 10";
+      };
+      "org/nemo/desktop" = {
+        font = "Ubuntu Medium 10";
       };
       "org/cinnamon/theme" = {
         name = cfg.theme;
