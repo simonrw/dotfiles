@@ -217,6 +217,16 @@ in
       }
     ];
     functions = {
+      _tmux_attach = {
+        description = "Attach to a tmux session";
+        body = ''
+        if test (count $argv) -gt 0
+          tmux attach -t $argv[1]
+        else
+          tmux attach
+        end
+        '';
+      };
       ssh-notmux = {
         description = "SSH into a host disabling automatic tmux on the destination host";
         body = ''
