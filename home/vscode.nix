@@ -8,9 +8,11 @@
       dracula-theme.theme-dracula
       esbenp.prettier-vscode
       github.github-vscode-theme
+      justusadam.language-haskell
       github.vscode-github-actions
       github.vscode-pull-request-github
       golang.go
+      haskell.haskell
       jnoortheen.nix-ide
       matklad.rust-analyzer
       mkhl.direnv
