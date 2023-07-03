@@ -183,6 +183,7 @@
         "--all"
       ];
     };
+    defaultNetwork.settings.dns_enabled = true;
   };
   virtualisation.docker = {
     enable = true;
