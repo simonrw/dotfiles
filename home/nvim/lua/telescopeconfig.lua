@@ -4,6 +4,7 @@ mappings.nnoremap('<leader>f', [[<cmd>lua require('telescope.builtin').git_files
 mappings.nnoremap('<leader>F', [[<cmd>lua require('telescope.builtin').find_files()<Cr>]])
 mappings.nnoremap('gb', [[<cmd>lua require('telescope.builtin').buffers()<Cr>]])
 mappings.nnoremap('<leader><space>', [[<cmd>lua require('telescope.builtin').live_grep()<Cr>]])
+mappings.nnoremap('<leader>/', [[<cmd>lua require('telescope.builtin').current_buffer_fuzzy_find()<Cr>]])
 
 require("telescope").setup({
     defaults = {
