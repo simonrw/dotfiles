@@ -88,8 +88,6 @@
       enable = true;
       options = {
           side-by-side = false;
-          diff-highlight = true;
-          diff-so-fancy = false;
         };
     };
     includes = [
