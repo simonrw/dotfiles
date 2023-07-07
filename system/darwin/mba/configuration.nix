@@ -12,9 +12,13 @@
     fontDir.enable = true;
     fonts = with pkgs; [
       fantasque-sans-mono
-      jetbrains-mono
+      (nerdfonts.override {
+        fonts = [
+          "JetBrainsMono"
+          "SourceCodePro"
+        ];
+      })
       fira-code
-      source-code-pro
       inconsolata
     ];
   };

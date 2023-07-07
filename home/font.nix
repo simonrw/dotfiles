@@ -43,9 +43,14 @@ in
       alacritty-font-renamed = {
         "IBM Plex" = "IBM Plex Mono";
         "Inconsolata" = "Inconsolata Nerd Font Mono";
+        "JetBrains Mono" = "JetBrains Mono NL";
       }.${cfg.font-name} or cfg.font-name;
 
       alacritty-font-style-renamed = {
+        Semibold = "Bold";
+      }.${font-style} or font-style;
+
+      kitty-font-style-renamed = {
         Semibold = "Bold";
       }.${font-style} or font-style;
 
@@ -64,7 +69,7 @@ in
       };
       programs.alacritty.settings.font.size = cfg.font-size;
       programs.kitty.settings = {
-        font_family = "${cfg.font-name} ${font-style}";
+        font_family = "${cfg.font-name} ${kitty-font-style-renamed}";
         font_size = builtins.toString cfg.font-size;
       };
 
