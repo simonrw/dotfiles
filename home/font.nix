@@ -56,6 +56,7 @@ in
 
       vscode-font = {
         "JetBrains Mono" = "JetBrains Mono Semibold";
+        "Source Code Pro" = "Source Code Pro Semibold";
       }.${cfg.font-name};
     in
     {
