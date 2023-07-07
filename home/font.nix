@@ -47,7 +47,7 @@ in
       }.${cfg.font-name} or cfg.font-name;
 
       alacritty-font-style-renamed = {
-        Semibold = "Bold";
+        Semibold = if isLinux then "Bold" else "Semibold";
       }.${font-style} or font-style;
 
       kitty-font-style-renamed = {
