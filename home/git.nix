@@ -141,11 +141,14 @@
       difftool.meld = {
         cmd = "${pkgs.meld}/bin/meld $LOCAL $REMOTE";
       };
-      mergetool.conflicted = {
-        cmd = "nvim +Conflicted";
-      };
-      mergetool.pycharm = {
-        cmd = ''${pkgs.jetbrains.pycharm-community}/bin/pycharm-community merge "$LOCAL" "$REMOTE" "$BASE" "$MERGED"'';
+      mergetool = {
+        conflicted = {
+          cmd = "nvim +Conflicted";
+        };
+        pycharm = {
+          cmd = ''${pkgs.jetbrains.pycharm-community}/bin/pycharm-community merge "$LOCAL" "$REMOTE" "$BASE" "$MERGED"'';
+        };
+        prompt = false;
       };
       github = {
         user = "simonrw";
@@ -165,7 +168,7 @@
         defaultBranch = "main";
       };
       merge = {
-        tool = "conflicted";
+        tool = "vimdiff";
         conflictstyle = "diff3";
       };
       transfer = {
