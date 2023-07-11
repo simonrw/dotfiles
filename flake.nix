@@ -34,20 +34,6 @@
     , ...
     }:
     let
-
-      nix-direnv-updated-version = self: super: {
-        # version of nix-direnv that includes nix_direnv_manual_reload
-        nix-direnv = super.nix-direnv.overrideAttrs (old: {
-          version = "2.4.0-dev";
-          src = self.fetchFromGitHub {
-            owner = "nix-community";
-            repo = "nix-direnv";
-            rev = "3f9e573b2ea862d944159dab7a6c199146c188ea";
-            sha256 = "sha256-8uVUErjCb9mv3dRvq5sGt651XRhRpWczn0eJoCgMa4I=";
-          };
-        });
-      };
-
       mkOverlays = system: [
         (final: prev: {
           listprojects = final.callPackage ./derivations/listprojects { };
@@ -86,7 +72,6 @@
         )
         jetbrains-updater.overlay
         vscode-extensions.overlays.default
-        nix-direnv-updated-version
       ];
       mkNixOSConfiguration =
         let
