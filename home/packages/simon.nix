@@ -28,6 +28,7 @@ in
     awscli2
     bat
     cachix
+    cert-info
     comma
     curlie
     custom-curl

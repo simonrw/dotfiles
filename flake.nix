@@ -44,6 +44,7 @@
           database = nix-index-database.legacyPackages.x86_64-linux.database;
           ansi = final.callPackage ./derivations/ansi { };
           wally = final.callPackage ./derivations/wally { };
+          cert-info = final.callPackage ./derivations/cert-info { };
         })
         # override the version of xattr for poetry
         (
