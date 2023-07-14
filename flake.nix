@@ -167,6 +167,7 @@
 
         in
         {
+          inherit pkgs;
           homeConfigurations = {
             simon = home-manager.lib.homeManagerConfiguration {
               inherit pkgs;
