@@ -42,7 +42,7 @@ in
 
       alacritty-font-renamed = {
         "IBM Plex" = "IBM Plex Mono";
-        "Inconsolata" = "Inconsolata Mono";
+        "Inconsolata" = "Inconsolata Nerd Font Mono";
         "JetBrains Mono" = "JetBrains Mono NL";
       }.${cfg.font-name} or cfg.font-name;
 
@@ -54,7 +54,10 @@ in
         Semibold = "Bold";
       }.${font-style} or font-style;
 
-      vscode-font = "${cfg.font-name} ${font-style}";
+      vscode-font = {
+        "JetBrains Mono" = "JetBrains Mono Semibold";
+        "Source Code Pro" = "Source Code Pro Semibold";
+      }.${cfg.font-name};
     in
     {
       # vs code font
