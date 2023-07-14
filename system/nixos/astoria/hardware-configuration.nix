@@ -51,14 +51,7 @@
       enable = true;
       driSupport32Bit = true;
     };
-    bluetooth = {
-      enable = true;
-      settings = {
-        General = {
-          Enable = "Source,Sink,Media,Socket";
-        };
-      };
-    };
+    bluetooth.enable = true;
     nvidia = {
       modesetting.enable = true;
       package = config.boot.kernelPackages.nvidiaPackages.beta;
