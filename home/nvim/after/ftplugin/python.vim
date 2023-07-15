@@ -11,7 +11,7 @@ let g:black#settings = {
     \ 'line_length': 100
     \}
 
-nnoremap <silent> <leader>y <cmd>call Black()<cr>
+nnoremap <buffer> <silent> <leader>y <cmd>call Black()<cr>
 
 " override the pytest executable as pytest tries to be too clever when a
 " Pipfile exists
