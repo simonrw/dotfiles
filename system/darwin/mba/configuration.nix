@@ -71,6 +71,7 @@
       "shotcut"
       "visual-studio-code"
       "vlc"
+      "wireshark"
       "xquartz"
     ];
     masApps =
