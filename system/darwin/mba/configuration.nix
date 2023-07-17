@@ -64,6 +64,7 @@
       "hammerspoon"
       "inkscape"
       "karabiner-elements"
+      "mpv"
       "notion"
       "obsidian"
       "pocket-casts"
