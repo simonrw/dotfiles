@@ -105,13 +105,6 @@ in
                 #
                 # fix nix path
                 set -x PATH /etc/profiles/per-user/(whoami)/bin {$PATH} /opt/homebrew/bin
-  
-                if not type -q exa
-                    if type -q gls
-                        alias ls "gls --color=auto"
-                        alias thor "gls -thor"
-                    end
-                end
             case '*'
         end
 
