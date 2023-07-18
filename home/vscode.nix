@@ -2,6 +2,12 @@
 {
   programs.vscode = {
     enable = isLinux;
+    package = pkgs.vscode.fhsWithPackages (ps: with ps; [
+      rustup
+      zlib
+      openssl.dev
+      pkg-config
+    ]);
     extensions = with pkgs.vscode-extensions; [
       arrterian.nix-env-selector
       bungcip.better-toml
@@ -31,7 +37,7 @@
       ms-vscode.test-adapter-converter
       ms-vscode-remote.remote-containers
     ]);
-    mutableExtensionsDir = false;
+    mutableExtensionsDir = true;
     userSettings = {
       "editor.minimap.enabled" = false;
       "telemetry.telemetryLevel" = "off";
