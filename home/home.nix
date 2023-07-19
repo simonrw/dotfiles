@@ -65,7 +65,7 @@ in
       terminal = "alacritty";
     };
   } // (if isLinux then {
-    cinnamon.theme = "Mint-Y-Dark-Aqua";
+    cinnamon.theme = "Mint-Y-Aqua";
   } else { });
 
   home.file = {
