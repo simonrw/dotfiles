@@ -7,68 +7,101 @@ if fn.empty(fn.glob(install_path)) > 0 then
     execute('packadd packer.nvim')
 end
 
-require('packer').startup({ function(use)
-    use 'wbthomason/packer.nvim'
-    use 'christoomey/vim-tmux-runner'
-    use 'christoomey/vim-conflicted'
-    use 'projekt0n/github-nvim-theme'
+require('packer').startup({
+    function(use)
+        use 'wbthomason/packer.nvim'
+        use 'christoomey/vim-tmux-runner'
+        use 'christoomey/vim-conflicted'
+        use 'projekt0n/github-nvim-theme'
 
-    -- language plugins
-    use 'lepture/vim-velocity'
-    use 'DingDean/wgsl.vim'
-    use 'tweekmonster/django-plus.vim'
-    use 'terrastruct/d2-vim'
+        -- language plugins
+        use 'lepture/vim-velocity'
+        use 'DingDean/wgsl.vim'
+        use 'tweekmonster/django-plus.vim'
+        use 'terrastruct/d2-vim'
 
-    -- load telescope in here so we get the latest and greatest
-    use 'nvim-telescope/telescope.nvim'
-    use 'nvim-telescope/telescope-ui-select.nvim'
+        -- load telescope in here so we get the latest and greatest
+        use {
+            'nvim-telescope/telescope.nvim',
+            cmd = "Telescope",
+            setup = function()
+                local mappings = require('mappings')
 
-    use 'averms/black-nvim'
-    use {
-        'j-hui/fidget.nvim',
-        -- prevent warning about changing behaviour
-        tag = "legacy",
-    }
+                mappings.nnoremap('<leader>f', [[<cmd>lua require('telescope.builtin').git_files()<Cr>]])
+                mappings.nnoremap('<leader>F', [[<cmd>lua require('telescope.builtin').find_files()<Cr>]])
+                mappings.nnoremap('gb', [[<cmd>lua require('telescope.builtin').buffers()<Cr>]])
+                mappings.nnoremap('<leader><space>', [[<cmd>lua require('telescope.builtin').live_grep()<Cr>]])
+                mappings.nnoremap('<leader>/', [[<cmd>lua require('telescope.builtin').current_buffer_fuzzy_find()<Cr>]])
 
-    use {
-        "loctvl842/monokai-pro.nvim",
-        config = function()
-            require("monokai-pro").setup()
-        end
-    }
+                require("telescope").setup({
+                    defaults = {
+                        layout_strategy = 'horizontal',
+                        layout_config = {
+                            prompt_position = 'top',
+                        },
+                        sorting_strategy = 'ascending',
+                    },
+                    extensions = {
+                        fzf = {
+                            fuzzy = true,
+                            override_generic_sorter = true,
+                            override_file_sorter = true,
+                            case_mode = "smart_case",
+                        },
+                    }
+                })
 
-    use {
-        'VonHeikemen/lsp-zero.nvim',
-        requires = {
-            -- LSP Support
-            { 'neovim/nvim-lspconfig' },
-            { 'williamboman/mason.nvim' },
-            { 'williamboman/mason-lspconfig.nvim' },
-
-            -- Autocompletion
-            { 'hrsh7th/nvim-cmp' },
-            { 'hrsh7th/cmp-buffer' },
-            { 'hrsh7th/cmp-path' },
-            { 'saadparwaiz1/cmp_luasnip' },
-            { 'hrsh7th/cmp-nvim-lsp' },
-            { 'hrsh7th/cmp-nvim-lua' },
-
-            -- Snippets
-            { 'L3MON4D3/LuaSnip' },
+                require("telescope").load_extension("fzf")
+            end,
         }
-    }
 
-    use {
-        "folke/trouble.nvim",
-        config = function()
-            require("trouble").setup {
-                icons = false,
-                use_diagnostic_signs = false,
-                auto_preview = false,
+        use 'averms/black-nvim'
+        use {
+            'j-hui/fidget.nvim',
+            -- prevent warning about changing behaviour
+            tag = "legacy",
+        }
+
+        use {
+            "loctvl842/monokai-pro.nvim",
+            config = function()
+                require("monokai-pro").setup()
+            end
+        }
+
+        use {
+            'VonHeikemen/lsp-zero.nvim',
+            requires = {
+                -- LSP Support
+                { 'neovim/nvim-lspconfig' },
+                { 'williamboman/mason.nvim' },
+                { 'williamboman/mason-lspconfig.nvim' },
+
+                -- Autocompletion
+                { 'hrsh7th/nvim-cmp' },
+                { 'hrsh7th/cmp-buffer' },
+                { 'hrsh7th/cmp-path' },
+                { 'saadparwaiz1/cmp_luasnip' },
+                { 'hrsh7th/cmp-nvim-lsp' },
+                { 'hrsh7th/cmp-nvim-lua' },
+
+                -- Snippets
+                { 'L3MON4D3/LuaSnip' },
             }
+        }
 
-            vim.keymap.set("n", "yot", function() require('trouble').toggle() end, { remap = false })
-        end
-    }
-end,
-    config = {} })
+        use {
+            "folke/trouble.nvim",
+            config = function()
+                require("trouble").setup {
+                    icons = false,
+                    use_diagnostic_signs = false,
+                    auto_preview = false,
+                }
+
+                vim.keymap.set("n", "yot", function() require('trouble').toggle() end, { remap = false })
+            end
+        }
+    end,
+    config = {}
+})
