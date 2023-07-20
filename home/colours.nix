@@ -320,7 +320,7 @@ let
     '';
   };
 
-  helix-theme = { }.${config.me.theme} or "base16_transparent";
+  helix-theme = { }.${config.me.theme} or "monokai-pro-custom";
 
   current-theme = themes.${config.me.theme};
   tmux-primary-colour = current-theme.tmux-colour;
