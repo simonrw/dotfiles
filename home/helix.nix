@@ -2,7 +2,6 @@
 {
   programs.helix = {
     enable = true;
-    defaultEditor = true;
     settings = {
       editor = {
         auto-pairs = false;
