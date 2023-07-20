@@ -38,7 +38,7 @@ in
         set -x LANG "en_GB.UTF-8"
         set -x LC_CTYPE "en_GB.UTF-8"
         set -x LC_ALL "en_GB.UTF-8"
-        set -x EDITOR "${pkgs.helix}/bin/hx"
+        set -x EDITOR "${neovim}/bin/nvim"
         set -x PAGER "${pkgs.bat}/bin/bat"
         set -x MANPAGER "sh -c 'col -bx | ${pkgs.bat}/bin/bat -l man -p'"
 
@@ -156,8 +156,6 @@ in
       trash = "${pkgs.python3Packages.send2trash}/bin/send2trash";
       tree = "${pkgs.exa}/bin/exa -T";
       vup = "${neovim}/bin/nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'";
-      vim = "hx";
-      nvim = "hx";
     } // lib.optionalAttrs isLinux {
       pbcopy = "${pkgs.xclip}/bin/xclip -selection clipboard";
       pbpaste = "${pkgs.xclip}/bin/xclip -selection clipboard -o";
