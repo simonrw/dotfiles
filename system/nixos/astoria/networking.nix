@@ -28,9 +28,6 @@
   networking.networkmanager = {
     enable = true;
   };
-  # This command causes a failure to rebuild
-  # https://github.com/NixOS/nixpkgs/issues/180175
-  systemd.services.NetworkManager-wait-online.enable = false;
 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ 22 ];
