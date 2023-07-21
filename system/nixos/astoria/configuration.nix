@@ -13,6 +13,7 @@
       ./logitech.nix
       ./wm.nix
       ./networking.nix
+      ./update-diff.nix
     ];
 
   # Bootloader.
