@@ -3,11 +3,10 @@ let
   # settings are different between nixos and nix-darwin
   interval =
     if pkgs.stdenv.isLinux then {
-      dates = "weekly";
+      dates = "monthly";
     } else {
       interval = {
-        Weekday = 0;
-        Hour = 2;
+        Day = 0;
       };
     };
 in
