@@ -1,6 +1,6 @@
 { config, lib, ... }:
 let
-  themes = {
+  themes = rec {
     github-light = rec {
       primary = {
         background = "#ffffff";
@@ -208,6 +208,7 @@ let
         white = "#828482";
       };
     };
+    monochrome = srw;
     monokai-pro = rec {
       cursor = {
         text = normal.black;
@@ -288,6 +289,11 @@ let
       highlight Comment guifg=#e69340   " brighten comments
       highlight TSComment guifg=#e69340   " brighten comments
     '';
+    monochrome = ''
+    set background=dark
+    colorscheme fogbell
+    hi Normal guibg=none
+    '';
     srw = ''
       set background=dark
       colorscheme srw256
@@ -345,6 +351,7 @@ with lib;
         "srw"
         "gruvbox"
         "monokai-pro"
+        "monochrome"
         # light themes
         "github-light"
       ];
