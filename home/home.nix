@@ -61,7 +61,10 @@ in
     theme = "srw";
     vscode-theme = "Dracula";
     defaults = {
-      browser = "firefox";
+      browser = {
+        command = "google-chrome-stable";
+        name = "google-chrome";
+      };
       terminal = "alacritty";
     };
   } // (if isLinux then {
