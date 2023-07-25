@@ -326,7 +326,9 @@ let
     '';
   };
 
-  helix-theme = { }.${config.me.theme} or "monokai-pro-custom";
+  helix-theme = {
+    github-light = "github_light";
+  }.${config.me.theme} or "monokai-pro-custom";
 
   current-theme = themes.${config.me.theme};
   tmux-primary-colour = current-theme.tmux-colour;
