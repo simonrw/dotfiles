@@ -21,6 +21,7 @@ in
     ./gpg.nix
     ./helix.nix
     ./home-manager.nix
+    ./ipython.nix
     ./jq.nix
     ./kitty.nix
     ./mpv.nix
