@@ -1,6 +1,11 @@
-{ pkgs, isLinux, ... }:
+{ config, pkgs, isLinux, ... }:
 let
   base-package = if isLinux then pkgs.emacs-gtk else pkgs.emacs;
+
+  theme =
+    if config.me.theme == "github-light"
+    then "leuven"
+    else "wombat";
 
   emacs-package = (pkgs.emacsPackagesFor base-package).emacsWithPackages (epkgs: [
     epkgs.magit
@@ -74,7 +79,7 @@ let
     (setq rustic-lsp-client 'eglot)
 
     ;; theming
-    (load-theme 'wombat)
+    (load-theme '${theme})
   '';
 in
 {
