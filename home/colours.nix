@@ -290,9 +290,9 @@ let
       highlight TSComment guifg=#e69340   " brighten comments
     '';
     monochrome = ''
-    set background=dark
-    colorscheme fogbell
-    hi Normal guibg=none
+      set background=dark
+      colorscheme fogbell
+      hi Normal guibg=none
     '';
     srw = ''
       set background=dark
@@ -335,7 +335,14 @@ let
   tmux-pane-text-colour = current-theme.tmux-pane-colour;
   fish-theme = current-theme.fish-theme;
 
-  delta-theme = { }.${config.me.theme} or "Monokai Extended";
+  delta-theme = {
+    github-light = "GitHub";
+  }.${config.me.theme} or "Monokai Extended";
+  delta-diff-so-fancy = config.me.theme != "github-light";
+
+  bat-theme = {
+    github-light = "GitHub";
+  }.${config.me.theme} or "Monokai Extended";
 
   vscode-theme = { }.${config.me.theme} or "Monokai Pro";
 
@@ -364,6 +371,8 @@ with lib;
     };
   };
   config = {
+    programs.bat.config.theme = bat-theme;
+    programs.git.delta.options.diff-so-fancy = delta-diff-so-fancy;
     programs.helix.settings.theme = helix-theme;
     programs.fish.interactiveShellInit = ''
       # configure colour theme
