@@ -102,7 +102,7 @@ let
       tmux-active-pane-colour = tmux-colour;
       tmux-pane-colour = normal.black;
 
-      fish-theme = "Tomorrow Night Bright";
+      fish-theme = "fish default";
       cursor = {
         text = normal.black;
         cursor = normal.white;
