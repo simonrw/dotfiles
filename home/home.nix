@@ -58,7 +58,7 @@ in
     dark-mode = true;
     font-name = "JetBrains Mono";
     font-size = if isLinux then 10.0 else 12.0;
-    theme = "srw";
+    theme = "github-light";
     vscode-theme = "Dracula";
     defaults = {
       browser = {
@@ -68,7 +68,7 @@ in
       terminal = "alacritty";
     };
   } // (if isLinux then {
-    cinnamon.theme = "Mint-Y-Dark-Aqua";
+    cinnamon.theme = "Mint-Y-Aqua";
   } else { });
 
   home.file = {

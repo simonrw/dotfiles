@@ -1,4 +1,7 @@
 { config, ... }:
+let
+  dark = config.me.theme != "github-light";
+in
 {
   programs.fzf = {
     enable = true;
@@ -10,7 +13,7 @@
       "--no-mouse"
       "--tabstop 4"
       "--inline-info"
-    ] ++ (if config.me.dark-mode then [ "--color dark" ] else [ "--color light" ]);
+    ] ++ (if dark then [ "--color dark" ] else [ "--color light" ]);
     tmux.enableShellIntegration = true;
     fileWidgetCommand = "fd --no-ignore --type f";
     fileWidgetOptions = [
