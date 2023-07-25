@@ -3,7 +3,7 @@ with lib;
 let
   cfg = config.me;
 
-  font-style = "Semibold";
+  font-style = "Regular";
 in
 {
   options = {
