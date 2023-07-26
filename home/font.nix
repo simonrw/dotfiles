@@ -2,8 +2,6 @@
 with lib;
 let
   cfg = config.me;
-
-  font-style = "Regular";
 in
 {
   options = {
@@ -28,6 +26,15 @@ in
         Font size in px
       '';
     };
+    me.font-style = mkOption {
+      type = types.enum [
+        "Regular"
+        "Semibold"
+        "Bold"
+      ];
+      description = "Style of font";
+      default = "Regular";
+    };
   };
 
   config =
@@ -48,11 +55,11 @@ in
 
       alacritty-font-style-renamed = {
         Semibold = "Bold";
-      }.${font-style} or font-style;
+      }.${cfg.font-style} or cfg.font-style;
 
       kitty-font-style-renamed = {
         Semibold = "Bold";
-      }.${font-style} or font-style;
+      }.${cfg.font-style} or cfg.font-style;
 
       vscode-font = {
         "JetBrains Mono" = "JetBrains Mono Semibold";
