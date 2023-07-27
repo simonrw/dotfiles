@@ -19,6 +19,9 @@ in
       type = types.str;
       default = "Mint-Y-Dark-Aqua";
     };
+    me.cinnamon.dark-mode = mkOption {
+      type = types.bool;
+    };
   };
   config = {
     dconf.settings = {
@@ -70,6 +73,9 @@ in
       };
 
       # theming
+      "org/x/apps/portal" = {
+        color-scheme = if cfg.dark-mode then "prefer-dark" else "prefer-light";
+      };
       "org/cinnamon/desktop/interface" = {
         gtk-theme = cfg.theme;
         icon-theme = cfg.theme;
