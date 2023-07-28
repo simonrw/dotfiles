@@ -70,6 +70,8 @@
       "pocket-casts"
       "pycharm-ce"
       "shotcut"
+      "sublime-merge"
+      "sublime-text"
       "visual-studio-code"
       "vlc"
       "wireshark"

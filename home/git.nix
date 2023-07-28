@@ -145,6 +145,9 @@
         conflicted = {
           cmd = "nvim +Conflicted";
         };
+        smerge = {
+          cmd = "smerge";
+        };
         pycharm = {
           cmd = ''${pkgs.jetbrains.pycharm-community}/bin/pycharm-community merge "$LOCAL" "$REMOTE" "$BASE" "$MERGED"'';
         };
@@ -172,7 +175,7 @@
         defaultBranch = "main";
       };
       merge = {
-        tool = "vimdiff";
+        tool = "smerge";
         conflictstyle = "diff3";
       };
       transfer = {
