@@ -99,6 +99,7 @@ in
     gimp
     insomnia
     jetbrains.pycharm-community
+    libreoffice
     lorien
     notion
     obsidian
