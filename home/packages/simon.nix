@@ -11,6 +11,13 @@ let
     c-aresSupport = true;
   };
 
+  custom-vscode = pkgs.vscode.fhsWithPackages (ps: with ps; [
+    rustup
+    zlib
+    openssl.dev
+    pkg-config
+  ]);
+
   fhs = (
     let base = pkgs.appimageTools.defaultFhsEnvArgs; in
     pkgs.buildFHSUserEnv (base // {
@@ -83,6 +90,7 @@ in
     coreutils
     libiconv
   ]) ++ (lib.optionals isLinux [
+    custom-vscode
     discord
     element-desktop
     fhs
