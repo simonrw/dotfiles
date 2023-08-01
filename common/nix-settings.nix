@@ -46,7 +46,13 @@ in
 
     fallback = true
     warn-dirty = false
+
+    # clean up disk space when nearly full
+    # - free up to 2 GiB when there is less than 1 GiB
+    # https://nixos.wiki/wiki/Storage_optimization
+    min-free = ${toString (1024 * 1024 * 1024)}        # 1 GiB
+    max-free = ${toString (2 * 1024 * 1024 * 1024)}    # 2 GiB
   '' + pkgs.lib.optionalString (pkgs.system == "aarch64-darwin") ''
-    extra-platforms = x86_64-darwin aarch64-darwin
+    extra-platforms = x86_64-darwin
   '';
 }
