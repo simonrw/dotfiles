@@ -1,6 +1,9 @@
 { config, ... }:
 let
-  dark = config.me.theme != "github-light";
+  dark = {
+    github-light = false;
+    solarized = false;
+  }.${config.me.theme} or true;
 in
 {
   programs.fzf = {
