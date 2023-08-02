@@ -1,6 +1,52 @@
 { config, lib, ... }:
 let
   themes = rec {
+    solarized = rec {
+      primary = {
+        background = "#fdf6e3";
+        foreground = "#586e75";
+      };
+
+      # Normal colors
+      normal = {
+        black = "#073642";
+        red = "#dc322f";
+        green = "#859900";
+        yellow = "#b58900";
+        blue = "#268bd2";
+        magenta = "#d33682";
+        cyan = "#2aa198";
+        white = "#eee8d5";
+      };
+
+      # Bright colors
+      bright = {
+        black = "#002b36";
+        red = "#cb4b16";
+        green = "#586e75";
+        yellow = "#657b83";
+        blue = "#839496";
+        magenta = "#6c71c4";
+        cyan = "#93a1a1";
+        white = "#fdf6e3";
+      };
+
+      cursor = {
+        text = normal.white;
+        cursor = normal.black;
+      };
+
+      selection = {
+        text = normal.white;
+        background = normal.blue;
+      };
+
+      fish-theme = "Tomorrow";
+
+      tmux-colour = normal.blue;
+      tmux-active-pane-colour = normal.blue;
+      tmux-pane-colour = normal.black;
+    };
     github-light = rec {
       primary = {
         background = "#ffffff";
@@ -256,6 +302,11 @@ let
     };
   };
   neovim-theme-blocks = {
+    solarized = ''
+      set background=light
+      colorscheme NeoSolarized
+      highlight Cursor guifg=${themes.solarized.cursor.cursor} guibg=${themes.solarized.cursor.text}
+    '';
     github-light = ''
       set background=light
       colorscheme github_light
@@ -339,11 +390,13 @@ let
 
   delta-theme = {
     github-light = "GitHub";
+    solarized = "Solarized (light)";
   }.${config.me.theme} or "Monokai Extended";
   delta-diff-so-fancy = config.me.theme != "github-light";
 
   bat-theme = {
     github-light = "GitHub";
+    solarized = "Solarized (light)";
   }.${config.me.theme} or "Monokai Extended";
 
   vscode-theme = { }.${config.me.theme} or "Monokai Pro";
@@ -363,6 +416,7 @@ with lib;
         "monochrome"
         # light themes
         "github-light"
+        "solarized"
       ];
     };
 
@@ -380,8 +434,12 @@ with lib;
       # configure colour theme
       fish_config theme choose "${fish-theme}"
     '';
-    programs.alacritty.settings.colors = themes.${config.me.theme};
+    programs.alacritty.settings.colors = current-theme;
     programs.neovim.extraConfig = neovim-theme-blocks.${config.me.theme};
+    # add vim after file for setting colour theme so it's not overridden by plugins
+    # home.file.".config/nvim/after/colors/theme.vim".text = ''
+    #   hi TreesitterContext guibg=${current-theme.normal.white}
+    # '';
     programs.tmux.extraConfig = ''
       fg_colour="${tmux-primary-colour}"
       bg_colour="${tmux-background-colour}"
