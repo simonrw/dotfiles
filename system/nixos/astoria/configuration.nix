@@ -106,7 +106,7 @@
   };
 
   fonts = {
-    fonts = with pkgs; [
+    packages = with pkgs; [
       source-code-pro
       fira-code
       jetbrains-mono
