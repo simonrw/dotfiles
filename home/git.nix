@@ -175,7 +175,7 @@
         defaultBranch = "main";
       };
       merge = {
-        tool = "smerge";
+        tool = "vimdiff";
         conflictstyle = "diff3";
       };
       transfer = {
