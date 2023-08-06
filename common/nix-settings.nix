@@ -12,8 +12,8 @@ let
 in
 {
   gc = {
-    automatic = true;
-  } // interval;
+    automatic = false;
+  };
   settings = {
     auto-optimise-store = true;
     trusted-users = [ "root" "simon" ];
