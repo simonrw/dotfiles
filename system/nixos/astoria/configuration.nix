@@ -153,7 +153,12 @@
 
   services.gnome.gnome-keyring.enable = true;
 
-  services.tailscale.enable = true;
+  services.tailscale = {
+    enable = true;
+    extraUpFlags = [
+      "--ssh"
+    ];
+  };
 
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
