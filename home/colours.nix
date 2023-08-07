@@ -304,8 +304,18 @@ let
   neovim-theme-blocks = {
     solarized = ''
       set background=light
-      colorscheme NeoSolarized
-      highlight Cursor guifg=${themes.solarized.cursor.cursor} guibg=${themes.solarized.cursor.text}
+
+      let g:solarized_disable_background = v:true
+      let g:solarized_italic_comments = v:false
+      let g:solarized_italic_keywords = v:false
+      let g:solarized_italic_functions = v:true
+      let g:solarized_italic_variables = v:false
+      let g:solarized_contrast = v:false
+      let g:solarized_borders = v:true
+
+      colorscheme solarized
+      highlight Cursor guifg=${current-theme.cursor.cursor} guibg=${current-theme.cursor.text}
+      highlight TreesitterContext guibg=${current-theme.normal.white}
     '';
     github-light = ''
       set background=light

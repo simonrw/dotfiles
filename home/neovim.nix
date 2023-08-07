@@ -42,7 +42,6 @@
       papercolor-theme
       nvim-base16
       aerial-nvim
-      NeoSolarized
       # has native plugin so requires nix
       telescope-fzf-native-nvim
 

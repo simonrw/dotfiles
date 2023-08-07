@@ -13,6 +13,7 @@ require('packer').startup({
         use 'christoomey/vim-tmux-runner'
         use 'christoomey/vim-conflicted'
         use 'projekt0n/github-nvim-theme'
+        use 'shaunsingh/solarized.nvim'
 
         -- language plugins
         use 'lepture/vim-velocity'
