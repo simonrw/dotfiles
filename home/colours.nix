@@ -2,7 +2,7 @@
 let
   themes = rec {
     catppuccin-latte = rec {
-      fish-theme = "Tomorrow";
+      fish-theme = "Snow Day";
       tmux-colour = normal.blue;
       tmux-active-pane-colour = normal.blue;
       tmux-pane-colour = normal.black;
