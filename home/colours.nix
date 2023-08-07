@@ -493,6 +493,7 @@ let
 
   helix-theme = {
     github-light = "github_light";
+    catppuccin-latte = "catppuccin_latte";
   }.${config.me.theme} or "monokai-pro-custom";
 
   current-theme = themes.${config.me.theme};
@@ -502,15 +503,20 @@ let
   tmux-pane-text-colour = current-theme.tmux-pane-colour;
   fish-theme = current-theme.fish-theme;
 
+  is-light-theme = lib.elem config.me.theme [ "github-light" "solarized" "catppuccin-latte" ];
+
   delta-theme = {
     github-light = "GitHub";
     solarized = "Solarized (light)";
+    catppuccin-latte = "GitHub";
   }.${config.me.theme} or "Monokai Extended";
-  delta-diff-so-fancy = config.me.theme != "github-light";
+
+  delta-diff-so-fancy = !is-light-theme;
 
   bat-theme = {
     github-light = "GitHub";
     solarized = "Solarized (light)";
+    catppuccin-latte = "GitHub";
   }.${config.me.theme} or "Monokai Extended";
 
   vscode-theme = { }.${config.me.theme} or "Monokai Pro";
