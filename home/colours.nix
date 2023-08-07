@@ -1,6 +1,106 @@
 { config, lib, ... }:
 let
   themes = rec {
+    catppuccin-latte = rec {
+      fish-theme = "Tomorrow";
+      tmux-colour = normal.blue;
+      tmux-active-pane-colour = normal.blue;
+      tmux-pane-colour = normal.black;
+
+      # Default colors
+      primary = {
+        background = "#EFF1F5"; # base
+        foreground = "#4C4F69"; # text
+        # Bright and dim foreground colors
+        dim_foreground = "#4C4F69"; # text
+        bright_foreground = "#4C4F69"; # text
+      };
+
+      # Cursor colors
+      cursor = {
+        text = "#EFF1F5"; # base
+        cursor = "#DC8A78"; # rosewater
+        vi_mode_cursor = {
+          text = "#EFF1F5"; # base
+          cursor = "#7287FD"; # lavender
+        };
+      };
+
+      # Search colors
+      search = {
+        matches = {
+          foreground = "#EFF1F5"; # base
+          background = "#6C6F85"; # subtext0
+        };
+        focused_match = {
+          foreground = "#EFF1F5"; # base
+          background = "#40A02B"; # green
+        };
+        footer_bar = {
+          foreground = "#EFF1F5"; # base
+          background = "#6C6F85"; # subtext0
+        };
+      };
+
+      # Keyboard regex hints
+      hints = {
+        start = {
+          foreground = "#EFF1F5"; # base
+          background = "#DF8E1D"; # yellow
+        };
+        end = {
+          foreground = "#EFF1F5"; # base
+          background = "#6C6F85"; # subtext0
+        };
+      };
+
+      # Selection colors
+      selection = {
+        text = "#EFF1F5"; # base
+        background = "#DC8A78"; # rosewater
+      };
+
+      # Normal colors
+      normal = {
+        black = "#5C5F77"; # subtext1
+        red = "#D20F39"; # red
+        green = "#40A02B"; # green
+        yellow = "#DF8E1D"; # yellow
+        blue = "#1E66F5"; # blue
+        magenta = "#EA76CB"; # pink
+        cyan = "#179299"; # teal
+        white = "#ACB0BE"; # surface2
+      };
+
+      # Bright colors
+      bright = {
+        black = "#6C6F85"; # subtext0
+        red = "#D20F39"; # red
+        green = "#40A02B"; # green
+        yellow = "#DF8E1D"; # yellow
+        blue = "#1E66F5"; # blue
+        magenta = "#EA76CB"; # pink
+        cyan = "#179299"; # teal
+        white = "#BCC0CC"; # surface1
+      };
+
+      # Dim colors
+      dim = {
+        black = "#5C5F77"; # subtext1
+        red = "#D20F39"; # red
+        green = "#40A02B"; # green
+        yellow = "#DF8E1D"; # yellow
+        blue = "#1E66F5"; # blue
+        magenta = "#EA76CB"; # pink
+        cyan = "#179299"; # teal
+        white = "#ACB0BE"; # surface2
+      };
+
+      indexed_colors = [
+        { index = 16; color = "#FE640B"; }
+        { index = 17; color = "#DC8A78"; }
+      ];
+    };
     solarized = rec {
       primary = {
         background = "#fdf6e3";
@@ -99,7 +199,7 @@ let
     };
     gruvbox = rec {
       tmux-colour = normal.yellow;
-      fish-theme = (throw "not set");
+      fish-theme = "default";
 
       primary = {
         background = "#1d2021";
@@ -375,6 +475,10 @@ let
       execute 'highlight DiagnosticSignWarn ctermfg=3 guifg=Orange guibg=' . g:linenr_background
       highlight DiagnosticUnderlineHint guifg=Grey guisp=Grey
     '';
+    catppuccin-latte = ''
+      set background=light
+      colorscheme catppuccin-latte
+    '';
     monokai-pro = ''
       set background=dark
       colorscheme monokai-pro
@@ -427,6 +531,7 @@ with lib;
         # light themes
         "github-light"
         "solarized"
+        "catppuccin-latte"
       ];
     };
 

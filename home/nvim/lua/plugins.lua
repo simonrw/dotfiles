@@ -14,6 +14,7 @@ require('packer').startup({
         use 'christoomey/vim-conflicted'
         use 'projekt0n/github-nvim-theme'
         use 'shaunsingh/solarized.nvim'
+        use { "catppuccin/nvim", as = "catppuccin" }
 
         -- language plugins
         use 'lepture/vim-velocity'
