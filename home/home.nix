@@ -55,11 +55,11 @@ in
 
   # custom properties
   me = {
-    dark-mode = false;
+    dark-mode = true;
     font-name = "JetBrains Mono";
     font-style = "Semibold";
     font-size = if isLinux then 10.0 else 12.0;
-    theme = "catppuccin-latte";
+    theme = "srw";
     vscode-theme = "Dracula";
     defaults = {
       browser = "brave";
@@ -67,8 +67,8 @@ in
     };
   } // (if isLinux then {
     cinnamon = {
-      theme = "Mint-Y-Aqua";
-      dark-mode = false;
+      theme = "Mint-Y-Dark-Aqua";
+      dark-mode = true;
     };
   } else { });
 
