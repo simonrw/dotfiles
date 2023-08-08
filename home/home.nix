@@ -63,7 +63,7 @@ in
     vscode-theme = "Dracula";
     defaults = {
       browser = "brave";
-      terminal = "alacritty";
+      terminal = if isDarwin then "alacritty" else "kitty";
     };
   } // (if isLinux then {
     cinnamon = {
