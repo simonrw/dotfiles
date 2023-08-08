@@ -57,7 +57,7 @@ in
   me = {
     dark-mode = false;
     font-name = "JetBrains Mono";
-    font-style = "Regular";
+    font-style = "Semibold";
     font-size = if isLinux then 10.0 else 12.0;
     theme = "catppuccin-latte";
     vscode-theme = "Dracula";
