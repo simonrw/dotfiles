@@ -20,6 +20,7 @@
     vscode-extensions.inputs.flake-utils.follows = "flake-utils";
     vscode-server.url = "github:msteen/nixos-vscode-server";
     vscode-server.inputs.nixpkgs.follows = "nixpkgs";
+    cert-info.url = "github:simonrw/cert-info";
   };
 
   outputs =
@@ -32,6 +33,7 @@
     , nix-index-database
     , vscode-extensions
     , vscode-server
+    , cert-info
     , ...
     }@inputs:
     let
@@ -42,10 +44,10 @@
           notion = final.callPackage ./derivations/notion { };
           telegram-desktop = final.callPackage ./derivations/telegram-desktop { };
           cargo-dist = final.callPackage ./derivations/cargo-dist { };
-          database = nix-index-database.legacyPackages.x86_64-linux.database;
+          database = nix-index-database.legacyPackages.${system}.database;
           ansi = final.callPackage ./derivations/ansi { };
           wally = final.callPackage ./derivations/wally { };
-          cert-info = final.callPackage ./derivations/cert-info { };
+          cert-info = cert-info.packages.${system}.default;
         })
         # pin docker client
         (
