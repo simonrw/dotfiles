@@ -99,15 +99,5 @@ let
     services.xserver.desktopManager.cinnamon.enable = true;
     services.xserver.displayManager.gdm.enable = true;
   };
-
-  hyprland-settings = {
-    programs.hyprland = {
-      enable = true;
-      nvidiaPatches = true;
-      xwayland.enable = true;
-    };
-    environment.sessionVariables.NIXOS_OZONE_WL = "1";
-    services.xserver.displayManager.gdm.wayland = true;
-  };
 in
-cinnamon-settings // hyprland-settings
+cinnamon-settings
