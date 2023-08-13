@@ -5,7 +5,7 @@ set -euo pipefail
 . "$(dirname "$(readlink -f "$0")")/utils.sh"
 
 NIXARCH="$(nixarch)"
-HOSTNAME="$(hostname -s)"
+HOSTNAME="${HOSTNAME:-$(hostname -s)}"
 
 case ${NIXARCH} in
     *-linux)
