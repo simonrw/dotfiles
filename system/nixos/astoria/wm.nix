@@ -6,7 +6,6 @@ let
     services.xserver = {
       enable = true;
       desktopManager.xterm.enable = false;
-      displayManager.defaultSession = "none+i3";
       displayManager.gdm.enable = true;
 
       windowManager.i3 = {
@@ -20,15 +19,10 @@ let
     };
 
     programs.dconf.enable = true;
-
-    environment.systemPackages = with pkgs; [
-
-    ];
   };
 
   xfce-settings =
     {
-      services.xserver.displayManager.defaultSession = "xfce";
       services.xserver.desktopManager.xfce.enable = true;
       services.xserver.displayManager.sddm.enable = true;
       services.picom.enable = true;
@@ -47,7 +41,6 @@ let
     };
 
   gnome-settings = {
-    services.xserver.displayManager.defaultSession = "gnome-xorg";
     services.xserver.desktopManager.gnome.enable = true;
     services.xserver.displayManager.gdm.enable = true;
     services.xserver.displayManager.gdm.wayland = false;
@@ -75,7 +68,6 @@ let
 
   kde-settings = {
     services.xserver.desktopManager.plasma5.enable = true;
-    services.xserver.displayManager.defaultSession = "plasma";
     services.xserver.displayManager.sddm.enable = true;
     programs.dconf.enable = true;
   };
@@ -100,4 +92,6 @@ let
     services.xserver.displayManager.gdm.enable = true;
   };
 in
-cinnamon-settings
+{
+  services.xserver.displayManager.defaultSession = "cinnamon";
+} // cinnamon-settings // i3-settings
