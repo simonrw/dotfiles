@@ -511,8 +511,6 @@ let
     catppuccin-latte = "GitHub";
   }.${config.me.theme} or "Monokai Extended";
 
-  delta-diff-so-fancy = !is-light-theme;
-
   bat-theme = {
     github-light = "GitHub";
     solarized = "Solarized (light)";
@@ -549,7 +547,6 @@ with lib;
   };
   config = {
     programs.bat.config.theme = bat-theme;
-    programs.git.delta.options.diff-so-fancy = delta-diff-so-fancy;
     programs.helix.settings.theme = helix-theme;
     programs.fish.interactiveShellInit = ''
       # configure colour theme
