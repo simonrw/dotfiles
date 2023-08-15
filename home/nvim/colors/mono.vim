@@ -50,9 +50,3 @@ hi! Todo guifg=#fde68a
 
 " gray-400
 hi! Comment guifg=#9CA3AF
-
-
-" gitgutter
-hi! link GitGutterAdd Normal
-hi! link GitGutterChange Normal
-hi! link GitGutterDelete Normal

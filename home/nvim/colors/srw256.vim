@@ -67,9 +67,6 @@ highlight ColorColumn ctermbg=243 guibg=#222222
 let g:linenr_background = 'none'
 execute 'highlight LineNr guibg=' . g:linenr_background
 execute 'highlight SignColumn guibg=' . g:linenr_background
-execute 'highlight GitGutterAdd guibg=' . g:linenr_background
-execute 'highlight GitGutterDelete guibg=' . g:linenr_background
-execute 'highlight GitGutterChange guibg=' . g:linenr_background
 highlight TabLine guibg=none
 highlight TabLineSel guibg=none
 highlight TabLineFill guibg=none

@@ -59,6 +59,7 @@ require('packer').startup({
 
         use 'averms/black-nvim'
         use 'jaredgorski/fogbell.vim'
+        use 'lewis6991/gitsigns.nvim'
 
         use {
             'VonHeikemen/lsp-zero.nvim',

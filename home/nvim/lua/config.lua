@@ -24,3 +24,4 @@ require('aerialconfig')
 require('dapconfig')
 
 require('lualineconfig')
+require('gitsignsconfig')

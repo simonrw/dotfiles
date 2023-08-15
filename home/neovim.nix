@@ -32,7 +32,6 @@
       vim-easy-align
       fugitive-gitlab-vim
       markdown-preview-nvim
-      vim-gitgutter
       vim-gutentags
       vim-toml
       vim-svelte
