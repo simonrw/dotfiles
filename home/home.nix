@@ -67,8 +67,8 @@ in
     };
   } // (if isLinux then {
     cinnamon = {
-      theme = "Mint-Y-Dark-Aqua";
-      dark-mode = true;
+      theme = "Mint-Y-Aqua";
+      dark-mode = false;
     };
   } else { });
 
