@@ -16,3 +16,9 @@ function nixarch() {
             echo "Unknown"
     esac
 }
+
+function get-hosttarget() {
+    echo "${HOSTTARGET:-$(hostname -s)}"
+}
+
+HOSTTARGET="$(get-hosttarget)"

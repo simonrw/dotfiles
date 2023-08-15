@@ -4,7 +4,6 @@ set -euo pipefail
 
 . "$(dirname "$(readlink -f "$0")")/utils.sh"
 NIXARCH="$(nixarch)"
-HOSTNAME="${HOSTNAME:-$(hostname -s)}"
 
 case ${NIXARCH} in
     *-linux)
@@ -12,7 +11,7 @@ case ${NIXARCH} in
         exit 1
         ;;
     *-darwin)
-        nix --extra-experimental-features "nix-command flakes" build ".#darwinConfigurations.${HOSTNAME}.system" --json \
+        nix --extra-experimental-features "nix-command flakes" build ".#darwinConfigurations.${HOSTTARGET}.system" --json \
             | jq -r '.[].outputs | to_entries[].value' \
             | cachix push mindriot101-home
         ;;

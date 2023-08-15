@@ -5,15 +5,14 @@ set -euo pipefail
 . "$(dirname "$(readlink -f "$0")")/utils.sh"
 
 NIXARCH="$(nixarch)"
-HOSTNAME="${HOSTNAME:-$(hostname -s)}"
 
 case ${NIXARCH} in
     *-linux)
         nixos-rebuild build --flake . $*
         ;;
     *-darwin)
-        nix --extra-experimental-features "nix-command flakes" build ".#darwinConfigurations.${HOSTNAME}.system"
-        ./result/sw/bin/darwin-rebuild build --flake ".#${HOSTNAME}" $*
+        nix --extra-experimental-features "nix-command flakes" build ".#darwinConfigurations.${HOSTTARGET}.system"
+        ./result/sw/bin/darwin-rebuild build --flake ".#${HOSTTARGET}" $*
         ;;
     *)
         echo "Unhandled architecture: ${NIXARCH}" >&2
