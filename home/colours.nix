@@ -506,7 +506,7 @@ let
     github-light = "GitHub";
     solarized = "Solarized (light)";
     catppuccin-latte = "GitHub";
-  }.${config.me.theme} or "Monokai Extended";
+  }.${config.me.theme} or "ansi";
 
   bat-theme = {
     github-light = "GitHub";
