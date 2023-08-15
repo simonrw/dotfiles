@@ -2,7 +2,6 @@ require('disables')
 require('settings')
 require('plugins')
 require('mappings')
-require('lualineconfig')
 
 if vim.g.include_treesitter == 1 then
     require('treesitterconfig')
@@ -23,3 +22,5 @@ require('aerialconfig')
 
 -- debugging
 require('dapconfig')
+
+require('lualineconfig')

@@ -85,6 +85,7 @@
       nvim-treesitter-context
       playground
       plenary-nvim
+      lsp-status-nvim
     ];
   };
 }

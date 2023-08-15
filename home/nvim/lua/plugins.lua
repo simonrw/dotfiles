@@ -58,12 +58,6 @@ require('packer').startup({
         }
 
         use 'averms/black-nvim'
-        use {
-            'j-hui/fidget.nvim',
-            -- prevent warning about changing behaviour
-            tag = "legacy",
-        }
-
         use 'jaredgorski/fogbell.vim'
 
         use {

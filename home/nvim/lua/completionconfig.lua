@@ -81,12 +81,3 @@ lsp.setup()
 vim.diagnostic.config({
     virtual_text = true,
 })
-
-require('fidget').setup({
-    align = {
-        bottom = false,
-    },
-    window = {
-        blend = 0,
-    },
-})
