@@ -18,12 +18,12 @@ let
         cursor = "#d8dee9";
       };
       selection = {
-        text = "CellForeground";
+        text = primary.foreground;
         background = "#4c566a";
       };
       search = {
         matches = {
-          foreground = "CellBackground";
+          foreground = primary.background;
           background = "#88c0d0";
         };
         footer_bar = {
@@ -69,12 +69,12 @@ let
         bright_foreground = "#ffffff";
       };
       cursor = {
-        text = "CellBackground";
-        cursor = "CellForeground";
+        text = primary.background;
+        cursor = primary.foreground;
       };
       vi_mode_cursor = {
-        text = "CellBackground";
-        cursor = "CellForeground";
+        text = primary.background;
+        cursor = primary.foreground;
       };
       search = {
         matches = {
@@ -100,12 +100,8 @@ let
           background = "#282a36";
         };
       };
-      line_indicator = {
-        foreground = "None";
-        background = "None";
-      };
       selection = {
-        text = "CellForeground";
+        text = primary.foreground;
         background = "#44475a";
       };
       normal = {
