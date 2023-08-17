@@ -1,6 +1,67 @@
 { config, lib, ... }:
 let
   themes = rec {
+    nord = rec {
+      fish-theme = "Nord";
+
+      primary = {
+        background = "#2e3440";
+        foreground = "#d8dee9";
+        dim_foreground = "#a5abb6";
+      };
+      cursor = {
+        text = "#2e3440";
+        cursor = "#d8dee9";
+      };
+      vi_mode_cursor = {
+        text = "#2e3440";
+        cursor = "#d8dee9";
+      };
+      selection = {
+        text = "CellForeground";
+        background = "#4c566a";
+      };
+      search = {
+        matches = {
+          foreground = "CellBackground";
+          background = "#88c0d0";
+        };
+        footer_bar = {
+          background = "#434c5e";
+          foreground = "#d8dee9";
+        };
+      };
+      normal = {
+        black = "#3b4252";
+        red = "#bf616a";
+        green = "#a3be8c";
+        yellow = "#ebcb8b";
+        blue = "#81a1c1";
+        magenta = "#b48ead";
+        cyan = "#88c0d0";
+        white = "#e5e9f0";
+      };
+      bright = {
+        black = "#4c566a";
+        red = "#bf616a";
+        green = "#a3be8c";
+        yellow = "#ebcb8b";
+        blue = "#81a1c1";
+        magenta = "#b48ead";
+        cyan = "#8fbcbb";
+        white = "#eceff4";
+      };
+      dim = {
+        black = "#373e4d";
+        red = "#94545d";
+        green = "#809575";
+        yellow = "#b29e75";
+        blue = "#68809a";
+        magenta = "#8c738c";
+        cyan = "#6d96a5";
+        white = "#aeb3bb";
+      };
+    };
     dracula = rec {
       primary = {
         background = "#282a36";
@@ -470,6 +531,12 @@ let
     };
   };
   neovim-theme-blocks = {
+    nord = ''
+      set background=dark
+      let g:nord_disable_background = v:true
+      let g:nord_italic = v:false
+      colorscheme nord
+    '';
     dracula = ''
       set background=dark
       colorscheme dracula
@@ -578,12 +645,14 @@ let
     github-light = "GitHub";
     solarized = "Solarized (light)";
     catppuccin-latte = "GitHub";
+    nord = "Nord";
   }.${config.me.theme} or "ansi";
 
   bat-theme = {
     github-light = "GitHub";
     solarized = "Solarized (light)";
     catppuccin-latte = "GitHub";
+    nord = "Nord";
   }.${config.me.theme} or "Monokai Extended";
 
   vscode-theme = { }.${config.me.theme} or "Monokai Pro";
@@ -602,6 +671,7 @@ with lib;
         "monokai-pro"
         "monochrome"
         "dracula"
+        "nord"
         # light themes
         "github-light"
         "solarized"

@@ -59,7 +59,7 @@ in
     font-name = "JetBrains Mono";
     font-style = "Semibold";
     font-size = if isLinux then 10.0 else 12.0;
-    theme = "dracula";
+    theme = "nord";
     vscode-theme = "Dracula";
     defaults = {
       browser = "brave";

@@ -86,6 +86,7 @@
       plenary-nvim
       lsp-status-nvim
       dracula-nvim
+      nord-nvim
     ];
   };
 }
