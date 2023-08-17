@@ -1,6 +1,74 @@
 { config, lib, ... }:
 let
   themes = rec {
+    dracula = rec {
+      primary = {
+        background = "#282a36";
+        foreground = "#f8f8f2";
+        bright_foreground = "#ffffff";
+      };
+      cursor = {
+        text = "CellBackground";
+        cursor = "CellForeground";
+      };
+      vi_mode_cursor = {
+        text = "CellBackground";
+        cursor = "CellForeground";
+      };
+      search = {
+        matches = {
+          foreground = "#44475a";
+          background = "#50fa7b";
+        };
+        focused_match = {
+          foreground = "#44475a";
+          background = "#ffb86c";
+        };
+        footer_bar = {
+          background = "#282a36";
+          foreground = "#f8f8f2";
+        };
+      };
+      hints = {
+        start = {
+          foreground = "#282a36";
+          background = "#f1fa8c";
+        };
+        end = {
+          foreground = "#f1fa8c";
+          background = "#282a36";
+        };
+      };
+      line_indicator = {
+        foreground = "None";
+        background = "None";
+      };
+      selection = {
+        text = "CellForeground";
+        background = "#44475a";
+      };
+      normal = {
+        black = "#21222c";
+        red = "#ff5555";
+        green = "#50fa7b";
+        yellow = "#f1fa8c";
+        blue = "#bd93f9";
+        magenta = "#ff79c6";
+        cyan = "#8be9fd";
+        white = "#f8f8f2";
+      };
+      bright = {
+        black = "#6272a4";
+        red = "#ff6e6e";
+        green = "#69ff94";
+        yellow = "#ffffa5";
+        blue = "#d6acff";
+        magenta = "#ff92df";
+        cyan = "#a4ffff";
+        white = "#ffffff";
+      };
+    };
+
     catppuccin-latte = rec {
       fish-theme = "Snow Day";
       tmux-colour = normal.blue;
@@ -402,6 +470,10 @@ let
     };
   };
   neovim-theme-blocks = {
+    dracula = ''
+      set background=dark
+      colorscheme dracula
+    '';
     solarized = ''
       set background=light
 
@@ -494,11 +566,11 @@ let
   }.${config.me.theme} or "monokai-pro-custom";
 
   current-theme = themes.${config.me.theme};
-  tmux-primary-colour = current-theme.tmux-colour;
+  tmux-primary-colour = current-theme.tmux-colour or current-theme.normal.blue;
   tmux-background-colour = current-theme.primary.background;
-  tmux-active-pane-text-colour = current-theme.tmux-active-pane-colour;
-  tmux-pane-text-colour = current-theme.tmux-pane-colour;
-  fish-theme = current-theme.fish-theme;
+  tmux-active-pane-text-colour = current-theme.tmux-active-pane-colour or current-theme.normal.blue;
+  tmux-pane-text-colour = current-theme.tmux-pane-colour or current-theme.normal.white;
+  fish-theme = current-theme.fish-theme or "fish default";
 
   is-light-theme = lib.elem config.me.theme [ "github-light" "solarized" "catppuccin-latte" ];
 
@@ -529,6 +601,7 @@ with lib;
         "gruvbox"
         "monokai-pro"
         "monochrome"
+        "dracula"
         # light themes
         "github-light"
         "solarized"
