@@ -304,3 +304,6 @@ if exists("$EXTRA_VIM")
     exec "source ".path
   endfor
 endif
+
+" disable matching paren highlighting
+let loaded_matchparen = 1
