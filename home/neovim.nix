@@ -37,7 +37,6 @@
       vim-svelte
       vim-terraform
       rust-vim
-      lualine-nvim
       papercolor-theme
       nvim-base16
       aerial-nvim

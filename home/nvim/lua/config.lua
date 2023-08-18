@@ -23,5 +23,4 @@ require('aerialconfig')
 -- debugging
 require('dapconfig')
 
-require('lualineconfig')
 require('gitsignsconfig')
