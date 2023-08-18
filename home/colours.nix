@@ -626,6 +626,7 @@ let
   helix-theme = {
     github-light = "github_light";
     catppuccin-latte = "catppuccin_latte";
+    nord = "nord";
   }.${config.me.theme} or "monokai-pro-custom";
 
   current-theme = themes.${config.me.theme};
