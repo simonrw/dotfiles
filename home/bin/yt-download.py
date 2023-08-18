@@ -1,4 +1,5 @@
-#!/usr/bin/env python
+#!/usr/bin/env nix-shell
+#!nix-shell -i python3 -p python3 yt-dlp
 
 
 import subprocess as sp
@@ -26,7 +27,7 @@ class Downloader:
         )
 
         cmd = [
-            "youtube-dl",
+            "yt-dlp",
             "--format",
             "bestvideo+bestaudio",
             url,
