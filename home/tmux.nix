@@ -29,6 +29,7 @@
         '';
       }
       tmuxPlugins.open
+      tmuxPlugins.fzf-tmux-url
     ];
     extraConfig = with pkgs;
       let
