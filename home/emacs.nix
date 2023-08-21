@@ -5,7 +5,7 @@ let
   theme =
     if config.me.theme == "github-light"
     then "leuven"
-    else "wombat";
+    else "nord";
 
   emacs-package = (pkgs.emacsPackagesFor base-package).emacsWithPackages (epkgs: [
     epkgs.magit
@@ -21,6 +21,7 @@ let
     epkgs.direnv
     epkgs.rustic
     epkgs.evil
+    epkgs.nord-theme
   ]);
   extraConfig = ''
     (blink-cursor-mode 0)
@@ -79,7 +80,7 @@ let
     (setq rustic-lsp-client 'eglot)
 
     ;; theming
-    (load-theme '${theme})
+    (load-theme '${theme} t)
   '';
 in
 {
