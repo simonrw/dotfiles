@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, config, ... }:
 let
   mod = "Mod1";
 in
@@ -8,13 +8,6 @@ in
       enable = true;
       config = {
         modifier = mod;
-        fonts = {
-          names = [
-            "JetBrains Mono"
-          ];
-          style = "Regular";
-          size = 11.0;
-        };
         startup =
           let
             execAlways = cmd: {
@@ -27,7 +20,6 @@ in
             (execAlways ''hsetroot -solid "#c2dced"'')
             (execAlways ''bash ~/.bin/set-keyboard'')
           ];
-        terminal = "${pkgs.alacritty}/bin/alacritty";
         menu = "${pkgs.rofi}/bin/rofi -show drun";
         window = {
           titlebar = false;
@@ -37,7 +29,8 @@ in
           {
             position = "top";
             fonts = {
-              names = [ "Source Code Pro" ];
+              # TODO: set this in font.nix
+              names = [ config.me.font-name ];
             };
           }
         ];
@@ -121,8 +114,8 @@ in
           # exit i3 (logs you out of your X session)
           "${mod}+Ctrl+Shift+E" = "exit";
 
-          "${mod}+c" = "exec ${pkgs.google-chrome}/bin/google-chrome-stable";
-          "${mod}+Return" = "exec ${pkgs.alacritty}/bin/alacritty";
+          "${mod}+c" = "exec ${pkgs.firefox}/bin/firefox";
+          "${mod}+Return" = "exec ${pkgs.kitty}/bin/kitty";
           "${mod}+d" = "exec ${pkgs.rofi}/bin/rofi -show drun";
         };
       };

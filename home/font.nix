@@ -85,6 +85,13 @@ in
         font-package
       ];
 
+      xsession.windowManager.i3.config = {
+        fonts = {
+          names = [ cfg.font-name ];
+          style = cfg.font-style;
+          size = cfg.font-size;
+        };
+      };
     };
 }
 

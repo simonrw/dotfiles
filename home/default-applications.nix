@@ -1,5 +1,8 @@
-{ lib, ... }:
+{ lib, config, ... }:
 with lib;
+let
+  cfg = config.me.defaults;
+in
 {
   options.me.defaults = {
     browser = mkOption {
@@ -10,5 +13,9 @@ with lib;
       type = types.str;
       description = "Which terminal emulator to use";
     };
+  };
+
+  config = {
+    xsession.windowManager.i3.config.terminal = cfg.terminal;
   };
 }
