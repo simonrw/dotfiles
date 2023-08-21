@@ -638,13 +638,6 @@ let
 
   is-light-theme = lib.elem config.me.theme [ "github-light" "solarized" "catppuccin-latte" ];
 
-  delta-theme = {
-    github-light = "GitHub";
-    solarized = "Solarized (light)";
-    catppuccin-latte = "GitHub";
-    nord = "Nord";
-  }.${config.me.theme} or "ansi";
-
   bat-theme = {
     github-light = "GitHub";
     solarized = "Solarized (light)";
@@ -756,7 +749,6 @@ with lib;
       color15 = current-theme.bright.white;
     };
 
-    programs.git.delta.options.syntax-theme = delta-theme;
     programs.vscode.userSettings = {
       "workbench.colorTheme" = config.me.vscode-theme or ({ }.${config.me.theme} or "Monokai Pro");
     };
