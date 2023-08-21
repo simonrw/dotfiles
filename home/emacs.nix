@@ -20,7 +20,6 @@ let
     epkgs.blacken
     epkgs.direnv
     epkgs.rustic
-    epkgs.evil
     epkgs.nord-theme
   ]);
   extraConfig = ''
@@ -70,14 +69,8 @@ let
     ;; use direnv
     (direnv-mode)
 
-    ;; Blacken
-    (add-hook 'python-mode-hook 'blacken-mode)
-
     ;; of course vim
     (evil-mode)
-
-    ;; better rust
-    (setq rustic-lsp-client 'eglot)
 
     ;; theming
     (load-theme '${theme} t)
