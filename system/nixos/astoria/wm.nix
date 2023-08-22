@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, lib, ... }:
 let
   i3-settings = {
     environment.pathsToLink = [ "/libexec" ];
@@ -6,11 +6,10 @@ let
     services.xserver = {
       enable = true;
       desktopManager.xterm.enable = false;
-      displayManager.defaultSession = "none+i3";
-      displayManager.gdm.enable = true;
 
       windowManager.i3 = {
         enable = true;
+        package = pkgs.i3-gaps;
         extraPackages = with pkgs; [
           dmenu
           i3status
@@ -97,7 +96,10 @@ let
 
   cinnamon-settings = {
     services.xserver.desktopManager.cinnamon.enable = true;
+  };
+
+  common-settings = {
     services.xserver.displayManager.gdm.enable = true;
   };
 in
-cinnamon-settings
+builtins.foldl' lib.attrsets.recursiveUpdate { } [ common-settings cinnamon-settings i3-settings ]

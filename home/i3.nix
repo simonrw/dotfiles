@@ -21,6 +21,10 @@ in
             (execAlways ''bash ~/.bin/set-keyboard'')
           ];
         menu = "${pkgs.rofi}/bin/rofi -show drun";
+        gaps = {
+          inner = 8;
+          outer = 4;
+        };
         window = {
           titlebar = false;
           border = 1;
