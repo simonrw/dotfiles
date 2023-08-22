@@ -1,6 +1,5 @@
 require('gitsigns').setup({
     on_attach = function(bufnr)
-        print("attached to buffer")
         local gs = package.loaded.gitsigns
 
         local function map(mode, l, r, opts)
