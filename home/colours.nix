@@ -532,6 +532,7 @@ let
       let g:nord_disable_background = v:true
       let g:nord_italic = v:false
       colorscheme nord
+      highlight @comment guifg=#d08770
     '';
     dracula = ''
       set background=dark
