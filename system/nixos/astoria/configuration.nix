@@ -187,6 +187,7 @@
       dates = "monthly";
       flags = [
         "--all"
+        "--filter=24h"
       ];
     };
     defaultNetwork.settings.dns_enabled = true;
@@ -198,6 +199,7 @@
       enable = true;
       flags = [
         "--all"
+        "--filter=24h"
       ];
     };
     enableOnBoot = false;
