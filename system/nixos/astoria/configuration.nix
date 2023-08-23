@@ -210,6 +210,13 @@
     documentation.enable = false;
   };
 
+  # configure man pages
+  documentation = {
+    enable = true;
+    dev.enable = true;
+    man.enable = true;
+  };
+
   # Configure steam
   programs.steam = {
     enable = true;
