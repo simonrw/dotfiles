@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+PR=$1
+
+BRANCH_NAME=prs/$PR
+
+# check we are not already on that branch
+if [[ $(git branch-name) == $BRANCH_NAME ]]; then
+    exit 0
+fi
+
+git fetch origin pull/$PR/head:prs/$PR
+git checkout prs/$PR
