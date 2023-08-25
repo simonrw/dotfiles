@@ -42,7 +42,6 @@
       # Other aliases
       ff = "!f() { git merge --ff-only origin/$(git branch-name); }; f";
       st = "status";
-      co = "checkout";
       su = "submodule update --init --recursive";
       pr = "pull --rebase --prune";
       mergeff = "merge --ff-only";
