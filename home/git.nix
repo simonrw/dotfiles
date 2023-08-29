@@ -167,7 +167,6 @@
       fetch = {
         prune = 1;
       };
-      rerere.enabled = true;
       grep = {
         extendedRegexp = true;
       };
