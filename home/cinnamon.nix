@@ -71,7 +71,9 @@ in
         "org/cinnamon" = {
           alttab-switcher-style = "icons+preview";
         };
-
+        "org/cinnamon/desktop/keybindings/wm" = {
+          toggle-fullscreen = [ "<Super>0" ];
+        };
         # theming
         "org/x/apps/portal" = {
           color-scheme = if cfg.dark-mode then "prefer-dark" else "prefer-light";
