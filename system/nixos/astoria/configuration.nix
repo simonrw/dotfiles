@@ -2,7 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, ... }:
+{ config, pkgs, lib, ... }:
 
 let
   default-locale =  "en_GB.UTF-8";
@@ -223,7 +223,7 @@ in
   # settings to add if this is a virtual machine
   virtualisation.vmVariant = {
     virtualisation.qemu.options = [ "-vga virtio" "-smp 4" "-m 16384" ];
-    documentation.enable = false;
+    documentation.enable = lib.mkForce false;
   };
 
   # configure man pages

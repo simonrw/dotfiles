@@ -98,8 +98,14 @@ let
     services.xserver.desktopManager.cinnamon.enable = true;
   };
 
+  hyprland-settings = {
+    services.xserver.displayManager.gdm.wayland = true;
+    programs.hyprland.enable = true;
+    programs.xwayland.enable = true;
+  };
+
   common-settings = {
     services.xserver.displayManager.gdm.enable = true;
   };
 in
-builtins.foldl' lib.attrsets.recursiveUpdate { } [ common-settings cinnamon-settings i3-settings ]
+builtins.foldl' lib.attrsets.recursiveUpdate { } [ common-settings cinnamon-settings hyprland-settings ]
