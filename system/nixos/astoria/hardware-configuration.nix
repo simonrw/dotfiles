@@ -13,8 +13,6 @@
   boot.initrd.kernelModules = [ ];
   boot.kernelModules = [ "kvm-intel" "wl" ];
   boot.extraModulePackages = [ config.boot.kernelPackages.broadcom_sta ];
-  # enable nested virtualisation
-  boot.extraModprobeConfig = "options kvm_intel nested=1";
 
   fileSystems."/" =
     {

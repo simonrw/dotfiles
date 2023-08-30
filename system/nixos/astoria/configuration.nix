@@ -36,6 +36,13 @@
     "vm.max_map_count" = 262144;
   };
 
+  # for osx-kvm
+  boot.extraModprobeConfig = ''
+    options kvm_intel nested=1
+    options kvm_intel emulate_invalid_guest_state=0
+    options kvm ignore_msrs=1 report_ignored_msrs=0
+  '';
+
   # enable graphical cpu governer selection
   services.cpupower-gui.enable = true;
 
@@ -168,7 +175,7 @@
     simon = {
       isNormalUser = true;
       description = "Simon Walker";
-      extraGroups = [ "networkmanager" "wheel" "libvirtd" "docker" "podman" "input" "bluetooth" "plugdev" "wireshark" ];
+      extraGroups = [ "libvirt" "kvm" "networkmanager" "wheel" "libvirtd" "docker" "podman" "input" "bluetooth" "plugdev" "wireshark" ];
       shell = pkgs.fish;
       home = "/home/simon";
       initialPassword = "test.1234";
@@ -309,3 +316,4 @@
   system.stateVersion = "22.05"; # Did you read the comment?
 
 }
+
