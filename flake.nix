@@ -21,6 +21,7 @@
     vscode-server.url = "github:msteen/nixos-vscode-server";
     vscode-server.inputs.nixpkgs.follows = "nixpkgs";
     cert-info.url = "github:simonrw/cert-info";
+    hyprland.url = "github:hyprwm/Hyprland";
   };
 
   outputs =
@@ -34,6 +35,7 @@
     , vscode-extensions
     , vscode-server
     , cert-info
+    , hyprland
     , ...
     }@inputs:
     let
@@ -182,6 +184,7 @@
             simon = home-manager.lib.homeManagerConfiguration {
               inherit pkgs;
               modules = [
+                hyprland.homeManagerModules.default
                 ./home/home.nix
               ];
               # stop infinite recusion when trying to access
