@@ -26,7 +26,8 @@ in
         set -x NODE_PATH {$HOME}/.npm-packages/lib/node_modules
         set -x GOPATH {$HOME}/dev/gocode
         set -x REVIEW_BASE main
-        set -x PYTEST_ADDOPTS "-p no:sugar"
+        set -x lC_CTYPE en_GB.UTF-8
+        set -x LC_ALL en_GB.UTF-8
         set -x LANG en_GB.UTF-8
         set -x CARGO_TARGET_DIR {$HOME}/.cargo/cache
         set -x NIXPKGS_ALLOW_UNFREE 1
@@ -36,9 +37,6 @@ in
         # centralise where python puts its .pyc files
         set -x PYTHONPYCACHEPREFIX {$HOME}/.python-cache
 
-        set -x LANG "en_GB.UTF-8"
-        set -x LC_CTYPE "en_GB.UTF-8"
-        set -x LC_ALL "en_GB.UTF-8"
         set -x EDITOR "${neovim}/bin/nvim"
         set -x PAGER "${pkgs.bat}/bin/bat"
         set -x MANPAGER "sh -c 'col -bx | ${pkgs.bat}/bin/bat -l man -p'"
