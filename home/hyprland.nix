@@ -3,8 +3,6 @@
   wayland.windowManager.hyprland = {
     enable = true;
 
-    extraConfig = ''
-    $mod = SUPER
-    '';
+    extraConfig = builtins.readFile ./hyprland/config;
   };
 }

@@ -113,6 +113,7 @@ let
       waybar
       dunst
     ];
+    services.xserver.displayManager.defaultSession = "hyprland";
   };
 
   common-settings = {
