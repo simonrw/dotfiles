@@ -4,6 +4,10 @@
 
 { config, pkgs, ... }:
 
+let
+  default-locale =  "en_GB.UTF-8";
+in
+
 {
   imports =
     [
@@ -98,18 +102,18 @@
   time.timeZone = "Europe/London";
 
   # Select internationalisation properties.
-  i18n.defaultLocale = "en_GB.utf8";
+  i18n.defaultLocale = default-locale;
 
   i18n.extraLocaleSettings = {
-    LC_ADDRESS = "en_GB.UTF-8";
-    LC_IDENTIFICATION = "en_GB.UTF-8";
-    LC_MEASUREMENT = "en_GB.UTF-8";
-    LC_MONETARY = "en_GB.UTF-8";
-    LC_NAME = "en_GB.UTF-8";
-    LC_NUMERIC = "en_GB.UTF-8";
-    LC_PAPER = "en_GB.UTF-8";
-    LC_TELEPHONE = "en_GB.UTF-8";
-    LC_TIME = "en_GB.UTF-8";
+    LC_ADDRESS = default-locale;
+    LC_IDENTIFICATION = default-locale;
+    LC_MEASUREMENT = default-locale;
+    LC_MONETARY = default-locale;
+    LC_NAME = default-locale;
+    LC_NUMERIC = default-locale;
+    LC_PAPER = default-locale;
+    LC_TELEPHONE = default-locale;
+    LC_TIME = default-locale;
   };
 
   fonts = {
