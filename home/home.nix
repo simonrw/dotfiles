@@ -28,6 +28,7 @@ in
     ./neovim.nix
     ./nix-index.nix
     ./packages/simon.nix
+    ./ssh.nix
     ./tmux.nix
     ./zoxide.nix
   ] ++ lib.optionals isLinux [
