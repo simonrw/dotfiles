@@ -112,6 +112,8 @@ let
       xdg-desktop-portal-hyprland
       waybar
       dunst
+      wofi
+      dolphin
     ];
     services.xserver.displayManager.defaultSession = "hyprland";
     services.xserver.displayManager.gdm.enable = lib.mkForce false;
