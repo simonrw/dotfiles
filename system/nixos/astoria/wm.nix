@@ -114,10 +114,12 @@ let
       dunst
     ];
     services.xserver.displayManager.defaultSession = "hyprland";
+    services.xserver.displayManager.gdm.enable = lib.mkForce false;
+    services.xserver.displayManager.sddm.enable = true;
   };
 
   common-settings = {
-    services.xserver.displayManager.gdm.enable = true;
+    services.xserver.displayManager.gdm.enable = lib.mkDefault true;
   };
 in
 builtins.foldl' lib.attrsets.recursiveUpdate { } [ common-settings cinnamon-settings hyprland-settings ]
