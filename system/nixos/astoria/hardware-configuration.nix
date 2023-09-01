@@ -49,4 +49,8 @@
       powerManagement.enable = true;
     };
   };
+
+  environment.sessionVariables = {
+    LIBVA_DRIVER_NAME = "nvidia";
+  };
 }
