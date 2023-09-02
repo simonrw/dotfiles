@@ -98,8 +98,32 @@ let
     services.xserver.desktopManager.cinnamon.enable = true;
   };
 
+  hyprland-settings = {
+    services.xserver.displayManager.gdm.wayland = true;
+    programs.hyprland = {
+      enable = true;
+    };
+    programs.xwayland.enable = true;
+    environment.sessionVariables = {
+      WLR_NO_HARDWARE_CURSORS = "1";
+      NIXOS_OZONE_WL = "1";
+    };
+    environment.systemPackages = with pkgs; [
+      xdg-desktop-portal-hyprland
+      xdg-desktop-portal-gtk
+      waybar
+      dunst
+      wofi
+      dolphin
+    ];
+    services.xserver.displayManager.defaultSession = lib.mkDefault "hyprland";
+    services.xserver.displayManager.gdm.enable = lib.mkForce false;
+    services.xserver.displayManager.sddm.enable = true;
+  };
+
   common-settings = {
-    services.xserver.displayManager.gdm.enable = true;
+    services.xserver.displayManager.gdm.enable = lib.mkDefault true;
+    services.xserver.displayManager.defaultSession = lib.mkForce "cinnamon";
   };
 in
-builtins.foldl' lib.attrsets.recursiveUpdate { } [ common-settings cinnamon-settings i3-settings ]
+builtins.foldl' lib.attrsets.recursiveUpdate { } [ common-settings cinnamon-settings hyprland-settings ]
