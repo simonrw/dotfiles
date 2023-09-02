@@ -115,13 +115,14 @@ let
       wofi
       dolphin
     ];
-    services.xserver.displayManager.defaultSession = "hyprland";
+    services.xserver.displayManager.defaultSession = lib.mkDefault "hyprland";
     services.xserver.displayManager.gdm.enable = lib.mkForce false;
     services.xserver.displayManager.sddm.enable = true;
   };
 
   common-settings = {
     services.xserver.displayManager.gdm.enable = lib.mkDefault true;
+    services.xserver.displayManager.defaultSession = lib.mkForce "cinnamon";
   };
 in
 builtins.foldl' lib.attrsets.recursiveUpdate { } [ common-settings cinnamon-settings hyprland-settings ]
