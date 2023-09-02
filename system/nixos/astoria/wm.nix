@@ -110,6 +110,7 @@ let
     };
     environment.systemPackages = with pkgs; [
       xdg-desktop-portal-hyprland
+      xdg-desktop-portal-gtk
       waybar
       dunst
       wofi

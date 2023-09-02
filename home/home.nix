@@ -42,6 +42,7 @@ in
     ./cinnamon.nix
     ./xcape.nix
     ./hyprland.nix
+    ./waybar.nix
   ];
 
   home = {
