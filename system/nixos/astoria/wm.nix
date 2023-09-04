@@ -126,4 +126,4 @@ let
     services.xserver.displayManager.defaultSession = lib.mkForce "cinnamon";
   };
 in
-builtins.foldl' lib.attrsets.recursiveUpdate { } [ common-settings cinnamon-settings hyprland-settings ]
+builtins.foldl' lib.attrsets.recursiveUpdate { } [ hyprland-settings cinnamon-settings common-settings ]
