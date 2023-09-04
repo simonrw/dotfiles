@@ -1,6 +1,14 @@
+{ lib, config, ... }:
+let
+  cfg = config.me.wm.kde;
+in
 {
-  services.xserver.desktopManager.plasma5.enable = true;
-  services.xserver.displayManager.defaultSession = "plasma";
-  services.xserver.displayManager.sddm.enable = true;
-  programs.dconf.enable = true;
+  options.me.wm.kde.enable = lib.mkEnableOption (lib.mkDoc "Enable KDE window manager");
+
+  config = lib.mkIf cfg.enable {
+    services.xserver.desktopManager.plasma5.enable = true;
+    services.xserver.displayManager.defaultSession = "plasma";
+    services.xserver.displayManager.sddm.enable = true;
+    programs.dconf.enable = true;
+  };
 }

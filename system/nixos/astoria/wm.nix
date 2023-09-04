@@ -2,17 +2,21 @@
 {
   imports = [
     ./wm/cinnamon.nix
-    # ./wm/gnome.nix
+    ./wm/gnome.nix
     ./wm/hyprland.nix
-    # ./wm/i3.nix
-    # ./wm/kde.nix
-    # ./wm/mate.nix
+    ./wm/i3.nix
+    ./wm/kde.nix
+    ./wm/mate.nix
   ];
 
-  # common settings
-  config = {
-    services.xserver.displayManager.gdm.enable = lib.mkForce true;
-    services.xserver.displayManager.sddm.enable = lib.mkForce false;
-    services.xserver.displayManager.defaultSession = lib.mkForce "cinnamon";
+  # enable the window managers I use 
+  me.wm.cinnamon.enable = true;
+  me.wm.hyprland.enable = true;
+
+  # overrides
+  services.xserver.displayManager = {
+    gdm.enable = lib.mkForce true;
+    sddm.enable = lib.mkForce false;
+    defaultSession = lib.mkForce "cinnamon";
   };
 }

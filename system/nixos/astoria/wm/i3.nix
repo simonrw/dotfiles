@@ -1,25 +1,30 @@
-{ pkgs, ... }:
+{ pkgs, lib, config, ... }:
+let
+  cfg = config.me.wm.i3;
+in
 {
-  environment.pathsToLink = [ "/libexec" ];
+  options.me.wm.i3.enable = lib.mkEnableOption (lib.mkDoc "Enable i3 support");
 
-  services.xserver = {
-    enable = true;
-    desktopManager.xterm.enable = false;
+  config = lib.mkIf cfg.enable {
+    environment.pathsToLink = [ "/libexec" ];
 
-    windowManager.i3 = {
+    services.xserver = {
       enable = true;
-      package = pkgs.i3-gaps;
-      extraPackages = with pkgs; [
-        dmenu
-        i3status
-        i3lock
-      ];
+      desktopManager.xterm.enable = false;
+
+      windowManager.i3 = {
+        enable = true;
+        package = pkgs.i3-gaps;
+        extraPackages = with pkgs; [
+          dmenu
+          i3status
+          i3lock
+        ];
+      };
     };
+
+    programs.dconf.enable = true;
+
+    environment.systemPackages = with pkgs; [ ];
   };
-
-  programs.dconf.enable = true;
-
-  environment.systemPackages = with pkgs; [
-
-  ];
 }
