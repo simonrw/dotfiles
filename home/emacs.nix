@@ -1,6 +1,6 @@
 { config, pkgs, isLinux, ... }:
 let
-  base-package = if isLinux then pkgs.emacs-gtk else pkgs.emacs;
+  base-package = pkgs.emacs29;
 
   theme =
     if config.me.theme == "github-light"
