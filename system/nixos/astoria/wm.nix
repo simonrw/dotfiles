@@ -16,8 +16,8 @@
 
   # overrides
   services.xserver.displayManager = {
-    gdm.enable = lib.mkForce true;
-    sddm.enable = lib.mkForce false;
+    gdm.enable = lib.mkForce false;
+    sddm.enable = lib.mkForce true;
     defaultSession = lib.mkForce "cinnamon";
   };
 }
