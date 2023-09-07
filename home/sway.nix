@@ -102,7 +102,7 @@ in
         "${mod}+Ctrl+Shift+E" = "exit";
 
         "${mod}+c" = "exec ${config.me.defaults.browser.command}";
-        "${mod}+Return" = "exec ${pkgs.kitty}/bin/kitty";
+        "${mod}+Return" = "exec ${pkgs.${config.me.defaults.terminal}}/bin/${config.me.defaults.terminal}";
         "${mod}+d" = "exec ${pkgs.wofi}/bin/wofi -show drun";
       };
     };
