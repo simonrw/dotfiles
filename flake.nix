@@ -104,17 +104,21 @@
               self.modules.nix
               (self.modules.nixos { inherit name; })
               home-manager.nixosModules.home-manager
-              nix-doom-emacs.hmModule
               {
                 home-manager.useGlobalPkgs = true;
                 home-manager.useUserPackages = true;
                 home-manager.extraSpecialArgs = {
-                  inherit inputs;
                   isLinux = pkgs.stdenv.isLinux;
                   isDarwin = pkgs.stdenv.isDarwin;
                 };
 
-                home-manager.users.simon = import ./home/home.nix;
+                home-manager.users.simon = ({ ... }:
+                  {
+                    imports = [
+                      nix-doom-emacs.hmModule
+                      ./home/home.nix
+                    ];
+                  });
               }
               nix-index-database.nixosModules.nix-index
               vscode-server.nixosModule

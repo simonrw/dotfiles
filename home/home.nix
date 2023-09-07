@@ -1,4 +1,4 @@
-{ config, pkgs, isLinux, isDarwin, inputs, lib, ... }:
+{ config, pkgs, isLinux, isDarwin, lib, ... }:
 let
   homeDir = if isDarwin then "Users" else "home";
   homeDirectory = "/${homeDir}/simon";
