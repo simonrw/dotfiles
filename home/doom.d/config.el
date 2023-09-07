@@ -22,7 +22,7 @@
 ;; accept. For example:
 ;;
 (setq doom-font
-      (font-spec :family "JetBrains Mono" :weight 'semi-bold :size 14))
+      (font-spec :family "JetBrains Mono" :weight 'bold :size 18))
 ;;(setq doom-font (font-spec :family "Fira Code" :size 12 :weight 'semi-light)
 ;;      doom-variable-pitch-font (font-spec :family "Fira Sans" :size 13))
 ;;
