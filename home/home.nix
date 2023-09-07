@@ -37,7 +37,8 @@ in
     # ./kde.nix
     # ./xfce.nix
     # ./gnome.nix
-    ./i3.nix
+    # ./i3.nix
+    ./sway.nix
     # ./mate.nix
     ./cinnamon.nix
     ./xcape.nix
