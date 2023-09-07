@@ -15,9 +15,9 @@
   me.wm.hyprland.enable = true;
 
   # overrides
-  services.xserver.displayManager = {
-    gdm.enable = lib.mkForce false;
-    sddm.enable = lib.mkForce true;
-    defaultSession = lib.mkForce "cinnamon";
-  };
+  # services.xserver.displayManager = {
+  #   gdm.enable = lib.mkForce true;
+  #   sddm.enable = lib.mkForce false;
+  #   defaultSession = lib.mkForce "cinnamon";
+  # };
 }
