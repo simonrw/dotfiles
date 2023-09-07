@@ -68,7 +68,6 @@ in
     };
 
     environment.systemPackages = with pkgs; [
-      bemenu # wayland clone of dmenu
       configure-gtk
       dbus-sway-environment
       dbus-sway-environment
@@ -80,6 +79,7 @@ in
       wayland
       wdisplays # tool to configure displays
       wl-clipboard # wl-copy and wl-paste for copy/paste from stdin / stdout
+      wofi
       xdg-utils # for opening default programs when clicking links
     ];
   };
