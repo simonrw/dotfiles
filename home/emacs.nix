@@ -1,7 +1,7 @@
 { pkgs, ... }:
 {
   programs.doom-emacs = {
-    enable = true;
+    enable = false;
     doomPrivateDir = ./doom.d;
   };
 }
