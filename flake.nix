@@ -22,6 +22,7 @@
     vscode-server.inputs.nixpkgs.follows = "nixpkgs";
     cert-info.url = "github:simonrw/cert-info";
     hyprland.url = "github:hyprwm/Hyprland";
+    nix-doom-emacs.url = "github:nix-community/nix-doom-emacs";
   };
 
   outputs =
@@ -36,6 +37,7 @@
     , vscode-server
     , cert-info
     , hyprland
+    , nix-doom-emacs
     , ...
     }@inputs:
     let
@@ -102,10 +104,12 @@
               self.modules.nix
               (self.modules.nixos { inherit name; })
               home-manager.nixosModules.home-manager
+              nix-doom-emacs.hmModule
               {
                 home-manager.useGlobalPkgs = true;
                 home-manager.useUserPackages = true;
                 home-manager.extraSpecialArgs = {
+                  inherit inputs;
                   isLinux = pkgs.stdenv.isLinux;
                   isDarwin = pkgs.stdenv.isDarwin;
                 };
@@ -185,6 +189,7 @@
               inherit pkgs;
               modules = [
                 hyprland.homeManagerModules.default
+                nix-doom-emacs.hmModule
                 ./home/home.nix
               ];
               # stop infinite recusion when trying to access

@@ -1,4 +1,4 @@
-{ config, pkgs, isLinux, isDarwin, lib, ... }:
+{ config, pkgs, isLinux, isDarwin, inputs, lib, ... }:
 let
   homeDir = if isDarwin then "Users" else "home";
   homeDirectory = "/${homeDir}/simon";
@@ -11,8 +11,8 @@ in
     ./dark-mode.nix
     ./default-applications.nix
     ./direnv.nix
-    ./emacs.nix
     ./exa.nix
+    ./emacs.nix
     ./fish.nix
     ./font.nix
     ./fzf.nix
