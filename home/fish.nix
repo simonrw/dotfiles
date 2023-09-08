@@ -150,10 +150,10 @@ in
       pylab = "ipython - -pylab";
       sourceenv = "source ./venv/bin/activate";
       ta = "_tmux_attach";
-      thor = "${pkgs.exa}/bin/exa -s modified -l";
+      thor = "${pkgs.eza}/bin/eza -s modified -l";
       tl = "tmux-last";
       trash = "${pkgs.python3Packages.send2trash}/bin/send2trash";
-      tree = "${pkgs.exa}/bin/exa -T";
+      tree = "${pkgs.eza}/bin/eza -T";
       vup = "${neovim}/bin/nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'";
     } // lib.optionalAttrs isLinux {
       pbcopy = "${pkgs.xclip}/bin/xclip -selection clipboard";
