@@ -2,8 +2,6 @@
 {
   programs.ssh = {
     enable = true;
-    controlMaster = "auto";
-    controlPersist = "5m";
     includes = [
       "config_local"
     ];
