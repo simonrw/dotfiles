@@ -39,7 +39,7 @@ in
 
         set -x EDITOR "${neovim}/bin/nvim"
         set -x PAGER "${pkgs.bat}/bin/bat"
-        set -x MANPAGER "sh -c 'col -bx | ${pkgs.bat}/bin/bat -l man -p'"
+        set -x MANPAGER "${pkgs.bat}/bin/bat -l man -p'"
 
         # host-specific configuration
         set host_config ~/.config/fish/conf.d/per-host/config.(hostname).fish
