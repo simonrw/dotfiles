@@ -1,9 +1,5 @@
 { ... }:
 {
-  imports = [
-    ./module.nix
-  ];
-
   config = {
     programs.eza = {
       enable = true;

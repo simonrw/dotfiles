@@ -11,7 +11,7 @@ in
     ./dark-mode.nix
     ./default-applications.nix
     ./direnv.nix
-    ./eza/eza.nix
+    ./eza.nix
     ./emacs.nix
     ./fish.nix
     ./font.nix
@@ -38,7 +38,7 @@ in
     # ./xfce.nix
     # ./gnome.nix
     # ./i3.nix
-    ./sway.nix
+    # ./sway.nix
     # ./mate.nix
     ./cinnamon.nix
     ./xcape.nix
