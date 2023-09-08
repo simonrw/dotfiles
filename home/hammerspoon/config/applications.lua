@@ -3,7 +3,7 @@ local applications = {
         name = "Alacritty",
     },
     browser = {
-        name = "Safari",
+        name = "Brave Browser",
     },
     email = {
         name = "Mail",

@@ -66,10 +66,7 @@ in
     theme = "nord";
     vscode-theme = "Dracula";
     defaults = {
-      browser = {
-        name = "google-chrome";
-        command = "${pkgs.google-chrome}/bin/google-chrome-stable";
-      };
+      browser = "brave";
       terminal = if isDarwin then "alacritty" else "kitty";
     };
   } // (if isLinux then {
