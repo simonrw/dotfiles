@@ -11,7 +11,7 @@ in
     ./dark-mode.nix
     ./default-applications.nix
     ./direnv.nix
-    ./exa.nix
+    ./eza/eza.nix
     ./emacs.nix
     ./fish.nix
     ./font.nix
