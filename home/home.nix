@@ -71,7 +71,7 @@ in
     };
   } // (if isLinux then {
     cinnamon = {
-      dark-mode = true;
+      dark-mode = false;
     };
   } else { });
 
