@@ -42,6 +42,7 @@
       aerial-nvim
       # has native plugin so requires nix
       telescope-fzf-native-nvim
+      octo-nvim
 
       # debugging
       nvim-dap
