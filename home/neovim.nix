@@ -70,6 +70,7 @@
           p.tree-sitter-make
           p.tree-sitter-markdown
           p.tree-sitter-nix
+          p.tree-sitter-norg
           p.tree-sitter-python
           p.tree-sitter-query
           p.tree-sitter-rust
