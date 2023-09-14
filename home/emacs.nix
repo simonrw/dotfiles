@@ -1,5 +1,9 @@
 { pkgs, ... }:
 {
+  programs.emacs = {
+    enable = true;
+    package = pkgs.emacs29;
+  };
   programs.doom-emacs = rec {
     enable = false;
     doomPrivateDir = ./doom.d;
