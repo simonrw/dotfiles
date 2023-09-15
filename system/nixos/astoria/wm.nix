@@ -13,6 +13,7 @@
   # enable the window managers I use 
   me.wm.cinnamon.enable = true;
   me.wm.hyprland.enable = true;
+  me.wm.i3.enable = true;
 
   # overrides
   # services.xserver.displayManager = {

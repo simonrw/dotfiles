@@ -119,7 +119,7 @@ in
           "${mod}+Ctrl+Shift+E" = "exit";
 
           "${mod}+c" = "exec ${pkgs.brave}/bin/brave";
-          "${mod}+Return" = "exec ${pkgs.kitty}/bin/kitty";
+          "${mod}+Return" = "exec ${pkgs.alacritty}/bin/alacritty";
           "${mod}+d" = "exec ${pkgs.rofi}/bin/rofi -show drun";
         };
       };
