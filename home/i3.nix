@@ -17,8 +17,7 @@ in
             };
           in
           [
-            (execAlways ''hsetroot -solid "#c2dced"'')
-            (execAlways ''bash ~/.bin/set-keyboard'')
+            (execAlways ''${pkgs.hsetroot}/bin/hsetroot -solid "#4f535c"'')
           ];
         menu = "${pkgs.rofi}/bin/rofi -show drun";
         gaps = {
