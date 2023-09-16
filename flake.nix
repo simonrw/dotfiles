@@ -4,7 +4,6 @@
   inputs = {
     utils.url = "github:numtide/flake-utils";
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    docker-pinned-nixpkgs.url = "github:nixos/nixpkgs/b6bbc53029a31f788ffed9ea2d459f0bb0f0fbfc";
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
     darwin = {
@@ -53,12 +52,6 @@
           wally = final.callPackage ./derivations/wally { };
           cert-info = cert-info.packages.${system}.default;
         })
-        # pin docker client
-        (
-          self: super: {
-            docker = inputs.docker-pinned-nixpkgs.legacyPackages.${system}.docker;
-          }
-        )
         # override the version of xattr for poetry
         (
           let
