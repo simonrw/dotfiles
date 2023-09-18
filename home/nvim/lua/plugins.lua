@@ -65,23 +65,6 @@ require('packer').startup({
             end,
         }
 
-        use {
-            'pwntester/octo.nvim',
-            requires = {
-                'nvim-lua/plenary.nvim',
-                'nvim-telescope/telescope.nvim',
-            },
-            config = function()
-                require('octo').setup({
-                    enable_builtin = true,
-                })
-            end,
-            setup = function()
-                vim.keymap.set('n', '<Leader>O', '<cmd>Octo<cr>')
-            end,
-            cmd = "Octo",
-        }
-
         use 'averms/black-nvim'
         use 'jaredgorski/fogbell.vim'
         use 'lewis6991/gitsigns.nvim'
