@@ -43,6 +43,14 @@ require('packer').startup({
                         },
                         sorting_strategy = 'ascending',
                     },
+                    pickers = {
+                        git_files = {
+                            disable_devicons = true,
+                        },
+                        find_files = {
+                            disable_devicons = true,
+                        },
+                    },
                     extensions = {
                         fzf = {
                             fuzzy = true,
@@ -62,7 +70,6 @@ require('packer').startup({
             requires = {
                 'nvim-lua/plenary.nvim',
                 'nvim-telescope/telescope.nvim',
-                'nvim-tree/nvim-web-devicons',
             },
             config = function()
                 require('octo').setup({

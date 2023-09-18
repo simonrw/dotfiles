@@ -247,19 +247,12 @@ in
     alacritty
     barrier
     chromium
-    dig
     firefox
-    git
-    godot_4
     google-chrome
-    groff
     # currently broken
     # heroic
     inkscape
-    killall
-    mosh
     pavucontrol
-    vim
     wmctrl
     xclip
   ];

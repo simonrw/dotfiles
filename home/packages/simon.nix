@@ -40,6 +40,7 @@ in
     curlie
     custom-curl
     deadnix
+    dig
     du-dust
     entr
     fd
@@ -47,6 +48,7 @@ in
     fx
     gcc
     git-branchless
+    groff
     go
     graphviz
     hey
