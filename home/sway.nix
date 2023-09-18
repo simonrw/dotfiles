@@ -101,7 +101,7 @@ in
         # exit i3 (logs you out of your X session)
         "${mod}+Ctrl+Shift+E" = "exit";
 
-        "${mod}+c" = "exec ${config.me.defaults.browser.command}";
+        "${mod}+c" = "exec ${config.me.defaults.browser.command or config.me.defaults.browser}";
         "${mod}+Return" = "exec ${pkgs.${config.me.defaults.terminal}}/bin/${config.me.defaults.terminal}";
         "${mod}+d" = "exec ${pkgs.wofi}/bin/wofi -show drun";
       };

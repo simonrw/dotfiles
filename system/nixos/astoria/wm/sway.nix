@@ -54,6 +54,9 @@ in
       extraPortals = [ ];
     };
 
+    services.xserver.displayManager.gdm.enable = true;
+    services.xserver.displayManager.gdm.wayland = true;
+
     programs.sway = {
       enable = true;
       wrapperFeatures.gtk = true;
@@ -66,6 +69,8 @@ in
       alsa.enable = true;
       pulse.enable = true;
     };
+
+    programs.xwayland.enable = true;
 
     environment.systemPackages = with pkgs; [
       configure-gtk
