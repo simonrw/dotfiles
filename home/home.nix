@@ -30,6 +30,7 @@ in
     ./packages/simon.nix
     ./ssh.nix
     ./tmux.nix
+    ./wireshark.nix
     ./zoxide.nix
   ] ++ lib.optionals isLinux [
     ./rofi.nix
