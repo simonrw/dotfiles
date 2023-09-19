@@ -48,7 +48,6 @@ in
     fx
     gcc
     git-branchless
-    groff
     go
     graphviz
     hey
@@ -99,13 +98,14 @@ in
     flameshot
     freetube
     gimp
+    groff
     insomnia
     jetbrains.pycharm-community
     libreoffice
     lorien
     notion
-    obsidian
     obs-studio
+    obsidian
     pinentry-gtk2
     playerctl
     shotcut
