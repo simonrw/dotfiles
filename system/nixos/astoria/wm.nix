@@ -14,12 +14,12 @@
   me.wm.cinnamon.enable = true;
   # me.wm.hyprland.enable = true;
   # me.wm.i3.enable = true;
-  me.wm.sway.enable = true;
+  # me.wm.sway.enable = true;
 
   # overrides
-  services.xserver.displayManager = {
-    #   gdm.enable = lib.mkForce true;
-    sddm.enable = lib.mkForce false;
-    #   defaultSession = lib.mkForce "cinnamon";
-  };
+  # services.xserver.displayManager = {
+  #   gdm.enable = lib.mkForce true;
+  #   sddm.enable = lib.mkForce false;
+  #   defaultSession = lib.mkForce "cinnamon";
+  # };
 }

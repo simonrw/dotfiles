@@ -43,7 +43,7 @@ let
   };
 in
 {
-  options.me.wm.sway.enable = lib.mkEnableOption (lib.mkDoc "Enable sway window manager");
+  options.me.wm.sway.enable = lib.mkEnableOption "Sway";
 
   config = lib.mkIf cfg.enable {
     services.dbus.enable = true;

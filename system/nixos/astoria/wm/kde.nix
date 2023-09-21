@@ -3,7 +3,7 @@ let
   cfg = config.me.wm.kde;
 in
 {
-  options.me.wm.kde.enable = lib.mkEnableOption (lib.mkDoc "Enable KDE window manager");
+  options.me.wm.kde.enable = lib.mkEnableOption "KDE";
 
   config = lib.mkIf cfg.enable {
     services.xserver.desktopManager.plasma5.enable = true;

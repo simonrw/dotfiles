@@ -37,9 +37,9 @@ in
     ./chromium.nix
     # ./kde.nix
     # ./xfce.nix
-    # ./gnome.nix
+    ./gnome.nix
     # ./i3.nix
-    ./sway.nix
+    # ./sway.nix
     # ./mate.nix
     ./cinnamon.nix
     ./xcape.nix
@@ -71,9 +71,11 @@ in
       terminal = "alacritty";
     };
   } // (if isLinux then {
-    cinnamon = {
+    wm.cinnamon = {
+      enable = true;
       dark-mode = true;
     };
+    wm.gnome.enable = false;
   } else { });
 
   home.file = {
