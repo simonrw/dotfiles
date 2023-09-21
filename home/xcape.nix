@@ -3,7 +3,7 @@ let
   cfg = config.me.xcape;
 in
 {
-  options.me.xcape.enable = lib.mkEnableOption (lib.mkDoc "");
+  options.me.xcape.enable = lib.mkEnableOption "xcape";
 
   config = {
     services.xcape = {

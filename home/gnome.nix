@@ -1,4 +1,5 @@
 { config, lib, ... }:
+with lib;
 let
   terminal = config.me.defaults.terminal;
   browser = config.me.defaults.browser;
@@ -14,9 +15,9 @@ let
   cfg = config.me.wm.gnome;
 in
 {
-  options.me.wm.gnome = lib.mkEnableOption (lib.mkDoc "Enable gnome configuration");
+  options.me.wm.gnome.enable = mkEnableOption (mdDoc "Enable gnome configuration");
 
-  config = lib.mkIf cfg.enable {
+  config = mkIf cfg.enable {
     dconf.settings = {
       "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0" = {
         binding = "<Alt><Super>s";

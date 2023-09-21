@@ -71,7 +71,8 @@ in
       terminal = "alacritty";
     };
   } // (if isLinux then {
-    cinnamon = {
+    wm.cinnamon = {
+      enable = false;
       dark-mode = true;
     };
     wm.gnome.enable = true;
