@@ -3,7 +3,7 @@ let
   cfg = config.me.wm.mate;
 in
 {
-  options.me.wm.mate.enable = lib.mkEnableOption (lib.mkDoc "Enable Mate window manager");
+  options.me.wm.mate.enable = lib.mkEnableOption "MATE";
 
   config = lib.mkIf cfg.enable {
     services.xserver.displayManager.gdm.enable = true;

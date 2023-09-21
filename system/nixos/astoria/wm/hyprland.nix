@@ -3,7 +3,7 @@ let
   cfg = config.me.wm.hyprland;
 in
 {
-  options.me.wm.hyprland.enable = lib.mkEnableOption (lib.mkDoc "Enable Hyprland window manager");
+  options.me.wm.hyprland.enable = lib.mkEnableOption (lib.mdDoc "Enable Hyprland window manager");
 
   config = lib.mkIf cfg.enable {
     services.xserver.displayManager.gdm.wayland = true;

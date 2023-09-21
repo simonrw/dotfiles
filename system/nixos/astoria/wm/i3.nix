@@ -3,7 +3,7 @@ let
   cfg = config.me.wm.i3;
 in
 {
-  options.me.wm.i3.enable = lib.mkEnableOption (lib.mkDoc "Enable i3 support");
+  options.me.wm.i3.enable = lib.mkEnableOption (lib.mdDoc "Enable i3 support");
 
   config = lib.mkIf cfg.enable {
     environment.pathsToLink = [ "/libexec" ];

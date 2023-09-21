@@ -4,8 +4,8 @@ let
 in
 {
   options.me.wm.gnome = {
-    enable = lib.mkEnableOption (lib.mkDoc "Enable Gnome window manager");
-    wayland = lib.mkEnableOption (lib.mkDoc "Enable Wayland support");
+    enable = lib.mkEnableOption (lib.mdDoc "Enable Gnome window manager");
+    wayland = lib.mkEnableOption (lib.mdDoc "Enable Wayland support");
   };
 
   config = lib.mkIf cfg.enable {
