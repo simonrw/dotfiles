@@ -28,6 +28,11 @@ in
 
     programs.xwayland.enable = cfg.wayland;
 
+    environment.sessionVariables = {
+      WLR_NO_HARDWARE_CURSORS = "1";
+      # NIXOS_OZONE_WL = "1";
+    };
+
     services.xserver.desktopManager.gnome.extraGSettingsOverrides = ''
       [org.gnome.desktop.wm.preferences]
       resize-with-right-button=true

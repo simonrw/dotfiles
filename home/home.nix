@@ -72,10 +72,10 @@ in
     };
   } // (if isLinux then {
     wm.cinnamon = {
-      enable = true;
+      enable = false;
       dark-mode = true;
     };
-    wm.gnome.enable = false;
+    wm.gnome.enable = true;
   } else { });
 
   home.file = {
