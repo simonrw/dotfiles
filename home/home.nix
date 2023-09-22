@@ -35,7 +35,7 @@ in
   ] ++ lib.optionals isLinux [
     ./rofi.nix
     ./chromium.nix
-    # ./kde.nix
+    ./kde.nix
     # ./xfce.nix
     ./gnome.nix
     # ./i3.nix
