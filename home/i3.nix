@@ -117,7 +117,7 @@ in
           # exit i3 (logs you out of your X session)
           "${mod}+Ctrl+Shift+E" = "exit";
 
-          "${mod}+c" = "exec ${pkgs.brave}/bin/brave";
+          "${mod}+c" = "exec ${pkgs.firefox}/bin/firefox";
           "${mod}+Return" = "exec ${pkgs.alacritty}/bin/alacritty";
           "${mod}+d" = "exec ${pkgs.rofi}/bin/rofi -show drun";
         };
