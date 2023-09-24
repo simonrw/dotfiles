@@ -1,4 +1,4 @@
-{ lib, config, ... }:
+{ lib, pkgs, config, ... }:
 let
   cfg = config.me.wm.cinnamon;
 in
@@ -9,5 +9,8 @@ in
 
   config = lib.mkIf cfg.enable {
     services.xserver.desktopManager.cinnamon.enable = true;
+    environment.cinnamon.excludePackages = with pkgs; [
+      orca
+    ];
   };
 }

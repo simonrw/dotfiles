@@ -5,7 +5,7 @@
     ./wm/gnome.nix
     ./wm/hyprland.nix
     ./wm/i3.nix
-    ./wm/kde.nix
+    # ./wm/kde.nix
     ./wm/mate.nix
     ./wm/sway.nix
   ];
