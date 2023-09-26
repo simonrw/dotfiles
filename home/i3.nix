@@ -1,6 +1,19 @@
 { pkgs, config, ... }:
 let
   mod = "Mod1";
+
+  focus-last = pkgs.stdenv.mkDerivation {
+    name = "focus-last";
+    propagatedBuildInputs = with pkgs; [
+      (python3.withPackages (ps: with ps; [
+        i3ipc
+      ]))
+    ];
+    dontUnpack = true;
+    installPhase = ''
+      install -Dm755 ${./i3/focus-last.py} $out/bin/i3-focus-last
+    '';
+  };
 in
 {
   config = {
@@ -18,6 +31,7 @@ in
           in
           [
             (execAlways ''${pkgs.hsetroot}/bin/hsetroot -solid "#4f535c"'')
+            (execAlways ''${focus-last}/bin/i3-focus-last'')
           ];
         menu = "${pkgs.rofi}/bin/rofi -show drun";
         gaps = {
@@ -97,6 +111,9 @@ in
           "${mod}+0" = "workspace number 10";
           "${mod}+n" = "workspace next";
           "${mod}+p" = "workspace prev";
+
+          # switch between windows
+          "${mod}+Tab" = "exec ${focus-last}/bin/i3-focus-last --switch";
 
           # move focused container to workspace
           "${mod}+Shift+exclam" = "move container to workspace 1";
