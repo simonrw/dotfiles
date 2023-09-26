@@ -1,6 +1,13 @@
-{ pkgs, ... }:
+{ pkgs, lib, config, ... }:
+with lib;
+let
+  cfg = config.me.wm;
+
+  # reasons to add waybar
+  enable = cfg.hyprland.enable;
+in
 {
-  programs.waybar = {
+  programs.waybar = mkIf enable {
     enable = true;
     systemd.enable = true;
     settings = {
