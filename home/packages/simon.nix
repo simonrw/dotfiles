@@ -105,12 +105,13 @@ in
     libreoffice
     lorien
     notion
-    obs-studio
     obsidian
+    obs-studio
     pinentry-gtk2
     playerctl
     shotcut
     slack
+    sublime4
     telegram-desktop
     virt-manager
     vlc
