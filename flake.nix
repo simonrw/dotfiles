@@ -20,7 +20,6 @@
     vscode-server.url = "github:msteen/nixos-vscode-server";
     vscode-server.inputs.nixpkgs.follows = "nixpkgs";
     cert-info.url = "github:simonrw/cert-info";
-    hyprland.url = "github:hyprwm/Hyprland";
     nix-doom-emacs.url = "github:nix-community/nix-doom-emacs";
   };
 
@@ -35,7 +34,6 @@
     , vscode-extensions
     , vscode-server
     , cert-info
-    , hyprland
     , nix-doom-emacs
     , ...
     }@inputs:
@@ -191,7 +189,6 @@
             simon = home-manager.lib.homeManagerConfiguration {
               inherit pkgs;
               modules = [
-                hyprland.homeManagerModules.default
                 nix-doom-emacs.hmModule
                 ./home/home.nix
               ];

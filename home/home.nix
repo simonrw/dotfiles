@@ -43,8 +43,6 @@ in
     # ./mate.nix
     ./cinnamon.nix
     ./xcape.nix
-    ./hyprland.nix
-    ./waybar.nix
   ];
 
   home = {

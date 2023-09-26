@@ -29,7 +29,6 @@ in
       "https://github-inbox.cachix.org"
       "https://nix-community.cachix.org"
       "https://cftail.cachix.org"
-      "https://hyprland.cachix.org"
     ];
     trusted-public-keys = [
       "mindriot101-home.cachix.org-1:6M7zAD5oYiwfVPobA5LPtwM+5FewBv4fEMvCgrLACR4="
@@ -38,7 +37,6 @@ in
       "github-inbox.cachix.org-1:S9UjpqvGC8oDtEdfwpHQmHALF4eP8EgPzRnWoMr4obc="
       "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
       "cftail.cachix.org-1:/TvaKTN25wL/+JMBEkOmxM03HWUDY3UcuMa5ld3PPXw="
-      "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="
     ];
   };
   extraOptions = ''
