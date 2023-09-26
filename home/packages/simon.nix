@@ -91,6 +91,7 @@ in
     coreutils
     libiconv
   ]) ++ (lib.optionals isLinux [
+    blanket
     custom-vscode
     discord
     element-desktop
