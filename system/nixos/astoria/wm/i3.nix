@@ -12,6 +12,10 @@ in
       enable = true;
       desktopManager.xterm.enable = false;
 
+      libinput = {
+        mouse.accelProfile = "flat";
+      };
+
       windowManager.i3 = {
         enable = true;
         package = pkgs.i3-gaps;
