@@ -44,7 +44,6 @@
           notify-wrapper = final.callPackage ./derivations/notify-wrapper { };
           notion = final.callPackage ./derivations/notion { };
           telegram-desktop = final.callPackage ./derivations/telegram-desktop { };
-          cargo-dist = final.callPackage ./derivations/cargo-dist { };
           database = nix-index-database.legacyPackages.${system}.database;
           ansi = final.callPackage ./derivations/ansi { };
           wally = final.callPackage ./derivations/wally { };

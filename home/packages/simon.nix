@@ -83,7 +83,6 @@ in
     zsh
   ] ++ [
     # local packages
-    cargo-dist
     listprojects
     notify-wrapper
   ] ++ (lib.optionals isDarwin [
