@@ -65,15 +65,6 @@ require('packer').startup({
             end,
         }
 
-        use {
-            "folke/which-key.nvim",
-            config = function()
-                vim.o.timeout = true
-                vim.o.timeoutlen = 300
-                require("which-key").setup { }
-            end
-        }
-
         use 'averms/black-nvim'
         use 'jaredgorski/fogbell.vim'
         use 'lewis6991/gitsigns.nvim'
