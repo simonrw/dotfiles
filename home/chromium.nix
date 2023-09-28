@@ -1,9 +1,8 @@
 { config, pkgs, ... }:
 {
   config = {
-    programs.chromium = {
+    programs.brave = {
       enable = true;
-      package = pkgs.brave;
       extensions = [
         "aeblfdkhhhdcdjpifhhbdiojplfjncoa" # 1password
         "cjpalhdlnbpafiamejdnhcphjbkeiagm" # ublock-origin
