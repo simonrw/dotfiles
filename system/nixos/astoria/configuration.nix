@@ -247,7 +247,7 @@ in
     alacritty
     barrier
     chromium
-    firefox
+    firefox-devedition
     google-chrome
     # currently broken
     # heroic

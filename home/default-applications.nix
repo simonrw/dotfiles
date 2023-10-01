@@ -2,6 +2,20 @@
 with lib;
 let
   cfg = config.me.defaults;
+
+  browser-module = types.submodule {
+    name = mkOption {
+      type = str;
+      description = "Name of the browser";
+      required = true;
+    };
+
+    command = mkOption {
+      type = str;
+      description = "Command to run";
+      required = true;
+    };
+  };
 in
 {
   options.me.defaults = {

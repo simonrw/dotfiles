@@ -65,7 +65,10 @@ in
     theme = "nord";
     vscode-theme = "Dracula";
     defaults = {
-      browser = "firefox";
+      browser = {
+        name = "firefox";
+        command = "${pkgs.firefox-devedition}/bin/firefox";
+      };
       terminal = "alacritty";
     };
   } // (if isLinux then {
