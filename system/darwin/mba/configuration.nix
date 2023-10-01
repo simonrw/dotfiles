@@ -58,7 +58,7 @@
       "dash"
       "docker"
       "element"
-      "firefox"
+      "firefox-developer-edition"
       "gimp"
       "google-chrome"
       "hammerspoon"
@@ -76,6 +76,9 @@
       "vlc"
       "wireshark"
       "xquartz"
+    ];
+    taps = [
+      "homebrew/cask-versions"
     ];
     masApps =
       {
