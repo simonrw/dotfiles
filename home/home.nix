@@ -65,7 +65,7 @@ in
     theme = "nord";
     vscode-theme = "Dracula";
     defaults = {
-      browser = "brave";
+      browser = "firefox";
       terminal = "alacritty";
     };
   } // (if isLinux then {
