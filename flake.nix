@@ -20,7 +20,6 @@
     vscode-server.url = "github:msteen/nixos-vscode-server";
     vscode-server.inputs.nixpkgs.follows = "nixpkgs";
     cert-info.url = "github:simonrw/cert-info";
-    nix-doom-emacs.url = "github:nix-community/nix-doom-emacs";
   };
 
   outputs =
@@ -34,7 +33,6 @@
     , vscode-extensions
     , vscode-server
     , cert-info
-    , nix-doom-emacs
     , ...
     }@inputs:
     let
@@ -117,7 +115,6 @@
                 home-manager.users.simon = ({ ... }:
                   {
                     imports = [
-                      nix-doom-emacs.hmModule
                       ./home/home.nix
                     ];
                   });
@@ -172,7 +169,6 @@
                     home-manager.users.simon = { ... }:
                       {
                         imports = [
-                          nix-doom-emacs.hmModule
                           ./home/home.nix
                         ];
                       };
@@ -200,7 +196,6 @@
             simon = home-manager.lib.homeManagerConfiguration {
               inherit pkgs;
               modules = [
-                nix-doom-emacs.hmModule
                 ./home/home.nix
               ];
               # stop infinite recusion when trying to access
