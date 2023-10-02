@@ -48,6 +48,18 @@
           ansi = final.callPackage ./derivations/ansi { };
           wally = final.callPackage ./derivations/wally { };
           cert-info = cert-info.packages.${system}.default;
+          # add flags to firefox devedition to use my old profile
+          firefox-devedition = (
+            final.symlinkJoin {
+              name = "firefox-devedition";
+              paths = [ prev.firefox-devedition ];
+              buildInputs = [ final.makeWrapper ];
+              postBuild = ''
+                wrapProgram $out/bin/firefox \
+                  --add-flags "-P default"
+              '';
+            }
+          );
         })
         # override the version of xattr for poetry
         (
@@ -158,12 +170,12 @@
                     };
 
                     home-manager.users.simon = { ... }:
-                    {
-                      imports = [
-                        nix-doom-emacs.hmModule
-                        ./home/home.nix
-                      ];
-                    };
+                      {
+                        imports = [
+                          nix-doom-emacs.hmModule
+                          ./home/home.nix
+                        ];
+                      };
                   }
                   nix-index-database.darwinModules.nix-index
                 ];
