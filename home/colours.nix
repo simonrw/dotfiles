@@ -683,6 +683,16 @@ with lib;
       # configure colour theme
       fish_config theme choose "${fish-theme}"
     '';
+    programs.contour.settings.color_schemes.default = {
+      default = current-theme.primary;
+      normal = current-theme.normal;
+      dim = current-theme.dim;
+      bright = current-theme.bright;
+      cursor = {
+        default = current-theme.cursor.cursor;
+        text = current-theme.cursor.text;
+      };
+    };
     programs.alacritty.settings.colors = current-theme;
     programs.neovim.extraConfig = neovim-theme-blocks.${config.me.theme};
     # add vim after file for setting colour theme so it's not overridden by plugins

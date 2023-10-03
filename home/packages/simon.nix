@@ -37,7 +37,6 @@ in
     cachix
     cert-info
     comma
-    contour
     curlie
     custom-curl
     deadnix

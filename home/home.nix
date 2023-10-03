@@ -8,6 +8,7 @@ in
     ./alacritty.nix
     ./bat.nix
     ./colours.nix
+    ./contour.nix
     ./dark-mode.nix
     ./default-applications.nix
     ./direnv.nix
@@ -24,6 +25,7 @@ in
     ./ipython.nix
     ./jq.nix
     ./kitty.nix
+    ./modules/contour.nix
     ./mpv.nix
     ./neovim.nix
     ./nix-index.nix

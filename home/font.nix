@@ -80,6 +80,13 @@ in
         font_family = kitty-font;
         font_size = builtins.toString cfg.font-size;
       };
+      programs.contour.settings.profiles.main.font = {
+        size = cfg.font-size;
+        regular = {
+          family = alacritty-font-renamed;
+          weight = "bold";
+        };
+      };
 
       home.packages = [
         font-package
