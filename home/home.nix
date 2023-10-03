@@ -61,7 +61,7 @@ in
   # custom properties
   me = {
     dark-mode = true;
-    font-name = "JetBrains Mono";
+    font-name = "Fira Code";
     font-style = "Semibold";
     font-size = if isLinux then 12.0 else 14.0;
     theme = "nord";
