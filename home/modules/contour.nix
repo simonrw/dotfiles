@@ -5,6 +5,7 @@ with lib;
 let
   cfg = config.programs.contour;
   yamlFormat = pkgs.formats.yaml { };
+  isDarwin = pkgs.stdenv.isDarwin;
 in
 {
   options = {
@@ -32,7 +33,7 @@ in
   };
   config = mkMerge [
     (mkIf cfg.enable {
-      home.packages = [ cfg.package ];
+      home.packages = if isDarwin then [] else [ cfg.package ];
 
       xdg.configFile."contour/contour.yml" = {
         source = yamlFormat.generate "contour.yml" cfg.settings;

@@ -1,6 +1,6 @@
 local applications = {
     terminal = {
-        name = "Alacritty",
+        name = "Contour",
     },
     browser = {
         name = "Firefox Developer Edition",

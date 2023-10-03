@@ -56,6 +56,7 @@
       "barrier"
       "brave-browser"
       "dash"
+      "contour"
       "docker"
       "element"
       "firefox-developer-edition"
