@@ -135,7 +135,7 @@ in
           "${mod}+Ctrl+Shift+E" = "exit";
 
           "${mod}+c" = "exec ${pkgs.firefox-devedition}/bin/firefox";
-          "${mod}+Return" = "exec ${pkgs.contour}/bin/contour";
+          "${mod}+Return" = "exec ${pkgs.alacritty}/bin/alacritty";
           "${mod}+d" = "exec ${pkgs.rofi}/bin/rofi -show drun";
         };
       };
