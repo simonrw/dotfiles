@@ -71,7 +71,7 @@ in
         name = "firefox";
         command = "${pkgs.firefox-devedition}/bin/firefox";
       };
-      terminal = "alacritty";
+      terminal = "contour";
     };
   } // (if isLinux then {
     wm.cinnamon = {
