@@ -14,9 +14,6 @@
     jetbrains-updater.inputs.nixpkgs.follows = "nixpkgs";
     nix-index-database.url = "github:Mic92/nix-index-database";
     nix-index-database.inputs.nixpkgs.follows = "nixpkgs";
-    vscode-extensions.url = "github:nix-community/nix-vscode-extensions";
-    vscode-extensions.inputs.nixpkgs.follows = "nixpkgs";
-    vscode-extensions.inputs.flake-utils.follows = "flake-utils";
     vscode-server.url = "github:msteen/nixos-vscode-server";
     vscode-server.inputs.nixpkgs.follows = "nixpkgs";
     cert-info.url = "github:simonrw/cert-info";
@@ -30,7 +27,6 @@
     , home-manager
     , jetbrains-updater
     , nix-index-database
-    , vscode-extensions
     , vscode-server
     , cert-info
     , ...
@@ -77,15 +73,9 @@
             python310 = super.python310.override (python-overrides self);
             python39 = super.python39.override (python-overrides self);
             python38 = super.python38.override (python-overrides self);
-
-            # enable a specific python version to run debugpy
-            python-for-debugging = super.python3.withPackages (ps: [
-              ps.debugpy
-            ]);
           }
         )
         jetbrains-updater.overlay
-        vscode-extensions.overlays.default
       ];
       mkNixOSConfiguration =
         let
