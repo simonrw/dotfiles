@@ -4,7 +4,7 @@ with lib;
 let
   cfg = config.me.wm.bspwm;
 
-  mod = "alt";
+  mod = "super";
 in
 
 {
