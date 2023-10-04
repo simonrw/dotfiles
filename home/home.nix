@@ -45,6 +45,7 @@ in
     # ./mate.nix
     ./cinnamon.nix
     ./xcape.nix
+    ./bspwm.nix
   ];
 
   home = {
@@ -78,6 +79,7 @@ in
       enable = true;
       dark-mode = true;
     };
+    wm.bspwm.enable = true;
   } else { });
 
   home.file = {
