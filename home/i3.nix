@@ -137,6 +137,17 @@ in
           "${mod}+c" = "exec ${pkgs.firefox-devedition}/bin/firefox";
           "${mod}+Return" = "exec ${pkgs.alacritty}/bin/alacritty";
           "${mod}+d" = "exec ${pkgs.rofi}/bin/rofi -show drun";
+
+          # media keys
+          "XF86AudioPlay" = "exec ${pkgs.playerctl}/bin/playerctl play-pause";
+          "XF86AudioPause" = "exec ${pkgs.playerctl}/bin/playerctl play-pause";
+          "XF86AudioNext" = "exec ${pkgs.playerctl}/bin/playerctl next";
+          "XF86AudioPrev" = "exec ${pkgs.playerctl}/bin/playerctl previous";
+
+          # volume control
+          "XF86AudioRaiseVolume" = "exec --no-startup-id ${pkgs.pamixer}/bin/pamixer -i 5";
+          "XF86AudioLowerVolume" = "exec --no-startup-id ${pkgs.pamixer}/bin/pamixer -d 5";
+          "XF86AudioMute" = "exec --no-startup-id ${pkgs.pamixer}/bin/pamixer -t";
         };
       };
     };
