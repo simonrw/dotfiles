@@ -93,6 +93,9 @@ in
           # toggle tiling / floating
           "${mod}+Shift+space" = "floating toggle";
 
+          # toggle sticky windows
+          "${mod}+Shift+s" = "sticky toggle";
+
           # change focus between tiling / floating windows
           "${mod}+space" = "focus mode_toggle";
 
@@ -148,6 +151,20 @@ in
           "XF86AudioRaiseVolume" = "exec --no-startup-id ${pkgs.pamixer}/bin/pamixer -i 5";
           "XF86AudioLowerVolume" = "exec --no-startup-id ${pkgs.pamixer}/bin/pamixer -d 5";
           "XF86AudioMute" = "exec --no-startup-id ${pkgs.pamixer}/bin/pamixer -t";
+
+          # modes
+          "${mod}+r" = "mode resize";
+        };
+        modes = {
+          resize = {
+            "h" = "resize shrink width 10px or 10ppt";
+            "j" = "resize grow height 10 px or 10 ppt";
+            "k" = "resize shrink height 10 px or 10 ppt";
+            "l" = "resize grow width 10 px or 10 ppt";
+
+            "Return" = "mode default";
+            "Escape" = "mode default";
+          };
         };
       };
     };
