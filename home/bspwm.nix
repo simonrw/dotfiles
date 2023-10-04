@@ -15,17 +15,18 @@ in
   config = mkIf cfg.enable {
     xsession.windowManager.bspwm = {
       enable = true;
-      settings = {
-        border_width = 0;
+      settings = rec {
+        border_width = 1;
         window_gap = 8;
         top_padding = 20;
         split_ratio = 0.52;
         borderless_monocle = true;
         gapless_monocle = true;
         normal_border_color = "#2E3440";
-        active_border_color = "#D8DEE9";
+        active_border_color = normal_border_color;
         focused_border_color = "#D8DEE9";
         presel_feedback_color = "#2E3440";
+        focus_follows_pointer = true;
       };
       alwaysResetDesktops = true;
       monitors = {
@@ -53,12 +54,6 @@ in
       enable = true;
       backend = "glx";
       fade = false;
-      fadeDelta = 5;
-      fadeSteps = [
-        0.03
-        0.03
-      ];
-      inactiveOpacity = 0.95;
       shadow = true;
       shadowOffsets = [
         (-7)
@@ -93,7 +88,7 @@ in
       enable = true;
       keybindings = {
         "${mod} + Return" = "alacritty";
-        "${mod} + c" = "google-chrome-stable";
+        "${mod} + c" = "firefox";
         "${mod} + @space" = "rofi -show drun";
         "${mod} + Escape" = "pkill -USR1 -x sxhkd";
         # bspwm hotkeys
