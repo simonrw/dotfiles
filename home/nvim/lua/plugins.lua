@@ -74,9 +74,7 @@ require('packer').startup({
             config = function()
                 print("Configuring treesitter context")
                 require('treesitter-context').setup({
-                    enable = true,
                     max_lines = 5,
-                    mode = "topline",
                 })
             end,
         }
