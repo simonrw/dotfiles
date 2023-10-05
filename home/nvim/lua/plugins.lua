@@ -70,6 +70,18 @@ require('packer').startup({
         use 'lewis6991/gitsigns.nvim'
 
         use {
+            'nvim-treesitter/nvim-treesitter-context',
+            config = function()
+                print("Configuring treesitter context")
+                require('treesitter-context').setup({
+                    enable = true,
+                    max_lines = 5,
+                    mode = "topline",
+                })
+            end,
+        }
+
+        use {
             'VonHeikemen/lsp-zero.nvim',
             requires = {
                 -- LSP Support

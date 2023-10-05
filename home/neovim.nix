@@ -81,6 +81,7 @@
           p.tree-sitter-zig
         ]))
       nvim-treesitter-textobjects
+      nvim-treesitter-context
       playground
       plenary-nvim
       lsp-status-nvim

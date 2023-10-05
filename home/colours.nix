@@ -533,6 +533,7 @@ let
       let g:nord_italic = v:false
       colorscheme nord
       highlight @comment guifg=#d08770
+      highlight TreesitterContext guibg=#363c4a
     '';
     dracula = ''
       set background=dark
