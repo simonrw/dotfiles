@@ -16,6 +16,7 @@
       epkgs.direnv
       epkgs.rustic
       epkgs.nord-theme
+      epkgs.evil
     ];
     extraConfig = ''
       (blink-cursor-mode 0)
@@ -51,6 +52,9 @@
       (set-face-attribute 'fixed-pitch nil :family "JetBrains Mono" :weight 'bold :height 140)
       ;; (set-face-attribute 'variable-pitch nil :family "Cantarell" :height 140)
       (set-face-attribute 'default (selected-frame) :height 140)
+
+      ;; of course
+      (evil-mode t)
 
       (load-theme 'nord t)
     '';
