@@ -1,8 +1,16 @@
 { config, isDarwin, lib, ... }:
+with lib;
 let
-  mod-key = if isDarwin then "Command" else "Alt";
+  cfg = config.me.alacritty;
 in
 {
+  options = {
+    me.alacritty.mod-key = mkOption {
+      type = types.str;
+      default = if isDarwin then "Command" else "Alt";
+      description = "Default modifier key to use for alacritty";
+    };
+  };
   config = {
     programs.alacritty = {
       enable = true;
@@ -34,9 +42,10 @@ in
           }
           {
             key = "N";
-            mods = mod-key;
+            mods = cfg.mod-key;
             action = "SpawnNewInstance";
           }
+          # for some reason this is not picked up
         ] ++ lib.optionals isDarwin [
           # disable backwards search
           {
