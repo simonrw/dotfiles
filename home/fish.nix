@@ -144,6 +144,7 @@ in
       more = "${pkgs.bat}/bin/bat";
       nl = "nix-locate --regex --top-level";
       nr = "nix repl --file '<nixpkgs>'";
+      ns = "nix shell";
       nix-shell = "nix-shell --command fish";
       ntfy = "notify-wrapper";
       pylab = "ipython - -pylab";
