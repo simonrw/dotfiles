@@ -120,15 +120,16 @@
         ]
       },
       "locked": {
-        "lastModified": 1695340952,
-        "narHash": "sha256-RGqBkM46/3gsFqhpz3DuJuQ3SryXYYyq3gLDzyoJQas=",
-        "owner": "genericnerdyusername",
+        "lastModified": 1696596266,
+        "narHash": "sha256-x3ylkgDvodti0NdO7jGMCvpOQTomr4Azq3qBLz4S5k0=",
+        "owner": "srwalker101",
         "repo": "jetbrains-updater",
-        "rev": "7d5367faba7211299a544be97159034ecf7ec0c4",
+        "rev": "5c2907bbb5366206b6f699e48d561e30e9219088",
         "type": "gitlab"
       },
       "original": {
-        "owner": "genericnerdyusername",
+        "owner": "srwalker101",
+        "ref": "updated-packages",
         "repo": "jetbrains-updater",
         "type": "gitlab"
       }
