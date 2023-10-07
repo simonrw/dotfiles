@@ -10,8 +10,7 @@
       url = "github:lnl7/nix-darwin/master";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    # until https://gitlab.com/genericnerdyusername/jetbrains-updater/-/merge_requests/2 is merged
-    jetbrains-updater.url = "gitlab:srwalker101/jetbrains-updater/updated-packages";
+    jetbrains-updater.url = "gitlab:genericnerdyusername/jetbrains-updater";
     jetbrains-updater.inputs.nixpkgs.follows = "nixpkgs";
     nix-index-database.url = "github:Mic92/nix-index-database";
     nix-index-database.inputs.nixpkgs.follows = "nixpkgs";
