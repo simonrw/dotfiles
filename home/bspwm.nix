@@ -88,7 +88,7 @@ in
       enable = true;
       keybindings = {
         "${mod} + Return" = "alacritty";
-        "${mod} + c" = "firefox";
+        "${mod} + c" = "google-chrome-stable";
         "${mod} + @space" = "rofi -show drun";
         "${mod} + Escape" = "pkill -USR1 -x sxhkd";
         # bspwm hotkeys

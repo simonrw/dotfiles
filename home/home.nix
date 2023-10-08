@@ -69,8 +69,8 @@ in
     vscode-theme = "Dracula";
     defaults = {
       browser = {
-        name = "firefox";
-        command = "${pkgs.firefox-devedition}/bin/firefox";
+        name = "google-chrome";
+        command = "${pkgs.google-chrome}/bin/google-chrome-stable";
       };
       terminal = "alacritty";
     };
