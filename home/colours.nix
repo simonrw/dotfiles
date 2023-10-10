@@ -638,8 +638,6 @@ let
   tmux-pane-text-colour = current-theme.tmux-pane-colour or current-theme.normal.white;
   fish-theme = current-theme.fish-theme or "fish default";
 
-  is-light-theme = lib.elem config.me.theme [ "github-light" "solarized" "catppuccin-latte" ];
-
   bat-theme = {
     github-light = "GitHub";
     solarized = "Solarized (light)";
@@ -649,32 +647,40 @@ let
 
   vscode-theme = { }.${config.me.theme} or "Monokai Pro";
 
+  dark-themes = [
+    "github"
+    "srw"
+    "gruvbox"
+    "monokai-pro"
+    "monochrome"
+    "dracula"
+    "nord"
+  ];
+  light-themes = [
+    "github-light"
+    "solarized"
+    "catppuccin-latte"
+  ];
+
+  is-dark-theme = builtins.elem config.me.theme dark-themes;
 in
 with lib;
 
 {
   options = {
     me.theme = mkOption {
-      type = types.enum [
-        # dark themes
-        "github"
-        "srw"
-        "gruvbox"
-        "monokai-pro"
-        "monochrome"
-        "dracula"
-        "nord"
-        # light themes
-        "github-light"
-        "solarized"
-        "catppuccin-latte"
-      ];
+      type = types.enum (dark-themes ++ light-themes);
     };
 
     me.vscode-theme = mkOption {
       type = types.nullOr types.str;
       description = "Custom vscode theme if different";
       default = null;
+    };
+
+    me.is-dark-theme = mkOption {
+      type = types.bool;
+      default = is-dark-theme;
     };
   };
   config = {
