@@ -151,6 +151,21 @@ in
     '';
   };
 
+  # Don't require password for users in `wheel` group for these commands
+  # https://github.com/dustinlyons/nixos-config/blob/84f23336a83363f287ebde8d25879cb53f1ec4c8/nixos/default.nix#L256C1-L269C1
+  security.sudo = {
+    enable = true;
+    extraRules = [{
+      commands = [
+        {
+          command = "${pkgs.systemd}/bin/reboot";
+          options = [ "NOPASSWD" ];
+        }
+      ];
+      groups = [ "wheel" ];
+    }];
+  };
+
   # Configure console keymap
   console.keyMap = "uk";
 
