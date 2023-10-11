@@ -8,7 +8,6 @@
       copy_on_select = "no";
       cursor_blink_interval = "0";
       cursor_shape = "block";
-      disable_ligatures = "always";
       hide_window_decorations = "no";
       initial_window_height = "960";
       initial_window_width = "1280";

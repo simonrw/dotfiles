@@ -71,7 +71,7 @@ in
         name = "google-chrome";
         command = "${pkgs.google-chrome}/bin/google-chrome-stable";
       };
-      terminal = "alacritty";
+      terminal = if isLinux then "kitty" else "alacritty";
     };
   } // (if isLinux then {
     wm.cinnamon = {
