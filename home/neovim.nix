@@ -34,6 +34,7 @@
       markdown-preview-nvim
       vim-gutentags
       vim-toml
+      onedark-nvim
       vim-svelte
       vim-terraform
       rust-vim

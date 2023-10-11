@@ -1,6 +1,46 @@
 { config, lib, ... }:
 let
   themes = rec {
+    one-dark = rec {
+      fish-theme = "fish_default";
+
+      cursor = {
+        text = primary.background;
+        cursor = primary.foreground;
+      };
+
+      primary = {
+        background = "#1e2127";
+        foreground = "#abb2bf";
+      };
+
+      selection = {
+        text = primary.foreground;
+        background = bright.black;
+      };
+
+      normal = {
+        black = "#1e2127";
+        red = "#e06c75";
+        green = "#98c379";
+        yellow = "#d19a66";
+        blue = "#61afef";
+        magenta = "#c678dd";
+        cyan = "#56b6c2";
+        white = "#abb2bf";
+      };
+
+      bright = {
+        black = "#5c6370";
+        red = "#e06c75";
+        green = "#98c379";
+        yellow = "#d19a66";
+        blue = "#61afef";
+        magenta = "#c678dd";
+        cyan = "#56b6c2";
+        white = "#ffffff";
+      };
+    };
     nord = rec {
       fish-theme = "Nord";
 
@@ -527,6 +567,9 @@ let
     };
   };
   neovim-theme-blocks = {
+    one-dark = ''
+      colorscheme onedark
+    '';
     nord = ''
       set background=dark
       let g:nord_disable_background = v:true
@@ -648,18 +691,19 @@ let
   vscode-theme = { }.${config.me.theme} or "Monokai Pro";
 
   dark-themes = [
-    "github"
-    "srw"
-    "gruvbox"
-    "monokai-pro"
-    "monochrome"
     "dracula"
+    "github"
+    "gruvbox"
+    "monochrome"
+    "monokai-pro"
     "nord"
+    "one-dark"
+    "srw"
   ];
   light-themes = [
+    "catppuccin-latte"
     "github-light"
     "solarized"
-    "catppuccin-latte"
   ];
 
   is-dark-theme = builtins.elem config.me.theme dark-themes;
@@ -693,7 +737,7 @@ with lib;
     programs.contour.settings.color_schemes.default = {
       default = current-theme.primary;
       normal = current-theme.normal;
-      dim = current-theme.dim;
+      # dim = current-theme.dim;
       bright = current-theme.bright;
       cursor = {
         default = current-theme.cursor.cursor;
