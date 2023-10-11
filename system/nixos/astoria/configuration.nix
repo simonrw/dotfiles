@@ -122,6 +122,7 @@ in
       fira-code
       jetbrains-mono
       inconsolata
+      hack-font
     ];
   };
 
