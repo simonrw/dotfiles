@@ -61,8 +61,8 @@ in
 
   # custom properties
   me = {
-    font-name = "JetBrains Mono";
-    font-style = "Semibold";
+    font-name = "Fira Code";
+    font-style = "Bold";
     font-size = if isLinux then 10.0 else 12.0;
     theme = "nord";
     vscode-theme = "Dracula";
