@@ -142,6 +142,13 @@ in
       autoLogin.enable = false;
     };
     wacom.enable = true;
+    # fix screen tearing for nvidia cards
+    # https://github.com/dustinlyons/nixos-config/blob/84f23336a83363f287ebde8d25879cb53f1ec4c8/nixos/default.nix#L56-L59
+    screenSection = ''
+      Option       "metamodes" "nvidia-auto-select +0+0 {ForceFullCompositionPipeline=On}"
+      Option       "AllowIndirectGLXProtocol" "off"
+      Option       "TripleBuffer" "on"
+    '';
   };
 
   # Configure console keymap
