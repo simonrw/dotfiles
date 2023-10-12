@@ -11,7 +11,7 @@ let
         name = "firefox";
         command = "${pkgs.firefox}/bin/firefox";
     };
-  };
+  }.${hostname};
 in
 {
   imports = [
