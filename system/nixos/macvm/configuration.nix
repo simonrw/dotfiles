@@ -116,6 +116,7 @@ in
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
+  nixpkgs.config.allowUnsupportedSystem = true;
 
   # Configure virtualisation
   virtualisation.libvirtd.enable = true;
@@ -163,6 +164,10 @@ in
     pavucontrol
     wmctrl
     xclip
+    (writeShellScriptBin "xrandr-auto" ''
+    xrandr --output Virtual-1 --auto
+    '')
+    gtkmm3
   ];
 
   environment.shells = with pkgs; [

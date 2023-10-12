@@ -4,7 +4,9 @@
 { config, lib, pkgs, modulesPath, ... }:
 
 {
-  imports = [ ];
+  imports = [ 
+    ./vmware-guest.nix
+  ];
 
   boot.initrd.availableKernelModules = [ "ahci" "xhci_pci" "nvme" "usbhid" "sr_mod" ];
   boot.initrd.kernelModules = [ ];
@@ -31,6 +33,13 @@
   # with explicit per-interface declarations with `networking.interfaces.<interface>.useDHCP`.
   networking.useDHCP = lib.mkDefault true;
   # networking.interfaces.ens160.useDHCP = lib.mkDefault true;
+
+  # this runs in vmware fusion so enable guest options
+  # note: we are using our custom override
+  disabledModules = [
+    "virtualisation/vmware-guest.nix"
+  ];
+  virtualisation.vmware.guest.enable = true;
 
   nixpkgs.hostPlatform = lib.mkDefault "aarch64-linux";
 }

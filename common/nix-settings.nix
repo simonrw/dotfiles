@@ -11,6 +11,7 @@ let
     };
 in
 {
+  package = pkgs.nixUnstable;
   gc = {
     automatic = false;
   };

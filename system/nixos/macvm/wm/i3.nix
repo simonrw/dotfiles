@@ -12,13 +12,22 @@ in
       enable = true;
       desktopManager.xterm.enable = false;
 
+      displayManager = {
+        defaultSession = "none+i3";
+        lightdm.enable = true;
+
+        sessionCommands = ''
+        ${pkgs.xorg.xset}/bin/xset r rate 200 40
+        '';
+      };
+
       libinput = {
         mouse.accelProfile = "flat";
       };
 
       windowManager.i3 = {
         enable = true;
-        package = pkgs.i3-gaps;
+        package = pkgs.i3;
         extraPackages = with pkgs; [
           dmenu
           i3status

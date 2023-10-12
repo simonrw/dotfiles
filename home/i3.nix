@@ -39,10 +39,6 @@ in
             (execAlways ''${focus-last}/bin/i3-focus-last'')
           ];
         menu = "${pkgs.rofi}/bin/rofi -show drun";
-        gaps = {
-          inner = 8;
-          outer = 4;
-        };
         window = {
           titlebar = false;
           border = 1;
