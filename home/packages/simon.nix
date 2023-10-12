@@ -1,4 +1,4 @@
-{ pkgs, lib, isLinux, isDarwin, ... }:
+{ pkgs, lib, isLinux, isDarwin, hostname, ... }:
 let
   # fonts = with pkgs; [
   #   source-code-pro
@@ -91,30 +91,29 @@ in
   ]) ++ (lib.optionals isLinux [
     blanket
     custom-vscode
-    discord
     element-desktop
     fhs
     flameshot
-    freetube
     gimp
     groff
-    insomnia
-    jetbrains.pycharm-community
     libreoffice
-    lorien
-    notion
-    obs-studio
     obsidian
     pinentry-gtk2
     playerctl
-    shotcut
-    slack
-    telegram-desktop
     virt-manager
     vlc
+    zeal
+  ]) ++ (lib.optionals (hostname == "astoria") [
+    slack
+    discord
+    insomnia
+    lorien
+    obs-studio
+    jetbrains.pycharm-community
+    telegram-desktop
+    shotcut
     wally
     wally-cli
-    zeal
     zoom-us
   ]);
 }

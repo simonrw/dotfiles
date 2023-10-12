@@ -1,4 +1,4 @@
-{ pkgs, config, ... }:
+{ pkgs, config, hostname, ... }:
 let
   mod = "Mod1";
 
@@ -14,6 +14,11 @@ let
       install -Dm755 ${./i3/focus-last.py} $out/bin/i3-focus-last
     '';
   };
+
+  browser-command = {
+  	astoria = "exec ${pkgs.google-chrome}/bin/google-chrome-stable";
+	macvm = "exec ${pkgs.firefox}/bin/firefox";
+	}.${hostname};
 in
 {
   config = {
@@ -137,7 +142,7 @@ in
           # exit i3 (logs you out of your X session)
           "${mod}+Ctrl+Shift+E" = "exit";
 
-          "${mod}+c" = "exec ${pkgs.google-chrome}/bin/google-chrome-stable";
+          "${mod}+c" = browser-command;
           "${mod}+Return" = "exec ${pkgs.alacritty}/bin/alacritty";
           "${mod}+d" = "exec ${pkgs.rofi}/bin/rofi -show drun";
 

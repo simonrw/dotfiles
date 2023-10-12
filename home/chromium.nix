@@ -2,7 +2,7 @@
 {
   config = {
     programs.brave = {
-      enable = true;
+      enable = false;
       extensions = [
         "aeblfdkhhhdcdjpifhhbdiojplfjncoa" # 1password
         "cjpalhdlnbpafiamejdnhcphjbkeiagm" # ublock-origin

@@ -1,10 +1,15 @@
-{ config, pkgs, lib, ... }:
+{ config, pkgs, lib, hostname, ... }:
 with lib;
 
 let
   cfg = config.me.wm.bspwm;
 
   mod = "super";
+
+  browser = {
+  	macvm = "firefox";
+	astoria = "google-chrome-stable";
+	}.${hostname};
 in
 
 {
@@ -88,7 +93,7 @@ in
       enable = true;
       keybindings = {
         "${mod} + Return" = "alacritty";
-        "${mod} + c" = "google-chrome-stable";
+        "${mod} + c" = browser;
         "${mod} + @space" = "rofi -show drun";
         "${mod} + Escape" = "pkill -USR1 -x sxhkd";
         # bspwm hotkeys

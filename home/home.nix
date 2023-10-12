@@ -1,7 +1,17 @@
-{ config, pkgs, isLinux, isDarwin, lib, ... }:
+{ config, pkgs, isLinux, isDarwin, lib, hostname, ... }:
 let
   homeDir = if isDarwin then "Users" else "home";
   homeDirectory = "/${homeDir}/simon";
+  browser = {
+    astoria = {
+        name = "google-chrome";
+        command = "${pkgs.google-chrome}/bin/google-chrome-stable";
+    };
+    macwm = {
+        name = "firefox";
+        command = "${pkgs.firefox}/bin/firefox";
+    };
+  };
 in
 {
   imports = [
@@ -67,18 +77,14 @@ in
     theme = "nord";
     vscode-theme = "Dracula";
     defaults = {
-      browser = {
-        name = "google-chrome";
-        command = "${pkgs.google-chrome}/bin/google-chrome-stable";
-      };
+      inherit browser;
       terminal = "alacritty";
     };
   } // (if isLinux then {
     wm.cinnamon = {
-      enable = true;
+      enable = hostname != "macvm";
       dark-mode = true;
     };
-    wm.bspwm.enable = true;
   } else { });
 
   home.file = {

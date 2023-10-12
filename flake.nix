@@ -78,16 +78,15 @@
         jetbrains-updater.overlay
       ];
       mkNixOSConfiguration =
+        system: name:
         let
-          system = "x86_64-linux";
-
           pkgs = import nixpkgs {
             inherit system;
             overlays = mkOverlays system;
             config.allowUnfree = true;
           };
         in
-        name: nixpkgs.lib.nixosSystem {
+        nixpkgs.lib.nixosSystem {
           inherit pkgs system;
           modules =
             [
@@ -100,6 +99,7 @@
                 home-manager.extraSpecialArgs = {
                   isLinux = pkgs.stdenv.isLinux;
                   isDarwin = pkgs.stdenv.isDarwin;
+	          hostname = self.nixosConfigurations.${name}.config.networking.hostName;
                 };
 
                 home-manager.users.simon = ({ ... }:
@@ -118,13 +118,13 @@
         };
 
       appendNixOSConfiguration =
-        attrs: name: attrs // {
-          "${name}" = mkNixOSConfiguration name;
+        attrs: { system, name }: attrs // {
+          "${name}" = mkNixOSConfiguration system name;
         };
 
       nixOsConfigurations =
-        names: {
-          nixosConfigurations = builtins.foldl' appendNixOSConfiguration { } names;
+        systemDefinitions: {
+          nixosConfigurations = builtins.foldl' appendNixOSConfiguration { } systemDefinitions;
         };
 
       darwinConfigurations =
@@ -221,7 +221,8 @@
     in
     nixOsConfigurations
       [
-        "astoria"
+        { name = "astoria"; system = "x86_64-linux"; }
+        { name = "macvm"; system = "aarch64-linux"; }
       ] // darwinConfigurations // perSystemConfigurations // modules;
 }
 

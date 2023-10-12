@@ -1,7 +1,7 @@
-{ ... }:
+{ hostname, ... }:
 {
   programs.contour = {
-    enable = true;
+    enable = hostname != "macvm";
 
     settings = {
       profiles.main = {

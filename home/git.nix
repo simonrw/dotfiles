@@ -149,12 +149,6 @@
         smerge = {
           cmd = "smerge";
         };
-        pycharm = {
-          cmd = ''${pkgs.jetbrains.pycharm-community}/bin/pycharm-community merge "$LOCAL" "$REMOTE" "$BASE" "$MERGED"'';
-        };
-        vscode = {
-          cmd = ''${pkgs.vscode}/bin/code --wait $MERGED'';
-        };
         prompt = false;
       };
       github = {
