@@ -99,7 +99,7 @@
                 home-manager.extraSpecialArgs = {
                   isLinux = pkgs.stdenv.isLinux;
                   isDarwin = pkgs.stdenv.isDarwin;
-	          hostname = self.nixosConfigurations.${name}.config.networking.hostName;
+                  hostname = self.nixosConfigurations.${name}.config.networking.hostName;
                 };
 
                 home-manager.users.simon = ({ ... }:
