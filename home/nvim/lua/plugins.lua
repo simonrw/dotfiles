@@ -72,7 +72,6 @@ require('packer').startup({
         use {
             'nvim-treesitter/nvim-treesitter-context',
             config = function()
-                print("Configuring treesitter context")
                 require('treesitter-context').setup({
                     max_lines = 5,
                 })
