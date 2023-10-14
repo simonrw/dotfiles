@@ -1,4 +1,4 @@
-{ pkgs, config, hostname, ... }:
+{ pkgs, config, system, ... }:
 let
   mod = "Mod1";
 
@@ -16,9 +16,8 @@ let
   };
 
   browser-command = {
-  	astoria = "exec ${pkgs.google-chrome}/bin/google-chrome-stable";
-	macvm = "exec ${pkgs.firefox}/bin/firefox";
-	}.${hostname};
+    "aarch64-linux" = "exec ${pkgs.firefox}/bin/firefox";
+  }.${system} or  "exec ${pkgs.google-chrome}/bin/google-chrome-stable";
 in
 {
   config = {

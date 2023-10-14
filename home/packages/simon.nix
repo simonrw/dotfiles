@@ -1,4 +1,4 @@
-{ pkgs, lib, isLinux, isDarwin, hostname, ... }:
+{ pkgs, lib, isLinux, isDarwin, system, ... }:
 let
   # fonts = with pkgs; [
   #   source-code-pro
@@ -103,7 +103,7 @@ in
     virt-manager
     vlc
     zeal
-  ]) ++ (lib.optionals (hostname == "astoria") [
+  ]) ++ (lib.optionals (system == "aarch64-linux") [
     slack
     discord
     insomnia

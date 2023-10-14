@@ -1,24 +1,22 @@
-{ config, pkgs, isLinux, isDarwin, lib, hostname, ... }:
+{ config, pkgs, isLinux, isDarwin, lib, system, ... }:
 let
   homeDir = if isDarwin then "Users" else "home";
   homeDirectory = "/${homeDir}/simon";
   browser = {
-    astoria = {
-        name = "google-chrome";
-        command = "${pkgs.google-chrome}/bin/google-chrome-stable";
+    aarch64-linux = {
+      name = "firefox";
+      command = "${pkgs.firefox}/bin/firefox";
     };
-    macwm = {
-        name = "firefox";
-        command = "${pkgs.firefox}/bin/firefox";
-    };
-  }.${hostname};
+  }.${system} or {
+    name = "google-chrome";
+    command = "${pkgs.google-chrome}/bin/google-chrome-stable";
+  };
 in
 {
   imports = [
     ./alacritty.nix
     ./bat.nix
     ./colours.nix
-    ./contour.nix
     ./dark-mode.nix
     ./default-applications.nix
     ./direnv.nix
@@ -82,7 +80,7 @@ in
     };
   } // (if isLinux then {
     wm.cinnamon = {
-      enable = hostname != "macvm";
+      enable = system != "aarch64-linux";
       dark-mode = true;
     };
   } else { });

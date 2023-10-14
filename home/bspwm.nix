@@ -1,4 +1,4 @@
-{ config, pkgs, lib, hostname, ... }:
+{ config, pkgs, lib, system, ... }:
 with lib;
 
 let
@@ -7,9 +7,10 @@ let
   mod = "super";
 
   browser = {
-  	macvm = "firefox";
-	astoria = "google-chrome-stable";
-	}.${hostname};
+    # macvm
+    aarch64-linux = "firefox";
+  }.${system} or "google-chrome-stable";
+
 in
 
 {

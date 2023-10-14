@@ -97,9 +97,9 @@
                 home-manager.useGlobalPkgs = true;
                 home-manager.useUserPackages = true;
                 home-manager.extraSpecialArgs = {
+                  inherit system;
                   isLinux = pkgs.stdenv.isLinux;
                   isDarwin = pkgs.stdenv.isDarwin;
-                  hostname = self.nixosConfigurations.${name}.config.networking.hostName;
                 };
 
                 home-manager.users.simon = ({ ... }:
@@ -191,6 +191,7 @@
               # stop infinite recusion when trying to access
               # pkgs.stdenv.is{Linux,Darwin} from within a module
               extraSpecialArgs = {
+                inherit system;
                 isLinux = pkgs.stdenv.isLinux;
                 isDarwin = pkgs.stdenv.isDarwin;
               };
