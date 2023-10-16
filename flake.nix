@@ -152,6 +152,7 @@
                     home-manager.useGlobalPkgs = true;
                     home-manager.useUserPackages = true;
                     home-manager.extraSpecialArgs = {
+                      inherit system;
                       isLinux = pkgs.stdenv.isLinux;
                       isDarwin = pkgs.stdenv.isDarwin;
                     };
