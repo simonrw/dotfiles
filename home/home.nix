@@ -54,6 +54,8 @@ in
     ./cinnamon.nix
     ./xcape.nix
     ./bspwm.nix
+  ] ++ lib.optionals isDarwin [
+    ./darwin.nix
   ];
 
   home = {
