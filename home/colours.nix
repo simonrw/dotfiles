@@ -1,4 +1,4 @@
-{ config, lib, ... }:
+{ pkgs, config, lib, ... }:
 let
   themes = rec {
     one-dark = rec {
@@ -364,11 +364,15 @@ let
     };
     gruvbox = rec {
       tmux-colour = normal.yellow;
-      fish-theme = "default";
+
+      selection = {
+        text = primary.foreground;
+        background = bright.black;
+      };
 
       primary = {
         background = "#1d2021";
-        foreground = "#d5c4a1";
+        foreground = "#d6cfc1";
       };
 
       # Colors the cursor will use if `custom_cursor_colors` is true
@@ -626,7 +630,8 @@ let
     '';
     gruvbox = ''
       set background=dark
-      colorscheme base16-gruvbox-dark-hard
+      let g:gruvbox_contrast_dark = "hard"
+      colorscheme gruvbox
       highlight Comment guifg=#e69340   " brighten comments
       highlight TSComment guifg=#e69340   " brighten comments
     '';
@@ -750,6 +755,11 @@ with lib;
     # home.file.".config/nvim/after/colors/theme.vim".text = ''
     #   hi TreesitterContext guibg=${current-theme.normal.white}
     # '';
+    programs.neovim.plugins = with pkgs.vimPlugins; {
+      gruvbox = [
+        gruvbox
+      ];
+    }.${config.me.theme} or [ ];
     programs.tmux.extraConfig = ''
       fg_colour="${tmux-primary-colour}"
       bg_colour="${tmux-background-colour}"
