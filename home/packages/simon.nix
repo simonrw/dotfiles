@@ -103,7 +103,7 @@ in
     virt-manager
     vlc
     zeal
-  ]) ++ (lib.optionals (system != "aarch64-linux") [
+  ]) ++ (lib.optionals (system == "x86_64-linux") [
     slack
     discord
     insomnia
