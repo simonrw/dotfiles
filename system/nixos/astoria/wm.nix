@@ -8,6 +8,7 @@
     ./wm/mate.nix
     ./wm/sway.nix
     ./wm/bspwm.nix
+    ./wm/pantheon.nix
   ];
 
   # enable the window managers I use 
