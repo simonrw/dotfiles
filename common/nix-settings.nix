@@ -18,7 +18,7 @@ in
   settings = {
     auto-optimise-store = true;
     trusted-users = [ "root" "simon" ];
-    experimental-features = [ "nix-command" "flakes" ];
+    experimental-features = [ "nix-command" "flakes" "ca-derivations" ];
 
     keep-outputs = true;
     keep-derivations = true;
