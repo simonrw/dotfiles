@@ -35,10 +35,12 @@ RUST_SHELL_NIX_TEMPLATE = """{ pkgs ? import <nixpkgs> { } }:
 with pkgs;
 mkShell rec {
   packages = [
-      rustc
-      cargo
-      rustfmt
-      rust-analyzer
+    rustc
+    cargo
+    rustfmt
+    rust-analyzer
+  ] ++ lib.optionals stdenv.isDarwin [
+    libiconv
   ];
   RUST_SRC_PATH = "${rustPlatform.rustLibSrc}";
   LD_LIBRARY_PATH = lib.makeLibraryPath packages;
