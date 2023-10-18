@@ -1,6 +1,4 @@
-#!/usr/bin/env nix-shell
-#!nix-shell -i python3.11 -p python311
-# vim: ft=python
+#!/usr/bin/env python3
 
 """
 Create a shell.nix with default settings in the current directory, and set the .envrc file to "use nix"
@@ -79,8 +77,7 @@ class Initialise(Protocol):
         ...
 
 
-def generic_init_dir(root: Path, force: bool):
-    LOG.debug("initialising generic layout")
+def _init_dir(root: Path, force: bool, content: str):
     shell_nix_path = root.joinpath("shell.nix")
     envrc_path = root.joinpath(".envrc")
 
@@ -90,38 +87,23 @@ def generic_init_dir(root: Path, force: bool):
     if envrc_path.is_file() and not force:
         raise ValueError(f"file exists at {envrc_path}")
 
-    init_shell_nix(shell_nix_path)
+    init_shell_nix(shell_nix_path, content=content)
     init_envrc(envrc_path)
+
+
+def generic_init_dir(root: Path, force: bool):
+    LOG.debug("initialising generic layout")
+    _init_dir(root, force, SHELL_NIX_TEMPLATE)
 
 
 def initialise_rust_project(root: Path, force: bool):
     LOG.debug("initialising rust project")
-    shell_nix_path = root.joinpath("shell.nix")
-    envrc_path = root.joinpath(".envrc")
-
-    if shell_nix_path.is_file() and not force:
-        raise ValueError(f"file exists at {shell_nix_path}")
-
-    if envrc_path.is_file() and not force:
-        raise ValueError(f"file exists at {envrc_path}")
-
-    init_shell_nix(shell_nix_path, content=RUST_SHELL_NIX_TEMPLATE)
-    init_envrc(envrc_path)
+    _init_dir(root, force, RUST_SHELL_NIX_TEMPLATE)
 
 
 def initialise_python_project(root: Path, force: bool):
     LOG.debug("initialising python project")
-    shell_nix_path = root.joinpath("shell.nix")
-    envrc_path = root.joinpath(".envrc")
-
-    if shell_nix_path.is_file() and not force:
-        raise ValueError(f"file exists at {shell_nix_path}")
-
-    if envrc_path.is_file() and not force:
-        raise ValueError(f"file exists at {envrc_path}")
-
-    init_shell_nix(shell_nix_path, content=PYTHON_SHELL_NIX_TEMPLATE)
-    init_envrc(envrc_path)
+    _init_dir(root, force, PYTHON_SHELL_NIX_TEMPLATE)
 
 
 INITIALISERS: dict[Preset | None, Initialise] = {
