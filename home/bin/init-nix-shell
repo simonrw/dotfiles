@@ -47,6 +47,22 @@ mkShell rec {
 }
 """
 
+PYTHON_SHELL_NIX_TEMPLATE = """{ pkgs ? import <nixpkgs> { } }:
+with pkgs;
+mkShell {
+  packages = [
+    python3
+    python3Packages.venvShellHook
+  ];
+
+  venvDir = ".venv";
+
+  postVenvCreation = ''
+    python -m pip install pip-tools
+  '';
+}
+"""
+
 
 def init_shell_nix(path: Path, content: str = SHELL_NIX_TEMPLATE):
     with path.open("w") as outfile:
@@ -95,7 +111,17 @@ def initialise_rust_project(root: Path, force: bool):
 
 def initialise_python_project(root: Path, force: bool):
     LOG.debug("initialising python project")
-    raise NotImplementedError
+    shell_nix_path = root.joinpath("shell.nix")
+    envrc_path = root.joinpath(".envrc")
+
+    if shell_nix_path.is_file() and not force:
+        raise ValueError(f"file exists at {shell_nix_path}")
+
+    if envrc_path.is_file() and not force:
+        raise ValueError(f"file exists at {envrc_path}")
+
+    init_shell_nix(shell_nix_path, content=PYTHON_SHELL_NIX_TEMPLATE)
+    init_envrc(envrc_path)
 
 
 INITIALISERS: dict[Preset | None, Initialise] = {
