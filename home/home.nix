@@ -49,6 +49,7 @@ in
     # ./xfce.nix
     ./gnome.nix
     ./i3.nix
+    ./gtk.nix
     # ./sway.nix
     # ./mate.nix
     ./cinnamon.nix
