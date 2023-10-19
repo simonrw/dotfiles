@@ -52,6 +52,7 @@ in
     # ./sway.nix
     # ./mate.nix
     ./cinnamon.nix
+    ./pantheon.nix
     ./xcape.nix
     ./bspwm.nix
   ] ++ lib.optionals isDarwin [
@@ -80,6 +81,9 @@ in
       terminal = "alacritty";
     };
   } // (if isLinux then {
+    wm.pantheon = {
+      enable = system != "aarch64-linux";
+    };
     wm.cinnamon = {
       enable = system != "aarch64-linux";
       dark-mode = true;

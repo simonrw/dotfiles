@@ -20,5 +20,20 @@ in
     environment.pantheon.excludePackages = with pkgs; [
       orca
     ];
+    programs.pantheon-tweaks.enable = true;
+    services = {
+      gnome.gnome-keyring.enable = true;
+      gvfs.enable = true;
+    };
+    # https://github.com/NixOS/nixpkgs/issues/144045#issuecomment-992487775
+    services.xserver.desktopManager.pantheon.extraWingpanelIndicators = with pkgs; [ wingpanel-indicator-ayatana ];
+    systemd.user.services.indicatorapp = {
+      description = "indicator-application-gtk3";
+      wantedBy = [ "graphical-session.target" ];
+      partOf = [ "graphical-session.target" ];
+      serviceConfig = {
+        ExecStart = "${pkgs.indicator-application-gtk3}/libexec/indicator-application/indicator-application-service";
+      };
+    };
   };
 }
