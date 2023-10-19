@@ -94,6 +94,7 @@ in
     element-desktop
     fhs
     flameshot
+    freetube
     gimp
     groff
     libreoffice
