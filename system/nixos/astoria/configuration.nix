@@ -123,6 +123,7 @@ in
       jetbrains-mono
       inconsolata
       hack-font
+      commit-mono
     ];
   };
 

@@ -15,6 +15,7 @@ in
         "Inconsolata"
         "MesloLGS NF"
         "Comic Mono"
+        "Commit Mono"
       ];
       description = ''
         Which font to use
