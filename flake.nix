@@ -42,6 +42,7 @@
           ansi = final.callPackage ./derivations/ansi { };
           wally = final.callPackage ./derivations/wally { };
           cert-info = cert-info.packages.${system}.default;
+          gh-repo-url = final.callPackage ./derivations/gh-repo-url { };
           # add flags to firefox devedition to use my old profile
           firefox-devedition = (
             final.symlinkJoin {

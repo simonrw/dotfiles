@@ -8,6 +8,7 @@
     };
     extensions = [
       pkgs.gh-dash
+      pkgs.gh-repo-url
     ];
   };
 
