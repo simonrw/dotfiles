@@ -114,10 +114,6 @@ in
     };
   };
 
-  # Allow unfree packages
-  nixpkgs.config.allowUnfree = true;
-  nixpkgs.config.allowUnsupportedSystem = true;
-
   # Configure virtualisation
   virtualisation.libvirtd.enable = true;
   virtualisation.podman = {
