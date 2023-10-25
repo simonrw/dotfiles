@@ -19,6 +19,7 @@ LOG = logging.getLogger(__name__)
 class Preset(enum.Enum):
     rust = "rust"
     python = "python"
+    go = "go"
 
 
 SHELL_NIX_TEMPLATE = """{ pkgs ? import <nixpkgs> { } }:
@@ -58,6 +59,15 @@ mkShell {
   postVenvCreation = ''
     python -m pip install pip-tools
   '';
+}
+"""
+
+GO_SHELL_NIX_TEMPLATE = """{ pkgs ? import <nixpkgs> { } }:
+with pkgs;
+mkShell {
+  packages = [
+    go
+  ];
 }
 """
 
@@ -106,9 +116,15 @@ def initialise_python_project(root: Path, force: bool):
     _init_dir(root, force, PYTHON_SHELL_NIX_TEMPLATE)
 
 
+def initialise_go_project(root: Path, force: bool):
+    LOG.debug("initialising go project")
+    _init_dir(root, force, GO_SHELL_NIX_TEMPLATE)
+
+
 INITIALISERS: dict[Preset | None, Initialise] = {
     Preset.rust: initialise_rust_project,
     Preset.python: initialise_python_project,
+    Preset.go: initialise_go_project,
 }
 
 
