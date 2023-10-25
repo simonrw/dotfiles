@@ -23,7 +23,7 @@ in
       enable = true;
       settings = rec {
         border_width = 1;
-        window_gap = 8;
+        window_gap = 4;
         top_padding = 20;
         split_ratio = 0.52;
         borderless_monocle = true;
