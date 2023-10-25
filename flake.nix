@@ -109,6 +109,7 @@
                   {
                     imports = [
                       ./home/home.nix
+                      mousetracker.nixosModules.default
                     ];
                   });
               }
