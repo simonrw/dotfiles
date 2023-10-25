@@ -86,6 +86,7 @@ in
     wm.pantheon = {
       enable = system != "aarch64-linux";
     };
+    wm.bspwm.enable = system != "aarch64-linux";
     wm.cinnamon = {
       enable = system != "aarch64-linux";
       dark-mode = true;
