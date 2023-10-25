@@ -17,6 +17,7 @@
     vscode-server.url = "github:msteen/nixos-vscode-server";
     vscode-server.inputs.nixpkgs.follows = "nixpkgs";
     cert-info.url = "github:simonrw/cert-info";
+    mousetracker.url = "github:simonrw/mousetracker";
   };
 
   outputs =
@@ -29,6 +30,7 @@
     , nix-index-database
     , vscode-server
     , cert-info
+    , mousetracker
     , ...
     }@inputs:
     let
@@ -189,6 +191,7 @@
               inherit pkgs;
               modules = [
                 ./home/home.nix
+                mousetracker.nixosModules.default
               ];
               # stop infinite recusion when trying to access
               # pkgs.stdenv.is{Linux,Darwin} from within a module
