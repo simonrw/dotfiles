@@ -1,6 +1,6 @@
 { pkgs, config, system, ... }:
 let
-  mod = "Mod1";
+  mod = "Mod4";
 
   focus-last = pkgs.stdenv.mkDerivation {
     name = "focus-last";
