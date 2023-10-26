@@ -94,7 +94,9 @@ in
     element-desktop
     fhs
     flameshot
-    # freetube
+    (freetube.override {
+      electron_22 = electron;
+    })
     gimp
     groff
     libreoffice
