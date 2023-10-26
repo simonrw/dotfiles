@@ -94,7 +94,7 @@ in
     element-desktop
     fhs
     flameshot
-    freetube
+    # freetube
     gimp
     groff
     libreoffice
