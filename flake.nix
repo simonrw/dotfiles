@@ -44,6 +44,22 @@
           ansi = final.callPackage ./derivations/ansi { };
           wally = final.callPackage ./derivations/wally { };
           cert-info = cert-info.packages.${system}.default;
+          # get latest version of helix released 2023/10/25 remove this when
+          # helix 23.10 or newer is the current version
+          helix = prev.helix.overrideAttrs (prevAttrs: rec {
+            version = "23.10";
+            src = final.fetchzip {
+              url = "https://github.com/helix-editor/helix/releases/download/${version}/helix-${version}-source.tar.xz";
+              hash = "sha256-PH4n+zm5ShwOrzzQm0Sn8b8JzAW/CF8UzzKZYE3e2WA=";
+              stripRoot = false;
+            };
+            cargoDeps = prevAttrs.cargoDeps.overrideAttrs (_: {
+              name = "${prevAttrs.pname}-${version}-vendor.tar.gz";
+              inherit src;
+              outputHash = "sha256-B8RO6BADDbPchowSfNVgviGvVgH23iF42DdhEBKBQzs=";
+            });
+            patches = [];
+          });
           gh-repo-url = final.callPackage ./derivations/gh-repo-url { };
           # add flags to firefox devedition to use my old profile
           firefox-devedition = (
