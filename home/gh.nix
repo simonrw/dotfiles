@@ -9,6 +9,7 @@
     extensions = [
       pkgs.gh-dash
       pkgs.gh-repo-url
+      pkgs.gh-rebase-pr
     ];
   };
 
