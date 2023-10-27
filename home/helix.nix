@@ -25,22 +25,31 @@
       };
     };
     languages = {
+      language-server.pyright = {
+        command = "${pkgs.pyright}/bin/pyright-langserver";
+        args = [
+          "--stdio"
+        ];
+      };
+      language-server.rnix = {
+        command = "${lib.getExe pkgs.rnix-lsp}";
+      };
       language = [
         {
           name = "python";
-          language-server = {
-            command = "${pkgs.pyright}/bin/pyright-langserver";
-            args = [
-              "--stdio"
-            ];
-          };
-          config = { };
+          language-servers = [
+            {
+              name = "pyright";
+            }
+          ];
         }
         {
           name = "nix";
-          language-server = {
-            command = "${lib.getExe pkgs.rnix-lsp}";
-          };
+          language-servers = [
+            {
+              name = "rnix";
+            }
+          ];
         }
       ];
     };
