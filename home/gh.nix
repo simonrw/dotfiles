@@ -38,5 +38,16 @@
       "localstack/*" = "~/work/localstack/*";
     };
     pager.diff = "delta";
+    keybindings = {
+      prs = [
+        # disable marking as ready
+        {
+          key = "w";
+          command = ''
+            gh pr view -w {{.PrNumber}} -R {{.RepoName}}
+          '';
+        }
+      ];
+    };
   };
 }
