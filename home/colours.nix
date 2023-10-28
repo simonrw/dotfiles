@@ -41,6 +41,87 @@ let
         white = "#ffffff";
       };
     };
+    catppuccin-frappe = rec {
+      raw-colours = {
+        base = "#303446";
+        blue = "#8CAAEE";
+        green = "#A6D189";
+        lavender = "#BABBF1";
+        pink = "#F4B8E4";
+        red = "#E78284";
+        rosewater = "#F2D5CF";
+        subtext0 = "#A5ADCE";
+        subtext1 = "#B5BFE2";
+        surface1 = "#51576D";
+        surface2 = "#626880";
+        teal = "#81C8BE";
+        text = "#C6D0F5";
+        yellow = "#E5C890";
+      };
+
+      primary = {
+        background = raw-colours.base;
+        foreground = raw-colours.text;
+        dim_foreground = raw-colours.text;
+        bright_foreground = raw-colours.text;
+      };
+      cursor = {
+        text = raw-colours.base;
+        cursor = raw-colours.rosewater;
+      };
+      vi_mode_cursor = {
+        text = raw-colours.base;
+        cursor = raw-colours.lavender;
+      };
+      search = {
+        matches = {
+          foreground = raw-colours.base;
+          background = raw-colours.subtext0;
+        };
+        focused_match = {
+          foreground = raw-colours.base;
+          background = raw-colours.green;
+        };
+        footer_bar = {
+          foreground = raw-colours.base;
+          background = raw-colours.subtext0;
+        };
+      };
+      selection = {
+        text = raw-colours.base;
+        background = raw-colours.rosewater;
+      };
+      normal = {
+        black = raw-colours.surface1;
+        red = raw-colours.red;
+        green = raw-colours.green;
+        yellow = raw-colours.yellow;
+        blue = raw-colours.blue;
+        magenta = raw-colours.pink;
+        cyan = raw-colours.teal;
+        white = raw-colours.subtext1;
+      };
+      bright = {
+        black = raw-colours.surface2;
+        red = raw-colours.red;
+        green = raw-colours.green;
+        yellow = raw-colours.yellow;
+        blue = raw-colours.blue;
+        magenta = raw-colours.pink;
+        cyan = raw-colours.teal;
+        white = raw-colours.subtext0;
+      };
+      dim = {
+        black = raw-colours.surface1;
+        red = raw-colours.red;
+        green = raw-colours.green;
+        yellow = raw-colours.yellow;
+        blue = raw-colours.blue;
+        magenta = raw-colours.pink;
+        cyan = raw-colours.teal;
+        white = raw-colours.subtext1;
+      };
+    };
     nord = rec {
       fish-theme = "Nord";
 
@@ -574,6 +655,10 @@ let
     one-dark = ''
       colorscheme onedark
     '';
+    catppuccin-frappe = ''
+      set background=dark
+      colorscheme catppuccin-frappe
+    '';
     nord = ''
       set background=dark
       let g:nord_disable_background = v:true
@@ -704,6 +789,7 @@ let
     "nord"
     "one-dark"
     "srw"
+    "catppuccin-frappe"
   ];
   light-themes = [
     "catppuccin-latte"
@@ -758,6 +844,9 @@ with lib;
     programs.neovim.plugins = with pkgs.vimPlugins; {
       gruvbox = [
         gruvbox
+      ];
+      catppuccin-frappe = [
+        catppuccin-nvim
       ];
     }.${config.me.theme} or [ ];
     programs.tmux.extraConfig = ''

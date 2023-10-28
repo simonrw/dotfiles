@@ -76,7 +76,7 @@ in
     font-name = "JetBrains Mono";
     font-style = "Semibold";
     font-size = if isLinux then 10.0 else 12.0;
-    theme = "nord";
+    theme = "catppuccin-frappe";
     vscode-theme = "Dracula";
     defaults = {
       inherit browser;
