@@ -5,8 +5,8 @@ pkgs.stdenvNoCC.mkDerivation {
   src = pkgs.fetchFromGitHub {
     owner = "simonrw";
     repo = "gh-rebase-pr";
-    rev = "5e304a1801997db5272fc852fc7227b6f809f889";
-    hash = "sha256-Q8MLicdNhzTJHw6nkLvZtPMT4xSvK63lwl6KG31xNwE=";
+    rev = "7aecb300e1b1c777e05a1439b01a301209ae99c1";
+    hash = "sha256-mWgBOfGhwUxKCdgkGf/kV79os2iFkncfkzFnGNZIuXI=";
   };
   doBuild = false;
   installPhase = ''
