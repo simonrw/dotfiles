@@ -125,7 +125,7 @@
         autocrlf = "input";
         safecrlf = true;
         whitespace = "fix";
-        editor = "nvim";
+        editor = "${pkgs.helix}/bin/hx";
         mergeoptions = "--no-ff";
         preloadindex = true;
         ignorecase = false;
