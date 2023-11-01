@@ -63,6 +63,13 @@
       ];
     };
     themes = {
+      nord-custom = {
+        inherits = "nord";
+        comment = {
+          fg = "#d08770";
+          bg = "#2e3440";
+        };
+      };
       monokai-pro-custom = {
         inherits = "monokai_pro";
         comment = "#e69340";
