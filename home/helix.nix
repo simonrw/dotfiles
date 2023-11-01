@@ -37,6 +37,15 @@
       language = [
         {
           name = "python";
+          auto-format = true;
+          formatter = {
+            command = "${pkgs.ruff}/bin/ruff";
+            args = [
+              "format"
+              "--silent"
+              "-"
+            ];
+          };
           language-servers = [
             {
               name = "pyright";
