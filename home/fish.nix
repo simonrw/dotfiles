@@ -37,7 +37,7 @@ in
         # centralise where python puts its .pyc files
         set -x PYTHONPYCACHEPREFIX {$HOME}/.python-cache
 
-        set -x EDITOR "${neovim}/bin/nvim"
+        set -x EDITOR "${pkgs.helix}/bin/hx"
         set -x PAGER "${pkgs.bat}/bin/bat"
 
         # host-specific configuration
@@ -155,6 +155,8 @@ in
       trash = "${pkgs.python3Packages.send2trash}/bin/send2trash";
       tree = "${pkgs.eza}/bin/eza -T";
       vup = "${neovim}/bin/nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'";
+      vim = "${pkgs.helix}/bin/hx";
+      nvim = "${pkgs.helix}/bin/hx";
     } // lib.optionalAttrs isLinux {
       pbcopy = "${pkgs.xclip}/bin/xclip -selection clipboard";
       pbpaste = "${pkgs.xclip}/bin/xclip -selection clipboard -o";
