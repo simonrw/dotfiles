@@ -3,6 +3,9 @@
   programs.neovim = {
     enable = true;
     withPython3 = true;
+    viAlias = true;
+    vimAlias = true;
+    vimdiffAlias = true;
     extraPython3Packages = (ps: with ps; [
       pynvim
       black
