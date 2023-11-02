@@ -2,6 +2,8 @@
 
 set -euo pipefail
 
+. "$(dirname "$(readlink -f "$0")")/utils.sh"
+
 if [ ! -f /etc/NIXOS ]; then
     echo "This script can only be run on nixos" >&2
     exit 1
@@ -11,6 +13,6 @@ fi
 find . -name '*.qcow2' -delete
 
 # build the vm
-nixos-rebuild build-vm --flake .#${HOSTTARGET}
+nixos-rebuild build-vm --flake .#$(get-hosttarget)
 
-echo "VM created, run ./result/bin/run-${HOSTTARGET}-vm -m 16384 -smp 4"
+echo "VM created, run ./result/bin/run-$(get-hosttarget)-vm -m 16384 -smp 4"
