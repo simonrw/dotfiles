@@ -12,6 +12,10 @@
           "spacer"
           "diff"
         ];
+        cursor-shape = {
+          insert = "bar";
+          normal = "block";
+        };
       };
       keys.normal = {
         "G" = "goto_file_end";
