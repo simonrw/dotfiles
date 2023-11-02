@@ -6,6 +6,7 @@
     viAlias = true;
     vimAlias = true;
     vimdiffAlias = true;
+    defaultEditor = true;
     extraPython3Packages = (ps: with ps; [
       pynvim
       black

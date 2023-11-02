@@ -1,4 +1,8 @@
 { config, pkgs, ... }:
+let
+  # the complete neovim package
+  neovim = config.programs.neovim.finalPackage;
+in
 {
   programs.git = {
     enable = true;
@@ -29,9 +33,9 @@
       # https://blog.jez.io/cli-code-review
       files = "!git diff --name-only $(git base-commit)";
       stat = "!git diff --stat $(git base-commit)";
-      review = "!nvim -c 'set nosplitright' -p $(git files) -c \"tabdo Gvdiff $REVIEW_BASE\" -c 'set splitright'";
+      review = "!${neovim}/bin/nvim -c 'set nosplitright' -p $(git files) -c \"tabdo Gvdiff $REVIEW_BASE\" -c 'set splitright'";
       base-commit = "!git merge-base HEAD $REVIEW_BASE";
-      review-commits = "!nvim -c 'Gclog --reverse $REVIEW_BASE..'";
+      review-commits = "!${neovim}/bin/nvim -c 'Gclog --reverse $REVIEW_BASE..'";
       log-base = "!git l $REVIEW_BASE..";
 
       # ignore modifications to files
@@ -125,7 +129,7 @@
         autocrlf = "input";
         safecrlf = true;
         whitespace = "fix";
-        editor = "${pkgs.helix}/bin/hx";
+        editor = "${neovim}/bin/nvim";
         mergeoptions = "--no-ff";
         preloadindex = true;
         ignorecase = false;
@@ -144,7 +148,7 @@
       };
       mergetool = {
         conflicted = {
-          cmd = "nvim +Conflicted";
+          cmd = "${neovim}/bin/nvim +Conflicted";
         };
         smerge = {
           cmd = "smerge";
