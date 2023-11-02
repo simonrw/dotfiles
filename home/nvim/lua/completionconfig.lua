@@ -77,6 +77,24 @@ lsp.setup_nvim_cmp({
 
 lsp.setup()
 
+-- timer code
+local timer = vim.loop.new_timer()
+local completion_timer = function()
+    timer:stop()
+    timer:start(500, 0, vim.schedule_wrap(function()
+        cmp.complete({ reason = cmp.ContextReason.Auto })
+    end))
+end
+
+
+-- configure delay before completion
+local augroup = vim.api.nvim_create_augroup("completion", { clear = true })
+vim.api.nvim_create_autocmd({ "TextChangedI" }, {
+    pattern = {"*"},
+    group = augroup,
+    callback = completion_timer,
+})
+
 -- must come after lsp.setup
 vim.diagnostic.config({
     virtual_text = true,
