@@ -162,13 +162,14 @@ in
     };
     shellAbbrs = {
       c = "cargo";
+      d = "dev";
       gco = "git checkout";
       g = "git";
       gp = "git pull";
       ipy = "ipython";
       k = "kubectl";
-      n = "notify-wrapper";
       nd = "nix develop --command fish";
+      n = "notify-wrapper";
       py = "python";
       v = "vim";
     };
