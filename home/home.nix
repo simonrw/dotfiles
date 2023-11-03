@@ -80,7 +80,8 @@ in
     vscode-theme = "Dracula";
     defaults = {
       inherit browser;
-      terminal = "alacritty";
+      # some dodgy font rendering on linux
+      terminal = if isLinux then "kitty" else "alacritty";
     };
   } // (if isLinux then {
     wm.cinnamon = {
