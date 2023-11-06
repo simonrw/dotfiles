@@ -6,6 +6,8 @@
       editor = {
         auto-pairs = false;
         true-color = true;
+        line-number = "relative";
+        color-modes = true;
         lsp.display-messages = true;
         gutters.layout = [
           "diagnostics"
@@ -15,6 +17,9 @@
         cursor-shape = {
           insert = "bar";
           normal = "block";
+        };
+        file-picker = {
+          hidden = false;
         };
       };
       keys.normal = {
