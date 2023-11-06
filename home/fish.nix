@@ -37,7 +37,7 @@ in
         # centralise where python puts its .pyc files
         set -x PYTHONPYCACHEPREFIX {$HOME}/.python-cache
 
-        set -x EDITOR "${neovim}/bin/nvim"
+        set -x EDITOR "${pkgs.helix}/bin/hx"
         set -x PAGER "${pkgs.bat}/bin/bat"
 
         # host-specific configuration
