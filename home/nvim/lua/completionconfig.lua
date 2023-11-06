@@ -81,7 +81,7 @@ lsp.setup()
 local timer = vim.loop.new_timer()
 local completion_timer = function()
     timer:stop()
-    timer:start(400, 0, vim.schedule_wrap(function()
+    timer:start(200, 0, vim.schedule_wrap(function()
         cmp.complete({ reason = cmp.ContextReason.Auto })
     end))
 end
