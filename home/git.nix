@@ -129,7 +129,7 @@ in
         autocrlf = "input";
         safecrlf = true;
         whitespace = "fix";
-        editor = "${pkgs.helix}/bin/hx";
+        editor = "${neovim}/bin/nvim";
         mergeoptions = "--no-ff";
         preloadindex = true;
         ignorecase = false;
