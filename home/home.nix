@@ -81,7 +81,7 @@ in
     defaults = {
       inherit browser;
       # some dodgy font rendering on linux
-      terminal = "alacritty";
+      terminal = if isLinux then "kitty" else "alacritty";
     };
   } // (if isLinux then {
     wm.cinnamon = {
