@@ -1,5 +1,9 @@
 -- imports
 local lsp = require('lsp-zero')
+local lsp_status = require('lsp-status')
+
+lsp_status.register_progress()
+
 lsp.set_preferences({
     suggest_lsp_servers = true,
     setup_servers_on_start = true,
@@ -53,6 +57,8 @@ lsp.on_attach(function(client, bufnr)
     vim.keymap.set("i", "<C-h>", function() vim.lsp.buf.signature_help() end, opts)
 
     vim.keymap.set("n", "<C-Space>", [[<Plug>(completion_trigger)]], opts)
+
+    return lsp_status.on_attach(client)
 end)
 
 
