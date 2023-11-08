@@ -3,13 +3,8 @@ let
   homeDir = if isDarwin then "Users" else "home";
   homeDirectory = "/${homeDir}/simon";
   browser = {
-    aarch64-linux = {
-      name = "firefox";
-      command = "${pkgs.firefox}/bin/firefox";
-    };
-  }.${system} or {
-    name = "google-chrome";
-    command = "${pkgs.google-chrome}/bin/google-chrome-stable";
+    name = "firefox";
+    command = "${pkgs.firefox-devedition}/bin/firefox";
   };
 in
 {
