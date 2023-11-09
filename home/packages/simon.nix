@@ -99,6 +99,7 @@ in
     })
     gimp
     groff
+    keymapp
     libreoffice
     obsidian
     pinentry-gtk2
