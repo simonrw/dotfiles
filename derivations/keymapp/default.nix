@@ -9,15 +9,31 @@ stdenv.mkDerivation (finalAttrs: {
     hash = "sha256-0ej6nbeZ33HYoAotI07qoJVGw87YKRi5KSzO44nZdDE=";
   };
 
+  nativeBuildInputs = [
+    autoPatchelfHook
+    copyDesktopItems
+  ];
+
+  desktopItems = [
+    (makeDesktopItem rec {
+      name = "Keymapp";
+      exec = finalAttrs.pname;
+      icon = finalAttrs.pname;
+      desktopName = name;
+      genericName = name;
+      categories = [
+        "System"
+      ];
+    })
+  ];
+
   installPhase = ''
+    mkdir -p $out/share/applications
+    copyDesktopItems
     install -Dm755 keymapp $out/bin/keymapp
   '';
 
   buildInputs = [
-    autoPatchelfHook
-  ];
-
-  propagatedBuildInputs = [
     libusb1
     eudev
     webkitgtk
