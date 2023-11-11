@@ -41,6 +41,7 @@
           notify-wrapper = final.callPackage ./derivations/notify-wrapper { };
           telegram-desktop = final.callPackage ./derivations/telegram-desktop { };
           database = nix-index-database.legacyPackages.${system}.database;
+          monaspace = final.callPackage ./derivations/monaspace { };
           ansi = final.callPackage ./derivations/ansi { };
           wally = final.callPackage ./derivations/wally { };
           cert-info = cert-info.packages.${system}.default;

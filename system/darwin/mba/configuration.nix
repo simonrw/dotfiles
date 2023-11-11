@@ -20,6 +20,7 @@
       })
       fira-code
       inconsolata
+      monaspace
     ];
   };
 
