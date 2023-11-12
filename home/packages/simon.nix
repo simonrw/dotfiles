@@ -94,9 +94,7 @@ in
     element-desktop
     fhs
     flameshot
-    (freetube.override {
-      electron_22 = electron;
-    })
+    freetube
     gimp
     groff
     keymapp
