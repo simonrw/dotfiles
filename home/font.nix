@@ -60,6 +60,7 @@ in
       kitty-font = {
         "JetBrains Mono" = "JetBrainsMono NF Bold";
         "Fira Code" = "Fira Code SemiBold";
+        "Monaspace" = "Monaspace Neon Var SemiBold";
       }.${cfg.font-name} or cfg.font-name;
 
       alacritty-font-style-renamed = {
