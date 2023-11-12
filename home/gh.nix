@@ -5,15 +5,15 @@
     settings = {
       git_protocol = "ssh";
       prompt = "enabled";
+      aliases = {
+        inbox = "api notifications --template '{{range .}}{{tablerow .subject.title .subject.url}}{{end}}'";
+      };
     };
     extensions = [
       pkgs.gh-dash
       pkgs.gh-repo-url
       pkgs.gh-rebase-pr
     ];
-    aliases = {
-      inbox = "api notifications --template '{{range .}}{{tablerow .subject.title .subject.url}}{{end}}'";
-    };
   };
 
   xdg.configFile."gh-dash/config.yml".text = builtins.toJSON {
