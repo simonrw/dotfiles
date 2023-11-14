@@ -36,6 +36,11 @@ in
       description = "Style of font";
       default = "Regular";
     };
+    me.fonts-to-install = mkOption {
+      type = types.listOf types.package;
+      description = "Fonts to install regardless of what is chosen";
+      default = [];
+    };
   };
 
   config =
@@ -96,7 +101,7 @@ in
 
       home.packages = [
         font-package
-      ];
+      ] ++ cfg.fonts-to-install;
 
       xsession.windowManager.i3.config = {
         fonts = {
