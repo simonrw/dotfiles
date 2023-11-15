@@ -9,7 +9,7 @@
       cursor_blink_interval = "0";
       cursor_shape = "block";
       hide_window_decorations = "no";
-      disable_ligatures = "never";
+      disable_ligatures = "always";
       initial_window_height = "960";
       initial_window_width = "1280";
       macos_option_as_alt = "yes";
