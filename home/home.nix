@@ -74,12 +74,12 @@ in
   # custom properties
   me = {
     font-name = "JetBrains Mono";
-    font-style = "Semibold";
+    font-style = "Regular";
     font-size = if isLinux then 10.0 else 12.0;
     fonts-to-install = [
       pkgs.monaspace
     ];
-    theme = "nord";
+    theme = "srw";
     vscode-theme = "Dracula";
     defaults = {
       inherit browser;
