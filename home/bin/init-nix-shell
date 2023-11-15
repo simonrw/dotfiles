@@ -34,10 +34,11 @@ RUST_SHELL_NIX_TEMPLATE = """{ pkgs ? import <nixpkgs> { } }:
 with pkgs;
 mkShell rec {
   packages = [
-    rustc
     cargo
-    rustfmt
+    clippy
     rust-analyzer
+    rustc
+    rustfmt
   ] ++ lib.optionals stdenv.isDarwin [
     libiconv
   ];
