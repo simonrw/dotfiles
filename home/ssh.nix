@@ -2,9 +2,15 @@
 {
   programs.ssh = {
     enable = true;
+    compression = true;
     includes = [
       "config_local"
     ];
+    controlMaster = "auto";
+    controlPersist = "10m";
+    extraConfig = ''
+      EnableEscapeCommandline=yes
+    '';
     matchBlocks = {
       "*" = {
         sendEnv = [ "TMUX_DISABLED" ];
