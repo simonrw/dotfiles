@@ -35,10 +35,8 @@ jobs:
           remove-docker-images: 'true'
       - run: df -h
       - uses: actions/checkout@v4
-      - uses: cachix/install-nix-action@v23
-        with:
-          extra_nix_config: |
-            access-tokens = github.com=${{ secrets.GITHUB_TOKEN }}
+      - name: Install Nix
+        uses: DeterminateSystems/nix-installer-action@main
       - uses: cachix/cachix-action@v12
         with:
           name: mindriot101-home
@@ -59,10 +57,8 @@ jobs:
           remove-docker-images: 'true'
       - run: df -h
       - uses: actions/checkout@v4
-      - uses: cachix/install-nix-action@v23
-        with:
-          extra_nix_config: |
-            access-tokens = github.com=${{ secrets.GITHUB_TOKEN }}
+      - name: Install Nix
+        uses: DeterminateSystems/nix-installer-action@main
       - uses: cachix/cachix-action@v12
         with:
           name: mindriot101-home
@@ -73,6 +69,8 @@ jobs:
     runs-on: macos-latest
     steps:
       - uses: actions/checkout@v4
+      - name: Install Nix
+        uses: DeterminateSystems/nix-installer-action@main
       - uses: cachix/install-nix-action@v23
         with:
           extra_nix_config: |
