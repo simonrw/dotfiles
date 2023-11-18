@@ -74,7 +74,7 @@ in
     fonts-to-install = [
       pkgs.monaspace
     ];
-    theme = "nord";
+    theme = "dracula";
     vscode-theme = "Dracula";
     defaults = {
       inherit browser;
