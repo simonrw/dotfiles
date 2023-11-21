@@ -29,6 +29,10 @@ in
 
     programs.xwayland.enable = cfg.wayland;
 
+    # disable trackers that constantly fail
+    services.gnome.tracker-miners.enable = false;
+    services.gnome.tracker.enable = false;
+
     environment.sessionVariables = {
       WLR_NO_HARDWARE_CURSORS = "1";
       # NIXOS_OZONE_WL = "1";
