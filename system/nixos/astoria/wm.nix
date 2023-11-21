@@ -12,7 +12,11 @@
   ];
 
   # enable the window managers I use 
-  me.wm.cinnamon.enable = true;
+  # me.wm.cinnamon.enable = true;
+  me.wm.gnome = {
+    enable = true;
+    wayland = false;
+  };
   # me.wm.sway.enable = true;
 
   # overrides
