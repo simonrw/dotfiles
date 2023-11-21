@@ -12,10 +12,30 @@ let
     in
     "sh -c 'wmctrl -x -a ${app'.name} || ${app'.command or app'.name}'";
 
+  animation-speed-integer = {
+        "none" = false;
+        "default" = 1;
+        "fast" = 4;
+        "faster" = 3;
+        "fastest" = 2;
+  }.${cfg.animation-speed};
+
   cfg = config.me.wm.gnome;
 in
 {
-  options.me.wm.gnome.enable = mkEnableOption (mdDoc "Enable gnome configuration");
+  options.me.wm.gnome = {
+    enable = mkEnableOption (mdDoc "Enable gnome configuration");
+    animation-speed = mkOption {
+      type = types.enum [
+        "none"
+        "default"
+        "fast"
+        "faster"
+        "fastest"
+      ];
+      default = "faster";
+    };
+  };
 
   config = mkIf cfg.enable {
     dconf.settings = {
@@ -62,6 +82,9 @@ in
           "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom4/"
         ];
       };
+      "org/gnome/shell/extensions/just-perfection" = {
+        animation = animation-speed-integer;
+      };
       "org/gnome/shell" = {
         disable-user-extensions = false;
         enabled-extensions = [
@@ -69,6 +92,7 @@ in
           "appindicatorsupport@rgcjonas.gmail.com"
           "drive-menu@gnome-shell-extensions.gcampax.github.com"
           "user-theme@gnome-shell-extensions.gcampax.github.com"
+          "just-perfection-desktop@just-perfection"
         ];
         disabled-extensions = [ ];
       };

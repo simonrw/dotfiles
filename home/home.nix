@@ -82,7 +82,10 @@ in
       terminal = if isLinux then "kitty" else "alacritty";
     };
   } // (if isLinux then {
-    wm.gnome.enable = system != "aarch64-linux";
+    wm.gnome = {
+      enable = system != "aarch64-linux";
+      animation-speed = "faster";
+    };
   } else { });
 
   home.file = {
