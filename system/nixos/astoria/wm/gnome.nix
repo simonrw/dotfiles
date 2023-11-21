@@ -23,6 +23,7 @@ in
       gnome.gnome-tweaks
       gnomeExtensions.appindicator
       gnomeExtensions.advanced-alttab-window-switcher
+      gnomeExtensions.just-perfection
       orchis-theme
     ];
 
