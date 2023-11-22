@@ -48,7 +48,6 @@ in
     fx
     gcc
     git-branchless
-    go
     graphviz
     hey
     htop
