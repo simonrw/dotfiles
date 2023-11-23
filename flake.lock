@@ -132,16 +132,14 @@
     },
     "jetbrains-updater": {
       "inputs": {
-        "nixpkgs": [
-          "nixpkgs"
-        ]
+        "nixpkgs": "nixpkgs_2"
       },
       "locked": {
-        "lastModified": 1700092921,
-        "narHash": "sha256-UQqJJN6m9F5MefoafT1/fUXJXd6LvYcxcie7Tq0EY6c=",
+        "lastModified": 1700611356,
+        "narHash": "sha256-UNMQBtD3gttoDTuIaofLp3Ticco/DJxftMyA0JPFQ0k=",
         "owner": "genericnerdyusername",
         "repo": "jetbrains-updater",
-        "rev": "797dd05d3012a3148c0979c1bab0303af387cf39",
+        "rev": "b6cb6db03b6074ec19ea441b1cfb3f26a16e81ec",
         "type": "gitlab"
       },
       "original": {
@@ -153,7 +151,7 @@
     "mousetracker": {
       "inputs": {
         "flake-utils": "flake-utils_3",
-        "nixpkgs": "nixpkgs_2"
+        "nixpkgs": "nixpkgs_3"
       },
       "locked": {
         "lastModified": 1698234517,
@@ -204,6 +202,19 @@
     },
     "nixpkgs_2": {
       "locked": {
+        "lastModified": 1699963925,
+        "narHash": "sha256-LE7OV/SwkIBsCpAlIPiFhch/J+jBDGEZjNfdnzCnCrY=",
+        "path": "/nix/store/hw0mp7awqma06m6s2h9yckyccxb63nqx-source",
+        "rev": "bf744fe90419885eefced41b3e5ae442d732712d",
+        "type": "path"
+      },
+      "original": {
+        "id": "nixpkgs",
+        "type": "indirect"
+      }
+    },
+    "nixpkgs_3": {
+      "locked": {
         "lastModified": 1697851979,
         "narHash": "sha256-lJ8k4qkkwdvi+t/Xc6Fn74kUuobpu9ynPGxNZR6OwoA=",
         "owner": "nixos",
@@ -218,7 +229,7 @@
         "type": "github"
       }
     },
-    "nixpkgs_3": {
+    "nixpkgs_4": {
       "locked": {
         "lastModified": 1699963925,
         "narHash": "sha256-LE7OV/SwkIBsCpAlIPiFhch/J+jBDGEZjNfdnzCnCrY=",
@@ -243,7 +254,7 @@
         "jetbrains-updater": "jetbrains-updater",
         "mousetracker": "mousetracker",
         "nix-index-database": "nix-index-database",
-        "nixpkgs": "nixpkgs_3",
+        "nixpkgs": "nixpkgs_4",
         "utils": "utils",
         "vscode-server": "vscode-server"
       }

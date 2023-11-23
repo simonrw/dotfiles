@@ -11,7 +11,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     jetbrains-updater.url = "gitlab:genericnerdyusername/jetbrains-updater";
-    jetbrains-updater.inputs.nixpkgs.follows = "nixpkgs";
     nix-index-database.url = "github:Mic92/nix-index-database";
     nix-index-database.inputs.nixpkgs.follows = "nixpkgs";
     vscode-server.url = "github:msteen/nixos-vscode-server";
