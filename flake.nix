@@ -32,7 +32,6 @@
           keymapp = final.callPackage ./derivations/keymapp { pkgs = final; };
           listprojects = final.callPackage ./derivations/listprojects { };
           notify-wrapper = final.callPackage ./derivations/notify-wrapper { };
-          telegram-desktop = final.callPackage ./derivations/telegram-desktop { };
           database = nix-index-database.legacyPackages.${system}.database;
           monaspace = final.callPackage ./derivations/monaspace { };
           ansi = final.callPackage ./derivations/ansi { };
