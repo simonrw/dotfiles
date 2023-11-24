@@ -8,7 +8,7 @@ NIXARCH="$(nixarch)"
 
 case ${NIXARCH} in
     *-linux)
-        nixos-rebuild build --flake . $*
+        nom build .#nixosConfigurations.${HOSTTARGET}.config.system.build.toplevel $*
         ;;
     *-darwin)
         nix --extra-experimental-features "nix-command flakes" build ".#darwinConfigurations.${HOSTTARGET}.system" $*
