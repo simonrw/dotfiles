@@ -6,11 +6,16 @@ let
 in
 {
   imports = [
+    ../home/bat.nix
     ../home/colours.nix
     ../home/direnv.nix
+    ../home/eza.nix
     ../home/fish.nix
     ../home/font.nix
+    ../home/fzf.nix
+    ../home/jq.nix
     ../home/neovim.nix
+    ../home/nix-index.nix
     ../home/tmux.nix
   ];
 
