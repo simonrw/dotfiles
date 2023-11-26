@@ -1,6 +1,6 @@
 { lib, isDarwin, ... }:
 let
-  username = "minimal";
+  username = "simon";
   homeDir = if isDarwin then "Users" else "home";
   homeDirectory = "/${homeDir}/username";
 in
