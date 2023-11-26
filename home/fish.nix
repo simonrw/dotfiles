@@ -111,10 +111,6 @@ in
         set -x GPG_TTY (tty)
       end
 
-      # wrap awslocal completion
-      complete -c awslocal -w aws
-      complete -c laws -w aws
-
       # wrap tflocal completion
       complete -c tflocal -w terraform
 
