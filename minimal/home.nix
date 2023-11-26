@@ -7,6 +7,7 @@ in
 {
   imports = [
     ../home/colours.nix
+    ../home/direnv.nix
     ../home/fish.nix
     ../home/font.nix
     ../home/neovim.nix
