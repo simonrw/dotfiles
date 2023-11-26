@@ -196,6 +196,19 @@
                 isDarwin = pkgs.stdenv.isDarwin;
               };
             };
+            minimal = home-manager.lib.homeManagerConfiguration {
+              inherit pkgs;
+              modules = [
+                ./minimal/home.nix
+              ];
+              # stop infinite recusion when trying to access
+              # pkgs.stdenv.is{Linux,Darwin} from within a module
+              extraSpecialArgs = {
+                inherit system;
+                isLinux = pkgs.stdenv.isLinux;
+                isDarwin = pkgs.stdenv.isDarwin;
+              };
+            };
           };
           devShells.default = pkgs.mkShell
             {
