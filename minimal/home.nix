@@ -10,7 +10,7 @@ in
     ../home/fish.nix
   ];
 
-  options = with lib; { 
+  options = with lib; {
     # stub options to allow for building
     me.dark-mode = mkOption {
       type = types.bool;
@@ -21,6 +21,19 @@ in
     home = {
       inherit homeDirectory username;
       stateVersion = "22.05";
+    };
+    home.file = {
+      ".bin" = {
+        source = ../home/bin;
+        recursive = true;
+      };
+    };
+    xdg = {
+      enable = true;
+      configFile.nvim = {
+        source = ../home/nvim;
+        recursive = true;
+      };
     };
   };
 }
