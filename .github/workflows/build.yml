@@ -55,6 +55,7 @@ jobs:
     steps:
       - run: df -h
       - name: Increase build space
+        if: ${{ matrix.runtime.os == 'ubuntu-latest' }}
         run: |
           sudo rm -rf /usr/local/lib/android
           sudo rm -rf /usr/share/dotnet
