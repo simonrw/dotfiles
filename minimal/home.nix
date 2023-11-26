@@ -6,10 +6,11 @@ let
 in
 {
   imports = [
-    ../home/neovim.nix
-    ../home/fish.nix
     ../home/colours.nix
+    ../home/fish.nix
     ../home/font.nix
+    ../home/neovim.nix
+    ../home/tmux.nix
   ];
 
   options = with lib; {
