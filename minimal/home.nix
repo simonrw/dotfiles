@@ -1,4 +1,4 @@
-{ lib, isDarwin, ... }:
+{ pkgs, lib, isDarwin, ... }:
 let
   username = "simon";
   homeDir = if isDarwin then "Users" else "home";
@@ -8,6 +8,8 @@ in
   imports = [
     ../home/neovim.nix
     ../home/fish.nix
+    ../home/colours.nix
+    ../home/font.nix
   ];
 
   options = with lib; {
@@ -18,15 +20,22 @@ in
     };
   };
   config = {
+    me = {
+      theme = "nord";
+      font-name = "JetBrains Mono";
+    };
     home = {
       inherit homeDirectory username;
       stateVersion = "22.05";
-    };
-    home.file = {
-      ".bin" = {
-        source = ../home/bin;
-        recursive = true;
+      file = {
+        ".bin" = {
+          source = ../home/bin;
+          recursive = true;
+        };
       };
+      packages = with pkgs; [
+        git
+      ];
     };
     xdg = {
       enable = true;

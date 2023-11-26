@@ -28,7 +28,6 @@ in
     ./ipython.nix
     ./jq.nix
     ./kitty.nix
-    ./modules/contour.nix
     ./mpv.nix
     ./neovim.nix
     ./nix-index.nix
