@@ -2,7 +2,7 @@
 let
   username = "simon";
   homeDir = if isDarwin then "Users" else "home";
-  homeDirectory = "/${homeDir}/username";
+  homeDirectory = "/${homeDir}/${username}";
 in
 {
   imports = [
