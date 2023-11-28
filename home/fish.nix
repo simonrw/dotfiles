@@ -112,7 +112,10 @@ in
       end
 
       # wrap tflocal completion
-      complete -c tflocal -w terraform
+      complete --command tflocal --wraps terraform
+
+      # wrap nix completion
+      complete --command nom --wraps nix
 
       # if a local configuration override file exists, source it
       if test -f $HOME/.config/fish/local.fish;
