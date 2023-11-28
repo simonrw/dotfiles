@@ -13,6 +13,7 @@
       pkgs.gh-dash
       pkgs.gh-repo-url
       pkgs.gh-rebase-pr
+      pkgs.gh-markdown-preview
     ];
   };
 
