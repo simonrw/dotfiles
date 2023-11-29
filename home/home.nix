@@ -48,6 +48,7 @@ in
     # ./mate.nix
     ./cinnamon.nix
     ./pantheon.nix
+    ./rustdesk.nix
     ./xcape.nix
     ./bspwm.nix
     ./mousetracker.nix
@@ -140,6 +141,10 @@ in
       source = ./karabiner;
       recursive = true;
     };
+  };
+
+  services.rustdesk = lib.mkIf isLinux {
+    enable = true;
   };
 
   services.gpg-agent = lib.mkIf isLinux {
