@@ -36,6 +36,7 @@ in
     ./tmux.nix
     ./wireshark.nix
     ./zoxide.nix
+    ./rustdesk.nix
   ] ++ lib.optionals isLinux [
     ./rofi.nix
     ./chromium.nix
@@ -48,7 +49,6 @@ in
     # ./mate.nix
     ./cinnamon.nix
     ./pantheon.nix
-    ./rustdesk.nix
     ./xcape.nix
     ./bspwm.nix
     ./mousetracker.nix
