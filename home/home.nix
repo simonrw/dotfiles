@@ -143,10 +143,6 @@ in
     };
   };
 
-  services.rustdesk = lib.mkIf isLinux {
-    enable = true;
-  };
-
   services.gpg-agent = lib.mkIf isLinux {
     enable = true;
     pinentryFlavor = "gtk2";
