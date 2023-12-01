@@ -32,8 +32,7 @@ in
 {
   home.packages = with pkgs; [
     ansi
-    # TODO: put this back to awscli2 when the build succeeds
-    awscli
+    awscli2
     bat
     cachix
     cert-info
