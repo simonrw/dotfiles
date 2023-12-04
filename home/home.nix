@@ -1,10 +1,10 @@
-{ config, pkgs, isLinux, isDarwin, lib, system, ... }:
+{ pkgs, isLinux, isDarwin, lib, system, ... }:
 let
   homeDir = if isDarwin then "Users" else "home";
   homeDirectory = "/${homeDir}/simon";
   browser = {
-    name = "firefox";
-    command = "${pkgs.firefox-devedition}/bin/firefox";
+    name = "google-chrome";
+    command = "${pkgs.google-chrome}/bin/google-chrome-stable";
   };
 in
 {
