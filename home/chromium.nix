@@ -1,8 +1,8 @@
-{ config, pkgs, ... }:
+{ ... }:
 {
   config = {
     programs.brave = {
-      enable = false;
+      enable = true;
       extensions = [
         "aeblfdkhhhdcdjpifhhbdiojplfjncoa" # 1password
         "cjpalhdlnbpafiamejdnhcphjbkeiagm" # ublock-origin
