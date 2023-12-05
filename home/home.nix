@@ -2,10 +2,6 @@
 let
   homeDir = if isDarwin then "Users" else "home";
   homeDirectory = "/${homeDir}/simon";
-  browser = {
-    name = "google-chrome";
-    command = "${pkgs.google-chrome}/bin/google-chrome-stable";
-  };
 in
 {
   imports = [
@@ -77,7 +73,7 @@ in
     theme = "nord";
     vscode-theme = "Dracula";
     defaults = {
-      inherit browser;
+      browser = "brave";
       # some dodgy font rendering on linux
       terminal = if isLinux then "kitty" else "alacritty";
     };
