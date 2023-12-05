@@ -1,4 +1,12 @@
 ---
 repos:
   - repo: local
-    hooks: []
+    hooks:
+      - id: eval
+        name: check configuration evaluates
+        entry: bash ./bin/home-instanciate.sh
+        language: system
+        always_run: true
+        pass_filenames: false
+        stages:
+          - push
