@@ -3,24 +3,33 @@ with lib;
 let
   cfg = config.me.defaults;
 
-  browser-module = types.submodule {
-    name = mkOption {
-      type = str;
-      description = "Name of the browser";
-      required = true;
-    };
+  names = [
+    "google-chrome"
+    "brave"
+    "firefox"
+  ];
 
-    command = mkOption {
-      type = str;
-      description = "Command to run";
-      required = true;
+  browser-module = types.submodule {
+    options = {
+      name = mkOption {
+        type = types.enum names;
+        description = "Name of the browser";
+      };
+
+      command = mkOption {
+        type = types.str;
+        description = "Command to run";
+      };
     };
   };
 in
 {
   options.me.defaults = {
     browser = mkOption {
-      type = types.oneOf [ types.str types.attrs ];
+      type = types.oneOf [
+        (types.enum names)
+        browser-module
+      ];
       description = "Which browser to use";
     };
     terminal = mkOption {
