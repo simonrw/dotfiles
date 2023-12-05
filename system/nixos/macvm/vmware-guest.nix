@@ -28,10 +28,10 @@ in
   };
 
   config = mkIf cfg.enable {
-    assertions = [ {
+    assertions = [{
       assertion = pkgs.stdenv.isi686 || pkgs.stdenv.isx86_64 || pkgs.stdenv.isAarch64;
       message = "VMWare guest is not currently supported on ${pkgs.stdenv.hostPlatform.system}";
-    } ];
+    }];
 
     boot.initrd.availableKernelModules = [ "mptspi" ];
     # boot.initrd.kernelModules = [ "vmw_pvscsi" ];
@@ -39,7 +39,8 @@ in
     environment.systemPackages = [ open-vm-tools ];
 
     systemd.services.vmware =
-      { description = "VMWare Guest Service";
+      {
+        description = "VMWare Guest Service";
         wantedBy = [ "multi-user.target" ];
         after = [ "display-manager.service" ];
         unitConfig.ConditionVirtualization = "vmware";
@@ -61,7 +62,8 @@ in
     ];
 
     security.wrappers.vmware-user-suid-wrapper =
-      { setuid = true;
+      {
+        setuid = true;
         owner = "root";
         group = "root";
         source = "${open-vm-tools}/bin/vmware-user-suid-wrapper";
@@ -74,17 +76,17 @@ in
       # modules = [ xf86inputvmmouse ];
 
       config = ''
-          Section "InputClass"
-            Identifier "VMMouse"
-            MatchDevicePath "/dev/input/event*"
-            MatchProduct "ImPS/2 Generic Wheel Mouse"
-            Driver "vmmouse"
-          EndSection
-        '';
+        Section "InputClass"
+          Identifier "VMMouse"
+          MatchDevicePath "/dev/input/event*"
+          MatchProduct "ImPS/2 Generic Wheel Mouse"
+          Driver "vmmouse"
+        EndSection
+      '';
 
       displayManager.sessionCommands = ''
-          ${open-vm-tools}/bin/vmware-user-suid-wrapper
-        '';
+        ${open-vm-tools}/bin/vmware-user-suid-wrapper
+      '';
     };
 
     services.udev.packages = [ open-vm-tools ];

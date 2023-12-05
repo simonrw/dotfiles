@@ -11,11 +11,11 @@ let
     c-aresSupport = true;
   };
 
-  custom-vscode = pkgs.vscode;  # .fhsWithPackages (ps: with ps; [
-    # rustup
-    # zlib
-    # openssl.dev
-    # pkg-config
+  custom-vscode = pkgs.vscode; # .fhsWithPackages (ps: with ps; [
+  # rustup
+  # zlib
+  # openssl.dev
+  # pkg-config
   # ]);
 
   fhs = (

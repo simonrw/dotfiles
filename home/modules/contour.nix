@@ -33,7 +33,7 @@ in
   };
   config = mkMerge [
     (mkIf cfg.enable {
-      home.packages = if isDarwin then [] else [ cfg.package ];
+      home.packages = if isDarwin then [ ] else [ cfg.package ];
 
       xdg.configFile."contour/contour.yml" = {
         source = yamlFormat.generate "contour.yml" cfg.settings;

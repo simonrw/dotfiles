@@ -5,7 +5,7 @@
 { config, pkgs, lib, ... }:
 
 let
-  default-locale =  "en_GB.UTF-8";
+  default-locale = "en_GB.UTF-8";
 in
 
 {
@@ -161,7 +161,7 @@ in
     wmctrl
     xclip
     (writeShellScriptBin "xrandr-auto" ''
-    xrandr --output Virtual-1 --auto
+      xrandr --output Virtual-1 --auto
     '')
     gtkmm3
   ];

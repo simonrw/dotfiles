@@ -13,11 +13,11 @@ let
     "sh -c 'wmctrl -x -a ${app'.name} || ${app'.command or app'.name}'";
 
   animation-speed-integer = {
-        "none" = false;
-        "default" = 1;
-        "fast" = 4;
-        "faster" = 3;
-        "fastest" = 2;
+    "none" = false;
+    "default" = 1;
+    "fast" = 4;
+    "faster" = 3;
+    "fastest" = 2;
   }.${cfg.animation-speed};
 
   cfg = config.me.wm.gnome;

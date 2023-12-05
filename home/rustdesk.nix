@@ -24,7 +24,7 @@ in
         ExecStart = "${cfg.package}/bin/rustdesk --server";
       };
       Install = {
-        WantedBy = ["multi-user.target"];
+        WantedBy = [ "multi-user.target" ];
       };
     };
     home.packages = [

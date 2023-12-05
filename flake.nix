@@ -181,6 +181,8 @@
         in
         {
           inherit pkgs;
+          formatter = pkgs.nixpkgs-fmt;
+
           homeConfigurations = {
             simon = home-manager.lib.homeManagerConfiguration {
               inherit pkgs;

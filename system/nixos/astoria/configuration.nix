@@ -5,7 +5,7 @@
 { config, pkgs, lib, ... }:
 
 let
-  default-locale =  "en_GB.UTF-8";
+  default-locale = "en_GB.UTF-8";
 in
 
 {

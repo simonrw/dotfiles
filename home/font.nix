@@ -39,7 +39,7 @@ in
     me.fonts-to-install = mkOption {
       type = types.listOf types.package;
       description = "Fonts to install regardless of what is chosen";
-      default = [];
+      default = [ ];
     };
   };
 
