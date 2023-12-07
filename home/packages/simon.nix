@@ -91,6 +91,7 @@ in
     blanket
     custom-vscode
     element-desktop
+    emote
     fhs
     flameshot
     freetube
