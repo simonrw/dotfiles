@@ -47,7 +47,6 @@ in
     ./pantheon.nix
     ./xcape.nix
     ./bspwm.nix
-    ./mousetracker.nix
   ] ++ lib.optionals isDarwin [
   ];
 
