@@ -25,7 +25,7 @@
     , cert-info
     , mousetracker
     , ...
-    }@inputs:
+    }:
     let
       mkOverlays = system: [
         (final: prev: {
@@ -73,10 +73,10 @@
           let
             python-overrides = self: {
               packageOverrides = _: pysuper: {
-                cherrypy = pysuper.cherrypy.overrideAttrs (_: rec {
+                cherrypy = pysuper.cherrypy.overrideAttrs (_: {
                   doInstallCheck = !self.stdenv.isDarwin;
                 });
-                debugpy = pysuper.debugpy.overrideAttrs (_: rec {
+                debugpy = pysuper.debugpy.overrideAttrs (_: {
                   doInstallCheck = !self.stdenv.isDarwin;
                 });
               };
