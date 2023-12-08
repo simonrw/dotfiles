@@ -49,22 +49,6 @@
               '';
             }
           );
-
-          # fix fish completions
-          ripgrep = prev.ripgrep.overrideAttrs (prevAttrs: rec {
-            version = "14.0.3";
-            src = final.fetchFromGitHub {
-              owner = "BurntSushi";
-              repo = prevAttrs.pname;
-              rev = version;
-              sha256 = "sha256-NBGbiy+1AUIBJFx6kcGPSKo08a+dkNo4rNH2I1pki4U=";
-            };
-            cargoDeps = prevAttrs.cargoDeps.overrideAttrs (finalDepsAttrs: {
-              name = finalDepsAttrs.name;
-              inherit src;
-              outputHash = "sha256-uO3TpTQpADAtH/jy0cq8smdD6FakNz46NUKWBEArv4Y=";
-            });
-          });
         })
         # override the version of xattr for poetry
         (
