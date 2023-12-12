@@ -58,7 +58,7 @@ in
       diffup = "!git diff $(git upstream)..";
       fetchup = "fetch upstream";
       upsub = "submodule foreach 'git checkout master && git pull'";
-      authors = "shortlog -s -n --all --no-merges";
+      authors = "shortlog -s -n --no-merges";
       # https://thoughtbot.com/blog/powerful-git-macros-for-automating-everyday-workflows
       branches = "for-each-ref --sort=-committerdate --format=\"%(color:blue)%(authordate:relative)\t%(color:red)%(authorname)\t%(color:white)%(color:bold)%(refname:short)\" refs/remotes";
       tags = "tag";
