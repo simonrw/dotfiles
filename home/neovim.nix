@@ -45,13 +45,6 @@
       # has native plugin so requires nix
       telescope-fzf-native-nvim
 
-      # debugging
-      nvim-dap
-      nvim-dap-python
-      nvim-dap-go
-      nvim-dap-ui
-      nvim-dap-virtual-text
-
       # treesitter
       (nvim-treesitter.withPlugins
         (p: [

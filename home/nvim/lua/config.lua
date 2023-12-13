@@ -17,11 +17,8 @@ require('vim-test')
 require('vtr')
 require('fugitive')
 
-require('completionconfig')
+-- require('completionconfig')
 require('editorconfigconfig')
 require('aerialconfig')
-
--- debugging
-require('dapconfig')
 
 require('gitsignsconfig')
