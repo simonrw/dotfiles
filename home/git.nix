@@ -20,6 +20,8 @@ in
       uc = "update-commit";
       graph = "log --graph --all --decorate --stat --date iso";
 
+      rebranch = "!f() { git branch $1 && git reset --hard HEAD~ && git checkout $1; }; f";
+
       # reset $REVIEW_BASE to upstream
       sync = ''!f() { git fetch origin && git branch -f "$REVIEW_BASE" origin/"$REVIEW_BASE"; }; f'';
 
