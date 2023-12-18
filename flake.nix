@@ -31,6 +31,12 @@
       inputs.flake-utils.follows = "flake-utils";
     };
     hyprland.url = "github:hyprwm/Hyprland";
+
+    # vim plugins
+    plugin-vim-tmux-runner = {
+      url = "github:christoomey/vim-tmux-runner";
+      flake = false;
+    };
   };
 
   outputs =

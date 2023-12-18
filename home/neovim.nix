@@ -1,7 +1,14 @@
-{ config, pkgs, ... }:
+{ pkgs, inputs, ... }:
 let
   toLua = str: "lua << EOF\n${str}\nEOF\n";
   toLuaFile = file: toLua (builtins.readFile file);
+
+  toVimPluginSpec = { name, src, config ? "" }: {
+    inherit config;
+    plugin = pkgs.vimUtils.buildVimPlugin {
+      inherit name src;
+    };
+  };
 in
 {
   programs.neovim = {
@@ -30,7 +37,7 @@ in
       vim-fugitive
       vim-rhubarb
       vim-repeat
-      # vim-tmux-runner
+      (toVimPluginSpec { name = "vim-tmux-runner"; src = inputs.plugin-vim-tmux-runner; })
       # vim-conflicted
       vim-test
       vim-easy-align

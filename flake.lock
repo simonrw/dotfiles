@@ -201,6 +201,22 @@
         "type": "github"
       }
     },
+    "plugin-vim-tmux-runner": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1684694288,
+        "narHash": "sha256-JCtBR3bxyuy/BmjXdiauO7SVOnwxDqabXRIQeeJZ7Vw=",
+        "owner": "christoomey",
+        "repo": "vim-tmux-runner",
+        "rev": "eead441119d9863227f4c39dac7890aa09d6b4cd",
+        "type": "github"
+      },
+      "original": {
+        "owner": "christoomey",
+        "repo": "vim-tmux-runner",
+        "type": "github"
+      }
+    },
     "root": {
       "inputs": {
         "cert-info": "cert-info",
@@ -211,6 +227,7 @@
         "jetbrains-updater": "jetbrains-updater",
         "nix-index-database": "nix-index-database",
         "nixpkgs": "nixpkgs_2",
+        "plugin-vim-tmux-runner": "plugin-vim-tmux-runner",
         "vscode-server": "vscode-server"
       }
     },
