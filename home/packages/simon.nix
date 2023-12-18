@@ -99,7 +99,7 @@ in
     groff
     keymapp
     libreoffice
-    obsidian
+    (obsidian.override { electron = electron_28; })
     pinentry-gtk2
     playerctl
     virt-manager
