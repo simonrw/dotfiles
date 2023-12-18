@@ -4,10 +4,6 @@ require('plugins')
 require('mappings')
 require('lualineconfig')
 
-if vim.g.include_treesitter == 1 then
-    require('treesitterconfig')
-end
-
 require('gutentags')
 require('hardtime')
 
