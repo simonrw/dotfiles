@@ -1,4 +1,4 @@
-{ pkgs, lib, ... }:
+{ ... }:
 {
   imports = [
     ./wm/cinnamon.nix
@@ -9,6 +9,7 @@
     ./wm/sway.nix
     ./wm/bspwm.nix
     ./wm/pantheon.nix
+    ./wm/hyprland.nix
   ];
 
   # enable the window managers I use 

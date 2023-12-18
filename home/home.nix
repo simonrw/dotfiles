@@ -47,6 +47,8 @@ in
     ./pantheon.nix
     ./xcape.nix
     ./bspwm.nix
+    ./hyprland.nix
+    ./waybar.nix
   ] ++ lib.optionals isDarwin [
   ];
 

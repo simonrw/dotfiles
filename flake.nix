@@ -30,6 +30,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.flake-utils.follows = "flake-utils";
     };
+    hyprland.url = "github:hyprwm/Hyprland";
   };
 
   outputs =
@@ -43,7 +44,7 @@
     , vscode-server
     , cert-info
     , ...
-    }:
+    }@inputs:
     let
       mkOverlays = system: [
         (final: prev: {
@@ -108,11 +109,12 @@
               self.modules.nix
               (self.modules.nixos { inherit name; })
               home-manager.nixosModules.home-manager
+              inputs.hyprland.nixosModules.default
               {
                 home-manager.useGlobalPkgs = true;
                 home-manager.useUserPackages = true;
                 home-manager.extraSpecialArgs = {
-                  inherit system;
+                  inherit system inputs;
                   isLinux = pkgs.stdenv.isLinux;
                   isDarwin = pkgs.stdenv.isDarwin;
                 };
@@ -167,7 +169,7 @@
                     home-manager.useGlobalPkgs = true;
                     home-manager.useUserPackages = true;
                     home-manager.extraSpecialArgs = {
-                      inherit system;
+                      inherit system inputs;
                       isLinux = pkgs.stdenv.isLinux;
                       isDarwin = pkgs.stdenv.isDarwin;
                     };
@@ -209,7 +211,7 @@
               # stop infinite recusion when trying to access
               # pkgs.stdenv.is{Linux,Darwin} from within a module
               extraSpecialArgs = {
-                inherit system;
+                inherit system inputs;
                 isLinux = pkgs.stdenv.isLinux;
                 isDarwin = pkgs.stdenv.isDarwin;
               };
@@ -222,7 +224,7 @@
               # stop infinite recusion when trying to access
               # pkgs.stdenv.is{Linux,Darwin} from within a module
               extraSpecialArgs = {
-                inherit system;
+                inherit system inputs;
                 isLinux = pkgs.stdenv.isLinux;
                 isDarwin = pkgs.stdenv.isDarwin;
               };
