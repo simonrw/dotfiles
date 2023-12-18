@@ -2,14 +2,34 @@
   description = "home-manager configuration";
 
   inputs = {
-    utils.url = "github:numtide/flake-utils";
+    flake-utils.url = "github:numtide/flake-utils";
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    home-manager.url = "github:nix-community/home-manager";
-    darwin.url = "github:lnl7/nix-darwin/master";
-    jetbrains-updater.url = "gitlab:genericnerdyusername/jetbrains-updater";
-    nix-index-database.url = "github:Mic92/nix-index-database";
-    vscode-server.url = "github:msteen/nixos-vscode-server";
-    cert-info.url = "github:simonrw/cert-info";
+    home-manager = {
+      url = "github:nix-community/home-manager";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    darwin = {
+      url = "github:lnl7/nix-darwin/master";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    jetbrains-updater = {
+      url = "gitlab:genericnerdyusername/jetbrains-updater";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    nix-index-database = {
+      url = "github:Mic92/nix-index-database";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    vscode-server = {
+      url = "github:msteen/nixos-vscode-server";
+      inputs.flake-utils.follows = "flake-utils";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    cert-info = {
+      url = "github:simonrw/cert-info";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.flake-utils.follows = "flake-utils";
+    };
   };
 
   outputs =
