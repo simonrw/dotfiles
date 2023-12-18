@@ -99,14 +99,21 @@
         )
         jetbrains-updater.overlay
       ];
+
+      getPkgs = system: import nixpkgs {
+        inherit system;
+        overlays = mkOverlays system;
+        config.allowUnfree = true;
+        config.permittedInsecurePackages = [
+          # for obsidian
+          "electron-25.9.0"
+        ];
+      };
+
       mkNixOSConfiguration =
         system: name:
         let
-          pkgs = import nixpkgs {
-            inherit system;
-            overlays = mkOverlays system;
-            config.allowUnfree = true;
-          };
+          pkgs = getPkgs system;
         in
         nixpkgs.lib.nixosSystem {
           inherit pkgs system;
@@ -156,11 +163,7 @@
             let
               system = "aarch64-darwin";
 
-              pkgs = import nixpkgs {
-                inherit system;
-                overlays = mkOverlays system;
-                config.allowUnfree = true;
-              };
+              pkgs = getPkgs system;
             in
             {
               mba = darwin.lib.darwinSystem {
@@ -196,13 +199,7 @@
       # these definitions are per system
       perSystemConfigurations = flake-utils.lib.eachDefaultSystem (system:
         let
-          overlays = mkOverlays system;
-
-          pkgs = import nixpkgs {
-            inherit system overlays;
-            config.allowUnfree = true;
-          };
-
+          pkgs = getPkgs system;
         in
         {
           inherit pkgs;
