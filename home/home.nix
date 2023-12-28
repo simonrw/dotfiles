@@ -74,7 +74,7 @@ in
     theme = "nord";
     vscode-theme = "Dracula";
     defaults = {
-      browser = "brave";
+      browser = "firefox";
       # some dodgy font rendering on linux
       terminal = if isLinux then "kitty" else "alacritty";
     };
