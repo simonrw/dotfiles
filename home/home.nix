@@ -6,6 +6,7 @@ in
 {
   imports = [
     ./alacritty.nix
+    ./aws.nix
     ./bat.nix
     ./colours.nix
     ./dark-mode.nix
@@ -71,6 +72,7 @@ in
     fonts-to-install = [
       pkgs.monaspace
     ];
+    aws.enable = true;
     theme = "nord";
     vscode-theme = "Dracula";
     defaults = {
