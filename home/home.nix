@@ -14,6 +14,7 @@ in
     ./direnv.nix
     ./eza.nix
     ./emacs.nix
+    ./firefox.nix
     ./fish.nix
     ./font.nix
     ./fzf.nix

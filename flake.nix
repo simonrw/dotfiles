@@ -8,6 +8,7 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    nur.url = "github:nix-community/NUR";
     darwin = {
       url = "github:lnl7/nix-darwin/master";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -49,6 +50,7 @@
     , nix-index-database
     , vscode-server
     , cert-info
+    , nur
     , ...
     }@inputs:
     let
@@ -98,6 +100,7 @@
           }
         )
         jetbrains-updater.overlay
+        nur.overlay
       ];
 
       getPkgs = system: import nixpkgs {
