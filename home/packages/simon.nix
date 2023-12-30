@@ -100,7 +100,7 @@ in
     keymapp
     libreoffice
     obsidian
-    pinentry-gtk2
+    pinentry-gnome
     playerctl
     virt-manager
     vlc

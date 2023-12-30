@@ -145,7 +145,7 @@ in
 
   services.gpg-agent = lib.mkIf isLinux {
     enable = true;
-    pinentryFlavor = "gtk2";
+    pinentryFlavor = "gnome3";
     enableFishIntegration = true;
     enableBashIntegration = true;
   };
