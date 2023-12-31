@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+BRANCH=${1:-}
+if [ -z ${1:-} ]; then
+    read -p "Branch name: " BRANCH
+fi
+
+git branch ${BRANCH}
+git reset --hard HEAD~
+git checkout ${BRANCH}
