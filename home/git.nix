@@ -140,7 +140,8 @@ in
       diff = {
         algorithm = "patience";
         tool = "meld";
-        colorMoved = "default";
+        colormoved = "default";
+        colormovedws = "allow-indentation-change";
       };
       difftool.prompt = false;
       difftool.meld = {
@@ -174,7 +175,7 @@ in
       };
       merge = {
         tool = "vimdiff";
-        conflictstyle = "diff3";
+        conflictstyle = "zdiff3";
       };
       transfer = {
         fsckobjects = true;
