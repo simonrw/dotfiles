@@ -347,7 +347,7 @@ let
         { index = 17; color = "#DC8A78"; }
       ];
     };
-    solarized = rec {
+    solarized-light = rec {
       primary = {
         background = "#fdf6e3";
         foreground = "#586e75";
@@ -671,7 +671,7 @@ let
       set background=dark
       colorscheme dracula
     '';
-    solarized = ''
+    solarized-light = ''
       set background=light
 
       let g:solarized_disable_background = v:true
@@ -773,7 +773,7 @@ let
 
   bat-theme = {
     github-light = "GitHub";
-    solarized = "Solarized (light)";
+    solarized-light = "Solarized (light)";
     catppuccin-latte = "GitHub";
     nord = "Nord";
   }.${config.me.theme} or "Monokai Extended";
@@ -794,7 +794,7 @@ let
   light-themes = [
     "catppuccin-latte"
     "github-light"
-    "solarized"
+    "solarized-light"
   ];
 
   is-dark-theme = builtins.elem config.me.theme dark-themes;
