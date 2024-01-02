@@ -66,18 +66,6 @@
           cert-info = cert-info.packages.${system}.default;
           gh-repo-url = final.callPackage ./derivations/gh-repo-url { };
           gh-rebase-pr = final.callPackage ./derivations/gh-rebase-pr { };
-          # add flags to firefox devedition to use my old profile
-          firefox-devedition = (
-            final.symlinkJoin {
-              name = "firefox-devedition";
-              paths = [ prev.firefox-devedition ];
-              buildInputs = [ final.makeWrapper ];
-              postBuild = ''
-                wrapProgram $out/bin/firefox \
-                  --add-flags "-P default"
-              '';
-            }
-          );
         })
         # override the version of xattr for poetry
         (
