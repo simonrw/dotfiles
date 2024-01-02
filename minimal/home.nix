@@ -17,6 +17,7 @@ in
     ../home/neovim.nix
     ../home/nix-index.nix
     ../home/tmux.nix
+    ../home/git/global.nix
   ];
 
   options = with lib; {
