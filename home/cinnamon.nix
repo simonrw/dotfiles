@@ -31,32 +31,27 @@ in
         dconf.settings = {
           # custom keybindings
           "org/cinnamon/desktop/keybindings/custom-keybindings/custom0" = {
-            binding = [ "<Alt><Super>s" ];
-            command = mkShortcutCommand "slack";
-            name = "Slack";
-          };
-          "org/cinnamon/desktop/keybindings/custom-keybindings/custom1" = {
             binding = [ "<Alt><Super>t" ];
             command = mkShortcutCommand terminal;
             name = "Terminal";
           };
-          "org/cinnamon/desktop/keybindings/custom-keybindings/custom2" = {
+          "org/cinnamon/desktop/keybindings/custom-keybindings/custom1" = {
             binding = [ "<Alt><Super>c" ];
             command = mkShortcutCommand browser;
             name = "Browser";
           };
-          "org/cinnamon/desktop/keybindings/custom-keybindings/custom3" = {
+          "org/cinnamon/desktop/keybindings/custom-keybindings/custom2" = {
             binding = [ "<Alt><Super>e" ];
             command = mkShortcutCommand "obsidian";
             name = "Notes";
           };
-          "org/cinnamon/desktop/keybindings/custom-keybindings/custom4" = {
+          "org/cinnamon/desktop/keybindings/custom-keybindings/custom3" = {
             binding = [ "<Alt><Super>r" ];
             command = mkShortcutCommand "zeal";
             name = "Documentation";
           };
           "org/cinnamon/desktop/keybindings" = {
-            custom-list = [ "__dummy__" "custom0" "custom1" "custom2" "custom3" "custom4" ];
+            custom-list = [ "__dummy__" "custom0" "custom1" "custom2" "custom3" ];
           };
           # media keys
           "org/cinnamon/desktop/keybindings/media-keys" = {
