@@ -1,4 +1,4 @@
-{ pkgs, config, ... }:
+{ pkgs, ... }:
 {
   programs.firefox = {
     enable = true;
@@ -15,7 +15,9 @@
           react-devtools
           ublock-origin
           vimium
-        ];
+        ] ++ (with pkgs.nur.repos.meain.firefox-addons; [
+          containerise
+        ]);
         extraConfig = builtins.readFile ./firefox-preferences.js;
         isDefault = true;
         settings = {
