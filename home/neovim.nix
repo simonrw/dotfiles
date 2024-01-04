@@ -90,7 +90,6 @@ in
         config = toLuaFile ./nvim/lua/treesitterconfig.lua;
       }
       nvim-treesitter-textobjects
-      nvim-treesitter-context
       playground
       plenary-nvim
       lsp-status-nvim
