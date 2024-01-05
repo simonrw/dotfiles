@@ -838,6 +838,9 @@ with lib;
       catppuccin-frappe = [
         catppuccin-nvim
       ];
+      solarized-light = [
+        solarized-nvim
+      ];
     }.${config.me.theme} or [ ];
     programs.tmux.extraConfig = ''
       fg_colour="${tmux-primary-colour}"
