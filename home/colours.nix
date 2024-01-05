@@ -835,6 +835,12 @@ with lib;
       gruvbox = [
         gruvbox
       ];
+      nord = [
+        nord-nvim
+      ];
+      dracula = [
+        dracula-nvim
+      ];
       catppuccin-frappe = [
         catppuccin-nvim
       ];

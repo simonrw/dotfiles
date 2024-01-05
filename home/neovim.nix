@@ -93,8 +93,6 @@ in
       playground
       plenary-nvim
       lsp-status-nvim
-      dracula-nvim
-      nord-nvim
     ];
   };
 }
