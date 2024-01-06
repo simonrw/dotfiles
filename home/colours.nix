@@ -1,5 +1,17 @@
 { pkgs, config, lib, ... }:
 let
+  # custom vim plugins for colour schemes
+  github-nvim-theme = pkgs.vimUtils.buildVimPlugin {
+    pname = "github-nvim-theme";
+    version = "1.0.1";
+    src = pkgs.fetchFromGitHub {
+      owner = "projekt0n";
+      repo = "github-nvim-theme";
+      rev = "d3199bc5074a80b123b6cd5b6797076b1727576a";
+      hash = "sha256-4gyqucnN+dLxy5joPiKgJ6Ja5dpzfw0ADmUqQZQ9xg4=";
+    };
+  };
+
   themes = rec {
     one-dark = rec {
       fish-theme = "fish_default";
@@ -832,6 +844,9 @@ with lib;
     #   hi TreesitterContext guibg=${current-theme.normal.white}
     # '';
     programs.neovim.plugins = with pkgs.vimPlugins; {
+      github-light = [
+        github-nvim-theme
+      ];
       gruvbox = [
         gruvbox
       ];
