@@ -1,12 +1,14 @@
-{ lib, config, ... }:
-with lib;
-let
+{
+  lib,
+  config,
+  ...
+}:
+with lib; let
   cfg = config.me.wm;
 
   # reasons to add waybar
   enable = cfg.hyprland.enable;
-in
-{
+in {
   programs.waybar = mkIf enable {
     enable = true;
     systemd.enable = true;
@@ -19,9 +21,9 @@ in
           "DP-1"
           "DP-2"
         ];
-        modules-left = [ "wlr/workspaces" ];
-        modules-center = [ "hyprland/window" ];
-        modules-right = [ "bluetooth" ];
+        modules-left = ["wlr/workspaces"];
+        modules-center = ["hyprland/window"];
+        modules-right = ["bluetooth"];
         # module config
         "wlr/workspaces" = {
           "on-click" = "activate";

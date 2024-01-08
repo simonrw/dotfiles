@@ -1,8 +1,11 @@
-{ pkgs, lib, config, ... }:
-let
-  cfg = config.me.wm.mate;
-in
 {
+  pkgs,
+  lib,
+  config,
+  ...
+}: let
+  cfg = config.me.wm.mate;
+in {
   options.me.wm.mate.enable = lib.mkEnableOption "MATE";
 
   config = lib.mkIf cfg.enable {

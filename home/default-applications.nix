@@ -1,6 +1,9 @@
-{ lib, config, ... }:
-with lib;
-let
+{
+  lib,
+  config,
+  ...
+}:
+with lib; let
   cfg = config.me.defaults;
 
   names = [
@@ -22,8 +25,7 @@ let
       };
     };
   };
-in
-{
+in {
   options.me.defaults = {
     browser = mkOption {
       type = types.oneOf [

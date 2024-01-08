@@ -1,5 +1,4 @@
-{ ... }:
-{
+{...}: {
   programs.ssh = {
     enable = true;
     compression = true;
@@ -13,7 +12,7 @@
     '';
     matchBlocks = {
       "*" = {
-        sendEnv = [ "TMUX_DISABLED" ];
+        sendEnv = ["TMUX_DISABLED"];
       };
       "astoria" = {
         user = "simon";

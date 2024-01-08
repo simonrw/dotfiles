@@ -1,5 +1,9 @@
-{ pkgs, config, lib, ... }:
-let
+{
+  pkgs,
+  config,
+  lib,
+  ...
+}: let
   # custom vim plugins for colour schemes
   github-nvim-theme = pkgs.vimUtils.buildVimPlugin {
     pname = "github-nvim-theme";
@@ -355,8 +359,14 @@ let
       };
 
       indexed_colors = [
-        { index = 16; color = "#FE640B"; }
-        { index = 17; color = "#DC8A78"; }
+        {
+          index = 16;
+          color = "#FE640B";
+        }
+        {
+          index = 17;
+          color = "#DC8A78";
+        }
       ];
     };
     solarized-light = rec {
@@ -451,8 +461,14 @@ let
       };
 
       indexed_colors = [
-        { index = 16; color = "#d18616"; }
-        { index = 17; color = "#cb2431"; }
+        {
+          index = 16;
+          color = "#d18616";
+        }
+        {
+          index = 17;
+          color = "#cb2431";
+        }
       ];
     };
     gruvbox = rec {
@@ -484,7 +500,6 @@ let
         magenta = "#d3869b";
         cyan = "#8ec07c";
         white = "#d5c4a1";
-
       };
       # Bright colors
       bright = {
@@ -546,8 +561,14 @@ let
       };
 
       indexed_colors = [
-        { index = 16; color = "#d18616"; }
-        { index = 17; color = "#f97583"; }
+        {
+          index = 16;
+          color = "#d18616";
+        }
+        {
+          index = 17;
+          color = "#f97583";
+        }
       ];
     };
     srw = rec {
@@ -770,11 +791,14 @@ let
     '';
   };
 
-  helix-theme = {
-    github-light = "github_light";
-    catppuccin-latte = "catppuccin_latte";
-    nord = "nord-custom";
-  }.${config.me.theme} or "monokai-pro-custom";
+  helix-theme =
+    {
+      github-light = "github_light";
+      catppuccin-latte = "catppuccin_latte";
+      nord = "nord-custom";
+    }
+    .${config.me.theme}
+    or "monokai-pro-custom";
 
   current-theme = themes.${config.me.theme};
   tmux-primary-colour = current-theme.tmux-colour or current-theme.normal.blue;
@@ -783,14 +807,17 @@ let
   tmux-pane-text-colour = current-theme.tmux-pane-colour or current-theme.normal.white;
   fish-theme = current-theme.fish-theme or "fish default";
 
-  bat-theme = {
-    github-light = "GitHub";
-    solarized-light = "Solarized (light)";
-    catppuccin-latte = "GitHub";
-    nord = "Nord";
-  }.${config.me.theme} or "Monokai Extended";
+  bat-theme =
+    {
+      github-light = "GitHub";
+      solarized-light = "Solarized (light)";
+      catppuccin-latte = "GitHub";
+      nord = "Nord";
+    }
+    .${config.me.theme}
+    or "Monokai Extended";
 
-  vscode-theme = { }.${config.me.theme} or "Monokai Pro";
+  vscode-theme = {}.${config.me.theme} or "Monokai Pro";
 
   dark-themes = [
     "dracula"
@@ -811,121 +838,122 @@ let
 
   is-dark-theme = builtins.elem config.me.theme dark-themes;
 in
-with lib;
+  with lib; {
+    options = {
+      me.theme = mkOption {
+        type = types.enum (dark-themes ++ light-themes);
+      };
 
-{
-  options = {
-    me.theme = mkOption {
-      type = types.enum (dark-themes ++ light-themes);
+      me.vscode-theme = mkOption {
+        type = types.nullOr types.str;
+        description = "Custom vscode theme if different";
+        default = null;
+      };
+
+      me.is-dark-theme = mkOption {
+        type = types.bool;
+        default = is-dark-theme;
+      };
     };
+    config = {
+      programs.bat.config.theme = bat-theme;
+      programs.helix.settings.theme = helix-theme;
+      programs.fish.interactiveShellInit = ''
+        # configure colour theme
+        fish_config theme choose "${fish-theme}"
+      '';
+      programs.alacritty.settings.colors = current-theme;
+      programs.neovim.extraConfig = neovim-theme-blocks.${config.me.theme};
+      # add vim after file for setting colour theme so it's not overridden by plugins
+      # home.file.".config/nvim/after/colors/theme.vim".text = ''
+      #   hi TreesitterContext guibg=${current-theme.normal.white}
+      # '';
+      programs.neovim.plugins = with pkgs.vimPlugins;
+        {
+          github-light = [
+            github-nvim-theme
+          ];
+          gruvbox = [
+            gruvbox
+          ];
+          nord = [
+            nord-nvim
+          ];
+          dracula = [
+            dracula-nvim
+          ];
+          catppuccin-frappe = [
+            catppuccin-nvim
+          ];
+          solarized-light = [
+            solarized-nvim
+          ];
+        }
+        .${config.me.theme}
+        or [];
+      programs.tmux.extraConfig = ''
+        fg_colour="${tmux-primary-colour}"
+        bg_colour="${tmux-background-colour}"
 
-    me.vscode-theme = mkOption {
-      type = types.nullOr types.str;
-      description = "Custom vscode theme if different";
-      default = null;
+        set -g mode-style "fg=#d5e1ed,bg=#456075"
+
+        set -g message-style "fg=${tmux-active-pane-text-colour},bg=$bg_colour"
+        set -g message-command-style "fg=${tmux-active-pane-text-colour},bg=$bg_colour"
+
+        set -g pane-border-style "fg=#444c56"
+        set -g pane-active-border-style "fg=$fg_colour"
+
+        set -g status "on"
+        set -g status-justify "left"
+
+        set -g status-style "fg=$fg_colour,bg=$bg_colour"
+        set -g status-bg "$bg_colour"
+
+        set -g status-left-length "100"
+        set -g status-right-length "100"
+
+        set -g status-left-style NONE
+        set -g status-right-style NONE
+
+        set -g status-left "#[fg=$fg_colour,bold][#S] "
+        set -g status-right "#[fg=$fg_colour,bold]#h"
+
+        setw -g window-status-activity-style "underscore,fg=#d1d5da,bg=$bg_colour"
+        setw -g window-status-separator ""
+        setw -g window-status-format " #[fg=${tmux-pane-text-colour}]#I #W:#{pane_current_command}#F "
+        setw -g window-status-current-format " #[fg=${tmux-active-pane-text-colour}]#I #W:#{pane_current_command}#F "
+      '';
+      programs.kitty.settings = {
+        background = current-theme.primary.background;
+        foreground = current-theme.primary.foreground;
+
+        cursor = current-theme.cursor.cursor;
+        cursor_text_color = current-theme.cursor.text;
+
+        selection_foreground = current-theme.selection.text;
+        selection_background = current-theme.selection.background;
+
+        color0 = current-theme.normal.black;
+        color1 = current-theme.normal.red;
+        color2 = current-theme.normal.green;
+        color3 = current-theme.normal.yellow;
+        color4 = current-theme.normal.blue;
+        color5 = current-theme.normal.magenta;
+        color6 = current-theme.normal.cyan;
+        color7 = current-theme.normal.white;
+
+        color8 = current-theme.bright.black;
+        color9 = current-theme.bright.red;
+        color10 = current-theme.bright.green;
+        color11 = current-theme.bright.yellow;
+        color12 = current-theme.bright.blue;
+        color13 = current-theme.bright.magenta;
+        color14 = current-theme.bright.cyan;
+        color15 = current-theme.bright.white;
+      };
+
+      programs.vscode.userSettings = {
+        "workbench.colorTheme" = config.me.vscode-theme or ({}.${config.me.theme} or "Monokai Pro");
+      };
     };
-
-    me.is-dark-theme = mkOption {
-      type = types.bool;
-      default = is-dark-theme;
-    };
-  };
-  config = {
-    programs.bat.config.theme = bat-theme;
-    programs.helix.settings.theme = helix-theme;
-    programs.fish.interactiveShellInit = ''
-      # configure colour theme
-      fish_config theme choose "${fish-theme}"
-    '';
-    programs.alacritty.settings.colors = current-theme;
-    programs.neovim.extraConfig = neovim-theme-blocks.${config.me.theme};
-    # add vim after file for setting colour theme so it's not overridden by plugins
-    # home.file.".config/nvim/after/colors/theme.vim".text = ''
-    #   hi TreesitterContext guibg=${current-theme.normal.white}
-    # '';
-    programs.neovim.plugins = with pkgs.vimPlugins; {
-      github-light = [
-        github-nvim-theme
-      ];
-      gruvbox = [
-        gruvbox
-      ];
-      nord = [
-        nord-nvim
-      ];
-      dracula = [
-        dracula-nvim
-      ];
-      catppuccin-frappe = [
-        catppuccin-nvim
-      ];
-      solarized-light = [
-        solarized-nvim
-      ];
-    }.${config.me.theme} or [ ];
-    programs.tmux.extraConfig = ''
-      fg_colour="${tmux-primary-colour}"
-      bg_colour="${tmux-background-colour}"
-
-      set -g mode-style "fg=#d5e1ed,bg=#456075"
-
-      set -g message-style "fg=${tmux-active-pane-text-colour},bg=$bg_colour"
-      set -g message-command-style "fg=${tmux-active-pane-text-colour},bg=$bg_colour"
-
-      set -g pane-border-style "fg=#444c56"
-      set -g pane-active-border-style "fg=$fg_colour"
-
-      set -g status "on"
-      set -g status-justify "left"
-
-      set -g status-style "fg=$fg_colour,bg=$bg_colour"
-      set -g status-bg "$bg_colour"
-
-      set -g status-left-length "100"
-      set -g status-right-length "100"
-
-      set -g status-left-style NONE
-      set -g status-right-style NONE
-
-      set -g status-left "#[fg=$fg_colour,bold][#S] "
-      set -g status-right "#[fg=$fg_colour,bold]#h"
-
-      setw -g window-status-activity-style "underscore,fg=#d1d5da,bg=$bg_colour"
-      setw -g window-status-separator ""
-      setw -g window-status-format " #[fg=${tmux-pane-text-colour}]#I #W:#{pane_current_command}#F "
-      setw -g window-status-current-format " #[fg=${tmux-active-pane-text-colour}]#I #W:#{pane_current_command}#F "
-    '';
-    programs.kitty.settings = {
-      background = current-theme.primary.background;
-      foreground = current-theme.primary.foreground;
-
-      cursor = current-theme.cursor.cursor;
-      cursor_text_color = current-theme.cursor.text;
-
-      selection_foreground = current-theme.selection.text;
-      selection_background = current-theme.selection.background;
-
-      color0 = current-theme.normal.black;
-      color1 = current-theme.normal.red;
-      color2 = current-theme.normal.green;
-      color3 = current-theme.normal.yellow;
-      color4 = current-theme.normal.blue;
-      color5 = current-theme.normal.magenta;
-      color6 = current-theme.normal.cyan;
-      color7 = current-theme.normal.white;
-
-      color8 = current-theme.bright.black;
-      color9 = current-theme.bright.red;
-      color10 = current-theme.bright.green;
-      color11 = current-theme.bright.yellow;
-      color12 = current-theme.bright.blue;
-      color13 = current-theme.bright.magenta;
-      color14 = current-theme.bright.cyan;
-      color15 = current-theme.bright.white;
-    };
-
-    programs.vscode.userSettings = {
-      "workbench.colorTheme" = config.me.vscode-theme or ({ }.${config.me.theme} or "Monokai Pro");
-    };
-  };
-}
+  }

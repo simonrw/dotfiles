@@ -1,21 +1,25 @@
-{ config, pkgs, isLinux, ... }:
-let
+{
+  config,
+  pkgs,
+  isLinux,
+  ...
+}: let
   inherit (pkgs) lib;
 
   colour-theme-name =
-    if
-      config.me.dark-mode
+    if config.me.dark-mode
     then "Tomorrow Night Bright"
-    else
-      (throw "Light theme not configured yet");
+    else (throw "Light theme not configured yet");
 
   # style output of go "glamour" programs e.g. gh
-  glamour-style = if config.me.dark-mode then "dark" else "light";
+  glamour-style =
+    if config.me.dark-mode
+    then "dark"
+    else "light";
 
   # the complete neovim package
   neovim = config.programs.neovim.finalPackage;
-in
-{
+in {
   programs.fish = {
     enable = true;
     interactiveShellInit = ''
@@ -121,37 +125,39 @@ in
         source $HOME/.config/fish/local.fish
       end
     '';
-    shellAliases = {
-      add-keys = ''ssh-add (find ~/.ssh - maxdepth 1 - type f - name "id_rsa*" | grep - v pub | grep - v bak)'';
-      cat = "${pkgs.bat}/bin/bat";
-      clear-pycs = "find { $PWD } -name '*.pyc' -delete";
-      da = "${pkgs.direnv}/bin/direnv allow";
-      de = "${pkgs.direnv}/bin/direnv edit";
-      es = ''exec $SHELL'';
-      gpe = "${pkgs.git}/bin/git push && exit";
-      gpr = "${pkgs.git}/bin/git pull --rebase";
-      grep = "${pkgs.ripgrep}/bin/rg";
-      gs = "${pkgs.git}/bin/git status";
-      less = "${pkgs.bat}/bin/bat";
-      lr = "thor";
-      more = "${pkgs.bat}/bin/bat";
-      nl = "nix-locate --regex --top-level";
-      nr = "nix repl --file '<nixpkgs>'";
-      ns = "nix shell";
-      nix-shell = "nix-shell --command fish";
-      ntfy = "notify-wrapper";
-      pylab = "ipython - -pylab";
-      sourceenv = "source ./venv/bin/activate";
-      ta = "_tmux_attach";
-      thor = "${pkgs.eza}/bin/eza -s modified -l";
-      tl = "tmux-last";
-      trash = "${pkgs.python3Packages.send2trash}/bin/send2trash";
-      tree = "${pkgs.eza}/bin/eza -T";
-      vup = "${neovim}/bin/nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'";
-    } // lib.optionalAttrs isLinux {
-      pbcopy = "${pkgs.xclip}/bin/xclip -selection clipboard";
-      pbpaste = "${pkgs.xclip}/bin/xclip -selection clipboard -o";
-    };
+    shellAliases =
+      {
+        add-keys = ''ssh-add (find ~/.ssh - maxdepth 1 - type f - name "id_rsa*" | grep - v pub | grep - v bak)'';
+        cat = "${pkgs.bat}/bin/bat";
+        clear-pycs = "find { $PWD } -name '*.pyc' -delete";
+        da = "${pkgs.direnv}/bin/direnv allow";
+        de = "${pkgs.direnv}/bin/direnv edit";
+        es = ''exec $SHELL'';
+        gpe = "${pkgs.git}/bin/git push && exit";
+        gpr = "${pkgs.git}/bin/git pull --rebase";
+        grep = "${pkgs.ripgrep}/bin/rg";
+        gs = "${pkgs.git}/bin/git status";
+        less = "${pkgs.bat}/bin/bat";
+        lr = "thor";
+        more = "${pkgs.bat}/bin/bat";
+        nl = "nix-locate --regex --top-level";
+        nr = "nix repl --file '<nixpkgs>'";
+        ns = "nix shell";
+        nix-shell = "nix-shell --command fish";
+        ntfy = "notify-wrapper";
+        pylab = "ipython - -pylab";
+        sourceenv = "source ./venv/bin/activate";
+        ta = "_tmux_attach";
+        thor = "${pkgs.eza}/bin/eza -s modified -l";
+        tl = "tmux-last";
+        trash = "${pkgs.python3Packages.send2trash}/bin/send2trash";
+        tree = "${pkgs.eza}/bin/eza -T";
+        vup = "${neovim}/bin/nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'";
+      }
+      // lib.optionalAttrs isLinux {
+        pbcopy = "${pkgs.xclip}/bin/xclip -selection clipboard";
+        pbpaste = "${pkgs.xclip}/bin/xclip -selection clipboard -o";
+      };
     shellAbbrs = {
       c = "cargo";
       d = "dev";

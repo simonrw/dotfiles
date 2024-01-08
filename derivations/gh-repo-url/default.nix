@@ -1,4 +1,4 @@
-{ pkgs ? import <nixpkgs> { } }:
+{pkgs ? import <nixpkgs> {}}:
 pkgs.stdenvNoCC.mkDerivation {
   pname = "gh-repo-url";
   version = "unstable";

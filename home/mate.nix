@@ -1,15 +1,11 @@
-{ config, ... }:
-let
-  mkShortcutCommand = application:
-    let
-      app' =
-        if builtins.isString application then
-          { name = application; }
-        else application;
-    in
-    "sh -c 'wmctrl -x -a ${app'.name} || ${app'.command or app'.name}'";
-in
-{
+{config, ...}: let
+  mkShortcutCommand = application: let
+    app' =
+      if builtins.isString application
+      then {name = application;}
+      else application;
+  in "sh -c 'wmctrl -x -a ${app'.name} || ${app'.command or app'.name}'";
+in {
   dconf.settings = {
     "org/mate/desktop/keybindings/custom0" = {
       binding = "<Alt><Mod4>t";

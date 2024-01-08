@@ -1,22 +1,27 @@
-{ pkgs, config, lib, ... }:
-let
-  cfg = config.me.wm.gnome;
-in
 {
+  pkgs,
+  config,
+  lib,
+  ...
+}: let
+  cfg = config.me.wm.gnome;
+in {
   options.me.wm.gnome = {
     enable = lib.mkEnableOption (lib.mdDoc "Enable Gnome window manager");
     wayland = lib.mkEnableOption (lib.mdDoc "Enable Wayland support");
   };
 
   config = lib.mkIf cfg.enable {
-    services.xserver.displayManager.defaultSession = if cfg.wayland then "gnome" else "gnome-xorg";
+    services.xserver.displayManager.defaultSession =
+      if cfg.wayland
+      then "gnome"
+      else "gnome-xorg";
     services.xserver.desktopManager.gnome.enable = true;
     services.xserver.displayManager.gdm.enable = true;
     services.xserver.displayManager.gdm.wayland = cfg.wayland;
-    services.udev.packages = with pkgs;
-      [
-        gnome.gnome-settings-daemon
-      ];
+    services.udev.packages = with pkgs; [
+      gnome.gnome-settings-daemon
+    ];
 
     environment.systemPackages = with pkgs; [
       gnome.adwaita-icon-theme

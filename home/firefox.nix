@@ -1,5 +1,4 @@
-{ pkgs, ... }:
-{
+{pkgs, ...}: {
   programs.firefox = {
     enable = true;
     # don't install firefox
@@ -7,17 +6,19 @@
     profiles = {
       simon = {
         name = "simon";
-        extensions = with pkgs.nur.repos.rycee.firefox-addons; [
-          enhancer-for-youtube
-          facebook-container
-          omnivore
-          pkgs.nur.repos.rycee.firefox-addons."1password-x-password-manager"
-          react-devtools
-          ublock-origin
-          vimium
-        ] ++ (with pkgs.nur.repos.meain.firefox-addons; [
-          containerise
-        ]);
+        extensions = with pkgs.nur.repos.rycee.firefox-addons;
+          [
+            enhancer-for-youtube
+            facebook-container
+            omnivore
+            pkgs.nur.repos.rycee.firefox-addons."1password-x-password-manager"
+            react-devtools
+            ublock-origin
+            vimium
+          ]
+          ++ (with pkgs.nur.repos.meain.firefox-addons; [
+            containerise
+          ]);
         extraConfig = builtins.readFile ./firefox-preferences.js;
         isDefault = true;
         settings = {

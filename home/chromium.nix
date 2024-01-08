@@ -1,5 +1,4 @@
-{ ... }:
-{
+{...}: {
   config = {
     programs.brave = {
       enable = true;
@@ -12,4 +11,3 @@
     };
   };
 }
-

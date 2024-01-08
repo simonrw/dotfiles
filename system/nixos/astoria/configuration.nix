@@ -1,27 +1,25 @@
 # Edit this configuration file to define what should be installed on
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
-
-{ config, pkgs, lib, ... }:
-
-let
-  default-locale = "en_GB.UTF-8";
-in
-
 {
-  imports =
-    [
-      # Include the results of the hardware scan.
-      ./hardware-configuration.nix
-      ./yubikey.nix
-      ./logitech.nix
-      ./wm.nix
-      ./networking.nix
-      ./update-diff.nix
-    ];
+  config,
+  pkgs,
+  lib,
+  ...
+}: let
+  default-locale = "en_GB.UTF-8";
+in {
+  imports = [
+    # Include the results of the hardware scan.
+    ./hardware-configuration.nix
+    ./yubikey.nix
+    ./logitech.nix
+    ./wm.nix
+    ./networking.nix
+    ./update-diff.nix
+  ];
 
   config = {
-
     # Bootloader.
     boot.loader.systemd-boot = {
       enable = true;
@@ -97,7 +95,7 @@ in
     programs._1password.enable = true;
     programs._1password-gui = {
       enable = true;
-      polkitPolicyOwners = [ "simon" ];
+      polkitPolicyOwners = ["simon"];
     };
 
     # Set your time zone.
@@ -137,7 +135,7 @@ in
     # Configure keymap in X11
     services.xserver = {
       enable = true;
-      videoDrivers = [ "nvidia" ];
+      videoDrivers = ["nvidia"];
       layout = "gb";
       xkbVariant = "";
       xkbOptions = "ctrl:nocaps";
@@ -152,15 +150,17 @@ in
     # https://github.com/dustinlyons/nixos-config/blob/84f23336a83363f287ebde8d25879cb53f1ec4c8/nixos/default.nix#L256C1-L269C1
     security.sudo = {
       enable = true;
-      extraRules = [{
-        commands = [
-          {
-            command = "${pkgs.systemd}/bin/reboot";
-            options = [ "NOPASSWD" ];
-          }
-        ];
-        groups = [ "wheel" ];
-      }];
+      extraRules = [
+        {
+          commands = [
+            {
+              command = "${pkgs.systemd}/bin/reboot";
+              options = ["NOPASSWD"];
+            }
+          ];
+          groups = ["wheel"];
+        }
+      ];
     };
 
     # Configure console keymap
@@ -203,7 +203,7 @@ in
       simon = {
         isNormalUser = true;
         description = "Simon Walker";
-        extraGroups = [ "libvirt" "kvm" "networkmanager" "wheel" "libvirtd" "docker" "podman" "input" "bluetooth" "plugdev" "wireshark" ];
+        extraGroups = ["libvirt" "kvm" "networkmanager" "wheel" "libvirtd" "docker" "podman" "input" "bluetooth" "plugdev" "wireshark"];
         shell = pkgs.fish;
         home = "/home/simon";
         initialPassword = "test.1234";
@@ -238,7 +238,7 @@ in
     };
     # settings to add if this is a virtual machine
     virtualisation.vmVariant = {
-      virtualisation.qemu.options = [ "-vga virtio" "-smp 4" "-m 16384" ];
+      virtualisation.qemu.options = ["-vga virtio" "-smp 4" "-m 16384"];
       documentation.enable = lib.mkForce false;
     };
 
@@ -254,7 +254,7 @@ in
       enable = true;
       remotePlay.openFirewall = true;
       # https://github.com/NixOS/nixpkgs/issues/236561#issuecomment-1581879353
-      package = with pkgs; steam.override { extraPkgs = pkgs: [ attr ]; };
+      package = with pkgs; steam.override {extraPkgs = pkgs: [attr];};
     };
 
     # List packages installed in system profile. To search, run:
@@ -323,7 +323,7 @@ in
     # configure the system for zsa keyboards
     hardware.keyboard.zsa.enable = true;
 
-    nix = import ../../../common/nix-settings.nix { inherit pkgs; };
+    nix = import ../../../common/nix-settings.nix {inherit pkgs;};
 
     # This value determines the NixOS release from which the default
     # settings for stateful data, like file locations and database versions
@@ -332,7 +332,5 @@ in
     # Before changing this value read the documentation for this option
     # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
     system.stateVersion = "22.05"; # Did you read the comment?
-
   };
 }
-

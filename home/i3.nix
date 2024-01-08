@@ -1,13 +1,18 @@
-{ pkgs, config, system, ... }:
-let
+{
+  pkgs,
+  config,
+  system,
+  ...
+}: let
   mod = "Mod4";
 
   focus-last = pkgs.stdenv.mkDerivation {
     name = "focus-last";
     propagatedBuildInputs = with pkgs; [
-      (python3.withPackages (ps: with ps; [
-        i3ipc
-      ]))
+      (python3.withPackages (ps:
+        with ps; [
+          i3ipc
+        ]))
     ];
     dontUnpack = true;
     installPhase = ''
@@ -15,28 +20,28 @@ let
     '';
   };
 
-  browser-command = {
-    "aarch64-linux" = "exec ${pkgs.firefox}/bin/firefox";
-  }.${system} or  "exec ${pkgs.google-chrome}/bin/google-chrome-stable";
-in
-{
+  browser-command =
+    {
+      "aarch64-linux" = "exec ${pkgs.firefox}/bin/firefox";
+    }
+    .${system}
+    or "exec ${pkgs.google-chrome}/bin/google-chrome-stable";
+in {
   config = {
     xsession.windowManager.i3 = {
       enable = true;
       config = {
         modifier = mod;
-        startup =
-          let
-            execAlways = cmd: {
-              command = cmd;
-              always = true;
-              notification = false;
-            };
-          in
-          [
-            (execAlways ''${pkgs.hsetroot}/bin/hsetroot -solid "#4f535c"'')
-            (execAlways ''${focus-last}/bin/i3-focus-last'')
-          ];
+        startup = let
+          execAlways = cmd: {
+            command = cmd;
+            always = true;
+            notification = false;
+          };
+        in [
+          (execAlways ''${pkgs.hsetroot}/bin/hsetroot -solid "#4f535c"'')
+          (execAlways ''${focus-last}/bin/i3-focus-last'')
+        ];
         menu = "${pkgs.rofi}/bin/rofi -show drun";
         window = {
           titlebar = false;
@@ -47,7 +52,7 @@ in
             position = "top";
             fonts = {
               # TODO: set this in font.nix
-              names = [ config.me.font-name ];
+              names = [config.me.font-name];
             };
           }
         ];

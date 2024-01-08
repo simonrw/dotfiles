@@ -1,9 +1,10 @@
-{ stdenv
-, fetchurl
-, autoPatchelfHook
-, libusb
-, webkitgtk
-, gtk3-x11
+{
+  stdenv,
+  fetchurl,
+  autoPatchelfHook,
+  libusb,
+  webkitgtk,
+  gtk3-x11,
 }:
 stdenv.mkDerivation rec {
   pname = "wally";
@@ -26,7 +27,6 @@ stdenv.mkDerivation rec {
 
   dontUnpack = true;
   doBuild = false;
-
 
   installPhase = ''
     install -Dm755 $src $out/bin/wally

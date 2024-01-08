@@ -1,8 +1,11 @@
-{ pkgs, lib, config, ... }:
-let
-  cfg = config.me.wm.hyprland;
-in
 {
+  pkgs,
+  lib,
+  config,
+  ...
+}: let
+  cfg = config.me.wm.hyprland;
+in {
   options.me.wm.hyprland.enable = lib.mkEnableOption (lib.mdDoc "Enable Hyprland window manager");
 
   config = lib.mkIf cfg.enable {

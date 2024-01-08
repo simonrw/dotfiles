@@ -1,6 +1,5 @@
-{ pkgs, ... }:
-with pkgs;
-let
+{pkgs, ...}:
+with pkgs; let
   plugin = stdenv.mkDerivation (finalAttrs: {
     pname = "wireshark-dap";
     version = "unstable";
@@ -18,8 +17,7 @@ let
       cp tcp-debug-adapter-protocol-dissector.lua $out
     '';
   });
-in
-{
+in {
   home.file.".local/lib/wireshark/plugins/tcp-debug-adapter-protocol-dissector.lua" = {
     source = plugin;
   };

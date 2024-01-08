@@ -1,8 +1,9 @@
-{ config, ... }:
-let
-  dark-theme-value = if config.me.is-dark-theme then "1" else "0";
-in
-{
+{config, ...}: let
+  dark-theme-value =
+    if config.me.is-dark-theme
+    then "1"
+    else "0";
+in {
   gtk = {
     enable = true;
     gtk2 = {
@@ -21,6 +22,5 @@ in
         gtk-application-prefer-dark-theme = dark-theme-value;
       };
     };
-
   };
 }

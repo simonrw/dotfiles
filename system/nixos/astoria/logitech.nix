@@ -1,4 +1,3 @@
-{ pkgs, ... }:
-{
+{pkgs, ...}: {
   services.ratbagd.enable = true;
 }

@@ -1,9 +1,11 @@
-{ config, pkgs, ... }:
-let
+{
+  config,
+  pkgs,
+  ...
+}: let
   # the complete neovim package
   neovim = config.programs.neovim.finalPackage;
-in
-{
+in {
   programs.git = {
     enable = true;
     aliases = {

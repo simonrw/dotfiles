@@ -1,5 +1,8 @@
-{ pkgs, lib, ... }:
 {
+  pkgs,
+  lib,
+  ...
+}: {
   imports = [
     ./wm/cinnamon.nix
     ./wm/gnome.nix
@@ -10,7 +13,7 @@
     ./wm/bspwm.nix
   ];
 
-  # enable the window managers I use 
+  # enable the window managers I use
   me.wm.i3.enable = true;
   # me.wm.sway.enable = true;
 

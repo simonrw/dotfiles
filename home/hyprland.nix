@@ -1,9 +1,11 @@
-{ lib, config, ... }:
-with lib;
-let
-  cfg = config.me.wm.hyprland;
-in
 {
+  lib,
+  config,
+  ...
+}:
+with lib; let
+  cfg = config.me.wm.hyprland;
+in {
   options.me.wm.hyprland = {
     enable = mkEnableOption "Hyprland";
   };

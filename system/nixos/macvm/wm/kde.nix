@@ -1,8 +1,10 @@
-{ lib, config, ... }:
-let
-  cfg = config.me.wm.kde;
-in
 {
+  lib,
+  config,
+  ...
+}: let
+  cfg = config.me.wm.kde;
+in {
   options.me.wm.kde.enable = lib.mkEnableOption "KDE";
 
   config = lib.mkIf cfg.enable {

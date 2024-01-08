@@ -1,9 +1,12 @@
-{ lib, pkgs, config, ... }:
-with lib;
-let
-  cfg = config.me.wm.pantheon;
-in
 {
+  lib,
+  pkgs,
+  config,
+  ...
+}:
+with lib; let
+  cfg = config.me.wm.pantheon;
+in {
   options.me.wm.pantheon = {
     enable = mkEnableOption "Pantheon";
 
@@ -26,11 +29,11 @@ in
       gvfs.enable = true;
     };
     # https://github.com/NixOS/nixpkgs/issues/144045#issuecomment-992487775
-    services.xserver.desktopManager.pantheon.extraWingpanelIndicators = with pkgs; [ wingpanel-indicator-ayatana ];
+    services.xserver.desktopManager.pantheon.extraWingpanelIndicators = with pkgs; [wingpanel-indicator-ayatana];
     systemd.user.services.indicatorapp = {
       description = "indicator-application-gtk3";
-      wantedBy = [ "graphical-session.target" ];
-      partOf = [ "graphical-session.target" ];
+      wantedBy = ["graphical-session.target"];
+      partOf = ["graphical-session.target"];
       serviceConfig = {
         ExecStart = "${pkgs.indicator-application-gtk3}/libexec/indicator-application/indicator-application-service";
       };

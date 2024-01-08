@@ -1,8 +1,11 @@
-{ pkgs, lib, config, ... }:
-let
-  mod = "Mod1";
-in
 {
+  pkgs,
+  lib,
+  config,
+  ...
+}: let
+  mod = "Mod1";
+in {
   wayland.windowManager.sway = {
     enable = true;
     config = rec {
@@ -17,7 +20,7 @@ in
           position = "top";
           fonts = {
             # TODO: set this in font.nix
-            names = [ config.me.font-name ];
+            names = [config.me.font-name];
           };
         }
       ];

@@ -1,6 +1,9 @@
-{ lib, config, ... }:
-with lib;
 {
+  lib,
+  config,
+  ...
+}:
+with lib; {
   options = {
     me.dark-mode = mkOption {
       default = config.me.is-dark-theme;

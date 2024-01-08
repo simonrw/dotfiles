@@ -1,28 +1,30 @@
-{ config, lib, ... }:
-with lib;
-let
+{
+  config,
+  lib,
+  ...
+}:
+with lib; let
   terminal = config.me.defaults.terminal;
   browser = config.me.defaults.browser;
-  mkShortcutCommand = application:
-    let
-      app' =
-        if builtins.isString application then
-          { name = application; }
-        else application;
-    in
-    "sh -c 'wmctrl -x -a ${app'.name} || ${app'.command or app'.name}'";
+  mkShortcutCommand = application: let
+    app' =
+      if builtins.isString application
+      then {name = application;}
+      else application;
+  in "sh -c 'wmctrl -x -a ${app'.name} || ${app'.command or app'.name}'";
 
-  animation-speed-integer = {
-    "none" = false;
-    "default" = 1;
-    "fast" = 4;
-    "faster" = 3;
-    "fastest" = 2;
-  }.${cfg.animation-speed};
+  animation-speed-integer =
+    {
+      "none" = false;
+      "default" = 1;
+      "fast" = 4;
+      "faster" = 3;
+      "fastest" = 2;
+    }
+    .${cfg.animation-speed};
 
   cfg = config.me.wm.gnome;
-in
-{
+in {
   options.me.wm.gnome = {
     enable = mkEnableOption (mdDoc "Enable gnome configuration");
     animation-speed = mkOption {
@@ -65,15 +67,15 @@ in
         name = "Documentation";
       };
       "org/gnome/settings-daemon/plugins/media-keys" = {
-        previous = [ "<Super>F7" ];
-        play = [ "<Super>F8" ];
-        next = [ "<Super>F9" ];
-        volume-down = [ "<Super>F11" ];
-        volume-up = [ "<Super>F12" ];
+        previous = ["<Super>F7"];
+        play = ["<Super>F8"];
+        next = ["<Super>F9"];
+        volume-down = ["<Super>F11"];
+        volume-up = ["<Super>F12"];
       };
       "org/gnome/settings-daemon/plugins/media-keys" = {
-        screenreader = [ ];
-        magnifier = [ ];
+        screenreader = [];
+        magnifier = [];
         custom-keybindings = [
           "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/"
           "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/"
@@ -94,7 +96,7 @@ in
           "user-theme@gnome-shell-extensions.gcampax.github.com"
           "just-perfection-desktop@just-perfection"
         ];
-        disabled-extensions = [ ];
+        disabled-extensions = [];
       };
       # search result options
       "org/gnome/desktop/search-providers" = {
@@ -145,4 +147,3 @@ in
     };
   };
 }
-

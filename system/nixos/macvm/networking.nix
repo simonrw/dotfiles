@@ -1,5 +1,4 @@
-{ config, ... }:
-{
+{config, ...}: {
   networking.hostName = "macvm"; # Define your hostname.
   networking.enableIPv6 = false;
 

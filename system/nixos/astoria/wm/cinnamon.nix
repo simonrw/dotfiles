@@ -1,8 +1,11 @@
-{ lib, pkgs, config, ... }:
-let
-  cfg = config.me.wm.cinnamon;
-in
 {
+  lib,
+  pkgs,
+  config,
+  ...
+}: let
+  cfg = config.me.wm.cinnamon;
+in {
   options.me.wm.cinnamon = {
     enable = lib.mkEnableOption (lib.mdDoc "Enable Cinnamon window manager");
   };

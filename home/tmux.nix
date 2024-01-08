@@ -1,5 +1,9 @@
-{ config, pkgs, isDarwin, ... }:
 {
+  config,
+  pkgs,
+  isDarwin,
+  ...
+}: {
   programs.tmux = {
     enable = true;
     aggressiveResize = true;
@@ -31,22 +35,20 @@
       tmuxPlugins.open
       tmuxPlugins.fzf-tmux-url
     ];
-    extraConfig = with pkgs;
-      let
-        commonFiles = with builtins; [
-          (readFile ./tmux/tmux.conf)
-        ];
+    extraConfig = with pkgs; let
+      commonFiles = with builtins; [
+        (readFile ./tmux/tmux.conf)
+      ];
 
-        darwinFiles = lib.optionals isDarwin [
-          (builtins.readFile ./tmux/tmux-osx.conf)
-        ];
-        # these require access to the pkgs attribute set, so place them here
-        customLines = [
-          ''
-            bind-key a run-shell -b ${pkgs.listprojects}/bin/project
-          ''
-        ];
-      in
-      (builtins.concatStringsSep "\n" (commonFiles ++ darwinFiles ++ customLines));
+      darwinFiles = lib.optionals isDarwin [
+        (builtins.readFile ./tmux/tmux-osx.conf)
+      ];
+      # these require access to the pkgs attribute set, so place them here
+      customLines = [
+        ''
+          bind-key a run-shell -b ${pkgs.listprojects}/bin/project
+        ''
+      ];
+    in (builtins.concatStringsSep "\n" (commonFiles ++ darwinFiles ++ customLines));
   };
 }

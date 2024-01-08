@@ -1,10 +1,16 @@
-{ pkgs, lib, isDarwin, ... }:
-let
-  username = "simon";
-  homeDir = if isDarwin then "Users" else "home";
-  homeDirectory = "/${homeDir}/${username}";
-in
 {
+  pkgs,
+  lib,
+  isDarwin,
+  ...
+}: let
+  username = "simon";
+  homeDir =
+    if isDarwin
+    then "Users"
+    else "home";
+  homeDirectory = "/${homeDir}/${username}";
+in {
   imports = [
     ../home/bat.nix
     ../home/colours.nix

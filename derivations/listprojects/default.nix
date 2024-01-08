@@ -1,4 +1,4 @@
-{ pkgs ? import <nixpkgs> { } }:
+{pkgs ? import <nixpkgs> {}}:
 pkgs.stdenv.mkDerivation {
   name = "project";
   version = "0.1.0";

@@ -1,5 +1,4 @@
-{ ... }:
-{
+{...}: {
   imports = [
     ./wm/cinnamon.nix
     ./wm/gnome.nix
@@ -12,7 +11,7 @@
     ./wm/hyprland.nix
   ];
 
-  # enable the window managers I use 
+  # enable the window managers I use
   me.wm.cinnamon.enable = true;
   # me.wm.sway.enable = true;
 

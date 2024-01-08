@@ -1,16 +1,22 @@
-{ pkgs, inputs, ... }:
-let
+{
+  pkgs,
+  inputs,
+  ...
+}: let
   toLua = str: "lua << EOF\n${str}\nEOF\n";
   toLuaFile = file: toLua (builtins.readFile file);
 
-  toVimPluginSpec = { name, src, config ? "" }: {
+  toVimPluginSpec = {
+    name,
+    src,
+    config ? "",
+  }: {
     inherit config;
     plugin = pkgs.vimUtils.buildVimPlugin {
       inherit name src;
     };
   };
-in
-{
+in {
   programs.neovim = {
     enable = true;
     withPython3 = true;
@@ -18,11 +24,12 @@ in
     vimAlias = true;
     vimdiffAlias = true;
     defaultEditor = true;
-    extraPython3Packages = (ps: with ps; [
-      pynvim
-      black
-      debugpy
-    ]);
+    extraPython3Packages = ps:
+      with ps; [
+        pynvim
+        black
+        debugpy
+      ];
     extraConfig = ''
       source ~/.config/nvim/nixinit.vim
     '';
@@ -37,7 +44,10 @@ in
       vim-fugitive
       vim-rhubarb
       vim-repeat
-      (toVimPluginSpec { name = "vim-tmux-runner"; src = inputs.plugin-vim-tmux-runner; })
+      (toVimPluginSpec {
+        name = "vim-tmux-runner";
+        src = inputs.plugin-vim-tmux-runner;
+      })
       # vim-conflicted
       vim-test
       vim-easy-align
@@ -58,7 +68,8 @@ in
 
       # treesitter
       {
-        plugin = (nvim-treesitter.withPlugins
+        plugin =
+          nvim-treesitter.withPlugins
           (p: [
             p.tree-sitter-bash
             p.tree-sitter-c
@@ -86,7 +97,7 @@ in
             p.tree-sitter-typescript
             p.tree-sitter-yaml
             p.tree-sitter-zig
-          ]));
+          ]);
         config = toLuaFile ./nvim/lua/treesitterconfig.lua;
       }
       nvim-treesitter-textobjects

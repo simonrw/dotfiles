@@ -1,9 +1,9 @@
 # taken from nixpkgs commit e7f49215422317c96445e0263f21e26e0180517e
-{ lib
-, stdenvNoCC
-, fetchzip
+{
+  lib,
+  stdenvNoCC,
+  fetchzip,
 }:
-
 stdenvNoCC.mkDerivation (finalAttrs: {
   pname = "monaspace";
   version = "1.000";
@@ -14,7 +14,7 @@ stdenvNoCC.mkDerivation (finalAttrs: {
     hash = "sha256-H8NOS+pVkrY9DofuJhPR2OlzkF4fMdmP2zfDBfrk83A=";
   };
 
-  outputs = [ "out" "woff" ];
+  outputs = ["out" "woff"];
 
   installPhase = ''
     runHook preInstall
@@ -51,8 +51,7 @@ stdenvNoCC.mkDerivation (finalAttrs: {
     '';
     homepage = "https://monaspace.githubnext.com/";
     license = lib.licenses.ofl;
-    maintainers = with lib.maintainers; [ AndersonTorres ];
+    maintainers = with lib.maintainers; [AndersonTorres];
     platforms = lib.platforms.all;
   };
 })
-

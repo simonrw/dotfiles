@@ -1,9 +1,12 @@
-{ pkgs, lib, config, ... }:
-with lib;
-let
-  cfg = config.services.rustdesk;
-in
 {
+  pkgs,
+  lib,
+  config,
+  ...
+}:
+with lib; let
+  cfg = config.services.rustdesk;
+in {
   options = {
     services.rustdesk = {
       enable = mkEnableOption "rustdesk";
@@ -12,7 +15,6 @@ in
         default = pkgs.rustdesk;
       };
     };
-
   };
 
   config = mkIf cfg.enable {
@@ -24,7 +26,7 @@ in
         ExecStart = "${cfg.package}/bin/rustdesk --server";
       };
       Install = {
-        WantedBy = [ "multi-user.target" ];
+        WantedBy = ["multi-user.target"];
       };
     };
     home.packages = [

@@ -1,22 +1,25 @@
-{ config, pkgs, lib, system, ... }:
-with lib;
-
-let
+{
+  config,
+  pkgs,
+  lib,
+  system,
+  ...
+}:
+with lib; let
   cfg = config.me.wm.bspwm;
 
   mod = "super";
 
-  browser = {
-    # macvm
-    aarch64-linux = "firefox";
-  }.${system} or "google-chrome-stable";
-
-in
-
-{
+  browser =
+    {
+      # macvm
+      aarch64-linux = "firefox";
+    }
+    .${system}
+    or "google-chrome-stable";
+in {
   options.me.wm.bspwm = {
     enable = mkEnableOption "BSPWM";
-
   };
   config = mkIf cfg.enable {
     xsession.windowManager.bspwm = {
@@ -143,9 +146,9 @@ in
 
         # focus the older or newer node in the focus history
         "${mod} + {o,i}" = ''
-          	bspc wm -h off; \
-          	bspc node {older,newer} -f; \
-          	bspc wm -h on
+          bspc wm -h off; \
+          bspc node {older,newer} -f; \
+          bspc wm -h on
         '';
 
         # focus or send to the given desktop
@@ -183,4 +186,3 @@ in
     };
   };
 }
-

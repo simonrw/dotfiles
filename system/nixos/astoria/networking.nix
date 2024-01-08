@@ -1,5 +1,4 @@
-{ config, ... }:
-{
+{config, ...}: {
   networking.hostName = "astoria"; # Define your hostname.
   networking.enableIPv6 = false;
   # add an extra host for debugging networking
@@ -18,8 +17,8 @@
   # Enable networking
   services.resolved = {
     enable = true;
-    domains = [ "lan" ];
-    fallbackDns = [ "192.168.0.2" ];
+    domains = ["lan"];
+    fallbackDns = ["192.168.0.2"];
     extraConfig = ''
       DNS=192.168.0.2
     '';

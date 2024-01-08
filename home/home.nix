@@ -1,58 +1,69 @@
-{ pkgs, isLinux, isDarwin, lib, system, ... }:
-let
-  homeDir = if isDarwin then "Users" else "home";
-  homeDirectory = "/${homeDir}/simon";
-in
 {
-  imports = [
-    ./alacritty.nix
-    ./aws.nix
-    ./bat.nix
-    ./colours.nix
-    ./dark-mode.nix
-    ./default-applications.nix
-    ./direnv.nix
-    ./eza.nix
-    ./emacs.nix
-    ./firefox.nix
-    ./fish.nix
-    ./font.nix
-    ./fzf.nix
-    ./gh.nix
-    ./git.nix
-    ./gpg.nix
-    ./helix.nix
-    ./home-manager.nix
-    ./ipython.nix
-    ./jq.nix
-    ./kitty.nix
-    ./mpv.nix
-    ./neovim.nix
-    ./nix-index.nix
-    ./packages/simon.nix
-    ./ssh.nix
-    ./tmux.nix
-    ./wireshark.nix
-    ./zoxide.nix
-    ./rustdesk.nix
-  ] ++ lib.optionals isLinux [
-    ./rofi.nix
-    ./chromium.nix
-    ./kde.nix
-    # ./xfce.nix
-    ./gnome.nix
-    ./i3.nix
-    ./gtk.nix
-    # ./sway.nix
-    # ./mate.nix
-    ./cinnamon.nix
-    ./pantheon.nix
-    ./xcape.nix
-    ./bspwm.nix
-    ./hyprland.nix
-    ./waybar.nix
-  ] ++ lib.optionals isDarwin [
-  ];
+  pkgs,
+  isLinux,
+  isDarwin,
+  lib,
+  system,
+  ...
+}: let
+  homeDir =
+    if isDarwin
+    then "Users"
+    else "home";
+  homeDirectory = "/${homeDir}/simon";
+in {
+  imports =
+    [
+      ./alacritty.nix
+      ./aws.nix
+      ./bat.nix
+      ./colours.nix
+      ./dark-mode.nix
+      ./default-applications.nix
+      ./direnv.nix
+      ./eza.nix
+      ./emacs.nix
+      ./firefox.nix
+      ./fish.nix
+      ./font.nix
+      ./fzf.nix
+      ./gh.nix
+      ./git.nix
+      ./gpg.nix
+      ./helix.nix
+      ./home-manager.nix
+      ./ipython.nix
+      ./jq.nix
+      ./kitty.nix
+      ./mpv.nix
+      ./neovim.nix
+      ./nix-index.nix
+      ./packages/simon.nix
+      ./ssh.nix
+      ./tmux.nix
+      ./wireshark.nix
+      ./zoxide.nix
+      ./rustdesk.nix
+    ]
+    ++ lib.optionals isLinux [
+      ./rofi.nix
+      ./chromium.nix
+      ./kde.nix
+      # ./xfce.nix
+      ./gnome.nix
+      ./i3.nix
+      ./gtk.nix
+      # ./sway.nix
+      # ./mate.nix
+      ./cinnamon.nix
+      ./pantheon.nix
+      ./xcape.nix
+      ./bspwm.nix
+      ./hyprland.nix
+      ./waybar.nix
+    ]
+    ++ lib.optionals isDarwin [
+    ];
 
   home = {
     inherit homeDirectory;
@@ -66,27 +77,39 @@ in
   };
 
   # custom properties
-  me = {
-    font-name = "JetBrains Mono";
-    font-style = "Semibold";
-    font-size = if isLinux then 10.0 else 12.0;
-    fonts-to-install = [
-      pkgs.monaspace
-    ];
-    aws.enable = true;
-    theme = "nord";
-    vscode-theme = "Dracula";
-    defaults = {
-      browser = "firefox";
-      # some dodgy font rendering on linux
-      terminal = if isLinux then "kitty" else "alacritty";
-    };
-  } // (if isLinux then {
-    wm.cinnamon = {
-      enable = system != "aarch64-linux";
-      dark-mode = true;
-    };
-  } else { });
+  me =
+    {
+      font-name = "JetBrains Mono";
+      font-style = "Semibold";
+      font-size =
+        if isLinux
+        then 10.0
+        else 12.0;
+      fonts-to-install = [
+        pkgs.monaspace
+      ];
+      aws.enable = true;
+      theme = "nord";
+      vscode-theme = "Dracula";
+      defaults = {
+        browser = "firefox";
+        # some dodgy font rendering on linux
+        terminal =
+          if isLinux
+          then "kitty"
+          else "alacritty";
+      };
+    }
+    // (
+      if isLinux
+      then {
+        wm.cinnamon = {
+          enable = system != "aarch64-linux";
+          dark-mode = true;
+        };
+      }
+      else {}
+    );
 
   home.file = {
     ".bin" = {

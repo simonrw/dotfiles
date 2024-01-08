@@ -1,5 +1,4 @@
-{ pkgs, ... }:
-{
+{pkgs, ...}: {
   services.xserver.displayManager.defaultSession = "xfce";
   services.xserver.desktopManager.xfce.enable = true;
   services.xserver.displayManager.sddm.enable = true;

@@ -1,8 +1,10 @@
-{ config, lib, ... }:
-let
-  cfg = config.me.xcape;
-in
 {
+  config,
+  lib,
+  ...
+}: let
+  cfg = config.me.xcape;
+in {
   options.me.xcape.enable = lib.mkEnableOption "xcape";
 
   config = {

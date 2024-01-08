@@ -1,9 +1,13 @@
-{ config, lib, pkgs, isLinux, ... }:
-with lib;
-let
-  cfg = config.me;
-in
 {
+  config,
+  lib,
+  pkgs,
+  isLinux,
+  ...
+}:
+with lib; let
+  cfg = config.me;
+in {
   options = {
     me.font-name = mkOption {
       type = types.enum [
@@ -39,70 +43,88 @@ in
     me.fonts-to-install = mkOption {
       type = types.listOf types.package;
       description = "Fonts to install regardless of what is chosen";
-      default = [ ];
+      default = [];
     };
   };
 
-  config =
-    let
-      nerdfont-name = {
+  config = let
+    nerdfont-name =
+      {
         "JetBrains Mono" = "JetBrainsMono";
         "Source Code Pro" = "SourceCodePro";
         "Inconsolata" = "Inconsolata";
-      }.${cfg.font-name} or null;
-      # TODO: hard-code comic mono here
-      font-package = if nerdfont-name != null then (pkgs.nerdfonts.override { fonts = [ nerdfont-name ]; }) else {
-        "Monaspace" = pkgs.monaspace;
-      }.${cfg.font-name};
+      }
+      .${cfg.font-name}
+      or null;
+    # TODO: hard-code comic mono here
+    font-package =
+      if nerdfont-name != null
+      then (pkgs.nerdfonts.override {fonts = [nerdfont-name];})
+      else
+        {
+          "Monaspace" = pkgs.monaspace;
+        }
+        .${cfg.font-name};
 
-      alacritty-font-renamed = {
+    alacritty-font-renamed =
+      {
         "IBM Plex" = "IBM Plex Mono";
         "Inconsolata" = "Inconsolata Nerd Font Mono";
         "JetBrains Mono" = "JetBrainsMono Nerd Font Mono";
         "Monaspace" = "Monaspace Neon Var";
-      }.${cfg.font-name} or cfg.font-name;
+      }
+      .${cfg.font-name}
+      or cfg.font-name;
 
-      kitty-font = {
+    kitty-font =
+      {
         "JetBrains Mono" = "JetBrainsMono NF Bold";
         "Fira Code" = "Fira Code SemiBold";
         "Monaspace" = "Monaspace Neon Var SemiBold";
-      }.${cfg.font-name} or cfg.font-name;
+      }
+      .${cfg.font-name}
+      or cfg.font-name;
 
-      alacritty-font-style-renamed = {
+    alacritty-font-style-renamed =
+      {
         Semibold = "Bold";
-      }.${cfg.font-style} or cfg.font-style;
+      }
+      .${cfg.font-style}
+      or cfg.font-style;
 
-      vscode-font = {
+    vscode-font =
+      {
         "JetBrains Mono" = "JetBrains Mono Semibold";
         "Source Code Pro" = "Source Code Pro Semibold";
-      }.${cfg.font-name};
-    in
-    {
-      # vs code font
-      programs.vscode.userSettings."editor.fontFamily" = vscode-font;
-      programs.alacritty.settings.font = {
-        normal.family = alacritty-font-renamed;
-        normal.style = alacritty-font-style-renamed;
-        italic.family = alacritty-font-renamed;
-        italic.style = alacritty-font-style-renamed;
-      };
-      programs.alacritty.settings.font.size = cfg.font-size;
-      programs.kitty.settings = {
-        font_family = kitty-font;
-        font_size = builtins.toString cfg.font-size;
-      };
+      }
+      .${cfg.font-name};
+  in {
+    # vs code font
+    programs.vscode.userSettings."editor.fontFamily" = vscode-font;
+    programs.alacritty.settings.font = {
+      normal.family = alacritty-font-renamed;
+      normal.style = alacritty-font-style-renamed;
+      italic.family = alacritty-font-renamed;
+      italic.style = alacritty-font-style-renamed;
+    };
+    programs.alacritty.settings.font.size = cfg.font-size;
+    programs.kitty.settings = {
+      font_family = kitty-font;
+      font_size = builtins.toString cfg.font-size;
+    };
 
-      home.packages = [
+    home.packages =
+      [
         font-package
-      ] ++ cfg.fonts-to-install;
+      ]
+      ++ cfg.fonts-to-install;
 
-      xsession.windowManager.i3.config = {
-        fonts = {
-          names = [ cfg.font-name ];
-          style = cfg.font-style;
-          size = cfg.font-size;
-        };
+    xsession.windowManager.i3.config = {
+      fonts = {
+        names = [cfg.font-name];
+        style = cfg.font-style;
+        size = cfg.font-size;
       };
     };
+  };
 }
-

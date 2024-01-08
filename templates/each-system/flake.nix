@@ -5,17 +5,20 @@
     flake-utils.url = "github:numtide/flake-utils";
   };
 
-  outputs = { self, nixpkgs, flake-utils }:
-    flake-utils.lib.eachDefaultSystem (system:
-      let
+  outputs = {
+    self,
+    nixpkgs,
+    flake-utils,
+  }:
+    flake-utils.lib.eachDefaultSystem (
+      system: let
         overlays = [
         ];
 
         pkgs = import nixpkgs {
           inherit overlays system;
         };
-      in
-      {
+      in {
         devShells = rec {
           default = empty;
 
@@ -25,15 +28,17 @@
           };
 
           rust-dev = pkgs.mkShell {
-            buildInputs = with pkgs; [
-              rustc
-              cargo
-              rust-analyzer
-              clippy
-              rustfmt
-            ] ++ pkgs.lib.optionals pkgs.stdenv.isDarwin [
-              libiconv
-            ];
+            buildInputs = with pkgs;
+              [
+                rustc
+                cargo
+                rust-analyzer
+                clippy
+                rustfmt
+              ]
+              ++ pkgs.lib.optionals pkgs.stdenv.isDarwin [
+                libiconv
+              ];
 
             shellHook = ":";
 

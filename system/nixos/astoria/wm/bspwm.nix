@@ -1,11 +1,12 @@
-{ pkgs, lib, config, ... }:
-with lib;
-
-let
-  cfg = config.me.wm.bspwm;
-in
-
 {
+  pkgs,
+  lib,
+  config,
+  ...
+}:
+with lib; let
+  cfg = config.me.wm.bspwm;
+in {
   options.me.wm.bspwm.enable = mkEnableOption "BSPWM";
 
   config = mkIf cfg.enable {

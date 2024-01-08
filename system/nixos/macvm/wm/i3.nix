@@ -1,12 +1,15 @@
-{ pkgs, lib, config, ... }:
-let
-  cfg = config.me.wm.i3;
-in
 {
+  pkgs,
+  lib,
+  config,
+  ...
+}: let
+  cfg = config.me.wm.i3;
+in {
   options.me.wm.i3.enable = lib.mkEnableOption (lib.mdDoc "Enable i3 support");
 
   config = lib.mkIf cfg.enable {
-    environment.pathsToLink = [ "/libexec" ];
+    environment.pathsToLink = ["/libexec"];
 
     services.xserver = {
       enable = true;
@@ -38,6 +41,6 @@ in
 
     programs.dconf.enable = true;
 
-    environment.systemPackages = with pkgs; [ ];
+    environment.systemPackages = with pkgs; [];
   };
 }

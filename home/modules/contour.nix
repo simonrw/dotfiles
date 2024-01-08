@@ -1,13 +1,14 @@
-{ config, lib, pkgs, ... }:
-
-with lib;
-
-let
-  cfg = config.programs.contour;
-  yamlFormat = pkgs.formats.yaml { };
-  isDarwin = pkgs.stdenv.isDarwin;
-in
 {
+  config,
+  lib,
+  pkgs,
+  ...
+}:
+with lib; let
+  cfg = config.programs.contour;
+  yamlFormat = pkgs.formats.yaml {};
+  isDarwin = pkgs.stdenv.isDarwin;
+in {
   options = {
     programs.contour = {
       enable = mkEnableOption "Contour";
@@ -21,7 +22,7 @@ in
 
       settings = mkOption {
         type = yamlFormat.type;
-        default = { };
+        default = {};
         example = literalExpression ''
           TODO
         '';
@@ -33,7 +34,10 @@ in
   };
   config = mkMerge [
     (mkIf cfg.enable {
-      home.packages = if isDarwin then [ ] else [ cfg.package ];
+      home.packages =
+        if isDarwin
+        then []
+        else [cfg.package];
 
       xdg.configFile."contour/contour.yml" = {
         source = yamlFormat.generate "contour.yml" cfg.settings;

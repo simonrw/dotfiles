@@ -1,7 +1,8 @@
-{ openssl
-, bat
-, writeShellScriptBin
-, ...
+{
+  openssl,
+  bat,
+  writeShellScriptBin,
+  ...
 }:
 writeShellScriptBin "cert-info" ''
   #!/usr/bin/env bash
