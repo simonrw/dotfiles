@@ -36,7 +36,7 @@ in {
       ./jq.nix
       ./kitty.nix
       ./mpv.nix
-      ./neovim.nix
+      ./nixvim
       ./nix-index.nix
       ./packages/simon.nix
       ./ssh.nix
@@ -153,10 +153,6 @@ in {
 
   xdg = {
     enable = true;
-    configFile.nvim = {
-      source = ./nvim;
-      recursive = true;
-    };
     configFile.karabiner = lib.mkIf isDarwin {
       source = ./karabiner;
       recursive = true;

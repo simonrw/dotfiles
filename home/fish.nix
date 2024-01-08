@@ -18,7 +18,7 @@
     else "light";
 
   # the complete neovim package
-  neovim = config.programs.neovim.finalPackage;
+  neovim = config.programs.nixvim.finalPackage;
 in {
   programs.fish = {
     enable = true;
