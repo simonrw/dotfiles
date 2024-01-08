@@ -124,7 +124,7 @@ in {
       insomnia
       lorien
       obs-studio
-      jetbrains.pycharm-community
+      jetbrains.pycharm-community-bin
       shotcut
       wally
       wally-cli
