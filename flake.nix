@@ -206,7 +206,7 @@
         in
         {
           inherit pkgs;
-          formatter = pkgs.nixpkgs-fmt;
+          formatter = pkgs.alejandra;
 
           homeConfigurations = {
             simon = home-manager.lib.homeManagerConfiguration {
