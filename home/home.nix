@@ -40,6 +40,7 @@ in {
       ./nix-index.nix
       ./packages/simon.nix
       ./ssh.nix
+      ./taskwarrior.nix
       ./tmux.nix
       ./wireshark.nix
       ./zoxide.nix
