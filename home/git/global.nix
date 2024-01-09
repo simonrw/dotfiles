@@ -4,7 +4,7 @@
   ...
 }: let
   # the complete neovim package
-  neovim = config.programs.neovim.finalPackage;
+  neovim = config.programs.nixvim.finalPackage;
 in {
   programs.git = {
     enable = true;

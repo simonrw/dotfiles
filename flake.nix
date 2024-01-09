@@ -4,6 +4,10 @@
   inputs = {
     flake-utils.url = "github:numtide/flake-utils";
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixvim = {
+      url = "github:nix-community/nixvim";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -51,6 +55,7 @@
     vscode-server,
     cert-info,
     nur,
+    nixvim,
     ...
   } @ inputs: let
     mkOverlays = system: [
@@ -135,6 +140,7 @@
             home-manager.users.simon = {...}: {
               imports = [
                 ./home/home.nix
+                nixvim.homeManagerModules.nixvim
               ];
             };
           }
@@ -211,6 +217,7 @@
             inherit pkgs;
             modules = [
               ./home/home.nix
+              nixvim.homeManagerModules.nixvim
             ];
             # stop infinite recusion when trying to access
             # pkgs.stdenv.is{Linux,Darwin} from within a module
@@ -224,6 +231,7 @@
             inherit pkgs;
             modules = [
               ./minimal/home.nix
+              nixvim.homeManagerModules.nixvim
             ];
             # stop infinite recusion when trying to access
             # pkgs.stdenv.is{Linux,Darwin} from within a module

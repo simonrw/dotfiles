@@ -20,7 +20,7 @@ in {
     ../home/font.nix
     ../home/fzf.nix
     ../home/jq.nix
-    ../home/neovim.nix
+    ../home/nixvim
     ../home/nix-index.nix
     ../home/tmux.nix
     ../home/git/global.nix
@@ -53,10 +53,6 @@ in {
     };
     xdg = {
       enable = true;
-      configFile.nvim = {
-        source = ../home/nvim;
-        recursive = true;
-      };
     };
   };
 }
