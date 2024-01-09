@@ -1,8 +1,8 @@
 {pkgs, ...}: let
   keymap = {
-    mode,
     key,
     action,
+    mode ? "n",
   }: {
     inherit mode key action;
     options = {
@@ -12,6 +12,7 @@
   };
 in {
   config.programs.nixvim = {
+    enable = true;
     colorschemes.nord.enable = true;
     options = {
       autowrite = true;
@@ -129,50 +130,103 @@ in {
       })
       # emulate vim-vinegar which stopped working
       (keymap {
-        mode = "n";
         key = "-";
         action = ":Explore<Cr>";
       })
       (keymap {
-        mode = "n";
         key = "<C-h>";
         action = "<C-w><C-h>";
       })
       (keymap {
-        mode = "n";
         key = "<C-j>";
         action = "<C-w><C-j>";
       })
       (keymap {
-        mode = "n";
         key = "<C-k>";
         action = "<C-w><C-k>";
       })
       (keymap {
-        mode = "n";
         key = "<C-l>";
         action = "<C-w><C-l>";
       })
       # keep the cursor centered
       (keymap {
-        mode = "n";
         key = "n";
         action = "nzzzv";
       })
       (keymap {
-        mode = "n";
         key = "N";
         action = "Nzzzv";
       })
       (keymap {
-        mode = "n";
         key = "/";
         action = "/\\v";
       })
       (keymap {
-        mode = "n";
         key = "?";
         action = "?\\v";
+      })
+      (keymap {
+        key = "gy";
+        action = "vim.lsp.buf.type_definition()";
+      })
+      (keymap {
+        key = "gi";
+        action = "vim.lsp.buf.implementation()";
+      })
+      (keymap {
+        key = "<leader>k";
+        action = "vim.lsp.buf.hover()";
+      })
+      (keymap {
+        key = "<leader>r";
+        action = "vim.lsp.buf.rename()";
+      })
+      (keymap {
+        key = "]d";
+        action = "vim.diagnostic.goto_next()";
+      })
+      (keymap {
+        key = "[d";
+        action = "vim.diagnostic.goto_prev()";
+      })
+      (keymap {
+        key = "<leader>a";
+        action = "vim.lsp.buf.code_action({ source = { organizeImports = true } })";
+      })
+      (keymap {
+        mode = "i";
+        key = "<C-h>";
+        action = "vim.lsp.buf.signature_help()";
+      })
+      (keymap {
+        key = "<leader>A";
+        action = "<cmd>AerialToggle!<cr>";
+      })
+      # fugitive
+      (keymap {
+        key = "<leader>gc";
+        action = ":Git commit -v<cr>";
+      })
+      (keymap {
+        key = "<leader>gd";
+        action = ":Gvdiff<cr>";
+      })
+      (keymap {
+        key = "<leader>gw";
+        action = ":Gwrite<cr>";
+      })
+      (keymap {
+        key = "<leader>gr";
+        action = ":Gread<cr>";
+      })
+      (keymap {
+        key = "gs";
+        action = ":Git<cr>";
+      })
+      (keymap {
+        key = "<leader>ga";
+        action = ":Git commit -v --amend<cr>";
       })
     ];
     globals = {
@@ -217,8 +271,9 @@ in {
           tsserver.enable = true;
           rust-analyzer = {
             enable = true;
-            installCargo = true;
-            installRustc = true;
+            # managed in projects
+            installCargo = false;
+            installRustc = false;
           };
           pyright.enable = true;
           ruff-lsp.enable = true;
@@ -235,39 +290,45 @@ in {
       treesitter-textobjects = {
         enable = true;
       };
+      nix.enable = true;
+      luasnip = {
+        enable = true;
+        extraConfig = {
+          history = true;
+          updateevents = "TextChanged,TextChangedI";
+          enable_autosnippets = true;
+        };
+      };
+      cmp_luasnip.enable = true;
       nvim-cmp = {
         enable = true;
         autoEnableSources = true;
+        preselect = "None";
         sources = [
           {name = "nvim_lsp";}
           {name = "path";}
           {name = "buffer";}
+          {name = "luasnip";}
         ];
         mapping = {
-          "<CR>" = "cmp.mapping.confirm({ select = true })";
+          "<C-p>" = "cmp.mapping.select_prev_item({ select = true })";
+          "<C-n>" = "cmp.mapping.select_next_item({ select = true })";
           "<C-y>" = "cmp.mapping.confirm({ select = true })";
-          "gy" = "vim.lsp.buf.type_definition()";
-          "gi" = "vim.lsp.buf.implementation()";
-          "<leader>k" = "vim.lsp.buf.hover()";
-          "<leader>r" = "vim.lsp.buf.rename()";
-          "]d" = "vim.diagnostic.goto_next()";
-          "[d" = "vim.diagnostic.goto_prev()";
-          "<leader>a" = "vim.lsp.buf.code_action({ source = { organizeImports = true } })";
-          "<C-h>" = {
-            action = "vim.lsp.buf.signature_help()";
-            modes = ["i"];
-          };
           "<C-Space>" = "cmp.mapping.complete()";
+          "<CR>" = "cmp.mapping.confirm({ select = true })";
+          "<C-e>" = "cmp.config.disable";
         };
+        snippet.expand = "luasnip";
       };
     };
     extraPlugins = with pkgs.vimPlugins; [
+      aerial-nvim
       vim-eunuch
       vim-unimpaired
       vim-rhubarb
       vim-repeat
       vim-test
-      rustaceanvim
+      # rustaceanvim
       playground
       lsp-status-nvim
     ];
