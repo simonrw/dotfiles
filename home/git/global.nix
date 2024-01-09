@@ -134,6 +134,9 @@ in {
           cmd = "smerge";
         };
         prompt = false;
+        vimdiff = {
+          cmd = "${neovim}/bin/nvim -d";
+        };
       };
       github = {
         user = "simonrw";
