@@ -233,6 +233,7 @@ in {
       mapleader = " ";
       nord_uniform_diff_background = 1;
     };
+    luaLoader.enable = true;
     plugins = {
       lualine.enable = true;
       gitsigns.enable = true;
