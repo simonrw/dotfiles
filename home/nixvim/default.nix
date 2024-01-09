@@ -293,6 +293,9 @@ in {
       };
       treesitter = {
         enable = true;
+        disabledLanguages = [
+          "gitcommit"
+        ];
       };
       treesitter-context = {
         enable = true;
