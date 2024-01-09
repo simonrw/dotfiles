@@ -195,6 +195,7 @@
               home-manager.users.simon = {...}: {
                 imports = [
                   ./home/home.nix
+                  nixvim.homeManagerModules.nixvim
                 ];
               };
             }
