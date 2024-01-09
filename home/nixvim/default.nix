@@ -253,6 +253,14 @@ in {
           overrideFileSorter = true;
           caseMode = "smart_case";
         };
+        extraOptions = {
+          git_files = {
+            disable_devicons = true;
+          };
+          find_files = {
+            disable_devicons = true;
+          };
+        };
         keymaps = {
           "<leader>f" = "git_files";
           "<leader>F" = "find_files";
