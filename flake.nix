@@ -140,6 +140,7 @@
             home-manager.users.simon = {...}: {
               imports = [
                 ./home/home.nix
+                nixvim.homeManagerModules.nixvim
               ];
             };
           }
@@ -230,6 +231,7 @@
             inherit pkgs;
             modules = [
               ./minimal/home.nix
+              nixvim.homeManagerModules.nixvim
             ];
             # stop infinite recusion when trying to access
             # pkgs.stdenv.is{Linux,Darwin} from within a module
