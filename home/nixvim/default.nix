@@ -70,6 +70,7 @@ in {
       lazyredraw = true;
       # TODO: handle with colours.nix
       background = "dark";
+      grepprg = "rg --vimgrep";
     };
     autoGroups = {
       lua-highlight.clear = true;
