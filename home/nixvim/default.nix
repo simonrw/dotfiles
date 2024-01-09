@@ -280,6 +280,10 @@ in {
         enable = true;
         servers = {
           tsserver.enable = true;
+          gopls = {
+            enable = true;
+            installLanguageServer = false;
+          };
           rust-analyzer = {
             enable = true;
             # managed in projects
