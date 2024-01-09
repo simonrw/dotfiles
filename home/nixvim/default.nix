@@ -332,5 +332,9 @@ in {
       playground
       lsp-status-nvim
     ];
+    extraConfigLua = ''
+      -- set up aerial-nvim
+      require('aerial').setup()
+    '';
   };
 }
