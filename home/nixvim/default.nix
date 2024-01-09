@@ -14,6 +14,7 @@ in {
   config.programs.nixvim = {
     enable = true;
     colorschemes.nord.enable = true;
+    editorconfig.enable = false;
     options = {
       autowrite = true;
       backspace = ["indent" "eol" "start"];
