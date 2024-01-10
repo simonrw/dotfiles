@@ -3,8 +3,13 @@
     key,
     action,
     mode ? "n",
+    lua ? false,
   }: {
-    inherit mode key action;
+    inherit mode key lua;
+    action =
+      if lua
+      then "function() ${action} end"
+      else action;
     options = {
       noremap = true;
       silent = true;
@@ -171,35 +176,43 @@ in {
       (keymap {
         key = "gy";
         action = "vim.lsp.buf.type_definition()";
+        lua = true;
       })
       (keymap {
         key = "gi";
         action = "vim.lsp.buf.implementation()";
+        lua = true;
       })
       (keymap {
         key = "<leader>k";
         action = "vim.lsp.buf.hover()";
+        lua = true;
       })
       (keymap {
         key = "<leader>r";
         action = "vim.lsp.buf.rename()";
+        lua = true;
       })
       (keymap {
         key = "]d";
         action = "vim.diagnostic.goto_next()";
+        lua = true;
       })
       (keymap {
         key = "[d";
         action = "vim.diagnostic.goto_prev()";
+        lua = true;
       })
       (keymap {
         key = "<leader>a";
         action = "vim.lsp.buf.code_action({ source = { organizeImports = true } })";
+        lua = true;
       })
       (keymap {
         mode = "i";
         key = "<C-h>";
         action = "vim.lsp.buf.signature_help()";
+        lua = true;
       })
       (keymap {
         key = "<leader>A";
