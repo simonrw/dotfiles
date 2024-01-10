@@ -5,17 +5,16 @@
     mode ? "n",
     lua ? false,
   }: {
-    inherit mode key lua;
-    action =
-      if lua
-      then "function() ${action} end"
-      else action;
+    inherit action mode key lua;
     options = {
       noremap = true;
       silent = true;
     };
   };
 in {
+  imports = [
+    ./gitsigns.nix
+  ];
   config.programs.nixvim = {
     enable = true;
     colorschemes.nord.enable = true;
@@ -175,43 +174,43 @@ in {
       })
       (keymap {
         key = "gy";
-        action = "vim.lsp.buf.type_definition()";
+        action = "vim.lsp.buf.type_definition";
         lua = true;
       })
       (keymap {
         key = "gi";
-        action = "vim.lsp.buf.implementation()";
+        action = "vim.lsp.buf.implementation";
         lua = true;
       })
       (keymap {
         key = "<leader>k";
-        action = "vim.lsp.buf.hover()";
+        action = "vim.lsp.buf.hover";
         lua = true;
       })
       (keymap {
         key = "<leader>r";
-        action = "vim.lsp.buf.rename()";
+        action = "vim.lsp.buf.rename";
         lua = true;
       })
       (keymap {
         key = "]d";
-        action = "vim.diagnostic.goto_next()";
+        action = "vim.diagnostic.goto_next";
         lua = true;
       })
       (keymap {
         key = "[d";
-        action = "vim.diagnostic.goto_prev()";
+        action = "vim.diagnostic.goto_prev";
         lua = true;
       })
       (keymap {
         key = "<leader>a";
-        action = "vim.lsp.buf.code_action({ source = { organizeImports = true } })";
+        action = "function() vim.lsp.buf.code_action({ source = { organizeImports = true } }) end";
         lua = true;
       })
       (keymap {
         mode = "i";
         key = "<C-h>";
-        action = "vim.lsp.buf.signature_help()";
+        action = "vim.lsp.buf.signature_help";
         lua = true;
       })
       (keymap {
