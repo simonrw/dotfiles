@@ -230,10 +230,35 @@ in {
         key = "<leader>ga";
         action = ":Git commit -v --amend<cr>";
       })
+      # vim-test
+      (keymap {
+        key = "tf";
+        action = ":update|:TestFile<cr>";
+      })
+      (keymap {
+        key = "tl";
+        action = ":update|:TestLast<cr>";
+      })
+      (keymap {
+        key = "tn";
+        action = ":update|:TestNearest<cr>";
+      })
+      (keymap {
+        key = "ta";
+        action = ":update|:TestSuite<cr>";
+      })
+      (keymap {
+        key = "ts";
+        action = ":update|:TestSuite<cr>";
+      })
     ];
     globals = {
       mapleader = " ";
       nord_uniform_diff_background = 1;
+      # vim test
+      "test#python#runner" = "pytest";
+      "test#javascript#reactscripts#options" = "--watchAll=false";
+      "test#strategy" = "basic";
     };
     luaLoader.enable = true;
     plugins = {
@@ -349,6 +374,7 @@ in {
       # rustaceanvim
       playground
       lsp-status-nvim
+      vim-test
     ];
     extraConfigLua = ''
       -- set up aerial-nvim
