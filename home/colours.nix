@@ -689,7 +689,7 @@
       vim.g.nord_disable_background = true
       vim.g.nord_italic = false
       vim.cmd.highlight({ "@comment", "guifg=#d08770" })
-      vim.cmd.highlight({ "TreesitterContext", "guifg=#363c4a" })
+      vim.cmd.highlight({ "TreesitterContext", "guibg=#363c4a" })
     '';
     # TODO: migrate these to nixvim
     one-dark = ''
