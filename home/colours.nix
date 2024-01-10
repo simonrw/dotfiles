@@ -685,20 +685,19 @@
     };
   };
   neovim-theme-blocks = {
+    nord = ''
+      vim.g.nord_disable_background = true
+      vim.g.nord_italic = false
+      vim.cmd.highlight({ "@comment", "guifg=#d08770" })
+      vim.cmd.highlight({ "TreesitterContext", "guifg=#363c4a" })
+    '';
+    # TODO: migrate these to nixvim
     one-dark = ''
       colorscheme onedark
     '';
     catppuccin-frappe = ''
       set background=dark
       colorscheme catppuccin-frappe
-    '';
-    nord = ''
-      set background=dark
-      let g:nord_disable_background = v:true
-      let g:nord_italic = v:false
-      colorscheme nord
-      highlight @comment guifg=#d08770
-      highlight TreesitterContext guibg=#363c4a
     '';
     dracula = ''
       set background=dark
@@ -863,12 +862,12 @@ in
         fish_config theme choose "${fish-theme}"
       '';
       programs.alacritty.settings.colors = current-theme;
-      programs.neovim.extraConfig = neovim-theme-blocks.${config.me.theme};
       # add vim after file for setting colour theme so it's not overridden by plugins
       # home.file.".config/nvim/after/colors/theme.vim".text = ''
       #   hi TreesitterContext guibg=${current-theme.normal.white}
       # '';
-      programs.neovim.plugins = with pkgs.vimPlugins;
+      programs.nixvim.extraConfigLuaPost = neovim-theme-blocks.${config.me.theme};
+      programs.nixvim.extraPlugins = with pkgs.vimPlugins;
         {
           github-light = [
             github-nvim-theme
