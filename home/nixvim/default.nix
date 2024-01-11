@@ -14,6 +14,7 @@
 in {
   imports = [
     ./gitsigns.nix
+    ./zen-mode.nix
   ];
   config.programs.nixvim = {
     enable = true;
