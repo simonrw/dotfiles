@@ -36,7 +36,11 @@
       inputs.flake-utils.follows = "flake-utils";
     };
     hyprland.url = "github:hyprwm/Hyprland";
-
+    simpleproxy = {
+      url = "github:simonrw/simpleproxy";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.flake-utils.follows = "flake-utils";
+    };
     # vim plugins
     plugin-vim-tmux-runner = {
       url = "github:christoomey/vim-tmux-runner";
@@ -68,6 +72,7 @@
         ansi = final.callPackage ./derivations/ansi {};
         wally = final.callPackage ./derivations/wally {};
         cert-info = cert-info.packages.${system}.default;
+        simpleproxy = inputs.simpleproxy.packages.${system}.default;
         gh-repo-url = final.callPackage ./derivations/gh-repo-url {};
         gh-rebase-pr = final.callPackage ./derivations/gh-rebase-pr {};
         # add flags to firefox devedition to use my default profile

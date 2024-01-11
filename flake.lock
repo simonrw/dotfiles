@@ -450,7 +450,31 @@
         "nixvim": "nixvim",
         "nur": "nur",
         "plugin-vim-tmux-runner": "plugin-vim-tmux-runner",
+        "simpleproxy": "simpleproxy",
         "vscode-server": "vscode-server"
+      }
+    },
+    "simpleproxy": {
+      "inputs": {
+        "flake-utils": [
+          "flake-utils"
+        ],
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1704986910,
+        "narHash": "sha256-rkzNfIso4cA6XO5pLPv25IdjFKEQTmN6cVEV2dnUtNw=",
+        "owner": "simonrw",
+        "repo": "simpleproxy",
+        "rev": "b55528336e5b453b1cfa8323c648d5c6f2ddf639",
+        "type": "github"
+      },
+      "original": {
+        "owner": "simonrw",
+        "repo": "simpleproxy",
+        "type": "github"
       }
     },
     "systems": {

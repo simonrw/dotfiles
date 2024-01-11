@@ -94,6 +94,7 @@ in {
       # local packages
       listprojects
       notify-wrapper
+      simpleproxy
     ]
     ++ (lib.optionals isDarwin [
       reattach-to-user-namespace
