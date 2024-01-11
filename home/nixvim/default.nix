@@ -294,11 +294,13 @@ in {
           caseMode = "smart_case";
         };
         extraOptions = {
-          git_files = {
-            disable_devicons = true;
-          };
-          find_files = {
-            disable_devicons = true;
+          pickers = {
+            git_files = {
+              disable_devicons = true;
+            };
+            find_files = {
+              disable_devicons = true;
+            };
           };
         };
         keymaps = {
