@@ -63,6 +63,7 @@ in {
       httpie
       hub
       jujutsu
+      lazydocker
       lsof
       mkcert
       multitail
