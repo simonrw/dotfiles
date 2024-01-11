@@ -275,7 +275,6 @@ in {
     luaLoader.enable = true;
     plugins = {
       lualine.enable = true;
-      gitsigns.enable = true;
       surround.enable = true;
       commentary.enable = true;
       fugitive.enable = true;
