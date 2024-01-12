@@ -2,6 +2,7 @@
   config,
   lib,
   pkgs,
+  isLinux,
   ...
 }:
 with lib; let
@@ -86,7 +87,10 @@ in {
 
     alacritty-font-style-renamed =
       {
-        Semibold = "ExtraBold";
+        Semibold =
+          if isLinux
+          then "ExtraBold"
+          else "Bold";
       }
       .${cfg.font-style}
       or cfg.font-style;
