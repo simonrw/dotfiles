@@ -16,9 +16,6 @@
     if config.me.dark-mode
     then "dark"
     else "light";
-
-  # the complete neovim package
-  neovim = config.programs.nixvim.finalPackage;
 in {
   programs.fish = {
     enable = true;
@@ -40,7 +37,7 @@ in {
         # centralise where python puts its .pyc files
         set -x PYTHONPYCACHEPREFIX {$HOME}/.python-cache
 
-        set -x EDITOR "${neovim}/bin/nvim";
+        set -x EDITOR "nvim";
         set -x PAGER "${pkgs.bat}/bin/bat"
 
         # host-specific configuration
@@ -152,9 +149,9 @@ in {
         tl = "tmux-last";
         trash = "${pkgs.python3Packages.send2trash}/bin/send2trash";
         tree = "${pkgs.eza}/bin/eza -T";
-        vup = "${neovim}/bin/nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'";
-        vimdiff = "${neovim}/bin/nvim -d";
-        vim = "${neovim}/bin/nvim";
+        vup = "nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'";
+        vimdiff = "nvim -d";
+        vim = "nvim";
       }
       // lib.optionalAttrs isLinux {
         pbcopy = "${pkgs.xclip}/bin/xclip -selection clipboard";
