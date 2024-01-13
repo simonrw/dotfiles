@@ -1,21 +1,25 @@
-{pkgs, ...}: let
-  keymap = {
-    key,
-    action,
-    mode ? "n",
-    lua ? false,
-  }: {
-    inherit action mode key lua;
-    options = {
-      noremap = true;
-      silent = true;
+{ pkgs, ... }:
+let
+  keymap =
+    { key
+    , action
+    , mode ? "n"
+    , lua ? false
+    ,
+    }: {
+      inherit action mode key lua;
+      options = {
+        noremap = true;
+        silent = true;
+      };
     };
-  };
-in {
+in
+{
   imports = [
     ./gitsigns.nix
     ./zen-mode.nix
     ./lsp-format.nix
+    ./telescope.nix
   ];
   config.programs.nixvim = {
     enable = true;
@@ -23,10 +27,10 @@ in {
     editorconfig.enable = false;
     options = {
       autowrite = true;
-      backspace = ["indent" "eol" "start"];
+      backspace = [ "indent" "eol" "start" ];
       breakindent = true;
-      completeopt = ["menuone" "preview"];
-      complete = ["." "w" "b" "u" "t" "i"];
+      completeopt = [ "menuone" "preview" ];
+      complete = [ "." "w" "b" "u" "t" "i" ];
       cursorline = false;
       expandtab = true;
       gdefault = true;
@@ -51,16 +55,16 @@ in {
       smartindent = true;
       synmaxcol = 1024;
       tabstop = 4;
-      tags = [".git/tags"];
+      tags = [ ".git/tags" ];
       termguicolors = true;
       textwidth = 0;
       timeoutlen = 500;
       ttimeoutlen = 10;
-      wildmode = ["list:longest" "list:full"];
+      wildmode = [ "list:longest" "list:full" ];
       wrap = false;
       winwidth = 80;
       updatetime = 50;
-      switchbuf = ["useopen" "uselast"];
+      switchbuf = [ "useopen" "uselast" ];
       conceallevel = 0;
       shortmess = "tToOFIWa";
       signcolumn = "yes";
@@ -70,7 +74,7 @@ in {
       writebackup = false;
       backup = false;
       backupcopy = "auto";
-      backupdir = ["~/.vim/backup"];
+      backupdir = [ "~/.vim/backup" ];
       formatoptions = "jtcroql";
       undofile = true;
       modeline = true;
@@ -87,22 +91,22 @@ in {
     };
     autoCmd = [
       {
-        event = ["TextYankPost"];
+        event = [ "TextYankPost" ];
         command = "lua require'vim.highlight'.on_yank()";
         group = "lua-highlight";
       }
       {
-        event = ["TermOpen"];
+        event = [ "TermOpen" ];
         command = "startinsert";
         group = "terminal-settings";
       }
       {
-        event = ["BufWritePost"];
+        event = [ "BufWritePost" ];
         command = "if &diff == 1 | diffupdate | endif";
         group = "diff-mode";
       }
       {
-        event = ["BufReadPost"];
+        event = [ "BufReadPost" ];
         command = ''
           if &ft != 'gitcommit' && line("'\"") > 0 && line("'\"") <= line("$") |
               exe "normal g`\"" |
@@ -280,42 +284,6 @@ in {
       surround.enable = true;
       commentary.enable = true;
       fugitive.enable = true;
-      telescope = {
-        enable = true;
-        defaults = {
-          layout_strategy = "horizontal";
-          layout_config.prompt_position = "top";
-          sorting_strategy = "ascending";
-        };
-        extensions.fzf-native = {
-          enable = true;
-          fuzzy = true;
-          overrideGenericSorter = true;
-          overrideFileSorter = true;
-          caseMode = "smart_case";
-        };
-        extraOptions = {
-          pickers = {
-            git_files = {
-              disable_devicons = true;
-            };
-            find_files = {
-              disable_devicons = true;
-            };
-          };
-        };
-        keymaps = {
-          "<leader>f" = "git_files";
-          "<leader>F" = "find_files";
-          "gb" = "buffers";
-          "<leader><space>" = "live_grep";
-          "<leader>/" = "current_buffer_fuzzy_find";
-          "gd" = "lsp_definitions";
-          "gr" = "lsp_references";
-          "<leader>g" = "diagnostics";
-          "<leader>s" = "lsp_dynamic_workspace_symbols";
-        };
-      };
       lsp = {
         enable = true;
         servers = {
@@ -363,10 +331,10 @@ in {
         autoEnableSources = true;
         preselect = "None";
         sources = [
-          {name = "nvim_lsp";}
-          {name = "path";}
-          {name = "buffer";}
-          {name = "luasnip";}
+          { name = "nvim_lsp"; }
+          { name = "path"; }
+          { name = "buffer"; }
+          { name = "luasnip"; }
         ];
         mapping = {
           "<C-p>" = "cmp.mapping.select_prev_item({ select = true })";
