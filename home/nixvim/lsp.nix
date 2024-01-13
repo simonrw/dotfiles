@@ -13,7 +13,7 @@ let
   };
 in {
   programs.nixvim = {
-    nixvim.plugins = {
+    plugins = {
       lsp = {
         enable = true;
         servers = {
@@ -27,6 +27,16 @@ in {
             # managed in projects
             installCargo = false;
             installRustc = false;
+            settings = {
+              cachePriming = {
+                enable = true;
+                numThreads = 0; # auto
+              };
+              check = {
+                allTargets = true;
+                command = "clippy";
+              };
+            };
           };
           pyright.enable = true;
           ruff-lsp.enable = true;
@@ -34,7 +44,7 @@ in {
         };
       };
     };
-    nixvim.keymaps = [
+    keymaps = [
       (keymap {
         key = "gy";
         action = "vim.lsp.buf.type_definition";
