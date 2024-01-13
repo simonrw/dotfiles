@@ -1,25 +1,23 @@
-{ pkgs, ... }:
-let
-  keymap =
-    { key
-    , action
-    , mode ? "n"
-    , lua ? false
-    ,
-    }: {
-      inherit action mode key lua;
-      options = {
-        noremap = true;
-        silent = true;
-      };
+{pkgs, ...}: let
+  keymap = {
+    key,
+    action,
+    mode ? "n",
+    lua ? false,
+  }: {
+    inherit action mode key lua;
+    options = {
+      noremap = true;
+      silent = true;
     };
-in
-{
+  };
+in {
   imports = [
     ./gitsigns.nix
     ./zen-mode.nix
     ./lsp-format.nix
     ./telescope.nix
+    ./lsp.nix
   ];
   config.programs.nixvim = {
     enable = true;
@@ -27,10 +25,10 @@ in
     editorconfig.enable = false;
     options = {
       autowrite = true;
-      backspace = [ "indent" "eol" "start" ];
+      backspace = ["indent" "eol" "start"];
       breakindent = true;
-      completeopt = [ "menuone" "preview" ];
-      complete = [ "." "w" "b" "u" "t" "i" ];
+      completeopt = ["menuone" "preview"];
+      complete = ["." "w" "b" "u" "t" "i"];
       cursorline = false;
       expandtab = true;
       gdefault = true;
@@ -55,16 +53,16 @@ in
       smartindent = true;
       synmaxcol = 1024;
       tabstop = 4;
-      tags = [ ".git/tags" ];
+      tags = [".git/tags"];
       termguicolors = true;
       textwidth = 0;
       timeoutlen = 500;
       ttimeoutlen = 10;
-      wildmode = [ "list:longest" "list:full" ];
+      wildmode = ["list:longest" "list:full"];
       wrap = false;
       winwidth = 80;
       updatetime = 50;
-      switchbuf = [ "useopen" "uselast" ];
+      switchbuf = ["useopen" "uselast"];
       conceallevel = 0;
       shortmess = "tToOFIWa";
       signcolumn = "yes";
@@ -74,7 +72,7 @@ in
       writebackup = false;
       backup = false;
       backupcopy = "auto";
-      backupdir = [ "~/.vim/backup" ];
+      backupdir = ["~/.vim/backup"];
       formatoptions = "jtcroql";
       undofile = true;
       modeline = true;
@@ -91,22 +89,22 @@ in
     };
     autoCmd = [
       {
-        event = [ "TextYankPost" ];
+        event = ["TextYankPost"];
         command = "lua require'vim.highlight'.on_yank()";
         group = "lua-highlight";
       }
       {
-        event = [ "TermOpen" ];
+        event = ["TermOpen"];
         command = "startinsert";
         group = "terminal-settings";
       }
       {
-        event = [ "BufWritePost" ];
+        event = ["BufWritePost"];
         command = "if &diff == 1 | diffupdate | endif";
         group = "diff-mode";
       }
       {
-        event = [ "BufReadPost" ];
+        event = ["BufReadPost"];
         command = ''
           if &ft != 'gitcommit' && line("'\"") > 0 && line("'\"") <= line("$") |
               exe "normal g`\"" |
@@ -179,47 +177,6 @@ in
         action = "?\\v";
       })
       (keymap {
-        key = "gy";
-        action = "vim.lsp.buf.type_definition";
-        lua = true;
-      })
-      (keymap {
-        key = "gi";
-        action = "vim.lsp.buf.implementation";
-        lua = true;
-      })
-      (keymap {
-        key = "<leader>k";
-        action = "vim.lsp.buf.hover";
-        lua = true;
-      })
-      (keymap {
-        key = "<leader>r";
-        action = "vim.lsp.buf.rename";
-        lua = true;
-      })
-      (keymap {
-        key = "]d";
-        action = "vim.diagnostic.goto_next";
-        lua = true;
-      })
-      (keymap {
-        key = "[d";
-        action = "vim.diagnostic.goto_prev";
-        lua = true;
-      })
-      (keymap {
-        key = "<leader>a";
-        action = "function() vim.lsp.buf.code_action({ source = { organizeImports = true } }) end";
-        lua = true;
-      })
-      (keymap {
-        mode = "i";
-        key = "<C-h>";
-        action = "vim.lsp.buf.signature_help";
-        lua = true;
-      })
-      (keymap {
         key = "<leader>A";
         action = "<cmd>AerialToggle!<cr>";
       })
@@ -284,25 +241,6 @@ in
       surround.enable = true;
       commentary.enable = true;
       fugitive.enable = true;
-      lsp = {
-        enable = true;
-        servers = {
-          tsserver.enable = true;
-          gopls = {
-            enable = true;
-            installLanguageServer = false;
-          };
-          rust-analyzer = {
-            enable = true;
-            # managed in projects
-            installCargo = false;
-            installRustc = false;
-          };
-          pyright.enable = true;
-          ruff-lsp.enable = true;
-          rnix-lsp.enable = true;
-        };
-      };
       treesitter = {
         enable = true;
         disabledLanguages = [
@@ -331,10 +269,10 @@ in
         autoEnableSources = true;
         preselect = "None";
         sources = [
-          { name = "nvim_lsp"; }
-          { name = "path"; }
-          { name = "buffer"; }
-          { name = "luasnip"; }
+          {name = "nvim_lsp";}
+          {name = "path";}
+          {name = "buffer";}
+          {name = "luasnip";}
         ];
         mapping = {
           "<C-p>" = "cmp.mapping.select_prev_item({ select = true })";
