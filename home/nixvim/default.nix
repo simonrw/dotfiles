@@ -18,6 +18,7 @@ in {
     ./lsp-format.nix
     ./telescope.nix
     ./lsp.nix
+    ./dap.nix
   ];
   config.programs.nixvim = {
     enable = true;
