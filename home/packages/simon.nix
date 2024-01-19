@@ -116,6 +116,7 @@ in {
       obsidian
       pinentry-gnome
       playerctl
+      thunderbird
       virt-manager
       vlc
       zeal
