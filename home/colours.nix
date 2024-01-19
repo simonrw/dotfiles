@@ -691,6 +691,25 @@
       vim.cmd.highlight({ "@comment", "guifg=#d08770" })
       vim.cmd.highlight({ "TreesitterContext", "guibg=#363c4a" })
     '';
+    github-light = ''
+
+      vim.cmd [[set background=light]]
+      vim.cmd [[colorscheme github_light]]
+      vim.cmd.highlight({ "DiagnosticError", "guifg=Red" })
+      vim.cmd.highlight({ "DiagnosticHint", "guifg=Orange" })
+      vim.cmd.highlight({ "DiagnosticWarn", "guifg=Orange" })
+      vim.cmd.highlight({ "DiagnosticInfo", "guifg=LightBlue" })
+      vim.cmd.highlight({ "DiagnosticFloatingError", "guifg=Red" })
+      vim.cmd.highlight({ "DiagnosticFloatingHint", "guifg=Orange" })
+      vim.cmd.highlight({ "DiagnosticFloatingInfo", "guifg=LightBlue" })
+      vim.cmd.highlight({ "DiagnosticFloatingWarn", "guifg=Orange" })
+      vim.cmd.highlight({ "DiagnosticVirtualTextError", "guifg=Red" })
+      vim.cmd.highlight({ "DiagnosticVirtualTextHint", "guifg=Orange" })
+      vim.cmd.highlight({ "DiagnosticVirtualTextInfo", "guifg=LightBlue" })
+      vim.cmd.highlight({ "DiagnosticVirtualTextWarn", "guifg=Orange" })
+      vim.cmd.highlight({ "Comment", "guifg=#e69340" })
+      vim.cmd.highlight({ "TreesitterContext", "guibg=#eeeeee" })
+    '';
     # TODO: migrate these to nixvim
     one-dark = ''
       colorscheme onedark
@@ -717,24 +736,6 @@
       colorscheme solarized
       highlight Cursor guifg=${current-theme.cursor.cursor} guibg=${current-theme.cursor.text}
       highlight TreesitterContext guibg=${current-theme.normal.white}
-    '';
-    github-light = ''
-      set background=light
-      colorscheme github_light
-      highlight DiagnosticError guifg=Red
-      highlight DiagnosticHint guifg=Orange
-      highlight DiagnosticWarn guifg=Orange
-      highlight DiagnosticInfo guifg=LightBlue
-      highlight DiagnosticFloatingError guifg=Red
-      highlight DiagnosticFloatingHint guifg=Orange
-      highlight DiagnosticFloatingInfo guifg=LightBlue
-      highlight DiagnosticFloatingWarn guifg=Orange
-      highlight DiagnosticVirtualTextError guifg=Red
-      highlight DiagnosticVirtualTextHint guifg=Orange
-      highlight DiagnosticVirtualTextInfo guifg=LightBlue
-      highlight DiagnosticVirtualTextWarn guifg=Orange
-      highlight Comment guifg=#e69340   " brighten comments
-      highlight TreesitterContext guibg=#eeeeee
     '';
     github = ''
       set background=dark
