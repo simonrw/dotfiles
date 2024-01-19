@@ -82,6 +82,7 @@ in {
       python3.pkgs.send2trash
       python3.pkgs.virtualenv
       ripgrep
+      rnix-lsp
       sqlite-interactive
       universal-ctags
       unzip
