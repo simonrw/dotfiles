@@ -103,7 +103,7 @@ in {
       then {
         wm.cinnamon = {
           enable = system != "aarch64-linux";
-          dark-mode = true;
+          dark-mode = false;
         };
       }
       else {}
