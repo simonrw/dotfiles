@@ -19,6 +19,7 @@ in {
     ./telescope.nix
     ./lsp.nix
     ./dap.nix
+    ./trouble.nix
   ];
   config.programs.nixvim = {
     enable = true;
