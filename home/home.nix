@@ -78,35 +78,29 @@ in {
   };
 
   # custom properties
-  me =
-    {
-      font-name = "JetBrains Mono";
-      font-style = "Semibold";
-      font-size =
-        if isLinux
-        then 10.0
-        else 12.0;
-      fonts-to-install = [
-        pkgs.monaspace
-      ];
-      aws.enable = true;
-      theme = "nord";
-      vscode-theme = "Dracula";
-      defaults = {
-        browser = "brave";
-        terminal = "alacritty";
-      };
-    }
-    // (
+  me = {
+    font-name = "JetBrains Mono";
+    font-style = "Semibold";
+    font-size =
       if isLinux
-      then {
-        wm.cinnamon = {
-          enable = system != "aarch64-linux";
-          dark-mode = true;
-        };
-      }
-      else {}
-    );
+      then 10.0
+      else 12.0;
+    fonts-to-install = [
+      pkgs.monaspace
+    ];
+    aws.enable = true;
+    theme = "nord";
+    vscode-theme = "Dracula";
+    defaults = {
+      browser = "brave";
+      terminal = "alacritty";
+    };
+    is-dark-theme = false;
+    wm.cinnamon = {
+      enable = isLinux && (system != "aarch64-linux");
+      dark-mode = false;
+    };
+  };
 
   home.file = {
     ".bin" = {
