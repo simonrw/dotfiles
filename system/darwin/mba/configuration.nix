@@ -35,6 +35,10 @@
 
   services.tailscale.enable = true;
 
+  # enable touch id for sudo
+  # https://nixcademy.com/2024/01/15/nix-on-macos/
+  security.pam.enableSudoTouchIdAuth = true;
+
   programs.fish.enable = true;
   programs.zsh.enable = true;
   programs.nix-index.enable = true;
@@ -43,8 +47,12 @@
   system.keyboard.enableKeyMapping = true;
   system.keyboard.remapCapsLockToControl = true;
 
+  # https://nixcademy.com/2024/01/15/nix-on-macos/
   system.defaults = {
     dock.autohide = true;
+    dock.mru-spaces = false;
+    finder.AppleShowAllExtensions = true;
+    screencapture.location = "~/Pictures/screenshots";
   };
 
   homebrew = {

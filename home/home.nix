@@ -81,7 +81,7 @@ in {
   me =
     {
       font-name = "JetBrains Mono";
-      font-style = "Semibold";
+      font-style = "Regular";
       font-size =
         if isLinux
         then 10.0
@@ -90,19 +90,20 @@ in {
         pkgs.monaspace
       ];
       aws.enable = true;
-      theme = "nord";
+      theme = "github-light";
       vscode-theme = "Dracula";
       defaults = {
         browser = "brave";
         terminal = "alacritty";
       };
+      is-dark-theme = false;
     }
     // (
       if isLinux
       then {
         wm.cinnamon = {
           enable = system != "aarch64-linux";
-          dark-mode = true;
+          dark-mode = false;
         };
       }
       else {}

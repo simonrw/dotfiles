@@ -17,26 +17,11 @@
     c-aresSupport = true;
   };
 
-  custom-vscode = pkgs.vscode; # .fhsWithPackages (ps: with ps; [
-  # rustup
-  # zlib
-  # openssl.dev
-  # pkg-config
-  # ]);
-
-  fhs = (
-    let
-      base = pkgs.appimageTools.defaultFhsEnvArgs;
-    in
-      pkgs.buildFHSUserEnv (base
-        // {
-          name = "fhs";
-          targetPkgs = pkgs: (base.targetPkgs pkgs) ++ [pkgs.pkg-config];
-          profile = "export FHS=1";
-          runScript = "fish";
-          extraOutputsToInstall = ["dev"];
-        })
-  );
+  custom-vscode = pkgs.vscode-with-extensions.override {
+    vscodeExtensions = with pkgs.vscode-extensions; [
+      vadimcn.vscode-lldb
+    ];
+  };
 in {
   home.packages = with pkgs;
     [
@@ -106,7 +91,6 @@ in {
       custom-vscode
       element-desktop
       emote
-      fhs
       flameshot
       freetube
       gimp
@@ -116,6 +100,7 @@ in {
       obsidian
       pinentry-gnome
       playerctl
+      thunderbird
       virt-manager
       vlc
       zeal

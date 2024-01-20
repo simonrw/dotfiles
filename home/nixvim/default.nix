@@ -18,10 +18,11 @@ in {
     ./lsp-format.nix
     ./telescope.nix
     ./lsp.nix
+    ./dap.nix
+    ./trouble.nix
   ];
   config.programs.nixvim = {
     enable = true;
-    colorschemes.nord.enable = true;
     editorconfig.enable = false;
     options = {
       autowrite = true;

@@ -1,0 +1,3 @@
+{
+  services.ddccontrol.enable = true;
+}

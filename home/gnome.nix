@@ -23,6 +23,17 @@ with lib; let
     }
     .${cfg.animation-speed};
 
+  desktop-interface =
+    if config.me.dark-mode
+    then {
+      color-scheme = "prefer-dark";
+      gtk-theme = "Adwaita-dark";
+    }
+    else {
+      color-scheme = "prefer-light";
+      gtk-theme = "Adwaita";
+    };
+
   cfg = config.me.wm.gnome;
 in {
   options.me.wm.gnome = {
@@ -107,15 +118,17 @@ in {
           "org.gnome.Epiphany.desktop"
         ];
       };
-      "org/gnome/desktop/interface" = {
-        enable-hot-corners = false;
-        font-name = "Cantarell 11";
-        document-font-name = "Cantarell 11";
-        monospace-font-name = "JetBrains Mono 10"; # TODO: match with global font configuration
-        titlebar-font = "Cantarell Bold 11";
-        font-hinting = "slight";
-        font-antialiasing = "grayscale";
-      };
+      "org/gnome/desktop/interface" =
+        {
+          enable-hot-corners = false;
+          font-name = "Cantarell 11";
+          document-font-name = "Cantarell 11";
+          monospace-font-name = "JetBrains Mono 10"; # TODO: match with global font configuration
+          titlebar-font = "Cantarell Bold 11";
+          font-hinting = "slight";
+          font-antialiasing = "grayscale";
+        }
+        // desktop-interface;
       "org/gnome/mutter" = {
         workspaces-only-on-primary = false;
       };
@@ -137,12 +150,6 @@ in {
       };
       "org/gnome/shell/extensions/user-theme" = {
         name = "";
-      };
-      # default to dark mode for now
-      # TODO: add configuration
-      "org/gnome/desktop/interface" = {
-        color-scheme = "prefer-dark";
-        gtk-theme = "Adwaita-dark";
       };
     };
   };
