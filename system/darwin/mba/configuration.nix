@@ -99,6 +99,17 @@
     };
   };
 
+  # force the system to read the new settings
+  system.activationScripts.postUserActivation.text = ''
+    /System/Library/PrivateFrameworks/SystemAdministration.framework/Resources/activateSettings -u
+  '';
+
   # configure system defaults
   system.defaults.".GlobalPreferences"."com.apple.mouse.scaling" = -1.0;
+  system.defaults.CustomUserPreferences = {
+    "com.apple.universalaccess" = {
+      # this setting requires "Full Disk Access"
+      showWindowTitlebarIcons = true;
+    };
+  };
 }
