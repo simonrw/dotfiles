@@ -40,10 +40,9 @@ in {
           };
           pyright.enable = true;
           ruff-lsp.enable = true;
-          rnix-lsp = {
+          nixd = {
             enable = true;
-            installLanguageServer = false;
-            onAttach.function = "client.server_capabilities.documentFormattingProvider = false";
+            # onAttach.function = "client.server_capabilities.documentFormattingProvider = false";
           };
         };
       };

@@ -44,9 +44,9 @@
           "--stdio"
         ];
       };
-      language-server.rnix = {
-        command = "${lib.getExe pkgs.rnix-lsp}";
-      };
+      # language-server.rnix = {
+      #   command = "${lib.getExe pkgs.rnix-lsp}";
+      # };
       language = [
         {
           name = "python";
