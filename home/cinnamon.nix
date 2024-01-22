@@ -52,8 +52,13 @@ in {
           command = mkShortcutCommand "zeal";
           name = "Documentation";
         };
+        "org/cinnamon/desktop/keybindings/custom-keybindings/custom4" = {
+          binding = ["<Super>e"];
+          command = "dbus-send --dest=org.Cinnamon --print-reply /org/Cinnamon org.Cinnamon.ShowExpo";
+          name = "Expo";
+        };
         "org/cinnamon/desktop/keybindings" = {
-          custom-list = ["__dummy__" "custom0" "custom1" "custom2" "custom3"];
+          custom-list = ["__dummy__" "custom0" "custom1" "custom2" "custom3" "custom4"];
         };
         # media keys
         "org/cinnamon/desktop/keybindings/media-keys" = {
