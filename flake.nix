@@ -75,6 +75,7 @@
         simpleproxy = inputs.simpleproxy.packages.${system}.default;
         gh-repo-url = final.callPackage ./derivations/gh-repo-url {};
         gh-rebase-pr = final.callPackage ./derivations/gh-rebase-pr {};
+        notion = final.callPackage ./derivations/notion {};
         # add flags to firefox devedition to use my default profile
         firefox-devedition = (
           final.symlinkJoin {

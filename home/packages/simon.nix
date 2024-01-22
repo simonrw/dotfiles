@@ -97,6 +97,7 @@ in {
       groff
       keymapp
       libreoffice
+      notion
       obsidian
       pinentry-gnome
       playerctl
