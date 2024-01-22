@@ -35,6 +35,7 @@ in {
       custom-curl
       deadnix
       dig
+      drawio
       du-dust
       entr
       fd
