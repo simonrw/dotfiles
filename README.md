@@ -8,6 +8,13 @@ I manage my systems with [nix](https://nixos.org):
 
 I do not expect anyone else to use this system, but there may be useful information in the configs.
 
+## Layout
+
+* nixos system configurations under [`system/nixos`](./system/nixos)
+  * my main system ["astoria"](./system/nixos/astoria) is the configuration of my main development PC (intel CPU, nVidia GPU)
+* nix-darwin configurations under [`system/darwin`](./system/darwin)
+* home-manager configuration under [`home`](./home) with "top level" configuration at [`home/home.nix`](./home/home.nix) with imports to other sub-modules. I am trying to migrate to a more modular configuration as part of learning nix, but I'm not 100% there yet
+
 ## Usage
 
 *These instructions are for my benefit only*
