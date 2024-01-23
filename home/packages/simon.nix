@@ -35,6 +35,7 @@ in {
       custom-curl
       deadnix
       dig
+      docker-credential-helpers
       drawio
       du-dust
       entr
