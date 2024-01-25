@@ -34,6 +34,11 @@ in {
       "aarch64-linux"
     ];
 
+    # put /tmp on a tmpfs
+    boot.tmp = {
+      useTmpfs = true;
+    };
+
     # sysctl
     # up the map count for pypi warehouse
     boot.kernel.sysctl = {
