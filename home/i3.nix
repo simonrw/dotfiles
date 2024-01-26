@@ -22,10 +22,10 @@
 
   browser-command =
     {
-      "aarch64-linux" = "exec ${pkgs.firefox}/bin/firefox";
+      "aarch64-linux" = "exec firefox";
     }
     .${system}
-    or "exec ${pkgs.google-chrome}/bin/google-chrome-stable";
+    or "exec google-chrome-stable";
 in {
   config = {
     xsession.windowManager.i3 = {
