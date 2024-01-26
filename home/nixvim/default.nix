@@ -24,7 +24,10 @@ in {
   config.programs.nixvim = {
     enable = true;
     editorconfig.enable = false;
-    colorschemes.nord.enable = true;
+    colorschemes.nord = {
+      enable = true;
+      uniformDiffBackground = true;
+    };
     options = {
       autowrite = true;
       backspace = ["indent" "eol" "start"];
@@ -231,7 +234,6 @@ in {
     ];
     globals = {
       mapleader = " ";
-      nord_uniform_diff_background = 1;
       # vim test
       "test#python#runner" = "pytest";
       "test#javascript#reactscripts#options" = "--watchAll=false";
