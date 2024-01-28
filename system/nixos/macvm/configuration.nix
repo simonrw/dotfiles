@@ -154,7 +154,6 @@ in {
     alacritty
     barrier
     chromium
-    firefox
     # currently broken
     # heroic
     inkscape
