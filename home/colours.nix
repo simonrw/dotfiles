@@ -98,10 +98,6 @@
           foreground = raw-colours.base;
           background = raw-colours.green;
         };
-        footer_bar = {
-          foreground = raw-colours.base;
-          background = raw-colours.subtext0;
-        };
       };
       selection = {
         text = raw-colours.base;
@@ -163,10 +159,6 @@
           foreground = primary.background;
           background = "#88c0d0";
         };
-        footer_bar = {
-          background = "#434c5e";
-          foreground = "#d8dee9";
-        };
       };
       normal = {
         black = "#3b4252";
@@ -221,10 +213,6 @@
         focused_match = {
           foreground = "#44475a";
           background = "#ffb86c";
-        };
-        footer_bar = {
-          background = "#282a36";
-          foreground = "#f8f8f2";
         };
       };
       hints = {
@@ -297,10 +285,6 @@
         focused_match = {
           foreground = "#EFF1F5"; # base
           background = "#40A02B"; # green
-        };
-        footer_bar = {
-          foreground = "#EFF1F5"; # base
-          background = "#6C6F85"; # subtext0
         };
       };
 
@@ -871,7 +855,10 @@ in
         # configure colour theme
         fish_config theme choose "${fish-theme}"
       '';
-      programs.alacritty.settings.colors = current-theme;
+      # alacritty now cares about unused keys, so filter out any keys that alacritty does not care about
+      programs.alacritty.settings.colors = attrsets.removeAttrs current-theme [
+        "fish-theme"
+      ];
       # add vim after file for setting colour theme so it's not overridden by plugins
       # home.file.".config/nvim/after/colors/theme.vim".text = ''
       #   hi TreesitterContext guibg=${current-theme.normal.white}
