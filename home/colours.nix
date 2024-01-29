@@ -837,6 +837,13 @@
   ];
 
   is-dark-theme = builtins.elem config.me.theme dark-themes;
+
+  delta-theme =
+    {
+      nord = "Nord";
+    }
+    .${current-theme}
+    or null;
 in
   with lib; {
     options = {
@@ -857,6 +864,8 @@ in
     };
     config = {
       programs.bat.config.theme = bat-theme;
+      # TODO: make this configurable
+      programs.git.delta.options.syntax-theme = "Nord";
       programs.helix.settings.theme = helix-theme;
       programs.fish.interactiveShellInit = ''
         # configure colour theme
