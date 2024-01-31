@@ -17,11 +17,12 @@
     c-aresSupport = true;
   };
 
-  custom-vscode = pkgs.vscode-with-extensions.override {
-    vscodeExtensions = with pkgs.vscode-extensions; [
-      vadimcn.vscode-lldb
-    ];
-  };
+  custom-vscode = pkgs.vscode;
+  # custom-vscode = pkgs.vscode-with-extensions.override {
+  #   vscodeExtensions = with pkgs.vscode-extensions; [
+  #     vadimcn.vscode-lldb
+  #   ];
+  # };
 in {
   home.packages = with pkgs;
     [
