@@ -7,6 +7,10 @@
     nixvim = {
       url = "github:nix-community/nixvim";
       inputs.nixpkgs.follows = "nixpkgs";
+      # pin to avoid error
+      # error: Trying to retrieve system-dependent attributes for input nixpkgs, but this input is not a flake. Perhaps flake = false was added to the input declarations by mistake, or you meant to use a different input, or you meant to use plain old inputs, not inputs'.
+      # (use '--show-trace' to show detailed location information)
+      inputs.flake-parts.url = "github:hercules-ci/flake-parts/88a2cd8166694ba0b6cb374700799cec53aef527";
     };
     home-manager = {
       url = "github:nix-community/home-manager";
