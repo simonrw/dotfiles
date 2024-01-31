@@ -17,7 +17,13 @@ in {
       lsp = {
         enable = true;
         servers = {
-          tsserver.enable = true;
+          tsserver = {
+            enable = true;
+            extraOptions = {
+              settings.typescript.format.indentSize = 2;
+              settings.javascript.format.indentSize = 2;
+            };
+          };
           gopls = {
             enable = true;
             installLanguageServer = false;
