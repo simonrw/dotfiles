@@ -35,7 +35,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.flake-utils.follows = "flake-utils";
     };
-    hyprland.url = "github:hyprwm/Hyprland";
     simpleproxy = {
       url = "github:simonrw/simpleproxy";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -121,7 +120,6 @@
           self.modules.nix
           (self.modules.nixos {inherit name;})
           home-manager.nixosModules.home-manager
-          inputs.hyprland.nixosModules.default
           {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
