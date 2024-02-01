@@ -9,6 +9,13 @@ with lib; let
     if isDarwin
     then "Command"
     else "Alt";
+
+  option-as-alt-block =
+    if isDarwin
+    then {
+      option_as_alt = "Both";
+    }
+    else {};
 in {
   programs.alacritty = {
     enable = true;
@@ -16,23 +23,14 @@ in {
       env = {
         "TERM" = "xterm-256color";
       };
-      window = {
-        dimensions =
-          {
+      window =
+        {
+          dimensions = {
             columns = 120;
             lines = 40;
-          }
-          // (
-            if isDarwin
-            then {
-              option_as_alt =
-                if isDarwin
-                then "Both"
-                else "None";
-            }
-            else {}
-          );
-      };
+          };
+        }
+        // option-as-alt-block;
       keyboard = {
         bindings =
           [
