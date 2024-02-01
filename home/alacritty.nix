@@ -39,24 +39,23 @@ in {
             {
               key = "F";
               mods = "Alt";
-              chars = "\x1bf";
+              chars = "\\u001bf";
             }
             {
               key = "B";
               mods = "Alt";
-              chars = "\x1bb";
+              chars = "\\u001bb";
             }
             {
               key = "D";
               mods = "Alt";
-              chars = "\x1bd";
+              chars = "\\u001bd";
             }
             {
               key = "N";
               mods = mod-key;
               action = "SpawnNewInstance";
             }
-            # for some reason this is not picked up
           ]
           ++ lib.optionals isDarwin [
             # disable backwards search
