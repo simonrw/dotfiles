@@ -15,7 +15,6 @@ in {
   imports =
     [
       ./alacritty.nix
-      ./atuin.nix
       ./aws.nix
       ./bat.nix
       ./colours.nix
