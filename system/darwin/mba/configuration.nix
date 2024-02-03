@@ -109,10 +109,4 @@
 
   # configure system defaults
   system.defaults.".GlobalPreferences"."com.apple.mouse.scaling" = -1.0;
-  system.defaults.CustomUserPreferences = {
-    "com.apple.universalaccess" = {
-      # this setting requires "Full Disk Access"
-      showWindowTitlebarIcons = true;
-    };
-  };
 }
