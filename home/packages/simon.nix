@@ -50,7 +50,6 @@ in {
       htop
       httpie
       hub
-      jujutsu
       lazydocker
       lsof
       mkcert

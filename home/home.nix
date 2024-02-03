@@ -34,6 +34,7 @@ in {
       ./home-manager.nix
       ./ipython.nix
       ./jq.nix
+      ./jujutsu.nix
       ./kitty.nix
       ./mpv.nix
       ./nixvim
