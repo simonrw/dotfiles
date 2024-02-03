@@ -50,7 +50,6 @@ in {
       htop
       httpie
       hub
-      lazydocker
       lsof
       mkcert
       multitail
