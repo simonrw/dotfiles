@@ -276,6 +276,8 @@ in {
       pavucontrol
       wmctrl
       xclip
+      man-pages
+      man-pages-posix
     ];
 
     environment.shells = with pkgs; [
