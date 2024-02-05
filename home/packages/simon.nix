@@ -98,6 +98,8 @@ in {
       groff
       keymapp
       libreoffice
+      man-pages
+      man-pages-posix
       notion
       obsidian
       pinentry-gnome
