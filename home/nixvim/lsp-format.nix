@@ -5,6 +5,7 @@
       nix = {
         exclude = [
           "nixd"
+          "pyright"
         ];
       };
     };
