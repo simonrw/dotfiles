@@ -18,6 +18,7 @@ in {
     ./lsp-format.nix
     ./telescope.nix
     ./lsp.nix
+    ./treesitter-refactor.nix
     ./dap.nix
     ./trouble.nix
   ];
