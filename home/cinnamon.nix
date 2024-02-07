@@ -62,8 +62,13 @@ in {
           command = mkShortcutCommand "slack";
           name = "Slack";
         };
+        "org/cinnamon/desktop/keybindings/custom-keybindings/custom6" = {
+          binding = ["<Alt><Super>e"];
+          command = mkShortcutCommand "obsidian";
+          name = "Obsidian";
+        };
         "org/cinnamon/desktop/keybindings" = {
-          custom-list = ["__dummy__" "custom0" "custom1" "custom2" "custom3" "custom4" "custom5"];
+          custom-list = ["__dummy__" "custom0" "custom1" "custom2" "custom3" "custom4" "custom5" "custom6"];
         };
         # media keys
         "org/cinnamon/desktop/keybindings/media-keys" = {
