@@ -46,6 +46,7 @@ in {
       ./wireshark.nix
       ./zoxide.nix
       ./rustdesk.nix
+      ./zsh.nix
     ]
     ++ lib.optionals isLinux [
       ./rofi.nix
