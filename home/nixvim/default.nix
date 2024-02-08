@@ -13,14 +13,15 @@
   };
 in {
   imports = [
-    ./gitsigns.nix
-    ./zen-mode.nix
-    ./lsp-format.nix
-    ./telescope.nix
-    ./lsp.nix
-    ./treesitter-refactor.nix
     ./dap.nix
+    ./gitsigns.nix
+    ./lsp-format.nix
+    ./lsp.nix
+    ./markdown-preview.nix
+    ./telescope.nix
+    ./treesitter-refactor.nix
     ./trouble.nix
+    ./zen-mode.nix
   ];
   config.programs.nixvim = {
     enable = true;
