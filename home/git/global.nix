@@ -90,7 +90,6 @@ in {
     };
     delta = {
       enable = true;
-      options.side-by-side = true;
     };
     extraConfig = {
       branch = {
