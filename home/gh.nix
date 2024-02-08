@@ -18,7 +18,7 @@
     ];
   };
 
-  xdg.configFile."gh-dash/config.yml".text = builtins.toJSON {
+  programs.gh-dash.settings = {
     prSections = [
       {
         title = "LS: My Pull Requests";
