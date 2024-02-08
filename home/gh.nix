@@ -5,6 +5,7 @@
       version = "1";
       git_protocol = "ssh";
       prompt = "enabled";
+      pager = "delta";
       aliases = {
         inbox = "api notifications --template '{{range .}}{{tablerow .subject.title .subject.url}}{{end}}'";
       };
