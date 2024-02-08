@@ -153,7 +153,7 @@ in {
         defaultBranch = "main";
       };
       merge = {
-        tool = "vimdiff";
+        tool = "conflicted";
         conflictstyle = "zdiff3";
       };
       transfer = {
