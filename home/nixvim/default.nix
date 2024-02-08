@@ -145,6 +145,10 @@ in {
         key = "<C-v><Esc>";
         action = "<Esc>";
       })
+      (keymap {
+        key = "<leader>W";
+        action = '':mksession!|echo "Session saved"<cr>'';
+      })
       # emulate vim-vinegar which stopped working
       (keymap {
         key = "-";
