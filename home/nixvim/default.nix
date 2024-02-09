@@ -95,6 +95,17 @@ in {
       last-position.clear = true;
     };
     autoCmd = [
+      # auto wrap markdown files
+      {
+        event = ["FileType"];
+        pattern = ["markdown"];
+        command = "setlocal wrap";
+      }
+      {
+        event = ["FileType"];
+        pattern = ["javascript" "typescript"];
+        command = "setlocal tabstop=2 shiftwidth=2";
+      }
       {
         event = ["TextYankPost"];
         command = "lua require'vim.highlight'.on_yank()";
