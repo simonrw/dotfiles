@@ -22,10 +22,11 @@
 
   browser-command =
     {
+      # fallback for linux vm on my mba
       "aarch64-linux" = "exec firefox";
     }
     .${system}
-    or "exec google-chrome-stable";
+    or "exec ${config.me.defaults.browser}";
 in {
   config = {
     xsession.windowManager.i3 = {
@@ -101,9 +102,6 @@ in {
           # toggle sticky windows
           "${mod}+Shift+s" = "sticky toggle";
 
-          # change focus between tiling / floating windows
-          "${mod}+space" = "focus mode_toggle";
-
           # focus the parent container
           "${mod}+a" = "focus parent";
           # switch to workspace
@@ -143,8 +141,15 @@ in {
           "${mod}+Ctrl+Shift+E" = "exit";
 
           "${mod}+c" = browser-command;
-          "${mod}+Return" = "exec ${pkgs.alacritty}/bin/alacritty";
+          "${mod}+Return" = "exec alacritty";
           "${mod}+d" = "exec ${pkgs.rofi}/bin/rofi -show drun";
+          "${mod}+space" = "exec ${pkgs.rofi}/bin/rofi -show drun";
+
+          # handle my moonlander keybindings
+          "Mod1+Mod4+t" = "exec alacritty";
+          "Mod1+Mod4+c" = browser-command;
+          "Mod1+Mod4+e" = "exec obsidian";
+          "Mod1+Mod4+s" = "exec slack";
 
           # media keys
           "XF86AudioPlay" = "exec ${pkgs.playerctl}/bin/playerctl play-pause";
@@ -170,6 +175,10 @@ in {
             "Return" = "mode default";
             "Escape" = "mode default";
           };
+        };
+        gaps = {
+          inner = 4;
+          outer = 4;
         };
       };
     };
