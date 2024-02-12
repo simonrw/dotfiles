@@ -2,10 +2,7 @@
   config,
   pkgs,
   ...
-}: let
-  # the complete neovim package
-  neovim = config.programs.nixvim.finalPackage;
-in {
+}: {
   programs.git = {
     enable = true;
     aliases = {
@@ -35,7 +32,7 @@ in {
       stat = "!git diff --stat $(git base-commit)";
       review = "!${neovim}/bin/nvim -c 'set nosplitright' -p $(git files) -c \"tabdo Gvdiff $REVIEW_BASE\" -c 'set splitright'";
       base-commit = "!git merge-base HEAD $REVIEW_BASE";
-      review-commits = "!${neovim}/bin/nvim -c 'Gclog --reverse $REVIEW_BASE..'";
+      review-commits = "!nvim -c 'Gclog --reverse $REVIEW_BASE..'";
       log-base = "!git l $REVIEW_BASE..";
 
       # ignore modifications to files
@@ -104,7 +101,7 @@ in {
         autocrlf = "input";
         safecrlf = true;
         whitespace = "fix";
-        editor = "${neovim}/bin/nvim";
+        editor = "nvim";
         mergeoptions = "--no-ff";
         preloadindex = true;
         ignorecase = false;
@@ -124,14 +121,14 @@ in {
       };
       mergetool = {
         conflicted = {
-          cmd = "${neovim}/bin/nvim +Conflicted";
+          cmd = "nvim +Conflicted";
         };
         smerge = {
           cmd = "smerge";
         };
         prompt = false;
         vimdiff = {
-          cmd = "${neovim}/bin/nvim -d";
+          cmd = "nvim -d";
         };
       };
       github = {
