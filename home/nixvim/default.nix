@@ -95,6 +95,12 @@ in {
       last-position.clear = true;
     };
     autoCmd = [
+      # support closing fugitive window with 'q'
+      {
+        event = ["FileType"];
+        pattern = ["fugitive"];
+        command = "nmap <buffer> q gq";
+      }
       # auto wrap markdown files
       {
         event = ["FileType"];
