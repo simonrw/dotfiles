@@ -30,7 +30,7 @@
       # https://blog.jez.io/cli-code-review
       files = "!git diff --name-only $(git base-commit)";
       stat = "!git diff --stat $(git base-commit)";
-      review = "!${neovim}/bin/nvim -c 'set nosplitright' -p $(git files) -c \"tabdo Gvdiff $REVIEW_BASE\" -c 'set splitright'";
+      review = "!REVIEW_BASE=$(git base-commit) nvim -c 'set nosplitright' -p $(git files) -c \"tabdo Gvdiff $REVIEW_BASE\" -c 'set splitright'";
       base-commit = "!git merge-base HEAD $REVIEW_BASE";
       review-commits = "!nvim -c 'Gclog --reverse $REVIEW_BASE..'";
       log-base = "!git l $REVIEW_BASE..";
