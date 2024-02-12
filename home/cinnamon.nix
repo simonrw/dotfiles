@@ -81,6 +81,7 @@ in {
         };
         "org/cinnamon" = {
           alttab-switcher-style = "icons+preview";
+          desktop-effects-workspace = false;
         };
         "org/cinnamon/desktop/keybindings/wm" = {
           toggle-fullscreen = ["<Super>0"];
