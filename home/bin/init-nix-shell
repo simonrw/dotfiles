@@ -6,6 +6,7 @@ Create a shell.nix with default settings in the current directory, and set the .
 
 from __future__ import annotations
 import argparse
+import textwrap
 import enum
 import logging
 from typing import Protocol
@@ -39,8 +40,11 @@ mkShell rec {
     rust-analyzer
     rustc
     rustfmt
+    clang
   ] ++ lib.optionals stdenv.isDarwin [
     libiconv
+  ] ++ lib.optionals stdenv.isLinux [
+    mold
   ];
   RUST_SRC_PATH = "${rustPlatform.rustLibSrc}";
   LD_LIBRARY_PATH = lib.makeLibraryPath packages;
@@ -94,7 +98,9 @@ class Initialise(Protocol):
         ...
 
 
-def _init_dir(root: Path, force: bool, content: str):
+def _init_dir(
+    root: Path, force: bool, content: str, extra: list[Initialise] | None = None
+):
     shell_nix_path = root.joinpath("shell.nix")
     envrc_path = root.joinpath(".envrc")
 
@@ -107,6 +113,9 @@ def _init_dir(root: Path, force: bool, content: str):
     init_shell_nix(shell_nix_path, content=content)
     init_envrc(envrc_path)
 
+    for initialiser in extra or []:
+        initialiser(root, force)
+
 
 def generic_init_dir(root: Path, force: bool):
     LOG.debug("initialising generic layout")
@@ -115,7 +124,25 @@ def generic_init_dir(root: Path, force: bool):
 
 def initialise_rust_project(root: Path, force: bool):
     LOG.debug("initialising rust project")
-    _init_dir(root, force, RUST_SHELL_NIX_TEMPLATE)
+
+    def init_cargo_dir(root: Path, force: bool):
+        cargo_config_dir = root.joinpath(".cargo")
+        cargo_config_dir.mkdir(parents=True, exist_ok=force)
+
+        cargo_config_file = cargo_config_dir.joinpath("config.toml")
+        with cargo_config_file.open("w") as outfile:
+            print(
+                textwrap.dedent(
+                    """
+                [target.x86_64-unknown-linux-gnu]
+                linker = "clang"
+                rustflags = ["-C", "link-arg=--ld-path=mold"]
+                """
+                ),
+                file=outfile,
+            )
+
+    _init_dir(root, force, RUST_SHELL_NIX_TEMPLATE, extra=[init_cargo_dir])
 
 
 def initialise_python_project(root: Path, force: bool):
@@ -152,7 +179,9 @@ if __name__ == "__main__":
         type=Preset,
     )
     parser.add_argument("-v", "--verbose", action="store_true", default=False)
-    parser.add_argument("-r", "--root-dir", required=False, default=Path.cwd(), type=Path)
+    parser.add_argument(
+        "-r", "--root-dir", required=False, default=Path.cwd(), type=Path
+    )
     parser.add_argument("-f", "--force", action="store_true", default=False)
     args = parser.parse_args()
 
