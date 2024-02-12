@@ -42,6 +42,7 @@ in {
         (execAlways ''${pkgs.hsetroot}/bin/hsetroot -solid "#4f535c"'')
         (execAlways ''${focus-last}/bin/i3-focus-last'')
         (execAlways ''${pkgs.i3-auto-layout}/bin/i3-auto-layout'')
+        (execAlways ''blueman-applet'')
       ];
       menu = "${pkgs.rofi}/bin/rofi -show drun";
       window = {
