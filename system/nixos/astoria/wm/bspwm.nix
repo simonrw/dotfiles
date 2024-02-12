@@ -21,5 +21,7 @@ in {
       };
       windowManager.bspwm.enable = true;
     };
+    # enable bluetooth manager
+    services.blueman.enable = true;
   };
 }

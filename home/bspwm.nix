@@ -16,7 +16,7 @@ with lib; let
       aarch64-linux = "firefox";
     }
     .${system}
-    or "google-chrome-stable";
+    or "brave";
 in {
   options.me.wm.bspwm = {
     enable = mkEnableOption "BSPWM";
@@ -84,13 +84,18 @@ in {
       script = ''
         set -e
 
-        killall -v polybar >/dev/null 2>&1 || true
+        ${pkgs.killall}/bin/killall -v polybar >/dev/null 2>&1 || true
 
         # Set on both screens
         for m in $(${pkgs.xorg.xrandr}/bin/xrandr --query | grep " connected" | cut -d" " -f 1); do
-            MONITOR=$m polybar classic &
+            MONITOR=$m polybar classic --config ~/.config/polybar/config.ini &
         done
       '';
+      settings = {
+        "bar/top" = {
+          width = "100%";
+        };
+      };
     };
 
     services.sxhkd = {
