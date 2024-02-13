@@ -31,9 +31,9 @@ in {
         split_ratio = 0.52;
         borderless_monocle = true;
         gapless_monocle = true;
-        normal_border_color = "#2E3440";
+        normal_border_color = "#5e81ac";
         active_border_color = normal_border_color;
-        focused_border_color = "#D8DEE9";
+        focused_border_color = "#88c0d0";
         presel_feedback_color = "#2E3440";
         focus_follows_pointer = true;
       };
@@ -54,9 +54,6 @@ in {
           "X"
         ];
       };
-      startupPrograms = [
-        "polybar"
-      ];
     };
 
     services.picom = {
