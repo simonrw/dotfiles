@@ -91,7 +91,9 @@
     extraConfig = {
       branch = {
         autosetuprebase = "always";
+        sort = "-commiterdate";
       };
+      column.ui = "auto";
       color = {
         ui = true;
       };
@@ -133,6 +135,10 @@
       };
       github = {
         user = "simonrw";
+      };
+      rerere = {
+        enabled = true;
+        autoUpdate = true;
       };
       push = {
         default = "tracking";
