@@ -107,6 +107,7 @@ in {
           enable = system != "aarch64-linux";
           dark-mode = true;
         };
+        wm.bspwm.enable = true;
       }
       else {}
     );

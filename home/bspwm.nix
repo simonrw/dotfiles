@@ -87,15 +87,11 @@ in {
         ${pkgs.killall}/bin/killall -v polybar >/dev/null 2>&1 || true
 
         # Set on both screens
-        for m in $(${pkgs.xorg.xrandr}/bin/xrandr --query | grep " connected" | cut -d" " -f 1); do
-            MONITOR=$m polybar classic --config ~/.config/polybar/config.ini &
+        for m in $(${pkgs.xorg.xrandr}/bin/xrandr --query | ${pkgs.gnugrep}/bin/grep " connected" | ${pkgs.coreutils}/bin/cut -d" " -f 1); do
+            MONITOR=$m polybar --config=~/.config/polybar/config.ini &
         done
       '';
-      settings = {
-        "bar/top" = {
-          width = "100%";
-        };
-      };
+      config = ./polybar.ini;
     };
 
     services.sxhkd = {

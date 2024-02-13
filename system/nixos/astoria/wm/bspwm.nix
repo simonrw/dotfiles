@@ -19,6 +19,7 @@ in {
           enableXfwm = false;
         };
       };
+      displayManager.defaultSession = "xfce+bspwm";
       windowManager.bspwm.enable = true;
     };
     # enable bluetooth manager

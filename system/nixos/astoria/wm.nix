@@ -12,7 +12,7 @@
   ];
 
   # enable the window managers I use
-  me.wm.cinnamon.enable = true;
+  me.wm.bspwm.enable = true;
 
   # overrides
   # services.xserver.displayManager = {
