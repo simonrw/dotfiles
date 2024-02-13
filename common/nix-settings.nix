@@ -3,7 +3,7 @@
   interval =
     if pkgs.stdenv.isLinux
     then {
-      dates = "monthly";
+      dates = "weekly";
     }
     else {
       interval = {
@@ -12,11 +12,12 @@
     };
 in {
   package = pkgs.nixUnstable;
-  gc = {
-    automatic = true;
-    dates = "weekly";
-    options = "--delete-older-than 7d";
-  };
+  gc =
+    {
+      automatic = true;
+      options = "--delete-older-than 7d";
+    }
+    // interval;
   settings = {
     auto-optimise-store = true;
     trusted-users = ["root" "simon"];
