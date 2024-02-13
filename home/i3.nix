@@ -47,7 +47,16 @@ in {
       menu = "${pkgs.rofi}/bin/rofi -show drun";
       window = {
         titlebar = false;
-        border = 1;
+        border = 3;
+      };
+      colors = {
+        focused = {
+          border = "#4c7899";
+          background = "#285577";
+          text = "#ffffff";
+          indicator = "#88c0d0";
+          childBorder = "#5e81ac";
+        };
       };
       bars = [
         {
