@@ -127,15 +127,6 @@ in {
         command = "if &diff == 1 | diffupdate | endif";
         group = "diff-mode";
       }
-      {
-        event = ["BufReadPost"];
-        command = ''
-          if &ft != 'gitcommit' && line("'\"") > 0 && line("'\"") <= line("$") |
-              exe "normal g`\"" |
-          endif
-        '';
-        group = "last-position";
-      }
     ];
     userCommands = {
       T = {
