@@ -137,6 +137,11 @@ in {
       };
     };
     keymaps = [
+      # copy the entire buffer to the system clipboard
+      (keymap {
+        key = "cp";
+        action = ":0,$y+<cr>";
+      })
       # terminal map
       (keymap {
         mode = "t";
