@@ -17,6 +17,8 @@
       uc = "update-commit";
       graph = "log --graph --all --decorate --stat --date iso";
 
+      pushf = "push --force-with-lease";
+
       # reset $REVIEW_BASE to upstream
       sync = ''!f() { git fetch origin && git branch -f "$REVIEW_BASE" origin/"$REVIEW_BASE"; }; f'';
 
