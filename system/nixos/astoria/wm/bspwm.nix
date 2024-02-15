@@ -20,6 +20,9 @@ in {
   config = mkIf cfg.enable {
     services.xserver = {
       enable = true;
+      libinput = {
+        mouse.accelProfile = "flat";
+      };
       desktopManager = {
         xfce = {
           enable = cfg.with-xfce;
@@ -32,5 +35,6 @@ in {
     };
     # enable bluetooth manager
     services.blueman.enable = true;
+    programs.dconf.enable = true;
   };
 }
