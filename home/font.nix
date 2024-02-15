@@ -101,6 +101,13 @@ in {
         "Source Code Pro" = "Source Code Pro Semibold";
       }
       .${cfg.font-name};
+
+    # bump up the font a bit
+    rofi-font = "${cfg.font-name} ${
+      builtins.elemAt (lib.strings.splitString "."
+        (toString (cfg.font-size + 2.0)))
+      0
+    }";
   in {
     # vs code font
     programs.vscode.userSettings."editor.fontFamily" = vscode-font;
@@ -115,6 +122,8 @@ in {
       font_family = kitty-font;
       font_size = builtins.toString cfg.font-size;
     };
+
+    programs.rofi.font = rofi-font;
 
     home.packages =
       [

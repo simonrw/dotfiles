@@ -49,7 +49,7 @@ in {
       ./zsh.nix
     ]
     ++ lib.optionals isLinux [
-      ./rofi.nix
+      ./rofi
       ./chromium.nix
       ./kde.nix
       # ./xfce.nix
