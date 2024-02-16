@@ -180,6 +180,17 @@ in {
 
         # move a floating window
         "${mod} + {Left,Down,Up,Right}" = "bspc node -v {-20 0,0 20,0 -20,20 0}";
+
+        # media keys
+        "XF86AudioPlay" = "exec ${pkgs.playerctl}/bin/playerctl play-pause";
+        "XF86AudioPause" = "exec ${pkgs.playerctl}/bin/playerctl play-pause";
+        "XF86AudioNext" = "exec ${pkgs.playerctl}/bin/playerctl next";
+        "XF86AudioPrev" = "exec ${pkgs.playerctl}/bin/playerctl previous";
+
+        # volume control
+        "XF86AudioRaiseVolume" = "exec ${pkgs.pamixer}/bin/pamixer -i 5";
+        "XF86AudioLowerVolume" = "exec ${pkgs.pamixer}/bin/pamixer -d 5";
+        "XF86AudioMute" = "exec ${pkgs.pamixer}/bin/pamixer -t";
       };
     };
   };
