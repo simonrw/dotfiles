@@ -24,10 +24,7 @@ in {
               settings.javascript.format.indentSize = 2;
             };
           };
-          gopls = {
-            enable = true;
-            installLanguageServer = false;
-          };
+          gopls.enable = true;
           rust-analyzer = {
             enable = true;
             # managed in projects
@@ -46,10 +43,7 @@ in {
           };
           pyright.enable = true;
           ruff-lsp.enable = true;
-          nixd = {
-            enable = true;
-            # onAttach.function = "client.server_capabilities.documentFormattingProvider = false";
-          };
+          nixd.enable = true;
         };
       };
     };
