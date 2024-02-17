@@ -94,9 +94,19 @@
       display = "inline";
     };
     extraConfig = {
+      "url \"git@github.com:\"" = {
+        pushInsteadOf = "https://github.com";
+      };
       branch = {
         autosetuprebase = "always";
         sort = "-commiterdate";
+      };
+      commit = {
+        verbose = true;
+      };
+      rebase = {
+        autosquash = true;
+        autostash = true;
       };
       column.ui = "auto";
       color = {
@@ -117,7 +127,7 @@
         heloer = "cache";
       };
       diff = {
-        algorithm = "patience";
+        algorithm = "histogram";
         tool = "meld";
         colormoved = "default";
         colormovedws = "allow-indentation-change";
@@ -146,7 +156,7 @@
         autoUpdate = true;
       };
       push = {
-        default = "tracking";
+        default = "current";
         followTags = true;
         autoSetupRemote = true;
       };
