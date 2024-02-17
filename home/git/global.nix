@@ -87,8 +87,11 @@
       last = "log -1";
       up = "update";
     };
-    delta = {
+    difftastic = {
       enable = true;
+      # TODO: move this into colour theme
+      background = "dark";
+      display = "inline";
     };
     extraConfig = {
       branch = {
