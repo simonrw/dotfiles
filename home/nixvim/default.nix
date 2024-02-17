@@ -306,7 +306,6 @@ in {
           "<C-n>" = "cmp.mapping.select_next_item({ select = true })";
           "<C-y>" = "cmp.mapping.confirm({ select = true })";
           "<C-Space>" = "cmp.mapping.complete()";
-          "<CR>" = "cmp.mapping.confirm({ select = true })";
           "<C-e>" = "cmp.config.disable";
         };
         snippet.expand = "luasnip";
