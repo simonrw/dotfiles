@@ -3,7 +3,7 @@
   programs.atuin = {
     enable = true;
     settings = {
-      enter_accept = true;
+      enter_accept = false;
       dialect = "uk";
       update_check = false;
       style = "compact";
