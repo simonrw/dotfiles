@@ -1,4 +1,8 @@
 {pkgs, ...}: {
+  imports = [
+    ./fish-fix.nix
+  ];
+
   users.users.simon = {
     name = "simon";
     home = "/Users/simon";
