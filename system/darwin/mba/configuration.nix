@@ -75,6 +75,7 @@
       "contour"
       "docker"
       "element"
+      "firefox-developer-edition"
       "gimp"
       "google-chrome"
       "hammerspoon"
