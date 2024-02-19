@@ -92,6 +92,7 @@ in {
       custom-vscode
       element-desktop
       emote
+      firefox-devedition
       flameshot
       freetube
       gimp
