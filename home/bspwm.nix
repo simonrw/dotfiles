@@ -28,7 +28,7 @@ in {
         border_width = 1;
         window_gap = 4;
         top_padding = 20;
-        split_ratio = 0.52;
+        split_ratio = 0.55;
         borderless_monocle = true;
         gapless_monocle = true;
         normal_border_color = "#5e81ac";
