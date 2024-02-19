@@ -53,18 +53,16 @@ in {
       ./rofi
       ./chromium.nix
       ./kde.nix
-      # ./xfce.nix
+      ./xfce.nix
       ./gnome.nix
       ./i3.nix
       ./gtk.nix
-      # ./sway.nix
-      # ./mate.nix
+      ./sway.nix
+      ./mate.nix
       ./cinnamon.nix
       ./pantheon.nix
       ./xcape.nix
       ./bspwm.nix
-      ./hyprland.nix
-      ./waybar.nix
     ]
     ++ lib.optionals isDarwin [
     ];
@@ -104,10 +102,6 @@ in {
     // (
       if isLinux
       then {
-        wm.cinnamon = {
-          enable = system != "aarch64-linux";
-          dark-mode = true;
-        };
         wm.bspwm.enable = true;
       }
       else {}

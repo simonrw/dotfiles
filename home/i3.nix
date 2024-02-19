@@ -2,8 +2,12 @@
   pkgs,
   config,
   system,
+  lib,
   ...
-}: let
+}:
+with lib; let
+  cfg = config.me.wm.i3;
+
   mod = "Mod4";
 
   focus-last = pkgs.stdenv.mkDerivation {
@@ -28,7 +32,11 @@
     .${system}
     or "exec ${config.me.defaults.browser}";
 in {
-  xsession.windowManager.i3 = {
+  options.me.wm.i3 = {
+    enable = mkEnableOption "i3 customisations";
+  };
+
+  config.xsession.windowManager.i3 = mkIf cfg.enable {
     enable = true;
     config = {
       modifier = mod;

@@ -3,10 +3,16 @@
   lib,
   config,
   ...
-}: let
+}:
+with lib; let
+  cfg = config.me.wm.sway;
+
   mod = "Mod1";
 in {
-  wayland.windowManager.sway = {
+  options.me.wm.sway = {
+    enable = mkEnableOption "Sway customisation";
+  };
+  config.wayland.windowManager.sway = mkIf cfg.enable {
     enable = true;
     config = rec {
       modifier = mod;

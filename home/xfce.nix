@@ -1,8 +1,12 @@
 {
   config,
   pkgs,
+  lib,
   ...
-}: let
+}:
+with lib; let
+  cfg = config.me.wm.xfce;
+
   mkShortcut = {
     appName,
     package ? null,
@@ -22,8 +26,12 @@
     if config.me.dark-mode
     then "Adwaita-dark"
     else "Adwaita";
+in {
+  options.me.wm.xfce = {
+    enable = mkEnableOption "Cinnamon customisations";
+  };
 
-  settings = {
+  config.xfconf.settings = mkIf cfg.enable {
     xsettings = {
       "Net/ThemeName" = theme;
       "Gtk/KeyThemeName" = "";
@@ -54,6 +62,4 @@
       "xfwm4/custom/<Super>Right" = "tile_right_key";
     };
   };
-in {
-  xfconf.settings = settings;
 }

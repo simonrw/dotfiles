@@ -1,4 +1,11 @@
-{config, ...}: let
+{
+  config,
+  lib,
+  ...
+}:
+with lib; let
+  cfg = config.me.wm.mate;
+
   mkShortcutCommand = application: let
     app' =
       if builtins.isString application
@@ -6,7 +13,11 @@
       else application;
   in "sh -c 'wmctrl -x -a ${app'.name} || ${app'.command or app'.name}'";
 in {
-  dconf.settings = {
+  options.me.wm.mate = {
+    enable = mkEnableOption "Mate customisations";
+  };
+
+  config.dconf.settings = mkIf cfg.enable {
     "org/mate/desktop/keybindings/custom0" = {
       binding = "<Alt><Mod4>t";
       action = mkShortcutCommand config.me.defaults.terminal;
