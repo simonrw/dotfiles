@@ -16,7 +16,7 @@ with lib; let
       aarch64-linux = "firefox";
     }
     .${system}
-    or "brave";
+    or (config.me.defaults.browser.command or config.me.defaults.browser.name);
 in {
   options.me.wm.bspwm = {
     enable = mkEnableOption "BSPWM";

@@ -94,7 +94,10 @@ in {
       theme = "nord";
       vscode-theme = "Dracula";
       defaults = {
-        browser = "brave";
+        browser = {
+          name = "firefox";
+          command = "firefox-devedition";
+        };
         terminal = "alacritty";
       };
       is-dark-theme = true;
