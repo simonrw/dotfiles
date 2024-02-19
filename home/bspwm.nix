@@ -37,6 +37,9 @@ in {
         presel_feedback_color = "#2E3440";
         focus_follows_pointer = true;
       };
+      extraConfig = ''
+        ${pkgs.feh}/bin/feh --bg-center ${./apple.png}
+      '';
       alwaysResetDesktops = true;
       monitors = {
         "DP-0" = [
