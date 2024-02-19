@@ -27,7 +27,7 @@ in {
       settings = rec {
         border_width = 1;
         window_gap = 4;
-        top_padding = 20;
+        top_padding = 4;
         split_ratio = 0.55;
         borderless_monocle = true;
         gapless_monocle = true;
