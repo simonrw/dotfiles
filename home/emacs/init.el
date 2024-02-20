@@ -43,7 +43,12 @@
 ;; (set-face-attribute 'variable-pitch nil :family "Cantarell" :height 120)
 (set-face-attribute 'default (selected-frame) :height 120)
 
-;; of course
-(evil-mode t)
+;; org
+(setq org-agenda-files '("~/org"))
+
+;; show helpful hints when pressing keys
+(which-key-mode t)
+
+;; theme
 
 (load-theme 'nord t)
