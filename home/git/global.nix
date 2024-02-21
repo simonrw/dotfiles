@@ -87,11 +87,9 @@
       last = "log -1";
       up = "update";
     };
-    difftastic = {
+    delta = {
       enable = true;
-      # TODO: move this into colour theme
-      background = "dark";
-      display = "inline";
+      options.diff-so-fancy = true;
     };
     extraConfig = {
       "url \"git@github.com:\"" = {
