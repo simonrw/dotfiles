@@ -192,8 +192,6 @@ in {
       #media-session.enable = true;
     };
 
-    services.gnome.gnome-keyring.enable = true;
-
     services.tailscale = {
       enable = true;
       extraUpFlags = [
