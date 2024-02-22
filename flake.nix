@@ -6,43 +6,28 @@
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     nixvim = {
       url = "github:nix-community/nixvim";
-      inputs.nixpkgs.follows = "nixpkgs";
-      # pin to avoid error
-      # error: Trying to retrieve system-dependent attributes for input nixpkgs, but this input is not a flake. Perhaps flake = false was added to the input declarations by mistake, or you meant to use a different input, or you meant to use plain old inputs, not inputs'.
-      # (use '--show-trace' to show detailed location information)
-      inputs.flake-parts.url = "github:hercules-ci/flake-parts/88a2cd8166694ba0b6cb374700799cec53aef527";
     };
     home-manager = {
       url = "github:nix-community/home-manager";
-      inputs.nixpkgs.follows = "nixpkgs";
     };
     nur.url = "github:nix-community/NUR";
     darwin = {
       url = "github:lnl7/nix-darwin/master";
-      inputs.nixpkgs.follows = "nixpkgs";
     };
     jetbrains-updater = {
       url = "gitlab:genericnerdyusername/jetbrains-updater";
-      inputs.nixpkgs.follows = "nixpkgs";
     };
     nix-index-database = {
       url = "github:Mic92/nix-index-database";
-      inputs.nixpkgs.follows = "nixpkgs";
     };
     vscode-server = {
       url = "github:msteen/nixos-vscode-server";
-      inputs.flake-utils.follows = "flake-utils";
-      inputs.nixpkgs.follows = "nixpkgs";
     };
     cert-info = {
       url = "github:simonrw/cert-info";
-      inputs.nixpkgs.follows = "nixpkgs";
-      inputs.flake-utils.follows = "flake-utils";
     };
     simpleproxy = {
       url = "github:simonrw/simpleproxy";
-      inputs.nixpkgs.follows = "nixpkgs";
-      inputs.flake-utils.follows = "flake-utils";
     };
     # vim plugins
     plugin-vim-tmux-runner = {
