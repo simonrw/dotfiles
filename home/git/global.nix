@@ -97,7 +97,7 @@
       };
       branch = {
         autosetuprebase = "always";
-        sort = "-commiterdate";
+        sort = "-committerdate";
       };
       commit = {
         verbose = true;
