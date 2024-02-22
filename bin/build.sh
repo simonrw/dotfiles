@@ -12,7 +12,6 @@ case ${NIXARCH} in
         ;;
     *-darwin)
         nom build ".#darwinConfigurations.${HOSTTARGET}.system" $*
-        ./result/sw/bin/darwin-rebuild build --flake ".#${HOSTTARGET}"
         ;;
     *)
         echo "Unhandled architecture: ${NIXARCH}" >&2
