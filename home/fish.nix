@@ -134,7 +134,6 @@ in {
         gpe = "${pkgs.git}/bin/git push && exit";
         gpr = "${pkgs.git}/bin/git pull --rebase";
         grep = "${pkgs.ripgrep}/bin/rg";
-        gs = "${pkgs.git}/bin/git status";
         less = "${pkgs.bat}/bin/bat";
         lr = "thor";
         more = "${pkgs.bat}/bin/bat";
