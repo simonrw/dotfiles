@@ -142,9 +142,11 @@ in {
     services.xserver = {
       enable = true;
       videoDrivers = ["nvidia"];
-      layout = "gb";
-      xkbVariant = "";
-      xkbOptions = "ctrl:nocaps";
+      xkb = {
+        layout = "gb";
+        options = "ctrl:nocaps";
+        variant = "";
+      };
       displayManager = {
         # Disable automatic login for the user.
         autoLogin.enable = false;
