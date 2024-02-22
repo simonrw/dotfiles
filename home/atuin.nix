@@ -7,6 +7,10 @@
       dialect = "uk";
       update_check = false;
       style = "compact";
+      history_filter = [
+        "LOCALSTACK_API_KEY"
+        "LOCALSTACK_AUTH_TOKEN"
+      ];
       inline_height = 30;
       common_subcommands = [
         "cargo"
