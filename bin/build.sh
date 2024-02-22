@@ -11,7 +11,7 @@ case ${NIXARCH} in
         nom build .#nixosConfigurations.${HOSTTARGET}.config.system.build.toplevel $*
         ;;
     *-darwin)
-        nix --extra-experimental-features "nix-command flakes" build ".#darwinConfigurations.${HOSTTARGET}.system" $*
+        nom build ".#darwinConfigurations.${HOSTTARGET}.system" $*
         ./result/sw/bin/darwin-rebuild build --flake ".#${HOSTTARGET}"
         ;;
     *)
