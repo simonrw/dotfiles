@@ -30,7 +30,6 @@ in {
       ./fzf.nix
       ./gh.nix
       ./git.nix
-      ./gnome-keyring.nix
       ./gpg.nix
       ./helix.nix
       ./home-manager.nix
