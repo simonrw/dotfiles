@@ -103,6 +103,7 @@ in {
       if isLinux
       then {
         wm.bspwm.enable = true;
+        wm.cinnamon.enable = true;
       }
       else {}
     );
