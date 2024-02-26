@@ -287,4 +287,8 @@
       enable = true;
     };
   };
+
+  programs.git-cliff = {
+    enable = true;
+  };
 }
