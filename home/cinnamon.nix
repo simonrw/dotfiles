@@ -20,6 +20,7 @@ in {
 
     dark-mode = mkOption {
       type = types.bool;
+      default = true;
     };
   };
   config = let
