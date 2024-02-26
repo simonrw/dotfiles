@@ -18,6 +18,8 @@ in {
     ./networking.nix
     ./update-diff.nix
     ./ddccontrol.nix
+    # TODO: not in unstable nixpkgs yet
+    # ./scrutiny.nix
   ];
 
   config = {
