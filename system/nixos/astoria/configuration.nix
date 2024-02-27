@@ -12,6 +12,7 @@ in {
   imports = [
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
+    ./nix-ld.nix
     ./yubikey.nix
     ./logitech.nix
     ./wm.nix
