@@ -273,10 +273,6 @@ in {
           "gitcommit"
         ];
       };
-      treesitter-context = {
-        enable = true;
-        maxLines = 5;
-      };
       treesitter-textobjects = {
         enable = true;
       };
