@@ -194,6 +194,9 @@ in {
         "XF86AudioRaiseVolume" = "exec ${pkgs.pamixer}/bin/pamixer -i 5";
         "XF86AudioLowerVolume" = "exec ${pkgs.pamixer}/bin/pamixer -d 5";
         "XF86AudioMute" = "exec ${pkgs.pamixer}/bin/pamixer -t";
+
+        # clipboard
+        "${mod} + shift + p" = "${pkgs.clipmenu}/bin/clipmenu -no-show-icons -theme-str '* \{ font: 10px; \}' -theme-str 'listview \{ spacing: 0; \}' -theme-str 'window \{ width: 20em; \}'";
       };
     };
   };
