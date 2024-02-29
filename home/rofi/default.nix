@@ -10,5 +10,9 @@ in {
         show-icons = false;
       };
     };
+    services.clipmenu = {
+      enable = true;
+      launcher = "rofi";
+    };
   };
 }
