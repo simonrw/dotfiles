@@ -205,7 +205,7 @@ in {
       })
       (keymap {
         key = "<leader>A";
-        action = "<cmd>AerialToggle!<cr>";
+        action = "<cmd>Lspsaga outline<cr>";
       })
       # fugitive
       (keymap {
@@ -307,7 +307,6 @@ in {
       };
     };
     extraPlugins = with pkgs.vimPlugins; [
-      aerial-nvim
       vim-eunuch
       vim-unimpaired
       vim-rhubarb
@@ -319,8 +318,6 @@ in {
       vim-test
     ];
     extraConfigLua = ''
-      -- set up aerial-nvim
-      require('aerial').setup()
     '';
     extraConfigVim = ''
       " Add mapping to open/close the quickfix list
