@@ -19,7 +19,6 @@ in {
     ./lsp.nix
     ./markdown-preview.nix
     ./telescope.nix
-    ./treesitter-refactor.nix
     ./trouble.nix
     ./zen-mode.nix
   ];
