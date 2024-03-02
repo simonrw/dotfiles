@@ -674,6 +674,7 @@
       vim.g.nord_italic = false
       vim.cmd.highlight({ "@comment", "guifg=#d08770" })
       vim.cmd.highlight({ "TreesitterContext", "guibg=#363c4a" })
+      vim.cmd [[colorscheme nord]]
     '';
     github-light = ''
 
