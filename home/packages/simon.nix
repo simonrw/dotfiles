@@ -37,7 +37,6 @@ in {
       deadnix
       dig
       docker-credential-helpers
-      drawio
       du-dust
       entr
       fd
@@ -90,6 +89,7 @@ in {
     ++ (lib.optionals isLinux [
       blanket
       custom-vscode
+      drawio
       element-desktop
       emote
       firefox-devedition
