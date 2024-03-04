@@ -135,6 +135,9 @@
         cmd = "${pkgs.meld}/bin/meld $LOCAL $REMOTE";
       };
       mergetool = {
+        diffview = {
+          cmd = "nvim -c DiffViewOpen";
+        };
         conflicted = {
           cmd = "nvim +Conflicted";
         };
@@ -168,7 +171,7 @@
         defaultBranch = "main";
       };
       merge = {
-        tool = "conflicted";
+        tool = "diffview";
         conflictstyle = "zdiff3";
       };
       transfer = {

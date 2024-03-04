@@ -21,6 +21,7 @@ in {
     ./telescope.nix
     ./trouble.nix
     ./zen-mode.nix
+    ./diffview.nix
   ];
   config.programs.nixvim = {
     enable = true;
