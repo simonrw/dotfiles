@@ -49,6 +49,7 @@ in {
       htop
       httpie
       hub
+      lnav
       lsof
       mkcert
       multitail
