@@ -28,7 +28,7 @@ in {
     editorconfig.enable = false;
     colorschemes.nord = {
       enable = true;
-      uniformDiffBackground = true;
+      settings.uniform_diff_background = true;
     };
     options = {
       autowrite = true;
