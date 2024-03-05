@@ -102,7 +102,10 @@ in {
     // (
       if isLinux
       then {
-        wm.bspwm.enable = true;
+        wm.bspwm = {
+          enable = true;
+          num-monitors = "one";
+        };
         wm.cinnamon.enable = true;
       }
       else {}

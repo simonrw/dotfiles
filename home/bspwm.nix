@@ -17,9 +17,44 @@ with lib; let
     }
     .${system}
     or "brave";
+
+  monitor-configs = {
+    "one" = {
+      "DP-2" = [
+        "1"
+        "2"
+        "3"
+        "4"
+        "5"
+      ];
+    };
+    "two" = {
+      "DP-0" = [
+        "1"
+        "2"
+        "3"
+        "4"
+        "5"
+      ];
+      "DP-2" = [
+        "6"
+        "7"
+        "8"
+        "9"
+        "10"
+      ];
+    };
+  };
 in {
   options.me.wm.bspwm = {
     enable = mkEnableOption "BSPWM";
+    num-monitors = mkOption {
+      type = types.enum [
+        "one"
+        "two"
+      ];
+      description = "Number of connected monitors";
+    };
   };
   config = mkIf cfg.enable {
     xsession.windowManager.bspwm = {
@@ -41,22 +76,7 @@ in {
         ${pkgs.feh}/bin/feh --bg-center ${./apple.png}
       '';
       alwaysResetDesktops = true;
-      monitors = {
-        "DP-0" = [
-          "I"
-          "II"
-          "III"
-          "IV"
-          "V"
-        ];
-        "DP-2" = [
-          "VI"
-          "VII"
-          "VIII"
-          "IX"
-          "X"
-        ];
-      };
+      monitors = monitor-configs.${cfg.num-monitors};
     };
 
     services.picom = {
