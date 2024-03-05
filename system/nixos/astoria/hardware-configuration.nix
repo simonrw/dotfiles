@@ -52,4 +52,15 @@
   environment.sessionVariables = {
     LIBVA_DRIVER_NAME = "nvidia";
   };
+
+  services.xserver.xrandrHeads = [
+    {
+      output = "DP-0";
+      monitorConfig = ''Option "Rotate" "left"'';
+    }
+    {
+      output = "DP-2";
+      primary = true;
+    }
+  ];
 }
