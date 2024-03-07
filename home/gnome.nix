@@ -27,11 +27,9 @@ with lib; let
     if config.me.dark-mode
     then {
       color-scheme = "prefer-dark";
-      gtk-theme = "Adwaita-dark";
     }
     else {
       color-scheme = "prefer-light";
-      gtk-theme = "Adwaita";
     };
 
   cfg = config.me.wm.gnome;
@@ -127,6 +125,8 @@ in {
           titlebar-font = "Cantarell Bold 11";
           font-hinting = "slight";
           font-antialiasing = "grayscale";
+          icon-theme = "Adwaita";
+          gtk-theme = "Adwaita";
         }
         // desktop-interface;
       "org/gnome/mutter" = {
