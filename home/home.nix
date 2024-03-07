@@ -81,6 +81,7 @@ in {
   # custom properties
   me =
     {
+      dark-mode = true;
       font-name = "JetBrains Mono";
       font-style = "Semibold";
       font-size =
@@ -108,7 +109,7 @@ in {
         };
         wm.gnome = {
           enable = true;
-          animation-speed = "fastest";
+          animation-speed = "default";
         };
       }
       else {}
