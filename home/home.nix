@@ -110,6 +110,7 @@ in {
         wm.gnome = {
           enable = true;
           animation-speed = "default";
+          wayland = true;
         };
       }
       else {}
