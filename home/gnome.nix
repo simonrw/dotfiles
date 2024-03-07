@@ -1,4 +1,5 @@
 {
+  pkgs,
   config,
   lib,
   ...
@@ -11,7 +12,10 @@ with lib; let
       if builtins.isString application
       then {name = application;}
       else application;
-  in "sh -c 'wmctrl -x -a ${app'.name} || ${app'.command or app'.name}'";
+  in
+    if cfg.wayland
+    then "sh -c '${pkgs.wlman}/bin/wlman ${app'.name}' || ${app'.command or app'.name}"
+    else "sh -c 'wmctrl -x -a ${app'.name} || ${app'.command or app'.name}'";
 
   animation-speed-integer =
     {
@@ -46,6 +50,7 @@ in {
       ];
       default = "faster";
     };
+    wayland = mkEnableOption "Wayland support";
   };
 
   config = mkIf cfg.enable {
@@ -104,6 +109,8 @@ in {
           "drive-menu@gnome-shell-extensions.gcampax.github.com"
           "user-theme@gnome-shell-extensions.gcampax.github.com"
           "just-perfection-desktop@just-perfection"
+          "window-calls-extended@hseliger.eu"
+          "activate-window-by-title@lucaswerkmeister.de"
         ];
         disabled-extensions = [];
       };
