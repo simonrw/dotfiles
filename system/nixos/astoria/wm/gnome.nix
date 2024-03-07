@@ -38,9 +38,8 @@ in {
     services.gnome.tracker-miners.enable = false;
     services.gnome.tracker.enable = false;
 
-    environment.sessionVariables = {
-      WLR_NO_HARDWARE_CURSORS = "1";
-      # NIXOS_OZONE_WL = "1";
+    environment.sessionVariables = lib.mkIf cfg.wayland {
+      NIXOS_OZONE_WL = "1";
     };
 
     services.xserver.desktopManager.gnome.extraGSettingsOverrides = ''

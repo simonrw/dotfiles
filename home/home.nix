@@ -106,7 +106,10 @@ in {
           enable = true;
           num-monitors = "one";
         };
-        wm.cinnamon.enable = true;
+        wm.gnome = {
+          enable = true;
+          animation-speed = "fastest";
+        };
       }
       else {}
     );
