@@ -20,7 +20,9 @@
   };
 
   # overrides
-  services.xserver.displayManager.defaultSession = lib.mkForce "gnome";
+  services.xserver.displayManager = {
+    defaultSession = lib.mkForce "gnome";
+  };
   # services.xserver.displayManager = {
   #   gdm.enable = lib.mkForce true;
   #   sddm.enable = lib.mkForce false;

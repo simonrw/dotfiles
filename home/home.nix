@@ -63,6 +63,7 @@ in {
       ./pantheon.nix
       ./xcape.nix
       ./bspwm.nix
+      ./hyprland.nix
     ]
     ++ lib.optionals isDarwin [
     ];
