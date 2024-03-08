@@ -113,7 +113,6 @@ in {
           animation-speed = "default";
           wayland = true;
         };
-        wm.hyprland.enable = true;
       }
       else {}
     );
