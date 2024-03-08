@@ -111,12 +111,8 @@ device:epic-mouse-v1 {
 # See https://wiki.hyprland.org/Configuring/Window-Rules/ for more
 
 
-# See https://wiki.hyprland.org/Configuring/Keywords/ for more
-$mainMod = SUPER
-
 # Example binds, see https://wiki.hyprland.org/Configuring/Binds/ for more
 bind = $mainMod, Q, exec, alacritty
-bind = $mainMod, return, exec, alacritty
 bind = $mainMod, C, killactive,
 bind = $mainMod, M, exit,
 bind = $mainMod, V, togglefloating,
