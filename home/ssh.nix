@@ -5,7 +5,7 @@
     includes = [
       "config_local"
     ];
-    controlMaster = "no";
+    controlMaster = "auto";
     controlPersist = "10m";
     extraConfig = ''
       EnableEscapeCommandline=yes
