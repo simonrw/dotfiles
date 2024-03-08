@@ -11,6 +11,7 @@
       url = "github:nix-community/home-manager";
     };
     nur.url = "github:nix-community/NUR";
+    hyprland.url = "github:hyprwm/Hyprland";
     darwin = {
       url = "github:lnl7/nix-darwin/master";
     };
@@ -118,6 +119,9 @@
     in
       nixpkgs.lib.nixosSystem {
         inherit pkgs system;
+        specialArgs = {
+          inherit inputs;
+        };
         modules = [
           self.modules.nix
           (self.modules.nixos {inherit name;})

@@ -105,9 +105,9 @@ device:epic-mouse-v1 {
 }
 
 # Example windowrule v1
-# windowrule = float, ^(kitty)$
+# windowrule = float, ^(alacritty)$
 # Example windowrule v2
-# windowrulev2 = float,class:^(kitty)$,title:^(kitty)$
+# windowrulev2 = float,class:^(alacritty)$,title:^(alacritty)$
 # See https://wiki.hyprland.org/Configuring/Window-Rules/ for more
 
 
@@ -115,8 +115,8 @@ device:epic-mouse-v1 {
 $mainMod = SUPER
 
 # Example binds, see https://wiki.hyprland.org/Configuring/Binds/ for more
-bind = $mainMod, Q, exec, kitty
-bind = $mainMod, return, exec, kitty
+bind = $mainMod, Q, exec, alacritty
+bind = $mainMod, return, exec, alacritty
 bind = $mainMod, C, killactive,
 bind = $mainMod, M, exit,
 bind = $mainMod, V, togglefloating,

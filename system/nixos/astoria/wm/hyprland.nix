@@ -26,7 +26,6 @@ in {
       hyprpaper
     ];
     services.xserver.displayManager.defaultSession = "hyprland";
-    services.xserver.displayManager.gdm.enable = false;
-    services.xserver.displayManager.sddm.enable = true;
+    services.xserver.displayManager.gdm.enable = true;
   };
 }
