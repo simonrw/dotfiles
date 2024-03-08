@@ -136,7 +136,7 @@
       };
       mergetool = {
         diffview = {
-          cmd = "nvim -c DiffViewOpen";
+          cmd = "nvim -c DiffviewOpen";
         };
         conflicted = {
           cmd = "nvim +Conflicted";
