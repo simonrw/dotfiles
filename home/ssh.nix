@@ -1,7 +1,7 @@
 {...}: {
   programs.ssh = {
     enable = true;
-    compression = true;
+    compression = false;
     includes = [
       "config_local"
     ];
