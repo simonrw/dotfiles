@@ -18,6 +18,7 @@
     enable = true;
     wayland = true;
   };
+  me.wm.hyprland.enable = true;
 
   # overrides
   services.xserver.displayManager = {
