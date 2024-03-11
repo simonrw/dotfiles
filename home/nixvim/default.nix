@@ -287,24 +287,26 @@ in {
         };
       };
       cmp_luasnip.enable = true;
-      nvim-cmp = {
+      cmp = {
         enable = true;
-        autoEnableSources = true;
-        preselect = "None";
-        sources = [
-          {name = "nvim_lsp";}
-          {name = "path";}
-          {name = "buffer";}
-          {name = "luasnip";}
-        ];
-        mapping = {
-          "<C-p>" = "cmp.mapping.select_prev_item({ select = true })";
-          "<C-n>" = "cmp.mapping.select_next_item({ select = true })";
-          "<C-y>" = "cmp.mapping.confirm({ select = true })";
-          "<C-Space>" = "cmp.mapping.complete()";
-          "<C-e>" = "cmp.config.disable";
+        settings = {
+          autoEnableSources = true;
+          preselect = "None";
+          sources = [
+            {name = "nvim_lsp";}
+            {name = "path";}
+            {name = "buffer";}
+            {name = "luasnip";}
+          ];
+          mapping = {
+            "<C-p>" = "cmp.mapping.select_prev_item({ select = true })";
+            "<C-n>" = "cmp.mapping.select_next_item({ select = true })";
+            "<C-y>" = "cmp.mapping.confirm({ select = true })";
+            "<C-Space>" = "cmp.mapping.complete()";
+            "<C-e>" = "cmp.config.disable";
+          };
+          snippet.expand = "luasnip";
         };
-        snippet.expand = "luasnip";
       };
     };
     extraPlugins = with pkgs.vimPlugins; [
