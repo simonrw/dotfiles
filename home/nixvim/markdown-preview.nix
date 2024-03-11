@@ -1,6 +1,6 @@
 {...}: {
   programs.nixvim.plugins.markdown-preview = {
     enable = true;
-    autoClose = true;
+    settings.auto_close = true;
   };
 }
