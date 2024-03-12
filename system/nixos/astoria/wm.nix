@@ -9,6 +9,7 @@
     ./wm/bspwm.nix
     ./wm/pantheon.nix
     ./wm/hyprland.nix
+    ./wm/river.nix
   ];
 
   # enable the window managers I use
