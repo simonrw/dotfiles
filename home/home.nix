@@ -64,6 +64,7 @@ in {
       ./xcape.nix
       ./bspwm.nix
       ./hyprland.nix
+      ./river.nix
     ]
     ++ lib.optionals isDarwin [
     ];
