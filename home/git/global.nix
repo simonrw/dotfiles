@@ -135,18 +135,30 @@
         cmd = "${pkgs.meld}/bin/meld $LOCAL $REMOTE";
       };
       mergetool = {
+        pycharm = {
+          cmd = ''pycharm-community merge "$LOCAL" "$REMOTE" "$BASE" "$MERGED"'';
+          keepBackup = false;
+        };
         diffview = {
           cmd = "nvim -c DiffviewOpen";
+          keepBackup = false;
         };
         conflicted = {
           cmd = "nvim +Conflicted";
+          keepBackup = false;
         };
         smerge = {
           cmd = "smerge";
+          keepBackup = false;
         };
         prompt = false;
         vimdiff = {
           cmd = "nvim -d";
+          keepBackup = false;
+        };
+        meld = {
+          cmd = ''${pkgs.meld}/bin/meld "$LOCAL" "$MERGED" "$REMOTE" --output "$MERGED"'';
+          keepBackup = false;
         };
       };
       github = {
