@@ -14,7 +14,7 @@ with lib; let
       else application;
   in
     if cfg.wayland
-    then "sh -c '${pkgs.wlman}/bin/wlman ${app'.name}' || ${app'.command or app'.name}"
+    then "sh -c '${pkgs.wlman}/bin/wlman ${app'.name} || ${app'.command or app'.name}'"
     else "sh -c 'wmctrl -x -a ${app'.name} || ${app'.command or app'.name}'";
 
   animation-speed-integer =
