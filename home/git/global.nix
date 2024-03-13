@@ -135,6 +135,10 @@
         cmd = "${pkgs.meld}/bin/meld $LOCAL $REMOTE";
       };
       mergetool = {
+        smerge = {
+          cmd = ''${pkgs.sublime-merge}/bin/smerge'';
+          keepBackup = false;
+        };
         pycharm = {
           cmd = ''pycharm-community merge "$LOCAL" "$REMOTE" "$BASE" "$MERGED"'';
           keepBackup = false;
@@ -145,10 +149,6 @@
         };
         conflicted = {
           cmd = "nvim +Conflicted";
-          keepBackup = false;
-        };
-        smerge = {
-          cmd = "smerge";
           keepBackup = false;
         };
         prompt = false;
