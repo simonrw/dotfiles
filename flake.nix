@@ -11,7 +11,6 @@
       url = "github:nix-community/home-manager";
     };
     nur.url = "github:nix-community/NUR";
-    hyprland.url = "github:hyprwm/Hyprland";
     darwin = {
       url = "github:lnl7/nix-darwin/master";
     };
