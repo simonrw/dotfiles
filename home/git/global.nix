@@ -1,6 +1,7 @@
 {
   config,
   pkgs,
+  isLinux,
   ...
 }: {
   programs.git = {
@@ -136,7 +137,11 @@
       };
       mergetool = {
         smerge = {
-          cmd = ''${pkgs.sublime-merge}/bin/smerge'';
+          # smerbe is installed via homebrew on macos
+          cmd =
+            if isLinux
+            then ''${pkgs.sublime-merge}/bin/smerge''
+            else "smerge";
           keepBackup = false;
         };
         pycharm = {
