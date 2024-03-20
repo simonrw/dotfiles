@@ -12,6 +12,13 @@
     policies = {
       DisablePocket = true;
       DisableTelemetry = true;
+      UserMessaging = {
+        ExtensionRecommendations = false;
+        FeatureRecommendations = false;
+        MoreFromMozilla = false;
+        SkipOnboarding = true;
+        WhatsNew = false;
+      };
     };
     profiles = {
       simon = {
