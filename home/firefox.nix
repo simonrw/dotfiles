@@ -1,8 +1,18 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  isDarwin,
+  ...
+}: {
   programs.firefox = {
     enable = true;
-    # don't install firefox
-    package = null;
+    package =
+      if isDarwin
+      then null
+      else pkgs.firefox;
+    policies = {
+      DisablePocket = true;
+      DisableTelemetry = true;
+    };
     profiles = {
       simon = {
         name = "simon";
@@ -15,6 +25,9 @@
             react-devtools
             ublock-origin
             vimium
+            istilldontcareaboutcookies
+            clearurls
+            refined-github
           ]
           ++ (with pkgs.nur.repos.meain.firefox-addons; [
             containerise

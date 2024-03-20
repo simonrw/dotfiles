@@ -94,7 +94,6 @@ in {
       drawio
       element-desktop
       emote
-      firefox-devedition
       flameshot
       freetube
       gimp
