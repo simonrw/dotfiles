@@ -34,7 +34,6 @@
             vimium
             istilldontcareaboutcookies
             clearurls
-            refined-github
           ]
           ++ (with pkgs.nur.repos.meain.firefox-addons; [
             containerise
