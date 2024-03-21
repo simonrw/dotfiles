@@ -260,7 +260,6 @@ in {
     };
     luaLoader.enable = true;
     plugins = {
-      lualine.enable = true;
       surround.enable = true;
       commentary.enable = true;
       fugitive.enable = true;
@@ -273,6 +272,11 @@ in {
       treesitter-context = {
         enable = true;
         maxLines = 5;
+        onAttach = ''
+          function(buf)
+            vim.cmd.highlight({ "TreesitterContext", "guibg=#363c4a" })
+          end
+        '';
       };
       treesitter-textobjects = {
         enable = true;
