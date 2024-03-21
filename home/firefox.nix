@@ -34,6 +34,7 @@
             vimium
             istilldontcareaboutcookies
             clearurls
+            enhanced-h264ify
           ]
           ++ (with pkgs.nur.repos.meain.firefox-addons; [
             containerise
