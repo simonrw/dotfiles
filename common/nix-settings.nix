@@ -23,7 +23,7 @@ in {
     trusted-users = ["root" "simon"];
     experimental-features = ["nix-command" "flakes" "ca-derivations"];
 
-    keep-outputs = true;
+    keep-outputs = false;
     keep-derivations = true;
 
     substituters = [
