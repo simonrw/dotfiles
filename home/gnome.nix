@@ -136,6 +136,10 @@ in {
           gtk-theme = "Adwaita";
         }
         // desktop-interface;
+      "org/gnome/desktop/background" = {
+        picture-uri = "file://${pkgs.gnome.gnome-backgrounds}/share/backgrounds/gnome/blobs-l.svg";
+        picture-uri-dark = "file://${pkgs.gnome.gnome-backgrounds}/share/backgrounds/gnome/blobs-d.svg";
+      };
       "org/gnome/mutter" = {
         workspaces-only-on-primary = false;
       };
