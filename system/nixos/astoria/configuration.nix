@@ -258,6 +258,7 @@ in {
       enable = true;
       dev.enable = true;
       man.enable = true;
+      nixos.includeAllModules = true;
     };
 
     # Configure steam
