@@ -106,6 +106,7 @@
       rebase = {
         autosquash = true;
         autostash = true;
+        updateRefs = true;
       };
       column.ui = "auto";
       color = {
