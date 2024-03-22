@@ -269,15 +269,6 @@ in {
           "gitcommit"
         ];
       };
-      treesitter-context = {
-        enable = true;
-        maxLines = 5;
-        onAttach = ''
-          function(buf)
-            vim.cmd.highlight({ "TreesitterContext", "guibg=#363c4a" })
-          end
-        '';
-      };
       treesitter-textobjects = {
         enable = true;
       };
