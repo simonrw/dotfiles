@@ -104,7 +104,6 @@ in {
       man-pages-posix
       notion
       obsidian
-      pinentry-gnome
       playerctl
       thunderbird
       virt-manager
