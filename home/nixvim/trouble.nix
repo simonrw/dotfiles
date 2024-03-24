@@ -15,9 +15,11 @@ in {
   programs.nixvim = {
     plugins.trouble = {
       enable = true;
-      icons = false;
-      autoPreview = false;
-      useDiagnosticSigns = false;
+      settings = {
+        icons = false;
+        use_diagnostic_signs = false;
+        auto_preview = false;
+      };
     };
     keymaps = [
       (keymap {
