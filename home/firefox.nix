@@ -24,6 +24,7 @@
       simon = {
         name = "simon";
         extensions = with pkgs.nur.repos.rycee.firefox-addons;
+        with pkgs.nur.repos.sigprof;
           [
             enhancer-for-youtube
             facebook-container
@@ -35,6 +36,7 @@
             istilldontcareaboutcookies
             clearurls
             enhanced-h264ify
+            firefox-esr-langpack-en-GB
           ]
           ++ (with pkgs.nur.repos.meain.firefox-addons; [
             containerise
