@@ -6,7 +6,7 @@
     # Warning: `jj util completion --fish` will be removed in a future version, and this will be a hard error
     # Hint: Use `jj util completion fish` instead
     # ```
-    enable = false;
+    enable = true;
     settings = {
       user = {
         name = "Simon Walker";
