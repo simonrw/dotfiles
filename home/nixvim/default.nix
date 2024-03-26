@@ -204,6 +204,10 @@ in {
         key = "?";
         action = "?\\v";
       })
+      (keymap {
+        key = "<leader>A";
+        action = "<cmd>Lspsaga outline<cr>";
+      })
       # fugitive
       (keymap {
         key = "<leader>gc";
