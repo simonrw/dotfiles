@@ -17,6 +17,9 @@ in {
       lsp = {
         enable = true;
         servers = {
+          nil_ls = {
+            enable = true;
+          };
           tsserver = {
             enable = true;
             extraOptions = {
@@ -42,7 +45,6 @@ in {
             };
           };
           pyright.enable = true;
-          nixd.enable = true;
         };
       };
       lspsaga = {
