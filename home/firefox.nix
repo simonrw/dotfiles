@@ -1,6 +1,7 @@
 {
   pkgs,
   isDarwin,
+  isLinux,
   ...
 }: {
   programs.firefox = {
@@ -36,11 +37,17 @@
             istilldontcareaboutcookies
             clearurls
             enhanced-h264ify
-            firefox-esr-langpack-en-GB
           ]
           ++ (with pkgs.nur.repos.meain.firefox-addons; [
             containerise
-          ]);
+          ])
+          ++ (
+            if isLinux
+            then [
+              pkgs.nur.repos.sigprof.firefox-esr-langpack-en-GB
+            ]
+            else []
+          );
         extraConfig = builtins.readFile ./firefox-preferences.js;
         isDefault = true;
         settings = {
