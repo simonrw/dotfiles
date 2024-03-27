@@ -12,6 +12,7 @@
         name = "Simon Walker";
         email = "s.r.walker101@gmail.com";
       };
+      ui.default-command = "log";
     };
   };
 }
