@@ -18,12 +18,13 @@ in {
       ./atuin.nix
       ./aws.nix
       ./bat.nix
+      ./chromium.nix
       ./colours.nix
       ./dark-mode.nix
       ./default-applications.nix
       ./direnv.nix
-      ./eza.nix
       ./emacs.nix
+      ./eza.nix
       ./firefox.nix
       ./fish.nix
       ./font.nix
@@ -38,20 +39,19 @@ in {
       ./jujutsu.nix
       ./kitty.nix
       ./mpv.nix
-      ./nixvim
       ./nix-index.nix
+      ./nixvim
       ./packages/simon.nix
+      ./rustdesk.nix
       ./ssh.nix
       ./taskwarrior.nix
       ./tmux.nix
       ./wireshark.nix
       ./zoxide.nix
-      ./rustdesk.nix
       ./zsh.nix
     ]
     ++ lib.optionals isLinux [
       ./rofi
-      ./chromium.nix
       ./kde.nix
       ./xfce.nix
       ./gnome.nix
