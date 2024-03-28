@@ -7,7 +7,7 @@
         email = "s.r.walker101@googlemail.com";
       };
       ui = {
-        default-command = "log";
+        default-command = "status";
         diff = {
           format = "git";
         };
