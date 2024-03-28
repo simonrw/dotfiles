@@ -12,8 +12,8 @@ case ${NIXARCH} in
         ;;
     *-darwin)
         notify-wrapper -m "Nix build complete" ./bin/build.sh
-        sudo ./result/activate
         ./result/activate-user
+        sudo ./result/activate
         ;;
     *)
         echo "Unhandled architecture: ${NIXARCH}" >&2
