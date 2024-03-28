@@ -27,6 +27,7 @@ bindKey(applications.notes, 'e')
 bindKey(applications.todo, 'n')
 bindKey(applications.music, 'm')
 bindKey(applications.editor, 'y')
+bindKey(applications.chat, 's')
 
 local BundleCache = {}
 BundleCache.__index = BundleCache
