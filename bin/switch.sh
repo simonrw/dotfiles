@@ -11,7 +11,7 @@ case ${NIXARCH} in
         sudo nixos-rebuild switch --flake . $*
         ;;
     *-darwin)
-        ./bin/build.sh
+        notify-wrapper -m "Nix build complete" ./bin/build.sh
         ./result/activate-user
         sudo ./result/activate
         ;;
