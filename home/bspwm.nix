@@ -16,7 +16,7 @@ with lib; let
       aarch64-linux = "firefox";
     }
     .${system}
-    or "firefox";
+    or "brave";
 
   monitor-configs = {
     "one" = {
