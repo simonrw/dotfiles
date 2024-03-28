@@ -166,6 +166,7 @@ in {
         "Mod1+Mod4+t" = "exec alacritty";
         "Mod1+Mod4+c" = browser-command;
         "Mod1+Mod4+e" = "exec obsidian";
+        "Mod1+Mod4+s" = "exec slack";
 
         # media keys
         "XF86AudioPlay" = "exec ${pkgs.playerctl}/bin/playerctl play-pause";
