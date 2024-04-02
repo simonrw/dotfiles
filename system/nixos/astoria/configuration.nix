@@ -281,6 +281,7 @@ in {
       pavucontrol
       wmctrl
       xclip
+      rnote
     ];
 
     environment.shells = with pkgs; [
