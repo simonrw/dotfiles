@@ -37,13 +37,15 @@ mkShell rec {
   packages = [
     rustup
     clang
-  ] ++ lib.optionals stdenv.isDarwin [
+  ] ++ lib.optionals stdenv.isDarwin (with darwin.apple_sdk.frameworks; [
     libiconv
-  ] ++ lib.optionals stdenv.isLinux [
+  ]) ++ lib.optionals stdenv.isLinux [
     mold
   ];
-  RUST_SRC_PATH = "${rustPlatform.rustLibSrc}";
-  LD_LIBRARY_PATH = lib.makeLibraryPath packages;
+  env = {
+    RUST_SRC_PATH = "${rustPlatform.rustLibSrc}";
+    LD_LIBRARY_PATH = lib.makeLibraryPath packages;
+  };
 }
 """
 
