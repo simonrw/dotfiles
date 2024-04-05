@@ -102,7 +102,6 @@ in {
       libreoffice
       man-pages
       man-pages-posix
-      notion
       obsidian
       playerctl
       thunderbird

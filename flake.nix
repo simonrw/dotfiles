@@ -63,7 +63,6 @@
         simpleproxy = inputs.simpleproxy.packages.${system}.default;
         gh-repo-url = final.callPackage ./derivations/gh-repo-url {};
         gh-rebase-pr = final.callPackage ./derivations/gh-rebase-pr {};
-        notion = final.callPackage ./derivations/notion {};
         wlman = final.callPackage ./derivations/wlman {};
       })
       # override the version of xattr for poetry
