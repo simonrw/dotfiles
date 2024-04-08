@@ -6,7 +6,7 @@
 with lib; let
   cfg = config.me.wm.hyprland;
 
-  defaults = cfg.me.defaults;
+  defaults = config.me.defaults;
 in {
   options.me.wm.hyprland = {
     enable = mkEnableOption "Hyprland";
