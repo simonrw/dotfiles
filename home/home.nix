@@ -107,7 +107,7 @@ in {
       then {
         wm.bspwm = {
           enable = true;
-          num-monitors = "one";
+          num-monitors = "two";
         };
         wm.gnome = {
           enable = true;
