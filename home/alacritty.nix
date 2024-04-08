@@ -1,10 +1,9 @@
 {
-  config,
+  pkgs,
   isDarwin,
   lib,
   ...
-}:
-with lib; let
+}: let
   mod-key =
     if isDarwin
     then "Command"
@@ -20,6 +19,15 @@ in {
   programs.alacritty = {
     enable = true;
     settings = {
+      # attach to tmux on startup
+      shell = {
+        program = lib.getExe pkgs.fish;
+        args = [
+          "-i"
+          "-c"
+          "~/.bin/tat"
+        ];
+      };
       env = {
         "TERM" = "xterm-256color";
       };
