@@ -55,12 +55,12 @@ mkShell {
   packages = [
     python3
     python3Packages.venvShellHook
+    uv
   ];
 
   venvDir = ".venv";
 
   postVenvCreation = ''
-    python -m pip install pip-tools
   '';
 
   postShellHook = ''
