@@ -1,5 +1,4 @@
 {
-  pkgs,
   isDarwin,
   lib,
   ...
@@ -19,15 +18,6 @@ in {
   programs.alacritty = {
     enable = true;
     settings = {
-      # attach to tmux on startup
-      shell = {
-        program = lib.getExe pkgs.fish;
-        args = [
-          "-i"
-          "-c"
-          "~/.bin/tat"
-        ];
-      };
       env = {
         "TERM" = "xterm-256color";
       };
