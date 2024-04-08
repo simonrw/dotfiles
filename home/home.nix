@@ -42,7 +42,6 @@ in {
       ./nix-index.nix
       ./nixvim
       ./packages/simon.nix
-      ./rustdesk.nix
       ./ssh.nix
       ./taskwarrior.nix
       ./tmux.nix
