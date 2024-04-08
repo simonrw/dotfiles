@@ -14,7 +14,7 @@ in {
   config = mkIf cfg.enable {
     wayland.windowManager.hyprland = {
       enable = true;
-
+      systemd.enable = true;
       settings = {
         "$mainMod" = "SUPER";
 
@@ -26,5 +26,6 @@ in {
 
       extraConfig = builtins.readFile ./hyprland/config;
     };
+    home.file.".config/hypr/start.sh".source = ./hyprland/start.sh;
   };
 }
