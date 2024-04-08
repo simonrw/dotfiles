@@ -109,6 +109,7 @@ in {
           enable = true;
           num-monitors = "two";
         };
+        wm.hyprland.enable = true;
         wm.gnome = {
           enable = true;
           animation-speed = "default";
