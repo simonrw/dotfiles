@@ -27,52 +27,7 @@ function fs
 end
 
 # tmux configuration
-function _not_inside_tmux
-    test -z "$TMUX"
-end
-
-function _not_inside_neovim
-    test -z "$NVIM"
-end
-
-function _not_inside_emacs
-    test -z "$INSIDE_EMACS" && test -z "$EMACS"
-end
-
-function _not_inside_vscode_term
-    test "$TERM_PROGRAM" != "vscode"
-end
-
-function _not_inside_zellij
-    test -z "$ZELLIJ_SESSION_NAME"
-end
-
-function _not_inside_pycharm
-    test -z "$INSIDE_PYCHARM"
-end
-
-function _inside_x_session
-    switch (uname)
-        case Linux
-            ps aux | grep -q -i xorg
-        case '*'
-            return 0
-    end
-end
-
-function _not_disabled
-    test -z "$TMUX_DISABLED"
-end
-
-function ensure_tmux_is_running
-    if _not_disabled && _not_inside_tmux && _not_inside_neovim && _not_inside_emacs && _inside_x_session && _not_inside_vscode_term && _not_inside_zellij && _not_inside_pycharm
-        tat
-    end
-end
-
 fish_ssh_agent
-
-ensure_tmux_is_running
 
 switch (uname)
     case Darwin
