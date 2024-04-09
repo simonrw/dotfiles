@@ -304,6 +304,7 @@ in {
           autoEnableSources = true;
           preselect = "None";
           sources = [
+            {name = "copilot";}
             {name = "nvim_lsp";}
             {name = "path";}
             {name = "buffer";}

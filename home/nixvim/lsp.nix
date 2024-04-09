@@ -14,6 +14,7 @@ let
 in {
   programs.nixvim = {
     plugins = {
+      copilot-cmp.enable = true;
       lsp = {
         enable = true;
         servers = {
