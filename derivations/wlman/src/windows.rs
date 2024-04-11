@@ -7,8 +7,8 @@ use serde::Deserialize;
 
 #[derive(Debug, Deserialize)]
 pub struct Window {
-    pub class: String,
-    pub title: String,
+    pub class: Option<String>,
+    pub title: Option<String>,
     #[serde(rename = "pid")]
     _pid: u64,
     #[serde(rename = "id")]
@@ -25,6 +25,7 @@ pub fn list_windows(conn: &Connection) -> eyre::Result<Vec<Window>> {
         Duration::from_secs(5),
     );
     let res = p.list().wrap_err("listing windows")?;
+    dbg!(&res);
     let windows = serde_json::from_str(&res).wrap_err("deserializing JSON message")?;
     Ok(windows)
 }

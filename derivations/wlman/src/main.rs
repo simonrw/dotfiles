@@ -24,8 +24,16 @@ fn main() -> eyre::Result<()> {
     let open_windows = windows::list_windows(&conn).wrap_err("listing windows")?;
 
     for window in &open_windows {
-        if !window.class.to_lowercase().contains(&args.title)
-            && !window.title.to_lowercase().contains(&args.title)
+        if !window
+            .class
+            .as_ref()
+            .map(|cls| cls.to_lowercase().contains(&args.title))
+            .unwrap_or_default()
+            && !window
+                .title
+                .as_ref()
+                .map(|cls| cls.to_lowercase().contains(&args.title))
+                .unwrap_or_default()
         {
             continue;
         }
@@ -33,7 +41,11 @@ fn main() -> eyre::Result<()> {
         // the command is in the title but the application is a terminal, which may print the
         // command in the title
         if args.title.to_lowercase().contains(&args.title)
-            && window.class.to_lowercase() == "alacritty"
+            && window
+                .class
+                .as_ref()
+                .map(|cls| cls.to_lowercase() == "alacritty")
+                .unwrap_or_default()
             && args.title != "alacritty"
         {
             continue;
