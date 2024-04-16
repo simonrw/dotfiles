@@ -90,7 +90,10 @@
     };
     delta = {
       enable = true;
-      options.diff-so-fancy = true;
+      options = {
+        diff-so-fancy = true;
+        side-by-side = true;
+      };
     };
     extraConfig = {
       "url \"git@github.com:\"" = {
