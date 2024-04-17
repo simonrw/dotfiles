@@ -94,6 +94,9 @@ complete --command tflocal --wraps terraform
 # wrap nix completion
 complete --command nom --wraps nix
 
+# wrap awslocal completion
+complete --command awslocal --wraps aws
+
 # if a local configuration override file exists, source it
 if test -f $HOME/.config/fish/local.fish;
 source $HOME/.config/fish/local.fish
