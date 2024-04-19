@@ -17,9 +17,7 @@
   me.wm.bspwm.enable = true;
   me.wm.gnome = {
     enable = true;
-    wayland = true;
   };
-  me.wm.hyprland.enable = true;
 
   # overrides
   services.xserver.displayManager = {
