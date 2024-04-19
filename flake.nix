@@ -257,10 +257,6 @@
         name = "astoria";
         system = "x86_64-linux";
       }
-      {
-        name = "macvm";
-        system = "aarch64-linux";
-      }
     ]
     // darwinConfigurations
     // perSystemConfigurations
