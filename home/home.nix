@@ -110,10 +110,9 @@ in {
           num-monitors = "two";
         };
         wm.hyprland.enable = true;
-        wm.gnome = {
+        wm.cinnamon = {
           enable = true;
-          animation-speed = "default";
-          wayland = true;
+          dark-mode = true;
         };
       }
       else {}

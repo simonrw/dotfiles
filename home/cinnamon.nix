@@ -99,7 +99,7 @@ in {
           icon-theme = "Mint-Y-Sand";
           font-name = "Ubuntu Medium 10";
         };
-        "org/gnome/desktop/interface" = {
+        "org/gnome/desktop/interface" = mkForce {
           gtk-theme = theme;
           icon-theme = "Mint-Y-Sand";
           font-name = "Ubuntu Medium 10";
