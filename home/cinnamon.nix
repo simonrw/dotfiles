@@ -84,6 +84,10 @@ in {
           alttab-switcher-style = "icons+preview";
           desktop-effects-workspace = false;
         };
+        "org/cinnamon/desktop/background" = {
+          picture-uri = "file://${./apple.png}";
+          picture-uri-dark = "file://${./apple.png}";
+        };
         "org/cinnamon/desktop/keybindings/wm" = {
           toggle-fullscreen = ["<Super>0"];
         };
