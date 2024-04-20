@@ -96,7 +96,12 @@ in {
         };
         "org/cinnamon/desktop/interface" = {
           gtk-theme = theme;
-          icon-theme = theme;
+          icon-theme = "Mint-Y-Sand";
+          font-name = "Ubuntu Medium 10";
+        };
+        "org/gnome/desktop/interface" = {
+          gtk-theme = theme;
+          icon-theme = "Mint-Y-Sand";
           font-name = "Ubuntu Medium 10";
         };
         "org/nemo/desktop" = {
