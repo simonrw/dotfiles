@@ -87,6 +87,11 @@ mkShell {
     gopls
     delve
   ];
+
+  env = {
+    # disable cgo by default
+    CGO_ENABLED = "0";
+  };
 }
 """
 
