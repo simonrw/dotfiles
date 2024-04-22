@@ -28,6 +28,7 @@ in {
       lsp = {
         enable = true;
         servers = {
+          elmls.enable = true;
           nil_ls = {
             enable = true;
           };
