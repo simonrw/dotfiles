@@ -59,5 +59,12 @@ in {
         action = ":Git commit -v --amend<cr>";
       })
     ];
+
+    assertions = [
+      {
+        assertion = !config.me.nixvim.neogit.enable;
+        message = "Fugitive and neogit are mutually exclusive";
+      }
+    ];
   };
 }
