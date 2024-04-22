@@ -105,11 +105,6 @@ in {
     // (
       if isLinux
       then {
-        wm.bspwm = {
-          enable = true;
-          num-monitors = "two";
-        };
-        wm.hyprland.enable = true;
         wm.cinnamon = {
           enable = true;
           dark-mode = true;
