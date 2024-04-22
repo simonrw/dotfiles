@@ -6,12 +6,15 @@
     ./context.nix
     ./dap.nix
     ./diffview.nix
+    ./diffview.nix
+    ./fugitive.nix
     ./gitsigns.nix
     ./hardtime.nix
     ./lsp-format.nix
     ./lsp.nix
     ./markdown-preview.nix
     ./mini.nix
+    ./neogit.nix
     ./neotest.nix
     ./notifications.nix
     ./octo-nvim.nix
@@ -51,6 +54,7 @@
       which-key.enable = true;
       diffview.enable = true;
       render-markdown.enable = true;
+      fugitive.enable = true;
     };
   };
 }
