@@ -34,6 +34,7 @@ in {
     ./trouble.nix
     ./zen-mode.nix
     ./diffview.nix
+    ./neogit.nix
   ];
   config.programs.nixvim = {
     enable = true;
