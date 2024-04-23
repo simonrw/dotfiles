@@ -82,7 +82,7 @@ in {
         };
         "org/cinnamon" = {
           alttab-switcher-style = "icons+preview";
-          desktop-effects-workspace = false;
+          desktop-effects-workspace = true;
         };
         "org/cinnamon/desktop/background" = {
           picture-uri = "file://${./apple.png}";
