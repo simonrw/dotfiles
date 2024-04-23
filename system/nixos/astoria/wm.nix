@@ -21,6 +21,9 @@
   #   defaultSession = lib.mkForce "gnome";
   # };
   services.xserver.displayManager = {
-    gdm.enable = true;
+    gdm = {
+      enable = true;
+      wayland = false;
+    };
   };
 }
