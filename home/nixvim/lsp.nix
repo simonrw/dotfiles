@@ -59,11 +59,6 @@ in {
           pyright.enable = true;
         };
       };
-      lspsaga = {
-        enable = true;
-        lightbulb.enable = false;
-        beacon.enable = false;
-      };
     };
     keymaps = [
       (keymap {
