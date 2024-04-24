@@ -109,6 +109,7 @@ in {
           enable = true;
           dark-mode = true;
         };
+        wm.bspwm.enable = true;
       }
       else {}
     );

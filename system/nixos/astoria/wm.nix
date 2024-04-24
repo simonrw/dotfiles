@@ -15,6 +15,7 @@
   # enable the window managers I use
   # NOTE: do not enable gnome and cinnamon as they are mutually exclusive
   me.wm.cinnamon.enable = true;
+  me.wm.bspwm.enable = true;
 
   # overrides
   # services.xserver.displayManager = {
