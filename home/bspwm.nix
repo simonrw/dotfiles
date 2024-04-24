@@ -59,6 +59,7 @@ in {
         "two"
       ];
       description = "Number of connected monitors";
+      default = "two";
     };
   };
   config = mkIf cfg.enable {
