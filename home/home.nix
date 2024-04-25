@@ -83,7 +83,6 @@ in {
   # custom properties
   me =
     {
-      dark-mode = true;
       font-name = "JetBrains Mono";
       font-style = "Semibold";
       font-size =
@@ -100,14 +99,13 @@ in {
         browser = "brave";
         terminal = "alacritty";
       };
-      is-dark-theme = true;
+      is-dark-theme = false;
     }
     // (
       if isLinux
       then {
         wm.cinnamon = {
           enable = true;
-          dark-mode = true;
         };
         wm.bspwm.enable = true;
       }
