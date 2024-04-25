@@ -99,7 +99,7 @@ in {
         browser = "brave";
         terminal = "alacritty";
       };
-      is-dark-theme = false;
+      is-dark-theme = true;
     }
     // (
       if isLinux
