@@ -20,7 +20,7 @@ in {
 
     dark-mode = mkOption {
       type = types.bool;
-      default = true;
+      default = config.me.is-dark-theme;
     };
   };
   config = let
