@@ -11,8 +11,8 @@ def in_tmux() -> bool:
 
 
 class Fzf:
-    @staticmethod
-    def select_from(choices: list[str]) -> str | None:
+    @classmethod
+    def select_from(cls, choices: list[str]) -> str | None:
         if in_tmux():
             cmd = ["fzf-tmux"]
         else:
@@ -30,19 +30,37 @@ class Fzf:
 
 
 class DockerClient:
-    @staticmethod
-    def list_containers() -> list[str]:
+    @classmethod
+    def list_containers(cls) -> list[str]:
         cmd = ["docker", "ps", "--format", "{{.Names}}"]
         return sp.check_output(cmd).decode().splitlines()
 
-    @staticmethod
-    def restart_container(container_name: str):
+    @classmethod
+    def restart_container(cls, container_name: str, wait: bool):
         cmd = ["docker", "kill", "--signal", "USR1", container_name]
         sp.check_call(cmd, stdout=sp.PIPE)
+        if wait:
+            cls.wait_for_container(container_name)
+
+
+    @classmethod
+    def wait_for_container(cls, container_name: str):
+        process = sp.Popen(["docker", "logs", "-f", container_name, "--since", "0m"], stdout=sp.PIPE, stderr=sp.STDOUT)
+        if process.stdout is None:
+            raise RuntimeError("Programming error: no stdout")
+
+        while True:
+            line = process.stdout.readline()
+            if not line:
+                break
+            line = line.decode("utf-8").strip()
+            if line == "Ready.":
+                break
 
 
 def main() -> int:
     parser = argparse.ArgumentParser()
+    parser.add_argument("--no-wait", action="store_true", default=False)
     opts, args = parser.parse_known_args()
 
     container_name = "localstack-main"
@@ -51,7 +69,7 @@ def main() -> int:
 
     running_containers = DockerClient.list_containers()
     if container_name in running_containers:
-        DockerClient.restart_container(container_name)
+        DockerClient.restart_container(container_name, wait=not opts.no_wait)
         return 0
 
     chosen_container_name = Fzf.select_from(running_containers)
@@ -59,7 +77,7 @@ def main() -> int:
         print("No container name chosen or found, exiting", file=sys.stderr)
         return 1
 
-    DockerClient.restart_container(chosen_container_name)
+    DockerClient.restart_container(chosen_container_name, wait=not opts.no_wait)
     return 0
 
 
