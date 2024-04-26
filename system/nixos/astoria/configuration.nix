@@ -133,6 +133,7 @@ in {
         inconsolata
         hack-font
         monaspace
+        noto-fonts
       ];
     };
 

@@ -15,6 +15,7 @@
     fontDir.enable = true;
     fonts = with pkgs; [
       fantasque-sans-mono
+      noto-fonts
       (nerdfonts.override {
         fonts = [
           "JetBrainsMono"
