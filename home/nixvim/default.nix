@@ -108,12 +108,6 @@ in {
       last-position.clear = true;
     };
     autoCmd = [
-      # support closing fugitive window with 'q'
-      {
-        event = ["FileType"];
-        pattern = ["fugitive"];
-        command = "nmap <buffer> q gq";
-      }
       # auto wrap markdown files
       {
         event = ["FileType"];
@@ -221,30 +215,10 @@ in {
         key = "<leader>A";
         action = "<cmd>Lspsaga outline<cr>";
       })
-      # fugitive
-      (keymap {
-        key = "<leader>gc";
-        action = ":Git commit -v<cr>";
-      })
-      (keymap {
-        key = "<leader>gd";
-        action = ":Gvdiff<cr>";
-      })
-      (keymap {
-        key = "<leader>gw";
-        action = ":Gwrite<cr>";
-      })
-      (keymap {
-        key = "<leader>gr";
-        action = ":Gread<cr>";
-      })
+      # neogit
       (keymap {
         key = "gs";
-        action = ":Git<cr>";
-      })
-      (keymap {
-        key = "<leader>ga";
-        action = ":Git commit -v --amend<cr>";
+        action = ":Neogit<cr>";
       })
       # vim-test
       (keymap {
@@ -279,7 +253,6 @@ in {
     plugins = {
       surround.enable = true;
       commentary.enable = true;
-      fugitive.enable = true;
       treesitter = {
         enable = true;
         disabledLanguages = [
