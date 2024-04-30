@@ -3,7 +3,6 @@
   isLinux,
   isDarwin,
   lib,
-  system,
   ...
 }: let
   homeDir =
@@ -93,7 +92,7 @@ in {
         pkgs.monaspace
       ];
       aws.enable = true;
-      theme = "nord";
+      theme = "srw";
       vscode-theme = "Dracula";
       defaults = {
         browser = "brave";

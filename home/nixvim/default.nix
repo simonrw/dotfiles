@@ -38,10 +38,6 @@ in {
   config.programs.nixvim = {
     enable = true;
     editorconfig.enable = false;
-    colorschemes.nord = {
-      enable = true;
-      settings.uniform_diff_background = true;
-    };
     options = {
       autowrite = true;
       backspace = ["indent" "eol" "start"];
@@ -61,8 +57,8 @@ in {
       linebreak = true;
       list = false;
       mouse = "a";
-      number = false;
-      relativenumber = false;
+      number = true;
+      relativenumber = true;
       ruler = false;
       scrolloff = 8;
       shiftround = true;
@@ -338,6 +334,10 @@ in {
     ];
     extraConfigLua = ''
     '';
+    extraFiles = {
+      "colors/lucius.vim" = builtins.readFile ./colors/lucius.vim;
+      "colors/srw256.vim" = builtins.readFile ./colors/srw256.vim;
+    };
     extraConfigVim = ''
       " Add mapping to open/close the quickfix list
       " Taken from: http://vim.wikia.com/wiki/Toggle_to_open_or_close_the_quickfix_window
