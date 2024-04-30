@@ -723,13 +723,14 @@
       highlight TreesitterContext guibg=${current-theme.normal.white}
     '';
     github = ''
-      set background=dark
-      colorscheme github_dark
-      " overrides
-      highlight Comment guifg=#e69340   " brighten comments
-      highlight TSComment guifg=#e69340   " brighten comments
-      highlight Normal guibg=none
-      highlight NormalNC guibg=none
+      vim.opt.background = "dark"
+      -- overrides
+      vim.cmd.highlight({ "Comment", "guifg=#e69340" })
+      vim.cmd.highlight({ "TSComment", "guifg=#e69340" })
+      vim.cmd.highlight({ "Normal", "guibg=none" })
+      vim.cmd.highlight({ "NormalNC", "guibg=none" })
+      -- set background colour
+      vim.cmd "colorscheme github_dark"
     '';
     gruvbox = ''
       set background=dark
@@ -744,21 +745,23 @@
       hi Normal guibg=none
     '';
     srw = ''
-      set background=dark
-      colorscheme srw256
-      hi Normal guibg=none
-      let g:linenr_background = 'none'
-      execute 'highlight TelescopeNormal guibg=' . g:linenr_background
-      execute 'highlight LineNr guibg=' . g:linenr_background
-      execute 'highlight SignColumn guibg=' . g:linenr_background
-      highlight TabLine guibg=none
-      highlight TabLineSel guibg=none
-      highlight TabLineFill guibg=none
-      execute 'highlight DiagnosticSignError ctermfg=1 guifg=Red guibg=' . g:linenr_background
-      execute 'highlight DiagnosticSignHint ctermfg=7 guifg=LightGrey guibg=' . g:linenr_background
-      execute 'highlight DiagnosticSignInfo ctermfg=4 guifg=LightBlue guibg=' . g:linenr_background
-      execute 'highlight DiagnosticSignWarn ctermfg=3 guifg=Orange guibg=' . g:linenr_background
-      highlight DiagnosticUnderlineHint guifg=Grey guisp=Grey
+      vim.cmd([[
+        set background=dark
+        colorscheme srw256
+        hi Normal guibg=none
+        let g:linenr_background = 'none'
+        execute 'highlight TelescopeNormal guibg=' . g:linenr_background
+        execute 'highlight LineNr guibg=' . g:linenr_background
+        execute 'highlight SignColumn guibg=' . g:linenr_background
+        highlight TabLine guibg=none
+        highlight TabLineSel guibg=none
+        highlight TabLineFill guibg=none
+        execute 'highlight DiagnosticSignError ctermfg=1 guifg=Red guibg=' . g:linenr_background
+        execute 'highlight DiagnosticSignHint ctermfg=7 guifg=LightGrey guibg=' . g:linenr_background
+        execute 'highlight DiagnosticSignInfo ctermfg=4 guifg=LightBlue guibg=' . g:linenr_background
+        execute 'highlight DiagnosticSignWarn ctermfg=3 guifg=Orange guibg=' . g:linenr_background
+        highlight DiagnosticUnderlineHint guifg=Grey guisp=Grey
+      ]])
     '';
     catppuccin-latte = ''
       set background=light
@@ -802,8 +805,6 @@
     .${config.me.theme}
     or "Monokai Extended";
 
-  vscode-theme = {}.${config.me.theme} or "Monokai Pro";
-
   dark-themes = [
     "dracula"
     "github"
@@ -822,13 +823,6 @@
   ];
 
   is-dark-theme = builtins.elem config.me.theme dark-themes;
-
-  delta-theme =
-    {
-      nord = "Nord";
-    }
-    .${current-theme}
-    or null;
 in
   with lib; {
     options = {
@@ -859,6 +853,9 @@ in
       # alacritty now cares about unused keys, so filter out any keys that alacritty does not care about
       programs.alacritty.settings.colors = attrsets.removeAttrs current-theme [
         "fish-theme"
+        "tmux-active-pane-colour"
+        "tmux-colour"
+        "tmux-pane-colour"
       ];
       # add vim after file for setting colour theme so it's not overridden by plugins
       # home.file.".config/nvim/after/colors/theme.vim".text = ''
