@@ -25,7 +25,9 @@
   };
 in {
   imports = [
+    ./completion.nix
     ./dap.nix
+    ./diffview.nix
     ./gitsigns.nix
     ./lsp-format.nix
     ./lsp.nix
@@ -33,12 +35,12 @@ in {
     ./telescope.nix
     ./trouble.nix
     ./zen-mode.nix
-    ./diffview.nix
   ];
   config = {
     # custom overrides
     me.nixvim = {
       lsp.enable = true;
+      completion.enable = true;
     };
     # defaults
     programs.nixvim = {
@@ -300,40 +302,6 @@ in {
           enable = true;
         };
         nix.enable = true;
-        luasnip = {
-          enable = true;
-          extraConfig = {
-            history = true;
-            updateevents = "TextChanged,TextChangedI";
-            enable_autosnippets = true;
-          };
-        };
-        cmp_luasnip.enable = true;
-        cmp = {
-          enable = true;
-          settings = {
-            autoEnableSources = true;
-            preselect = "None";
-            sources = [
-              {name = "nvim_lsp";}
-              {name = "path";}
-              {name = "buffer";}
-              {name = "luasnip";}
-            ];
-            mapping = {
-              "<C-p>" = "cmp.mapping.select_prev_item({ select = true })";
-              "<C-n>" = "cmp.mapping.select_next_item({ select = true })";
-              "<C-y>" = "cmp.mapping.confirm({ select = true })";
-              "<C-Space>" = "cmp.mapping.complete()";
-              "<C-e>" = "cmp.config.disable";
-            };
-            snippet.expand = ''
-              function(args)
-                require('luasnip').lsp_expand(args.body)
-              end
-            '';
-          };
-        };
       };
       extraPlugins = with pkgs.vimPlugins; [
         vim-eunuch
