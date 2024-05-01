@@ -1,6 +1,8 @@
 {...}: {
   homebrew = {
     enable = true;
+    # remove any homewbrew packages not installed via nix-darwin
+    onActivation.cleanup = "uninstall";
     casks = [
       "1password"
       "alacritty"
@@ -10,6 +12,8 @@
       "docker"
       "element"
       "firefox"
+      "freecad"
+      "freetube"
       "gimp"
       "hammerspoon"
       "inkscape"
