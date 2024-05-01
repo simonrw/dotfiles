@@ -79,7 +79,6 @@
       "hammerspoon"
       "inkscape"
       "karabiner-elements"
-      "mpv"
       "notion"
       "obs"
       "obsidian"
