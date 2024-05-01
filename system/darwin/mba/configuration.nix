@@ -86,6 +86,7 @@
       "pocket-casts"
       "pycharm-ce"
       "raycast"
+      "rectangle"
       "shotcut"
       "sublime-merge"
       "sublime-text"
