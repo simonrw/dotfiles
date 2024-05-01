@@ -764,8 +764,10 @@
       ]])
     '';
     catppuccin-latte = ''
-      set background=light
-      colorscheme catppuccin-latte
+      vim.cmd([[
+        set background=light
+        colorscheme catppuccin-latte
+      ]])
     '';
     monokai-pro = ''
       set background=dark
@@ -856,6 +858,7 @@ in
         "tmux-active-pane-colour"
         "tmux-colour"
         "tmux-pane-colour"
+        "vi_mode_cursor"
       ];
       # add vim after file for setting colour theme so it's not overridden by plugins
       # home.file.".config/nvim/after/colors/theme.vim".text = ''
@@ -875,6 +878,9 @@ in
           ];
           dracula = [
             dracula-nvim
+          ];
+          catppuccin-latte = [
+            catppuccin-nvim
           ];
           catppuccin-frappe = [
             catppuccin-nvim
