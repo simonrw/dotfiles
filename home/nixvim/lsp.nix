@@ -1,4 +1,9 @@
-let
+{
+  lib,
+  config,
+  ...
+}:
+with lib; let
   keymap = {
     key,
     action,
@@ -11,8 +16,13 @@ let
       silent = true;
     };
   };
+
+  cfg = config.me.nixvim.lsp;
 in {
-  programs.nixvim = {
+  options.me.nixvim.lsp = {
+    enable = mkEnableOption "lsp";
+  };
+  config.programs.nixvim = mkIf cfg.enable {
     plugins = {
       lsp = {
         enable = true;

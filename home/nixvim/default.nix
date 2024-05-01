@@ -37,6 +37,9 @@ in {
   ];
   config = {
     # custom overrides
+    me.nixvim = {
+      lsp.enable = true;
+    };
     # defaults
     programs.nixvim = {
       enable = true;
