@@ -8,6 +8,11 @@ with lib; let
 in {
   options.me.nixvim.completion = {
     enable = mkEnableOption "Completion";
+    require-trigger = mkOption {
+      type = types.bool;
+      default = false;
+      description = "Require keypress to enable";
+    };
   };
   config.programs.nixvim = mkIf cfg.enable {
     plugins = {
@@ -19,6 +24,7 @@ in {
           preselect = "None";
           completion = {
             completeopt = "menu,menuone,noinsert,noselect";
+            autocomplete = !cfg.require-trigger;
           };
           sources = [
             {name = "nvim_lsp";}
