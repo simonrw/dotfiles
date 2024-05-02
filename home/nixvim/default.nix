@@ -40,7 +40,10 @@ in {
     # custom overrides
     me.nixvim = {
       lsp.enable = true;
-      completion.enable = true;
+      completion = {
+        enable = true;
+        require-trigger = true;
+      };
     };
     # defaults
     programs.nixvim = {
