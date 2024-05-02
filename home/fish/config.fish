@@ -43,6 +43,10 @@ function _not_inside_vscode_term
     test "$TERM_PROGRAM" != "vscode"
 end
 
+function _not_inside_zed_term
+    test "$ZED_TERM" != "true"
+end
+
 function _not_inside_zellij
     test -z "$ZELLIJ_SESSION_NAME"
 end
@@ -65,7 +69,7 @@ function _not_disabled
 end
 
 function ensure_tmux_is_running
-    if _not_disabled && _not_inside_tmux && _not_inside_neovim && _not_inside_emacs && _inside_x_session && _not_inside_vscode_term && _not_inside_zellij && _not_inside_pycharm
+    if _not_disabled && _not_inside_tmux && _not_inside_neovim && _not_inside_emacs && _inside_x_session && _not_inside_vscode_term && _not_inside_zellij && _not_inside_pycharm && _not_inside_zed_term
         tat
     end
 end
