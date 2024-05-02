@@ -17,6 +17,9 @@ in {
         settings = {
           autoEnableSources = true;
           preselect = "None";
+          completion = {
+            completeopt = "menu,menuone,noinsert,noselect";
+          };
           sources = [
             {name = "nvim_lsp";}
             {name = "path";}
