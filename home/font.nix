@@ -20,6 +20,7 @@ in {
         "MesloLGS NF"
         "Comic Mono"
         "Monaspace"
+        "Noto Sans Mono"
       ];
       description = ''
         Which font to use
@@ -63,6 +64,7 @@ in {
       else
         {
           "Monaspace" = pkgs.monaspace;
+          "Noto Sans Mono" = pkgs.noto-fonts;
         }
         .${cfg.font-name};
 
