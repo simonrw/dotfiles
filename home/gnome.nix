@@ -56,21 +56,26 @@ in {
   config = mkIf cfg.enable {
     dconf.settings = {
       "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0" = {
+        binding = "<Alt><Super>s";
+        command = mkShortcutCommand "slack";
+        name = "Slack";
+      };
+      "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1" = {
         binding = "<Alt><Super>t";
         command = mkShortcutCommand terminal;
         name = "Terminal";
       };
-      "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1" = {
+      "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom2" = {
         binding = "<Alt><Super>c";
         command = mkShortcutCommand browser;
         name = "Browser";
       };
-      "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom2" = {
+      "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom3" = {
         binding = "<Alt><Super>e";
         command = mkShortcutCommand "obsidian";
         name = "Notes";
       };
-      "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom3" = {
+      "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom4" = {
         binding = "<Alt><Super>r";
         command = mkShortcutCommand "zeal";
         name = "Documentation";
@@ -90,6 +95,7 @@ in {
           "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/"
           "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom2/"
           "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom3/"
+          "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom4/"
         ];
       };
       "org/gnome/shell/extensions/just-perfection" = {
