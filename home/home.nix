@@ -92,7 +92,7 @@ in {
         pkgs.monaspace
       ];
       aws.enable = true;
-      theme = "srw";
+      theme = "nord";
       vscode-theme = "Dracula";
       defaults = {
         browser = "brave";
