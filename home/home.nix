@@ -83,7 +83,7 @@ in {
   me =
     {
       font-name = "JetBrains Mono";
-      font-style = "Regular";
+      font-style = "Semibold";
       font-size =
         if isLinux
         then 10.0
