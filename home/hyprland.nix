@@ -30,8 +30,8 @@ in {
         bind = [
           "$mainMod, space, exec, wofi --show drun"
           "$mainMod, return, exec, ${defaults.terminal}"
-          "$mainMod, C, killactive"
-          "$mainMod, c, ${defaults.browser}"
+          "SUPER_SHIFT, c, killactive"
+          "$mainMod, c, exec, ${defaults.browser}"
           # Move focus with mainMod + arrow keys
           "$mainMod, left, movefocus, l"
           "$mainMod, right, movefocus, r"
@@ -42,13 +42,7 @@ in {
           "$mainMod, k, movefocus, u"
           "$mainMod, j, movefocus, d"
           # Example binds, see https://wiki.hyprland.org/Configuring/Binds/ for more
-          "$mainMod, Q, exec, alacritty"
-          "$mainMod, C, killactive"
           "SUPER_SHIFT, M, exit"
-          "$mainMod, V, togglefloating"
-          "$mainMod, R, exec, wofi --show drun"
-          "$mainMod, P, pseudo"
-          "$mainMod, J, togglesplit"
 
           # Switch workspaces with mainMod + [0-9]
           "$mainMod, 1, workspace, 1"
@@ -100,8 +94,13 @@ in {
             "hyprland/window"
           ];
           modules-right = [
+            "wireplumber"
+            "tray"
             "clock"
           ];
+          "wireplumber" = {
+            on-click = "pavucontrol";
+          };
         };
       };
     };

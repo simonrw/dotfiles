@@ -33,8 +33,5 @@ in {
       displayManager.defaultSession = "none+bspwm";
       windowManager.bspwm.enable = true;
     };
-    # enable bluetooth manager
-    services.blueman.enable = true;
-    programs.dconf.enable = true;
   };
 }
