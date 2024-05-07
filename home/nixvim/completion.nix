@@ -26,8 +26,8 @@ in {
             completeopt = "menu,menuone,noinsert,noselect";
             autocomplete =
               if cfg.require-trigger
-              then null
-              else false;
+              then false
+              else null;
           };
           sources = [
             {name = "nvim_lsp";}
