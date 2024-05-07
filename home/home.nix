@@ -103,7 +103,10 @@ in {
     // (
       if isLinux
       then {
-        wm.hyprland.enable = true;
+        wm.gnome = {
+          enable = true;
+          wayland = true;
+        };
       }
       else {}
     );
