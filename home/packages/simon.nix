@@ -108,6 +108,7 @@ in {
       virt-manager
       vlc
       zeal
+      zed-editor
     ])
     ++ (lib.optionals (system == "x86_64-linux") [
       slack
