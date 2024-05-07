@@ -6,6 +6,15 @@
 with lib; let
   cfg = config.me.wm.hyprland;
 
+  desktop-interface =
+    if config.me.dark-mode
+    then {
+      color-scheme = "prefer-dark";
+    }
+    else {
+      color-scheme = "prefer-light";
+    };
+
   defaults = config.me.defaults;
 in {
   options.me.wm.hyprland = {
@@ -26,6 +35,20 @@ in {
 
       extraConfig = builtins.readFile ./hyprland/config;
     };
-    home.file.".config/hypr/start.sh".source = ./hyprland/start.sh;
+    dconf.settings = {
+      "org/gnome/desktop/interface" =
+        {
+          enable-hot-corners = false;
+          font-name = "Cantarell 11";
+          document-font-name = "Cantarell 11";
+          monospace-font-name = "JetBrains Mono 10"; # TODO: match with global font configuration
+          titlebar-font = "Cantarell Bold 11";
+          font-hinting = "slight";
+          font-antialiasing = "grayscale";
+          icon-theme = "Adwaita";
+          gtk-theme = "Adwaita";
+        }
+        // desktop-interface;
+    };
   };
 }
