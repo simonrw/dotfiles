@@ -24,7 +24,10 @@ in {
           preselect = "None";
           completion = {
             completeopt = "menu,menuone,noinsert,noselect";
-            autocomplete = !cfg.require-trigger;
+            autocomplete =
+              if cfg.require-trigger
+              then null
+              else false;
           };
           sources = [
             {name = "nvim_lsp";}
