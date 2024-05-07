@@ -11,7 +11,7 @@
       };
     };
 in {
-  package = pkgs.nixUnstable;
+  package = pkgs.nixVersions.latest;
   gc =
     {
       automatic = false;
