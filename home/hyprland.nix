@@ -29,11 +29,32 @@ in {
 
         bind = [
           "$mainMod, space, exec, wofi --show drun"
-          "$mainMod, return, exec, ${defaults.browser}"
+          "$mainMod, return, exec, ${defaults.terminal}"
+          "$mainMod, C, killactive"
         ];
       };
 
       extraConfig = builtins.readFile ./hyprland/config;
+    };
+    programs.waybar = {
+      enable = true;
+      systemd.enable = true;
+      settings = {
+        mainBar = {
+          layer = "top";
+          position = "top";
+          height = 24;
+          modules-left = [
+            "hyprland/workspaces"
+          ];
+          modules-center = [
+            "hyprland/window"
+          ];
+          modules-right = [
+            "clock"
+          ];
+        };
+      };
     };
     dconf.settings = {
       "org/gnome/desktop/interface" =
