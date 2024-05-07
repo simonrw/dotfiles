@@ -14,7 +14,7 @@ in {
       xwayland.enable = true;
     };
     environment.sessionVariables = {
-      # WLR_NO_HARDWARE_CURSORS = "1";
+      WLR_NO_HARDWARE_CURSORS = "1";
       NIXOS_OZONE_WL = "1";
     };
     environment.systemPackages = with pkgs; [
@@ -28,8 +28,6 @@ in {
       wayland-protocols
       wayland-utils
     ];
-    services.xserver.displayManager.defaultSession = "hyprland";
-    services.xserver.displayManager.gdm.enable = true;
     services.dbus.enable = true;
     xdg.portal = {
       enable = true;

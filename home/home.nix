@@ -103,10 +103,7 @@ in {
     // (
       if isLinux
       then {
-        wm.cinnamon = {
-          enable = true;
-        };
-        wm.bspwm.enable = true;
+        wm.hyprland.enable = true;
       }
       else {}
     );

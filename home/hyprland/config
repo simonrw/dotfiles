@@ -96,9 +96,9 @@ gestures {
 
 # Example per-device config
 # See https://wiki.hyprland.org/Configuring/Keywords/#per-device-input-configs for more
-device:epic-mouse-v1 {
-    sensitivity = -0.5
-}
+# device:epic-mouse-v1 {
+#     sensitivity = -0.5
+# }
 
 # Example windowrule v1
 # windowrule = float, ^(alacritty)$
@@ -161,5 +161,7 @@ bind = $mainMod, mouse_up, workspace, e-1
 bindm = $mainMod, mouse:272, movewindow
 bindm = $mainMod, mouse:273, resizewindow
 
-exec-once bash ~/.config/hypr/start.sh
+exec-once = nm-applet --indicator
+exec-once = waybar
+exec-once = hyprpaper
 
