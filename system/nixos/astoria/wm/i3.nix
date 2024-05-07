@@ -29,11 +29,5 @@ in {
         ];
       };
     };
-
-    programs.dconf.enable = true;
-    # enable bluetooth manager
-    services.blueman.enable = true;
-
-    environment.systemPackages = with pkgs; [];
   };
 }

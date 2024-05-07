@@ -113,4 +113,4 @@ bindm = $mainMod, mouse:273, resizewindow
 
 exec-once = nm-applet --indicator
 exec-once = hyprpaper
-
+exec-once = blueman-applet

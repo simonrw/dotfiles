@@ -222,6 +222,10 @@ in {
       };
     };
 
+    # enable bluetooth manager
+    services.blueman.enable = true;
+    programs.dconf.enable = true;
+
     # Configure virtualisation
     virtualisation.libvirtd.enable = true;
     virtualisation.podman = {
