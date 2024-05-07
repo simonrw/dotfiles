@@ -110,7 +110,7 @@ gestures {
 # Example binds, see https://wiki.hyprland.org/Configuring/Binds/ for more
 bind = $mainMod, Q, exec, alacritty
 bind = $mainMod, C, killactive,
-bind = $mainMod, M, exit,
+bind = SUPER_SHIFT, M, exit,
 bind = $mainMod, V, togglefloating,
 bind = $mainMod, R, exec, wofi --show drun
 bind = $mainMod, P, pseudo, # dwindle
@@ -162,6 +162,5 @@ bindm = $mainMod, mouse:272, movewindow
 bindm = $mainMod, mouse:273, resizewindow
 
 exec-once = nm-applet --indicator
-exec-once = waybar
 exec-once = hyprpaper
 
