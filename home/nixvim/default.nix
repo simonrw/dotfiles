@@ -42,7 +42,7 @@ in {
       lsp.enable = true;
       completion = {
         enable = true;
-        require-trigger = true;
+        require-trigger = false;
       };
     };
     # defaults
