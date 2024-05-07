@@ -134,6 +134,7 @@ in {
           font-antialiasing = "grayscale";
           icon-theme = "Adwaita";
           gtk-theme = "Adwaita";
+          cursor-theme = "Adwaita";
         }
         // desktop-interface;
       "org/gnome/desktop/background" = {
