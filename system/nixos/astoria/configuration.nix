@@ -2,7 +2,6 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 {
-  config,
   pkgs,
   lib,
   ...
@@ -19,6 +18,7 @@ in {
     ./networking.nix
     ./update-diff.nix
     ./ddccontrol.nix
+    ./gaming.nix
     # TODO: not in unstable nixpkgs yet
     # ./scrutiny.nix
   ];
@@ -263,14 +263,6 @@ in {
       enable = true;
       dev.enable = true;
       man.enable = true;
-    };
-
-    # Configure steam
-    programs.steam = {
-      enable = true;
-      remotePlay.openFirewall = true;
-      # https://github.com/NixOS/nixpkgs/issues/236561#issuecomment-1581879353
-      package = with pkgs; steam.override {extraPkgs = pkgs: [attr];};
     };
 
     # List packages installed in system profile. To search, run:
