@@ -105,6 +105,7 @@ in {
       obsidian
       playerctl
       thunderbird
+      todoist-electron
       virt-manager
       vlc
       zeal
