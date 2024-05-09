@@ -35,6 +35,7 @@ in {
     ./telescope.nix
     ./trouble.nix
     ./zen-mode.nix
+    ./octo-nvim.nix
   ];
   config = {
     # custom overrides
