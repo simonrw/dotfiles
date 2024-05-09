@@ -45,6 +45,7 @@ in {
         enable = true;
         require-trigger = false;
       };
+      octo-nvim.enable = true;
     };
     # defaults
     programs.nixvim = {
