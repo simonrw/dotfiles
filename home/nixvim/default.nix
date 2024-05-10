@@ -46,6 +46,7 @@ in {
         enable = true;
         require-trigger = false;
       };
+      context.enable = false;
       octo-nvim.enable = true;
     };
     # defaults
