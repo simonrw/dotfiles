@@ -15,21 +15,20 @@
   # enable the window managers I use
   # NOTE: do not enable gnome and cinnamon as they are mutually exclusive
   # me.wm.cinnamon.enable = true;
-  # me.wm.bspwm.enable = true;
-  me.wm.gnome = {
+  me.wm.bspwm = {
     enable = true;
-    wayland = true;
+    with-xfce = true;
   };
 
   # overrides
   # services.xserver.displayManager = {
   #   defaultSession = lib.mkForce "gnome";
   # };
-  # services.xserver.displayManager = {
-  #   lightdm.enable = false;
-  #   gdm = {
-  #     enable = true;
-  #     wayland = true;
-  #   };
-  # };
+  services.xserver.displayManager = {
+    lightdm.enable = true;
+    #   gdm = {
+    #     enable = true;
+    #     wayland = true;
+    #   };
+  };
 }
