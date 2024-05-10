@@ -107,6 +107,7 @@ in {
           enable = true;
           wayland = true;
         };
+        wm.bspwm.enable = true;
       }
       else {}
     );
