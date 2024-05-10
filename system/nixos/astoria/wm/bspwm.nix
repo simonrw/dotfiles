@@ -19,9 +19,6 @@ in {
   config = mkIf cfg.enable {
     services.xserver = {
       enable = true;
-      libinput = {
-        mouse.accelProfile = "flat";
-      };
       desktopManager = {
         xfce = {
           enable = cfg.with-xfce;
@@ -29,8 +26,11 @@ in {
           enableXfwm = false;
         };
       };
-      displayManager.defaultSession = "none+bspwm";
       windowManager.bspwm.enable = true;
     };
+    services.libinput = {
+      mouse.accelProfile = "flat";
+    };
+    services.displayManager.defaultSession = "none+bspwm";
   };
 }

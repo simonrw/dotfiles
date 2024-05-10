@@ -143,6 +143,10 @@ in {
     };
 
     # Configure keymap in X11
+    services.displayManager = {
+      # Disable automatic login for the user.
+      autoLogin.enable = false;
+    };
     services.xserver = {
       enable = true;
       videoDrivers = ["nvidia"];
@@ -150,10 +154,6 @@ in {
         layout = "gb";
         options = "ctrl:nocaps";
         variant = "";
-      };
-      displayManager = {
-        # Disable automatic login for the user.
-        autoLogin.enable = false;
       };
       wacom.enable = true;
     };
