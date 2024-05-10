@@ -105,7 +105,7 @@ in {
       then {
         wm.gnome = {
           enable = true;
-          wayland = true;
+          wayland = false;
         };
         wm.bspwm.enable = true;
       }
