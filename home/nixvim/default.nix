@@ -26,16 +26,17 @@
 in {
   imports = [
     ./completion.nix
+    ./context.nix
     ./dap.nix
     ./diffview.nix
     ./gitsigns.nix
     ./lsp-format.nix
     ./lsp.nix
     ./markdown-preview.nix
+    ./octo-nvim.nix
     ./telescope.nix
     ./trouble.nix
     ./zen-mode.nix
-    ./octo-nvim.nix
   ];
   config = {
     # custom overrides
@@ -293,15 +294,6 @@ in {
           disabledLanguages = [
             "gitcommit"
           ];
-        };
-        treesitter-context = {
-          enable = true;
-          maxLines = 3;
-          onAttach = ''
-            function(buf)
-              vim.cmd.highlight({ "TreesitterContext", "guibg=#363c4a" })
-            end
-          '';
         };
         treesitter-textobjects = {
           enable = true;
