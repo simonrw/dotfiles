@@ -1,6 +1,6 @@
 {...}: {
   programs.zsh = {
-    enable = true;
+    enable = false;
     autosuggestion.enable = true;
     enableCompletion = true;
     enableVteIntegration = true;
