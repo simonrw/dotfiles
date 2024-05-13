@@ -108,6 +108,7 @@ in {
           wayland = false;
         };
         wm.bspwm.enable = true;
+        wm.cinnamon.enable = true;
       }
       else {}
     );

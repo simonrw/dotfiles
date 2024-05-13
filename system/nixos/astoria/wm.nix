@@ -1,4 +1,4 @@
-{...}: {
+{lib, ...}: {
   imports = [
     ./wm/cinnamon.nix
     ./wm/gnome.nix
@@ -20,10 +20,12 @@
     with-xfce = true;
   };
 
+  me.wm.cinnamon.enable = true;
+
   # overrides
-  # services.xserver.displayManager = {
-  #   defaultSession = lib.mkForce "gnome";
-  # };
+  services.xserver.displayManager = {
+    defaultSession = lib.mkForce "cinnamon";
+  };
   services.xserver.displayManager = {
     lightdm.enable = true;
     #   gdm = {
