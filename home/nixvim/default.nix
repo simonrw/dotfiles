@@ -1,8 +1,4 @@
-{
-  pkgs,
-  lib,
-  ...
-}: let
+{pkgs, ...}: let
   keymap = {
     key,
     action,
@@ -17,6 +13,16 @@
   };
 
   # custom plugins
+  papercolor-theme-slim = pkgs.vimUtils.buildVimPlugin {
+    pname = "papercolor-theme-slim";
+    version = "unstable";
+    src = pkgs.fetchFromGitHub {
+      owner = "pappasam";
+      repo = "papercolor-theme-slim";
+      rev = "fc105bee31207ec97c329c70a5c8cb5f793cc054";
+      hash = "sha256-m/+Xsbve1fuzNEKpSK6Eddoi7gKcj04o1kSFy/H/m9w=";
+    };
+  };
   nvim-nio = pkgs.vimUtils.buildVimPlugin {
     pname = "nvim-nio";
     version = "1.9.0";
@@ -316,6 +322,7 @@ in {
         lsp-status-nvim
         vim-test
         nvim-nio
+        papercolor-theme-slim
       ];
       extraConfigLua = ''
       '';
