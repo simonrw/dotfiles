@@ -49,6 +49,7 @@ in {
       openssh
       pstree
       pv
+      python3
       ripgrep
       rustup
       sqlite-interactive
