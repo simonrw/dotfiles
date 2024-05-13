@@ -27,14 +27,12 @@ in {
   home.packages = with pkgs;
     [
       ansi
-      awscli2
       bat
       cachix
       cert-info
       comma
       curlie
       custom-curl
-      deadnix
       dig
       docker-credential-helpers
       du-dust
@@ -42,40 +40,21 @@ in {
       fd
       file
       fx
-      gcc
-      git-branchless
-      graphviz
-      hey
       htop
-      httpie
-      hub
-      lnav
       lsof
       mkcert
-      multitail
       nix-output-monitor
-      nixpkgs-fmt
       nix-tree
-      nodejs
-      noti
       openssh
-      pre-commit
       pstree
       pv
-      pyright
-      python3
-      python3.pkgs.pipx
-      python3.pkgs.send2trash
-      python3.pkgs.virtualenv
       ripgrep
       rustup
       sqlite-interactive
       universal-ctags
       unzip
       watch
-      wget
       zip
-      zsh
     ]
     ++ [
       # local packages
