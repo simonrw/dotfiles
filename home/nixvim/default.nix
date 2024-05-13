@@ -1,4 +1,8 @@
-{pkgs, ...}: let
+{
+  pkgs,
+  lib,
+  ...
+}: let
   keymap = {
     key,
     action,
@@ -66,7 +70,7 @@ in {
         history = 50;
         hlsearch = false;
         ignorecase = true;
-        inccommand = "nosplit";
+        inccommand = "split";
         incsearch = true;
         laststatus = 2;
         linebreak = true;
