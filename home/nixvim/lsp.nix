@@ -27,6 +27,7 @@ in {
       lsp = {
         enable = true;
         servers = {
+          gleam.enable = true;
           elmls.enable = true;
           nil_ls = {
             enable = true;
