@@ -33,6 +33,7 @@ in {
       comma
       curlie
       custom-curl
+      devenv
       dig
       docker-credential-helpers
       du-dust
