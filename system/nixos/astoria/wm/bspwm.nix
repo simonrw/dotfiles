@@ -31,6 +31,9 @@ in {
     services.libinput = {
       mouse.accelProfile = "flat";
     };
-    services.displayManager.defaultSession = "none+bspwm";
+    services.displayManager.defaultSession =
+      if cfg.with-xfce
+      then "xfce+bspwm"
+      else "none+bspwm";
   };
 }
