@@ -46,6 +46,7 @@ in {
       mkcert
       nix-output-monitor
       nix-tree
+      nodejs
       openssh
       pstree
       pv
