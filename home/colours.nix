@@ -852,6 +852,7 @@
       github-light = "github_light";
       catppuccin-latte = "catppuccin_latte";
       nord = "nord-custom";
+      papercolor = "papercolor-light";
     }
     .${config.me.theme}
     or "monokai-pro-custom";
@@ -866,6 +867,7 @@
   bat-theme =
     {
       github-light = "GitHub";
+      papercolor = "GitHub";
       solarized-light = "Solarized (light)";
       catppuccin-latte = "GitHub";
       nord = "Nord";
@@ -884,6 +886,13 @@
       hash = "sha256-m/+Xsbve1fuzNEKpSK6Eddoi7gKcj04o1kSFy/H/m9w=";
     };
   };
+  delta-theme =
+    {
+      papercolor = "GitHub";
+      github-light = "GitHub";
+    }
+    .${config.me.theme}
+    or "Nord";
 in
   with lib; {
     options = {
@@ -905,7 +914,7 @@ in
     config = {
       programs.bat.config.theme = bat-theme;
       # TODO: make this configurable
-      programs.git.delta.options.syntax-theme = "Nord";
+      programs.git.delta.options.syntax-theme = delta-theme;
       programs.helix.settings.theme = helix-theme;
       programs.fish.interactiveShellInit = ''
         # configure colour theme
