@@ -4,6 +4,24 @@
   lib,
   ...
 }: let
+  dark-themes = [
+    "dracula"
+    "github"
+    "gruvbox"
+    "monochrome"
+    "monokai-pro"
+    "nord"
+    "one-dark"
+    "srw"
+    "catppuccin-frappe"
+  ];
+  light-themes = [
+    "catppuccin-latte"
+    "github-light"
+    "solarized-light"
+    "papercolor"
+  ];
+
   # custom vim plugins for colour schemes
   github-nvim-theme = pkgs.vimUtils.buildVimPlugin {
     pname = "github-nvim-theme";
@@ -455,6 +473,50 @@
         }
       ];
     };
+    papercolor = rec {
+      # PaperColor Light 256 - alacritty color config
+      # https://github.com/NLKNguyen/papercolor-theme
+      # https://www.reddit.com/r/vim/comments/36xzbs/vim_paper_color_theme_inspired_by_googles/crqbfpa/
+      # Default colors
+      primary = {
+        background = "#eeeeee";
+        foreground = "#4d4d4c";
+      };
+
+      # Colors the cursor will use if `custom_cursor_colors` is true
+      cursor = {
+        text = "#f3f3f3";
+        cursor = "#4d4d4c";
+      };
+
+      # Normal colors
+      normal = {
+        black = "#ededed";
+        red = "#d7005f";
+        green = "#718c00";
+        yellow = "#d75f00";
+        blue = "#4271ae";
+        magenta = "#8959a8";
+        cyan = "#3e999f";
+        white = "#4d4d4c";
+      };
+
+      # Bright colors
+      bright = {
+        black = "#949494";
+        red = "#d7005f";
+        green = "#718c00";
+        yellow = "#d75f00";
+        blue = "#4271ae";
+        magenta = "#8959a8";
+        cyan = "#3e999f";
+        white = "#f5f5f5";
+      };
+      selection = {
+        text = normal.white;
+        background = normal.blue;
+      };
+    };
     gruvbox = rec {
       tmux-colour = normal.yellow;
 
@@ -669,6 +731,10 @@
     };
   };
   neovim-theme-blocks = {
+    papercolor = ''
+      vim.cmd [[set background=light]]
+      vim.cmd [[colorscheme PaperColorSlim]]
+    '';
     nord = ''
       vim.g.nord_disable_background = true
       vim.g.nord_italic = false
@@ -786,6 +852,7 @@
       github-light = "github_light";
       catppuccin-latte = "catppuccin_latte";
       nord = "nord-custom";
+      papercolor = "papercolor-light";
     }
     .${config.me.theme}
     or "monokai-pro-custom";
@@ -800,6 +867,7 @@
   bat-theme =
     {
       github-light = "GitHub";
+      papercolor = "GitHub";
       solarized-light = "Solarized (light)";
       catppuccin-latte = "GitHub";
       nord = "Nord";
@@ -807,24 +875,24 @@
     .${config.me.theme}
     or "Monokai Extended";
 
-  dark-themes = [
-    "dracula"
-    "github"
-    "gruvbox"
-    "monochrome"
-    "monokai-pro"
-    "nord"
-    "one-dark"
-    "srw"
-    "catppuccin-frappe"
-  ];
-  light-themes = [
-    "catppuccin-latte"
-    "github-light"
-    "solarized-light"
-  ];
-
   is-dark-theme = builtins.elem config.me.theme dark-themes;
+  papercolor-theme-slim = pkgs.vimUtils.buildVimPlugin {
+    pname = "papercolor-theme-slim";
+    version = "unstable";
+    src = pkgs.fetchFromGitHub {
+      owner = "pappasam";
+      repo = "papercolor-theme-slim";
+      rev = "fc105bee31207ec97c329c70a5c8cb5f793cc054";
+      hash = "sha256-m/+Xsbve1fuzNEKpSK6Eddoi7gKcj04o1kSFy/H/m9w=";
+    };
+  };
+  delta-theme =
+    {
+      papercolor = "GitHub";
+      github-light = "GitHub";
+    }
+    .${config.me.theme}
+    or "Nord";
 in
   with lib; {
     options = {
@@ -846,7 +914,7 @@ in
     config = {
       programs.bat.config.theme = bat-theme;
       # TODO: make this configurable
-      programs.git.delta.options.syntax-theme = "Nord";
+      programs.git.delta.options.syntax-theme = delta-theme;
       programs.helix.settings.theme = helix-theme;
       programs.fish.interactiveShellInit = ''
         # configure colour theme
@@ -867,6 +935,9 @@ in
       programs.nixvim.extraConfigLuaPost = neovim-theme-blocks.${config.me.theme};
       programs.nixvim.extraPlugins = with pkgs.vimPlugins;
         {
+          papercolor = [
+            papercolor-theme-slim
+          ];
           github-light = [
             github-nvim-theme
           ];
