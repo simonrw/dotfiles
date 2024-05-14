@@ -4,6 +4,23 @@
   lib,
   ...
 }: let
+  dark-themes = [
+    "dracula"
+    "github"
+    "gruvbox"
+    "monochrome"
+    "monokai-pro"
+    "nord"
+    "one-dark"
+    "srw"
+    "catppuccin-frappe"
+  ];
+  light-themes = [
+    "catppuccin-latte"
+    "github-light"
+    "solarized-light"
+  ];
+
   # custom vim plugins for colour schemes
   github-nvim-theme = pkgs.vimUtils.buildVimPlugin {
     pname = "github-nvim-theme";
@@ -806,23 +823,6 @@
     }
     .${config.me.theme}
     or "Monokai Extended";
-
-  dark-themes = [
-    "dracula"
-    "github"
-    "gruvbox"
-    "monochrome"
-    "monokai-pro"
-    "nord"
-    "one-dark"
-    "srw"
-    "catppuccin-frappe"
-  ];
-  light-themes = [
-    "catppuccin-latte"
-    "github-light"
-    "solarized-light"
-  ];
 
   is-dark-theme = builtins.elem config.me.theme dark-themes;
 in
