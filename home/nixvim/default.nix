@@ -49,6 +49,7 @@ in {
       };
       context.enable = false;
       octo-nvim.enable = true;
+      oil.enable = true;
     };
     # defaults
     programs.nixvim = {
