@@ -47,7 +47,7 @@ in {
         enable = true;
         require-trigger = false;
       };
-      context.enable = false;
+      context.enable = true;
       octo-nvim.enable = true;
       oil.enable = true;
     };
