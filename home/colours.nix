@@ -732,6 +732,7 @@
   };
   neovim-theme-blocks = {
     papercolor = ''
+      vim.cmd.highlight({ "TreesitterContext", "guibg=#f6f6ff" })
       vim.cmd [[set background=light]]
       vim.cmd [[colorscheme PaperColorSlim]]
     '';
@@ -928,10 +929,6 @@ in
         "tmux-pane-colour"
         "vi_mode_cursor"
       ];
-      # add vim after file for setting colour theme so it's not overridden by plugins
-      # home.file.".config/nvim/after/colors/theme.vim".text = ''
-      #   hi TreesitterContext guibg=${current-theme.normal.white}
-      # '';
       programs.nixvim.extraConfigLuaPost = neovim-theme-blocks.${config.me.theme};
       programs.nixvim.extraPlugins = with pkgs.vimPlugins;
         {

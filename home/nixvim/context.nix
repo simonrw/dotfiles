@@ -14,11 +14,6 @@ in {
     programs.nixvim.plugins.treesitter-context = {
       enable = true;
       maxLines = 3;
-      onAttach = ''
-        function(buf)
-          vim.cmd.highlight({ "TreesitterContext", "guibg=#363c4a" })
-        end
-      '';
     };
   };
 }
