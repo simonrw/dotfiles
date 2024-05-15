@@ -34,6 +34,7 @@ in {
     ./lsp.nix
     ./markdown-preview.nix
     ./octo-nvim.nix
+    ./oil.nix
     ./telescope.nix
     ./trouble.nix
     ./zen-mode.nix
