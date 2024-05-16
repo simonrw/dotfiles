@@ -92,13 +92,13 @@ in {
         pkgs.monaspace
       ];
       aws.enable = true;
-      theme = "papercolor";
+      theme = "nord";
       vscode-theme = "Dracula";
       defaults = {
         browser = "brave";
         terminal = "alacritty";
       };
-      is-dark-theme = false;
+      is-dark-theme = true;
     }
     // (
       if isLinux
