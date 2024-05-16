@@ -36,9 +36,9 @@ in {
             {name = "luasnip";}
           ];
           mapping = {
-            "<C-p>" = "cmp.mapping.select_prev_item({ select = true })";
-            "<C-n>" = "cmp.mapping.select_next_item({ select = true })";
-            "<C-y>" = "cmp.mapping.confirm({ select = true })";
+            "<C-p>" = "cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Insert })";
+            "<C-n>" = "cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Insert })";
+            "<C-y>" = "cmp.mapping.confirm({ select = true, behavior = cmp.ConfirmBehavior.Insert })";
             "<C-Space>" = "cmp.mapping.complete()";
             "<C-e>" = "cmp.config.disable";
           };
