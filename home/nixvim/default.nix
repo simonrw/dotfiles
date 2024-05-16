@@ -70,7 +70,7 @@ in {
         ignorecase = true;
         inccommand = "split";
         incsearch = true;
-        laststatus = 2;
+        laststatus = 0;
         linebreak = true;
         list = false;
         mouse = "a";
