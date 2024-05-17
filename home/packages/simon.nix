@@ -41,6 +41,7 @@ in {
       fd
       file
       fx
+      hexyl
       htop
       lsof
       mkcert
