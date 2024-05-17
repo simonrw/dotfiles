@@ -19,7 +19,7 @@ in {
       extensions.dap-python.enable = true;
       extensions.dap-ui = {
         enable = true;
-        # controls.enabled = false;
+        controls.enabled = false;
       };
       extensions.dap-virtual-text.enable = true;
     };
