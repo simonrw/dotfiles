@@ -28,6 +28,7 @@
       "shotcut"
       "sublime-merge"
       "sublime-text"
+      "todoist"
       "visual-studio-code"
       "vlc"
       "wireshark"
