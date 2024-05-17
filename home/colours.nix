@@ -1023,5 +1023,24 @@ in
       programs.vscode.userSettings = {
         "workbench.colorTheme" = config.me.vscode-theme or ({}.${config.me.theme} or "Monokai Pro");
       };
+      programs.gh-dash.settings.theme = {
+        ui.table.showSeparator = true;
+        colors = {
+          text = {
+            primary = current-theme.primary.foreground;
+            secondary = current-theme.bright.black;
+            inverted = current-theme.primary.background;
+            faint = current-theme.bright.white;
+            warning = current-theme.normal.red;
+            success = current-theme.normal.green;
+          };
+          background.selected = current-theme.bright.black;
+          border = {
+            primary = current-theme.primary.foreground;
+            secondary = current-theme.primary.foreground;
+            faint = current-theme.primary.foreground;
+          };
+        };
+      };
     };
   }
