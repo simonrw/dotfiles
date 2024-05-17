@@ -49,6 +49,7 @@ in {
       nix-tree
       nodejs
       openssh
+      pre-commit
       pstree
       pv
       python3
