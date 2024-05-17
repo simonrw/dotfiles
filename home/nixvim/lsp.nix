@@ -56,7 +56,16 @@ in {
               };
             };
           };
-          pyright.enable = true;
+          pyright = {
+            enable = true;
+            onAttach = {
+              # improve performance
+              function = ''
+                client.config.settings.useLibraryCodeForTypes = false
+                client.config.settings.autoSearchPaths = false
+              '';
+            };
+          };
         };
       };
     };
