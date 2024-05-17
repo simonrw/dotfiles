@@ -44,6 +44,11 @@ in {
         key = "<leader>b";
         action = ":lua require('dap').toggle_breakpoint()<cr>";
       })
+      # Eval var under cursor
+      (keymap {
+        key = "<leader>?";
+        action = ":lua require('dapui').eval(nil, { enter = true })<cr>";
+      })
     ];
     # launch dap-ui on debugger commands
     extraConfigLua = ''
