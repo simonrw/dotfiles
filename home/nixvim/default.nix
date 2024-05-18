@@ -42,7 +42,10 @@ in {
   config = {
     # custom overrides
     me.nixvim = {
-      lsp.enable = true;
+      lsp = {
+        enable = true;
+        inlay-hints = true;
+      };
       completion = {
         enable = true;
         require-trigger = true;
