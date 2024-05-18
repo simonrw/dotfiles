@@ -32,7 +32,11 @@ in {
           sources = [
             {name = "nvim_lsp";}
             {name = "path";}
-            {name = "buffer";}
+            {
+              name = "buffer";
+              # Words from other open buffers can also be suggested.
+              option.get_bufnrs.__raw = "vim.api.nvim_list_bufs";
+            }
             {name = "luasnip";}
           ];
           mapping = {
