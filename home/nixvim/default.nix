@@ -132,6 +132,12 @@ in {
           pattern = ["markdown"];
           command = "setlocal wrap";
         }
+        # set conceal for markdown files
+        {
+          event = ["FileType"];
+          pattern = ["markdown"];
+          command = "setlocal conceallevel=2";
+        }
         {
           event = ["FileType"];
           pattern = ["javascript" "typescript"];
