@@ -45,7 +45,7 @@ in {
       lsp.enable = true;
       completion = {
         enable = true;
-        require-trigger = false;
+        require-trigger = true;
       };
       context.enable = true;
       octo-nvim.enable = true;
