@@ -21,6 +21,7 @@ with lib; let
 in {
   options.me.nixvim.lsp = {
     enable = mkEnableOption "lsp";
+    inlay-hints = mkEnableOption "inlay-hints";
   };
   config.programs.nixvim = mkIf cfg.enable {
     plugins = {
@@ -112,5 +113,8 @@ in {
         lua = true;
       })
     ];
+    extraConfigLua = mkIf cfg.inlay-hints ''
+      vim.lsp.inlay_hint.enable()
+    '';
   };
 }
