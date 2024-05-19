@@ -44,7 +44,7 @@ in {
     me.nixvim = {
       lsp = {
         enable = true;
-        inlay-hints = true;
+        inlay-hints = false;
       };
       completion = {
         enable = true;
