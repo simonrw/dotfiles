@@ -49,6 +49,7 @@ in {
       };
       packages = with pkgs; [
         git
+        nix-output-monitor
       ];
     };
     xdg = {
