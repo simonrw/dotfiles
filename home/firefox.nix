@@ -48,7 +48,6 @@
             ]
             else []
           );
-        extraConfig = builtins.readFile ./firefox-preferences.js;
         isDefault = true;
         settings = {
           "browser.search.region" = "GB";
