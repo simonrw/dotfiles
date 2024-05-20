@@ -12,6 +12,7 @@ in {
 
   config = lib.mkIf cfg.enable {
     services.xserver.desktopManager.cinnamon.enable = true;
+    services.gvfs.enable = true;
     environment.cinnamon.excludePackages = with pkgs; [
       orca
     ];
