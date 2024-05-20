@@ -12,8 +12,6 @@
       "docker"
       "element"
       "firefox"
-      "freecad"
-      "freetube"
       "gimp"
       "hammerspoon"
       "inkscape"
@@ -39,11 +37,7 @@
     ];
     masApps = {
       DaisyDisk = 411643860;
-      "GoodNotes 5" = 1444383602;
       Tailscale = 1475387142;
-      "Bear – Markdown Notes" = 1091189122;
-      "iA Writer" = 775737590;
-      "Microsoft Remote Desktop" = 1295203466;
     };
   };
 }
