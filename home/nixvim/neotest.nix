@@ -1,4 +1,5 @@
 {
+  pkgs,
   lib,
   config,
   ...
@@ -30,6 +31,12 @@ in {
         };
         settings.output_panel.open = "tabnew";
       };
+      globals = {
+        cursorhold_updatetime = 100;
+      };
+      extraPlugins = with pkgs.vimPlugins; [
+        FixCursorHold-nvim
+      ];
       keymaps = [
         (keymap {
           key = "tf";
