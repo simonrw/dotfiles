@@ -39,6 +39,7 @@ in {
     ./trouble.nix
     ./zen-mode.nix
     ./vim-test.nix
+    ./neotest.nix
   ];
   config = {
     # custom overrides
@@ -54,7 +55,8 @@ in {
       context.enable = true;
       octo-nvim.enable = true;
       oil.enable = true;
-      vim-test.enable = true;
+      vim-test.enable = false;
+      neotest.enable = true;
     };
     # defaults
     programs.nixvim = {
