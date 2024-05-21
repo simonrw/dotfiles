@@ -28,6 +28,7 @@ in {
           python.enable = true;
           rust.enable = true;
         };
+        settings.output_panel.open = "tabnew";
       };
       keymaps = [
         (keymap {
@@ -41,6 +42,10 @@ in {
         (keymap {
           key = "tn";
           action = ''function() require("neotest").run.run() end'';
+        })
+        (keymap {
+          key = "to";
+          action = ''function() require("neotest").output_panel.toggle() end'';
         })
       ];
     };
