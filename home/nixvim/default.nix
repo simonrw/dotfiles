@@ -11,18 +11,6 @@
       silent = true;
     };
   };
-
-  # custom plugins
-  nvim-nio = pkgs.vimUtils.buildVimPlugin {
-    pname = "nvim-nio";
-    version = "1.9.0";
-    src = pkgs.fetchFromGitHub {
-      owner = "nvim-neotest";
-      repo = "nvim-nio";
-      rev = "v1.9.0";
-      hash = "sha256-ZRYclqsgAvlRBwb59XHlqVat7CxUJTH1rD6QLwh1ang=";
-    };
-  };
 in {
   imports = [
     ./completion.nix
