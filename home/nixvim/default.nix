@@ -38,6 +38,7 @@ in {
     ./telescope.nix
     ./trouble.nix
     ./zen-mode.nix
+    ./vim-test.nix
   ];
   config = {
     # custom overrides
@@ -53,6 +54,7 @@ in {
       context.enable = true;
       octo-nvim.enable = true;
       oil.enable = true;
+      vim-test.enable = true;
     };
     # defaults
     programs.nixvim = {
@@ -261,27 +263,6 @@ in {
           key = "<leader>ga";
           action = ":Git commit -v --amend<cr>";
         })
-        # vim-test
-        (keymap {
-          key = "tf";
-          action = ":update|:TestFile<cr>";
-        })
-        (keymap {
-          key = "tl";
-          action = ":update|:TestLast<cr>";
-        })
-        (keymap {
-          key = "tn";
-          action = ":update|:TestNearest<cr>";
-        })
-        (keymap {
-          key = "ta";
-          action = ":update|:TestSuite<cr>";
-        })
-        (keymap {
-          key = "ts";
-          action = ":update|:TestSuite<cr>";
-        })
       ];
       globals = {
         mapleader = " ";
@@ -311,11 +292,9 @@ in {
         vim-unimpaired
         vim-rhubarb
         vim-repeat
-        vim-test
         # rustaceanvim
         playground
         lsp-status-nvim
-        vim-test
         nvim-nio
       ];
       extraConfigLua = ''
