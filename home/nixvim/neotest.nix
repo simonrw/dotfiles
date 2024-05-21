@@ -32,15 +32,15 @@ in {
       keymaps = [
         (keymap {
           key = "tf";
-          action = ''require("neotest").run.run(vim.fn.expand("%"))'';
+          action = ''function() require("neotest").run.run(vim.fn.expand("%")) end'';
         })
         (keymap {
           key = "tl";
-          action = ''require("neotest").run.run_last()'';
+          action = ''function() require("neotest").run.run_last() end'';
         })
         (keymap {
           key = "tn";
-          action = ''require("neotest").run.run()'';
+          action = ''function() require("neotest").run.run() end'';
         })
       ];
     };
