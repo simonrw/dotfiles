@@ -88,7 +88,7 @@ in {
         wildmode = ["list:longest" "list:full"];
         wrap = false;
         winwidth = 80;
-        updatetime = 50;
+        updatetime = 4000;
         switchbuf = ["useopen" "uselast"];
         conceallevel = 0;
         shortmess = "tToOFIWa";
