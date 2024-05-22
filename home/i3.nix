@@ -158,7 +158,7 @@ in {
         "${mod}+Ctrl+Shift+E" = "exit";
 
         "${mod}+c" = browser-command;
-        "${mod}+Return" = "exec alacritty";
+        "${mod}+Return" = "exec ${config.me.defaults.terminal}";
         "${mod}+d" = "exec ${pkgs.rofi}/bin/rofi -show drun";
         "${mod}+space" = "exec ${pkgs.rofi}/bin/rofi -show drun";
 
