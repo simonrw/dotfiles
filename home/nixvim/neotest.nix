@@ -29,7 +29,10 @@ in {
           python.enable = true;
           rust.enable = true;
         };
-        settings.output_panel.open = "tabnew";
+        settings = {
+          output_panel.open = "tabnew";
+          output.enabled = false;
+        };
       };
       globals = {
         cursorhold_updatetime = 100;
