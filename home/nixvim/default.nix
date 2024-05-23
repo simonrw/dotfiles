@@ -44,8 +44,8 @@ in {
       context.enable = true;
       octo-nvim.enable = true;
       oil.enable = true;
-      vim-test.enable = false;
-      neotest.enable = true;
+      vim-test.enable = true;
+      neotest.enable = false;
     };
     # defaults
     programs.nixvim = {
