@@ -18,6 +18,7 @@ in {
       ''
         set -x GLAMOUR_STYLE ${glamour-style}
         set -x PAGER "${pkgs.bat}/bin/bat"
+        set -x PYTHONUNBUFFERED 1
       ''
       + (builtins.readFile ./fish/config.fish);
     shellAliases =
