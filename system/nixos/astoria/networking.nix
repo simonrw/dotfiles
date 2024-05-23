@@ -1,12 +1,6 @@
-{config, ...}: {
+{...}: {
   networking.hostName = "astoria"; # Define your hostname.
   networking.enableIPv6 = false;
-  # add an extra host for debugging networking
-  networking.extraHosts = ''
-    127.0.0.1 extra-host
-    127.0.0.1 hostname-external
-    127.0.0.1 localstack-hostname
-  '';
 
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
