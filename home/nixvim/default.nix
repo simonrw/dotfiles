@@ -36,6 +36,7 @@ in {
         enable = true;
         inlay-hints = false;
       };
+      zen-mode.enable = true;
       completion = {
         enable = true;
         require-trigger = true;

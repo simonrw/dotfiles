@@ -13,7 +13,6 @@ in {
   config = mkIf cfg.enable {
     programs.nixvim.extraPlugins = with pkgs.vimPlugins; [
       zen-mode-nvim
-      twilight-nvim
     ];
   };
 }
