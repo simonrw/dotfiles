@@ -21,13 +21,13 @@ in {
     ./lsp-format.nix
     ./lsp.nix
     ./markdown-preview.nix
+    ./neotest.nix
     ./octo-nvim.nix
     ./oil.nix
     ./telescope.nix
     ./trouble.nix
-    ./zen-mode.nix
     ./vim-test.nix
-    ./neotest.nix
+    ./zen-mode.nix
   ];
   config = {
     # custom overrides
