@@ -88,6 +88,7 @@ in {
       man-pages-posix
       obsidian
       playerctl
+      remmina
       thunderbird
       todoist-electron
       virt-manager
