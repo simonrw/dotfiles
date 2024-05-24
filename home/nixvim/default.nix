@@ -40,6 +40,7 @@ in {
       completion = {
         enable = true;
         require-trigger = false;
+        emoji = true;
       };
       context.enable = true;
       octo-nvim.enable = true;

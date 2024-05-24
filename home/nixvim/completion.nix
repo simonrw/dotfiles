@@ -8,6 +8,7 @@ with lib; let
 in {
   options.me.nixvim.completion = {
     enable = mkEnableOption "Completion";
+    emoji = mkEnableOption "Emoji completion";
     require-trigger = mkOption {
       type = types.bool;
       default = false;
@@ -16,6 +17,7 @@ in {
   };
   config.programs.nixvim = mkIf cfg.enable {
     plugins = {
+      cmp-emoji.enable = cfg.emoji;
       cmp_luasnip.enable = true;
       cmp = {
         enable = true;
@@ -29,16 +31,20 @@ in {
               then false
               else null;
           };
-          sources = [
-            {name = "nvim_lsp";}
-            {name = "path";}
-            {
-              name = "buffer";
-              # Words from other open buffers can also be suggested.
-              option.get_bufnrs.__raw = "vim.api.nvim_list_bufs";
-            }
-            {name = "luasnip";}
-          ];
+          sources =
+            [
+              {name = "nvim_lsp";}
+              {name = "path";}
+              {
+                name = "buffer";
+                # Words from other open buffers can also be suggested.
+                option.get_bufnrs.__raw = "vim.api.nvim_list_bufs";
+              }
+              {name = "luasnip";}
+            ]
+            ++ (lib.optionals cfg.emoji [
+              {name = "emoji";}
+            ]);
           mapping = {
             "<C-p>" = "cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Insert })";
             "<C-n>" = "cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Insert })";
