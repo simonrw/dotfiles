@@ -16,6 +16,7 @@
       "hammerspoon"
       "inkscape"
       "karabiner-elements"
+      "kitty"
       "notion"
       "obs"
       "obsidian"
