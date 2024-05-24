@@ -22,6 +22,7 @@ in {
     ./lsp.nix
     ./markdown-preview.nix
     ./neotest.nix
+    ./notifications.nix
     ./octo-nvim.nix
     ./oil.nix
     ./telescope.nix
