@@ -96,10 +96,7 @@ in {
       vscode-theme = "Dracula";
       defaults = {
         browser = "firefox";
-        terminal =
-          if isLinux
-          then "kitty"
-          else "alacritty";
+        terminal = "alacritty";
       };
       is-dark-theme = true;
     }
