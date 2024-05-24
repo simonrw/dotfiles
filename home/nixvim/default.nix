@@ -48,6 +48,7 @@ in {
       oil.enable = true;
       vim-test.enable = true;
       neotest.enable = false;
+      notifications.enable = true;
     };
     # defaults
     programs.nixvim = {
