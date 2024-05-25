@@ -41,11 +41,12 @@ in {
       ./nix-index.nix
       ./nixvim
       ./packages/simon.nix
-      ./zellij.nix
       ./ssh.nix
       ./taskwarrior.nix
       ./tmux.nix
+      ./wezterm.nix
       ./wireshark.nix
+      ./zellij.nix
       ./zoxide.nix
       ./zsh.nix
     ]
@@ -96,7 +97,7 @@ in {
       vscode-theme = "Dracula";
       defaults = {
         browser = "firefox";
-        terminal = "alacritty";
+        terminal = "wezterm";
       };
       is-dark-theme = true;
     }
