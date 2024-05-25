@@ -30,6 +30,7 @@
       "todoist"
       "visual-studio-code"
       "vlc"
+      "wezterm"
       "wireshark"
       "xquartz"
     ];
