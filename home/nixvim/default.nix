@@ -29,6 +29,7 @@ in {
     ./trouble.nix
     ./vim-test.nix
     ./zen-mode.nix
+    ./statusbar.nix
   ];
   config = {
     # custom overrides
@@ -49,6 +50,7 @@ in {
       vim-test.enable = true;
       neotest.enable = false;
       notifications.enable = false;
+      statusbar.enable = true;
     };
     # defaults
     programs.nixvim = {
