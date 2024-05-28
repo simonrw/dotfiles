@@ -36,6 +36,7 @@ in {
       devenv
       dig
       docker-credential-helpers
+      duckdb
       du-dust
       entr
       fd
