@@ -1,6 +1,6 @@
 local applications = {
     terminal = {
-        name = "Wezterm",
+        name = "Alacritty",
     },
     browser = {
         name = "Brave Browser",
