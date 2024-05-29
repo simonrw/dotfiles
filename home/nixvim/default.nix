@@ -44,7 +44,7 @@ in {
         require-trigger = true;
         emoji = true;
       };
-      context.enable = true;
+      context.enable = false;
       octo-nvim.enable = true;
       oil.enable = true;
       vim-test.enable = true;
