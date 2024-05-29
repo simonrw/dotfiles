@@ -14,6 +14,7 @@ with lib; let
       then {name = application;}
       else application;
   in "sh -c 'wmctrl -x -a ${app'.name} || ${app'.command or app'.name}'";
+  wallpaper = config.me.wallpaper;
 in {
   options.me.wm.cinnamon = with lib; {
     enable = mkEnableOption "Cinnamon customisations";
@@ -85,8 +86,8 @@ in {
           desktop-effects-workspace = true;
         };
         "org/cinnamon/desktop/background" = {
-          picture-uri = "file://${./apple.png}";
-          picture-uri-dark = "file://${./apple.png}";
+          picture-uri = "file://${wallpaper}";
+          picture-uri-dark = "file://${wallpaper}";
         };
         "org/cinnamon/desktop/keybindings/wm" = {
           toggle-fullscreen = ["<Super>0"];
