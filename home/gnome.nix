@@ -37,6 +37,7 @@ with lib; let
     };
 
   cfg = config.me.wm.gnome;
+  wallpaper = config.me.wallpaper;
 in {
   options.me.wm.gnome = {
     enable = mkEnableOption (mdDoc "Enable gnome configuration");
@@ -138,8 +139,8 @@ in {
         }
         // desktop-interface;
       "org/gnome/desktop/background" = {
-        picture-uri = "file://${./apple.png}";
-        picture-uri-dark = "file://${./apple.png}";
+        picture-uri = "file://${wallpaper}";
+        picture-uri-dark = "file://${wallpaper}";
       };
       "org/gnome/mutter" = {
         workspaces-only-on-primary = false;

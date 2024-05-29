@@ -44,6 +44,7 @@ in {
       ./ssh.nix
       ./taskwarrior.nix
       ./tmux.nix
+      ./wallpaper.nix
       ./wezterm.nix
       ./wireshark.nix
       ./zellij.nix
@@ -83,6 +84,7 @@ in {
   # custom properties
   me =
     {
+      wallpaper = ./wallpapers/mountain-lion.png;
       font-name = "JetBrains Mono";
       font-style = "Semibold";
       font-size =

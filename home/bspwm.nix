@@ -7,6 +7,7 @@
 }:
 with lib; let
   cfg = config.me.wm.bspwm;
+  wallpaper = config.me.wallpaper;
 
   mod = "super";
 
@@ -79,7 +80,7 @@ in {
         focus_follows_pointer = true;
       };
       extraConfig = ''
-        ${pkgs.feh}/bin/feh --bg-center ${./apple.png}
+        ${pkgs.feh}/bin/feh --bg-center ${wallpaper}
       '';
       alwaysResetDesktops = true;
       monitors = monitor-configs.${cfg.num-monitors};
