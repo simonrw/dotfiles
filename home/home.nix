@@ -102,6 +102,7 @@ in {
         terminal = "alacritty";
       };
       is-dark-theme = true;
+      wezterm.enable = false;
     }
     // (
       if isLinux
