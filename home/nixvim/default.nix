@@ -44,7 +44,10 @@ in {
         require-trigger = true;
         emoji = true;
       };
-      context.enable = false;
+      context = {
+        enable = true;
+        method = "barbecue";
+      };
       octo-nvim.enable = true;
       oil.enable = true;
       vim-test.enable = true;
