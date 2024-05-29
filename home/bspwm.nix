@@ -67,9 +67,9 @@ in {
     xsession.windowManager.bspwm = {
       enable = true;
       settings = rec {
-        border_width = 1;
-        window_gap = 4;
-        top_padding = 4;
+        border_width = 2;
+        window_gap = 16;
+        top_padding = 16;
         split_ratio = 0.55;
         borderless_monocle = true;
         gapless_monocle = true;
