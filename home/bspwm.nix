@@ -124,7 +124,7 @@ in {
     services.sxhkd = {
       enable = true;
       keybindings = {
-        "${mod} + Return" = config.me.defaults.terminal;
+        "${mod} + Return" = "rofi -show drun";
         "${mod} + c" = browser;
         "${mod} + @space" = "rofi -show drun";
         "${mod} + Escape" = "pkill -USR1 -x sxhkd";
