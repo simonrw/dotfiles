@@ -25,11 +25,11 @@ in {
     ./notifications.nix
     ./octo-nvim.nix
     ./oil.nix
+    ./statusbar.nix
     ./telescope.nix
     ./trouble.nix
     ./vim-test.nix
     ./zen-mode.nix
-    ./statusbar.nix
   ];
   config = {
     # custom overrides
