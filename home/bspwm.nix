@@ -80,7 +80,7 @@ in {
         focus_follows_pointer = true;
       };
       extraConfig = ''
-        ${pkgs.feh}/bin/feh --bg-center ${wallpaper}
+        ${pkgs.feh}/bin/feh --bg-fill ${wallpaper}
       '';
       alwaysResetDesktops = true;
       monitors = monitor-configs.${cfg.num-monitors};
