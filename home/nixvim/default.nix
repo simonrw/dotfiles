@@ -46,7 +46,7 @@ in {
       };
       context = {
         enable = true;
-        method = "barbecue";
+        method = "treesitter-context";
       };
       octo-nvim.enable = true;
       oil.enable = true;
