@@ -116,8 +116,6 @@ in {
     programs.alacritty.settings.font = {
       normal.family = alacritty-font-renamed;
       normal.style = alacritty-font-style-renamed;
-      italic.family = alacritty-font-renamed;
-      italic.style = alacritty-font-style-renamed;
     };
     programs.alacritty.settings.font.size = cfg.font-size;
     programs.kitty.settings = {
