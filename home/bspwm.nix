@@ -166,18 +166,14 @@ in {
         # focus the next/previous node in the current desktop
         "${mod} + {_,shift + }c" = "bspc node -f {next,prev}.local";
 
+        # switch between monitors
+        "${mod} + o" = "bspc monitor --focus next";
+
         # focus the next/previous desktop in the current monitor
         "${mod} + bracket{left,right}" = "bspc desktop -f {prev,next}.local";
 
         # focus the last node/desktop
         "${mod} + {grave,Tab}" = "bspc {node,desktop} -f last";
-
-        # focus the older or newer node in the focus history
-        "${mod} + {o,i}" = ''
-          bspc wm -h off; \
-          bspc node {older,newer} -f; \
-          bspc wm -h on
-        '';
 
         # focus or send to the given desktop
         "${mod} + {_,shift + }{1-9,0}" = "bspc {desktop -f,node -d} '^{1-9,10}'";
