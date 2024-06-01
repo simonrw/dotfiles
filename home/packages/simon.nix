@@ -60,6 +60,7 @@ in {
       universal-ctags
       unzip
       watch
+      yq
       zip
     ]
     ++ [
