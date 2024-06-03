@@ -86,26 +86,6 @@ in {
       monitors = monitor-configs.${cfg.num-monitors};
     };
 
-    services.picom = {
-      enable = true;
-      backend = "glx";
-      fade = false;
-      shadow = true;
-      shadowOffsets = [
-        (-7)
-        (-7)
-      ];
-      shadowOpacity = 0.8;
-      shadowExclude = [
-        ''window_type *= "menu"''
-        ''name *?= "polybar"''
-      ];
-      vSync = true;
-      settings = {
-        shadow-radius = 10;
-      };
-    };
-
     services.polybar = {
       enable = true;
       script = ''
