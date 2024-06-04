@@ -98,7 +98,10 @@ in {
       theme = "nord";
       vscode-theme = "Dracula";
       defaults = {
-        browser = "google-chrome";
+        browser = {
+          name = "google-chrome";
+          command = "google-chrome-stable";
+        };
         terminal = "alacritty";
       };
       is-dark-theme = true;
