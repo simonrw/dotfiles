@@ -44,6 +44,7 @@ in {
       ./ssh.nix
       ./taskwarrior.nix
       ./tmux.nix
+      ./viddy.nix
       ./wallpaper.nix
       ./wezterm.nix
       ./wireshark.nix
@@ -94,6 +95,7 @@ in {
       fonts-to-install = [
         pkgs.monaspace
       ];
+      viddy.enable = true;
       aws.enable = true;
       theme = "nord";
       vscode-theme = "Dracula";
