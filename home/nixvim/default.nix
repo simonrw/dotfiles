@@ -21,6 +21,7 @@ in {
     ./lsp-format.nix
     ./lsp.nix
     ./markdown-preview.nix
+    ./mini.nix
     ./neotest.nix
     ./notifications.nix
     ./octo-nvim.nix
@@ -54,6 +55,7 @@ in {
       neotest.enable = false;
       notifications.enable = false;
       statusbar.enable = false;
+      mini.enable = true;
     };
     # defaults
     programs.nixvim = {
