@@ -57,6 +57,7 @@ in {
       ripgrep
       rustup
       sqlite-interactive
+      talosctl
       universal-ctags
       unzip
       watch
