@@ -76,12 +76,12 @@ in {
       libiconv
     ])
     ++ (lib.optionals isLinux [
-      blanket
+      blanket # white noise generator
       custom-vscode
       drawio
       element-desktop
-      emote
-      flameshot
+      emote # emoji picker
+      flameshot # screenshot utility
       freetube
       gimp
       groff
