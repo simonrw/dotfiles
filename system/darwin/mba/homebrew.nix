@@ -31,6 +31,7 @@
       "todoist"
       "visual-studio-code"
       "vlc"
+      "whatsapp"
       "wireshark"
       "xquartz"
     ];
