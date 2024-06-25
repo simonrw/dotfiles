@@ -54,7 +54,7 @@ in {
       vim-test.enable = true;
       neotest.enable = false;
       notifications.enable = false;
-      statusbar.enable = false;
+      statusbar.enable = true;
       mini.enable = true;
     };
     # defaults
