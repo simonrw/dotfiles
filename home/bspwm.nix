@@ -14,7 +14,7 @@ with lib; let
   browser =
     {
       # macvm
-      aarch64-linux = "firefox";
+      aarch64-linux = "brave";
     }
     .${system}
     or "firefox";
