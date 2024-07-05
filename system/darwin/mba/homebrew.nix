@@ -6,7 +6,6 @@
     casks = [
       "1password"
       "alacritty"
-      "arc"
       "barrier"
       "brave-browser"
       "dash"
@@ -38,7 +37,6 @@
     ];
     taps = [
       "homebrew/cask-versions"
-      "D12frosted/emacs-plus"
     ];
     masApps = {
       DaisyDisk = 411643860;
