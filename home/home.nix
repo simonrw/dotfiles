@@ -113,8 +113,6 @@ in {
           enable = true;
           wayland = false;
         };
-        wm.bspwm.enable = true;
-        wm.cinnamon.enable = true;
       }
       else {}
     );
