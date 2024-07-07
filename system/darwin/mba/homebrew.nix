@@ -13,7 +13,6 @@
       "element"
       "firefox"
       "gimp"
-      "google-chrome"
       "hammerspoon"
       "inkscape"
       "karabiner-elements"
