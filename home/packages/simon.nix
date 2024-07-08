@@ -30,7 +30,6 @@ in {
       bat
       cachix
       cert-info
-      comma
       curlie
       custom-curl
       devenv
