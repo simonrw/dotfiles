@@ -60,7 +60,6 @@
     flake-utils,
     home-manager,
     jetbrains-updater,
-    nix-index-database,
     vscode-server,
     cert-info,
     nur,
@@ -72,7 +71,6 @@
         keymapp = final.callPackage ./derivations/keymapp {pkgs = final;};
         listprojects = final.callPackage ./derivations/listprojects {};
         notify-wrapper = final.callPackage ./derivations/notify-wrapper {};
-        database = nix-index-database.legacyPackages.${system}.database;
         monaspace = final.callPackage ./derivations/monaspace {};
         ansi = final.callPackage ./derivations/ansi {};
         wally = final.callPackage ./derivations/wally {};
@@ -142,10 +140,10 @@
               imports = [
                 ./home/home.nix
                 nixvim.homeManagerModules.nixvim
+                inputs.nix-index-database.hmModules.nix-index
               ];
             };
           }
-          nix-index-database.nixosModules.nix-index
           vscode-server.nixosModule
           ({
             config,
@@ -197,10 +195,10 @@
                 imports = [
                   ./home/home.nix
                   nixvim.homeManagerModules.nixvim
+                  inputs.nix-index-database.hmModules.nix-index
                 ];
               };
             }
-            nix-index-database.darwinModules.nix-index
           ];
         };
       };
@@ -220,6 +218,7 @@
             modules = [
               ./home/home.nix
               nixvim.homeManagerModules.nixvim
+              inputs.nix-index-database.hmModules.nix-index
             ];
             # stop infinite recusion when trying to access
             # pkgs.stdenv.is{Linux,Darwin} from within a module
