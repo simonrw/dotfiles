@@ -13,8 +13,7 @@
   nix = import ../../../common/nix-settings.nix {inherit pkgs;};
 
   fonts = {
-    fontDir.enable = true;
-    fonts = with pkgs; [
+    packages = with pkgs; [
       fantasque-sans-mono
       noto-fonts
       (nerdfonts.override {
