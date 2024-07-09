@@ -1,5 +1,4 @@
 {
-  config,
   pkgs,
   isLinux,
   ...
@@ -18,7 +17,7 @@
       uc = "update-commit";
       graph = "log --graph --all --decorate --stat --date iso";
 
-      pushf = "push --force-with-lease";
+      pushf = "push --force-with-lease --force-if-includes";
 
       # reset $REVIEW_BASE to upstream
       sync = ''!f() { git fetch origin && git branch -f "$REVIEW_BASE" origin/"$REVIEW_BASE"; }; f'';
@@ -96,6 +95,7 @@
       "url \"git@github.com:\"" = {
         pushInsteadOf = "https://github.com";
       };
+      log.follow = true;
       branch = {
         autosetuprebase = "always";
         sort = "-committerdate";
