@@ -894,6 +894,7 @@
     {
       papercolor = "GitHub";
       github-light = "GitHub";
+      catppuccin-latte = "Monokai Extended Light";
     }
     .${config.me.theme}
     or "Nord";
