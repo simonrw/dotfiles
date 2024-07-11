@@ -85,7 +85,7 @@ in {
   # custom properties
   me =
     {
-      wallpaper = ./wallpapers/mountain-lion.png;
+      wallpaper = ./wallpapers/sonoma.jpg;
       font-name = "JetBrains Mono";
       font-style = "Semibold";
       font-size =
