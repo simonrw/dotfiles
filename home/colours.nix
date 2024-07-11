@@ -288,10 +288,11 @@
       cursor = {
         text = "#EFF1F5"; # base
         cursor = "#DC8A78"; # rosewater
-        vi_mode_cursor = {
-          text = "#EFF1F5"; # base
-          cursor = "#7287FD"; # lavender
-        };
+      };
+
+      vi_mode_cursor = {
+        text = "#EFF1F5"; # base
+        cursor = "#7287FD"; # lavender
       };
 
       # Search colors
