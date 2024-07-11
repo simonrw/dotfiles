@@ -14,6 +14,7 @@
       "firefox"
       "gimp"
       "hammerspoon"
+      "hot"
       "inkscape"
       "karabiner-elements"
       "kitty"
