@@ -3,6 +3,7 @@
     {
       github-light = false;
       solarized = false;
+      catppuccin-latte = false;
     }
     .${config.me.theme}
     or true;
