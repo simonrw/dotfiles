@@ -35,14 +35,14 @@ in {
       devenv
       dig
       docker-credential-helpers
-      duckdb
       du-dust
+      duckdb
       entr
       fd
       file
-      fx
       hexyl
       htop
+      jless
       lsof
       mkcert
       nix-output-monitor
