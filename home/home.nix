@@ -97,13 +97,13 @@ in {
       ];
       viddy.enable = true;
       aws.enable = true;
-      theme = "catppuccin-latte";
+      theme = "monokai-pro";
       vscode-theme = "Dracula";
       defaults = {
         browser = "brave";
         terminal = "alacritty";
       };
-      is-dark-theme = false;
+      is-dark-theme = true;
       wezterm.enable = false;
     }
     // (
