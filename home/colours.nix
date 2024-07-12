@@ -725,9 +725,6 @@
         white = "#fff1f3";
       };
 
-      tmux-colour = normal.yellow;
-      tmux-active-pane-colour = normal.white;
-      tmux-pane-colour = normal.yellow;
       fish-theme = "fish default";
     };
   };
@@ -840,14 +837,16 @@
       ]])
     '';
     monokai-pro = ''
-      set background=dark
-      colorscheme monokai-pro
-      highlight Comment guifg=#e69340   " brighten comments
-      highlight TSComment guifg=#e69340   " brighten comments
-      highlight NormalFloat guibg=#343136
-      highlight TabLine gui=none guibg=none guifg=${themes.monokai-pro.normal.yellow}
-      highlight TabLineSel gui=none guibg=none guifg=${themes.monokai-pro.normal.white}
-      highlight TabLineFill gui=none guibg=none
+      vim.cmd([[
+        set background=dark
+        colorscheme monokai-pro
+        highlight Comment guifg=#e69340   " brighten comments
+        highlight TSComment guifg=#e69340   " brighten comments
+        highlight NormalFloat guibg=#343136
+        highlight TabLine gui=none guibg=none guifg=${themes.monokai-pro.normal.yellow}
+        highlight TabLineSel gui=none guibg=none guifg=${themes.monokai-pro.normal.white}
+        highlight TabLineFill gui=none guibg=none
+      ]])
     '';
   };
 
@@ -895,6 +894,7 @@
       papercolor = "GitHub";
       github-light = "GitHub";
       catppuccin-latte = "Monokai Extended Light";
+      monokai-pro = "Monokai Extended";
     }
     .${config.me.theme}
     or "Nord";
@@ -944,6 +944,9 @@ in
           ];
           gruvbox = [
             gruvbox
+          ];
+          monokai-pro = [
+            monokai-pro-nvim
           ];
           nord = [
             nord-nvim
