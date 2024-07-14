@@ -97,7 +97,7 @@ in {
       ];
       viddy.enable = true;
       aws.enable = true;
-      theme = "monokai-pro";
+      theme = "poimandres";
       vscode-theme = "Dracula";
       defaults = {
         browser = "brave";
