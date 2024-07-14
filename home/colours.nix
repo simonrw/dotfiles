@@ -14,6 +14,7 @@
     "one-dark"
     "srw"
     "catppuccin-frappe"
+    "poimandres"
   ];
   light-themes = [
     "catppuccin-latte"
@@ -727,8 +728,88 @@
 
       fish-theme = "fish default";
     };
+    poimandres = {
+      # Default colors
+      primary = {
+        background = "#1b1e28";
+        foreground = "#a6accd";
+      };
+
+      # Cursor colors
+      cursor = {
+        text = "CellBackground";
+        cursor = "CellForeground";
+      };
+
+      # Search colors
+      #
+      # Colors used for the search bar and match highlighting.
+      search = {
+        # Allowed values are CellForeground/CellBackground, which reference the
+        # affected cell, or hexadecimal colors like #ff00ff.
+        matches = {
+          foreground = "#1b1e28";
+          background = "#add7ff";
+        };
+
+        focused_match = {
+          foreground = "#1b1e28";
+          background = "#add7ff";
+        };
+      };
+
+      # Selection colors
+      #
+      # Colors which should be used to draw the selection area.
+      #
+      # Allowed values are CellForeground/CellBackground, which reference the
+      # affected cell, or hexadecimal colors like #ff00ff.
+      selection = {
+        text = "CellForeground";
+        background = "#303340";
+      };
+
+      # Vi mode cursor colors
+      #
+      # Colors for the cursor when the vi mode is active.
+      #
+      # Allowed values are CellForeground/CellBackground, which reference the
+      # affected cell, or hexadecimal colors like #ff00ff.
+      vi_mode_cursor = {
+        text = "CellBackground";
+        cursor = "CellForeground";
+      };
+
+      # Normal colors
+      normal = {
+        black = "#1b1e28";
+        red = "#d0679d";
+        green = "#5de4c7";
+        yellow = "#fffac2";
+        blue = "#89ddff";
+        magenta = "#fcc5e9";
+        cyan = "#add7ff";
+        white = "#ffffff";
+      };
+
+      # Bright colors
+      bright = {
+        black = "#a6accd";
+        red = "#d0679d";
+        green = "#5de4c7";
+        yellow = "#fffac2";
+        blue = "#add7ff";
+        magenta = "#fae4fc";
+        cyan = "#89ddff";
+        white = "#ffffff";
+      };
+    };
   };
   neovim-theme-blocks = {
+    poimandres = ''
+      require('poimandres').setup({})
+      vim.cmd("colorscheme poimandres")
+    '';
     papercolor = ''
       vim.cmd.highlight({ "TreesitterContext", "guibg=#f6f6ff" })
       vim.cmd [[set background=light]]
@@ -936,6 +1017,9 @@ in
       programs.nixvim.extraConfigLuaPost = neovim-theme-blocks.${config.me.theme};
       programs.nixvim.extraPlugins = with pkgs.vimPlugins;
         {
+          poimandres = [
+            poimandres-nvim
+          ];
           papercolor = [
             papercolor-theme-slim
           ];
