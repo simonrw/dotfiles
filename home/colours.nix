@@ -920,13 +920,16 @@
     monokai-pro = ''
       vim.cmd([[
         set background=dark
-        colorscheme monokai-pro
-        highlight Comment guifg=#e69340   " brighten comments
-        highlight TSComment guifg=#e69340   " brighten comments
-        highlight NormalFloat guibg=#343136
-        highlight TabLine gui=none guibg=none guifg=${themes.monokai-pro.normal.yellow}
-        highlight TabLineSel gui=none guibg=none guifg=${themes.monokai-pro.normal.white}
-        highlight TabLineFill gui=none guibg=none
+        let g:sonokai_style = "shusia"
+        let g:sonokai_disable_italic_comment = 1
+        let g:sonokai_transparent_background = 2
+        colorscheme sonokai
+        " highlight Comment guifg=#e69340   " brighten comments
+        " highlight TSComment guifg=#e69340   " brighten comments
+        " highlight NormalFloat guibg=#343136
+        " highlight TabLine gui=none guibg=none guifg=${themes.monokai-pro.normal.yellow}
+        " highlight TabLineSel gui=none guibg=none guifg=${themes.monokai-pro.normal.white}
+        " highlight TabLineFill gui=none guibg=none
       ]])
     '';
   };
@@ -955,6 +958,7 @@
       solarized-light = "Solarized (light)";
       catppuccin-latte = "GitHub";
       nord = "Nord";
+      monokai-pro = "Monokai Extended";
     }
     .${config.me.theme}
     or "Monokai Extended";
@@ -1030,7 +1034,7 @@ in
             gruvbox
           ];
           monokai-pro = [
-            monokai-pro-nvim
+            sonokai
           ];
           nord = [
             nord-nvim
