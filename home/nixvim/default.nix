@@ -18,6 +18,7 @@ in {
     ./dap.nix
     ./diffview.nix
     ./gitsigns.nix
+    ./hardtime.nix
     ./lsp-format.nix
     ./lsp.nix
     ./markdown-preview.nix
