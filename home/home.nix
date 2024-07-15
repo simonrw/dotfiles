@@ -100,7 +100,7 @@ in {
       theme = "poimandres";
       vscode-theme = "Dracula";
       defaults = {
-        browser = "firefox";
+        browser = "brave";
         terminal = "alacritty";
       };
       is-dark-theme = true;
