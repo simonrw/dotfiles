@@ -40,6 +40,7 @@ in {
         enable = true;
         inlay-hints = false;
       };
+      hardtime.enable = true;
       zen-mode.enable = true;
       completion = {
         enable = true;
