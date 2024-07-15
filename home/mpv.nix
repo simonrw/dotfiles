@@ -1,7 +1,7 @@
-{...}: {
+{isLinux, ...}: {
   config = {
     programs.mpv = {
-      enable = true;
+      enable = isLinux;
     };
   };
 }
