@@ -86,6 +86,7 @@ in {
   me =
     {
       wallpaper = ./wallpapers/sonoma.jpg;
+      atuin.enable = true;
       font-name = "JetBrains Mono";
       font-style = "Semibold";
       font-size =
