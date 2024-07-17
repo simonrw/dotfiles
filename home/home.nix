@@ -101,7 +101,7 @@ in {
       theme = "monokai-pro";
       vscode-theme = "Dracula";
       defaults = {
-        browser = "brave";
+        browser = "firefox";
         terminal = "alacritty";
       };
       is-dark-theme = true;
