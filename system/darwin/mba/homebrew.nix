@@ -8,6 +8,7 @@
       "alacritty"
       "barrier"
       "brave-browser"
+      "intellij-idea-ce"
       "dash"
       "docker"
       "element"

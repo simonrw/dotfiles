@@ -105,6 +105,7 @@ in {
       lorien
       obs-studio
       jetbrains.pycharm-community-bin
+      jetbrains.idea-community-bin
       shotcut
       wally
       wally-cli
