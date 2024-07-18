@@ -1,8 +1,13 @@
 {...}: {
   programs.zellij = {
     enable = true;
+    enableFishIntegration = true;
     settings = {
-      theme = "nord";
     };
+  };
+
+  xdg.configFile."zellij/layouts" = {
+    source = ./zellij/layouts;
+    recursive = true;
   };
 }

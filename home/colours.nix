@@ -983,6 +983,11 @@
     }
     .${config.me.theme}
     or "Nord";
+
+    zellij-theme = {
+      monokai-pro = "Molokai Dark";
+    }.${config.me.theme}
+    or "nord";
 in
   with lib; {
     options = {
@@ -1137,5 +1142,6 @@ in
           };
         };
       };
+      programs.zellij.settings.theme = zellij-theme;
     };
   }
