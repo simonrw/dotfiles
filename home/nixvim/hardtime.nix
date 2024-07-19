@@ -13,6 +13,7 @@ in
     plugins.hardtime = {
       enable = true;
       allowDifferentKey = true;
+      disableMouse = false;
     };
   };
   };
