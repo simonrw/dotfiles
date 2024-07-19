@@ -11,9 +11,9 @@ case ${NIXARCH} in
         sudo nixos-rebuild switch --flake . $*
         ;;
     *-darwin)
-        notify-wrapper -m "Nix build complete" ./bin/build.sh
-        ./result/activate-user
-        sudo ./result/activate
+        ./bin/build.sh && \
+            ./result/activate-user && \
+            sudo ./result/activate
         ;;
     *)
         echo "Unhandled architecture: ${NIXARCH}" >&2
