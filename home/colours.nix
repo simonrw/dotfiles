@@ -14,6 +14,8 @@
     "one-dark"
     "srw"
     "catppuccin-frappe"
+    "catppuccin-mocha"
+    "catppuccin-macchiato"
     "poimandres"
   ];
   light-themes = [
@@ -74,6 +76,184 @@
         magenta = "#c678dd";
         cyan = "#56b6c2";
         white = "#ffffff";
+      };
+    };
+    catppuccin-macchiato = rec {
+      raw-colours = {
+        rosewater = "#f4dbd6";
+        flamingo = "#f0c6c6";
+        pink = "#f5bde6";
+        mauve = "#c6a0f6";
+        red = "#ed8796";
+        maroon = "#ee99a0";
+        peach = "#f5a97f";
+        yellow = "#eed49f";
+        green = "#a6da95";
+        teal = "#8bd5ca";
+        sky = "#91d7e3";
+        sapphire = "#7dc4e4";
+        blue = "#8aadf4";
+        lavender = "#b7bdf8";
+        text = "#cad3f5";
+        subtext1 = "#b8c0e0";
+        subtext0 = "#a5adcb";
+        overlay2 = "#939ab7";
+        overlay1 = "#8087a2";
+        overlay0 = "#6e738d";
+        surface2 = "#5b6078";
+        surface1 = "#494d64";
+        surface0 = "#363a4f";
+        base = "#24273a";
+        mantle = "#1e2030";
+        crust = "#181926";
+      };
+
+      primary = {
+        background = raw-colours.base;
+        foreground = raw-colours.text;
+        dim_foreground = raw-colours.text;
+        bright_foreground = raw-colours.text;
+      };
+      cursor = {
+        text = raw-colours.base;
+        cursor = raw-colours.rosewater;
+      };
+      vi_mode_cursor = {
+        text = raw-colours.base;
+        cursor = raw-colours.lavender;
+      };
+      search = {
+        matches = {
+          foreground = raw-colours.base;
+          background = raw-colours.subtext0;
+        };
+        focused_match = {
+          foreground = raw-colours.base;
+          background = raw-colours.green;
+        };
+      };
+      selection = {
+        text = raw-colours.base;
+        background = raw-colours.rosewater;
+      };
+      normal = {
+        black = raw-colours.surface1;
+        red = raw-colours.red;
+        green = raw-colours.green;
+        yellow = raw-colours.yellow;
+        blue = raw-colours.blue;
+        magenta = raw-colours.pink;
+        cyan = raw-colours.teal;
+        white = raw-colours.subtext1;
+      };
+      bright = {
+        black = raw-colours.surface2;
+        red = raw-colours.red;
+        green = raw-colours.green;
+        yellow = raw-colours.yellow;
+        blue = raw-colours.blue;
+        magenta = raw-colours.pink;
+        cyan = raw-colours.teal;
+        white = raw-colours.subtext0;
+      };
+      dim = {
+        black = raw-colours.surface1;
+        red = raw-colours.red;
+        green = raw-colours.green;
+        yellow = raw-colours.yellow;
+        blue = raw-colours.blue;
+        magenta = raw-colours.pink;
+        cyan = raw-colours.teal;
+        white = raw-colours.subtext1;
+      };
+    };
+    catppuccin-mocha = rec {
+      raw-colours = {
+        rosewater = "#f5e0dc";
+        flamingo = "#f2cdcd";
+        pink = "#f5c2e7";
+        mauve = "#cba6f7";
+        red = "#f38ba8";
+        maroon = "#eba0ac";
+        peach = "#fab387";
+        yellow = "#f9e2af";
+        green = "#a6e3a1";
+        teal = "#94e2d5";
+        sky = "#89dceb";
+        sapphire = "#74c7ec";
+        blue = "#89b4fa";
+        lavender = "#b4befe";
+        text = "#cdd6f4";
+        subtext1 = "#bac2de";
+        subtext0 = "#a6adc8";
+        overlay2 = "#9399b2";
+        overlay1 = "#7f849c";
+        overlay0 = "#6c7086";
+        surface2 = "#585b70";
+        surface1 = "#45475a";
+        surface0 = "#313244";
+        base = "#1e1e2e";
+        mantle = "#181825";
+        crust = "#11111b";
+      };
+
+      primary = {
+        background = raw-colours.base;
+        foreground = raw-colours.text;
+        dim_foreground = raw-colours.text;
+        bright_foreground = raw-colours.text;
+      };
+      cursor = {
+        text = raw-colours.base;
+        cursor = raw-colours.rosewater;
+      };
+      vi_mode_cursor = {
+        text = raw-colours.base;
+        cursor = raw-colours.lavender;
+      };
+      search = {
+        matches = {
+          foreground = raw-colours.base;
+          background = raw-colours.subtext0;
+        };
+        focused_match = {
+          foreground = raw-colours.base;
+          background = raw-colours.green;
+        };
+      };
+      selection = {
+        text = raw-colours.base;
+        background = raw-colours.rosewater;
+      };
+      normal = {
+        black = raw-colours.surface1;
+        red = raw-colours.red;
+        green = raw-colours.green;
+        yellow = raw-colours.yellow;
+        blue = raw-colours.blue;
+        magenta = raw-colours.pink;
+        cyan = raw-colours.teal;
+        white = raw-colours.subtext1;
+      };
+      bright = {
+        black = raw-colours.surface2;
+        red = raw-colours.red;
+        green = raw-colours.green;
+        yellow = raw-colours.yellow;
+        blue = raw-colours.blue;
+        magenta = raw-colours.pink;
+        cyan = raw-colours.teal;
+        white = raw-colours.subtext0;
+      };
+      dim = {
+        black = raw-colours.surface1;
+        red = raw-colours.red;
+        green = raw-colours.green;
+        yellow = raw-colours.yellow;
+        blue = raw-colours.blue;
+        magenta = raw-colours.pink;
+        cyan = raw-colours.teal;
+        white = raw-colours.subtext1;
       };
     };
     catppuccin-frappe = rec {
@@ -847,9 +1027,23 @@
     one-dark = ''
       colorscheme onedark
     '';
+    catppuccin-macchiato = ''
+      vim.cmd([[
+        set background=dark
+        colorscheme catppuccin-macchiato
+      ]])
+    '';
+    catppuccin-mocha = ''
+      vim.cmd([[
+        set background=dark
+        colorscheme catppuccin-mocha
+      ]])
+    '';
     catppuccin-frappe = ''
-      set background=dark
-      colorscheme catppuccin-frappe
+      vim.cmd([[
+        set background=dark
+        colorscheme catppuccin-frappe
+      ]])
     '';
     dracula = ''
       set background=dark
@@ -938,6 +1132,8 @@
     {
       github-light = "github_light";
       catppuccin-latte = "catppuccin_latte";
+      catppuccin-mocha = "catppuccin_mocha";
+      catppuccin-macchiato = "catppuccin_macchiato";
       nord = "nord-custom";
       papercolor = "papercolor-light";
     }
@@ -957,6 +1153,8 @@
       papercolor = "GitHub";
       solarized-light = "Solarized (light)";
       catppuccin-latte = "GitHub";
+      catppuccin-mocha = "Coldark-Dark";
+      catppuccin-macchiato = "Coldark-Dark";
       nord = "Nord";
       monokai-pro = "Monokai Extended";
     }
@@ -979,14 +1177,18 @@
       papercolor = "GitHub";
       github-light = "GitHub";
       catppuccin-latte = "Monokai Extended Light";
+      catppuccin-mocha = "Coldark-Dark";
+      catppuccin-macchiato = "Coldark-Dark";
       monokai-pro = "Monokai Extended";
     }
     .${config.me.theme}
     or "Nord";
 
-    zellij-theme = {
+  zellij-theme =
+    {
       monokai-pro = "Molokai Dark";
-    }.${config.me.theme}
+    }
+    .${config.me.theme}
     or "nord";
 in
   with lib; {
@@ -1046,6 +1248,12 @@ in
           ];
           dracula = [
             dracula-nvim
+          ];
+          catppuccin-macchiato = [
+            catppuccin-nvim
+          ];
+          catppuccin-mocha = [
+            catppuccin-nvim
           ];
           catppuccin-latte = [
             catppuccin-nvim
