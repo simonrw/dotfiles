@@ -1028,10 +1028,12 @@
       colorscheme onedark
     '';
     catppuccin-macchiato = ''
+      -- remove underline from bottom of highlight section
       vim.cmd([[
         set background=dark
         colorscheme catppuccin-macchiato
       ]])
+      vim.cmd.highlight({ 'TreesitterContextBottom', 'gui=none' })
     '';
     catppuccin-mocha = ''
       vim.cmd([[
@@ -1224,6 +1226,7 @@ in
         "tmux-colour"
         "tmux-pane-colour"
         "vi_mode_cursor"
+        "raw-colours"
       ];
       programs.nixvim.extraConfigLuaPost = neovim-theme-blocks.${config.me.theme};
       programs.nixvim.extraPlugins = with pkgs.vimPlugins;
@@ -1291,13 +1294,13 @@ in
         set -g status-left-style NONE
         set -g status-right-style NONE
 
-        set -g status-left "#[fg=$fg_colour,bold][#S] "
-        set -g status-right "#[fg=$fg_colour,bold]#h"
+        set -g status-left "#[fg=$fg_colour,bold]#S ▶"
+        set -g status-right "#[fg=$fg_colour,bold]◀ #h"
 
         setw -g window-status-activity-style "underscore,fg=#d1d5da,bg=$bg_colour"
         setw -g window-status-separator ""
-        setw -g window-status-format " #[fg=${tmux-pane-text-colour}]#I #W:#{pane_current_command}#F "
-        setw -g window-status-current-format " #[fg=${tmux-active-pane-text-colour}]#I #W:#{pane_current_command}#F "
+        setw -g window-status-format " #[fg=${tmux-pane-text-colour}]#I ● #F"
+        setw -g window-status-current-format " #[fg=${tmux-active-pane-text-colour}]#I ● #F"
       '';
       programs.kitty.settings = {
         background = current-theme.primary.background;
