@@ -13,6 +13,7 @@
   };
 in {
   imports = [
+    ./cody.nix
     ./completion.nix
     ./context.nix
     ./dap.nix
