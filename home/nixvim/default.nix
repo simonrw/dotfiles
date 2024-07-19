@@ -59,6 +59,7 @@ in {
       notifications.enable = false;
       statusbar.enable = false;
       mini.enable = true;
+      cody.enable = true;
     };
     # defaults
     programs.nixvim = {
