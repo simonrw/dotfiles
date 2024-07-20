@@ -1179,8 +1179,8 @@
       papercolor = "GitHub";
       github-light = "GitHub";
       catppuccin-latte = "Monokai Extended Light";
-      catppuccin-mocha = "Coldark-Dark";
-      catppuccin-macchiato = "Coldark-Dark";
+      catppuccin-mocha = "DarkNeon";
+      catppuccin-macchiato = "DarkNeon";
       monokai-pro = "Monokai Extended";
     }
     .${config.me.theme}
