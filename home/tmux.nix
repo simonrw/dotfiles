@@ -13,7 +13,7 @@
     historyLimit = 100000;
     keyMode = "vi";
     sensibleOnTop = true;
-    shortcut = "Space";
+    shortcut = "s";
     terminal = "screen-256color";
     shell = "${pkgs.fish}/bin/fish";
     secureSocket = true;
