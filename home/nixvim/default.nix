@@ -32,6 +32,7 @@ in {
     ./telescope.nix
     ./trouble.nix
     ./vim-test.nix
+    ./which-key.nix
     ./zen-mode.nix
   ];
   config = {
@@ -60,6 +61,7 @@ in {
       statusbar.enable = false;
       mini.enable = true;
       cody.enable = true;
+      which-key.enable = true;
     };
     # defaults
     programs.nixvim = {
