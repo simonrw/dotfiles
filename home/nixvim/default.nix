@@ -60,7 +60,6 @@ in {
       notifications.enable = false;
       statusbar.enable = false;
       mini.enable = true;
-      cody.enable = true;
       which-key.enable = true;
     };
     # defaults
