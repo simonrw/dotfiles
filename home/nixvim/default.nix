@@ -38,7 +38,6 @@ in {
   config = {
     # custom overrides
     me.nixvim = {
-      cody.enable = true;
       lsp = {
         enable = true;
         inlay-hints = false;
