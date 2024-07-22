@@ -1156,7 +1156,7 @@
       solarized-light = "Solarized (light)";
       catppuccin-latte = "GitHub";
       catppuccin-mocha = "Coldark-Dark";
-      catppuccin-macchiato = "Coldark-Dark";
+      catppuccin-macchiato = "Catppuccin Macchiato";
       nord = "Nord";
       monokai-pro = "Monokai Extended";
     }
