@@ -2,6 +2,7 @@
   pkgs,
   config,
   lib,
+  inputs,
   ...
 }: let
   dark-themes = [
@@ -1174,17 +1175,16 @@
       hash = "sha256-m/+Xsbve1fuzNEKpSK6Eddoi7gKcj04o1kSFy/H/m9w=";
     };
   };
-  delta-theme =
-    {
-      papercolor = "GitHub";
-      github-light = "GitHub";
-      catppuccin-latte = "Monokai Extended Light";
-      catppuccin-mocha = "DarkNeon";
-      catppuccin-macchiato = "DarkNeon";
-      monokai-pro = "Monokai Extended";
-    }
-    .${config.me.theme}
-    or "Nord";
+  git-config = {
+    catppuccin-macchiato = {
+      includes = [
+        {
+          path = "${inputs.catppuccin-delta}/catppuccin.gitconfig";
+        }
+      ];
+      delta.options.features = "catppuccin-macchiato";
+    };
+  }.${config.me.theme};
 
   zellij-theme =
     {
@@ -1212,8 +1212,7 @@ in
     };
     config = {
       programs.bat.config.theme = bat-theme;
-      # TODO: make this configurable
-      programs.git.delta.options.syntax-theme = delta-theme;
+      programs.git = git-config;
       programs.helix.settings.theme = helix-theme;
       programs.fish.interactiveShellInit = ''
         # configure colour theme

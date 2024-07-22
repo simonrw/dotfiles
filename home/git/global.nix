@@ -1,8 +1,10 @@
 {
   pkgs,
   isLinux,
+  inputs,
   ...
-}: {
+}: 
+  {
   programs.git = {
     enable = true;
     aliases = {

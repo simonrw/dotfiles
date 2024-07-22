@@ -51,6 +51,10 @@
       url = "github:christoomey/vim-tmux-runner";
       flake = false;
     };
+    catppuccin-delta = {
+      url = "github:catppuccin/delta";
+      flake = false;
+    };
   };
 
   outputs = {
