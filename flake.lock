@@ -1,5 +1,21 @@
 {
   "nodes": {
+    "catppuccin-delta": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1720545270,
+        "narHash": "sha256-/zLkxfpTkZ744hUNANFmm96q81ydFM7EcxOj+0GoaGU=",
+        "owner": "catppuccin",
+        "repo": "delta",
+        "rev": "b88f87aedbeb7dc74c38831cf385819b69b78cbe",
+        "type": "github"
+      },
+      "original": {
+        "owner": "catppuccin",
+        "repo": "delta",
+        "type": "github"
+      }
+    },
     "cert-info": {
       "inputs": {
         "flake-utils": [
@@ -364,6 +380,7 @@
     },
     "root": {
       "inputs": {
+        "catppuccin-delta": "catppuccin-delta",
         "cert-info": "cert-info",
         "darwin": "darwin",
         "flake-utils": "flake-utils",
