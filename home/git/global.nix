@@ -119,7 +119,7 @@
         autocrlf = "input";
         safecrlf = true;
         whitespace = "fix";
-        editor = "nvim";
+        editor = "code --wait";
         mergeoptions = "--no-ff";
         preloadindex = true;
         ignorecase = false;
