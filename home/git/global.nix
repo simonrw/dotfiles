@@ -133,9 +133,14 @@
         colormoved = "default";
         colormovedws = "allow-indentation-change";
       };
-      difftool.prompt = false;
-      difftool.meld = {
+      difftool = {
+      prompt = false;
+      meld = {
         cmd = "${pkgs.meld}/bin/meld $LOCAL $REMOTE";
+      };
+      vscode = {
+        cmd = "code --wait --diff $LOCAL $REMOTE";
+      };
       };
       mergetool = {
         smerge = {
@@ -167,6 +172,9 @@
           cmd = ''${pkgs.meld}/bin/meld "$LOCAL" "$MERGED" "$REMOTE" --output "$MERGED"'';
           keepBackup = false;
         };
+        vscode = {
+          cmd = "code --wait $MERGED";
+        };
       };
       github = {
         user = "simonrw";
@@ -190,7 +198,7 @@
         defaultBranch = "main";
       };
       merge = {
-        tool = "diffview";
+        tool = "vscode";
         conflictstyle = "zdiff3";
       };
       transfer = {
