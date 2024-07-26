@@ -6,7 +6,6 @@
     casks = [
       "1password"
       "alacritty"
-      "arc"
       "barrier"
       "brave-browser"
       "dash"
