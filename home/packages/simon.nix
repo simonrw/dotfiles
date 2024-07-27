@@ -43,6 +43,7 @@ in {
       hexyl
       htop
       jless
+      jqp
       lsof
       mkcert
       nix-output-monitor
