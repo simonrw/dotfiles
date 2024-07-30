@@ -37,6 +37,7 @@
       "whatsapp"
       "wireshark"
       "xquartz"
+      "yubico-yubikey-manager"
     ];
     taps = [
       "homebrew/cask-versions"
