@@ -179,9 +179,6 @@ in {
           echo -n -s {$nix_shell_str} {$suffix_color} {$suffix} {$normal} " "
         '';
       };
-      fish_right_prompt = {
-        body = builtins.readFile ./fish/right_prompt.fish;
-      };
     };
   };
 }
