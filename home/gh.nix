@@ -3,7 +3,6 @@
     enable = true;
     settings = {
       version = "1";
-      editor = "code -w";
       git_protocol = "ssh";
       prompt = "enabled";
       pager = "delta";

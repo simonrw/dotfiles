@@ -8,7 +8,6 @@
       };
       ui = {
         default-command = "status";
-        editor = "code -w";
         diff = {
           format = "git";
         };
