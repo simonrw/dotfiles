@@ -119,7 +119,7 @@
         autocrlf = "input";
         safecrlf = true;
         whitespace = "fix";
-        editor = "code --wait";
+        editor = "nvim";
         mergeoptions = "--no-ff";
         preloadindex = true;
         ignorecase = false;
@@ -134,13 +134,13 @@
         colormovedws = "allow-indentation-change";
       };
       difftool = {
-      prompt = false;
-      meld = {
-        cmd = "${pkgs.meld}/bin/meld $LOCAL $REMOTE";
-      };
-      vscode = {
-        cmd = "code --wait --diff $LOCAL $REMOTE";
-      };
+        prompt = false;
+        meld = {
+          cmd = "${pkgs.meld}/bin/meld $LOCAL $REMOTE";
+        };
+        vscode = {
+          cmd = "code --wait --diff $LOCAL $REMOTE";
+        };
       };
       mergetool = {
         smerge = {
@@ -198,7 +198,7 @@
         defaultBranch = "main";
       };
       merge = {
-        tool = "vscode";
+        tool = "diffview";
         conflictstyle = "zdiff3";
       };
       transfer = {
