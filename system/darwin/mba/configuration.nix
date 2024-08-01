@@ -54,10 +54,11 @@
   # https://nixcademy.com/2024/01/15/nix-on-macos/
   system.defaults = {
     dock = {
-      autohide = true;
+      autohide = false;
       mru-spaces = false;
       orientation = "bottom";
-      tilesize = 48;
+      tilesize = 16;
+      largesize = 92;
     };
     finder.AppleShowAllExtensions = true;
     screencapture.location = "~/Pictures/screenshots";
