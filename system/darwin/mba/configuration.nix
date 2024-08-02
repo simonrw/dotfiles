@@ -57,7 +57,7 @@
       autohide = false;
       mru-spaces = false;
       orientation = "bottom";
-      tilesize = 16;
+      tilesize = 24;
       largesize = 92;
     };
     finder.AppleShowAllExtensions = true;
