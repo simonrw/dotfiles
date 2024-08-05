@@ -113,9 +113,8 @@ in {
     // (
       if isLinux
       then {
-        wm.gnome = {
+        wm.cinnamon = {
           enable = true;
-          wayland = false;
         };
       }
       else {}
