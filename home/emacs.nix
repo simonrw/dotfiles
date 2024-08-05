@@ -1,7 +1,7 @@
 {pkgs, ...}: {
   programs.emacs = {
     enable = false;
-    package = pkgs.emacs29;
+    package = pkgs.emacs;
     extraPackages = epkgs: [
       epkgs.magit
       epkgs.vterm

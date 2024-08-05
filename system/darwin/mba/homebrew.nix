@@ -12,6 +12,7 @@
       "dash"
       "docker"
       "element"
+      "emacs-plus@29"
       "firefox"
       "gimp"
       "google-chrome"
@@ -41,6 +42,7 @@
     ];
     taps = [
       "homebrew/cask-versions"
+      "d12frosted/emacs-plus"
     ];
     masApps = {
       DaisyDisk = 411643860;
