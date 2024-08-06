@@ -92,7 +92,7 @@ in {
         Semibold =
           if isLinux
           then "ExtraBold"
-          else "Regular";
+          else "Bold";
       }
       .${cfg.font-style}
       or cfg.font-style;
