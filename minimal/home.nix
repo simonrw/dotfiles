@@ -19,6 +19,7 @@ in {
     ../home/fish.nix
     ../home/font.nix
     ../home/fzf.nix
+    ../home/gh.nix
     ../home/jq.nix
     ../home/nixvim
     # ../home/nix-index.nix
