@@ -12,7 +12,6 @@
       "dash"
       "docker"
       "element"
-      "emacs-plus@29"
       "firefox"
       "gimp"
       "google-chrome"
@@ -39,6 +38,9 @@
       "wireshark"
       "xquartz"
       "yubico-yubikey-manager"
+    ];
+    brews = [
+      "emacs-plus@29"
     ];
     taps = [
       "homebrew/cask-versions"
