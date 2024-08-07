@@ -29,6 +29,7 @@
       "raycast"
       "rectangle"
       "shotcut"
+      "slack"
       "sublime-merge"
       "sublime-text"
       "todoist"
