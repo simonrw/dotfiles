@@ -1,9 +1,11 @@
 {
   pkgs,
   isLinux,
-  inputs,
   ...
 }: 
+let
+  signing-program = if isLinux then throw "unimplemented" else "/Applications/1Password.app/Contents/MacOS/op-ssh-sign";
+in
   {
   programs.git = {
     enable = true;
@@ -176,6 +178,12 @@
           cmd = "code --wait $MERGED";
         };
       };
+      user.signingkey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBNOTIbjExZ6TVzMNIsEkwTyYR+uReb+/MJgHTtLVCG6";
+      gpg.format = "ssh";
+      "gpg \"ssh\"" = {
+        program = signing-program;
+      };
+      commit.gpgsign = true;
       github = {
         user = "simonrw";
       };
