@@ -69,6 +69,7 @@ in {
       # local packages
       listprojects
       notify-wrapper
+      realise-symlink
       simpleproxy
     ]
     ++ (lib.optionals isDarwin [
