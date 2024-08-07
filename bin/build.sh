@@ -5,13 +5,14 @@ set -euo pipefail
 . "$(dirname "$(readlink -f "$0")")/utils.sh"
 
 NIXARCH="$(nixarch)"
+NIX=${NIX:-nom}
 
 case ${NIXARCH} in
     *-linux)
-        nom build .#nixosConfigurations.${HOSTTARGET}.config.system.build.toplevel $*
+        ${NIX} build .#nixosConfigurations.${HOSTTARGET}.config.system.build.toplevel $*
         ;;
     *-darwin)
-        nom build ".#darwinConfigurations.${HOSTTARGET}.system" $*
+        ${NIX} build ".#darwinConfigurations.${HOSTTARGET}.system" $*
         ;;
     *)
         echo "Unhandled architecture: ${NIXARCH}" >&2
