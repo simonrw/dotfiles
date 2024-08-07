@@ -40,13 +40,6 @@
       "xquartz"
       "yubico-yubikey-manager"
     ];
-    brews = [
-      "emacs-plus@29"
-    ];
-    taps = [
-      "homebrew/cask-versions"
-      "d12frosted/emacs-plus"
-    ];
     masApps = {
       DaisyDisk = 411643860;
       Tailscale = 1475387142;
