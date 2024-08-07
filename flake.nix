@@ -210,7 +210,7 @@
           modules = [
             self.modules.nix
             (self.modules.darwin {
-              name = "mba";
+              name = "common";
             })
             home-manager.darwinModules.home-manager
             {
@@ -237,7 +237,7 @@
           modules = [
             self.modules.nix
             (self.modules.darwin {
-              name = "mba";
+              name = "common";
             })
             home-manager.darwinModules.home-manager
             {
@@ -321,8 +321,8 @@
         nix.nixPath = ["nixpkgs=/etc/channels/nixpkgs" "/nix/var/nix/profiles/per-user/root/channels"];
         environment.etc."channels/nixpkgs".source = nixpkgs.outPath;
       };
-      nixos = {name ? ""}: import ./system/nixos/${name}/configuration.nix;
-      darwin = {name ? ""}: import ./system/darwin/${name}/configuration.nix;
+      nixos = {name ? throw "No module name provided" }: import ./system/nixos/${name}/configuration.nix;
+      darwin = {name ? throw "No module name provided" }: import ./system/darwin/${name}/configuration.nix;
     };
   in
     nixOsConfigurations
