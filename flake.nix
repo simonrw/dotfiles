@@ -237,7 +237,7 @@
           modules = [
             self.modules.nix
             (self.modules.darwin {
-              name = "mm";
+              name = "mba";
             })
             home-manager.darwinModules.home-manager
             {
