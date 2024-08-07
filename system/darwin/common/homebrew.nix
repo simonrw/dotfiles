@@ -29,6 +29,7 @@
       "raycast"
       "rectangle"
       "shotcut"
+      "slack"
       "sublime-merge"
       "sublime-text"
       "todoist"
@@ -38,13 +39,6 @@
       "wireshark"
       "xquartz"
       "yubico-yubikey-manager"
-    ];
-    brews = [
-      "emacs-plus@29"
-    ];
-    taps = [
-      "homebrew/cask-versions"
-      "d12frosted/emacs-plus"
     ];
     masApps = {
       DaisyDisk = 411643860;

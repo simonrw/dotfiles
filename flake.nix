@@ -210,7 +210,34 @@
           modules = [
             self.modules.nix
             (self.modules.darwin {
-              name = "mba";
+              name = "common";
+            })
+            home-manager.darwinModules.home-manager
+            {
+              home-manager.useGlobalPkgs = true;
+              home-manager.useUserPackages = true;
+              home-manager.extraSpecialArgs = {
+                inherit system inputs;
+                isLinux = pkgs.stdenv.isLinux;
+                isDarwin = pkgs.stdenv.isDarwin;
+              };
+
+              home-manager.users.simon = {...}: {
+                imports = [
+                  ./home/home.nix
+                  nixvim.homeManagerModules.nixvim
+                  inputs.nix-index-database.hmModules.nix-index
+                ];
+              };
+            }
+          ];
+        };
+        mm = darwin.lib.darwinSystem {
+          inherit pkgs system;
+          modules = [
+            self.modules.nix
+            (self.modules.darwin {
+              name = "common";
             })
             home-manager.darwinModules.home-manager
             {
@@ -294,8 +321,8 @@
         nix.nixPath = ["nixpkgs=/etc/channels/nixpkgs" "/nix/var/nix/profiles/per-user/root/channels"];
         environment.etc."channels/nixpkgs".source = nixpkgs.outPath;
       };
-      nixos = {name ? ""}: import ./system/nixos/${name}/configuration.nix;
-      darwin = {name ? ""}: import ./system/darwin/${name}/configuration.nix;
+      nixos = {name ? throw "No module name provided" }: import ./system/nixos/${name}/configuration.nix;
+      darwin = {name ? throw "No module name provided" }: import ./system/darwin/${name}/configuration.nix;
     };
   in
     nixOsConfigurations
