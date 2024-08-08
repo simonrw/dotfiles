@@ -4,7 +4,7 @@
   ...
 }: 
 let
-  signing-program = if isLinux then throw "unimplemented" else "/Applications/1Password.app/Contents/MacOS/op-ssh-sign";
+  signing-program = if isLinux then "${pkgs._1password-gui}/bin/op-ssh-sign" else "/Applications/1Password.app/Contents/MacOS/op-ssh-sign";
 in
   {
   programs.git = {
