@@ -33,6 +33,7 @@
       "sublime-merge"
       "sublime-text"
       "todoist"
+      "utm"
       "visual-studio-code"
       "vlc"
       "whatsapp"
