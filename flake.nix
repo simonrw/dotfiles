@@ -202,61 +202,40 @@
         system = "aarch64-darwin";
 
         pkgs = getPkgs system;
+
+        mkDarwinConfiguration = { hostname }: darwin.lib.darwinSystem {
+           inherit pkgs system;
+           specialArgs = {
+              inherit hostname;
+           };
+          modules = [
+            self.modules.nix
+            (self.modules.darwin {
+              name = "common";
+            })
+            home-manager.darwinModules.home-manager
+            {
+              home-manager.useGlobalPkgs = true;
+              home-manager.useUserPackages = true;
+              home-manager.extraSpecialArgs = {
+                inherit system inputs hostname;
+                isLinux = pkgs.stdenv.isLinux;
+                isDarwin = pkgs.stdenv.isDarwin;
+              };
+
+              home-manager.users.simon = {...}: {
+                imports = [
+                  ./home/home.nix
+                  nixvim.homeManagerModules.nixvim
+                  inputs.nix-index-database.hmModules.nix-index
+                ];
+              };
+            }
+          ];
+        };
       in {
-        mba = darwin.lib.darwinSystem {
-          inherit pkgs system;
-          modules = [
-            self.modules.nix
-            (self.modules.darwin {
-              name = "common";
-            })
-            home-manager.darwinModules.home-manager
-            {
-              home-manager.useGlobalPkgs = true;
-              home-manager.useUserPackages = true;
-              home-manager.extraSpecialArgs = {
-                inherit system inputs;
-                isLinux = pkgs.stdenv.isLinux;
-                isDarwin = pkgs.stdenv.isDarwin;
-              };
-
-              home-manager.users.simon = {...}: {
-                imports = [
-                  ./home/home.nix
-                  nixvim.homeManagerModules.nixvim
-                  inputs.nix-index-database.hmModules.nix-index
-                ];
-              };
-            }
-          ];
-        };
-        mm = darwin.lib.darwinSystem {
-          inherit pkgs system;
-          modules = [
-            self.modules.nix
-            (self.modules.darwin {
-              name = "common";
-            })
-            home-manager.darwinModules.home-manager
-            {
-              home-manager.useGlobalPkgs = true;
-              home-manager.useUserPackages = true;
-              home-manager.extraSpecialArgs = {
-                inherit system inputs;
-                isLinux = pkgs.stdenv.isLinux;
-                isDarwin = pkgs.stdenv.isDarwin;
-              };
-
-              home-manager.users.simon = {...}: {
-                imports = [
-                  ./home/home.nix
-                  nixvim.homeManagerModules.nixvim
-                  inputs.nix-index-database.hmModules.nix-index
-                ];
-              };
-            }
-          ];
-        };
+        mba = mkDarwinConfiguration { hostname = "mba"; };
+        mm = mkDarwinConfiguration { hostname = "mm"; };
       };
     };
 
