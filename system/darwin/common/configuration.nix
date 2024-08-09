@@ -1,4 +1,4 @@
-{pkgs, ...}: {
+{pkgs, hostname, ...}: {
   imports = [
     ./fish-fix.nix
     ./homebrew.nix
@@ -63,6 +63,8 @@
     finder.AppleShowAllExtensions = true;
     screencapture.location = "~/Pictures/screenshots";
   };
+
+  networking.hostName = hostname;
 
   # force the system to read the new settings
   system.activationScripts.postUserActivation.text = ''
