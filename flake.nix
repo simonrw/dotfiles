@@ -83,8 +83,6 @@
         gh-repo-url = final.callPackage ./derivations/gh-repo-url {};
         gh-rebase-pr = final.callPackage ./derivations/gh-rebase-pr {};
         wlman = final.callPackage ./derivations/wlman {};
-        # temporary until this exists in nixpkgs
-        git-spice = final.callPackage ./derivations/git-spice {};
         # https://kokada.capivaras.dev/blog/quick-bits-realise-nix-symlinks/
         realise-symlink = final.writeShellApplication {
             name = "realise-symlink";

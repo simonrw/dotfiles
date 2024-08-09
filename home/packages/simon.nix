@@ -40,7 +40,6 @@ in {
       entr
       fd
       file
-      git-spice
       hexyl
       htop
       jless
