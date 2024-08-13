@@ -84,6 +84,11 @@ switch (uname)
         #
         # fix nix path
         set -x PATH /etc/profiles/per-user/(whoami)/bin {$PATH} /opt/homebrew/bin
+    case Linux
+        # only enable 1password auth socket if shell is local on Linux
+        if test -z "$SSH_TTY"
+            set -x SSH_AUTH_SOCK ~/.1password/agent.sock
+        end
     case '*'
 end
 
