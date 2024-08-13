@@ -1,5 +1,4 @@
-{pkgs, isDarwin, ...}: 
-{
+{pkgs, ...}: {
   imports = [
     ./git/global.nix
   ];
@@ -29,5 +28,10 @@
         path = "~/work/localstack/.gitconfig";
       }
     ];
+    signing = {
+      gpgPath = "${pkgs.gnupg}/bin/gpg";
+      key = "0x7A7C803A4612CE7C";
+      signByDefault = true;
+    };
   };
 }
