@@ -19,11 +19,13 @@ in {
     ./update-diff.nix
     ./ddccontrol.nix
     ./gaming.nix
+    ./vnc.nix
     # TODO: not in unstable nixpkgs yet
     # ./scrutiny.nix
   ];
 
   config = {
+    me.vnc.enable = true;
     # Bootloader.
     boot.loader.systemd-boot = {
       enable = true;
