@@ -5,6 +5,9 @@
   inputs,
   ...
 }: let
+
+  cfg = config.me;
+
   dark-themes = [
     "dracula"
     "github"
@@ -1140,10 +1143,10 @@
       nord = "nord-custom";
       papercolor = "papercolor-light";
     }
-    .${config.me.theme}
+    .${cfg.theme}
     or "monokai-pro-custom";
 
-  current-theme = themes.${config.me.theme};
+  current-theme = themes.${cfg.theme};
   tmux-primary-colour = current-theme.tmux-colour or current-theme.normal.blue;
   tmux-background-colour = current-theme.primary.background;
   tmux-active-pane-text-colour = current-theme.tmux-active-pane-colour or current-theme.normal.blue;
@@ -1161,10 +1164,10 @@
       nord = "Nord";
       monokai-pro = "Monokai Extended";
     }
-    .${config.me.theme}
+    .${cfg.theme}
     or "Monokai Extended";
 
-  is-dark-theme = builtins.elem config.me.theme dark-themes;
+  is-dark-theme = builtins.elem cfg.theme dark-themes;
   papercolor-theme-slim = pkgs.vimUtils.buildVimPlugin {
     pname = "papercolor-theme-slim";
     version = "unstable";
@@ -1176,7 +1179,9 @@
     };
   };
   git-config = {
-    catppuccin-macchiato = {
+    catppuccin-macchiato = if cfg.delta.diff-so-fancy then {
+      delta.options.diff-so-fancy = true;
+    } else {
       includes = [
         {
           path = "${inputs.catppuccin-delta}/catppuccin.gitconfig";
@@ -1184,13 +1189,13 @@
       ];
       delta.options.features = "catppuccin-macchiato";
     };
-  }.${config.me.theme};
+  }.${cfg.theme};
 
   zellij-theme =
     {
       monokai-pro = "Molokai Dark";
     }
-    .${config.me.theme}
+    .${cfg.theme}
     or "nord";
 in
   with lib; {
@@ -1198,6 +1203,8 @@ in
       me.theme = mkOption {
         type = types.enum (dark-themes ++ light-themes);
       };
+
+      me.delta.diff-so-fancy = mkEnableOption "Force diff-so-fancy with delta";
 
       me.vscode-theme = mkOption {
         type = types.nullOr types.str;
@@ -1227,7 +1234,7 @@ in
         "vi_mode_cursor"
         "raw-colours"
       ];
-      programs.nixvim.extraConfigLuaPost = neovim-theme-blocks.${config.me.theme};
+      programs.nixvim.extraConfigLuaPost = neovim-theme-blocks.${cfg.theme};
       programs.nixvim.extraPlugins = with pkgs.vimPlugins;
         {
           poimandres = [
@@ -1267,7 +1274,7 @@ in
             solarized-nvim
           ];
         }
-        .${config.me.theme}
+        .${cfg.theme}
         or [];
       programs.tmux.extraConfig = ''
         fg_colour="${tmux-primary-colour}"
@@ -1331,7 +1338,7 @@ in
       };
 
       programs.vscode.userSettings = {
-        "workbench.colorTheme" = config.me.vscode-theme or ({}.${config.me.theme} or "Monokai Pro");
+        "workbench.colorTheme" = cfg.vscode-theme or ({}.${cfg.theme} or "Monokai Pro");
       };
       programs.gh-dash.settings.theme = {
         ui.table.showSeparator = true;
