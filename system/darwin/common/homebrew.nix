@@ -37,6 +37,7 @@
       "utm"
       "visual-studio-code"
       "vlc"
+      "vmware-fusion"
       "whatsapp"
       "wireshark"
       "xquartz"
