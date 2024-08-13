@@ -5,6 +5,7 @@
     onActivation.cleanup = "uninstall";
     casks = [
       "1password"
+      "1password-cli"
       "alacritty"
       "arc"
       "barrier"
@@ -41,9 +42,7 @@
       "xquartz"
       "yubico-yubikey-manager"
     ];
-    brews = [
-      "1password-cli"
-    ];
+    brews = [];
     masApps = {
       DaisyDisk = 411643860;
       Tailscale = 1475387142;
