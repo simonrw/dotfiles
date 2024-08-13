@@ -5,6 +5,8 @@
     includes = [
       "config_local"
     ];
+    forwardAgent = true;
+    addKeysToAgent = "1h";
     controlMaster = "no";
     extraConfig = ''
       EnableEscapeCommandline=yes
