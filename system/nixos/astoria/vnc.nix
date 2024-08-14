@@ -40,6 +40,7 @@ in
           };
       };
 
+    services.xrdp.enable = true;
   };
 
 }
