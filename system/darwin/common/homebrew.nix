@@ -10,6 +10,7 @@
       "arc"
       "barrier"
       "brave-browser"
+      "chatgpt"
       "dash"
       "docker"
       "element"
