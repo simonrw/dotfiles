@@ -155,7 +155,8 @@ in {
         button-layout = "close,minimize,maximize:";
       };
       "org/gnome/desktop/peripherals/mouse" = {
-        accel-profile = "flat";
+        accel-profile = "adaptive";
+        speed = -0.89294117647058824;
         gtk-enable-primary-paste = false;
       };
       "org/gnome/desktop/sound" = {

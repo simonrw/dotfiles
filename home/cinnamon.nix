@@ -115,6 +115,16 @@ in {
         "org/cinnamon/theme" = {
           name = theme;
         };
+        "org/cinnamon/desktop/peripherals/mouse" = {
+          speed = -0.89294117647058824;
+          accel-profile = "adaptive";
+          gtk-enable-primary-paste = false;
+        };
+        "org/gnome/desktop/peripherals/mouse" = {
+          speed = -0.89294117647058824;
+          accel-profile = "adaptive";
+          gtk-enable-primary-paste = false;
+        };
       };
     };
 }
