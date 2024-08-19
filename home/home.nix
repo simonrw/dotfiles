@@ -86,7 +86,7 @@ in {
   me =
     {
       wallpaper = ./wallpapers/monterey-dark.jpg;
-      atuin.enable = true;
+      atuin.enable = false;
       font-name = "JetBrains Mono";
       font-style = "Semibold";
       font-size =
