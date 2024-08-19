@@ -42,6 +42,7 @@
       "wireshark"
       "xquartz"
       "yubico-yubikey-manager"
+      "zed"
     ];
     brews = [
       "node"
