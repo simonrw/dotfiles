@@ -48,6 +48,7 @@ in {
       ./wallpaper.nix
       ./wezterm.nix
       ./wireshark.nix
+      ./zed.nix
       ./zellij.nix
       ./zoxide.nix
       ./zsh.nix
