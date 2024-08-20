@@ -1,4 +1,8 @@
-{pkgs, hostname, ...}: {
+{
+  pkgs,
+  hostname,
+  ...
+}: {
   imports = [
     ./fish-fix.nix
     ./homebrew.nix
@@ -60,7 +64,19 @@
       tilesize = 24;
       largesize = 92;
     };
-    finder.AppleShowAllExtensions = true;
+    finder = {
+      AppleShowAllExtensions = true;
+      # only search the current folder
+      FXDefaultSearchScope = "SCcf";
+      # don't warn about changing file extensions
+      FXEnableExtensionChangeWarning = false;
+      # show list view by default
+      FXPreferredViewStyle = "Nlsv";
+      # show breadcrumbs
+      ShowPathbar = true;
+      # show file path in title bar
+      _FXShowPosixPathInTitle = true;
+    };
     screencapture.location = "~/Pictures/screenshots";
   };
 
