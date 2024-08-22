@@ -7,6 +7,9 @@
 // custom settings, run the `open default settings` command
 // from the command palette or from `Zed` application menu.
 {
+  "features": {
+    "inline_completion_provider": "none"
+  },
   "theme": "Catppuccin Macchiato - No Italics",
   "buffer_font_family": "JetBrainsMono Nerd Font",
   "buffer_font_weight": 700,
@@ -20,12 +23,8 @@
     "use_smartcase_find": true,
     "use_multiline_find": true
   },
-  "features": {
-    "copilot": false
-  },
   "cursor_blink": false,
   "use_autoclose": false,
-  "show_copilot_suggestions": false,
   "gutter": {
     "line_numbers": true,
     "folds": false
