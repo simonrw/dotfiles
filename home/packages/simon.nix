@@ -40,6 +40,7 @@ in {
       entr
       fd
       file
+      go
       hexyl
       htop
       jless
