@@ -41,6 +41,7 @@ in {
       fd
       file
       go
+      gron
       hexyl
       htop
       jless
