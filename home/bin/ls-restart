@@ -79,7 +79,8 @@ class HealthCheck:
         except Exception:
             return False
 
-        return res.get("completed", {}).get("READY", False)
+        completed = res.get("completed", {})
+        return completed.get("READY", False) and not completed.get("SHUTDOWN", True)
 
     def _json_request(self, url: str) -> Any:
         res = urllib.request.urlopen(url)
