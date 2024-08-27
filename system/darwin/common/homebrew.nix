@@ -47,6 +47,10 @@
     ];
     brews = [
       "node"
+      "cftail"
+    ];
+    taps = [
+      "simonrw/cftail"
     ];
     masApps = {
       DaisyDisk = 411643860;
