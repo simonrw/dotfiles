@@ -103,10 +103,7 @@ in {
       theme = "catppuccin-macchiato";
       vscode-theme = "Dracula";
       defaults = {
-        browser = {
-          name = "google-chrome";
-          command = "google-chrome-stable";
-        };
+        browser = "brave";
         terminal = "alacritty";
       };
       is-dark-theme = true;

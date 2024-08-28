@@ -16,7 +16,6 @@
       "element"
       "firefox"
       "gimp"
-      "google-chrome"
       "hammerspoon"
       "hot"
       "inkscape"

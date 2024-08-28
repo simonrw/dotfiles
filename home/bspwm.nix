@@ -14,10 +14,10 @@ with lib; let
   browser =
     {
       # macvm
-      aarch64-linux = "google-chrome";
+      aarch64-linux = "brave";
     }
     .${system}
-    or "google-chrome";
+    or "brave";
 
   monitor-configs = {
     "one" = {
