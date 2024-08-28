@@ -86,7 +86,7 @@ in {
   # custom properties
   me =
     {
-      wallpaper = ./wallpapers/sonoma.jpg;
+      wallpaper = ./wallpapers/monterey-light.jpg;
       atuin.enable = false;
       font-name = "JetBrains Mono";
       font-style = "Semibold";
