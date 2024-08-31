@@ -74,8 +74,6 @@ function ensure_tmux_is_running
     end
 end
 
-fish_ssh_agent
-
 ensure_tmux_is_running
 
 switch (uname)
@@ -84,6 +82,10 @@ switch (uname)
         #
         # fix nix path
         set -x PATH /etc/profiles/per-user/(whoami)/bin {$PATH} /opt/homebrew/bin
+
+        if test -z "$SSH_TTY"
+            set -x SSH_AUTH_SOCK "$HOME/Library/Group Containers/2BUA8C4S2C.com.1password/t/agent.sock"
+        end
     case '*'
 end
 
