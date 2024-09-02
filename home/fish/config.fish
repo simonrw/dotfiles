@@ -81,7 +81,7 @@ switch (uname)
         # set -x DYLD_LIBRARY_PATH {$BUILD_PREFIX}/lib {$DYLD_LIBRARY_PATH}
         #
         # fix nix path
-        set -x PATH /etc/profiles/per-user/(whoami)/bin {$PATH} /opt/homebrew/bin
+        set -x PATH /etc/profiles/per-user/(whoami)/bin "/Applications/PyCharm CE.app/Contents/MacOS" {$PATH} /opt/homebrew/bin
 
         if test -z "$SSH_TTY"
             set -x SSH_AUTH_SOCK "$HOME/Library/Group Containers/2BUA8C4S2C.com.1password/t/agent.sock"
