@@ -86,10 +86,6 @@ in {
   # custom properties
   me =
     {
-      wallpaper = {
-        enable = true;
-        path = ./wallpapers/monterey-dark.jpg;
-      };
       atuin.enable = false;
       font-name = "JetBrains Mono";
       font-style = "Semibold";
