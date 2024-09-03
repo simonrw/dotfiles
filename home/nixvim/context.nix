@@ -20,7 +20,7 @@ in {
   config = mkIf cfg.enable {
     programs.nixvim.plugins.treesitter-context = mkIf (cfg.method == "treesitter-context") {
       enable = true;
-      maxLines = 3;
+      settings.max_lines = 3;
     };
     programs.nixvim.plugins.barbecue = mkIf (cfg.method == "barbecue") {
       enable = true;

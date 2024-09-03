@@ -30,7 +30,7 @@ in {
         servers = {
           gleam.enable = true;
           elmls.enable = true;
-          nil_ls = {
+          nil-ls = {
             enable = true;
           };
           tsserver = {
