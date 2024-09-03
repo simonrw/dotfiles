@@ -65,7 +65,7 @@ in {
     programs.nixvim = {
       enable = true;
       editorconfig.enable = false;
-      options = {
+      opts = {
         autowrite = true;
         backspace = ["indent" "eol" "start"];
         breakindent = true;
