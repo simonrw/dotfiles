@@ -289,7 +289,7 @@ in {
         fugitive.enable = true;
         treesitter = {
           enable = true;
-          disabledLanguages = [
+          settings.highlight.disable = [
             "gitcommit"
           ];
         };
