@@ -1,6 +1,6 @@
-{pkgs, ...}: {
+{isLinux, ...}: {
   programs.kitty = {
-    enable = true;
+    enable = isLinux;
     settings = {
       allow_remote_control = "no";
       background_opacity = "1.0";
