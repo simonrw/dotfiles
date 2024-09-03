@@ -311,8 +311,8 @@ in {
       extraConfigLua = ''
       '';
       extraFiles = {
-        "colors/lucius.vim" = builtins.readFile ./colors/lucius.vim;
-        "colors/srw256.vim" = builtins.readFile ./colors/srw256.vim;
+        "colors/lucius.vim".source = ./colors/lucius.vim;
+        "colors/srw256.vim".source = ./colors/srw256.vim;
       };
       extraConfigVim = ''
         " Add mapping to open/close the quickfix list
