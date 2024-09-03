@@ -65,7 +65,7 @@ in {
     programs.nixvim = {
       enable = true;
       editorconfig.enable = false;
-      options = {
+      opts = {
         autowrite = true;
         backspace = ["indent" "eol" "start"];
         breakindent = true;
@@ -289,7 +289,7 @@ in {
         fugitive.enable = true;
         treesitter = {
           enable = true;
-          disabledLanguages = [
+          settings.highlight.disable = [
             "gitcommit"
           ];
         };
@@ -311,8 +311,8 @@ in {
       extraConfigLua = ''
       '';
       extraFiles = {
-        "colors/lucius.vim" = builtins.readFile ./colors/lucius.vim;
-        "colors/srw256.vim" = builtins.readFile ./colors/srw256.vim;
+        "colors/lucius.vim".source = ./colors/lucius.vim;
+        "colors/srw256.vim".source = ./colors/srw256.vim;
       };
       extraConfigVim = ''
         " Add mapping to open/close the quickfix list
