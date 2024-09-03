@@ -69,7 +69,7 @@
       precommit = "diff --cached --diff-algorithm=minimal -w";
       pre = "precommit";
       # diff between the current commit and the most recent common ancestor to master (mimics gitlab's interface)
-      diff-base = "!git diff $(git base-commit)";
+      diff-base = "!git diff origin/$(git base-commit)";
       cleanup-base = "!git rebase -i $(git base-commit)";
       # Logging from Gary Bernhardt
       l = "log --graph --decorate --pretty=format:'%C(auto)%h%C(reset) %C(green)(%ar)%C(reset) %C(blue)[%an]%C(auto) %d %s%C(auto)' --exclude='refs/bugs/*' --exclude='refs/identities/*'";
