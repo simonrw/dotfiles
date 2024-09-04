@@ -80,6 +80,15 @@ in {
         };
       }
       {
+        name = "fish-ssh-agent";
+        src = pkgs.fetchFromGitHub {
+          owner = "ivakyb";
+          repo = "fish_ssh_agent";
+          rev = "c7aa080d5210f5f525d078df6fdeedfba8db7f9b";
+          sha256 = "v9VZY5DCo+iWZawRKVgFvsi33UKwtriSpUzrMhL0S14=";
+        };
+      }
+      {
         name = "nix-env";
         src = pkgs.fetchFromGitHub {
           owner = "lilyball";
