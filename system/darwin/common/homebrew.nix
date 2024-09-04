@@ -43,10 +43,22 @@
       "xquartz"
       "yubico-yubikey-manager"
       "zed"
-    ];
+    ] ++ 
+    # for android development
+    [
+      "android-sdk"
+      "android-ndk"
+      "android-studio"
+    ]; 
     brews = [
       "node"
       "cftail"
+    ] ++ 
+    # for android development
+    [
+      "ant"
+      "maven"
+      "gradle"
     ];
     taps = [
       "simonrw/cftail"
