@@ -21,13 +21,14 @@ in {
       cfg.package
     ];
     programs.fish.plugins = mkIf config.programs.fish.enable [
+      # my fork to stop printing on error when aws_completer cannot be found
       {
         name = "plugin-aws";
         src = pkgs.fetchFromGitHub {
-          owner = "oh-my-fish";
+          owner = "simonrw";
           repo = "plugin-aws";
-          rev = "a4cfb06627b20c9ffdc65620eb29abcedcc16340";
-          hash = "sha256-bTyp5j4VcFSntJ7mJBzERgOGGgu7ub15hy/FQcffgRE=";
+          rev = "bdbf81a1260ace6bcafd129dcfef2c628a937925";
+          hash = "sha256-z6hFVk3H5vwxqwolIqWSO8/73hiCHClJeA4gNZw7B4Q=";
         };
       }
     ];
