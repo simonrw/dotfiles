@@ -1,9 +1,9 @@
-{ 
-  pkgs ? import <nixpkgs> {}
-  , ...
+{
+  writers,
+  python3Packages,
 }:
-pkgs.writers.writePython3Bin "check-certificate-revocation" {
-  libraries = with pkgs.python3Packages; [
+writers.writePython3Bin "check-certificate-revocation" {
+  libraries = with python3Packages; [
     requests
     cryptography
   ];

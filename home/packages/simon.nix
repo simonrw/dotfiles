@@ -68,6 +68,7 @@ in {
     ]
     ++ [
       # local packages
+      check-certificate-revocation
       listprojects
       notify-wrapper
       realise-symlink
