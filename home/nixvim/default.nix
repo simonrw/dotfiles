@@ -28,6 +28,7 @@ in {
     ./notifications.nix
     ./octo-nvim.nix
     ./oil.nix
+    ./render-markdown.nix
     ./statusbar.nix
     ./telescope.nix
     ./trouble.nix
@@ -61,6 +62,7 @@ in {
       mini.enable = true;
       which-key.enable = true;
       diffview.enable = true;
+      render-markdown.enable = true;
     };
     # defaults
     programs.nixvim = {
