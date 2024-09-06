@@ -85,9 +85,9 @@ in {
           alttab-switcher-style = "icons+preview";
           desktop-effects-workspace = true;
         };
-        "org/cinnamon/desktop/background" = {
-          picture-uri = "file://${wallpaper}";
-          picture-uri-dark = "file://${wallpaper}";
+        "org/cinnamon/desktop/background" = mkIf wallpaper.enable {
+          picture-uri = "file://${wallpaper.path}";
+          picture-uri-dark = "file://${wallpaper.path}";
         };
         "org/cinnamon/desktop/keybindings/wm" = {
           toggle-fullscreen = ["<Super>0"];

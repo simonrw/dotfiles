@@ -79,8 +79,8 @@ in {
         presel_feedback_color = "#2E3440";
         focus_follows_pointer = true;
       };
-      extraConfig = ''
-        ${pkgs.feh}/bin/feh --bg-fill ${wallpaper}
+      extraConfig = mkIf wallpaper.enable ''
+        ${pkgs.feh}/bin/feh --bg-fill ${wallpaper.path}
       '';
       alwaysResetDesktops = true;
       monitors = monitor-configs.${cfg.num-monitors};
