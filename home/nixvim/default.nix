@@ -60,6 +60,7 @@ in {
       statusbar.enable = false;
       mini.enable = true;
       which-key.enable = true;
+      diffview.enable = true;
     };
     # defaults
     programs.nixvim = {
