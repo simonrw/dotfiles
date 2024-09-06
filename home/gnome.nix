@@ -138,9 +138,9 @@ in {
           cursor-theme = "Adwaita";
         }
         // desktop-interface;
-      "org/gnome/desktop/background" = {
-        picture-uri = "file://${wallpaper}";
-        picture-uri-dark = "file://${wallpaper}";
+      "org/gnome/desktop/background" = mkIf wallpaper.enable {
+        picture-uri = "file://${wallpaper.path}";
+        picture-uri-dark = "file://${wallpaper.path}";
       };
       "org/gnome/mutter" = {
         workspaces-only-on-primary = false;
