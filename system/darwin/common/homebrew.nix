@@ -12,6 +12,7 @@
       "brave-browser"
       "chatgpt"
       "dash"
+      "discord"
       "docker"
       "element"
       "firefox"
