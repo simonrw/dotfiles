@@ -62,6 +62,7 @@ in {
       talosctl
       universal-ctags
       unzip
+      uv
       watch
       yq
       zip
