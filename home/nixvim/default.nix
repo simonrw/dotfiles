@@ -292,9 +292,11 @@ in {
         fugitive.enable = true;
         treesitter = {
           enable = true;
-          settings.highlight.disable = [
-            "gitcommit"
-          ];
+          gccPackage = null;
+          nodejsPackage = null;
+          settings.highlight = {
+            enable = true;
+          };
         };
         treesitter-textobjects = {
           enable = true;
