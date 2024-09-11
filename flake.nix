@@ -81,6 +81,7 @@
         cert-info = cert-info.packages.${system}.default;
         simpleproxy = inputs.simpleproxy.packages.${system}.default;
         gh-repo-url = final.callPackage ./derivations/gh-repo-url {};
+        gh-pr-url = final.callPackage ./derivations/gh-pr-url {};
         gh-rebase-pr = final.callPackage ./derivations/gh-rebase-pr {};
         wlman = final.callPackage ./derivations/wlman {};
         check-certificate-revocation = final.callPackage ./derivations/check-certificate-revocation {};
