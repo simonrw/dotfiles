@@ -83,7 +83,7 @@ switch (uname)
         # set -x DYLD_LIBRARY_PATH {$BUILD_PREFIX}/lib {$DYLD_LIBRARY_PATH}
         #
         # fix nix path
-        set -x PATH /etc/profiles/per-user/(whoami)/bin "/Applications/PyCharm CE.app/Contents/MacOS" {$PATH} /opt/homebrew/bin
+        set -x PATH /etc/profiles/per-user/(whoami)/bin "/Applications/PyCharm CE.app/Contents/MacOS" {$PATH}
     case '*'
 end
 
