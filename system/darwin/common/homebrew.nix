@@ -11,6 +11,7 @@
       "brave-browser"
       "chatgpt"
       "dash"
+      "devhub"
       "discord"
       "docker"
       "element"
@@ -46,6 +47,7 @@
     ];
     taps = [
       "simonrw/cftail"
+      "devhubapp/devhub"
     ];
     masApps = {
       DaisyDisk = 411643860;
