@@ -1,6 +1,7 @@
 {
   pkgs,
   hostname,
+  config,
   ...
 }: {
   imports = [
@@ -48,7 +49,12 @@
   # https://nixcademy.com/2024/01/15/nix-on-macos/
   security.pam.enableSudoTouchIdAuth = true;
 
-  programs.fish.enable = true;
+  programs.fish = {
+    enable = true;
+    loginShellInit = ''
+      eval (${config.homebrew.brewPrefix}/brew shellenv)
+    '';
+  };
   programs.zsh.enable = true;
   programs.gnupg.agent.enable = true;
 
