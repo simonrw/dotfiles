@@ -32,7 +32,6 @@ in {
       cert-info
       curlie
       custom-curl
-      devenv
       dig
       docker-credential-helpers
       du-dust
@@ -42,15 +41,12 @@ in {
       file
       go
       gron
-      hexyl
       htop
       jless
       jqp
       lsof
-      mkcert
       nix-output-monitor
       nix-tree
-      nodejs
       openssh
       pre-commit
       pstree
@@ -59,7 +55,6 @@ in {
       ripgrep
       rustup
       sqlite-interactive
-      talosctl
       universal-ctags
       unzip
       uv
@@ -84,6 +79,7 @@ in {
       blanket # white noise generator
       custom-vscode
       drawio
+      nodejs
       element-desktop
       emote # emoji picker
       flameshot # screenshot utility
