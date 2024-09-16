@@ -7,6 +7,7 @@
       "1password"
       "1password-cli"
       "alacritty"
+      "arc"
       "barrier"
       "brave-browser"
       "chatgpt"
