@@ -64,8 +64,7 @@
   # https://nixcademy.com/2024/01/15/nix-on-macos/
   system.defaults = {
     dock = {
-      # only autohide the dock on my laptop
-      autohide = hostname == "mba";
+      autohide = false;
       mru-spaces = false;
       orientation = "bottom";
       tilesize = 24;
