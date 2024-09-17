@@ -13,8 +13,9 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nur.url = "github:nix-community/NUR";
+    # TEMP: pin nix-darwin due to https://github.com/LnL7/nix-darwin/issues/1082
     darwin = {
-      url = "github:lnl7/nix-darwin/master";
+      url = "github:lnl7/nix-darwin/f4f18f3d7229845e1c9d517457b7a0b90a38b728";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     jetbrains-updater = {
