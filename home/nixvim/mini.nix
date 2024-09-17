@@ -11,7 +11,7 @@ in {
   };
 
   config = mkIf cfg.enable {
-    programs.nixvim.plugins.mini = {
+    plugins.mini = {
       enable = true;
       modules = {
         # Note: not actually AI!

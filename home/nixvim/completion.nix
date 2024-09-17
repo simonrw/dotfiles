@@ -15,7 +15,7 @@ in {
       description = "Require keypress to enable";
     };
   };
-  config.programs.nixvim = mkIf cfg.enable {
+  config = mkIf cfg.enable {
     plugins = {
       cmp-emoji.enable = cfg.emoji;
       cmp_luasnip.enable = true;

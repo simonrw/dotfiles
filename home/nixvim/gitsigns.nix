@@ -13,8 +13,8 @@
   nnoremap = rebind "n";
   vnoremap = rebind "v";
 in {
-  programs.nixvim.plugins.gitsigns.enable = true;
-  programs.nixvim.keymaps =
+  plugins.gitsigns.enable = true;
+  keymaps =
     [
       {
         mode = "n";

@@ -11,7 +11,7 @@ in {
     me.nixvim.zen-mode.enable = mkEnableOption "Zen mode";
   };
   config = mkIf cfg.enable {
-    programs.nixvim.extraPlugins = with pkgs.vimPlugins; [
+    extraPlugins = with pkgs.vimPlugins; [
       zen-mode-nvim
     ];
   };

@@ -6,4 +6,4 @@ set -euo pipefail
 
 NIXARCH="$(nixarch)"
 
-nom build ".#homeConfigurations.${NIXARCH}.${USER}.config.programs.nixvim.finalPackage" $*
+nom build ".#nixvim" $*

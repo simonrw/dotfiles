@@ -5,7 +5,6 @@
   inputs,
   ...
 }: let
-
   cfg = config.me;
 
   dark-themes = [
@@ -989,151 +988,6 @@
       };
     };
   };
-  neovim-theme-blocks = {
-    poimandres = ''
-      require('poimandres').setup({})
-      vim.cmd("colorscheme poimandres")
-    '';
-    papercolor = ''
-      vim.cmd.highlight({ "TreesitterContext", "guibg=#f6f6ff" })
-      vim.cmd [[set background=light]]
-      vim.cmd [[colorscheme PaperColorSlim]]
-    '';
-    nord = ''
-      vim.g.nord_disable_background = true
-      vim.g.nord_italic = false
-      vim.cmd [[colorscheme nord]]
-      vim.cmd.highlight({ "@comment", "guifg=#d08770" })
-      vim.cmd.highlight({ "TreesitterContext", "guibg=#363c4a" })
-      -- markdown colours
-      vim.cmd.highlight({ "@markup.raw", "guifg=${current-theme.normal.yellow}" })
-    '';
-    github-light = ''
-
-      vim.cmd [[set background=light]]
-      vim.cmd [[colorscheme github_light]]
-      vim.cmd.highlight({ "DiagnosticError", "guifg=Red" })
-      vim.cmd.highlight({ "DiagnosticHint", "guifg=Orange" })
-      vim.cmd.highlight({ "DiagnosticWarn", "guifg=Orange" })
-      vim.cmd.highlight({ "DiagnosticInfo", "guifg=LightBlue" })
-      vim.cmd.highlight({ "DiagnosticFloatingError", "guifg=Red" })
-      vim.cmd.highlight({ "DiagnosticFloatingHint", "guifg=Orange" })
-      vim.cmd.highlight({ "DiagnosticFloatingInfo", "guifg=LightBlue" })
-      vim.cmd.highlight({ "DiagnosticFloatingWarn", "guifg=Orange" })
-      vim.cmd.highlight({ "DiagnosticVirtualTextError", "guifg=Red" })
-      vim.cmd.highlight({ "DiagnosticVirtualTextHint", "guifg=Orange" })
-      vim.cmd.highlight({ "DiagnosticVirtualTextInfo", "guifg=LightBlue" })
-      vim.cmd.highlight({ "DiagnosticVirtualTextWarn", "guifg=Orange" })
-      vim.cmd.highlight({ "Comment", "guifg=#e69340" })
-      vim.cmd.highlight({ "TreesitterContext", "guibg=#eeeeee" })
-    '';
-    # TODO: migrate these to nixvim
-    one-dark = ''
-      colorscheme onedark
-    '';
-    catppuccin-macchiato = ''
-      -- remove underline from bottom of highlight section
-      vim.cmd([[
-        set background=dark
-        colorscheme catppuccin-macchiato
-      ]])
-      vim.cmd.highlight({ 'TreesitterContextBottom', 'gui=none' })
-    '';
-    catppuccin-mocha = ''
-      vim.cmd([[
-        set background=dark
-        colorscheme catppuccin-mocha
-      ]])
-    '';
-    catppuccin-frappe = ''
-      vim.cmd([[
-        set background=dark
-        colorscheme catppuccin-frappe
-      ]])
-    '';
-    dracula = ''
-      set background=dark
-      colorscheme dracula
-    '';
-    solarized-light = ''
-      set background=light
-
-      let g:solarized_disable_background = v:true
-      let g:solarized_italic_comments = v:false
-      let g:solarized_italic_keywords = v:false
-      let g:solarized_italic_functions = v:true
-      let g:solarized_italic_variables = v:false
-      let g:solarized_contrast = v:false
-      let g:solarized_borders = v:true
-
-      colorscheme solarized
-      highlight Cursor guifg=${current-theme.cursor.cursor} guibg=${current-theme.cursor.text}
-      highlight TreesitterContext guibg=${current-theme.normal.white}
-    '';
-    github = ''
-      vim.opt.background = "dark"
-      -- overrides
-      vim.cmd.highlight({ "Comment", "guifg=#e69340" })
-      vim.cmd.highlight({ "TSComment", "guifg=#e69340" })
-      vim.cmd.highlight({ "Normal", "guibg=none" })
-      vim.cmd.highlight({ "NormalNC", "guibg=none" })
-      -- set background colour
-      vim.cmd "colorscheme github_dark"
-    '';
-    gruvbox = ''
-      set background=dark
-      let g:gruvbox_contrast_dark = "hard"
-      colorscheme gruvbox
-      highlight Comment guifg=#e69340   " brighten comments
-      highlight TSComment guifg=#e69340   " brighten comments
-    '';
-    monochrome = ''
-      set background=dark
-      colorscheme fogbell
-      hi Normal guibg=none
-    '';
-    srw = ''
-      vim.cmd([[
-        set background=dark
-        colorscheme srw256
-        hi Normal guibg=none
-        let g:linenr_background = 'none'
-        execute 'highlight TelescopeNormal guibg=' . g:linenr_background
-        execute 'highlight LineNr guibg=' . g:linenr_background
-        execute 'highlight SignColumn guibg=' . g:linenr_background
-        highlight TabLine guibg=none
-        highlight TabLineSel guibg=none
-        highlight TabLineFill guibg=none
-        execute 'highlight DiagnosticSignError ctermfg=1 guifg=Red guibg=' . g:linenr_background
-        execute 'highlight DiagnosticSignHint ctermfg=7 guifg=LightGrey guibg=' . g:linenr_background
-        execute 'highlight DiagnosticSignInfo ctermfg=4 guifg=LightBlue guibg=' . g:linenr_background
-        execute 'highlight DiagnosticSignWarn ctermfg=3 guifg=Orange guibg=' . g:linenr_background
-        highlight DiagnosticUnderlineHint guifg=Grey guisp=Grey
-      ]])
-    '';
-    catppuccin-latte = ''
-      vim.cmd([[
-        set background=light
-        colorscheme catppuccin-latte
-      ]])
-    '';
-    monokai-pro = ''
-      vim.cmd([[
-        set background=dark
-        let g:sonokai_style = "shusia"
-        let g:sonokai_disable_italic_comment = 1
-        let g:sonokai_transparent_background = 2
-        colorscheme sonokai
-        " highlight Comment guifg=#e69340   " brighten comments
-        " highlight TSComment guifg=#e69340   " brighten comments
-        " highlight NormalFloat guibg=#343136
-        " highlight TabLine gui=none guibg=none guifg=${themes.monokai-pro.normal.yellow}
-        " highlight TabLineSel gui=none guibg=none guifg=${themes.monokai-pro.normal.white}
-        " highlight TabLineFill gui=none guibg=none
-      ]])
-    '';
-  };
-
   helix-theme =
     {
       github-light = "github_light";
@@ -1178,18 +1032,23 @@
       hash = "sha256-m/+Xsbve1fuzNEKpSK6Eddoi7gKcj04o1kSFy/H/m9w=";
     };
   };
-  git-config = {
-    catppuccin-macchiato = if cfg.delta.diff-so-fancy then {
-      delta.options.diff-so-fancy = true;
-    } else {
-      includes = [
-        {
-          path = "${inputs.catppuccin-delta}/catppuccin.gitconfig";
+  git-config =
+    {
+      catppuccin-macchiato =
+        if cfg.delta.diff-so-fancy
+        then {
+          delta.options.diff-so-fancy = true;
         }
-      ];
-      delta.options.features = "catppuccin-macchiato";
-    };
-  }.${cfg.theme};
+        else {
+          includes = [
+            {
+              path = "${inputs.catppuccin-delta}/catppuccin.gitconfig";
+            }
+          ];
+          delta.options.features = "catppuccin-macchiato";
+        };
+    }
+    .${cfg.theme};
 
   zellij-theme =
     {
@@ -1234,48 +1093,6 @@ in
         "vi_mode_cursor"
         "raw-colours"
       ];
-      programs.nixvim.extraConfigLuaPost = neovim-theme-blocks.${cfg.theme};
-      programs.nixvim.extraPlugins = with pkgs.vimPlugins;
-        {
-          poimandres = [
-            poimandres-nvim
-          ];
-          papercolor = [
-            papercolor-theme-slim
-          ];
-          github-light = [
-            github-nvim-theme
-          ];
-          gruvbox = [
-            gruvbox
-          ];
-          monokai-pro = [
-            sonokai
-          ];
-          nord = [
-            nord-nvim
-          ];
-          dracula = [
-            dracula-nvim
-          ];
-          catppuccin-macchiato = [
-            catppuccin-nvim
-          ];
-          catppuccin-mocha = [
-            catppuccin-nvim
-          ];
-          catppuccin-latte = [
-            catppuccin-nvim
-          ];
-          catppuccin-frappe = [
-            catppuccin-nvim
-          ];
-          solarized-light = [
-            solarized-nvim
-          ];
-        }
-        .${cfg.theme}
-        or [];
       programs.tmux.extraConfig = ''
         fg_colour="${tmux-primary-colour}"
         bg_colour="${tmux-background-colour}"

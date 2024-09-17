@@ -39,7 +39,6 @@ in {
       ./kitty.nix
       ./mpv.nix
       ./nix-index.nix
-      ./nixvim
       ./packages/simon.nix
       ./ssh.nix
       ./taskwarrior.nix

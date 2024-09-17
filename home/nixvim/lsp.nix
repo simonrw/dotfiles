@@ -23,7 +23,7 @@ in {
     enable = mkEnableOption "lsp";
     inlay-hints = mkEnableOption "inlay-hints";
   };
-  config.programs.nixvim = mkIf cfg.enable {
+  config = mkIf cfg.enable {
     plugins = {
       lsp = {
         enable = true;
