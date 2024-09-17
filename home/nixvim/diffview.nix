@@ -10,7 +10,7 @@ in {
     enable = mkEnableOption "DiffView";
   };
   config = mkIf cfg.enable {
-    programs.nixvim.plugins.diffview = {
+    plugins.diffview = {
       enable = true;
     };
   };

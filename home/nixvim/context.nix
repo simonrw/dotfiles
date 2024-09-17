@@ -18,11 +18,11 @@ in {
   };
 
   config = mkIf cfg.enable {
-    programs.nixvim.plugins.treesitter-context = mkIf (cfg.method == "treesitter-context") {
+    plugins.treesitter-context = mkIf (cfg.method == "treesitter-context") {
       enable = true;
       settings.max_lines = 3;
     };
-    programs.nixvim.plugins.barbecue = mkIf (cfg.method == "barbecue") {
+    plugins.barbecue = mkIf (cfg.method == "barbecue") {
       enable = true;
     };
   };

@@ -1,5 +1,5 @@
 {
-  programs.nixvim.plugins.lsp-format = {
+  plugins.lsp-format = {
     enable = true;
     setup = {
       nix = {

@@ -170,8 +170,11 @@
             home-manager.users.simon = {...}: {
               imports = [
                 ./home/home.nix
-                nixvim.homeManagerModules.nixvim
                 inputs.nix-index-database.hmModules.nix-index
+              ];
+
+              home.packages = [
+                self.packages.${system}.nixvim
               ];
             };
           }
@@ -228,8 +231,11 @@
               home-manager.users.simon = {...}: {
                 imports = [
                   ./home/home.nix
-                  nixvim.homeManagerModules.nixvim
                   inputs.nix-index-database.hmModules.nix-index
+                ];
+
+                home.packages = [
+                  self.packages.${system}.nixvim
                 ];
               };
             }
@@ -254,8 +260,12 @@
             inherit pkgs;
             modules = [
               ./home/home.nix
-              nixvim.homeManagerModules.nixvim
               inputs.nix-index-database.hmModules.nix-index
+              ({ ... }: {
+              home.packages = [
+                self.packages.${system}.nixvim
+              ];
+            })
             ];
             # stop infinite recusion when trying to access
             # pkgs.stdenv.is{Linux,Darwin} from within a module
@@ -269,7 +279,6 @@
             inherit pkgs;
             modules = [
               ./minimal/home.nix
-              nixvim.homeManagerModules.nixvim
             ];
             # stop infinite recusion when trying to access
             # pkgs.stdenv.is{Linux,Darwin} from within a module
@@ -287,6 +296,17 @@
               python310
               python310Packages.black
             ];
+          };
+
+          packages.nixvim = inputs.nixvim.legacyPackages.${system}.makeNixvimWithModule { 
+            inherit pkgs;
+            module = {
+              imports = [
+                ./home/nixvim/default.nix
+              ];
+            };
+            extraSpecialArgs = {
+            };
           };
       }
     );

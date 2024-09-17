@@ -10,7 +10,7 @@ in {
     enable = mkEnableOption "Notifications";
   };
 
-  config.programs.nixvim = mkIf cfg.enable {
+  config = mkIf cfg.enable {
     plugins.fidget = {
       enable = true;
       notification.window = {

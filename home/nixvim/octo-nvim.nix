@@ -12,12 +12,10 @@ in {
   };
 
   config = mkIf cfg.enable {
-    programs.nixvim = {
-      extraPlugins = with pkgs.vimPlugins; [
-        octo-nvim
-      ];
+    extraPlugins = with pkgs.vimPlugins; [
+      octo-nvim
+    ];
 
-      extraConfigLua = builtins.readFile ./octo-nvim-setup.lua;
-    };
+    extraConfigLua = builtins.readFile ./octo-nvim-setup.lua;
   };
 }

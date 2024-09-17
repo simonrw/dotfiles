@@ -8,8 +8,6 @@ with lib; let
 in {
   options.me.nixvim.statusbar.enable = mkEnableOption "Status bar";
   config = mkIf cfg.enable {
-    programs.nixvim = {
-      plugins.lualine.enable = true;
-    };
+    plugins.lualine.enable = true;
   };
 }
