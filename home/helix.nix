@@ -1,6 +1,4 @@
 {
-  config,
-  lib,
   pkgs,
   ...
 }: {
@@ -8,6 +6,9 @@
     enable = true;
     settings = {
       editor = {
+        auto-completion = true;
+        # instant completion
+        completion-timeout = 5;
         auto-pairs = false;
         true-color = true;
         line-number = "relative";
