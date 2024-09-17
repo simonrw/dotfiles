@@ -76,6 +76,24 @@ jobs:
           authToken: '${{ secrets.CACHIX_AUTH_TOKEN }}'
       - run: nix build .#homeConfigurations.${{ matrix.runtime.property }}.minimal.activationPackage
 
+  nixvim:
+    strategy:
+      matrix:
+        runtime:
+          - os: ubuntu-latest
+          - os: macos-latest
+    runs-on: ${{ matrix.runtime.os }}
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install Nix
+        uses: DeterminateSystems/nix-installer-action@main
+      - uses: cachix/cachix-action@v14
+        with:
+          name: mindriot101-home
+          authToken: '${{ secrets.CACHIX_AUTH_TOKEN }}'
+      - run: nix build .#nixvim
+
+
   macos:
     runs-on: macos-latest
     steps:
