@@ -21,7 +21,6 @@ in {
     ../home/fzf.nix
     ../home/gh.nix
     ../home/jq.nix
-    ../home/nixvim
     # ../home/nix-index.nix
     ../home/tmux.nix
     ../home/git/global.nix
