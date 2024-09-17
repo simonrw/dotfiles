@@ -279,6 +279,11 @@
             inherit pkgs;
             modules = [
               ./minimal/home.nix
+              ({...}: {
+                home.packages = [
+                  self.packages.${system}.nixvim
+                ];
+              })
             ];
             # stop infinite recusion when trying to access
             # pkgs.stdenv.is{Linux,Darwin} from within a module
