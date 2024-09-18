@@ -96,7 +96,10 @@ in {
       ];
       delta.diff-so-fancy = true;
       viddy.enable = true;
-      aws.enable = true;
+      aws = {
+        enable = true;
+        enableFishIntegration = true;
+      };
       theme = "catppuccin-macchiato";
       vscode-theme = "Dracula";
       defaults = {
