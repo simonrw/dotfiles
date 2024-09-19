@@ -1047,6 +1047,19 @@
           ];
           delta.options.features = "catppuccin-macchiato";
         };
+      catppuccin-mocha =
+        if cfg.delta.diff-so-fancy
+        then {
+          delta.options.diff-so-fancy = true;
+        }
+        else {
+          includes = [
+            {
+              path = "${inputs.catppuccin-delta}/catppuccin.gitconfig";
+            }
+          ];
+          delta.options.features = "catppuccin-mocha";
+        };
     }
     .${cfg.theme};
 

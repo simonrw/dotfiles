@@ -1,4 +1,5 @@
-{pkgs, ...}: let
+{pkgs, ...}: 
+let
   keymap = {
     key,
     action,
@@ -11,6 +12,29 @@
       silent = true;
     };
   };
+
+# TOOD: unify with home configuration
+colour-theme = "catppuccin-mocha";
+
+theme-lua = {
+  catppuccin-macchiato = ''
+    -- remove underline from bottom of highlight section
+    vim.cmd([[
+      set background=dark
+      colorscheme catppuccin-macchiato
+    ]])
+    vim.cmd.highlight({ 'TreesitterContextBottom', 'gui=none' })
+    '';
+  catppuccin-mocha = ''
+    -- remove underline from bottom of highlight section
+    vim.cmd([[
+      set background=dark
+      colorscheme catppuccin-mocha
+    ]])
+    vim.cmd.highlight({ 'TreesitterContextBottom', 'gui=none' })
+    '';
+  }.${colour-theme};
+
 in {
   editorconfig.enable = false;
   opts = {
@@ -259,14 +283,7 @@ in {
     nvim-nio
     catppuccin-nvim
   ];
-  extraConfigLua = ''
-    -- remove underline from bottom of highlight section
-    vim.cmd([[
-      set background=dark
-      colorscheme catppuccin-macchiato
-    ]])
-    vim.cmd.highlight({ 'TreesitterContextBottom', 'gui=none' })
-  '';
+  extraConfigLua = theme-lua;
   extraFiles = {
     "colors/lucius.vim".source = ./colors/lucius.vim;
     "colors/srw256.vim".source = ./colors/srw256.vim;
