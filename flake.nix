@@ -323,7 +323,7 @@
         nix.registry.nixpkgs.flake = nixpkgs;
         # set the system "nixpkgs" to the nixpkgs defined in this flake
         # https://dataswamp.org/~solene/2022-07-20-nixos-flakes-command-sync-with-system.html#_nix-shell_vs_nix_shell
-        nix.nixPath = ["nixpkgs=/etc/channels/nixpkgs" "/nix/var/nix/profiles/per-user/root/channels"];
+        nix.nixPath = ["nixpkgs=/etc/channels/nixpkgs"];
         environment.etc."channels/nixpkgs".source = nixpkgs.outPath;
       };
       nixos = {name ? throw "No module name provided" }: import ./system/nixos/${name}/configuration.nix;
