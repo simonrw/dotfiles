@@ -182,7 +182,7 @@ in {
     # emulate vim-vinegar which stopped working
     (keymap {
       key = "-";
-      action = ":Explore<Cr>";
+      action = ":e %:h<Cr>";
     })
     (keymap {
       key = "<C-h>";
