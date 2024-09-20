@@ -74,6 +74,7 @@ in {
       reattach-to-user-namespace
       coreutils
       libiconv
+      blueutil
     ])
     ++ (lib.optionals isLinux [
       blanket # white noise generator
