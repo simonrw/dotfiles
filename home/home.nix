@@ -86,12 +86,14 @@ in {
     {
       atuin.enable = false;
       font-name = "JetBrains Mono";
-      font-style = "Regular";
+      font-style = "Semibold";
       font-size =
         if isLinux
         then 10.0
         else 12.0;
-      fonts-to-install = [];
+      fonts-to-install = [
+        pkgs.monaspace
+      ];
       delta.diff-so-fancy = true;
       viddy.enable = true;
       aws = {
