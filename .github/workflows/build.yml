@@ -21,21 +21,6 @@ on:
       - README.md
       - LICENSE
 jobs:
-  neovim:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - name: Install Nix
-        uses: DeterminateSystems/nix-installer-action@main
-      - uses: cachix/cachix-action@v15
-        with:
-          name: mindriot101-home
-          authToken: '${{ secrets.CACHIX_AUTH_TOKEN }}'
-      - name: Run custom nixvim
-        # -es means run in "batch" mode i.e. exit with non-0 exit code on
-        # errors
-        run: nix run .#nixvim -- -es
-
   linux:
     runs-on: ubuntu-latest
     steps:
@@ -106,7 +91,10 @@ jobs:
         with:
           name: mindriot101-home
           authToken: '${{ secrets.CACHIX_AUTH_TOKEN }}'
-      - run: nix build .#nixvim
+      - name: Run custom nixvim
+        # -es means run in "batch" mode i.e. exit with non-0 exit code on
+        # errors
+        run: nix run .#nixvim -- -es
 
 
   macos:
