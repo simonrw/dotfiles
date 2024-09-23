@@ -33,7 +33,7 @@ in {
           nil-ls = {
             enable = true;
           };
-          tsserver = {
+          ts-ls = {
             enable = true;
             extraOptions = {
               settings.typescript.format.indentSize = 2;

@@ -256,7 +256,7 @@ in {
   };
   luaLoader.enable = true;
   plugins = {
-    surround.enable = true;
+    vim-surround.enable = true;
     commentary.enable = true;
     fugitive.enable = true;
     treesitter = {
