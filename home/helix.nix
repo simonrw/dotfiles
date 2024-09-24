@@ -14,9 +14,10 @@
         color-modes = true;
         lsp.display-messages = true;
         gutters.layout = [
-          "diagnostics"
-          "spacer"
           "diff"
+          "diagnostics"
+          "line-numbers"
+          "spacer"
         ];
         cursor-shape = {
           insert = "bar";
