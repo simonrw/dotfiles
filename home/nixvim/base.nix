@@ -56,8 +56,8 @@ in {
     linebreak = true;
     list = false;
     mouse = "a";
-    number = false;
-    relativenumber = false;
+    number = true;
+    relativenumber = true;
     ruler = false;
     scrolloff = 8;
     shiftround = true;
