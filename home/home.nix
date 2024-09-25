@@ -100,7 +100,7 @@ in {
         enable = true;
         enableFishIntegration = true;
       };
-      theme = "catppuccin-macchiato";
+      theme = "nord";
       vscode-theme = "Dracula";
       defaults = {
         browser = "brave";
