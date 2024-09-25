@@ -34,7 +34,7 @@
       zen-mode.enable = true;
       completion = {
         enable = true;
-        require-trigger = true;
+        require-trigger = false;
         emoji = true;
       };
       context = {
