@@ -14,7 +14,7 @@ let
   };
 
 # TOOD: unify with home configuration
-colour-theme = "nord";
+colour-theme = "catppuccin-mocha";
 
 theme-lua = {
     poimandres = ''
@@ -378,7 +378,6 @@ in {
     lsp-status-nvim
     nvim-nio
     catppuccin-nvim
-    nord-nvim
   ];
   extraConfigLua = theme-lua;
   extraFiles = {
