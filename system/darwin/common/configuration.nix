@@ -68,7 +68,7 @@
       mru-spaces = false;
       orientation = "bottom";
       tilesize = {
-        mm = 44;
+        mm = 34;
         mba = 24;
       }.${hostname};
       largesize = 92;
