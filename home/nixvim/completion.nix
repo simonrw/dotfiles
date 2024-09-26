@@ -33,14 +33,14 @@ in {
           };
           sources =
             [
-              {name = "nvim_lsp"; keyword_length = 3;}
+              {name = "nvim_lsp"; keyword_length = 2;}
               {name = "path";}
               {
                 name = "buffer";
                 # Words from other open buffers can also be suggested.
                 option.get_bufnrs.__raw = "vim.api.nvim_list_bufs";
               }
-              {name = "luasnip"; keyword_length = 3;}
+              {name = "luasnip"; keyword_length = 2;}
             ]
             ++ (lib.optionals cfg.emoji [
               {name = "emoji";}
