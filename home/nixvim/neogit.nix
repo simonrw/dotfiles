@@ -5,6 +5,19 @@
 }:
 with lib; let
   cfg = config.me.nixvim.neogit;
+    
+  keymap = {
+    key,
+    action,
+    mode ? "n",
+    lua ? false,
+  }: {
+    inherit action mode key lua;
+    options = {
+      noremap = true;
+      silent = true;
+    };
+  };
 in {
   options.me.nixvim.neogit.enable = mkEnableOption "neogit";
 
@@ -12,6 +25,13 @@ in {
     plugins.neogit = {
       enable = true;
     };
+
+    keymaps = [
+      (keymap {
+        key = "gs";
+        action = ":Neogit<cr>";
+      })
+    ];
 
     assertions = [
       {
