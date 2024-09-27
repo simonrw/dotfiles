@@ -11,7 +11,7 @@ in {
 
   config = mkIf cfg.enable {
     extraPlugins = with pkgs.vimPlugins; [
-      render-markdown
+      render-markdown-nvim
     ];
   };
 }
