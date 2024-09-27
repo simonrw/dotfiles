@@ -322,6 +322,7 @@ in {
   };
   luaLoader.enable = true;
   plugins = {
+    web-devicons.enable = false;
     vim-surround.enable = true;
     commentary.enable = true;
     treesitter = {
