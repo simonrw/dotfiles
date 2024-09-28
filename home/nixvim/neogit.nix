@@ -31,6 +31,10 @@ in {
         key = "gs";
         action = ":Neogit<cr>";
       })
+      (keymap {
+        key = "<leader>gc";
+        action = ":Neogit commit<cr>";
+      })
     ];
 
     assertions = [
