@@ -54,7 +54,7 @@
       which-key.enable = true;
       diffview.enable = true;
       render-markdown.enable = true;
-      neogit.enable = true;
+      fugitive.enable = true;
     };
   };
 }
