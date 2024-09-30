@@ -54,7 +54,7 @@
       "<leader>/" = "current_buffer_fuzzy_find";
       "gd" = "lsp_definitions";
       "gr" = "lsp_references";
-      "<leader>g" = "diagnostics";
+      "<leader>d" = "diagnostics";
       "<leader>s" = "lsp_dynamic_workspace_symbols";
     };
   };
