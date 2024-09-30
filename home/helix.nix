@@ -229,4 +229,9 @@
       };
     };
   };
+
+  xdg.configFile."helix/themes" = {
+    source = ./helix/themes;
+    recursive = true;
+  };
 }
