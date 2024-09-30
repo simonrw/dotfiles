@@ -28,6 +28,8 @@
         };
       };
       keys.normal = {
+        "{" = "goto_prev_paragraph";
+        "}" = "goto_next_paragraph";
         "G" = "goto_file_end";
         "g" = {
           "q" = ":reflow";
