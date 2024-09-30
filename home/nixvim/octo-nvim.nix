@@ -17,5 +17,10 @@ in {
     ];
 
     extraConfigLua = builtins.readFile ./octo-nvim-setup.lua;
+
+    # requires gh cli
+    extraPackages = with pkgs; [
+      gh
+    ];
   };
 }
