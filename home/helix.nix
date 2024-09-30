@@ -28,6 +28,10 @@
         };
       };
       keys.normal = {
+        "C-h" = "jump_view_left";
+        "C-j" = "jump_view_down";
+        "C-k" = "jump_view_up";
+        "C-l" = "jump_view_right";
         "{" = "goto_prev_paragraph";
         "}" = "goto_next_paragraph";
         "G" = "goto_file_end";
