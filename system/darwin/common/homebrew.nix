@@ -19,7 +19,6 @@
       "hammerspoon"
       "inkscape"
       "karabiner-elements"
-      "notion"
       "obs"
       "obsidian"
       "pocket-casts"
