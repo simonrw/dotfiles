@@ -118,7 +118,7 @@
         autocrlf = "input";
         safecrlf = true;
         whitespace = "fix";
-        editor = "nvim";
+        editor = "hx";
         mergeoptions = "--no-ff";
         preloadindex = true;
         ignorecase = false;
