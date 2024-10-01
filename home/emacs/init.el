@@ -1,4 +1,8 @@
 (blink-cursor-mode 0)
+
+(setq custom-file "~/.emacs.d/custom.el")
+(load custom-file)
+
 (setq inhibit-splash-screen t)
 (setq inhibit-startup-message t)
 (dolist (m '(tooltip-mode tool-bar-mode scroll-bar-mode menu-bar-mode))
@@ -15,6 +19,8 @@
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
 (global-visual-line-mode t)
 (set-fringe-mode 10)
+(setq display-line-numbers-type 'relative)
+(global-display-line-numbers-mode)
 
 ;; Enable nicer window moving
 (when (fboundp 'windmove-default-keybindings)
@@ -27,6 +33,22 @@
 (setq indent-tabs-mode nil)
 (setq-default tab-width 4)
 
+;; packages
+(require 'package)
+(add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
+(package-initialize)
+
+(require 'use-package-ensure)
+(setq use-package-always-ensure t)
+
+;; Ido
+(ido-mode 1)
+(ido-everywhere 1)
+(use-package smex
+  :config
+  (smex-initialize)
+  :bind ("M-x" . smex))
+
 ;; configure ediff
 (setq ediff-split-window-function 'split-window-horizontally
 	  ediff-window-setup-function 'ediff-setup-windows-plain)
@@ -38,17 +60,12 @@
 
 (add-hook 'ediff-mode-hook 'srw-ediff-hook)
 
-(set-face-attribute 'default nil :family "JetBrains Mono" :weight 'bold :height 120)
-(set-face-attribute 'fixed-pitch nil :family "JetBrains Mono" :weight 'bold :height 120)
-;; (set-face-attribute 'variable-pitch nil :family "Cantarell" :height 120)
-(set-face-attribute 'default (selected-frame) :height 120)
+(add-to-list 'default-frame-alist `(font . "JetBrainsMono Nerd Font"))
 
 ;; org
 (setq org-agenda-files '("~/org"))
 
-;; show helpful hints when pressing keys
-(which-key-mode t)
-
-;; theme
-
-(load-theme 'nord t)
+;; Theming
+(use-package catppuccin-theme)
+(setq catppuccin-flavor 'macchiato)
+(load-theme 'catppuccin :no-confirm)
