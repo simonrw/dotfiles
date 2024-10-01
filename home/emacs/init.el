@@ -47,7 +47,12 @@
 (use-package smex
   :config
   (smex-initialize)
-  :bind ("M-x" . smex))
+  :bind
+  ("M-x" . smex)
+  ("C-c C-c M-x" . execute-extended-command))
+
+;; magit
+(use-package magit)
 
 ;; configure ediff
 (setq ediff-split-window-function 'split-window-horizontally
