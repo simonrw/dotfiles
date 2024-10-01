@@ -332,6 +332,7 @@ in {
       settings.highlight = {
         enable = true;
       };
+      settings.indent.enable = true;
     };
     treesitter-textobjects = {
       enable = true;
