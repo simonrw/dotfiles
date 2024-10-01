@@ -14,6 +14,7 @@
       "discord"
       "docker"
       "element"
+      "emacs-mac"
       "firefox"
       "gimp"
       "hammerspoon"
@@ -44,6 +45,7 @@
       "cftail"
     ];
     taps = [
+      "railwaycat/emacsmacport"
       "simonrw/cftail"
     ];
     masApps = {
