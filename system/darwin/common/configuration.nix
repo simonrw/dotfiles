@@ -21,6 +21,7 @@
     packages = with pkgs; [
       fantasque-sans-mono
       noto-fonts
+      iosevka
       (nerdfonts.override {
         fonts = [
           "JetBrainsMono"
