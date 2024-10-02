@@ -20,6 +20,7 @@ in {
     ../home/font.nix
     ../home/fzf.nix
     ../home/gh.nix
+    ../home/helix.nix
     ../home/jq.nix
     # ../home/nix-index.nix
     ../home/tmux.nix
