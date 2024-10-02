@@ -27,6 +27,10 @@
           hidden = false;
         };
       };
+      keys.select = {
+        "{" = "goto_prev_paragraph";
+        "}" = "goto_next_paragraph";
+      };
       keys.normal = {
         "C-h" = "jump_view_left";
         "C-j" = "jump_view_down";
