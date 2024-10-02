@@ -53,11 +53,19 @@
     };
     languages = {
       language-server = {
-        pyright = {
-          command = "${pkgs.pyright}/bin/pyright-langserver";
+        ruff = {
+          command = "${pkgs.ruff}/bin/ruff";
+          args = ["server" "--preview"];
+        };
+        basedpyright = {
+          command = "${pkgs.basedpyright}/bin/basedpyright-langserver";
           args = [
             "--stdio"
           ];
+          except-features = ["format"];
+          config.basedpyright.analysis = {
+            autoSearchPaths = true;
+          };
         };
         typescript-language-server = {
           command = "${pkgs.typescript-language-server}/bin/typescript-language-server";
@@ -88,18 +96,9 @@
         {
           name = "python";
           auto-format = true;
-          formatter = {
-            command = "${pkgs.ruff}/bin/ruff";
-            args = [
-              "format"
-              "--silent"
-              "-"
-            ];
-          };
           language-servers = [
-            {
-              name = "pyright";
-            }
+          "basedpyright"
+          "ruff"
           ];
         }
         {
