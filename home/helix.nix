@@ -1,9 +1,12 @@
 {
   pkgs,
+  inputs,
+  system,
   ...
 }: {
   programs.helix = {
     enable = true;
+    package = inputs.helix.packages.${system}.helix;
     settings = {
       editor = {
         auto-completion = true;
