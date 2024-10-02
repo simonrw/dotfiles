@@ -70,6 +70,22 @@
       # };
       language = [
         {
+          name = "typescript";
+          language-servers = [
+            {
+              name = "typescript-language-server";
+            }
+          ];
+          auto-format = true;
+          formatter = {
+            command = "${pkgs.nodePackages.prettier}/bin/prettier";
+            args = [
+            "--parser"
+            "typescript"
+            ];
+          };
+        }
+        {
           name = "python";
           auto-format = true;
           formatter = {
