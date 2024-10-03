@@ -85,7 +85,7 @@ in {
   me =
     {
       atuin.enable = false;
-      font-name = "Iosevka";
+      font-name = "JetBrains Mono";
       font-style = "Semibold";
       font-size =
         if isLinux
