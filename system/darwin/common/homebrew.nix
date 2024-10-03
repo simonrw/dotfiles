@@ -17,7 +17,6 @@
       "emacs-mac"
       "firefox"
       "gimp"
-      "hammerspoon"
       "inkscape"
       "karabiner-elements"
       "obs"
