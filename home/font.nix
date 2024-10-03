@@ -12,7 +12,6 @@ in {
     me.font-name = mkOption {
       type = types.enum [
         "Fira Code"
-        "Iosevka"
         "Hack"
         "IBM Plex"
         "JetBrains Mono"
@@ -66,7 +65,6 @@ in {
         {
           "Monaspace" = pkgs.monaspace;
           "Noto Sans Mono" = pkgs.noto-fonts;
-          "Iosevka" = pkgs.iosevka;
         }
         .${cfg.font-name};
 
