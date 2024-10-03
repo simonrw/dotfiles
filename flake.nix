@@ -55,13 +55,6 @@
       url = "github:catppuccin/delta";
       flake = false;
     };
-    helix = {
-      url = "github:helix-editor/helix";
-      inputs = {
-        nixpkgs.follows = "nixpkgs";
-        flake-utils.follows = "flake-utils";
-      };
-    };
   };
 
   outputs = {
