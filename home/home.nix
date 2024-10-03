@@ -137,11 +137,6 @@ in {
       '';
     };
 
-    ".hammerspoon" = lib.mkIf isDarwin {
-      source = ./hammerspoon;
-      recursive = true;
-    };
-
     ".gnupg/gpg-agent.conf" = lib.mkIf isDarwin {
       text = ''
         default-cache-ttl 600
