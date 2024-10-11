@@ -30,10 +30,10 @@ in {
         servers = {
           gleam.enable = true;
           elmls.enable = true;
-          nil-ls = {
+          nil_ls = {
             enable = true;
           };
-          ts-ls = {
+          ts_ls = {
             enable = true;
             extraOptions = {
               settings.typescript.format.indentSize = 2;
@@ -41,7 +41,7 @@ in {
             };
           };
           gopls.enable = true;
-          rust-analyzer = {
+          rust_analyzer = {
             enable = true;
             # managed in projects
             installCargo = false;
