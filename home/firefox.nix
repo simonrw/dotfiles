@@ -55,6 +55,7 @@
           "distribution.searchplugins.defaultLocale" = "en-GB";
           "general.useragent.locale" = "en-GB";
         };
+        extraConfig = builtins.readFile ./firefox/user.js;
       };
     };
   };
