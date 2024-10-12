@@ -70,6 +70,13 @@
         mba = 24;
       }.${hostname};
       largesize = 92;
+      persistent-apps = [
+        "/Applications/Firefox.app"
+        "/Applications/Alacritty.app"
+        "/Applications/Obsidian.app"
+        "/Applications/Slack.app"
+        "/Applications/Todoist.app"
+      ];
     };
     finder = {
       AppleShowAllExtensions = true;
