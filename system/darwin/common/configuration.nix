@@ -91,6 +91,7 @@
       # show file path in title bar
       _FXShowPosixPathInTitle = true;
     };
+    loginwindow.GuestEnabled = false;
     screencapture.location = "~/Pictures/screenshots";
   };
 
