@@ -93,6 +93,7 @@
     };
     loginwindow.GuestEnabled = false;
     screencapture.location = "~/Pictures/screenshots";
+    NSGlobalDomain.AppleICUForce24HourTime = true;
   };
 
   networking.hostName = hostname;
