@@ -52,9 +52,6 @@
 
   programs.fish = {
     enable = true;
-    loginShellInit = ''
-      eval (${config.homebrew.brewPrefix}/brew shellenv)
-    '';
   };
   programs.zsh.enable = true;
   programs.gnupg.agent.enable = true;
