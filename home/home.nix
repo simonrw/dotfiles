@@ -22,6 +22,7 @@ in {
       ./dark-mode.nix
       ./default-applications.nix
       ./direnv.nix
+      ./editor.nix
       ./emacs.nix
       ./eza.nix
       ./firefox.nix
@@ -84,6 +85,7 @@ in {
   # custom properties
   me =
     {
+      editor.name = "neovim";
       atuin.enable = false;
       font-name = "JetBrains Mono";
       font-style = "Semibold";
