@@ -40,6 +40,7 @@
       "xquartz"
       "yubico-yubikey-manager"
       "zed"
+      "zen-browser"
     ];
     brews = [
       "node"
