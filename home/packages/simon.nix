@@ -69,6 +69,7 @@ in {
       notify-wrapper
       realise-symlink
       simpleproxy
+      testsearch
     ]
     ++ (lib.optionals isDarwin [
       reattach-to-user-namespace

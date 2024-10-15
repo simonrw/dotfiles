@@ -72,6 +72,7 @@
   } @ inputs: let
     mkOverlays = system: [
       (final: prev: {
+        testsearch = final.callPackage ./derivations/testsearch {};
         keymapp = final.callPackage ./derivations/keymapp {pkgs = final;};
         listprojects = final.callPackage ./derivations/listprojects {};
         notify-wrapper = final.callPackage ./derivations/notify-wrapper {};
