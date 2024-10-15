@@ -49,8 +49,7 @@ in {
         tree = "${pkgs.eza}/bin/eza -T";
         vup = "nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'";
         vimdiff = "nvim -d";
-        nvim = "hx";
-        vim = "hx";
+        vim = "nvim";
         pydoc = "python -m pydoc";
       }
       // lib.optionalAttrs isLinux {

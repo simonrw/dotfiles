@@ -15,7 +15,7 @@ set -x NTFY_TOPIC simonrw-notify
 # centralise where python puts its .pyc files
 set -x PYTHONPYCACHEPREFIX {$HOME}/.python-cache
 
-set -x EDITOR hx
+set -x EDITOR "nvim"
 
 # host-specific configuration
 set host_config ~/.config/fish/conf.d/per-host/config.(hostname).fish
