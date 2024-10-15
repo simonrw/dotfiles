@@ -55,14 +55,6 @@
       url = "github:catppuccin/delta";
       flake = false;
     };
-    nix-homebrew = {
-      url = "github:zhaofengli-wip/nix-homebrew";
-      inputs = {
-        flake-utils.follows = "flake-utils";
-        nix-darwin.follows = "darwin";
-        nixpkgs.follows = "nixpkgs";
-      };
-    };
   };
 
   outputs = {
@@ -76,7 +68,6 @@
     cert-info,
     nur,
     nixvim,
-    nix-homebrew,
     ...
   } @ inputs: let
     mkOverlays = system: [
@@ -229,7 +220,6 @@
               name = "common";
             })
             home-manager.darwinModules.home-manager
-            nix-homebrew.darwinModules.nix-homebrew
             {
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
