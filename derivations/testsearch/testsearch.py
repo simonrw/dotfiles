@@ -156,7 +156,7 @@ def extract_tests(path: str) -> list[TestCase]:
 
 def main():
     arg_parser = argparse.ArgumentParser()
-    arg_parser.add_argument("root", nargs="+")
+    arg_parser.add_argument("root", nargs="*")
     arg_parser.add_argument(
         "-m", "--method", choices=["serial", "map", "apply"], default="map"
     )
@@ -172,7 +172,7 @@ def main():
         LOG.setLevel(logging.DEBUG)
 
     files = []
-    for root in args.root:
+    for root in args.root or ["."]:
         files.extend(
             filename.strip() for filename in find_test_files(root) if filename.strip()
         )
