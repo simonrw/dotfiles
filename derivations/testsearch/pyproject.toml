@@ -1,0 +1,17 @@
+[project]
+name = "testsearch"
+version = "0.1.0"
+dependencies = [
+    "tree-sitter",
+    "tree-sitter-python",
+]
+
+[tool.setuptools]
+py-modules = ["testsearch"]
+
+[project.scripts]
+testsearch = "testsearch:main"
+
+[build-system]
+requires = ["setuptools>=64"]
+build-backend = "setuptools.build_meta"
