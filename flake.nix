@@ -55,6 +55,13 @@
       url = "github:catppuccin/delta";
       flake = false;
     };
+    testsearch = {
+      url = "github:simonrw/testsearch";
+      inputs = {
+        nixpkgs.follows = "nixpkgs";
+        flake-utils.follows = "flake-utils";
+      };
+    };
   };
 
   outputs = {
@@ -72,7 +79,7 @@
   } @ inputs: let
     mkOverlays = system: [
       (final: prev: {
-        testsearch = final.callPackage ./derivations/testsearch {};
+        testsearch = inputs.testsearch.packages.${system}.default;
         keymapp = final.callPackage ./derivations/keymapp {pkgs = final;};
         listprojects = final.callPackage ./derivations/listprojects {};
         notify-wrapper = final.callPackage ./derivations/notify-wrapper {};
