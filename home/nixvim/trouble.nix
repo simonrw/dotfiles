@@ -13,7 +13,7 @@
   };
 in {
   plugins.trouble = {
-    enable = true;
+    enable = false;
     settings = {
       icons = false;
       use_diagnostic_signs = false;
