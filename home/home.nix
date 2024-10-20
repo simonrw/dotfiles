@@ -85,7 +85,7 @@ in {
   # custom properties
   me =
     {
-      editor.name = "neovim";
+      editor.name = "helix";
       atuin.enable = false;
       font-name = "JetBrains Mono";
       font-style = "Semibold";
