@@ -87,7 +87,7 @@ in {
   me =
     {
       ghostty.enable = true;
-      editor.name = "helix";
+      editor.name = "neovim";
       atuin.enable = false;
       font-name = "JetBrains Mono";
       font-style = "Semibold";
