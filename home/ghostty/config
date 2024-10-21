@@ -1,0 +1,6 @@
+macos-non-native-fullscreen = true
+macos-titlebar-style = tabs
+window-save-state = never
+
+font-family = JetBrainsMono NFM ExtraBold
+theme = catppuccin-macchiato

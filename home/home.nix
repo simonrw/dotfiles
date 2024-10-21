@@ -30,6 +30,7 @@ in {
       ./font.nix
       ./fzf.nix
       ./gh.nix
+      ./ghostty.nix
       ./git.nix
       ./gpg.nix
       ./helix.nix
@@ -85,6 +86,7 @@ in {
   # custom properties
   me =
     {
+      ghostty.enable = true;
       editor.name = "helix";
       atuin.enable = false;
       font-name = "JetBrains Mono";
