@@ -4,3 +4,6 @@ window-save-state = never
 
 font-family = JetBrainsMono NFM ExtraBold
 theme = catppuccin-macchiato
+
+# disable ligatures
+font-feature = -liga
