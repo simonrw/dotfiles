@@ -7,6 +7,7 @@
         email = "s.r.walker101@googlemail.com";
       };
       ui = {
+        pager = "delta";
         default-command = "status";
         diff = {
           format = "git";
