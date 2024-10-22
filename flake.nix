@@ -308,12 +308,11 @@
           pkgs.mkShell
           {
             buildInputs = with pkgs; [
-              python310
-              python310Packages.black
+              nixd
             ];
           };
 
-          packages.nixvim = inputs.nixvim.legacyPackages.${system}.makeNixvimWithModule { 
+          packages.nixvim = inputs.nixvim.legacyPackages.${system}.makeNixvimWithModule {
             inherit pkgs;
             module = {
               imports = [
