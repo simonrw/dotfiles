@@ -42,10 +42,12 @@
       "zed"
     ];
     brews = [
-      "node"
       "cftail"
+      "node"
+      "pulumi/tap/pulumi"
     ];
     taps = [
+      "pulumi/tap"
       "simonrw/cftail"
     ];
     masApps = {
