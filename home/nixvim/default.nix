@@ -34,7 +34,7 @@
         enable = true;
         inlay-hints = false;
       };
-      zen-mode.enable = true;
+      zen-mode.enable = false;
       completion = {
         enable = true;
         require-trigger = false;
@@ -44,16 +44,16 @@
         enable = true;
         method = "treesitter-context";
       };
-      octo-nvim.enable = true;
+      octo-nvim.enable = false;
       oil.enable = true;
       vim-test.enable = true;
       neotest.enable = false;
       notifications.enable = false;
       statusbar.enable = false;
-      mini.enable = true;
-      which-key.enable = true;
-      diffview.enable = true;
-      render-markdown.enable = true;
+      mini.enable = false;
+      which-key.enable = false;
+      diffview.enable = false;
+      render-markdown.enable = false;
       fugitive.enable = true;
     };
   };
