@@ -40,6 +40,7 @@ in {
       ./jujutsu.nix
       ./kitty.nix
       ./mpv.nix
+      ./nix.nix
       ./nix-index.nix
       ./packages/simon.nix
       ./ssh.nix
