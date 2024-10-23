@@ -18,7 +18,6 @@ in {
   config = mkIf cfg.enable {
     plugins = {
       cmp-emoji.enable = cfg.emoji;
-      cmp_luasnip.enable = true;
       cmp = {
         enable = true;
         settings = {
@@ -42,7 +41,6 @@ in {
                 option.get_bufnrs.__raw = "vim.api.nvim_list_bufs";
                 groupIndex = 1;
               }
-              {name = "luasnip"; keyword_length = 2; groupIndex = 2;}
             ]
             ++ (lib.optionals cfg.emoji [
               {name = "emoji";}
@@ -56,17 +54,9 @@ in {
           };
           snippet.expand = ''
             function(args)
-              require('luasnip').lsp_expand(args.body)
+              vim.snippet.expand(args.body)
             end
           '';
-        };
-      };
-      luasnip = {
-        enable = true;
-        settings = {
-          history = true;
-          updateevents = "TextChanged,TextChangedI";
-          enable_autosnippets = true;
         };
       };
     };
