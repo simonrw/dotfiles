@@ -30,6 +30,7 @@
   config = {
     # custom overrides
     me.nixvim = {
+      dap.enable = false;
       lsp = {
         enable = true;
         inlay-hints = true;
