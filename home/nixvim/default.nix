@@ -30,6 +30,7 @@
   config = {
     # custom overrides
     me.nixvim = {
+      trouble.enable = false;
       dap.enable = false;
       lsp = {
         enable = true;
