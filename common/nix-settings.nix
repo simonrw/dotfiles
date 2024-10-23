@@ -7,15 +7,14 @@
     }
     else {
       interval = {
-        Day = 0;
+        Weekday = 0;
       };
     };
 in {
   package = pkgs.nixVersions.latest;
   gc =
     {
-      automatic = false;
-      options = "--delete-older-than 7d";
+      automatic = true;
     }
     // interval;
   settings = {
