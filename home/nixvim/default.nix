@@ -32,7 +32,7 @@
     me.nixvim = {
       lsp = {
         enable = true;
-        inlay-hints = false;
+        inlay-hints = true;
       };
       zen-mode.enable = false;
       completion = {
