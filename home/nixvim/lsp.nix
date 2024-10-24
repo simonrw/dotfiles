@@ -57,7 +57,7 @@ in {
               };
             };
           };
-          basedpyright = {
+          pyright = {
             enable = true;
             onAttach = {
               # improve performance
