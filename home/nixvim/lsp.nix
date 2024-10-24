@@ -64,6 +64,14 @@ in {
               function = ''
                 client.config.settings.useLibraryCodeForTypes = false
                 client.config.settings.autoSearchPaths = false
+                client.config.settings.reportTypedDictNotRequiredAccess = "warning"
+                client.config.settings.reportGeneralTypeIssues = "warning"
+                client.config.settings.reportUnusedCallResult = false
+                client.config.settings.reportAny = false
+                client.config.settings.reportOptionalMemberAccess = false
+                client.config.settings.reportUnknownMemberType = false
+                client.config.settings.reportUnknownArgumentType = false
+                client.config.settings.reportUnknownVariableType = fals
               '';
             };
           };
