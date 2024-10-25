@@ -2,7 +2,7 @@
   stdenv,
   fetchurl,
   autoPatchelfHook,
-  libusb,
+  libusb1,
   webkitgtk,
   gtk3-x11,
 }:
@@ -20,7 +20,7 @@ stdenv.mkDerivation rec {
   ];
 
   buildInputs = [
-    libusb
+    libusb1
     webkitgtk
     gtk3-x11
   ];
