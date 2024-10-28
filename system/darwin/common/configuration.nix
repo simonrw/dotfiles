@@ -74,7 +74,7 @@
       }.${hostname};
       largesize = 92;
       persistent-apps = [
-        "/Applications/Firefox.app"
+        "/Applications/Brave Browser.app"
         "/Applications/Alacritty.app"
         "/Applications/Obsidian.app"
         "/Applications/Slack.app"
