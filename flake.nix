@@ -169,6 +169,8 @@
           (self.modules.nixos {inherit name;})
           home-manager.nixosModules.home-manager
           {
+            # backup home-manager files that already exist
+            home-manager.backupFileExtension = "backup";
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
             home-manager.extraSpecialArgs = {
@@ -230,6 +232,8 @@
             })
             home-manager.darwinModules.home-manager
             {
+              # backup home-manager files that already exist
+              home-manager.backupFileExtension = "backup";
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
               home-manager.extraSpecialArgs = {
