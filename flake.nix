@@ -308,14 +308,6 @@
             };
           };
         };
-        devShells.default =
-          pkgs.mkShell
-          {
-            buildInputs = with pkgs; [
-              nixd
-            ];
-          };
-
           packages.nixvim = inputs.nixvim.legacyPackages.${system}.makeNixvimWithModule {
             inherit pkgs;
             module = {
