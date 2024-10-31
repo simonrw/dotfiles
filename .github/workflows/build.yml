@@ -36,6 +36,8 @@ jobs:
           sudo docker image prune --all --force
       - run: df -h
       - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
       - name: Install Nix
         uses: DeterminateSystems/nix-installer-action@main
       - uses: cachix/cachix-action@v15
@@ -68,6 +70,8 @@ jobs:
           sudo docker image prune --all --force
       - run: df -h
       - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
       - name: Install Nix
         uses: DeterminateSystems/nix-installer-action@main
       - uses: cachix/cachix-action@v15
@@ -85,6 +89,8 @@ jobs:
     runs-on: ${{ matrix.runtime.os }}
     steps:
       - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
       - name: Install Nix
         uses: DeterminateSystems/nix-installer-action@main
       - uses: cachix/cachix-action@v15
@@ -101,6 +107,8 @@ jobs:
     runs-on: macos-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
       - name: Install Nix
         uses: DeterminateSystems/nix-installer-action@main
       - uses: cachix/cachix-action@v15
