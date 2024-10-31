@@ -70,6 +70,7 @@ in {
       realise-symlink
       simpleproxy
       testsearch
+      zizmor
     ]
     ++ (lib.optionals isDarwin [
       reattach-to-user-namespace
