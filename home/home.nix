@@ -89,6 +89,10 @@ in {
     {
       ghostty.enable = true;
       editor.name = "neovim";
+      wallpaper = {
+        enable = true;
+        path = ./wallpapers/monterey-dark.jpg;
+      };
       atuin.enable = false;
       font-name = "JetBrains Mono";
       font-style = "Semibold";
