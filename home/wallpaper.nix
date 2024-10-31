@@ -18,7 +18,7 @@ in {
   config = mkIf (isDarwin && cfg.enable) {
     # activate the wallpaper
     home.activation.setWallpaper = hm.dag.entryAfter ["WriteBoundary"] ''
-      osascript -e "tell application \"System Events\" to tell every desktop to set picture to \"${cfg.wallpaper}\" as POSIX file"
+      osascript -e "tell application \"System Events\" to tell every desktop to set picture to \"${cfg.path}\" as POSIX file"
     '';
   };
 }
