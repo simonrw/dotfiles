@@ -13,6 +13,8 @@
           format = "git";
         };
       };
+      # https://willhbr.net/2024/08/18/understanding-revsets-for-a-better-jj-log-output/
+      revsets.log = "@ | ancestors(trunk()..(visible_heads() & mine()), 2) | trunk()";
     };
   };
 }
