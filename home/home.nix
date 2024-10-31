@@ -91,7 +91,7 @@ in {
       editor.name = "neovim";
       wallpaper = {
         enable = true;
-        path = ./wallpapers/monterey-dark.jpg;
+        path = ./wallpapers/sonoma.jpg;
       };
       atuin.enable = false;
       font-name = "JetBrains Mono";
