@@ -87,6 +87,7 @@
         monaspace = final.callPackage ./derivations/monaspace {};
         ansi = final.callPackage ./derivations/ansi {};
         wally = final.callPackage ./derivations/wally {};
+        zizmor = final.callPackage ./derivations/zizmor {};
         cert-info = cert-info.packages.${system}.default;
         simpleproxy = inputs.simpleproxy.packages.${system}.default;
         gh-repo-url = final.callPackage ./derivations/gh-repo-url {};
