@@ -98,7 +98,7 @@
     screencapture.location = "~/Pictures/screenshots";
     NSGlobalDomain = {
       AppleICUForce24HourTime = true;
-      AppleInterfaceStyle = "Dark";
+      AppleInterfaceStyle = null;
       KeyRepeat = 2;
     };
   };
