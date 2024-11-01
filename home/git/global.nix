@@ -90,6 +90,10 @@
     };
     delta = {
       enable = true;
+      options = {
+        side-by-side = true;
+        line-numbers = false;
+      };
     };
     extraConfig = {
       "url \"git@github.com:\"" = {
