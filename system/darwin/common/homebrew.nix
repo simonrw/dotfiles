@@ -20,6 +20,7 @@
       "gimp"
       "inkscape"
       "karabiner-elements"
+      "notion"
       "obs"
       "obsidian"
       "pocket-casts"
