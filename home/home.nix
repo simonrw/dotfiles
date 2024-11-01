@@ -103,7 +103,7 @@ in {
       fonts-to-install = [
         pkgs.monaspace
       ];
-      delta.diff-so-fancy = true;
+      delta.diff-so-fancy = false;
       viddy.enable = true;
       aws = {
         enable = true;
