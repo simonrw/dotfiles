@@ -1,6 +1,7 @@
 {
   lib,
   config,
+  pkgs,
   ...
 }:
 with lib; let
@@ -9,6 +10,7 @@ in {
   options.me.nixvim.completion = {
     enable = mkEnableOption "Completion";
     emoji = mkEnableOption "Emoji completion";
+    supermaven = mkEnableOption "Supermaven";
     require-trigger = mkOption {
       type = types.bool;
       default = false;
@@ -60,5 +62,11 @@ in {
         };
       };
     };
+    extraPlugins = mkIf cfg.supermaven [
+      pkgs.vimPlugins.supermaven-nvim
+    ];
+    extraConfigLua = mkIf cfg.supermaven ''
+      require('supermaven-nvim').setup({})
+    '';
   };
 }
