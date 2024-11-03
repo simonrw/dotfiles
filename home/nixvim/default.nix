@@ -41,7 +41,7 @@
         enable = true;
         require-trigger = true;
         emoji = false;
-        supermaven = true;
+        supermaven = false;
       };
       context = {
         enable = true;
