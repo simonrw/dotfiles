@@ -91,7 +91,7 @@
     delta = {
       enable = true;
       options = {
-        side-by-side = true;
+        side-by-side = false;
         line-numbers = false;
       };
     };
