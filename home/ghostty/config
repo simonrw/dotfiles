@@ -5,3 +5,7 @@ macos-option-as-alt = true
 
 font-family = JetBrainsMono NFM ExtraBold
 theme = catppuccin-macchiato
+
+# disable ligatures
+font-feature = -liga
+font-feature = -calt
