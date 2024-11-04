@@ -93,6 +93,7 @@ in {
         enable = true;
         path = ./wallpapers/sonoma.jpg;
       };
+      zellij.enable = true;
       atuin.enable = false;
       font-name = "JetBrains Mono";
       font-style = "Semibold";
