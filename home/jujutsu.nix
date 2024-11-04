@@ -9,6 +9,7 @@
       ui = {
         pager = "delta";
         default-command = "status";
+        diff-editor = "diffedit3";
         diff = {
           format = "git";
         };

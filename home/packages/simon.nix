@@ -32,6 +32,7 @@ in {
       cert-info
       curlie
       custom-curl
+      diffedit3
       dig
       docker-credential-helpers
       du-dust
