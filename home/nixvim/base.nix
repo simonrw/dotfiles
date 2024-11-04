@@ -336,6 +336,33 @@ in {
     };
     treesitter-textobjects = {
       enable = true;
+      select = {
+        enable = true;
+        keymaps = {
+          "af" = "@function.outer";
+          "if" = "@function.inner";
+          "ac" = "@class.outer";
+          "ic" = "@class.inner";
+        };
+        selectionModes = {
+          "@function.outer" = "V";
+          "@function.inner" = "V";
+          "@class.outer" = "V";
+          "@class.inner" = "V";
+        };
+      };
+      move = {
+        enable = true;
+        setJumps = true;
+        gotoNextStart = {
+          "]m" = "@function.outer";
+          "]M" = "@class.outer";
+        };
+        gotoPreviousStart = {
+          "[m" = "@function.outer";
+          "[M" = "@class.outer";
+        };
+      };
     };
     nix.enable = true;
   };
