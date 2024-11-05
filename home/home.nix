@@ -2,6 +2,7 @@
   pkgs,
   isLinux,
   isDarwin,
+  config,
   lib,
   ...
 }: let
@@ -131,7 +132,7 @@ in {
 
   home.file = {
     ".bin" = {
-      source = ./bin;
+      source = config.lib.file.mkOutOfStoreSymlink ./bin;
       recursive = true;
     };
 
@@ -170,7 +171,7 @@ in {
   xdg = {
     enable = true;
     configFile.karabiner = lib.mkIf isDarwin {
-      source = ./karabiner;
+      source = config.lib.file.mkOutOfStoreSymlink ./karabiner;
       recursive = true;
     };
   };
