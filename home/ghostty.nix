@@ -8,6 +8,6 @@ in
 
   config = mkIf cfg.enable {
     # not xdg as this path is fixed even on macos
-    home.file.".config/ghostty/config".source = ./ghostty/config;
+    home.file.".config/ghostty/config".source = config.lib.file.mkOutOfStoreSymlink ./ghostty/config;
   };
 }
