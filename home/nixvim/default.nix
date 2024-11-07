@@ -40,7 +40,7 @@
       completion = {
         enable = true;
         require-trigger = false;
-        emoji = false;
+        emoji = true;
         supermaven = false;
       };
       context = {
