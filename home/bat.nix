@@ -1,4 +1,4 @@
-{config, ...}: {
+{...}: {
   programs.bat = {
     enable = true;
 
@@ -8,7 +8,7 @@
   };
 
   xdg.configFile."bat" = {
-    source = config.lib.file.mkOutOfStoreSymlink ./bat;
+    source = ./bat;
     recursive = true;
   };
 }
