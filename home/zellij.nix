@@ -18,7 +18,7 @@ in {
     };
 
     xdg.configFile."zellij" = {
-      source = config.lib.file.mkOutOfStoreSymlink ./zellij;
+      source = ./zellij;
       recursive = true;
     };
   };
