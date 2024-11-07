@@ -17,7 +17,6 @@
         gutters.layout = [
           "diff"
           "diagnostics"
-          "line-numbers"
           "spacer"
         ];
         cursor-shape = {
