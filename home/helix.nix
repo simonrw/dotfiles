@@ -49,13 +49,13 @@
     };
     languages = {
       language-server = {
-        basedpyright = {
-          command = "${pkgs.basedpyright}/bin/basedpyright-langserver";
+        pyright = {
+          command = "${pkgs.pyright}/bin/pyright-langserver";
           args = [
             "--stdio"
           ];
           except-features = ["format"];
-          config.basedpyright.analysis = {
+          config.pyright.analysis = {
             autoSearchPaths = true;
           };
         };
@@ -89,7 +89,7 @@
           name = "python";
           auto-format = true;
           language-servers = [
-          "basedpyright"
+          "pyright"
           ];
         }
         {
