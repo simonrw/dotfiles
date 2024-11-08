@@ -39,7 +39,7 @@
       zen-mode.enable = false;
       completion = {
         enable = true;
-        require-trigger = false;
+        require-trigger = true;
         emoji = true;
         supermaven = false;
       };
