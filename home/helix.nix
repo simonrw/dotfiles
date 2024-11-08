@@ -49,10 +49,6 @@
     };
     languages = {
       language-server = {
-        ruff = {
-          command = "${pkgs.ruff}/bin/ruff";
-          args = ["server" "--preview"];
-        };
         basedpyright = {
           command = "${pkgs.basedpyright}/bin/basedpyright-langserver";
           args = [
@@ -94,7 +90,6 @@
           auto-format = true;
           language-servers = [
           "basedpyright"
-          "ruff"
           ];
         }
         {
