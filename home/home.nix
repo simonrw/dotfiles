@@ -88,7 +88,7 @@ in {
   me =
     {
       ghostty.enable = true;
-      editor.name = "helix";
+      editor.name = "neovim";
       wallpaper = {
         enable = true;
         path = ./wallpapers/sonoma.jpg;
