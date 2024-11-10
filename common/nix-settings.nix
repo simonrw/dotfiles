@@ -12,13 +12,13 @@
     };
 in {
   package = pkgs.nixVersions.latest;
+  optimise.automatic = true;
   gc =
     {
       automatic = true;
     }
     // interval;
   settings = {
-    auto-optimise-store = true;
     trusted-users = ["root" "simon"];
     experimental-features = ["nix-command" "flakes" "ca-derivations"];
 
