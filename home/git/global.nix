@@ -200,7 +200,7 @@
         defaultBranch = "main";
       };
       merge = {
-        tool = "diffview";
+        tool = "conflicted";
         conflictstyle = "zdiff3";
       };
       transfer = {

@@ -2,6 +2,7 @@
   imports = [
     ./base.nix
     ./cody.nix
+    ./conflicted.nix
     ./completion.nix
     ./context.nix
     ./dap.nix
@@ -58,6 +59,7 @@
       diffview.enable = false;
       render-markdown.enable = false;
       fugitive.enable = true;
+      conflicted.enable = true;
     };
   };
 }
