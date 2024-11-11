@@ -28,6 +28,7 @@
       "raycast"
       "shotcut"
       "slack"
+      "steam"
       "sublime-merge"
       "sublime-text"
       "tabby"
