@@ -44,6 +44,7 @@
       "zed"
     ];
     brews = [
+      "cargo-instruments"
       "cftail"
       "node"
       "pulumi/tap/pulumi"
