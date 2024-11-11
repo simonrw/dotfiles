@@ -1,7 +1,7 @@
 {
   plugins.lsp-format = {
     enable = true;
-    setup = {
+    settings = {
       nix = {
         exclude = [
           "nixd"
