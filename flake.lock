@@ -765,11 +765,11 @@
         "nixpkgs": "nixpkgs_9"
       },
       "locked": {
-        "lastModified": 1731339748,
-        "narHash": "sha256-RTnqIXXM3mfBLlr0z8iXGc2Z8I37kp99eJS7qJGIX60=",
+        "lastModified": 1731431114,
+        "narHash": "sha256-fo3kKamCOHbyE15UGPI0uNpke7a0KU7A72Yq0bN/E9E=",
         "owner": "simonrw",
         "repo": "testsearch",
-        "rev": "b3e05203388b2a9ab0f67115319b86bcd463fba4",
+        "rev": "d8b74069bb5ce4b888e6f1644b7a06b518d0e3e5",
         "type": "github"
       },
       "original": {
