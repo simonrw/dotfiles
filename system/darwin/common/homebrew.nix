@@ -37,7 +37,6 @@
       "visual-studio-code"
       "vlc"
       "vmware-fusion"
-      "whatsapp"
       "wireshark"
       "xquartz"
       "yubico-yubikey-manager"
