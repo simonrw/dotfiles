@@ -90,8 +90,8 @@ in {
       ghostty.enable = true;
       editor.name = "neovim";
       wallpaper = {
-        enable = true;
-        path = ./wallpapers/sonoma.jpg;
+        enable = false;
+        # path = ./wallpapers/sonoma.jpg;
       };
       zellij.enable = true;
       atuin.enable = false;
