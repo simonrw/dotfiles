@@ -13,7 +13,7 @@
   };
 
   # TOOD: unify with home configuration
-  colour-theme = "catppuccin-latte";
+  colour-theme = "catppuccin-macchiato";
 
   theme-lua =
     {

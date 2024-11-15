@@ -36,7 +36,7 @@ in {
   };
   config = {
     me = {
-      theme = "catppuccin-latte";
+      theme = "catppuccin-macchiato";
       font-name = "JetBrains Mono";
     };
     home = {
