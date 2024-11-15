@@ -118,7 +118,7 @@ pane_frames false
 // Default: default
 //
 // TODO: use colours.nix
-theme "catppuccin-macchiato"
+theme "catppuccin-latte"
 
 // The name of the default layout to load on startup
 // Default: "default"
