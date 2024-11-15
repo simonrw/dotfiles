@@ -64,7 +64,6 @@ in {
       ipy = "ipython";
       k = "kubectl";
       nd = "nix develop --command fish";
-      n = "notify-wrapper";
       py = "python";
       v = "vim";
     };
