@@ -39,7 +39,6 @@
   ];
 
   environment.variables.SHELL = "${pkgs.fish}/bin/fish";
-  environment.loginShell = "${pkgs.fish}/bin/fish";
 
   services.nix-daemon.enable = true;
   documentation.enable = true;
