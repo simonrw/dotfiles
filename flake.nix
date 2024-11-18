@@ -305,6 +305,10 @@
       # common module to configure nix
       nix = {...}: {
         nix.registry.nixpkgs.flake = nixpkgs;
+        nixpkgs.flake = {
+          setFlakeRegistry = false;
+          setNixPath = false;
+        };
         # set the system "nixpkgs" to the nixpkgs defined in this flake
         # https://dataswamp.org/~solene/2022-07-20-nixos-flakes-command-sync-with-system.html#_nix-shell_vs_nix_shell
         nix.nixPath = ["nixpkgs=/etc/channels/nixpkgs"];
