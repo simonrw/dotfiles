@@ -31,6 +31,7 @@
   config = {
     # custom overrides
     me.nixvim = {
+      hardtime.enable = true;
       trouble.enable = false;
       dap.enable = false;
       lsp = {
