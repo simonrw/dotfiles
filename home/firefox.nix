@@ -5,7 +5,7 @@
   ...
 }: {
   programs.firefox = {
-    enable = true;
+    enable = false;
     package =
       if isDarwin
       then null
