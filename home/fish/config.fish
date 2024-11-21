@@ -93,6 +93,9 @@ complete --command nom --wraps nix
 # wrap awslocal completion
 complete --command awslocal --wraps aws
 
+# wrap laws completion
+complete --command laws --wraps aws
+
 # if a local configuration override file exists, source it
 if test -f $HOME/.config/fish/local.fish;
 source $HOME/.config/fish/local.fish
