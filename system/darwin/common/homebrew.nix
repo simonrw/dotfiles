@@ -10,6 +10,7 @@
       "barrier"
       "brave-browser"
       "chatgpt"
+      "cursor"
       "dash"
       "deskpad"
       "discord"
