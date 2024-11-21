@@ -13,8 +13,10 @@ in {
   config = mkIf cfg.enable {
     plugins.hardtime = {
       enable = true;
-      allowDifferentKey = true;
-      disableMouse = false;
+      settings = {
+        allow_different_key = true;
+        disable_mouse = false;
+      };
     };
   };
 }
