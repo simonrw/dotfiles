@@ -239,6 +239,11 @@ in {
       force = true;
       nargs = "*";
     };
+    AwsTestNearest = {
+      command = "TestNearest TEST_TARGET=AWS_CLOUD AWS_PROFILE=ls-sandbox SNAPSHOT_UPDATE=1 <args>";
+      force = true;
+      nargs = "*";
+    };
   };
   keymaps = [
     # copy the entire buffer to the system clipboard
