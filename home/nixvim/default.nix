@@ -4,6 +4,7 @@
     ./cody.nix
     ./conflicted.nix
     ./completion.nix
+    ./copilot.nix
     ./context.nix
     ./dap.nix
     ./diffview.nix
@@ -44,6 +45,7 @@
         require-trigger = false;
         emoji = true;
         supermaven = false;
+        copilot = true;
       };
       context = {
         enable = true;
