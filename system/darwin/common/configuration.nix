@@ -99,6 +99,7 @@
       AppleICUForce24HourTime = true;
       AppleInterfaceStyle = "Dark";
       KeyRepeat = 2;
+      NSWindowShouldDragOnGesture = true;
     };
   };
 
