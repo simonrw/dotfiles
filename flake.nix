@@ -42,6 +42,9 @@
     testsearch = {
       url = "github:simonrw/testsearch";
     };
+    listprojects = {
+      url = "github:simonrw/listprojects";
+    };
   };
 
   outputs = {
@@ -60,8 +63,8 @@
     mkOverlays = system: [
       (final: prev: {
         testsearch = inputs.testsearch.packages.${system}.default;
+        listprojects = inputs.listprojects.packages.${system}.default;
         keymapp = final.callPackage ./derivations/keymapp {pkgs = final;};
-        listprojects = final.callPackage ./derivations/listprojects {};
         notify-wrapper = final.callPackage ./derivations/notify-wrapper {};
         monaspace = final.callPackage ./derivations/monaspace {};
         ansi = final.callPackage ./derivations/ansi {};
