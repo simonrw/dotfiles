@@ -16,6 +16,7 @@
       pkgs.gh-pr-url
       pkgs.gh-rebase-pr
       pkgs.gh-markdown-preview
+      pkgs.gh-copilot
     ];
   };
 
