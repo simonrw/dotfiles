@@ -1,5 +1,4 @@
 {
-  config,
   pkgs,
   isDarwin,
   ...
@@ -46,7 +45,7 @@
       # these require access to the pkgs attribute set, so place them here
       customLines = [
         ''
-          bind-key a run-shell -b ${pkgs.listprojects}/bin/listprojects
+          bind-key a popup -Ed $PWD ${pkgs.listprojects}/bin/listprojects
         ''
       ];
     in (builtins.concatStringsSep "\n" (commonFiles ++ darwinFiles ++ customLines));
