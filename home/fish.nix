@@ -58,13 +58,14 @@ in {
     shellAbbrs = {
       c = "cargo";
       d = "dev";
-      gco = "git checkout";
       g = "git";
+      gco = "git checkout";
       gp = "git pull";
       ipy = "ipython";
       k = "kubectl";
       nd = "nix develop --command fish";
       py = "python";
+      t = "testsearch";
       v = "vim";
     };
     plugins = [
