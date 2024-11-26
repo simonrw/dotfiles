@@ -38,8 +38,10 @@
       "visual-studio-code"
       "vlc"
       "vmware-fusion"
+      "wacom-tablet"
       "wireshark"
       "xquartz"
+      "yt-music"
       "yubico-yubikey-manager"
       "zed"
     ];
