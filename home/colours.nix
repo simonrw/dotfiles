@@ -802,16 +802,13 @@
         }
       ];
     };
-    srw = rec {
+    srw = {
       # Default colors
       primary = {
         background = "#07151a";
         foreground = "#ffffff";
       };
 
-      tmux-colour = normal.blue;
-      tmux-active-pane-colour = normal.blue;
-      tmux-pane-colour = normal.white;
       fish-theme = "fish default";
 
       # Normal colors

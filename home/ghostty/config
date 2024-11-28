@@ -4,7 +4,7 @@ window-save-state = never
 macos-option-as-alt = true
 
 font-family = JetBrainsMono NFM ExtraBold
-theme = catppuccin-macchiato
+theme = IR_Black
 
 # disable ligatures
 font-feature = -liga
