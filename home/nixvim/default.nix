@@ -56,7 +56,7 @@
       vim-test.enable = true;
       neotest.enable = false;
       notifications.enable = false;
-      statusbar.enable = true;
+      statusbar.enable = false;
       mini.enable = false;
       which-key.enable = false;
       diffview.enable = false;
