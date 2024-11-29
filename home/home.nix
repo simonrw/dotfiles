@@ -39,6 +39,7 @@ in {
       ./jq.nix
       ./jujutsu.nix
       ./kitty.nix
+      ./kubeconfig.nix
       ./mpv.nix
       ./nix.nix
       ./nix-index.nix
@@ -118,6 +119,9 @@ in {
       };
       is-dark-theme = true;
       wezterm.enable = false;
+      kubeconfig = {
+        symlink-kubeconfig-to-dev-null = true;
+      };
     }
     // (
       if isLinux
