@@ -50,6 +50,7 @@
     logtimes = {
       url = "github:simonrw/logtimes";
     };
+    helix.url = "github:helix-editor/helix";
   };
 
   outputs = {
@@ -85,6 +86,7 @@
         neovim = self.packages.${system}.nixvim;
         jujutsu = inputs.jujutsu.packages.${system}.default;
         logtimes = inputs.logtimes.packages.${system}.default;
+        helix = inputs.helix.packages.${system}.default;
         # https://kokada.capivaras.dev/blog/quick-bits-realise-nix-symlinks/
         realise-symlink = final.writeShellApplication {
             name = "realise-symlink";
