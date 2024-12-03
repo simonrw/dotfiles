@@ -66,6 +66,7 @@ in {
       # local packages
       check-certificate-revocation
       listprojects
+      logtimes
       notify-wrapper
       realise-symlink
       simpleproxy
