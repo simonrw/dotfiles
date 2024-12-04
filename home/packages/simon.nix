@@ -45,7 +45,6 @@ in {
       jless
       jqp
       lsof
-      nix-output-monitor
       nix-tree
       openssh
       pre-commit

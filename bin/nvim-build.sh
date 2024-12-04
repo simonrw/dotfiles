@@ -5,5 +5,6 @@ set -euo pipefail
 . "$(dirname "$(readlink -f "$0")")/utils.sh"
 
 NIXARCH="$(nixarch)"
+NIX=${NIX:-nix}
 
-nom build ".#nixvim" $*
+${NIX} build ".#nixvim" $*
