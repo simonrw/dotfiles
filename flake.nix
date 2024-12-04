@@ -44,9 +44,6 @@
     listprojects = {
       url = "github:simonrw/listprojects";
     };
-    jujutsu = {
-      url = "github:martinvonz/jj";
-    };
     logtimes = {
       url = "github:simonrw/logtimes";
     };
@@ -83,7 +80,6 @@
         wlman = final.callPackage ./derivations/wlman {};
         check-certificate-revocation = final.callPackage ./derivations/check-certificate-revocation {};
         neovim = self.packages.${system}.nixvim;
-        jujutsu = inputs.jujutsu.packages.${system}.default;
         logtimes = inputs.logtimes.packages.${system}.default;
         # https://kokada.capivaras.dev/blog/quick-bits-realise-nix-symlinks/
         realise-symlink = final.writeShellApplication {
