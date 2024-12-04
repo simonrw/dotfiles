@@ -5,5 +5,6 @@ set -euo pipefail
 . "$(dirname "$(readlink -f "$0")")/utils.sh"
 
 NIXARCH="$(nixarch)"
+NIX=${NIX:-nix}
 
-nom build ".#homeConfigurations.${NIXARCH}.${USER}.activationPackage" $*
+${NIX} build ".#homeConfigurations.${NIXARCH}.${USER}.activationPackage" $*

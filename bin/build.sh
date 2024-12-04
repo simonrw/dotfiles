@@ -5,7 +5,7 @@ set -euo pipefail
 . "$(dirname "$(readlink -f "$0")")/utils.sh"
 
 NIXARCH="$(nixarch)"
-NIX=${NIX:-nom}
+NIX=${NIX:-nix}
 
 case ${NIXARCH} in
     *-linux)
