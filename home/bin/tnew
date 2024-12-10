@@ -67,7 +67,7 @@ elif args.verbose > 1:
 
 args.path.mkdir(exist_ok=True, parents=True)
 
-tmux_name = f"{args.path.parent.name}/{args.path.name}"
+tmux_name = f"{args.path.parent.name}/{args.path.name}".replace(".", "-").replace(":", "-")
 
 if os.getenv("TMUX"):
     logger.debug(f"in tmux session")
