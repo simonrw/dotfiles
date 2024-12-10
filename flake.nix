@@ -3,6 +3,7 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-24.11";
+    nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
     flake-utils.url = "github:numtide/flake-utils";
     nixvim = {
       url = "github:nix-community/nixvim";
@@ -74,6 +75,7 @@
         zizmor = final.callPackage ./derivations/zizmor {};
         cert-info = cert-info.packages.${system}.default;
         simpleproxy = inputs.simpleproxy.packages.${system}.default;
+        jujutsu = inputs.nixpkgs-unstable.legacyPackages.${system}.jujutsu;
         gh-repo-url = final.callPackage ./derivations/gh-repo-url {};
         gh-pr-url = final.callPackage ./derivations/gh-pr-url {};
         gh-rebase-pr = final.callPackage ./derivations/gh-rebase-pr {};
