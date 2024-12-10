@@ -65,6 +65,10 @@
   } @ inputs: let
     mkOverlays = system: [
       (final: prev: {
+        # programs from nixos-unstable
+        jujutsu = inputs.nixpkgs-unstable.legacyPackages.${system}.jujutsu;
+        fzf = inputs.nixpkgs-unstable.legacyPackages.${system}.fzf;
+
         testsearch = inputs.testsearch.packages.${system}.default;
         listprojects = inputs.listprojects.packages.${system}.default;
         keymapp = final.callPackage ./derivations/keymapp {pkgs = final;};
@@ -75,7 +79,6 @@
         zizmor = final.callPackage ./derivations/zizmor {};
         cert-info = cert-info.packages.${system}.default;
         simpleproxy = inputs.simpleproxy.packages.${system}.default;
-        jujutsu = inputs.nixpkgs-unstable.legacyPackages.${system}.jujutsu;
         gh-repo-url = final.callPackage ./derivations/gh-repo-url {};
         gh-pr-url = final.callPackage ./derivations/gh-pr-url {};
         gh-rebase-pr = final.callPackage ./derivations/gh-rebase-pr {};
