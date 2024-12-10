@@ -7,6 +7,7 @@
   imports = [
     ./fish-fix.nix
     ./homebrew.nix
+    ./touch-id.nix
   ];
 
   users.users.simon = {
