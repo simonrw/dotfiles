@@ -22,6 +22,9 @@ in {
       cmp-emoji.enable = cfg.emoji;
       cmp = {
         enable = true;
+        lazyLoad.settings = {
+          event = "InsertEnter";
+        };
         settings = {
           autoEnableSources = true;
           preselect = "None";
