@@ -327,6 +327,8 @@ in {
   };
   luaLoader.enable = true;
   plugins = {
+    # lazy loading provider
+    lz-n.enable = true;
     web-devicons.enable = false;
     vim-surround.enable = true;
     commentary.enable = true;
