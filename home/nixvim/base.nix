@@ -381,6 +381,7 @@ in {
     lsp-status-nvim
     nvim-nio
     catppuccin-nvim
+    vim-startuptime
   ];
   extraConfigLua = theme-lua;
   extraFiles = {
