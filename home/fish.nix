@@ -50,6 +50,7 @@ in {
         vup = "nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'";
         vimdiff = "nvim -d";
         pydoc = "python -m pydoc";
+        project = "listprojects";
       }
       // lib.optionalAttrs isLinux {
         pbcopy = "${pkgs.xclip}/bin/xclip -selection clipboard";
