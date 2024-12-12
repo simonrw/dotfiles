@@ -75,7 +75,7 @@
       largesize = 92;
       persistent-apps = [
         "/Applications/Brave Browser.app"
-        "/Applications/Alacritty.app"
+        "/Applications/Ghostty.app"
         "/Applications/Obsidian.app"
         "/Applications/Slack.app"
         "/Applications/Todoist.app"
