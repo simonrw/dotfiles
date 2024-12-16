@@ -20,7 +20,6 @@ in {
   config = mkIf cfg.enable {
     plugins = {
       cmp-emoji.enable = cfg.emoji;
-      cmp-nvim-lsp-signature-help.enable = true;
       cmp = {
         enable = true;
         lazyLoad.settings = {
@@ -38,7 +37,6 @@ in {
           };
           sources =
             [
-              {name = "nvim_lsp_signature_help"; priority = 1000; groupIndex = 1;}
               {name = "nvim_lsp"; keyword_length = 2; groupIndex = 1;}
               {name = "treesitter"; keyword_length = 2; groupIndex = 1;}
               {name = "path"; groupIndex = 1;}
