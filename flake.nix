@@ -11,7 +11,6 @@
     home-manager = {
       url = "github:nix-community/home-manager/release-24.11";
     };
-    nur.url = "github:nix-community/NUR";
     darwin = {
       url = "github:lnl7/nix-darwin";
     };
@@ -59,7 +58,6 @@
     jetbrains-updater,
     vscode-server,
     cert-info,
-    nur,
     nixvim,
     ...
   } @ inputs: let
@@ -133,7 +131,6 @@
           }
       )
       jetbrains-updater.overlay
-      nur.overlay
     ];
 
     getPkgs = system:

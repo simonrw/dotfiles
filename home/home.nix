@@ -25,7 +25,6 @@ in {
       ./editor.nix
       ./emacs.nix
       ./eza.nix
-      ./firefox.nix
       ./fish.nix
       ./font.nix
       ./fzf.nix
