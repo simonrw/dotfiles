@@ -45,6 +45,7 @@ in {
       jless
       jqp
       lsof
+      mpv
       nix-tree
       openssh
       pre-commit
