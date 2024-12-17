@@ -208,7 +208,7 @@ in {
     # configure indent for hcl files
     {
       event = ["FileType"];
-      pattern = ["hcl"];
+      pattern = ["hcl" "terraform"];
       command = "setlocal shiftwidth=2 tabstop=2";
     }
     {
