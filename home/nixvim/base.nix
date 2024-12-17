@@ -133,7 +133,7 @@
     }
     .${colour-theme};
 in {
-  editorconfig.enable = false;
+  editorconfig.enable = true;
   opts = {
     autowrite = true;
     backspace = ["indent" "eol" "start"];
