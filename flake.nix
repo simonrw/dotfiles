@@ -8,6 +8,9 @@
     nixvim = {
       url = "github:nix-community/nixvim";
     };
+    ghostty = {
+      url = "git+ssh://git@github.com/ghostty-org/ghostty";
+    };
     home-manager = {
       url = "github:nix-community/home-manager/release-24.11";
     };
@@ -84,6 +87,7 @@
         check-certificate-revocation = final.callPackage ./derivations/check-certificate-revocation {};
         neovim = self.packages.${system}.nixvim;
         logtimes = inputs.logtimes.packages.${system}.default;
+        ghostty = inputs.ghostty.packages.${system}.default;
         # https://kokada.capivaras.dev/blog/quick-bits-realise-nix-symlinks/
         realise-symlink = final.writeShellApplication {
             name = "realise-symlink";
