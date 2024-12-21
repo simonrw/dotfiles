@@ -133,6 +133,11 @@ in {
         description = "Write out the prompt";
         body = builtins.readFile ./fish/prompt.fish;
       };
+      # has to be a function as it affects the current shell
+      kctx = {
+        description = "Choose a kubeconfig context";
+        body = builtins.readFile ./fish/kctx.fish;
+      };
     };
   };
 }
