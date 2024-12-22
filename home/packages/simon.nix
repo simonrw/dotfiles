@@ -53,7 +53,6 @@ in {
       pv
       python3
       ripgrep
-      rustup
       sqlite-interactive
       universal-ctags
       unzip
