@@ -25,6 +25,7 @@ in {
     # ../home/nix-index.nix
     ../home/tmux.nix
     ../home/git/global.nix
+    ../home/neovim.nix
   ];
 
   options = with lib; {
