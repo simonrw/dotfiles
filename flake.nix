@@ -5,9 +5,6 @@
     nixpkgs.url = "github:nixos/nixpkgs/nixos-24.11";
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
     flake-utils.url = "github:numtide/flake-utils";
-    nixvim = {
-      url = "github:nix-community/nixvim";
-    };
     ghostty = {
       url = "git+ssh://git@github.com/ghostty-org/ghostty";
     };
@@ -61,7 +58,6 @@
     jetbrains-updater,
     vscode-server,
     cert-info,
-    nixvim,
     ...
   } @ inputs: let
     mkOverlays = system: [
@@ -85,7 +81,6 @@
         gh-rebase-pr = final.callPackage ./derivations/gh-rebase-pr {};
         wlman = final.callPackage ./derivations/wlman {};
         check-certificate-revocation = final.callPackage ./derivations/check-certificate-revocation {};
-        neovim = self.packages.${system}.nixvim;
         logtimes = inputs.logtimes.packages.${system}.default;
         ghostty = inputs.ghostty.packages.${system}.default;
         # https://kokada.capivaras.dev/blog/quick-bits-realise-nix-symlinks/
@@ -176,10 +171,6 @@
                 ./home/home.nix
                 inputs.nix-index-database.hmModules.nix-index
               ];
-
-              home.packages = [
-                self.packages.${system}.nixvim
-              ];
             };
           }
           vscode-server.nixosModule
@@ -239,10 +230,6 @@
                   ./home/home.nix
                   inputs.nix-index-database.hmModules.nix-index
                 ];
-
-                home.packages = [
-                  self.packages.${system}.nixvim
-                ];
               };
             }
           ];
@@ -267,11 +254,6 @@
             modules = [
               ./home/home.nix
               inputs.nix-index-database.hmModules.nix-index
-              ({ ... }: {
-              home.packages = [
-                self.packages.${system}.nixvim
-              ];
-            })
             ];
             # stop infinite recusion when trying to access
             # pkgs.stdenv.is{Linux,Darwin} from within a module
@@ -285,11 +267,6 @@
             inherit pkgs;
             modules = [
               ./minimal/home.nix
-              ({...}: {
-                home.packages = [
-                  self.packages.${system}.nixvim
-                ];
-              })
             ];
             # stop infinite recusion when trying to access
             # pkgs.stdenv.is{Linux,Darwin} from within a module
@@ -300,16 +277,12 @@
             };
           };
         };
-          packages.nixvim = inputs.nixvim.legacyPackages.${system}.makeNixvimWithModule {
-            inherit pkgs;
-            module = {
-              imports = [
-                ./home/nixvim/default.nix
-              ];
-            };
-            extraSpecialArgs = {
-            };
-          };
+        devShells.default = pkgs.mkShell {
+          packages = with pkgs; [
+            luaformatter
+            lua-language-server
+          ];
+        };
       }
     );
 

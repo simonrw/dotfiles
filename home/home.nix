@@ -34,6 +34,7 @@ in {
       ./gpg.nix
       ./helix.nix
       ./home-manager.nix
+      ./neovim.nix
       ./ipython.nix
       ./jq.nix
       ./jujutsu.nix
