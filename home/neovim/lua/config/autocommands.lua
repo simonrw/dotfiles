@@ -13,7 +13,14 @@ local autocommands = {
         event = {"TextYankPost"},
         group = "lua-highlight"
     },
-    {command = "startinsert", event = {"TermOpen"}, group = "terminal-settings"},
+    {event = {"TermOpen"}, group = "terminal-settings", callback = function()
+      -- enter insert mode only if we open a terminal and switch to it
+      vim.defer_fn(function()
+        if vim.api.nvim_get_option_value('buftype', { buf = 0 }) == 'terminal' then
+          vim.cmd([[startinsert]])
+        end
+      end, 100)
+    end},
     {
         command = "if &diff == 1 | diffupdate | endif",
         event = {"BufWritePost"},
