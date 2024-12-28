@@ -31,16 +31,6 @@ return {
                     name = "ts_ls"
                 }, {
                     extraOptions = {
-                        settings = {
-                            ["rust-analyzer"] = {
-                                cachePriming = {enable = true, numThreads = 0},
-                                check = {allTargets = true, command = "clippy"}
-                            }
-                        }
-                    },
-                    name = "rust_analyzer"
-                }, {
-                    extraOptions = {
                         on_attach = function(client, bufnr)
                             client.config.settings.useLibraryCodeForTypes =
                                 false
