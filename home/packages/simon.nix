@@ -51,6 +51,7 @@ in {
       pre-commit
       pstree
       pv
+      pyright
       python3
       ripgrep
       sqlite-interactive
