@@ -86,29 +86,29 @@
         ghostty = inputs.ghostty.packages.${system}.default;
         # https://kokada.capivaras.dev/blog/quick-bits-realise-nix-symlinks/
         realise-symlink = final.writeShellApplication {
-            name = "realise-symlink";
-            runtimeInputs = with final; [ coreutils ];
-            text = ''
-              for file in "$@"; do
-                if [[ -L "$file" ]]; then
-                  if [[ -d "$file" ]]; then
-                    tmpdir="''${file}.tmp"
-                    mkdir -p "$tmpdir"
-                    cp --verbose --recursive "$file"/* "$tmpdir"
-                    unlink "$file"
-                    mv "$tmpdir" "$file"
-                    chmod --changes --recursive +w "$file"
-                  else
-                    cp --verbose --remove-destination "$(readlink "$file")" "$file"
-                    chmod --changes +w "$file"
-                  fi
+          name = "realise-symlink";
+          runtimeInputs = with final; [coreutils];
+          text = ''
+            for file in "$@"; do
+              if [[ -L "$file" ]]; then
+                if [[ -d "$file" ]]; then
+                  tmpdir="''${file}.tmp"
+                  mkdir -p "$tmpdir"
+                  cp --verbose --recursive "$file"/* "$tmpdir"
+                  unlink "$file"
+                  mv "$tmpdir" "$file"
+                  chmod --changes --recursive +w "$file"
                 else
-                  >&2 echo "Not a symlink: $file"
-                  exit 1
+                  cp --verbose --remove-destination "$(readlink "$file")" "$file"
+                  chmod --changes +w "$file"
                 fi
-              done
-            '';
-          };
+              else
+                >&2 echo "Not a symlink: $file"
+                exit 1
+              fi
+            done
+          '';
+        };
       })
       # override the version of xattr for poetry
       (
@@ -204,40 +204,41 @@
 
         pkgs = getPkgs system;
 
-        mkDarwinConfiguration = { hostname }: darwin.lib.darwinSystem {
-           inherit pkgs system;
-           specialArgs = {
+        mkDarwinConfiguration = {hostname}:
+          darwin.lib.darwinSystem {
+            inherit pkgs system;
+            specialArgs = {
               inherit hostname;
-           };
-          modules = [
-            self.modules.nix
-            (self.modules.darwin {
-              name = "common";
-            })
-            home-manager.darwinModules.home-manager
-            {
-              # backup home-manager files that already exist
-              home-manager.backupFileExtension = "backup";
-              home-manager.useGlobalPkgs = true;
-              home-manager.useUserPackages = true;
-              home-manager.extraSpecialArgs = {
-                inherit system inputs hostname;
-                isLinux = pkgs.stdenv.isLinux;
-                isDarwin = pkgs.stdenv.isDarwin;
-              };
+            };
+            modules = [
+              self.modules.nix
+              (self.modules.darwin {
+                name = "common";
+              })
+              home-manager.darwinModules.home-manager
+              {
+                # backup home-manager files that already exist
+                home-manager.backupFileExtension = "backup";
+                home-manager.useGlobalPkgs = true;
+                home-manager.useUserPackages = true;
+                home-manager.extraSpecialArgs = {
+                  inherit system inputs hostname;
+                  isLinux = pkgs.stdenv.isLinux;
+                  isDarwin = pkgs.stdenv.isDarwin;
+                };
 
-              home-manager.users.simon = {...}: {
-                imports = [
-                  ./home/home.nix
-                  inputs.nix-index-database.hmModules.nix-index
-                ];
-              };
-            }
-          ];
-        };
+                home-manager.users.simon = {...}: {
+                  imports = [
+                    ./home/home.nix
+                    inputs.nix-index-database.hmModules.nix-index
+                  ];
+                };
+              }
+            ];
+          };
       in {
-        mba = mkDarwinConfiguration { hostname = "mba"; };
-        mm = mkDarwinConfiguration { hostname = "mm"; };
+        mba = mkDarwinConfiguration {hostname = "mba";};
+        mm = mkDarwinConfiguration {hostname = "mm";};
       };
     };
 
@@ -300,8 +301,8 @@
         nix.nixPath = ["nixpkgs=/etc/channels/nixpkgs"];
         environment.etc."channels/nixpkgs".source = nixpkgs.outPath;
       };
-      nixos = {name ? throw "No module name provided" }: import ./system/nixos/${name}/configuration.nix;
-      darwin = {name ? throw "No module name provided" }: import ./system/darwin/${name}/configuration.nix;
+      nixos = {name ? throw "No module name provided"}: import ./system/nixos/${name}/configuration.nix;
+      darwin = {name ? throw "No module name provided"}: import ./system/darwin/${name}/configuration.nix;
     };
   in
     nixOsConfigurations

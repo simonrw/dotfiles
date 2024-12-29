@@ -1,9 +1,11 @@
-{ config, lib, ... }:
-with lib;
-let
-  cfg = config.me.kubeconfig;
-in
 {
+  config,
+  lib,
+  ...
+}:
+with lib; let
+  cfg = config.me.kubeconfig;
+in {
   options.me.kubeconfig.symlink-kubeconfig-to-dev-null = mkEnableOption "symlink ~/.kube/config to /dev/null";
 
   config = mkIf cfg.symlink-kubeconfig-to-dev-null {

@@ -1,7 +1,4 @@
-{
-  pkgs,
-  ...
-}: {
+{pkgs, ...}: {
   programs.helix = {
     enable = true;
     settings = {
@@ -80,8 +77,8 @@
           formatter = {
             command = "${pkgs.nodePackages.prettier}/bin/prettier";
             args = [
-            "--parser"
-            "typescript"
+              "--parser"
+              "typescript"
             ];
           };
         }
@@ -89,7 +86,7 @@
           name = "python";
           auto-format = true;
           language-servers = [
-          "pyright"
+            "pyright"
           ];
         }
         {

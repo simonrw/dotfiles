@@ -1,14 +1,18 @@
-{ lib, config, ... }:
-with lib;
-let
+{
+  lib,
+  config,
+  ...
+}:
+with lib; let
   cfg = config.me.editor;
 
-  binary-name = {
-    helix = "hx";
-    neovim = "nvim";
-  }.${cfg.name};
-in
-{
+  binary-name =
+    {
+      helix = "hx";
+      neovim = "nvim";
+    }
+    .${cfg.name};
+in {
   options.me.editor = {
     name = mkOption {
       type = types.enum [

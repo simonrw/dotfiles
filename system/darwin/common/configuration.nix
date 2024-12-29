@@ -68,10 +68,12 @@
       autohide = true;
       mru-spaces = false;
       orientation = "bottom";
-      tilesize = {
-        mm = 34;
-        mba = 24;
-      }.${hostname};
+      tilesize =
+        {
+          mm = 34;
+          mba = 24;
+        }
+        .${hostname};
       largesize = 92;
       persistent-apps = [
         "/Applications/Brave Browser.app"
