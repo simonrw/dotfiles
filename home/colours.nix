@@ -1032,7 +1032,8 @@
       hash = "sha256-m/+Xsbve1fuzNEKpSK6Eddoi7gKcj04o1kSFy/H/m9w=";
     };
   };
-  git-config = {
+  git-config =
+    {
       catppuccin-macchiato =
         if cfg.delta.diff-so-fancy
         then {
@@ -1060,7 +1061,8 @@
           delta.options.features = "catppuccin-mocha";
         };
     }
-    .${cfg.theme} or {};
+    .${cfg.theme}
+    or {};
 
   zellij-theme =
     {

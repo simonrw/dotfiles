@@ -1,9 +1,11 @@
-{ lib, config, ... }:
-with lib;
-let
-  cfg = config.me.ghostty;
-in
 {
+  lib,
+  config,
+  ...
+}:
+with lib; let
+  cfg = config.me.ghostty;
+in {
   options.me.ghostty.enable = mkEnableOption "ghostty configuration";
 
   config = mkIf cfg.enable {

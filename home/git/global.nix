@@ -2,8 +2,7 @@
   pkgs,
   isLinux,
   ...
-}: 
-  {
+}: {
   programs.git = {
     enable = true;
     aliases = {

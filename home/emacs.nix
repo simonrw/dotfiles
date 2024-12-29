@@ -1,9 +1,11 @@
-{ lib, config, ... }:
-with lib;
-let
-  cfg = config.me.emacs;
-in
 {
+  lib,
+  config,
+  ...
+}:
+with lib; let
+  cfg = config.me.emacs;
+in {
   options.me.emacs.enable = mkEnableOption "emacs configuration";
 
   config = mkIf cfg.enable {
