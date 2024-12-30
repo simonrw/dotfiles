@@ -104,29 +104,29 @@
       KeyRepeat = 2;
       NSWindowShouldDragOnGesture = true;
     };
-    CustomUserPreferences = {
-      "com.apple.Safari" = {
-        # Press Tab to highlight each item on a web page
-        WebKitTabToLinksPreferenceKey = true;
-        ShowFullURLInSmartSearchField = true;
-        ShowFavoritesBar = false;
-        IncludeInternalDebugMenu = true;
-        IncludeDevelopMenu = true;
-      };
-      "com.apple.desktopservices" = {
-        # Avoid creating .DS_Store files on network or USB volumes
-        DSDontWriteNetworkStores = true;
-        DSDontWriteUSBStores = true;
-      };
-      NSGlobalDomain = {
-        # Add a context menu item for showing the Web Inspector in web views
-        WebKitDeveloperExtras = true;
-      };
-      "com.apple.screencapture" = {
-        location = "~/Desktop";
-        type = "png";
-      };
-    };
+    # CustomUserPreferences = {
+    #   "com.apple.Safari" = {
+    #     # Press Tab to highlight each item on a web page
+    #     WebKitTabToLinksPreferenceKey = true;
+    #     ShowFullURLInSmartSearchField = true;
+    #     ShowFavoritesBar = false;
+    #     IncludeInternalDebugMenu = true;
+    #     IncludeDevelopMenu = true;
+    #   };
+    #   "com.apple.desktopservices" = {
+    #     # Avoid creating .DS_Store files on network or USB volumes
+    #     DSDontWriteNetworkStores = true;
+    #     DSDontWriteUSBStores = true;
+    #   };
+    #   NSGlobalDomain = {
+    #     # Add a context menu item for showing the Web Inspector in web views
+    #     WebKitDeveloperExtras = true;
+    #   };
+    #   "com.apple.screencapture" = {
+    #     location = "~/Desktop";
+    #     type = "png";
+    #   };
+    # };
   };
 
   networking.hostName = hostname;
