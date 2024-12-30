@@ -9,3 +9,5 @@ theme = catppuccin-macchiato
 # disable ligatures
 font-feature = -liga
 font-feature = -calt
+
+# vim: ft=conf
