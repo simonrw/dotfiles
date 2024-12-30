@@ -34,6 +34,7 @@ in {
         "pocket-casts"
         "pycharm-ce"
         "raycast"
+	"rustrover"
         "shotcut"
         "slack"
         "steam"
