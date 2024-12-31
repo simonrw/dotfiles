@@ -58,6 +58,7 @@ return {
                 {name = "gleam"},
                 {name = "elmls"},
                 {name = "lua_ls"},
+                {name = "zls"},
             }
 
             local capabilities = function()
