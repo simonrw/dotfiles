@@ -716,11 +716,11 @@
         "nixpkgs": "nixpkgs_10"
       },
       "locked": {
-        "lastModified": 1732279670,
-        "narHash": "sha256-RXPLtmjqd5rbS2x/HWRjlVyujGUpnEkJmGFCo3CYSRY=",
+        "lastModified": 1735836995,
+        "narHash": "sha256-MTat2PVhXR3hRrdT5rGVobF9AgDqYHpjLDvaFdpMZ3Y=",
         "owner": "simonrw",
         "repo": "testsearch",
-        "rev": "73e1ae0fbea98d1c5a4fbc33ce5f2c13130aaabd",
+        "rev": "2621189698d1128fb1774d6dd99777cf77a43290",
         "type": "github"
       },
       "original": {
