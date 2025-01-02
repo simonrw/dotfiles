@@ -62,7 +62,7 @@ return {
                     mode = "n"
                 }, {
                     action = "<cmd>Telescope lsp_dynamic_workspace_symbols<cr>",
-                    key = "<leader>s",
+                    key = "<leader>S",
                     mode = "n"
                 },
                 {action = "<cmd>Telescope buffers<cr>", key = "gb", mode = "n"},
@@ -74,6 +74,11 @@ return {
                 {
                     action = "<cmd>Telescope lsp_references<cr>",
                     key = "gr",
+                    mode = "n"
+                },
+                {
+                    action = "<cmd>Telescope lsp_document_symbols<cr>",
+                    key = "<leader>s",
                     mode = "n"
                 }
             }
