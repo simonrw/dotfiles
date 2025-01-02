@@ -25,6 +25,7 @@ in {
         "element"
         "emacs"
         "firefox"
+        "ghostty"
         "gimp"
         "inkscape"
         "karabiner-elements"
