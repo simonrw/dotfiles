@@ -96,6 +96,11 @@ complete --command awslocal --wraps aws
 # wrap laws completion
 complete --command laws --wraps aws
 
+# ghostty completion (macos)
+if test -f /Applications/Ghostty.app/Contents/Resources/fish/vendor_completions.d/ghostty.fish;
+    source /Applications/Ghostty.app/Contents/Resources/fish/vendor_completions.d/ghostty.fish
+end
+
 # if a local configuration override file exists, source it
 if test -f $HOME/.config/fish/local.fish;
 source $HOME/.config/fish/local.fish
