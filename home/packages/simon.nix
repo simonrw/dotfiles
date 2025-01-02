@@ -52,6 +52,7 @@ in {
       pstree
       pv
       pyright
+      lua-language-server
       python3
       ripgrep
       sqlite-interactive
