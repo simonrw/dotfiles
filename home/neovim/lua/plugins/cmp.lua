@@ -24,7 +24,7 @@ return {
                     expand = function(args) vim.snippet.expand(args.body) end,
                 },
                 sources = cmp.config.sources({
-                    { name = "nvim_lsp", keyword_length = 2 },
+                    { name = "nvim_lsp" },
                 }, {
                     { name = "buffer" },
                 }),
