@@ -6,7 +6,7 @@ return {
             local configs = require("nvim-treesitter.configs")
 
             configs.setup({
-                ensure_installed = {"lua", "vim", "rust", "python", "nix", "yaml"},
+                ensure_installed = {"lua", "vim", "rust", "python", "nix", "yaml", "hcl", "terraform"},
                 sync_install = false,
                 highlight = {enable = true},
                 indent = {enable = false}
