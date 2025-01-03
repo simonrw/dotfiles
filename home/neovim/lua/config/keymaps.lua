@@ -86,11 +86,6 @@ do
             key = "?",
             mode = "n",
             options = {noremap = true, silent = true}
-        }, {
-            action = "<cmd>Lspsaga outline<cr>",
-            key = "<leader>A",
-            mode = "n",
-            options = {noremap = true, silent = true}
         }
     }
     for _, map in ipairs(__binds) do
