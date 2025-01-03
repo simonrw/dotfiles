@@ -296,7 +296,6 @@ in {
       wmctrl
       xclip
       rnote
-      ghostty
     ];
 
     environment.shells = with pkgs; [

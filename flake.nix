@@ -5,9 +5,6 @@
     nixpkgs.url = "github:nixos/nixpkgs/nixos-24.11";
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
     flake-utils.url = "github:numtide/flake-utils";
-    ghostty = {
-      url = "git+ssh://git@github.com/ghostty-org/ghostty";
-    };
     home-manager = {
       url = "github:nix-community/home-manager/release-24.11";
     };
@@ -83,7 +80,6 @@
         wlman = final.callPackage ./derivations/wlman {};
         check-certificate-revocation = final.callPackage ./derivations/check-certificate-revocation {};
         logtimes = inputs.logtimes.packages.${system}.default;
-        ghostty = inputs.ghostty.packages.${system}.default;
         # https://kokada.capivaras.dev/blog/quick-bits-realise-nix-symlinks/
         realise-symlink = final.writeShellApplication {
           name = "realise-symlink";
