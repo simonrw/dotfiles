@@ -69,6 +69,7 @@ in {
       listprojects
       logtimes
       notify-wrapper
+      localdocs
       realise-symlink
       simpleproxy
       testsearch

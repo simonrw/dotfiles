@@ -67,6 +67,7 @@
         testsearch = inputs.testsearch.packages.${system}.default;
         listprojects = inputs.listprojects.packages.${system}.default;
         keymapp = final.callPackage ./derivations/keymapp {pkgs = final;};
+        localdocs = final.callPackage ./derivations/localdocs {};
         notify-wrapper = final.callPackage ./derivations/notify-wrapper {};
         monaspace = final.callPackage ./derivations/monaspace {};
         ansi = final.callPackage ./derivations/ansi {};
