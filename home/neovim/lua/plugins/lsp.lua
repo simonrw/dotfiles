@@ -53,12 +53,13 @@ return {
                         end
                     },
                     name = "pyright"
-                }, 
+                },
                 {name = "gopls"},
                 {name = "gleam"},
                 {name = "elmls"},
                 {name = "lua_ls"},
                 {name = "zls"},
+                {name = "terraformls"},
             }
 
             local capabilities = function()
