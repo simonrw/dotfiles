@@ -16,6 +16,7 @@ in {
         "1password-cli"
         "alacritty"
         "barrier"
+        "blender"
         "brave-browser"
         "chatgpt"
         "deskpad"
