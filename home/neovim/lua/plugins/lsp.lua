@@ -48,7 +48,7 @@ return {
                             client.config.settings.reportUnknownArgumentType =
                                 false
                             client.config.settings.reportUnknownVariableType =
-                                fals
+                                false
                         end
                     },
                     name = "pyright"
