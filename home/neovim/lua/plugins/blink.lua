@@ -30,6 +30,7 @@ return {
         nerd_font_variant = 'mono'
       },
 
+      -- enable signature 
       signature = { enabled = true },
 
       -- Default list of enabled providers defined so that you can extend it
