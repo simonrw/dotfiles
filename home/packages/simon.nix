@@ -45,6 +45,8 @@ in {
       jless
       jqp
       lsof
+      lua-language-server
+      luaformatter
       mpv
       nix-tree
       openssh
@@ -52,11 +54,10 @@ in {
       pstree
       pv
       pyright
-      lua-language-server
-      luaformatter
       python3
       ripgrep
       sqlite-interactive
+      typescript-language-server
       universal-ctags
       unzip
       uv
