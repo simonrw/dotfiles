@@ -53,6 +53,7 @@ in {
       pv
       pyright
       lua-language-server
+      luaformatter
       python3
       ripgrep
       sqlite-interactive
