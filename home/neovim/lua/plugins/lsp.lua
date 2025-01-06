@@ -122,7 +122,7 @@ return {
           vim.keymap.set("n", "<leader>r", vim.lsp.buf.rename, { noremap = true, silent = true, buffer = buf })
           vim.keymap.set("n", "]d", vim.diagnostic.goto_next, { noremap = true, silent = true, buffer = buf })
           vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, { noremap = true, silent = true, buffer = buf })
-          vim.keymap.set("n", "<C-h>", vim.lsp.buf.signature_help, { noremap = true, silent = true, buffer = buf })
+          vim.keymap.set("n", "<leader>k", vim.lsp.buf.signature_help, { noremap = true, silent = true, buffer = buf })
           vim.keymap.set("n", "<leader>a", function()
             vim.lsp.buf.code_action({
               source = { organizeImports = true }
