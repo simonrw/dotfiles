@@ -138,6 +138,29 @@ return {
             end
 
             vim.lsp.inlay_hint.enable()
+
+            -- configure signs
+            -- from: https://rsdlt.github.io/posts/rust-nvim-ide-guide-walkthrough-development-debug/
+            local sign = function(opts)
+                vim.fn.sign_define(opts.name,
+                                  {texthl = opts.name, text = opts.text, numhl = ''})
+            end
+
+            sign({name = 'DiagnosticSignError', text = ''})
+            sign({name = 'DiagnosticSignWarn', text = ''})
+            sign({name = 'DiagnosticSignHint', text = ''})
+            sign({name = 'DiagnosticSignInfo', text = ''})
+
+            -- configure diagnostics
+            -- from: https://rsdlt.github.io/posts/rust-nvim-ide-guide-walkthrough-development-debug/
+            vim.diagnostic.config({
+                virtual_text = false,
+                signs = true,
+                update_in_insert = true,
+                underline = false,
+                severity_sort = false,
+                float = {border = 'rounded', source = true, header = '', prefix = ''}
+            })
         end
     }
 }
