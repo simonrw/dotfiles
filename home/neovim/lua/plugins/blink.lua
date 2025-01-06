@@ -30,13 +30,16 @@ return {
         nerd_font_variant = 'mono'
       },
 
-      -- enable signature 
+      -- enable signature
       signature = { enabled = true },
 
       -- Default list of enabled providers defined so that you can extend it
       -- elsewhere in your config, without redefining it, due to `opts_extend`
       sources = {
         default = { 'lsp', 'path', 'snippets', 'buffer' },
+
+        -- disable command line completion
+        cmdline = {},
       },
     },
     opts_extend = { "sources.default" }
