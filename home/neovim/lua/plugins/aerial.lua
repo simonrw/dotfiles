@@ -14,7 +14,7 @@ return {
 
       vim.keymap.set("n", "<leader>A", function()
         aerial.toggle()
-      end, { silent = true, noremap = true })
+      end, { silent = true, noremap = true, desc = "Toggle structure view" })
     end,
   }
 }

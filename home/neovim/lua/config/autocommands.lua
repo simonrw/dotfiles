@@ -48,19 +48,7 @@ local autocommands = {
     command = "if &diff == 1 | diffupdate | endif",
     event = { "BufWritePost" },
     group = "diff-mode"
-  }, {
-  callback = function()
-    do
-      local binds = {}
-      for _, map in ipairs(binds) do
-        vim.keymap.set(map.mode, map.key, map.action, map.options)
-      end
-    end
-  end,
-  desc = "Load keymaps for LspAttach",
-  event = "LspAttach",
-  group = "nixvim_binds_LspAttach"
-}
+  }
 }
 
 for _, autocmd in ipairs(autocommands) do
