@@ -18,3 +18,13 @@ vim.keymap.set(
   end,
   { silent = true, buffer = bufnr, desc = "Rust hover" }
 )
+
+vim.keymap.set(
+  "n",
+  "<leader>K",
+  function()
+    vim.cmd.RustLsp('openDocs')
+  end,
+  { silent = true, buffer = bufnr, desc = "Rust hover" }
+)
+
