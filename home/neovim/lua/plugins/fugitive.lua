@@ -1,6 +1,9 @@
 return {
   {
     "https://github.com/tpope/vim-fugitive",
+    dependencies = {
+      "tpope/vim-rhubarb",
+    },
     config = function()
       local binds = {
         {
@@ -12,8 +15,8 @@ return {
         action = ":Gvdiff<cr>",
         key = "<leader>gd",
         mode = "n",
-        options = { noremap = true, silent = true, desc = "Diff the current file"
-        },
+        options = { noremap = true, silent = true, desc = "Diff the current file" },
+      },
         {
           action = ":Gwrite<cr>",
           key = "<leader>gw",
@@ -38,7 +41,6 @@ return {
           mode = "n",
           options = { noremap = true, silent = true, desc = "Ammend the previous commit" }
         }
-      }
       }
 
       for _, map in ipairs(binds) do
@@ -67,5 +69,4 @@ return {
       end
     end
   },
-  "tpope/vim-rhubarb",
 }
