@@ -116,18 +116,17 @@ return {
           if not c then return end
 
           -- set up keybinds
-          vim.keymap.set("n", "gy", vim.lsp.buf.type_definition, { noremap = true, silent = true, buffer = buf })
-          vim.keymap.set("n", "gi", vim.lsp.buf.implementation, { noremap = true, silent = true, buffer = buf })
-          vim.keymap.set("n", "<leader>k", vim.lsp.buf.hover, { noremap = true, silent = true, buffer = buf })
-          vim.keymap.set("n", "<leader>r", vim.lsp.buf.rename, { noremap = true, silent = true, buffer = buf })
-          vim.keymap.set("n", "]d", vim.diagnostic.goto_next, { noremap = true, silent = true, buffer = buf })
-          vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, { noremap = true, silent = true, buffer = buf })
-          vim.keymap.set("n", "<leader>k", vim.lsp.buf.signature_help, { noremap = true, silent = true, buffer = buf })
+          vim.keymap.set("n", "gy", vim.lsp.buf.type_definition, { noremap = true, silent = true, buffer = buf, desc = "Go to type definition" })
+          vim.keymap.set("n", "gi", vim.lsp.buf.implementation, { noremap = true, silent = true, buffer = buf, desc = "Find implementations" })
+          vim.keymap.set("n", "<leader>r", vim.lsp.buf.rename, { noremap = true, silent = true, buffer = buf, desc = "Rename symbol" })
+          vim.keymap.set("n", "]d", vim.diagnostic.goto_next, { noremap = true, silent = true, buffer = buf, desc = "Go to next error" })
+          vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, { noremap = true, silent = true, buffer = buf, desc = "Go to previous error" })
+          vim.keymap.set("n", "<leader>k", vim.lsp.buf.signature_help, { noremap = true, silent = true, buffer = buf, desc = "Get help with function signature" })
           vim.keymap.set("n", "<leader>a", function()
             vim.lsp.buf.code_action({
               source = { organizeImports = true }
             })
-          end, { noremap = true, silent = true, buffer = buf })
+          end, { noremap = true, silent = true, buffer = buf, desc = "Execute code action" })
         end,
       })
     end

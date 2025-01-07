@@ -33,13 +33,13 @@ return {
 
       -- setup keybindings
       vim.keymap.set("n", "tf", function() require("neotest").run.run(vim.fn.expand("%")) end,
-        { noremap = true, silent = true })
+        { noremap = true, silent = true, desc = "Test the current file" })
       vim.keymap.set("n", "tl", function() require("neotest").run.run_last() end,
-        { noremap = true, silent = true })
+        { noremap = true, silent = true, desc = "Test the last executed test" })
       vim.keymap.set("n", "tn", function() require("neotest").run.run() end,
-        { noremap = true, silent = true })
+        { noremap = true, silent = true, desc = "Run the nearest test" })
       vim.keymap.set("n", "to", function() require("neotest").output_panel.toggle() end,
-        { noremap = true, silent = true })
+        { noremap = true, silent = true, desc = "Toggle test output panel" })
     end,
   }
 }

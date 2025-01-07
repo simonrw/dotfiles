@@ -7,7 +7,7 @@ vim.keymap.set(
     vim.cmd.RustLsp('codeAction') -- supports rust-analyzer's grouping
     -- or vim.lsp.buf.codeAction() if you don't want grouping.
   end,
-  { silent = true, buffer = bufnr }
+  { silent = true, buffer = bufnr, desc = "Rust code action" }
 )
 
 vim.keymap.set(
@@ -16,5 +16,5 @@ vim.keymap.set(
   function()
     vim.cmd.RustLsp({ 'hover', 'actions' })
   end,
-  { silent = true, buffer = bufnr }
+  { silent = true, buffer = bufnr, desc = "Rust hover" }
 )

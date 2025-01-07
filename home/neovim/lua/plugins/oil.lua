@@ -18,7 +18,7 @@ return {
                     action = "<Cmd>Oil<CR>",
                     key = "-",
                     mode = "n",
-                    options = {noremap = true, silent = true}
+                    options = {noremap = true, silent = true, desc = "Show file browser (oil)"}
                 }
             }
             for _, map in ipairs(binds) do
