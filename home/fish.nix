@@ -48,7 +48,7 @@ in {
         tl = "tmux-last";
         trash = "${pkgs.python3Packages.send2trash}/bin/send2trash";
         tree = "${pkgs.eza}/bin/eza -T";
-        vup = "nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'";
+        vup = ''nvim --headless "+Lazy! sync" +qa'';
         vimdiff = "nvim -d";
         pydoc = "python -m pydoc";
         project = "listprojects";
