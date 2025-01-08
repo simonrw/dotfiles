@@ -29,8 +29,8 @@ in {
         da = "${pkgs.direnv}/bin/direnv allow";
         de = "${pkgs.direnv}/bin/direnv edit";
         es = ''exec $SHELL'';
-        gpc = "${pkgs.gh}/bin/gh pr create -a @me";
-        gpcd = "${pkgs.gh}/bin/gh pr create -a @me --draft";
+        gcpr = "${pkgs.gh}/bin/gh pr create -a @me --label 'semver: patch'";
+        gcprd = "${pkgs.gh}/bin/gh pr create -a @me --draft --label 'semver: patch'";
         gpr = "${pkgs.git}/bin/git pull --rebase";
         grep = "${pkgs.ripgrep}/bin/rg";
         less = "${pkgs.bat}/bin/bat";
