@@ -16,6 +16,8 @@ return {
       },
     },
     config = function()
+      local util = require 'lspconfig.util'
+
       local capabilities = require("blink.cmp").get_lsp_capabilities()
       local lspServers = {
         {
@@ -62,6 +64,12 @@ return {
         { name = "zls" },
         { name = "terraformls" },
         { name = "ruff" },
+        {
+          name = "nil_ls",
+          extraOptions = {
+            root_dir = util.root_pattern('shell.nix', 'flake.nix', '.git'),
+          },
+        },
       }
 
       local setup = {
