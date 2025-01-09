@@ -61,6 +61,7 @@ return {
         { name = "lua_ls" },
         { name = "zls" },
         { name = "terraformls" },
+        { name = "ruff" },
       }
 
       local setup = {
