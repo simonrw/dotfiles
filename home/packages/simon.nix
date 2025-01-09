@@ -48,6 +48,7 @@ in {
       lua-language-server
       luaformatter
       mpv
+      nil
       nix-tree
       openssh
       pre-commit
