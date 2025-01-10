@@ -96,7 +96,7 @@ in {
       };
       zellij.enable = true;
       atuin.enable = false;
-      font-name = "JetBrains Mono";
+      font-name = "Source Code Pro";
       font-style = "Semibold";
       font-size =
         if isLinux
