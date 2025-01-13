@@ -14,6 +14,7 @@ local function choose_pane()
 end
 
 local function run_code(context)
+  vim.cmd.update()
   -- TODO: shell injection?!
   if buffer_number == nil then
     choose_pane()
@@ -60,6 +61,7 @@ vim.api.nvim_create_user_command("VtrRun", run_code, {
   nargs = "*",
   complete = "shellcmd",
 })
+vim.api.nvim_create_user_command("VtrSetCommand", interactive_define_command, {})
 
 vim.keymap.set("n", "<leader>v", function()
   if command == nil then
@@ -68,6 +70,7 @@ vim.keymap.set("n", "<leader>v", function()
 
   run_code()
 end, { silent = true, noremap = true })
+
 vim.keymap.set("n", "<leader>V", function()
   interactive_define_command()
   run_code()
