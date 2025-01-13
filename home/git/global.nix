@@ -104,6 +104,7 @@
         sort = "-committerdate";
       };
       commit = {
+        gpgsign = true;
         verbose = true;
       };
       rebase = {
@@ -177,6 +178,7 @@
           cmd = "code --wait $MERGED";
         };
       };
+      user.signingKey = "~/.ssh/id_signing.pub";
       github = {
         user = "simonrw";
       };
@@ -210,6 +212,7 @@
         branch = 1;
         submoduleSummary = true;
       };
+      gpg.format = "ssh";
     };
     ignores = [
       ".vscode"
