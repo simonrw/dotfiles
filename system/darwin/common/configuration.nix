@@ -79,9 +79,7 @@
       persistent-apps = [
         "/Applications/Brave Browser.app"
         "/Applications/Ghostty.app"
-        "/Applications/Obsidian.app"
         "/Applications/Slack.app"
-        "/Applications/Todoist.app"
       ];
     };
     finder = {
