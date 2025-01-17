@@ -68,7 +68,7 @@ vim.keymap.set("n", "<leader>v", function()
     interactive_define_command()
   end
 
-  run_code()
+  run_code({})
 end, { silent = true, noremap = true })
 
 vim.keymap.set("n", "<leader>V", function()
