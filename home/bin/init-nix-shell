@@ -66,6 +66,7 @@ mkShell {
     python3
     python3Packages.venvShellHook
     uv
+    ruff
   ];
 
   venvDir = ".venv";
