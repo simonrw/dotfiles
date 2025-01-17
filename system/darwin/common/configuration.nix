@@ -65,25 +65,27 @@
   # https://nixcademy.com/2024/01/15/nix-on-macos/
   system.defaults = {
     dock = {
-      autohide = true;
+      autohide = false;
       mru-spaces = false;
-      showhidden = true;
-      orientation = "bottom";
+      magnification = false;
+      showhidden = false;
+      orientation = "left";
+      show-process-indicators = false;
       tilesize =
         {
-          mm = 34;
-          mba = 24;
+          mm = 24;
+          mba = 16;
         }
         .${hostname};
       largesize = 92;
       persistent-apps = [
-        "/Applications/Brave Browser.app"
+        "/Applications/Firefox.app"
         "/Applications/Ghostty.app"
         "/Applications/Slack.app"
       ];
     };
     finder = {
-      AppleShowAllExtensions = true;
+      AppleShowAllExtensions = false;
       # only search the current folder
       FXDefaultSearchScope = "SCcf";
       # don't warn about changing file extensions
