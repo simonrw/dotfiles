@@ -8,7 +8,7 @@ window-padding-y = 6
 shell-integration = none
 confirm-close-surface = false
 
-font-family = SauceCodePro NFM SemiBold
+font-family = JetBrainsMono NFM ExtraBold
 theme = catppuccin-macchiato
 cursor-style-blink = false
 
