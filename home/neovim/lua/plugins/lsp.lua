@@ -125,8 +125,6 @@ return {
           if not c then return end
 
           -- set up keybinds
-          vim.keymap.set("n", "gy", vim.lsp.buf.type_definition, { noremap = true, silent = true, buffer = buf, desc = "Go to type definition" })
-          vim.keymap.set("n", "gi", vim.lsp.buf.implementation, { noremap = true, silent = true, buffer = buf, desc = "Find implementations" })
           vim.keymap.set("n", "<leader>r", vim.lsp.buf.rename, { noremap = true, silent = true, buffer = buf, desc = "Rename symbol" })
           vim.keymap.set("n", "]d", vim.diagnostic.goto_next, { noremap = true, silent = true, buffer = buf, desc = "Go to next error" })
           vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, { noremap = true, silent = true, buffer = buf, desc = "Go to previous error" })
