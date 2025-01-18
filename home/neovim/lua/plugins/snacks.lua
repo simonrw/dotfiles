@@ -28,5 +28,13 @@ return {
       { "<leader>ht", function() require("snacks.picker").help() end, desc = "Help tags" },
       { "<leader><space>", function() require("snacks.picker").grep() end, desc = "Perform a live grep over the project" },
     },
+    config = function()
+      vim.api.nvim_create_autocmd("User", {
+        pattern = "MiniFilesActionRename",
+        callback = function(event)
+          Snacks.rename.on_rename_file(event.data.from, event.data.to)
+        end,
+      })
+    end,
   }
 }
