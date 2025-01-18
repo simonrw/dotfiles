@@ -74,7 +74,7 @@
       tilesize =
         {
           mm = 24;
-          mba = 16;
+          mba = 20;
         }
         .${hostname};
       largesize = 92;
