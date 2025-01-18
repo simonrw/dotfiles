@@ -1,4 +1,6 @@
+--- @type string
 local buffer_number = nil
+--- @type string
 local command = nil
 
 local function choose_pane()
@@ -13,6 +15,10 @@ local function choose_pane()
   end)
 end
 
+--- @class Context
+--- @field args string
+
+--- @param context Context
 local function run_code(context)
   vim.cmd.update()
   -- TODO: shell injection?!
@@ -68,10 +74,12 @@ vim.keymap.set("n", "<leader>v", function()
     interactive_define_command()
   end
 
-  run_code({})
+  run_code({
+    args = command or "",
+  })
 end, { silent = true, noremap = true })
 
 vim.keymap.set("n", "<leader>V", function()
   interactive_define_command()
-  run_code()
+  run_code({ args = "" })
 end, { silent = true, noremap = true })
