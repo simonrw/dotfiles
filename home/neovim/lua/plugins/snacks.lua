@@ -19,7 +19,7 @@ return {
       { "<leader>F", function() require("snacks.picker").files() end, desc = "Find files" },
       { "<leader>d", function() require("snacks.picker").diagnostics() end, desc = "LSP diagnostics" },
       { "<leader>S", function() require("snacks.picker").lsp_symbols() end, desc = "LSP symbols" },
-      { "<leader>b", function() require("snacks.picker").buffers() end, desc = "Open buffers" },
+      { "gb", function() require("snacks.picker").buffers() end, desc = "Open buffers" },
       { "gd", function() require("snacks.picker").lsp_definitions() end, desc = "LSP definitions" },
       { "gr", function() require("snacks.picker").lsp_references() end, desc = "LSP references" },
       { "gi", function() require("snacks.picker").lsp_implementations() end, desc = "LSP implementations" },
