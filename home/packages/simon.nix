@@ -46,6 +46,7 @@ in {
       jless
       jqp
       lsof
+      nix-output-monitor
       lua-language-server
       luaformatter
       mpv
