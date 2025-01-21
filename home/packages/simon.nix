@@ -71,10 +71,11 @@ in {
     ++ [
       # local packages
       check-certificate-revocation
+      codelldb
       listprojects
+      localdocs
       logtimes
       notify-wrapper
-      localdocs
       realise-symlink
       simpleproxy
       testsearch
