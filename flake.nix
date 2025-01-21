@@ -44,7 +44,6 @@
     logtimes = {
       url = "github:simonrw/logtimes";
     };
-    neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
   };
 
   outputs = {
@@ -63,6 +62,7 @@
         # programs from nixos-unstable
         jujutsu = inputs.nixpkgs-unstable.legacyPackages.${system}.jujutsu;
         fzf = inputs.nixpkgs-unstable.legacyPackages.${system}.fzf;
+        neovim = inputs.nixpkgs-unstable.legacyPackages.${system}.neovim;
 
         testsearch = inputs.testsearch.packages.${system}.default;
         listprojects = inputs.listprojects.packages.${system}.default;
