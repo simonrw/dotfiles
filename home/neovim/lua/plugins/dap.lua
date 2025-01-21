@@ -14,6 +14,15 @@ return {
           vim.keymap.set("n", "<F8>", function() require("dap").step_over() end, opts)
           vim.keymap.set("n", "<S-F8>", function() require("dap").step_out() end, opts)
           vim.keymap.set("n", "<F9>", function() require("dap").continue() end, opts)
+
+          require("dap").adapters.codelldb = {
+            type = "server",
+            port = "${port}",
+            executable = {
+              command = "codelldb",
+              args = {"--port", "${port}"},
+            },
+          }
         end,
       },
     },
