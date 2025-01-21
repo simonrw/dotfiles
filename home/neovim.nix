@@ -1,11 +1,12 @@
 {
   config,
   pkgs,
+  inputs,
   ...
 }: {
   config = {
     home.packages = [
-      pkgs.neovim
+      inputs.neovim-nightly-overlay.packages.${pkgs.system}.default
     ];
 
     xdg.configFile."nvim" = {
