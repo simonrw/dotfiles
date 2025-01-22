@@ -33,6 +33,19 @@ return {
       -- enable signature
       signature = { enabled = true },
 
+      -- configure completion menu
+      completion = {
+        menu = {
+          draw = {
+            columns = {
+              { "label",     "label_description", gap = 1 },
+              { "kind_icon", "kind", gap = 1 },
+            },
+            treesitter = { "lsp" },
+          }
+        }
+      },
+
       -- Default list of enabled providers defined so that you can extend it
       -- elsewhere in your config, without redefining it, due to `opts_extend`
       sources = {
