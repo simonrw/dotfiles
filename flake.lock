@@ -633,11 +633,11 @@
         "nixpkgs": "nixpkgs_10"
       },
       "locked": {
-        "lastModified": 1735836995,
-        "narHash": "sha256-MTat2PVhXR3hRrdT5rGVobF9AgDqYHpjLDvaFdpMZ3Y=",
+        "lastModified": 1737539860,
+        "narHash": "sha256-9WJEn77v3K4Mg6pMf/o7JIMAP1qAzQ2UiqcCadr6v44=",
         "owner": "simonrw",
         "repo": "testsearch",
-        "rev": "2621189698d1128fb1774d6dd99777cf77a43290",
+        "rev": "e98c5dfe165d6fc1a942123d1460437dfaa67ebd",
         "type": "github"
       },
       "original": {
