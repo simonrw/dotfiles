@@ -46,6 +46,7 @@ in {
         "visual-studio-code"
         "vlc"
         "vmware-fusion"
+        "whatsapp"
         "wireshark"
         "xquartz"
         "yt-music"
