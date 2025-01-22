@@ -53,6 +53,8 @@ return {
         { silent = true, noremap = true, desc = "LSP definitions" })
       vim.keymap.set("n", "gr", function() require("telescope.builtin").lsp_references() end,
         { silent = true, noremap = true, desc = "LSP references" })
+      vim.keymap.set("n", "gi", function() require("telescope.builtin").lsp_implementations() end,
+        { silent = true, noremap = true, desc = "LSP implementations" })
       vim.keymap.set("n", "<leader>s", function() require("telescope.builtin").lsp_document_symbols() end,
         { silent = true, noremap = true, desc = "LSP symbols in the current buffer" })
       vim.keymap.set("n", "<leader>j", function() require("telescope.builtin").jumplist({ show_line = false, }) end,
