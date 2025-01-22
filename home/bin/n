@@ -14,9 +14,10 @@ parser = argparse.ArgumentParser(
     usage="Open notes file",
     description=description,
 )
+parser.add_argument("-T", "--no-tmux", action="store_true", default=False, help="If in a tmux session, open the file in this pane")
 args = parser.parse_args()
 
-if "TMUX" in os.environ:
+if "TMUX" in os.environ and not args.no_tmux:
     cmd = [
         "tmux",
         "display-popup",
