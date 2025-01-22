@@ -30,8 +30,8 @@ if "TMUX" in os.environ and not args.no_tmux:
         "notes",
         "-b",  # border style
         "rounded",
-        f"nvim {NOTES_PATH}",
+        f"nvim -c 'normal G' {NOTES_PATH}",
     ]
 else:
-    cmd = ["nvim", str(NOTES_PATH)]
+    cmd = ["nvim", "-c", "normal G", str(NOTES_PATH)]
 os.execvp(cmd[0], cmd)
