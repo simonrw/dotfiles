@@ -16,5 +16,21 @@ parser = argparse.ArgumentParser(
 )
 args = parser.parse_args()
 
-cmd = ["nvim", str(NOTES_PATH)]
+if "TMUX" in os.environ:
+    cmd = [
+        "tmux",
+        "display-popup",
+        "-E",  # quit pane on exit
+        "-h",
+        "95%",
+        "-w",
+        "100",
+        "-T",  # pane title
+        "notes",
+        "-b",  # border style
+        "rounded",
+        f"nvim {NOTES_PATH}",
+    ]
+else:
+    cmd = ["nvim", str(NOTES_PATH)]
 os.execvp(cmd[0], cmd)
