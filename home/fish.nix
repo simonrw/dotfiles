@@ -44,6 +44,8 @@ in {
         pylab = "ipython - -pylab";
         sourceenv = "source ./venv/bin/activate";
         ta = "_tmux_attach";
+        pts = "pytest (testsearch)";
+        ptl = "pytest (testsearch rerun -l)";
         thor = "${pkgs.eza}/bin/eza -s modified -l";
         tl = "tmux-last";
         trash = "${pkgs.python3Packages.send2trash}/bin/send2trash";
