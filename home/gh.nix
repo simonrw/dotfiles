@@ -37,6 +37,10 @@
           title = "LS: Involved";
           filters = "is:pr is:open involves:@me -author:@me org:localstack";
         }
+        {
+          title = "LS: Assigned";
+          filters = "is:pr is:open assignee:@me org:localstack";
+        }
       ];
       issuesSections = [
         {
