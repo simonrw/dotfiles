@@ -78,11 +78,6 @@
         }
         .${hostname};
       largesize = 92;
-      persistent-apps = [
-        "/Applications/Firefox.app"
-        "/Applications/Ghostty.app"
-        "/Applications/Slack.app"
-      ];
     };
     finder = {
       AppleShowAllExtensions = false;
