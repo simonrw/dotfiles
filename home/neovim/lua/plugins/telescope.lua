@@ -51,6 +51,8 @@ return {
         { silent = true, noremap = true, desc = "Switch to buffer" })
       vim.keymap.set("n", "gd", function() require("telescope.builtin").lsp_definitions() end,
         { silent = true, noremap = true, desc = "LSP definitions" })
+      vim.keymap.set("n", "gt", function() require("telescope.builtin").lsp_type_definitions() end,
+        { silent = true, noremap = true, desc = "LSP type definition" })
       vim.keymap.set("n", "gr", function() require("telescope.builtin").lsp_references() end,
         { silent = true, noremap = true, desc = "LSP references" })
       vim.keymap.set("n", "gi", function() require("telescope.builtin").lsp_implementations() end,
