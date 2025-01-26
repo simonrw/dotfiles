@@ -63,3 +63,20 @@ for _, autocmd in ipairs(autocommands) do
     nested = autocmd.nested
   })
 end
+
+-- open file at last opened position
+vim.api.nvim_create_autocmd('BufReadPost', {
+  pattern = { '*' },
+  desc = 'When editing a file, always jump to the last known cursor position',
+  callback = function()
+    local line = vim.fn.line '\'"'
+    if
+        line >= 1
+        and line <= vim.fn.line '$'
+        and (vim.bo.filetype ~= 'commit') and (vim.bo.filetype ~= "gitcommit")
+        and vim.fn.index({ 'xxd', 'gitrebase' }, vim.bo.filetype) == -1
+    then
+      vim.cmd 'normal! g`"'
+    end
+  end,
+})
