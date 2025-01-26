@@ -109,57 +109,63 @@ return {
     'mfussenegger/nvim-dap-python',
     dependencies = {
       {
-        'mfussenegger/nvim-dap',
-        config = function()
-          local dap = require("dap")
-          local opts = function(desc)
-            return { noremap = true, silent = true, desc = desc }
-          end
-
-          vim.keymap.set("n", "<leader>bb", function() dap.toggle_breakpoint() end, opts("Toggle breakpoint"))
-          vim.keymap.set("n", "<leader>br", function() dap.repl.toggle() end, opts("Toggle repl"))
-          vim.keymap.set("n", "<leader>bl", function() dap.run_last() end, opts("Run last debugging session"))
-          vim.keymap.set("n", "<leader>bf", function()
-            local widgets = require('dap.ui.widgets')
-            widgets.centered_float(widgets.frames)
-          end, opts("Show frames"))
-          vim.keymap.set("n", "<leader>bs", function()
-            local widgets = require('dap.ui.widgets')
-            widgets.centered_float(widgets.scopes)
-          end, opts("Show scopes"))
-
-          -- map pycharm bindings
-          vim.keymap.set({ "i", "n" }, "<F7>", function() dap.step_into() end, opts("Step into"))
-          vim.keymap.set({ "i", "n" }, "<F8>", function() dap.step_over() end, opts("Step over"))
-          vim.keymap.set({ "i", "n" }, "<S-F8>", function() dap.step_out() end, opts("Step out"))
-          vim.keymap.set({ "i", "n" }, "<F9>", function() dap.continue() end, opts("Continue"))
-
-          dap.adapters.codelldb = {
-            type = "server",
-            port = "${port}",
-            executable = {
-              command = "codelldb",
-              args = { "--port", "${port}" },
-            },
-          }
-
-          -- support parsing LocalStack code workspace file
-          dap.providers.configs["localstack-workspace"] = function(bufnr)
-            local resolved_path = vim.fn.getcwd() .. '/../localstack.code-workspace'
-            if not vim.loop.fs_stat(resolved_path) then
-              return {}
-            end
-
-            local lines = {}
-            for line in io.lines(resolved_path) do
-              if not vim.startswith(vim.trim(line), '//') then
-                table.insert(lines, line)
+        'theHamsta/nvim-dap-virtual-text',
+        opts = {},
+        dependencies = {
+          {
+            'mfussenegger/nvim-dap',
+            config = function()
+              local dap = require("dap")
+              local opts = function(desc)
+                return { noremap = true, silent = true, desc = desc }
               end
-            end
-            local contents = table.concat(lines, '\n')
-            return load_workspace_json(contents, resolved_path)
-          end
-        end,
+
+              vim.keymap.set("n", "<leader>bb", function() dap.toggle_breakpoint() end, opts("Toggle breakpoint"))
+              vim.keymap.set("n", "<leader>br", function() dap.repl.toggle() end, opts("Toggle repl"))
+              vim.keymap.set("n", "<leader>bl", function() dap.run_last() end, opts("Run last debugging session"))
+              vim.keymap.set("n", "<leader>bf", function()
+                local widgets = require('dap.ui.widgets')
+                widgets.centered_float(widgets.frames)
+              end, opts("Show frames"))
+              vim.keymap.set("n", "<leader>bs", function()
+                local widgets = require('dap.ui.widgets')
+                widgets.centered_float(widgets.scopes)
+              end, opts("Show scopes"))
+
+              -- map pycharm bindings
+              vim.keymap.set({ "i", "n" }, "<F7>", function() dap.step_into() end, opts("Step into"))
+              vim.keymap.set({ "i", "n" }, "<F8>", function() dap.step_over() end, opts("Step over"))
+              vim.keymap.set({ "i", "n" }, "<S-F8>", function() dap.step_out() end, opts("Step out"))
+              vim.keymap.set({ "i", "n" }, "<F9>", function() dap.continue() end, opts("Continue"))
+
+              dap.adapters.codelldb = {
+                type = "server",
+                port = "${port}",
+                executable = {
+                  command = "codelldb",
+                  args = { "--port", "${port}" },
+                },
+              }
+
+              -- support parsing LocalStack code workspace file
+              dap.providers.configs["localstack-workspace"] = function(bufnr)
+                local resolved_path = vim.fn.getcwd() .. '/../localstack.code-workspace'
+                if not vim.loop.fs_stat(resolved_path) then
+                  return {}
+                end
+
+                local lines = {}
+                for line in io.lines(resolved_path) do
+                  if not vim.startswith(vim.trim(line), '//') then
+                    table.insert(lines, line)
+                  end
+                end
+                local contents = table.concat(lines, '\n')
+                return load_workspace_json(contents, resolved_path)
+              end
+            end,
+          },
+        },
       },
     },
     config = function()
