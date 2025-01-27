@@ -86,6 +86,11 @@ do
     key = "jk",
     mode = "i",
     options = { noremap = true, silent = true, desc = "Map jk to escape" }
+  }, {
+    action = "<nop>",
+    key = "<esc>",
+    mode = "i",
+    options = { noremap = true, silent = true, desc = "Disable escape" }
   }
   }
   for _, map in ipairs(__binds) do
