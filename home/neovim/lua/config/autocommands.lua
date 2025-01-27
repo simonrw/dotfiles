@@ -80,3 +80,23 @@ vim.api.nvim_create_autocmd('BufReadPost', {
     end
   end,
 })
+
+-- templates
+vim.api.nvim_create_autocmd('BufNewFile', {
+  group = vim.api.nvim_create_augroup('templates', { clear = true }),
+  desc = "Load template on new file",
+  callback = function()
+    local home = os.getenv("HOME")
+    local ftype = vim.bo.filetype
+    local tpl_path = home .. "/.config/nvim/templates/" .. ftype .. ".tpl"
+    if not vim.uv.fs_stat(tpl_path) then
+      return
+    end
+    local f = io.open(tpl_path, "r")
+    if not f then
+      return
+    end
+    local content = f:read("*a")
+    vim.snippet.expand(content)
+  end,
+})
