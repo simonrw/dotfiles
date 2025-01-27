@@ -80,7 +80,12 @@ do
     action = "?\\v",
     key = "?",
     mode = "n",
-    options = { noremap = true, silent = true}
+    options = { noremap = true, silent = true }
+  }, {
+    action = "<esc>",
+    key = "jk",
+    mode = "i",
+    options = { noremap = true, silent = true, desc = "Map jk to escape" }
   }
   }
   for _, map in ipairs(__binds) do
