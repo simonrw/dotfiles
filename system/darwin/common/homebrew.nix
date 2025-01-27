@@ -20,7 +20,6 @@ in {
         "brave-browser"
         "deskpad"
         "discord"
-        "docker"
         "dteoh-devdocs"
         "element"
         "emacs"
@@ -57,6 +56,13 @@ in {
     brews = [
       "cargo-instruments"
       "cftail"
+      # TODO: use nix-darwin module when ready
+      # https://github.com/LnL7/nix-darwin/pull/1275
+      {
+        name = "colima";
+        restart_service = "changed";
+      }
+      "docker"
       "node"
       "pulumi/tap/pulumi"
     ];
