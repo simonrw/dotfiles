@@ -11,6 +11,7 @@ set -x LANG en_GB.UTF-8
 set -x CARGO_TARGET_DIR {$HOME}/.cargo-target
 set -x NIXPKGS_ALLOW_UNFREE 1
 set -x NTFY_TOPIC simonrw-notify
+set -x DOCKER_HOST unix:///$HOME/.config/colima/default/docker.sock
 
 # centralise where python puts its .pyc files
 set -x PYTHONPYCACHEPREFIX {$HOME}/.python-cache
