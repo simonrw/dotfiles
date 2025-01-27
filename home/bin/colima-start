@@ -1,0 +1,88 @@
+#!/usr/bin/env python
+
+import json
+import subprocess as sp
+from typing import TypedDict
+import argparse
+
+
+class ColimaStatus(TypedDict):
+    display_name: str
+    driver: str
+    arch: str
+    runtime: str
+    mount_type: str
+    ip_address: str
+    socker_socket: str
+    kubernetes: bool
+    cpu: int
+    memory: int
+    disk: int
+
+
+parser = argparse.ArgumentParser()
+parser.add_argument("-p", "--profile", required=False, default="default")
+parser.add_argument("-c", "--cpu", required=False, type=int, default=6)
+parser.add_argument("-m", "--memory", required=False, type=int, default=8)
+parser.add_argument("-d", "--disk", required=False, type=int, default=100)
+parser.add_argument(
+    "-M",
+    "--mount-type",
+    required=False,
+    choices=["sshfs", "virtiofs"],
+    default="virtiofs",
+)
+parser.add_argument(
+    "--no-vz-rosetta", action="store_true", default=False, required=False
+)
+args = parser.parse_args()
+
+
+class Colima:
+    @classmethod
+    def is_running(cls) -> bool:
+        try:
+            cls.status()
+            return True
+        except sp.CalledProcessError:
+            return False
+
+    @classmethod
+    def status(cls) -> ColimaStatus:
+        cmd = ["colima", "--profile", args.profile, "status", "--extended", "--json"]
+        out = sp.check_output(cmd, stderr=sp.PIPE)
+        return json.loads(out.decode())
+
+    @classmethod
+    def start(cls):
+        cmd = [
+            "colima",
+            "--profile",
+            args.profile,
+            "start",
+            "--cpu",
+            str(args.cpu),
+            "--memory",
+            str(args.memory),
+            "--disk",
+            str(args.disk),
+            "--mount-type",
+            args.mount_type,
+        ]
+        if not args.no_vz_rosetta:
+            cmd.append("--vz-rosetta")
+        sp.check_call(cmd)
+
+    @classmethod
+    def delete(cls):
+        sp.check_call(["colima", "--profile", args.profile, "delete", "--force"])
+
+
+if Colima.is_running():
+    answer = input("Colima already running, delete? [yN]: ")
+    if answer.lower().strip() == "y":
+        Colima.delete()
+    else:
+        print("Doing nothing")
+else:
+    Colima.start()
