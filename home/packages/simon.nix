@@ -28,6 +28,7 @@ in {
     [
       alejandra
       ansi
+      basedpyright
       bat
       cachix
       cert-info
@@ -46,11 +47,11 @@ in {
       jless
       jqp
       lsof
-      nix-output-monitor
       lua-language-server
       luaformatter
       mpv
       nil
+      nix-output-monitor
       nix-tree
       openssh
       pre-commit
