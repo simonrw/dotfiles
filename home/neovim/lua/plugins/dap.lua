@@ -163,6 +163,16 @@ return {
     },
     config = function()
       require("dap-python").setup("python")
+
+      -- add mapping to debug the current test
+      vim.api.nvim_create_autocmd('FileType', {
+        group = vim.api.nvim_create_augroup('python-debug-test', { clear = true }),
+        pattern = { 'python' },
+        callback = function(event)
+          vim.keymap.set('n', '<leader>bm', function() require('dap-python').test_method() end,
+            { noremap = true, silent = true, buffer = event.buf })
+        end,
+      })
     end,
   },
 }
