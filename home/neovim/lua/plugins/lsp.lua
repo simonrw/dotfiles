@@ -55,7 +55,7 @@ return {
                 false
           end
         },
-        name = "pyright"
+        name = "basedpyright"
       },
         { name = "gopls" },
         { name = "gleam" },
