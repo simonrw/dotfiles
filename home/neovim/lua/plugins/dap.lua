@@ -1,21 +1,3 @@
---- @param m table
---- @param workspace_path string
---- @return table
-local function expand_path_mapping(m, workspace_path)
-  local out = {}
-  for _, mapping in ipairs(m) do
-    local transformed = {}
-    if mapping.localRoot then
-      transformed.localRoot = expand_path(mapping.localRoot, workspace_path)
-    end
-    if mapping.remoteRoot then
-      transformed.remoteRoot = expand_path(mapping.remoteRoot, workspace_path)
-    end
-    table.insert(out, transformed)
-  end
-  return out
-end
-
 --- @param s string
 --- @param workspace_path string
 --- @return string
@@ -35,6 +17,17 @@ local function expand_path(s, workspace_path)
     -- no transform needed
     return s
   end
+end
+
+--- @param m table
+--- @param workspace_path string
+--- @return table
+local function expand_path_mapping(m, workspace_path)
+  local out = {}
+  for key, value in pairs(m) do
+    out[key] = expand_path(value, workspace_path)
+  end
+  return out
 end
 
 --- @param mappings table
