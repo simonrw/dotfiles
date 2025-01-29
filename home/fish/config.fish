@@ -73,8 +73,6 @@ end
 
 fish_ssh_agent
 
-ensure_tmux_is_running
-
 switch (uname)
     case Darwin
         # set -x DYLD_LIBRARY_PATH {$BUILD_PREFIX}/lib {$DYLD_LIBRARY_PATH}
