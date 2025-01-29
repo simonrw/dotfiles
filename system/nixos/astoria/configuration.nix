@@ -15,6 +15,7 @@ in {
     ./yubikey.nix
     ./logitech.nix
     ./wm.nix
+    ./ollama.nix
     ./networking.nix
     ./update-diff.nix
     ./ddccontrol.nix
