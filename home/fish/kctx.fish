@@ -6,4 +6,4 @@ if test -z $chosen
 end
 
 echo "Setting KUBECONFIG=$chosen"
-set -g KUBECONFIG $chosen
+set -gx KUBECONFIG $chosen
