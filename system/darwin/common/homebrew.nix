@@ -29,6 +29,7 @@ in {
         "ghostty"
         "gimp"
         "inkscape"
+        "insomnia"
         "karabiner-elements"
         "notion"
         "obs"
