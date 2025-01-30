@@ -18,6 +18,7 @@ in {
         "barrier"
         "blender"
         "brave-browser"
+        "cursor"
         "deskpad"
         "discord"
         "docker"
