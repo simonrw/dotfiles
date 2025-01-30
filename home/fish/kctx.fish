@@ -1,6 +1,6 @@
-set -l global_configs (fd -e yaml -e yml . ~/.kubeconfigs)
-set -l local_configs (fd -e yaml -e yml)
-set -l chosen (echo $global_configs $local_configs | fzf --exit-0)
+set -l global_configs (fd -e yaml -e yml -0 . ~/.kubeconfigs)
+set -l local_configs (fd -e yaml -e yml -0 .)
+set -l chosen (printf "$global_configs\0$local_configs" | fzf --read0 --exit-0)
 if test -z $chosen
     echo "No file chosen"
 end
