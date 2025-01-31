@@ -18,3 +18,5 @@ vim.api.nvim_create_user_command("ToggleList", function()
     vim.cmd "copen"
   end
 end, {})
+
+vim.api.nvim_create_user_command("W", "write", {})
