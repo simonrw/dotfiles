@@ -32,7 +32,6 @@ in {
       bat
       cachix
       cert-info
-      curlie
       custom-curl
       dig
       docker-credential-helpers
@@ -66,6 +65,7 @@ in {
       unzip
       uv
       watch
+      xh
       yq
       zip
     ]
