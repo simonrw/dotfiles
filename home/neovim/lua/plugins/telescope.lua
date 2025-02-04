@@ -41,8 +41,6 @@ return {
         { silent = true, noremap = true, desc = "Perform a live grep over the project" })
       vim.keymap.set("n", "<leader>F", function() require("telescope.builtin").find_files() end,
         { silent = true, noremap = true, desc = "Find any file" })
-      vim.keymap.set("n", "<leader>d", function() require("telescope.builtin").diagnostics() end,
-        { silent = true, noremap = true, desc = "LSP diagnostics" })
       vim.keymap.set("n", "<leader>f", function() require("telescope.builtin").git_files() end,
         { silent = true, noremap = true, desc = "Find git files" })
       vim.keymap.set("n", "<leader>S", function() require("telescope.builtin").lsp_dynamic_workspace_symbols() end,
