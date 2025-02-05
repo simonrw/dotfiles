@@ -31,6 +31,7 @@ in {
         "inkscape"
         "insomnia"
         "karabiner-elements"
+        "neovide"
         "notion"
         "obs"
         "obsidian"
