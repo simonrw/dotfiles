@@ -699,11 +699,11 @@
         "nixpkgs": "nixpkgs_11"
       },
       "locked": {
-        "lastModified": 1737539860,
-        "narHash": "sha256-9WJEn77v3K4Mg6pMf/o7JIMAP1qAzQ2UiqcCadr6v44=",
+        "lastModified": 1738753636,
+        "narHash": "sha256-GpUJVVL+2VTg9zNFHDELbapG7uNu2Yx/RrQ1E6sy+70=",
         "owner": "simonrw",
         "repo": "testsearch",
-        "rev": "e98c5dfe165d6fc1a942123d1460437dfaa67ebd",
+        "rev": "9f26342191272a768f4c978f1fdd9f16be19baaa",
         "type": "github"
       },
       "original": {
