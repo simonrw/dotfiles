@@ -484,11 +484,11 @@
         "nixpkgs": "nixpkgs_9"
       },
       "locked": {
-        "lastModified": 1738713516,
-        "narHash": "sha256-6xcoV+knbMDFICXQBrlNDIpcrgTvJ4becgrye5PLRi4=",
+        "lastModified": 1738751547,
+        "narHash": "sha256-nOvOwTPOv9qEcqj04JYhuTW5UG4SAR3EjDb+55TGRxA=",
         "owner": "simonrw",
         "repo": "notestools",
-        "rev": "c3c8462a36ced4d04a62accb64dac892bfd22c0e",
+        "rev": "f33c538108486400cbb0667b8061fc3ee749536f",
         "type": "github"
       },
       "original": {
