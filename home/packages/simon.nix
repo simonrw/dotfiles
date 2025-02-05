@@ -76,6 +76,7 @@ in {
       listprojects
       localdocs
       logtimes
+      notestools
       notify-wrapper
       realise-symlink
       simpleproxy
