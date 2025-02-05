@@ -44,6 +44,9 @@
     logtimes = {
       url = "github:simonrw/logtimes";
     };
+    notestools = {
+      url = "github:simonrw/notestools";
+    };
   };
 
   outputs = {
@@ -82,6 +85,7 @@
         wlman = final.callPackage ./derivations/wlman {};
         check-certificate-revocation = final.callPackage ./derivations/check-certificate-revocation {};
         logtimes = inputs.logtimes.packages.${system}.default;
+        notestools = inputs.notestools.packages.${system}.default;
         # https://kokada.capivaras.dev/blog/quick-bits-realise-nix-symlinks/
         realise-symlink = final.writeShellApplication {
           name = "realise-symlink";
