@@ -25,7 +25,6 @@ in {
         then ["--color dark"]
         else ["--color light"]
       );
-    tmux.enableShellIntegration = true;
     fileWidgetCommand = "fd --no-ignore --type f";
     fileWidgetOptions = [
       "--preview 'bat --color always {}'"
