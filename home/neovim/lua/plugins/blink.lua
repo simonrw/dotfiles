@@ -2,10 +2,7 @@ return {
   {
     'saghen/blink.cmp',
     -- optional: provides snippets for the snippet source
-    dependencies = {
-      'rafamadriz/friendly-snippets',
-      "moyiz/blink-emoji.nvim",
-    },
+    dependencies = 'rafamadriz/friendly-snippets',
 
     -- use a release tag to download pre-built binaries
     version = '*',
@@ -42,7 +39,7 @@ return {
           draw = {
             columns = {
               { "label",     "label_description", gap = 1 },
-              { "kind_icon", "kind",              gap = 1 },
+              { "kind_icon", "kind", gap = 1 },
             },
             treesitter = { "lsp" },
           }
@@ -52,19 +49,10 @@ return {
       -- Default list of enabled providers defined so that you can extend it
       -- elsewhere in your config, without redefining it, due to `opts_extend`
       sources = {
-        default = { 'lsp', 'path', 'snippets', 'buffer', 'emoji' },
+        default = { 'lsp', 'path', 'snippets', 'buffer' },
 
         -- disable command line completion
         cmdline = {},
-
-        providers = {
-          emoji = {
-            module = "blink-emoji",
-            name = "Emoji",
-            score_offset = 15,
-            opts = { insert = true },
-          },
-        },
       },
     },
     opts_extend = { "sources.default" }
