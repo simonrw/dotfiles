@@ -54,6 +54,7 @@ in {
         "yt-music"
         "yubico-yubikey-manager"
         "zed"
+        "zoom"
       ]
       ++ host-specific-casks;
     brews = [
