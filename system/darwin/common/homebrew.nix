@@ -28,7 +28,6 @@ in {
         "firefox"
         "ghostty"
         "gimp"
-        "google-chrome"
         "inkscape"
         "insomnia"
         "karabiner-elements"
