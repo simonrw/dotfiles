@@ -109,11 +109,11 @@ return {
       -- configure diagnostics
       -- from: https://rsdlt.github.io/posts/rust-nvim-ide-guide-walkthrough-development-debug/
       vim.diagnostic.config({
-        virtual_text = false,
+        virtual_text = true,
         signs = true,
         update_in_insert = true,
         underline = false,
-        severity_sort = false,
+        severity_sort = true,
         float = { border = 'rounded', source = true, header = '', prefix = '' }
       })
 
