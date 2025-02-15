@@ -128,7 +128,6 @@ return {
           vim.keymap.set("n", "<leader>r", vim.lsp.buf.rename, { noremap = true, silent = true, buffer = buf, desc = "Rename symbol" })
           vim.keymap.set("n", "]d", vim.diagnostic.goto_next, { noremap = true, silent = true, buffer = buf, desc = "Go to next error" })
           vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, { noremap = true, silent = true, buffer = buf, desc = "Go to previous error" })
-          vim.keymap.set("n", "<leader>d", vim.diagnostic.setqflist, { silent = true, noremap = true, desc = "LSP diagnostics" })
 
           -- only add these mappings if the LSP is not rust-analyzer, as these mappings are set in the rust filetype plugin
           if c.name ~= "rust-analyzer" then
