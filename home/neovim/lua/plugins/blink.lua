@@ -48,6 +48,7 @@ return {
 
       cmdline = {
         -- disable command line completion
+        enabled = false,
         sources = {},
       },
       -- Default list of enabled providers defined so that you can extend it
