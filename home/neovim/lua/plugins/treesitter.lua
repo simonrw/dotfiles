@@ -1,6 +1,9 @@
 return {
   {
     "nvim-treesitter/nvim-treesitter",
+    dependencies = {
+      'nvim-treesitter/nvim-treesitter-textobjects'
+    },
     build = ":TSUpdate",
     config = function()
       local configs = require("nvim-treesitter.configs")
@@ -17,6 +20,21 @@ return {
             node_incremental = "v",
             node_decremental = "V",
           },
+        },
+        textobjects = {
+          select = {
+            enable = true,
+            keymaps = {
+              ["af"] = "@function.outer",
+              ["if"] = "@function.inner",
+              ["ac"] = "@class.outer",
+              ["ic"] = "@class.inner",
+            },
+            selection_modes = {
+              ['@function.outer'] = 'V',
+              ['@class.outer'] = 'V',
+            },
+          }
         },
       })
 
