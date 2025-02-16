@@ -10,6 +10,14 @@ return {
         sync_install = false,
         highlight = { enable = true, additional_vim_regex_highlighting = false },
         indent = { enable = false },
+        -- TODO: will need to get rid of this with v1.0
+        incremental_selection = {
+          enable = true,
+          keymaps = {
+            node_incremental = "v",
+            node_decremental = "V",
+          },
+        },
       })
 
       -- configure folding
