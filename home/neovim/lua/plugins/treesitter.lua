@@ -31,6 +31,8 @@ return {
               ["ic"] = "@class.inner",
             },
             selection_modes = {
+              ['@function.inner'] = 'V',
+              ['@class.inner'] = 'V',
               ['@function.outer'] = 'V',
               ['@class.outer'] = 'V',
             },
