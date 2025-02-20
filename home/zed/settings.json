@@ -4,14 +4,79 @@
 // documentation: https://zed.dev/docs/configuring-zed
 //
 // To see all of Zed's default settings without changing your
-// custom settings, run `zed: open default settings` from the
-// command palette (cmd-shift-p / ctrl-shift-p)
+// custom settings, run the `open default settings` command
+// from the command palette or from `Zed` application menu.
 {
-  "ui_font_size": 16,
-  "buffer_font_size": 16,
-  "theme": {
-    "mode": "system",
-    "light": "One Light",
-    "dark": "One Dark"
+  "features": {
+    "edit_prediction_provider": "zed"
+  },
+  "ssh_connections": [
+    {
+      "host": "mm",
+      "projects": [
+        {
+          "paths": ["~/work/localstack/cdk"]
+        },
+        {
+          "paths": ["~/work/localstack/localstack-ext"]
+        }
+      ]
+    }
+  ],
+  "theme": "Catppuccin Macchiato",
+  "buffer_font_family": "JetBrainsMono Nerd Font",
+  "buffer_font_weight": 700,
+  "buffer_font_size": 14,
+  "buffer_font_features": {
+    // disable ligatures
+    "calt": false
+  },
+  "vim_mode": true,
+  "vim": {
+    "use_smartcase_find": true,
+    "use_multiline_find": true
+  },
+  "cursor_blink": false,
+  "use_autoclose": false,
+  "gutter": {
+    "line_numbers": false,
+    "folds": false
+  },
+  "scrollbar": { "show": "never" },
+  "toolbar": {
+    "quick_actions": false
+  },
+  "terminal": {
+    "detect_venv": "off",
+    "font_family": "JetBrainsMono Nerd Font",
+    "font_weight": 700
+  },
+  "tab_bar": {
+    "show": false
+  },
+  "assistant": {
+    "version": "2",
+    "enabled": true
+  },
+  "telemetry": {
+    "diagnostics": false,
+    "metrics": false
+  },
+  "git": {
+    "inline_blame": {
+      "enabled": false
+    }
+  },
+  "lsp": {
+    "pyright": {
+      "settings": {}
+    },
+    "rust-analyzer": {
+      "initialization_options": {
+        "checkOnSave": {
+          "command": "clippy"
+        }
+      }
+    }
   }
 }
