@@ -34,15 +34,15 @@ in {
       ./gpg.nix
       ./helix.nix
       ./home-manager.nix
-      ./neovim.nix
       ./ipython.nix
       ./jq.nix
       ./jujutsu.nix
       ./kitty.nix
       ./kubeconfig.nix
       ./mpv.nix
-      ./nix.nix
+      ./neovim.nix
       ./nix-index.nix
+      ./nix.nix
       ./packages/simon.nix
       ./ssh.nix
       ./taskwarrior.nix
@@ -51,6 +51,7 @@ in {
       ./wallpaper.nix
       ./wezterm.nix
       ./wireshark.nix
+      ./zed.nix
       ./zellij.nix
       ./zoxide.nix
       ./zsh.nix
@@ -89,6 +90,7 @@ in {
   me =
     {
       ghostty.enable = true;
+      zed.enable = true;
       editor.name = "neovim";
       wallpaper = {
         enable = false;
