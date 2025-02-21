@@ -12,6 +12,9 @@
     matchBlocks = {
       "*" = {
         sendEnv = ["TMUX_DISABLED"];
+        setEnv = {
+          "TERM" = "xterm-256color";
+        };
       };
       "astoria" = {
         user = "simon";
