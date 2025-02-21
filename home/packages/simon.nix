@@ -65,6 +65,7 @@ in {
       unzip
       uv
       watch
+      watchexec
       xh
       yq
       zip
