@@ -132,8 +132,10 @@
       diff = {
         algorithm = "histogram";
         tool = "meld";
-        colormoved = "default";
-        colormovedws = "allow-indentation-change";
+        colorMoved = "plain";
+        colorMovedWS = "allow-indentation-change";
+        mnemonicPrefix = true;
+        renames = true;
       };
       difftool = {
         prompt = false;
@@ -184,22 +186,26 @@
       };
       rerere = {
         enabled = true;
-        autoUpdate = true;
+        autoupdate = true;
       };
       push = {
-        default = "current";
+        default = "simple";
         followTags = true;
         autoSetupRemote = true;
       };
       fetch = {
-        prune = 1;
+        prune = true;
+        pruneTags = true;
+        all = true;
       };
+      help.autocorrect = "prompt";
       grep = {
         extendedRegexp = true;
       };
       init = {
         defaultBranch = "main";
       };
+      tag.sort = "version:refname";
       merge = {
         tool = "conflicted";
         conflictstyle = "zdiff3";
