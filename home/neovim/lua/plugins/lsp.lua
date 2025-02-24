@@ -108,11 +108,16 @@ return {
 
       -- configure diagnostics
       -- from: https://rsdlt.github.io/posts/rust-nvim-ide-guide-walkthrough-development-debug/
+      local severity_config = {
+          severity = {
+            min = vim.diagnostic.severity.ERROR,
+          },
+      }
       vim.diagnostic.config({
         virtual_text = false,
         signs = true,
         update_in_insert = true,
-        underline = false,
+        underline = severity_config,
         severity_sort = true,
         float = { border = 'rounded', source = true, header = '', prefix = '' }
       })
