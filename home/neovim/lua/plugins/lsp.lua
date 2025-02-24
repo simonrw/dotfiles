@@ -18,9 +18,9 @@ return {
     config = function()
       local util = require 'lspconfig.util'
 
-      local capabilities = require("blink.cmp").get_lsp_capabilities()
       local lspServers = {
         {
+          name = "ts_ls",
           extraOptions = {
             filetypes = {
               "javascript", "javascriptreact", "javascript.jsx",
@@ -31,8 +31,8 @@ return {
               typescript = { format = { indentSize = 2 } }
             }
           },
-          name = "ts_ls"
         }, {
+        name = "basedpyright",
         extraOptions = {
           on_attach = function(client, bufnr)
             client.config.settings.useLibraryCodeForTypes =
@@ -55,7 +55,6 @@ return {
                 false
           end
         },
-        name = "basedpyright"
       },
         { name = "gopls" },
         { name = "gleam" },
@@ -77,19 +76,9 @@ return {
       }
 
       for _, server in ipairs(lspServers) do
-        if type(server) == "string" then
-          require("lspconfig")[server].setup(setup)
-        else
-          local options = server.extraOptions
-
-          if options == nil then
-            options = setup
-          else
-            options = vim.tbl_extend("keep", options, setup)
-          end
-
-          require("lspconfig")[server.name].setup(options)
-        end
+        local options = vim.tbl_extend("keep", server.extraOptions or {}, setup)
+        options.capabilities = require("blink.cmp").get_lsp_capabilities(options.capabilities)
+        require("lspconfig")[server.name].setup(options)
       end
 
       vim.lsp.inlay_hint.enable()
@@ -109,9 +98,9 @@ return {
       -- configure diagnostics
       -- from: https://rsdlt.github.io/posts/rust-nvim-ide-guide-walkthrough-development-debug/
       local severity_config = {
-          severity = {
-            min = vim.diagnostic.severity.ERROR,
-          },
+        severity = {
+          min = vim.diagnostic.severity.ERROR,
+        },
       }
       vim.diagnostic.config({
         virtual_text = false,
@@ -130,13 +119,17 @@ return {
           if not c then return end
 
           -- set up keybinds
-          vim.keymap.set("n", "<leader>r", vim.lsp.buf.rename, { noremap = true, silent = true, buffer = buf, desc = "Rename symbol" })
-          vim.keymap.set("n", "]d", vim.diagnostic.goto_next, { noremap = true, silent = true, buffer = buf, desc = "Go to next error" })
-          vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, { noremap = true, silent = true, buffer = buf, desc = "Go to previous error" })
+          vim.keymap.set("n", "<leader>r", vim.lsp.buf.rename,
+            { noremap = true, silent = true, buffer = buf, desc = "Rename symbol" })
+          vim.keymap.set("n", "]d", vim.diagnostic.goto_next,
+            { noremap = true, silent = true, buffer = buf, desc = "Go to next error" })
+          vim.keymap.set("n", "[d", vim.diagnostic.goto_prev,
+            { noremap = true, silent = true, buffer = buf, desc = "Go to previous error" })
 
           -- only add these mappings if the LSP is not rust-analyzer, as these mappings are set in the rust filetype plugin
           if c.name ~= "rust-analyzer" then
-            vim.keymap.set("n", "<leader>k", vim.lsp.buf.hover, { noremap = true, silent = true, buffer = buf, desc = "Get help with function signature" })
+            vim.keymap.set("n", "<leader>k", vim.lsp.buf.hover,
+              { noremap = true, silent = true, buffer = buf, desc = "Get help with function signature" })
             vim.keymap.set("n", "<leader>a", function()
               vim.lsp.buf.code_action({
                 source = { organizeImports = true }
