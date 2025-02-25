@@ -10,4 +10,12 @@ if vim.g.neovide then
   map.set({ "n", "v" }, "<C-+>", function() vim.g.neovide_scale_factor = vim.g.neovide_scale_factor + 0.1 end)
   map.set({ "n", "v" }, "<C-->", function() vim.g.neovide_scale_factor = vim.g.neovide_scale_factor - 0.1 end)
   map.set({ "n", "v" }, "<C-0>", function() vim.g.neovide_scale_factor = 1 end)
+
+  -- bindings for copy/paste
+  map.set(
+    { 'n', 'v', 's', 'x', 'o', 'i', 'l', 'c', 't' },
+    '<D-v>',
+    function() vim.api.nvim_paste(vim.fn.getreg("+"), true, -1) end,
+    { noremap = true, silent = true }
+  )
 end
