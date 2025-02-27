@@ -128,8 +128,6 @@ return {
 
           -- only add these mappings if the LSP is not rust-analyzer, as these mappings are set in the rust filetype plugin
           if c.name ~= "rust-analyzer" then
-            vim.keymap.set("n", "<leader>k", vim.lsp.buf.hover,
-              { noremap = true, silent = true, buffer = buf, desc = "Get help with function signature" })
             vim.keymap.set("n", "<leader>a", function()
               vim.lsp.buf.code_action({
                 source = { organizeImports = true }
