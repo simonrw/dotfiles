@@ -59,13 +59,11 @@ in {
       ++ host-specific-casks;
     brews = [
       "cargo-instruments"
-      "cftail"
       "node"
       "pulumi/tap/pulumi"
     ];
     taps = [
       "pulumi/tap"
-      "simonrw/cftail"
     ];
     masApps = {
       DaisyDisk = 411643860;
