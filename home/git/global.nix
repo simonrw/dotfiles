@@ -207,7 +207,7 @@
       };
       tag.sort = "version:refname";
       merge = {
-        tool = "conflicted";
+        tool = "diffview";
         conflictstyle = "zdiff3";
       };
       transfer = {
