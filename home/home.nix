@@ -3,6 +3,7 @@
   isLinux,
   isDarwin,
   lib,
+  config,
   ...
 }: let
   homeDir =
@@ -162,7 +163,7 @@ in {
     };
 
     ".ideavimrc" = {
-      source = ./ideavimrc;
+      source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/nix-config/home/ideavimrc";
     };
 
     ".cargo/config.toml" = {
