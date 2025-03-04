@@ -21,3 +21,7 @@ map [c <Action>(VcsShowPrevChangeMarker)
 map <leader>y <Action>(ReformatCode)
 map ]c <Action>(VcsShowNextChangeMarker)
 map <space> :nohl<Cr>
+map tn <Action>(RunClass)
+map dn <Action>(Debug)
+map tl <Action>(Run)
+map dl <Action>(Debug)
