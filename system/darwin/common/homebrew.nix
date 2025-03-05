@@ -15,6 +15,7 @@ in {
         "1password"
         "1password-cli"
         "alacritty"
+        "amazon-chime"
         "barrier"
         "blender"
         "brave-browser"
