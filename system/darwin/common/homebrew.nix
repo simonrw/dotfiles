@@ -48,6 +48,7 @@ in {
         "todoist"
         "utm"
         "visual-studio-code"
+        "vivaldi"
         "vlc"
         "whatsapp"
         "wireshark"
