@@ -8,7 +8,7 @@
 // from the command palette or from `Zed` application menu.
 {
   "features": {
-    "edit_prediction_provider": "zed"
+    "edit_prediction_provider": "none"
   },
   "ssh_connections": [
     {
@@ -56,7 +56,7 @@
   },
   "assistant": {
     "version": "2",
-    "enabled": true
+    "enabled": false
   },
   "telemetry": {
     "diagnostics": false,
