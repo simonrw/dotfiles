@@ -18,4 +18,6 @@ if vim.g.neovide then
     function() vim.api.nvim_paste(vim.fn.getreg("+"), true, -1) end,
     { noremap = true, silent = true }
   )
+
+  vim.o.guifont = "JetBrains Mono NL ExtraBold:h14"
 end
