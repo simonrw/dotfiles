@@ -87,8 +87,13 @@
       last = "log -1";
       up = "update";
     };
+    difftastic = {
+        enable = true;
+        display = "inline";
+        background = "dark";
+    };
     delta = {
-      enable = true;
+      enable = false;
       options = {
         side-by-side = false;
         line-numbers = false;
