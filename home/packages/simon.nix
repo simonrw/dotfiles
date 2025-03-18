@@ -48,6 +48,7 @@ in {
       lsof
       lua-language-server
       luaformatter
+      mergiraf
       mpv
       nil
       nix-output-monitor
