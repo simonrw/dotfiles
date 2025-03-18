@@ -33,6 +33,7 @@ in {
       cachix
       cert-info
       custom-curl
+      delta
       dig
       docker-credential-helpers
       du-dust
