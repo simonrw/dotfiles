@@ -132,7 +132,7 @@
         ignorecase = false;
       };
       credential = {
-        heloer = "cache";
+        helper = "cache";
       };
       diff = {
         algorithm = "histogram";
