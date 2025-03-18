@@ -66,6 +66,7 @@
         jujutsu = inputs.nixpkgs-unstable.legacyPackages.${system}.jujutsu;
         fzf = inputs.nixpkgs-unstable.legacyPackages.${system}.fzf;
         neovim = inputs.nixpkgs-unstable.legacyPackages.${system}.neovim;
+        mergiraf = inputs.nixpkgs-unstable.legacyPackages.${system}.mergiraf;
 
         testsearch = inputs.testsearch.packages.${system}.default;
         listprojects = inputs.listprojects.packages.${system}.default;
