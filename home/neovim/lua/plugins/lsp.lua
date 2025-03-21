@@ -81,8 +81,6 @@ return {
         require("lspconfig")[server.name].setup(options)
       end
 
-      vim.lsp.inlay_hint.enable()
-
       -- configure signs
       -- from: https://rsdlt.github.io/posts/rust-nvim-ide-guide-walkthrough-development-debug/
       local sign = function(opts)
