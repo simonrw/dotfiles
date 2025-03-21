@@ -16,12 +16,7 @@ set -euo pipefail
 # @raycast.author Simon Walker
 
 function switchToOrStart() {
-    nWindowsOpen="$(osascript -e 'tell application "System Events" to count processes whose name is "Neovide"')"
-    if [[ $nWindowsOpen = "0" ]]; then
-        /Applications/Neovide.app/Contents/MacOS/neovide --frame transparent --no-tabs --fork ~/notes.md
-    else
-        open -a neovide
-    fi
+    open -a Neovide --args --frame transparent --no-tabs --fork ~/notes.md
 }
 
 switchToOrStart
