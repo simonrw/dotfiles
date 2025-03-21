@@ -170,7 +170,7 @@ return {
         pattern = { 'python' },
         callback = function(event)
           vim.keymap.set('n', '<leader>bm', function() require('dap-python').test_method() end,
-            { noremap = true, silent = true, buffer = event.buf })
+            { noremap = true, silent = true, buffer = event.buf, desc = "Debug python test" })
         end,
       })
     end,
