@@ -1,6 +1,7 @@
 {
   pkgs,
   isLinux,
+  isDarwin,
   ...
 }: {
   programs.git = {
@@ -127,7 +128,7 @@
         ignorecase = false;
       };
       credential = {
-        helper = "cache";
+        helper = if isDarwin then "git-credential-osxkeychain" else "cache";
       };
       diff = {
         algorithm = "histogram";
