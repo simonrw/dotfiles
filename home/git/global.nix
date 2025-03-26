@@ -128,7 +128,7 @@
         ignorecase = false;
       };
       credential = {
-        helper = if isDarwin then "git-credential-osxkeychain" else "cache";
+        helper = if isDarwin then "osxkeychain" else "cache";
       };
       diff = {
         algorithm = "histogram";
