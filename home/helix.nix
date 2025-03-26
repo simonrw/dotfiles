@@ -1,6 +1,7 @@
 {pkgs, ...}: {
   programs.helix = {
     enable = true;
+    package = pkgs.evil-helix;
     settings = {
       editor = {
         auto-completion = true;
