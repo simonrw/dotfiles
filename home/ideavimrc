@@ -29,3 +29,6 @@ map [d <Action>(GotoPreviousError)
 map ]d <Action>(GotoNextError)
 map <leader>e <Action>(QuickEvaluateExpression)
 map <leader>a <Action>(GotoAction)
+
+" debugging
+map <leader>bb <Action>(ToggleLineBreakpoint)
