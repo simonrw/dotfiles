@@ -46,13 +46,13 @@
     };
     languages = {
       language-server = {
-        pyright = {
-          command = "${pkgs.pyright}/bin/pyright-langserver";
+        basedpyright = {
+          command = "${pkgs.basedpyright}/bin/basedpyright-langserver";
           args = [
             "--stdio"
           ];
           except-features = ["format"];
-          config.pyright.analysis = {
+          config.basedpyright.analysis = {
             autoSearchPaths = true;
           };
         };
