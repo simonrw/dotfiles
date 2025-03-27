@@ -92,7 +92,7 @@ in {
     {
       ghostty.enable = true;
       zed.enable = true;
-      editor.name = "helix";
+      editor.name = "neovim";
       wallpaper = {
         enable = false;
         # path = ./wallpapers/sonoma.jpg;

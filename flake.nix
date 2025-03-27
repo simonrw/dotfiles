@@ -67,7 +67,6 @@
         fzf = inputs.nixpkgs-unstable.legacyPackages.${system}.fzf;
         neovim = inputs.nixpkgs-unstable.legacyPackages.${system}.neovim;
         mergiraf = inputs.nixpkgs-unstable.legacyPackages.${system}.mergiraf;
-        evil-helix = inputs.nixpkgs-unstable.legacyPackages.${system}.evil-helix;
 
         testsearch = inputs.testsearch.packages.${system}.default;
         listprojects = inputs.listprojects.packages.${system}.default;
