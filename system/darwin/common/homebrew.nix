@@ -17,6 +17,7 @@ in {
         "alacritty"
         "amazon-chime"
         "barrier"
+        "betterdisplay"
         "blender"
         "brave-browser"
         "cursor"
