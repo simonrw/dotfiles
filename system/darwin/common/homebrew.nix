@@ -46,7 +46,6 @@ in {
         "sublime-merge"
         "sublime-text"
         "tabby"
-        "todoist"
         "utm"
         "visual-studio-code"
         "vivaldi"
