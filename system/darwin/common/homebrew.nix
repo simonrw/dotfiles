@@ -56,6 +56,7 @@ in {
         "yt-music"
         "yubico-yubikey-manager"
         "zed"
+        "zen-browser"
         "zoom"
       ]
       ++ host-specific-casks;
