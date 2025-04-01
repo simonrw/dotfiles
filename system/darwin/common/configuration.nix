@@ -65,15 +65,15 @@
   # https://nixcademy.com/2024/01/15/nix-on-macos/
   system.defaults = {
     dock = {
-      autohide = false;
+      autohide = true;
       mru-spaces = false;
-      magnification = false;
+      magnification = true;
       showhidden = false;
-      orientation = "left";
+      orientation = "bottom";
       show-process-indicators = false;
       tilesize =
         {
-          mm = 24;
+          mm = 28;
           mba = 20;
         }
         .${hostname};
