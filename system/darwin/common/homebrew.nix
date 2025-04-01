@@ -70,7 +70,6 @@ in {
     masApps = {
       DaisyDisk = 411643860;
       Tailscale = 1475387142;
-      "AdGuard for Safari" = 1440147259;
       "1Password for Safari" = 1569813296;
       Instapaper = 288545208;
       Perplexity = 6714467650;
