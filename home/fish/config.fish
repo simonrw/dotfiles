@@ -103,6 +103,9 @@ if test -f /Applications/Ghostty.app/Contents/Resources/fish/vendor_completions.
     source /Applications/Ghostty.app/Contents/Resources/fish/vendor_completions.d/ghostty.fish
 end
 
+# mise integration
+mise activate fish | source
+
 # if a local configuration override file exists, source it
 if test -f $HOME/.config/fish/local.fish;
 source $HOME/.config/fish/local.fish
