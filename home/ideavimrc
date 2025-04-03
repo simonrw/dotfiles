@@ -31,5 +31,5 @@ map <leader>e <Action>(QuickEvaluateExpression)
 map <leader>a <Action>(GotoAction)
 
 " debugging
-map <leader>bb <Action>(ToggleLineBreakpoint)
-map <leader>bj <Action>(RunToCursor)
+map tdb <Action>(ToggleLineBreakpoint)
+map tdj <Action>(RunToCursor)
