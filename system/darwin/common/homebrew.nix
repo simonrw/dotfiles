@@ -61,6 +61,7 @@ in {
       ++ host-specific-casks;
     brews = [
       "cargo-instruments"
+      "mise"
       "node"
       "pulumi/tap/pulumi"
     ];
