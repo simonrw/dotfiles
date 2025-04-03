@@ -32,3 +32,4 @@ map <leader>a <Action>(GotoAction)
 
 " debugging
 map <leader>bb <Action>(ToggleLineBreakpoint)
+map <leader>bj <Action>(RunToCursor)
