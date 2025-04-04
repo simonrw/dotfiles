@@ -1,0 +1,7 @@
+aliases:
+  inbox: api notifications --template '{{range .}}{{tablerow .subject.title .subject.url}}{{end}}'
+editor: ''
+git_protocol: ssh
+pager: delta
+prompt: enabled
+version: '1'
