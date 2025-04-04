@@ -3,10 +3,11 @@ tap "pulumi/tap"
 
 # Brews
 brew "cargo-instruments"
+brew "mas"
 brew "mise"
 brew "node"
 brew "pulumi/tap/pulumi"
-brew "mas"
+brew "stow"
 
 # Casks
 cask "1password"
