@@ -1,0 +1,8 @@
+vim.loader.enable()
+require("config.settings")
+require("config.lazy")
+require("config.keymaps")
+require("config.autogroups")
+require("config.autocommands")
+require("config.commands")
+require("config.neovide")

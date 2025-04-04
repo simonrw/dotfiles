@@ -1,0 +1,13 @@
+#!/bin/sh
+set -euo pipefail
+
+main() {
+    PATH="/usr/local/bin:$PATH"
+    dir="`git rev-parse --git-dir`"
+    trap 'rm -f "$dir/tags.$$"' EXIT INT TERM
+    ctags --tag-relative=yes -Rf.git/tags.$$ $(git ls-files)
+    mv $dir/tags.$$ $dir/tags
+}
+
+main
+

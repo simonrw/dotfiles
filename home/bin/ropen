@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+set -e
+
+main() {
+    echo "$@" | xargs -n 1 rmate
+}
+
+main "$@"

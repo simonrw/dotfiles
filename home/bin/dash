@@ -1,0 +1,25 @@
+#!/usr/bin/env bash
+
+set -o errexit
+
+verify_arguments() {
+    if [[ "$#" -ne 1 ]]; then
+        echo "Program usage: $(basename $0) <query>" >&2
+        exit 1
+    fi
+}
+
+run_dash() {
+    open dash://${1}
+}
+
+main() {
+    verify_arguments "$@"
+    run_dash "$1"
+}
+
+main "$@"
+
+
+
+# vim: ft=sh

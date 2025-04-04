@@ -1,0 +1,44 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+
+from __future__ import division, print_function, absolute_import
+import argparse
+import logging
+import subprocess as sp
+
+logging.basicConfig(level='INFO', format='%(levelname)7s %(message)s')
+logger = logging.getLogger(__name__)
+
+
+def run_ds9(filename, catalogue, tycho_bright_mag):
+    if catalogue.lower() == 'tychobright':
+        cmd = ['ds9', filename,
+                '-catalog', 'tycho',
+                '-catalog', 'tycho', 'filter', '$VTmag<{mag}'.format(mag=tycho_bright_mag),
+                '-catalog', 'tycho', 'close']
+    else:
+        cmd = ['ds9', filename, '-catalog', catalogue, '-catalog', catalogue, 'close']
+
+    logger.debug(' '.join(cmd))
+    sp.check_call(cmd)
+
+
+def main(args):
+    if args.verbose:
+        logger.setLevel('DEBUG')
+    logger.debug(args)
+
+    run_ds9(filename=args.filename, catalogue=args.catalogue,
+            tycho_bright_mag=args.tycho_mag)
+
+
+if __name__ == '__main__':
+    parser = argparse.ArgumentParser()
+    parser.add_argument('filename')
+    parser.add_argument('-c', '--catalogue', default='tycho',
+            help='Pick catalogue. Use `tychobright` to show only bright tycho stars')
+    parser.add_argument('-v', '--verbose', action='store_true')
+    parser.add_argument('-t', '--tycho-mag',
+            help='Tycho brightness when used with `tychobright` catalogue (default: %(default)s)',
+            default=8)
+    main(parser.parse_args())

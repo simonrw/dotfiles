@@ -1,0 +1,103 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+
+from __future__ import absolute_import, division, print_function
+import argparse
+import os
+import logging
+
+logging.basicConfig(
+    level='WARNING', format='%(asctime)s : %(message)s')
+logger = logging.getLogger(__name__)
+
+
+def find_git_root_dir():
+    logger.info('Finding git root dir')
+    current_path = os.path.realpath(os.getcwd())
+    while current_path != '/':
+        logger.debug('Trying %s', current_path)
+        if os.path.isdir(os.path.join(current_path, '.git')):
+            logger.info('Found git root dir: %s', current_path)
+            return GitRepo(current_path)
+
+        current_path = os.path.join(*os.path.split(current_path)[:-1])
+
+
+class GitRepo(object):
+
+    def __init__(self, root_dir):
+        self.root_dir = root_dir
+
+    @property
+    def git_dir(self):
+        return os.path.join(self.root_dir, '.git')
+
+    @property
+    def exclude_dir(self):
+        return os.path.join(self.git_dir, 'info')
+
+    @property
+    def exclude_file(self):
+        return os.path.join(self.exclude_dir, 'exclude')
+
+    def ensure_excludes_dir(self):
+        logger.info('Ensuring exclude dir exists')
+        if not os.path.isdir(self.exclude_dir):
+            logger.info('Exclude dir missing, creating')
+            os.makedirs(self.exclude_dir)
+        else:
+            logger.info('Found excludes dir')
+
+    def exclusion_exists(self, exclude):
+        logger.info('Checking if exclusion exists in file %s', self.exclude_file)
+        if not os.path.isfile(self.exclude_file):
+            logger.debug('Cannot find exclusion file')
+            return False
+
+        with open(self.exclude_file) as infile:
+            for line in infile:
+                line = line.strip()
+                logger.debug('Exclusion line %s', line)
+                if line == exclude:
+                    logger.info('Found exclusion already')
+                    return True
+
+        logger.info('Exclusion not found')
+        return False
+
+    def add_exclusion(self, exclude):
+        self.ensure_excludes_dir()
+        if self.exclusion_exists(exclude):
+            return
+
+        logger.info('Adding exclusion %s', exclude)
+        with open(self.exclude_file, 'a') as outfile:
+            outfile.write('{exclude}\n'.format(exclude=exclude))
+
+
+def main(args):
+    if args.verbose:
+        logger.setLevel('DEBUG')
+    logger.debug(args)
+
+    git_repo = find_git_root_dir()
+    for exclude in args.excludes:
+        git_repo.add_exclusion(exclude)
+
+if __name__ == '__main__':
+    description = '''
+    Add per-repo ignores to .git/info/exclude
+    '''
+    epilog = '''
+    Git supports per-repo ignoring of files, by adding lines to
+    .git/info/exclude instead of .gitignore, which is generally tracked with
+    project files. This script adds a convenience command "exclude" to git,
+    which writes entries to this file. On a fresh clone, the directory
+    containing this file usually does not exist, and this command takes care of
+    creating the directory.
+    '''
+    parser = argparse.ArgumentParser(description=description, epilog=epilog)
+    parser.add_argument('excludes', nargs='+')
+    parser.add_argument('-v', '--verbose', required=False, action='store_true',
+                        default=False)
+    main(parser.parse_args())

@@ -1,0 +1,14 @@
+#!/bin/sh
+
+main() {
+    case $OSTYPE in
+	darwin*)
+	    sysctl vm.loadavg | cut -d ' ' -f 3-5
+	    ;;
+	linux*)
+	    cut -d " " -f 1-3 /proc/loadavg
+	    ;;
+    esac
+}
+
+main

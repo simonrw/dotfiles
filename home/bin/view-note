@@ -1,0 +1,35 @@
+#!/bin/sh
+
+set -eou pipefail
+
+outName=""
+function buildnote() {
+    noteName=$1
+
+    test -f $noteName || {
+        echo "Cannot find source file $noteName" >&2
+        return 1
+    }
+
+    outName="$(echo $noteName | sed 's/src/html/' | sed 's/md/html/')"
+    pandoc \
+        -t html5 \
+        --template Github.html5 \
+        --metadata title="Notes" \
+        -o "$outName" $noteName
+}
+
+main() {
+
+    local noteName
+    if [[ $# -eq 0 ]]; then
+        noteName=${HOME}/notes/src/note-$(date +%Y-%m-%d).md
+    else
+        noteName=$1
+    fi
+
+    buildnote $noteName
+    open $outName
+}
+
+main $*
