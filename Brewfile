@@ -3,11 +3,14 @@ tap "pulumi/tap"
 
 # Brews
 brew "cargo-instruments"
+brew "fish"
 brew "mas"
 brew "mise"
 brew "node"
 brew "pulumi/tap/pulumi"
+brew "reattach-to-user-namespace"
 brew "stow"
+brew "tmux"
 
 # Casks
 cask "1password"
