@@ -5,3 +5,10 @@ ruff = "latest"
 [tasks.brew]
 description = "Install homebrew packages from bundle file"
 run = "HOMEBREW_NO_AUTO_UPDATE=1 brew bundle --no-upgrade --cleanup"
+
+[tasks.install]
+description = "Install/link packages"
+run = [
+    "stow .",
+    "mise run brew",
+]
