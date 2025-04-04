@@ -1,9 +1,0 @@
-#!/bin/bash
-
-for i in {0..15}; do
-    for j in {0..15}; do
-        ii=$((i*16+j))
-        printf "\x1b[38;5;${ii}m%3d " "${ii}"
-    done
-    printf "\n"
-done

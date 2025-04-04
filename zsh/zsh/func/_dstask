@@ -1,7 +1,0 @@
-#compdef _dstask dstask
-#autoload
-
-
-_dstask() {
-    compadd $(dstask _completions "${words[@]}")
-}

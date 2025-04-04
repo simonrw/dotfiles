@@ -1,9 +1,0 @@
-#!/bin/bash
-
-set -euo pipefail
-
-main() {
-    __ctaggen &
-}
-
-main

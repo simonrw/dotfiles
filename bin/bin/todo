@@ -1,5 +1,0 @@
-#!/bin/bash
-
-set -eou pipefail
-
-open 'obsidian://open?vault=notes&file=TODO'

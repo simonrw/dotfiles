@@ -1,8 +1,0 @@
----
-- name: Install dotfiles
-  hosts: all
-  vars_files:
-    - vars/common.yml
-    - vars/{{ ansible_facts['os_family'] }}.yml
-  roles:
-    - packages

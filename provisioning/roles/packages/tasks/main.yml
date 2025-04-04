@@ -1,4 +1,0 @@
-- name: Install required packages
-  ansible.builtin.package:
-    name: "{{ common_package_list + os_specific_package_list }}"
-    state: present

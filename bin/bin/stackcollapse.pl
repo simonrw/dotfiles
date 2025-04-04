@@ -1,1 +1,0 @@
-../../../dotfiles/external/FlameGraph/stackcollapse.pl

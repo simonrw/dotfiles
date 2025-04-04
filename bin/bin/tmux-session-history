@@ -1,6 +1,0 @@
-#!/bin/bash
-
-set -euo pipefail
-
-SESSION_NAME="$(tmux ls -F "#{session_activity} #S" | sort -n -r | awk '{print $2}' | fzf --no-sort)"
-tat ${SESSION_NAME}

@@ -1,6 +1,0 @@
-theme = "monokai_pro_octagon"
-
-[editor]
-line-number = "relative"
-auto-pairs = false
-true-color = true

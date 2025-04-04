@@ -1,4 +1,0 @@
-# Source the custom zshenv.local file in the system
-if [[ -f ${HOME}/.zshenv.local ]]; then
-    source ${HOME}/.zshenv.local
-fi
