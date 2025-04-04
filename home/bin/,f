@@ -1,6 +1,0 @@
-#!/bin/sh
-
-set -euo pipefail
-
-chosen="$(git ls-files | fzf-tmux)"
-exec nvim "${chosen}"

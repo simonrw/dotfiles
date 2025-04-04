@@ -1,4 +1,0 @@
-#!/usr/bin/env bash
-set -e
-
-gh repo view --json url -t '{{.url}}' $*
