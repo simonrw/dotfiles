@@ -3,7 +3,10 @@ tap "pulumi/tap"
 
 # Brews
 brew "cargo-instruments"
+brew "delta"
 brew "fish"
+brew "gh"
+brew "git"
 brew "mas"
 brew "mise"
 brew "node"
