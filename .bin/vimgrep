@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+TMPFILE=$(mktemp)
+rg --vimgrep $* > $TMPFILE
+nvim -q $TMPFILE -c copen
