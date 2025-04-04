@@ -4,6 +4,7 @@ tap "pulumi/tap"
 # Brews
 brew "cargo-instruments"
 brew "delta"
+brew "eza"
 brew "fish"
 brew "gh"
 brew "git"
