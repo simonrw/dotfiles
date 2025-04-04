@@ -1,0 +1,97 @@
+#!/usr/bin/env python
+
+
+import sys
+import argparse
+import subprocess as sp
+import logging
+
+
+logging.basicConfig(level=logging.WARNING)
+logger = logging.getLogger("git test-branch")
+logger.setLevel(logging.INFO)
+
+
+class Git:
+    def __init__(self, dry_run):
+        self.dry_run = dry_run
+
+    def merge_base(self, upstream, current):
+        return self._get_command_output(["git", "merge-base", upstream, current])
+
+    def rev_parse(self, name, abbrev_ref=False):
+        cmd = ["git", "rev-parse"]
+        if abbrev_ref:
+            cmd.append("--abbrev-ref")
+        cmd.append(name)
+
+        return self._get_command_output(cmd)
+
+    def rev_list(self, start, end, reverse=False):
+        cmd = ["git", "rev-list", f"{start}..{end}"]
+        if reverse:
+            cmd.append("--reverse")
+
+        output = self._get_command_output(cmd)
+        return output.split("\n")
+
+    def checkout(self, rev):
+        self._run_command(["git", "checkout", "--quiet", rev])
+
+    def reset(self, hard=False):
+        self._run_command(["git", "reset", "--hard"])
+
+    def _get_command_output(self, cmd):
+        return sp.check_output(cmd).decode().strip()
+
+    def _run_command(self, cmd):
+        if self.dry_run:
+            print(f"would have run {cmd}")
+            return
+        sp.check_call(cmd)
+
+
+def main():
+    parser = argparse.ArgumentParser()
+    parser.add_argument("-n", "--dry-run", action="store_true", default=False)
+    parser.add_argument("-v", "--verbose", action="store_true", default=False)
+    args, command = parser.parse_known_args()
+
+    if args.verbose:
+        logger.setLevel(logging.DEBUG)
+
+    if not command:
+        command = ["pytest", "-n", "auto", "-x"]
+
+    git = Git(args.dry_run)
+
+    start = git.merge_base("master", "HEAD")
+    logger.debug(f"merge base: {start}")
+    end = git.rev_parse("HEAD")
+    logger.debug(f"end: {end}")
+    symbolic_end = git.rev_parse("HEAD", abbrev_ref=True)
+    logger.debug(f"symbolic end: {symbolic_end}")
+
+    try:
+        revisions = git.rev_list(start, end, reverse=True)
+        if end not in revisions:
+            revisions.append(end)
+
+        for revision in revisions:
+            logger.debug(f"checking commit {revision}")
+            git.checkout(revision)
+            git._run_command(command)
+    except Exception as e:
+        git.checkout(symbolic_end)
+        git.reset(hard=True)
+        print(f"Command failed: {e}", file=sys.stderr)
+        sys.exit(1)
+
+    git.checkout(symbolic_end)
+    git.reset(hard=True)
+    if not args.dry_run:
+        print("OK")
+
+
+if __name__ == "__main__":
+    main()

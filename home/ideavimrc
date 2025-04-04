@@ -1,0 +1,35 @@
+let mapleader = "\<space>"
+
+" plugins
+set surround
+set commentary
+
+" settings
+set incsearch
+set smartcase
+set nohlsearch
+set ignorecase
+set scrolloff=5
+set norelativenumber
+set nonumber
+
+" configure mappings
+map <leader>f <Action>(GotoFile)
+map <leader>s <Action>(GotoSymbol)
+map gb <Action>(RecentFiles)
+map [c <Action>(VcsShowPrevChangeMarker)
+map <leader>y <Action>(ReformatCode)
+map ]c <Action>(VcsShowNextChangeMarker)
+map <space> :nohl<Cr>
+map tn <Action>(RunClass)
+map tdn <Action>(Debug)
+map tl <Action>(Run)
+map tdl <Action>(Debug)
+map [d <Action>(GotoPreviousError)
+map ]d <Action>(GotoNextError)
+map <leader>e <Action>(QuickEvaluateExpression)
+map <leader>a <Action>(GotoAction)
+
+" debugging
+map tdb <Action>(ToggleLineBreakpoint)
+map tdj <Action>(RunToCursor)

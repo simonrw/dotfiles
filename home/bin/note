@@ -1,0 +1,6 @@
+#!/bin/sh
+
+set -eou pipefail
+
+urlTemplate="obsidian://open?vault=notes&file=daily%2F$(date +%Y-%m-%d)"
+open $urlTemplate

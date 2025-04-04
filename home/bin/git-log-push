@@ -1,0 +1,16 @@
+#!/bin/sh
+
+set -euo pipefail
+
+main() {
+    root_dir="$(git rev-parse --git-dir)"
+    logname="${root_dir}/push-log"
+    touch $logname
+    commit="$(git rev-parse HEAD)"
+
+    echo "$(date +%s) ${commit}" >> $logname
+
+    command git push "$@"
+}
+
+main "$@"

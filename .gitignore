@@ -1,0 +1,8 @@
+result
+home/nvim/plugin/packaer_compiled.lua
+/result*
+# built vm hdds
+*.qcow2
+/home/neovim/lazy-lock.json
+/home/zed/*
+!/home/zed/settings.json

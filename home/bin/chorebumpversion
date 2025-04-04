@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+
+set -eou pipefail
+
+main() {
+    git diff --quiet HEAD || {
+        echo "Working tree is dirty. Cannot continue." >&2
+        return
+    }
+    bumpversion -c pre
+    git commit -am "chore: bump version"
+}
+
+main
