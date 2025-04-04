@@ -1,0 +1,18 @@
+# Standard stow ignore files
+\.git
+\.gitignore
+\.gitmodules
+
+.+~          # emacs backup files
+\#.*\#       # emacs autosave files
+
+^/README.*
+^/LICENSE.*
+^/COPYING
+
+# Custom ignore rules
+^/mise.toml
+^/Brewfile
+^/.stow-local-ignore
+^/\.github
+^/scratch
