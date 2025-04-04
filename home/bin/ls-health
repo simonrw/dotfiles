@@ -1,5 +1,0 @@
-#!/usr/bin/env bash
-
-set -euo pipefail
-
-curl -s http://localhost:4566/_localstack/health | jq .

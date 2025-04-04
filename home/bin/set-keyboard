@@ -1,9 +1,0 @@
-#!/usr/bin/env bash
-
-set -eou pipefail
-
-pkill xcape
-setxkbmap gb
-setxkbmap -option caps:ctrl_modifier
-setxkbmap -option altwin:swap_alt_win
-xcape -t 100 -e 'Caps_Lock=Escape;Control_L=Escape;Control_R=Escape'
