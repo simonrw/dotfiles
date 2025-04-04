@@ -14,6 +14,7 @@ brew "mise"
 brew "node"
 brew "pulumi/tap/pulumi"
 brew "reattach-to-user-namespace"
+brew "ripgrep"
 brew "stow"
 brew "tmux"
 
