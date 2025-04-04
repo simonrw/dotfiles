@@ -6,3 +6,6 @@ run = "HOMEBREW_NO_AUTO_UPDATE=1 brew bundle --no-upgrade --cleanup"
 description = "Install/link packages"
 depends_post = ["brew"]
 run = "stow ."
+
+[tools]
+shellcheck = "latest"
