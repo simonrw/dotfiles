@@ -1,0 +1,236 @@
+[alias]
+	aa = "add --all"
+	aap = "add --all --patch"
+	amend = "commit --amend -v"
+	authors = "shortlog -s -n --no-merges"
+	base-commit = "!git merge-base HEAD $REVIEW_BASE"
+	branch-name = "!git rev-parse --abbrev-ref HEAD"
+	branches = "for-each-ref --sort=-committerdate --format=\"%(color:blue)%(authordate:relative)\t%(color:red)%(authorname)\t%(color:white)%(color:bold)%(refname:short)\" refs/remotes"
+	ci = "commit -v"
+	cleanup = "!git rebase -i $REVIEW_BASE"
+	cleanup-base = "!git rebase -i $(git base-commit)"
+	co = "checkout"
+	dc = "precommit"
+	diff-base = "!git diff origin/$REVIEW_BASE..."
+	diffup = "!git diff $(git upstream).."
+	discard = "checkout --"
+	edit = "!vim `git ls-files -m`"
+	fetchup = "fetch upstream"
+	ff = "!f() { git merge --ff-only origin/$(git branch-name); }; f"
+	files = "!git diff --name-only $(git base-commit)"
+	fo = "fetch origin"
+	graph = "log --graph --all --decorate --stat --date iso"
+	graphviz = "!f() { echo 'digraph git {' ; git log --pretty='format:  %h -> { %p }' \"$@\" | sed 's/[0-9a-f][0-9a-f]*/\"&\"/g' ; echo '}'; }; f"
+	h = "head"
+	head = "l -1"
+	ignore = "!f() { echo \"$1\" >> .gitignore; }; f"
+	ignore-modifications = "update-index --skip-worktree --"
+	l = "log --graph --decorate --pretty=format:'%C(auto)%h%C(reset) %C(green)(%ar)%C(reset) %C(blue)[%an]%C(auto) %d %s%C(auto)' --exclude='refs/bugs/*' --exclude='refs/identities/*'"
+	la = "l --all"
+	last = "log -1"
+	list-ignored-modifications = "!f() { git ls-files -v | grep '^S' | cut -f 2 -d ' '; }; f"
+	lm = "!git l $(git branch-name) $REVIEW_BASE"
+	log-base = "!git l $REVIEW_BASE.."
+	mergeff = "merge --ff-only"
+	ol = "log --oneline --decorate --graph"
+	oneline = "log --oneline --decorate"
+	pr = "pull --rebase --prune"
+	pre = "precommit"
+	precommit = "diff --cached --diff-algorithm=minimal -w"
+	publish = "!git push -u origin $(git branch-name)"
+	pushf = "push --force-with-lease --force-if-includes"
+	r = "l -20"
+	ra = "r --all"
+	reset-ignore-modifications = "!f() { git list-ignored-modifications | xargs git update-index --no-skip-worktree; }; f"
+	review = "!REVIEW_BASE=$(git base-commit) nvim -c 'set nosplitright' -p $(git files) -c \"tabdo Gvdiff $REVIEW_BASE\" -c 'set splitright'"
+	review-commits = "!nvim -c 'Gclog --reverse $REVIEW_BASE..'"
+	st = "status"
+	stashes = "stash list"
+	stat = "!git diff --stat $(git base-commit)"
+	su = "submodule update --init --recursive"
+	sync = "!f() { git fetch origin && git branch -f \"$REVIEW_BASE\" origin/\"$REVIEW_BASE\"; }; f"
+	tags = "tag"
+	today = "diff @{yesterday}.."
+	trust = "!f() { echo 'marking current directory as safe (includes ./bin on PATH)' && mkdir -p .git/safe; }; f"
+	uc = "update-commit"
+	unpublish = "!git push origin :$(git branch-name)"
+	unstage = "reset -q HEAD --"
+	up = "update"
+	update-commit = "commit --amend --no-edit"
+	upstream = "rev-parse --abbrev-ref --symbolic-full-name '@{u}'"
+	upsub = "submodule foreach 'git checkout master && git pull'"
+
+[branch]
+	autosetuprebase = "always"
+	sort = "-committerdate"
+
+[color]
+	ui = true
+
+[column]
+	ui = "auto"
+
+[commit]
+	gpgsign = true
+	verbose = true
+
+[core]
+	abbrev = 12
+	askPass = ""
+	autocrlf = "input"
+	editor = "nvim"
+	ignorecase = false
+	mergeoptions = "--no-ff"
+	pager = "delta"
+	preloadindex = true
+	safecrlf = true
+	whitespace = "fix"
+
+[credential]
+	helper = "osxkeychain"
+
+[credential "https://gist.github.com"]
+	helper = "gh auth git-credential"
+
+[credential "https://github.com"]
+	helper = "gh auth git-credential"
+
+[delta]
+	diff-so-fancy = true
+	line-numbers = false
+	side-by-side = false
+
+[diff]
+	algorithm = "histogram"
+	colorMoved = "plain"
+	colorMovedWS = "allow-indentation-change"
+	mnemonicPrefix = true
+	renames = true
+	tool = "meld"
+
+[difftool]
+	prompt = false
+
+[difftool "meld"]
+	cmd = "meld $LOCAL $REMOTE"
+
+[difftool "vscode"]
+	cmd = "code --wait --diff $LOCAL $REMOTE"
+
+[fetch]
+	all = true
+	prune = true
+	pruneTags = true
+
+[filter "lfs"]
+	clean = "git-lfs clean -- %f"
+	process = "git-lfs filter-process"
+	required = true
+	smudge = "git-lfs smudge -- %f"
+
+[github]
+	user = "simonrw"
+
+[gpg]
+	format = "ssh"
+
+[grep]
+	extendedRegexp = true
+
+[help]
+	autocorrect = "prompt"
+
+[init]
+	defaultBranch = "main"
+
+[interactive]
+	diffFilter = "delta --color-only"
+
+[log]
+	follow = true
+
+[merge]
+	conflictstyle = "zdiff3"
+	tool = "diffview"
+
+[merge "mergiraf"]
+	driver = "mergiraf merge --git %O %A %B -s %S -x %X -y %Y -p %P -l %L"
+	name = "mergiraf"
+
+[mergetool]
+	prompt = false
+
+[mergetool "conflicted"]
+	cmd = "nvim +Conflicted"
+	keepBackup = false
+
+[mergetool "diffview"]
+	cmd = "nvim -c DiffviewOpen"
+	keepBackup = false
+
+[mergetool "meld"]
+	cmd = "meld \"$LOCAL\" \"$MERGED\" \"$REMOTE\" --output \"$MERGED\""
+	keepBackup = false
+
+[mergetool "pycharm"]
+	cmd = "pycharm-community merge \"$LOCAL\" \"$REMOTE\" \"$BASE\" \"$MERGED\""
+	keepBackup = false
+
+[mergetool "smerge"]
+	cmd = "smerge"
+	keepBackup = false
+
+[mergetool "vimdiff"]
+	cmd = "nvim -d"
+	keepBackup = false
+
+[mergetool "vscode"]
+	cmd = "code --wait $MERGED"
+
+[push]
+	autoSetupRemote = true
+	default = "simple"
+	followTags = true
+
+[rebase]
+	autosquash = true
+	autostash = true
+	updateRefs = true
+
+[rerere]
+	autoupdate = true
+	enabled = true
+
+[status]
+	branch = 1
+	short = 1
+	submoduleSummary = true
+
+[tag]
+	sort = "version:refname"
+
+[transfer]
+	fsckobjects = true
+
+[url "git@github.com:"]
+	pushInsteadOf = "https://github.com"
+
+[user]
+	email = "s.r.walker101@googlemail.com"
+	name = "Simon Walker"
+	signingKey = "~/.ssh/id_signing.pub"
+
+[include]
+	path = "~/.gitlocalconfig/local"
+
+[includeIf "gitdir:~/dev/"]
+	path = "~/dev/.gitconfig"
+
+[includeIf "gitdir:~/tmp/"]
+	path = "~/dev/.gitconfig"
+
+[includeIf "gitdir:/tmp/"]
+	path = "~/dev/.gitconfig"
+
+[includeIf "gitdir:~/work/localstack/"]
+	path = "~/work/localstack/.gitconfig"
