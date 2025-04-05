@@ -65,7 +65,7 @@ cask "yt-music"
 cask "yubico-yubikey-manager"
 cask "zed"
 cask "zoom"
-cask "wacom-tablet"
+cask "wacom-tablet" if `hostname`.strip == "mm"
 
 # Mac App Store apps
 mas "1Password for Safari", id: 1569813296
