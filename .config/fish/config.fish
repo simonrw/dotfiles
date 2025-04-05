@@ -6,7 +6,6 @@ set -q __fish_already_sourced; and exit
 set -g __fish_already_sourced 1
 
 # set up environment variables
-set -gx DIRENV_LOG_FORMAT ''
 set -gx FZF_CTRL_T_COMMAND 'fd --no-ignore --type f'
 set -gx FZF_CTRL_T_OPTS '--preview \'bat --color always {}\''
 set -gx FZF_DEFAULT_COMMAND 'rg --files --no-ignore --hidden --follow -g ''!{.git,venv,node_modules}/*'' 2> /dev/null'
@@ -47,8 +46,6 @@ status is-interactive; and begin
     alias add-keys 'ssh-add (find ~/.ssh - maxdepth 1 - type f - name "id_rsa*" | grep - v pub | grep - v bak)'
     alias cat bat
     alias clear-pycs 'find { $PWD } -name '\''*.pyc'\'' -delete'
-    alias da 'direnv allow'
-    alias de 'direnv edit'
     alias es 'exec $SHELL'
     alias eza 'eza --group-directories-first --header'
     alias gcpr 'gh pr create -a @me --label '\''semver: patch'\'''
@@ -205,6 +202,4 @@ status is-interactive; and begin
         set -l post (string split " " (string trim $post_joined))
         set fish_complete_path $prev "/Users/simon/.local/share/fish/home-manager_generated_completions" $post
     end
-
-    direnv hook fish | source
 end
