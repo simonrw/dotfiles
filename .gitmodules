@@ -1,0 +1,6 @@
+[submodule ".config/fish/plugins/plugin-foreign-env"]
+	path = .config/fish/plugins/plugin-foreign-env
+	url = https://github.com/oh-my-fish/plugin-foreign-env
+[submodule ".config/fish/plugins/plugin-ssh-agent"]
+	path = .config/fish/plugins/plugin-ssh-agent
+	url = https://github.com/danhper/fish-ssh-agent

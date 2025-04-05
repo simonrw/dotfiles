@@ -44,5 +44,5 @@ function fish_prompt --description="Write out the prompt"
     end
 
     echo
-    echo -n -s {$nix_shell_str} {$suffix_color} {$suffix} {$normal} " "
+    echo -n -s {$suffix_color} {$suffix} {$normal} " "
 end

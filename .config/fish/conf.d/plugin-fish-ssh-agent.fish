@@ -1,5 +1,10 @@
 # Plugin fish-ssh-agent
-set -l plugin_dir /nix/store/ax1ivyiz577n7dc0qwyvgjbbfwdl3b50-source
+set -l script_dir (realpath (dirname (status --current-filename)))
+set -l plugin_dir (realpath "$script_dir"/../plugins/plugin-ssh-agent)
+
+if ! test -d $plugin_dir
+    echo "No plugin found at $plugin_dir, have you cloned with submodules?" >&2
+end
 
 # Set paths to import plugin components
 if test -d $plugin_dir/functions

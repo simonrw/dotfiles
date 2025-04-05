@@ -1,5 +1,9 @@
-# Plugin fish-foreign-env
-set -l plugin_dir /nix/store/p0d9jmp97bfh2vmpp47rbcvrnzl1cy1z-source
+set -l script_dir (realpath (dirname (status --current-filename)))
+set -l plugin_dir (realpath "$script_dir"/../plugins/plugin-foreign-env)
+
+if ! test -d $plugin_dir
+    echo "No plugin found at $plugin_dir, have you cloned with submodules?" >&2
+end
 
 # Set paths to import plugin components
 if test -d $plugin_dir/functions
