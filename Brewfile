@@ -11,12 +11,17 @@ brew "gh"
 brew "git"
 brew "mas"
 brew "mise"
+brew "pkg-config"
 brew "pulumi/tap/pulumi"
 brew "reattach-to-user-namespace"
 brew "ripgrep"
 brew "stow"
 brew "tmux"
+brew "uv"
 brew "viddy"
+
+# for localstack
+brew "libvirt"
 
 # Casks
 cask "1password"
