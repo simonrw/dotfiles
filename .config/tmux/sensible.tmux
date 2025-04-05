@@ -154,8 +154,8 @@ main() {
 	# source `.tmux.conf` file - as suggested in `man tmux`
 	if key_binding_not_set "R"; then
 		tmux bind-key R run-shell ' \
-			tmux source-file ~/.tmux.conf > /dev/null; \
-			tmux display-message "Sourced .tmux.conf!"'
+			tmux source-file ~/.config/tmux/tmux.conf > /dev/null; \
+			tmux display-message "Sourced .config/tmux/tmux.conf!"'
 	fi
 }
 main
