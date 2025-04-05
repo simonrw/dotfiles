@@ -16,3 +16,4 @@
 ^/.stow-local-ignore
 ^/\.github
 ^/scratch
+^/cargo-projects.txt
