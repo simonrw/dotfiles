@@ -1,0 +1,85 @@
+#!/usr/bin/env python3
+
+import argparse
+import subprocess as sp
+import sys
+import json
+from urllib.parse import quote
+
+try:
+    from pathlib import Path
+except ImportError:
+    print("Your python is too old, please use python 3.4+")
+    raise SystemExit(1)
+
+
+def check_sp_error(res: sp.CompletedProcess, message: str) -> None:
+    if res.returncode != 0:
+        full_message = f"{message}: {res.stderr.decode('utf-8')}"
+        print(full_message, file=sys.stderr)
+        raise SystemExit(1)
+
+
+parser = argparse.ArgumentParser()
+parser.add_argument("language", nargs="*")
+parser.add_argument("-d", "--directory", help="Directory to install to", type=Path)
+parser.add_argument(
+    "-l",
+    "--list",
+    help="List all available languages",
+    action="store_true",
+    default=False,
+)
+parser.add_argument(
+    "-f", "--force", action="store_true", default=False, help="Overwrite existing files"
+)
+parser.add_argument(
+    "-n",
+    "--dry-run",
+    action="store_true",
+    default=False,
+    help="Fetch contents but don't write to .gitignore",
+)
+args = parser.parse_args()
+
+if args.list:
+    url = "https://gitignore.io/api/list?format=json"
+    res = sp.run(["curl", "-LsS", url], stdout=sp.PIPE, stderr=sp.PIPE)
+    check_sp_error(res, "Error making cURL request")
+
+    data = json.loads(res.stdout.decode("utf-8"))
+    languages = sorted(data.keys())
+    for language in languages:
+        print(language)
+
+    raise SystemExit(0)
+
+if len(args.language) == 0:
+    print("No languages given", file=sys.stderr)
+    parser.print_usage(sys.stderr)
+    raise SystemExit(1)
+
+# fetch gitignore contents
+url_args = quote(",".join(args.language))
+url = f"https://gitignore.io/api/{url_args}"
+res = sp.run(
+    ["curl", "-LsS", url],
+    stdout=sp.PIPE,
+    stderr=sp.PIPE,
+)
+check_sp_error(res, "Error making cURL request")
+
+contents = res.stdout.decode("utf-8")
+
+if args.dry_run:
+    print(f"Would write:\n{contents}")
+    raise SystemExit(0)
+
+root_dir = args.directory if args.directory else Path.cwd()
+gitignore_file = root_dir / ".gitignore"
+if gitignore_file.is_file() and not args.force:
+    print(f"Gitignore file exists and -f/--force not given", file=sys.stderr)
+    raise SystemExit(0)
+
+with gitignore_file.open("w") as outfile:
+    print(contents, file=outfile)

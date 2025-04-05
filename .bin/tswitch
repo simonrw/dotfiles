@@ -1,0 +1,20 @@
+#!/usr/bin/env sh
+
+set -eu
+
+verify_args() {
+    if [[ ! "$#" == 1 ]]; then
+        echo "Program usage: $0 <session_name>" >&2
+        exit 1
+    fi
+
+    session_name="$1"
+}
+
+main() {
+    verify_args "$@"
+
+    tmux switch-client -t "${session_name}"
+}
+
+main "$@"

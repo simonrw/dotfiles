@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+if [[ $# -gt 0 ]]; then
+    CONTAINER_NAME=$1
+else
+    CONTAINER_NAME=$(docker ps --format "{{.Names}}" | fzf)
+fi
+
+docker inspect $CONTAINER_NAME | jq -r '.[0].NetworkSettings.Networks | to_entries | .[].value.IPAddress'

@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+# -*- coding: utf-8 -*-
+
+set -e
+
+if [[ "$#" > 0 ]]; then
+    for arg in "$@"; do
+        echo "${PWD}/${arg}"
+    done
+else
+    while read line; do
+        echo "${PWD}/${line}"
+    done
+fi

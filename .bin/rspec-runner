@@ -1,0 +1,27 @@
+#!/usr/bin/env bash
+
+set -e 
+
+need_rails=1
+
+if [ $# -gt 0 ]; then # We have args
+    filename=$1
+
+    # remove any numbers that are in the filename e.g. spec/my_spec.rb:33
+    grep_filename=`echo $1 | sed 's/:.*$//g'`
+
+    (set +e; grep -r 'spec_helper' $grep_filename) > /dev/null
+    if [ $? -eq 1 ]; then # no match so standalone
+        need_rails=''
+    fi
+else
+    filename='spec'
+fi
+
+command='rspec'
+
+if [ $need_rails ]; then
+    command="bundle exec $command"
+fi
+
+RAILS_ENV=test $command $filename
