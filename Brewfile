@@ -2,6 +2,7 @@
 tap "pulumi/tap"
 
 # Brews
+brew "bat"
 brew "cargo-instruments"
 brew "delta"
 brew "eza"
