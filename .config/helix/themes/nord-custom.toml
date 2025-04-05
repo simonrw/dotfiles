@@ -1,0 +1,4 @@
+inherits = "nord"
+[comment]
+bg = "#2e3440"
+fg = "#d08770"

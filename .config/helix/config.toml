@@ -1,0 +1,40 @@
+theme = "catppuccin_macchiato"
+[editor]
+auto-completion = true
+auto-pairs = false
+color-modes = true
+line-number = "relative"
+true-color = true
+
+[editor.cursor-shape]
+insert = "bar"
+normal = "block"
+
+[editor.file-picker]
+hidden = false
+
+[editor.gutters]
+layout = ["diff", "diagnostics", "spacer"]
+
+[editor.lsp]
+display-messages = true
+
+[keys.normal]
+C-h = "jump_view_left"
+C-j = "jump_view_down"
+C-k = "jump_view_up"
+C-l = "jump_view_right"
+G = "goto_file_end"
+"{" = "goto_prev_paragraph"
+"}" = "goto_next_paragraph"
+
+[keys.normal.g]
+q = ":reflow"
+
+[keys.normal.space]
+q = ":quit"
+w = ":write"
+
+[keys.select]
+"{" = "goto_prev_paragraph"
+"}" = "goto_next_paragraph"
