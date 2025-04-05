@@ -79,8 +79,6 @@ status is-interactive; and begin
     alias watch viddy
 
     # Interactive shell initialisation
-    fzf --fish | source
-
     set -x GLAMOUR_STYLE dark
     set -x PAGER bat
     set -x PYTHONUNBUFFERED 1
@@ -102,6 +100,10 @@ status is-interactive; and begin
     set -x PYTHONPYCACHEPREFIX {$HOME}/.python-cache
 
     set -x EDITOR nvim
+
+    # set up fzf
+    fzf --fish | source
+
 
     # host-specific configuration
     set host_config ~/.config/fish/conf.d/per-host/config.(hostname).fish
