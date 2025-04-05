@@ -1,0 +1,132 @@
+attribute = "#86c1b9"
+constant = "#F3F2CC"
+"constant.character.escape" = "#86c1b9"
+"constant.numeric" = "#86c1b9"
+constructor = "#FAD566"
+debug = "#ffff9f"
+"diff.delta" = "#F3F2CC"
+"diff.minus" = "#F05E48"
+"diff.plus" = "#99be70"
+error = "#F05E48"
+function = "#FAD566"
+hint = "#aaaaaa"
+info = "#ffff9f"
+keyword = "#F05E48"
+label = "#F05E48"
+"markup.heading" = "#FAD566"
+"markup.link.text" = "#F3F2CC"
+"markup.link.url" = "#72a59e"
+"markup.list" = "#F3F2CC"
+"markup.quote" = "#cfba8b"
+"markup.raw" = "#99be70"
+namespace = "#F3F2CC"
+operator = "#F3F2CC"
+special = "#FAD566"
+string = "#99be70"
+"ui.text" = "#F3F2CC"
+"ui.text.focus" = "#F3F2CC"
+variable = "#F3F2CC"
+"variable.other.member" = "#cfba8b"
+warning = "#ffff9f"
+
+[comment]
+bg = "#07151a"
+fg = "#7c7c7c"
+
+[diagnostic]
+modifiers = ["underlined"]
+
+["markup.bold"]
+modifiers = ["bold"]
+
+["markup.italic"]
+modifiers = ["italic"]
+
+[type]
+fg = "#F3F2CC"
+modifiers = ["italic"]
+
+["ui.background"]
+bg = "#07151a"
+
+["ui.cursor"]
+fg = "#aaaaaa"
+modifiers = ["reversed"]
+
+["ui.cursor.match"]
+fg = "#F3F2CC"
+modifiers = ["underlined"]
+
+["ui.cursor.primary"]
+fg = "#F3F2CC"
+modifiers = ["reversed"]
+
+["ui.cursorline"]
+bg = "#1a1a1a"
+
+["ui.cursorline.primary"]
+bg = "#111111"
+
+["ui.cursorline.secondary"]
+bg = "#111111"
+
+["ui.gutter"]
+bg = "#1a1a1a"
+
+["ui.help"]
+bg = "#1a1a1a"
+fg = "#c0c0c0"
+
+["ui.linenr"]
+bg = "#1a1a1a"
+fg = "#7c7c7c"
+
+["ui.linenr.selected"]
+bg = "#0e0e0e"
+fg = "#c0c0c0"
+
+["ui.menu"]
+bg = "#1a1a1a"
+fg = "#F3F2CC"
+
+["ui.menu.selected"]
+bg = "#aaaaaa"
+fg = "#1a1a1a"
+
+["ui.popup"]
+bg = "#1a1a1a"
+
+["ui.selection"]
+bg = "#323232"
+
+["ui.statusline"]
+bg = "#1a1a1a"
+fg = "#c0c0c0"
+
+["ui.statusline.inactive"]
+bg = "#1a1a1a"
+fg = "#7c7c7c"
+
+["ui.statusline.insert"]
+bg = "#aaaaaa"
+fg = "#111111"
+modifiers = ["bold"]
+
+["ui.statusline.normal"]
+bg = "#1a1a1a"
+fg = "#c0c0c0"
+
+["ui.statusline.select"]
+bg = "#111111"
+fg = "#c0c0c0"
+modifiers = ["bold"]
+
+["ui.virtual.ruler"]
+bg = "#0e0e0e"
+
+["ui.virtual.whitespace"]
+fg = "#aaaaaa"
+
+["ui.window"]
+bg = "#1a1a1a"
+fg = "#7c7c7c"

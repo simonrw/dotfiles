@@ -1,0 +1,35 @@
+[[language]]
+auto-format = true
+name = "typescript"
+
+[[language.language-servers]]
+name = "typescript-language-server"
+
+[language.formatter]
+args = ["--parser", "typescript"]
+command = "/nix/store/cl8apv9j751qhshdbwakj2vfz0fl4gm5-prettier-3.3.3/bin/prettier"
+
+[[language]]
+auto-format = true
+language-servers = ["pyright"]
+name = "python"
+
+[[language]]
+name = "nix"
+[[language.language-servers]]
+name = "rnix"
+
+[language-server.basedpyright]
+args = ["--stdio"]
+command = "/nix/store/3g8j90ydgn9fsjgyq8j7rwc2wik6md7z-basedpyright-1.21.1/bin/basedpyright-langserver"
+except-features = ["format"]
+
+[language-server.basedpyright.config.basedpyright.analysis]
+autoSearchPaths = true
+
+[language-server.typescript-language-server]
+args = ["--stdio"]
+command = "/nix/store/fxjxcbp5z5d05n3y6zr0lm950p8v7vqx-typescript-language-server-4.3.3/bin/typescript-language-server"
+
+[language-server.typescript-language-server.config]
+hostInfo = "helix"
