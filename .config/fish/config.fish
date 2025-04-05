@@ -2,10 +2,23 @@
 # automatically by home-manager.
 
 # Only execute this file once per shell.
-set -q __fish_home_manager_config_sourced; and exit
-set -g __fish_home_manager_config_sourced 1
+set -q __fish_already_sourced; and exit
+set -g __fish_already_sourced 1
 
-source /nix/store/4j8g164k9g5rprhcfhyjrbc7na5938vs-hm-session-vars.fish
+# set up environment variables
+set -gx DIRENV_LOG_FORMAT ''
+set -gx FZF_CTRL_T_COMMAND 'fd --no-ignore --type f'
+set -gx FZF_CTRL_T_OPTS '--preview \'bat --color always {}\''
+set -gx FZF_DEFAULT_COMMAND 'rg --files --no-ignore --hidden --follow -g ''!{.git,venv,node_modules}/*'' 2> /dev/null'
+set -gx FZF_DEFAULT_OPTS '--tiebreak begin --ansi --no-mouse --tabstop 4 --inline-info --color dark'
+set -gx GNUPGHOME '/Users/simon/.gnupg'
+set -gx JQ_COLORS '1;30:0;37:0;37:0;37:0;32:1;37:1;37'
+set -gx TMUX_TMPDIR (test -n "$XDG_RUNTIME_DIR" && echo "$XDG_RUNTIME_DIR" || echo '/run/user/'(id -u | string collect; or echo))
+set -gx WEBKIT_DISABLE_COMPOSITING_MODE '1'
+set -gx XDG_CACHE_HOME '/Users/simon/.cache'
+set -gx XDG_CONFIG_HOME '/Users/simon/.config'
+set -gx XDG_DATA_HOME '/Users/simon/.local/share'
+set -gx XDG_STATE_HOME '/Users/simon/.local/state'
 
 
 
@@ -26,35 +39,30 @@ status is-interactive; and begin
     abbr --add -- gp 'git pull'
     abbr --add -- ipy ipython
     abbr --add -- k kubectl
-    abbr --add -- nd 'nix develop --command fish'
     abbr --add -- py python
     abbr --add -- t testsearch
     abbr --add -- v vim
 
     # Aliases
     alias add-keys 'ssh-add (find ~/.ssh - maxdepth 1 - type f - name "id_rsa*" | grep - v pub | grep - v bak)'
-    alias cat /nix/store/5m0ixbv6j0x3syzm732fplz6laig9vyk-bat-0.24.0/bin/bat
+    alias cat bat
     alias clear-pycs 'find { $PWD } -name '\''*.pyc'\'' -delete'
-    alias da '/nix/store/2rhpgzr5484b701il1pxs7s94vr3wlic-direnv-2.35.0/bin/direnv allow'
-    alias de '/nix/store/2rhpgzr5484b701il1pxs7s94vr3wlic-direnv-2.35.0/bin/direnv edit'
+    alias da 'direnv allow'
+    alias de 'direnv edit'
     alias es 'exec $SHELL'
     alias eza 'eza --group-directories-first --header'
-    alias gcpr '/nix/store/6n0vmx4j5x6rpa4n3nh79v2bw0kxv2zd-gh-2.63.0/bin/gh pr create -a @me --label '\''semver: patch'\'''
-    alias gcprd '/nix/store/6n0vmx4j5x6rpa4n3nh79v2bw0kxv2zd-gh-2.63.0/bin/gh pr create -a @me --draft --label '\''semver: patch'\'''
-    alias gpr '/nix/store/fmfsqbimdsw15hr4aq0di0k2ncyc043h-git-2.47.2/bin/git pull --rebase'
-    alias grep /nix/store/qf82zxj5prairk2d6k2wnvxpnx2f6iwh-ripgrep-14.1.1/bin/rg
+    alias gcpr 'gh pr create -a @me --label '\''semver: patch'\'''
+    alias gcprd 'gh pr create -a @me --draft --label '\''semver: patch'\'''
+    alias gpr 'git pull --rebase'
+    alias grep rg
     alias la 'eza -a'
-    alias less /nix/store/5m0ixbv6j0x3syzm732fplz6laig9vyk-bat-0.24.0/bin/bat
+    alias less bat
     alias ll 'eza -l'
     alias lla 'eza -la'
     alias lr thor
     alias ls eza
     alias lt 'eza --tree'
-    alias more /nix/store/5m0ixbv6j0x3syzm732fplz6laig9vyk-bat-0.24.0/bin/bat
-    alias nix-shell 'nix-shell --command fish'
-    alias nl 'nix-locate --regex --top-level'
-    alias nr 'nix repl --file '\''<nixpkgs>'\'''
-    alias ns 'nix shell'
+    alias more bat
     alias ntfy notify-wrapper
     alias nvim nvim
     alias project listprojects
@@ -64,20 +72,20 @@ status is-interactive; and begin
     alias pylab 'ipython - -pylab'
     alias sourceenv 'source ./venv/bin/activate'
     alias ta _tmux_attach
-    alias thor '/nix/store/h1k0rsnsrxxypvcw36dxfryabgx4na4f-eza-0.20.24/bin/eza -s modified -l'
+    alias thor 'eza -s modified -l'
     alias tl tmux-last
-    alias trash /nix/store/5y12dld03n0pd21bpq75z7qx9j0zwz3f-python3.12-send2trash-1.8.3/bin/send2trash
-    alias tree '/nix/store/h1k0rsnsrxxypvcw36dxfryabgx4na4f-eza-0.20.24/bin/eza -T'
+    alias trash send2trash
+    alias tree 'eza -T'
     alias vim nvim
     alias vimdiff 'nvim -d'
     alias vup 'nvim --headless "+Lazy! sync" +qa'
     alias watch viddy
 
     # Interactive shell initialisation
-    /nix/store/r3gh5lpp7a0zlb9id9ys2dhf8b7fjab6-fzf-0.60.3/bin/fzf --fish | source
+    fzf --fish | source
 
     set -x GLAMOUR_STYLE dark
-    set -x PAGER "/nix/store/5m0ixbv6j0x3syzm732fplz6laig9vyk-bat-0.24.0/bin/bat"
+    set -x PAGER bat
     set -x PYTHONUNBUFFERED 1
     set -x SHELL (command -v fish)
 
@@ -153,15 +161,6 @@ status is-interactive; and begin
 
     fish_ssh_agent
 
-    switch (uname)
-        case Darwin
-            # set -x DYLD_LIBRARY_PATH {$BUILD_PREFIX}/lib {$DYLD_LIBRARY_PATH}
-            #
-            # fix nix path
-            set -x PATH /etc/profiles/per-user/(whoami)/bin "/Applications/PyCharm CE.app/Contents/MacOS" {$PATH}
-        case '*'
-    end
-
     # fix gpg tty
     if isatty
         set -x GPG_TTY (tty)
@@ -169,9 +168,6 @@ status is-interactive; and begin
 
     # wrap tflocal completion
     complete --command tflocal --wraps terraform
-
-    # wrap nix completion
-    complete --command nom --wraps nix
 
     # wrap awslocal completion
     complete --command awslocal --wraps aws
@@ -202,10 +198,6 @@ status is-interactive; and begin
     # configure colour theme
     fish_config theme choose "fish default"
 
-    function __fish_command_not_found_handler --on-event fish_command_not_found
-        /nix/store/q8m2lshmi388lpwxnv7bjk5zb8xw2827-command-not-found $argv
-    end
-
     # add completions generated by Home Manager to $fish_complete_path
     begin
         set -l joined (string join " " $fish_complete_path)
@@ -216,7 +208,5 @@ status is-interactive; and begin
         set fish_complete_path $prev "/Users/simon/.local/share/fish/home-manager_generated_completions" $post
     end
 
-    /nix/store/2rhpgzr5484b701il1pxs7s94vr3wlic-direnv-2.35.0/bin/direnv hook fish | source
-
-
+    direnv hook fish | source
 end
