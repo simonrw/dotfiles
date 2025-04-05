@@ -2,9 +2,13 @@
 description = "Install homebrew packages from bundle file"
 run = "HOMEBREW_NO_AUTO_UPDATE=1 brew bundle --no-upgrade --cleanup"
 
-[tasks.install]
+[tasks.all]
 description = "Install/link packages"
+depends = ["dotfiles"]
 depends_post = ["brew", "cargo-install"]
+
+[tasks.dotfiles]
+description = "Install dotfiles"
 run = "stow ."
 
 [tasks.cargo-install]
