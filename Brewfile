@@ -16,6 +16,7 @@ brew "reattach-to-user-namespace"
 brew "ripgrep"
 brew "stow"
 brew "tmux"
+brew "viddy"
 
 # Casks
 cask "1password"
