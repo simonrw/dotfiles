@@ -6,3 +6,4 @@ home/nvim/plugin/packaer_compiled.lua
 /home/neovim/lazy-lock.json
 /home/zed/*
 !/home/zed/settings.json
+.config/fish/fish_variables
