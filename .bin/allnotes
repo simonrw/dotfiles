@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+
+set -eou pipefail
+
+main() {
+    case $OSTYPE in
+        darwin*)
+            open -a obsidian
+        ;;
+        *)
+            echo "not implemented"
+        ;;
+    esac
+}
+
+main

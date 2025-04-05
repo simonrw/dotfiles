@@ -1,0 +1,36 @@
+#!/usr/bin/env bash
+
+# shows the ratio of test to production code for a change
+
+set -euo pipefail
+
+log() {
+    echo "$*" >&2
+}
+
+error() {
+    log $1
+    exit 1
+}
+
+fetch_test_lines() {
+    git diff --stat $1 | awk '$1 ~ /tests/ {sum += $3} END {print sum}'
+}
+
+fetch_prod_lines() {
+    git diff --stat $1 | awk '$1 ~ /src/ {sum += $3} END {print sum}'
+}
+
+main() {
+    if [[ $# -ne 1 ]]; then
+        error "Usage: $0 <commit>"
+    fi
+
+    num_test_lines=$(fetch_test_lines $1)
+    num_prod_lines=$(fetch_prod_lines $1)
+    ratio=$(awk "BEGIN {print $num_test_lines / $num_prod_lines}")
+
+    echo "Test: ${num_test_lines}, prod: ${num_prod_lines}, ratio: ${ratio}"
+}
+
+main "$@"

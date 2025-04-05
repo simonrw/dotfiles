@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+set -e
+
+# This runs git commit -m but allows any arguments to be compiled into the message
+# instead of requiring the wrapping with quotes
+
+git commit -m "$*"
