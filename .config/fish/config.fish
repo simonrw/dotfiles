@@ -159,8 +159,6 @@ status is-interactive; and begin
         end
     end
 
-    fish_ssh_agent
-
     # fix gpg tty
     if isatty
         set -x GPG_TTY (tty)
