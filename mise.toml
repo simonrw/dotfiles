@@ -4,8 +4,12 @@ run = "HOMEBREW_NO_AUTO_UPDATE=1 brew bundle --no-upgrade --cleanup"
 
 [tasks.install]
 description = "Install/link packages"
-depends_post = ["brew"]
+depends_post = ["brew", "cargo-install"]
 run = "stow ."
+
+[tasks.cargo-install]
+description = "Install rust projects"
+run = "mise exec rust -- cat cargo-projects.txt | xargs -I {} sh -c 'cargo install --locked {}'"
 
 [tools]
 shellcheck = "latest"
