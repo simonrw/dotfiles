@@ -1,2 +1,0 @@
---git https://github.com/simonrw/listprojects
---git https://github.com/simonrw/testsearch
