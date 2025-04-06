@@ -11,9 +11,5 @@ depends_post = ["brew", "cargo-install"]
 description = "Install dotfiles"
 run = "stow ."
 
-[tasks.cargo-install]
-description = "Install rust projects"
-run = "mise exec rust -- cat cargo-projects.txt | xargs -I {} sh -c 'cargo install --locked {}'"
-
 [tools]
 shellcheck = "latest"
