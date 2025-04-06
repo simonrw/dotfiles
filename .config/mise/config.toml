@@ -1,0 +1,7 @@
+[tools]
+"cargo:https://github.com/simonrw/testsearch" = "latest"
+"cargo:https://github.com/simonrw/cftail" = "latest"
+"go:github.com/mindriot101/cflivestatus" = "latest"
+
+[settings]
+experimental = true
