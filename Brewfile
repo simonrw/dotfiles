@@ -34,8 +34,8 @@ brew "snappy"
 
 # Casks
 
-cask "1password-cli"
 cask "1password"
+cask "1password-cli"
 cask "barrier"
 cask "betterdisplay" if `hostname`.strip == "mm"
 cask "blender"
@@ -53,6 +53,7 @@ cask "karabiner-elements"
 cask "notion"
 cask "obs"
 cask "obsidian"
+cask "pocket-casts"
 cask "raycast"
 cask "shotcut"
 cask "slack"
