@@ -28,6 +28,7 @@ brew "viddy"
 # for localstack
 
 brew "libvirt"
+brew "snappy"
 
 # Casks
 
