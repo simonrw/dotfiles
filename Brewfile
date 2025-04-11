@@ -2,6 +2,7 @@
 tap "pulumi/tap"
 
 # Brews
+
 brew "bat"
 brew "cargo-instruments"
 brew "delta"
@@ -11,6 +12,7 @@ brew "fzf"
 brew "gh"
 brew "git"
 brew "helix"
+brew "jujutsu"
 brew "mas"
 brew "mise"
 brew "neovim"
@@ -24,9 +26,11 @@ brew "uv"
 brew "viddy"
 
 # for localstack
+
 brew "libvirt"
 
 # Casks
+
 cask "1password-cli"
 cask "1password"
 cask "barrier"
