@@ -38,8 +38,8 @@ brew "snappy"
 
 # Casks
 
-cask "1password"
 cask "1password-cli"
+cask "1password"
 cask "barrier"
 cask "betterdisplay" if `hostname`.strip == "mm"
 cask "blender"
@@ -64,6 +64,7 @@ cask "slack"
 cask "steam"
 cask "sublime-merge"
 cask "sublime-text"
+cask "tailscale"
 cask "utm"
 cask "visual-studio-code"
 cask "vlc"
@@ -79,5 +80,3 @@ mas "1Password for Safari", id: 1569813296
 mas "DaisyDisk", id: 411643860
 mas "Instapaper", id: 288545208
 mas "Perplexity", id: 6714467650
-mas "Tailscale", id: 1475387142
-
