@@ -27,7 +27,11 @@ local autocommands = {
   pattern = { "javascript", "typescript" }
 }, {
   callback = function()
-    require("vim.highlight").on_yank()
+    if vim.fn.has("nvim-0.11") then
+        require("vim.hl").on_yank()
+    else
+        require("vim.highlight").on_yank()
+    end
   end,
   event = { "TextYankPost" },
   group = "lua-highlight"
