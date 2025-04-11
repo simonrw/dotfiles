@@ -5,6 +5,7 @@ tap "pulumi/tap"
 
 brew "bat"
 brew "cargo-instruments"
+brew "coreutils"
 brew "delta"
 brew "eza"
 brew "fd"
