@@ -4,3 +4,9 @@
 [submodule ".config/fish/plugins/plugin-ssh-agent"]
 	path = .config/fish/plugins/plugin-ssh-agent
 	url = https://github.com/danhper/fish-ssh-agent
+[submodule ".config/tmux/plugins/tmux-resurrect"]
+	path = .config/tmux/plugins/tmux-resurrect
+	url = https://github.com/tmux-plugins/tmux-resurrect
+[submodule ".config/tmux/plugins/tmux-continuum"]
+	path = .config/tmux/plugins/tmux-continuum
+	url = https://github.com/tmux-plugins/tmux-continuum
