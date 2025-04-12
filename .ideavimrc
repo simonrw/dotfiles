@@ -29,6 +29,7 @@ map [d <Action>(GotoPreviousError)
 map ]d <Action>(GotoNextError)
 map <leader>e <Action>(QuickEvaluateExpression)
 map <leader>a <Action>(GotoAction)
+map <leader>j <Action>(RecentLocations)
 
 " debugging
 map tdb <Action>(ToggleLineBreakpoint)
