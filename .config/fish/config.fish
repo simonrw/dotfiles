@@ -50,6 +50,7 @@ status is-interactive; and begin
     alias eza 'eza --group-directories-first --header'
     alias gcpr 'gh pr create -a @me --label '\''semver: patch'\'''
     alias gcprd 'gh pr create -a @me --draft --label '\''semver: patch'\'''
+    alias git git-wrapper
     alias gpr 'git pull --rebase'
     alias grep rg
     alias la 'eza -a'
