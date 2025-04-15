@@ -22,7 +22,7 @@ map <leader>y <Action>(ReformatCode)
 map ]c <Action>(VcsShowNextChangeMarker)
 map <space> :nohl<Cr>
 map tn <Action>(RunClass)
-map tdn <Action>(Debug)
+map tdn <Action>(DebugClass)
 map tl <Action>(Run)
 map tdl <Action>(Debug)
 map [d <Action>(GotoPreviousError)
