@@ -15,3 +15,7 @@ run = "stow ."
 lua-language-server = "latest"
 shellcheck = "latest"
 stylua = "latest"
+
+[tasks."brew:upgrade"]
+run = "brew update && brew upgrade"
+description = "Update brews"
