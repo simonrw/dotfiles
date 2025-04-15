@@ -82,16 +82,35 @@ return {
       end
 
       -- configure signs
+      if vim.fn.has('nvim-0.11') then
+          vim.diagnostic.config({
+              signs = {
+                  text = {
+                      [vim.diagnostic.severity.ERROR] = "",
+                      [vim.diagnostic.severity.WARN] = "",
+                      [vim.diagnostic.severity.HINT] = "",
+                      [vim.diagnostic.severity.INFO] = "",
+                  },
+                  numhl = {
+                      [vim.diagnostic.severity.ERROR] = "",
+                      [vim.diagnostic.severity.WARN] = "",
+                      [vim.diagnostic.severity.HINT] = "",
+                      [vim.diagnostic.severity.INFO] = "",
+                  },
+              },
+          })
+      else
       -- from: https://rsdlt.github.io/posts/rust-nvim-ide-guide-walkthrough-development-debug/
       local sign = function(opts)
         vim.fn.sign_define(opts.name,
           { texthl = opts.name, text = opts.text, numhl = '' })
       end
 
-      sign({ name = 'DiagnosticSignError', text = '' })
-      sign({ name = 'DiagnosticSignWarn', text = '' })
-      sign({ name = 'DiagnosticSignHint', text = '' })
-      sign({ name = 'DiagnosticSignInfo', text = '' })
+        sign({ name = 'DiagnosticSignError', text = '' })
+        sign({ name = 'DiagnosticSignWarn', text = '' })
+        sign({ name = 'DiagnosticSignHint', text = '' })
+        sign({ name = 'DiagnosticSignInfo', text = '' })
+    end
 
       -- configure diagnostics
       -- from: https://rsdlt.github.io/posts/rust-nvim-ide-guide-walkthrough-development-debug/
