@@ -4,7 +4,6 @@ rust = "beta"
 "cargo:https://github.com/simonrw/testsearch" = "latest"
 "cargo:https://github.com/simonrw/cftail" = "latest"
 "go:github.com/mindriot101/cflivestatus" = "latest"
-node = "latest"
 
 [settings]
 experimental = true
