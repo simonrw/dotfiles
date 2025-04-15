@@ -12,4 +12,6 @@ description = "Install dotfiles"
 run = "stow ."
 
 [tools]
+lua-language-server = "latest"
 shellcheck = "latest"
+stylua = "latest"
