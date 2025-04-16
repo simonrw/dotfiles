@@ -32,7 +32,7 @@ brew "uv"
 brew "viddy"
 brew "xh"
 
-# for localstack
+# for localStack
 
 brew "libvirt"
 brew "snappy"
@@ -75,6 +75,9 @@ cask "wireshark"
 cask "yubico-yubikey-manager" if `hostname`.strip == "mm"
 cask "zed"
 cask "zoom"
+
+# for LocalStack
+cask "amazon-chime"
 
 # Mac App Store apps
 mas "1Password for Safari", id: 1569813296
