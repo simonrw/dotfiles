@@ -83,4 +83,3 @@ cask "amazon-chime"
 mas "1Password for Safari", id: 1569813296
 mas "DaisyDisk", id: 411643860
 mas "Instapaper", id: 288545208
-mas "Perplexity", id: 6714467650
