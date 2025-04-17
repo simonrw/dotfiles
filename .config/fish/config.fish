@@ -146,5 +146,5 @@ status is-interactive; and begin
     set -x EDITOR nvim
 
     # set the theme
-    fish_config theme choose "Catppuccin Macchiato"
+    fish_config theme choose "Catppuccin Mocha"
 end

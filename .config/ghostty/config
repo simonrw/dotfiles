@@ -9,7 +9,7 @@ shell-integration = none
 confirm-close-surface = false
 
 font-family = JetBrainsMono NFM ExtraBold
-theme = catppuccin-macchiato
+theme = catppuccin-mocha
 cursor-style-blink = false
 
 window-colorspace = display-p3
