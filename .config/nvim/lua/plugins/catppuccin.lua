@@ -9,7 +9,7 @@ return {
       require("catppuccin").setup()
 
       vim.cmd.background = "dark"
-      vim.cmd.colorscheme "catppuccin-macchiato"
+      vim.cmd.colorscheme "catppuccin-mocha"
       vim.cmd.highlight({ "TreesitterContextBottom", "gui=none" })
     end
   },
