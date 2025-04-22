@@ -86,7 +86,6 @@ status is-interactive; and begin
 
     set -x BUILD_PREFIX {$HOME}/.local
     set -x PATH {$BUILD_PREFIX}/bin {$HOME}/.bin /opt/homebrew/bin /opt/homebrew/opt/curl/bin /opt/homebrew/opt/coreutils/libexec/gnubin /usr/local/bin {$HOME}/.cargo/bin {$HOME}/bin {$GOPATH}/bin {$HOME}/.npm-packages/bin {$PATH}
-    set -x NODE_PATH {$HOME}/.npm-packages/lib/node_modules
     set -x GOPATH {$HOME}/dev/gocode
     set -x REVIEW_BASE main
     set -x lC_CTYPE en_GB.UTF-8
