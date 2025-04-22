@@ -3,6 +3,9 @@ let mapleader = "\<space>"
 " plugins
 set surround
 set commentary
+set functiontextobj
+let g:highlightedyank_highlight_duration = "200"
+set highlightedyank
 
 " settings
 set incsearch
@@ -30,6 +33,7 @@ map ]d <Action>(GotoNextError)
 map <leader>e <Action>(QuickEvaluateExpression)
 map <leader>a <Action>(GotoAction)
 map <leader>j <Action>(RecentLocations)
+map Q gq
 
 " debugging
 map tdb <Action>(ToggleLineBreakpoint)
