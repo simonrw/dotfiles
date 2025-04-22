@@ -1,5 +1,6 @@
 # Taps
 tap "pulumi/tap"
+tap "withgraphite/tap"
 
 # Brews
 
@@ -31,6 +32,7 @@ brew "stow"
 brew "tmux"
 brew "uv"
 brew "viddy"
+brew "withgraphite/tap/graphite"
 brew "xh"
 
 # for localStack
