@@ -5,8 +5,9 @@ python = "latest"
 rust = "beta"
 "cargo:https://github.com/simonrw/cftail" = "latest"
 "cargo:https://github.com/simonrw/testsearch" = "latest"
-"go:github.com/mindriot101/cflivestatus" = "latest"
+"go:github.com/simonrw/cflivestatus" = "latest"
 "pipx:basedpyright" = "latest"
+"go:github.com/simonrw/cert-info" = "main"
 
 [settings]
 experimental = true
