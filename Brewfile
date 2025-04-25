@@ -4,8 +4,11 @@ tap "withgraphite/tap"
 
 # Brews
 
+brew "autoconf"
+brew "automake"
 brew "bat"
 brew "cargo-instruments"
+brew "cfitsio"
 brew "coreutils"
 brew "curl"
 brew "delta"
