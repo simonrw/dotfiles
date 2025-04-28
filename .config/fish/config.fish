@@ -10,14 +10,14 @@ set -gx FZF_CTRL_T_COMMAND 'fd --no-ignore --hidden --type f'
 set -gx FZF_CTRL_T_OPTS '--preview \'bat --color always {}\''
 set -gx FZF_DEFAULT_COMMAND 'rg --files --no-ignore --hidden --follow -g ''!{.git,venv,node_modules}/*'' 2> /dev/null'
 set -gx FZF_DEFAULT_OPTS '--tiebreak begin --ansi --no-mouse --tabstop 4 --inline-info --color dark'
-set -gx GNUPGHOME '/Users/simon/.gnupg'
+set -gx GNUPGHOME "$HOME/.gnupg"
 set -gx JQ_COLORS '1;30:0;37:0;37:0;37:0;32:1;37:1;37'
 set -gx TMUX_TMPDIR (test -n "$XDG_RUNTIME_DIR" && echo "$XDG_RUNTIME_DIR" || echo '/run/user/'(id -u | string collect; or echo))
 set -gx WEBKIT_DISABLE_COMPOSITING_MODE '1'
-set -gx XDG_CACHE_HOME '/Users/simon/.cache'
-set -gx XDG_CONFIG_HOME '/Users/simon/.config'
-set -gx XDG_DATA_HOME '/Users/simon/.local/share'
-set -gx XDG_STATE_HOME '/Users/simon/.local/state'
+set -gx XDG_CACHE_HOME "$HOME/.cache"
+set -gx XDG_CONFIG_HOME "$HOME/.config"
+set -gx XDG_DATA_HOME "$HOME/.local/share"
+set -gx XDG_STATE_HOME "$HOME/.local/state"
 
 
 
