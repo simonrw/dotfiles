@@ -225,5 +225,11 @@
   "python.analysis.inlayHints.variableTypes": true,
   "git.blame.editorDecoration.enabled": false,
   "chat.agent.enabled": true,
-  "mise.checkForNewMiseVersion": false
+  "mise.checkForNewMiseVersion": false,
+  "github.copilot.enable": {
+    "*": false,
+    "plaintext": false,
+    "markdown": false,
+    "scminput": false
+  }
 }
