@@ -24,8 +24,7 @@ set -gx XDG_STATE_HOME "$HOME/.local/state"
 status is-login; and begin
 
     # Login shell initialisation
-
-
+    set -x PATH /opt/homebrew/opt/curl/bin /opt/homebrew/opt/make/libexec/gnubin /opt/homebrew/opt/coreutils/libexec/gnubin /opt/homebrew/bin /opt/homebrew/opt/sqlite/bin {$PATH}
 end
 
 status is-interactive; and begin
@@ -85,7 +84,7 @@ status is-interactive; and begin
     set -x SHELL (command -v fish)
 
     set -x BUILD_PREFIX {$HOME}/.local
-    set -x PATH {$BUILD_PREFIX}/bin {$HOME}/.bin /opt/homebrew/bin /opt/homebrew/opt/curl/bin /opt/homebrew/opt/make/libexec/gnubin /opt/homebrew/opt/coreutils/libexec/gnubin /usr/local/bin {$HOME}/.cargo/bin {$HOME}/bin {$GOPATH}/bin {$HOME}/.npm-packages/bin {$PATH}
+    set -x PATH {$BUILD_PREFIX}/bin {$HOME}/.bin  /usr/local/bin {$HOME}/.cargo/bin {$HOME}/bin {$GOPATH}/bin {$HOME}/.npm-packages/bin {$PATH}
     set -x GOPATH {$HOME}/dev/gocode
     set -x REVIEW_BASE main
     set -x lC_CTYPE en_GB.UTF-8
