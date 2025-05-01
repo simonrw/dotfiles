@@ -4,7 +4,7 @@ run = "HOMEBREW_NO_AUTO_UPDATE=1 brew bundle --no-upgrade --cleanup"
 
 [tasks.all]
 description = "Install/link packages"
-depends = ["dotfiles"]
+depends = ["dotfiles", "defaults"]
 depends_post = ["brew"]
 
 [tasks.dotfiles]

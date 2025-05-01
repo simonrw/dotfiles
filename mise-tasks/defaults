@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+#MISE description="Set up macos defaults"
+
+set -euo pipefail
+
+# dock
+
