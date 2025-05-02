@@ -8,3 +8,9 @@ format = "git"
 [user]
 email = "s.r.walker101@googlemail.com"
 name = "Simon Walker"
+
+[revset-aliases]
+'closest_bookmark(to)' = 'heads(::to & bookmarks())'
+
+[aliases]
+tug = ["bookmark", "move", "--from", "closest_bookmark(@-)", "--to", "@-"]
