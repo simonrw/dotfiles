@@ -12,5 +12,9 @@ name = "Simon Walker"
 [revset-aliases]
 'closest_bookmark(to)' = 'heads(::to & bookmarks())'
 
+[revsets]
+# https://github.com/willhbr/dotfiles/blob/ca9cabda249d0f77e09263af30760e8c5603d1a7/jj/jjconfig.toml#L25
+log = '@ | ancestors(trunk()..(visible_heads() & mine()), 2) | trunk()'
+
 [aliases]
 tug = ["bookmark", "move", "--from", "closest_bookmark(@-)", "--to", "@-"]
