@@ -2,6 +2,9 @@
 default-command = "status"
 pager = "delta"
 
+[git]
+push-new-bookmarks = true
+
 [ui.diff]
 format = "git"
 
