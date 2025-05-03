@@ -21,3 +21,4 @@ log = '@ | ancestors(trunk()..(visible_heads() & mine()), 2) | trunk()'
 
 [aliases]
 tug = ["bookmark", "move", "--from", "closest_bookmark(@-)", "--to", "@-"]
+ci = ["commit"]
