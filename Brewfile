@@ -53,8 +53,8 @@ brew "snappy"
 
 # Casks
 
-cask "1password-cli"
 cask "1password"
+cask "1password-cli"
 cask "barrier"
 cask "betterdisplay" if `hostname`.strip == "mm"
 cask "blender"
@@ -82,6 +82,7 @@ cask "tailscale"
 cask "utm"
 cask "visual-studio-code"
 cask "vlc"
+cask "vmware-fusion"
 cask "wacom-tablet" if `hostname`.strip == "mm"
 cask "whatsapp"
 cask "wireshark"
