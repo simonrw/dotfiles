@@ -82,6 +82,7 @@ status is-interactive; and begin
     set -x PAGER bat
     set -x PYTHONUNBUFFERED 1
     set -x SHELL (command -v fish)
+    set -x MANPAGER "nvim +Man!"
 
     set -x BUILD_PREFIX {$HOME}/.local
     set -x PATH {$BUILD_PREFIX}/bin {$HOME}/.bin  /usr/local/bin {$HOME}/.cargo/bin {$HOME}/bin {$GOPATH}/bin {$HOME}/.npm-packages/bin {$PATH}
