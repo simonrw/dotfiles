@@ -7,7 +7,6 @@ set -g __fish_already_sourced 1
 
 # set up environment variables
 set -gx FZF_CTRL_T_COMMAND 'fd --no-ignore --hidden --type f'
-set -gx FZF_CTRL_T_OPTS '--preview \'bat --color always {}\''
 set -gx FZF_DEFAULT_COMMAND 'rg --files --no-ignore --hidden --follow -g ''!{.git,venv,node_modules}/*'' 2> /dev/null'
 set -gx FZF_DEFAULT_OPTS '--tiebreak begin --ansi --no-mouse --tabstop 4 --inline-info --color dark'
 set -gx GNUPGHOME "$HOME/.gnupg"
