@@ -228,3 +228,5 @@
 
 [includeIf "gitdir:~/work/localstack/"]
 	path = "~/work/localstack/.gitconfig"
+[gpg "ssh"]
+	allowedSignersFile = ~/.config/git/allowed-signers
