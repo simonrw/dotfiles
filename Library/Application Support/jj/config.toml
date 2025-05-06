@@ -5,6 +5,11 @@ pager = "delta"
 [git]
 push-new-bookmarks = true
 
+[signing]
+behaviour = "own"
+backend = "ssh"
+key = "~/.ssh/id_signing.pub"
+
 [ui.diff]
 format = "git"
 
@@ -22,3 +27,9 @@ log = '@ | ancestors(trunk()..(visible_heads() & mine()), 2) | trunk()'
 [aliases]
 tug = ["bookmark", "move", "--from", "closest_bookmark(@-)", "--to", "@-"]
 ci = ["commit"]
+
+[templates]
+log = "builtin_log_oneline"
+
+[template-aliases]
+'format_short_signature(signature)' = 'signature.name()'
