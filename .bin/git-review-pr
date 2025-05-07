@@ -5,15 +5,16 @@ import subprocess as sp
 import os
 
 parser = argparse.ArgumentParser()
-parser.add_argument("pr_number")
+parser.add_argument("pr_number", nargs="?")
 parser.add_argument("-r", "--remote", required=False, default="origin")
-parser.add_argument("-m", "--main-branch-name", required=False, default="main")
+parser.add_argument("-m", "--main-branch-name", required=False, default=os.getenv("REVIEW_BASE", "main"))
 args = parser.parse_args()
 
 
 # fetch remote
 sp.check_output(["git", "fetch", args.remote])
 # check out PR
-sp.check_output(["gh", "pr", "checkout", args.pr_number])
+if pr_number := args.pr_number:
+    sp.check_output(["gh", "pr", "checkout", args.pr_number])
 # open vim in review mode
 os.execvp("nvim", ["nvim", "-c", f"DiffviewOpen {args.remote}/{args.main_branch_name}..."])
