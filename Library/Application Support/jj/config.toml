@@ -27,6 +27,13 @@ log = '@ | ancestors(trunk()..(visible_heads() & mine()), 2) | trunk()'
 [aliases]
 tug = ["bookmark", "move", "--from", "closest_bookmark(@-)", "--to", "@-"]
 ci = ["commit"]
+update = ["util", "exec", "--", "bash", "-c", """
+#!/usr/bin/env bash
+set -euo pipefail
+jj git fetch
+jj new ${REVIEW_BASE:-main}
+""", ""]
+up = ["update"]
 
 [templates]
 log = "builtin_log_oneline"
