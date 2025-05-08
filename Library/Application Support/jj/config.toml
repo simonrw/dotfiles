@@ -34,6 +34,7 @@ jj git fetch
 jj new ${REVIEW_BASE:-main}
 """, ""]
 up = ["update"]
+current-bookmark = ["log", "-r", "closest_bookmark(@)", "--template", "bookmarks.join(' ')", "--no-graph"]
 
 [templates]
 log = "builtin_log_oneline"
