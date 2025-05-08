@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+set -e
+
+gh pr view --json url -t '{{.url}}' $*
