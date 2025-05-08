@@ -136,6 +136,8 @@ status is-interactive; and begin
         mise activate fish --shims | source
     end
 
+    set -x MISE_PIPX_UVX true
+
     # if a local configuration override file exists, source it
     if test -f $HOME/.config/fish/local.fish
         source $HOME/.config/fish/local.fish
