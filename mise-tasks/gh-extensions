@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+#MISE description="Install gh CLI extensions"
+
+set -euo pipefail
+
+ROOT_DIR=$(readlink -f $(dirname $0)/..)
+EXTENSIONS_DIR=$ROOT_DIR/gh-extensions
+
+find $EXTENSIONS_DIR -maxdepth 1 -mindepth 1 -type d | while read dirname; do
+    gh extension remove $(basename $dirname) >/dev/null 2>&1 || true
+    if test -f $dirname/go.mod; then
+        # TODO: compiled extension
+        true
+    else
+        (cd $dirname;
+            gh extension install .
+        )
+    fi
+done
