@@ -130,10 +130,12 @@ status is-interactive; and begin
     end
 
     # mise integration
+    # XXX hard code the path as we cannot run `mise` without first configuring mise
+    set -l mise_path $HOME/.local/share/mise/shims/mise
     if status is-interactive
-        mise activate fish | source
+        $mise_path activate fish | source
     else
-        mise activate fish --shims | source
+        $mise_path activate fish --shims | source
     end
 
     set -x MISE_PIPX_UVX true
