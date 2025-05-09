@@ -1,1 +1,44 @@
-/Users/simon/dotfiles/Library/Application Support/jj/config.toml
+[ui]
+default-command = "status"
+pager = "delta"
+
+[git]
+push-new-bookmarks = true
+
+[signing]
+behaviour = "own"
+backend = "ssh"
+key = "~/.ssh/id_signing.pub"
+
+[ui.diff]
+format = "git"
+
+[user]
+email = "s.r.walker101@googlemail.com"
+name = "Simon Walker"
+
+[revset-aliases]
+'closest_bookmark(to)' = 'heads(::to & bookmarks())'
+
+[revsets]
+# https://github.com/willhbr/dotfiles/blob/ca9cabda249d0f77e09263af30760e8c5603d1a7/jj/jjconfig.toml#L25
+log = '@ | ancestors(trunk()..(visible_heads() & mine()), 2) | trunk()'
+
+[aliases]
+tug = ["bookmark", "move", "--from", "closest_bookmark(@-)", "--to", "@-"]
+ci = ["commit"]
+update = ["util", "exec", "--", "bash", "-c", """
+#!/usr/bin/env bash
+set -euo pipefail
+jj git fetch
+jj new ${REVIEW_BASE:-main}
+""", ""]
+up = ["update"]
+current-bookmark = ["log", "-r", "closest_bookmark(@)", "--template", "bookmarks.join(' ')", "--no-graph"]
+
+[templates]
+log = "builtin_log_oneline"
+
+[template-aliases]
+'format_short_signature(signature)' = 'signature.name()'
+'format_timestamp(timestamp)' = 'timestamp.ago()'
