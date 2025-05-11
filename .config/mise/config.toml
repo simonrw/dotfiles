@@ -9,7 +9,6 @@ rust = "beta"
 "pipx:basedpyright" = "latest"
 "go:github.com/simonrw/cert-info" = "main"
 "cargo:https://github.com/simonrw/listprojects" = "latest"
-"ubi:jdx/mise" = "v2025.5.1"
 
 [settings]
 experimental = true
