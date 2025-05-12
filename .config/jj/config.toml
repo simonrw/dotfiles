@@ -4,6 +4,8 @@ pager = "delta"
 
 [git]
 push-new-bookmarks = true
+# automatically track remote bookmarks
+auto-local-bookmark = true
 
 [signing]
 behaviour = "own"
