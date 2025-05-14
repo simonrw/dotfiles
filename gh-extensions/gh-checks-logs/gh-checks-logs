@@ -1,0 +1,31 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+function jobs() {
+    gh pr checks $@ --json state,name,link -q '.[] | select(.state == "FAILURE") | [.name, .link] | @tsv'
+}
+
+function choose_job() {
+    fzf
+}
+
+function filter_url() {
+    awk '{print $NF}'
+}
+
+function filter_run_id() {
+    awk '{split($0,a,"/"); print a[8]}'
+}
+
+
+function main() {
+    run_id=$(jobs "$@" | choose_job | filter_url | filter_run_id)
+    log_filename=$TMPDIR/gh-checks-logs-$run_id
+    if ! test -f $log_filename; then
+        gh run view --log-failed $run_id > $log_filename
+    fi
+    exec bat $log_filename
+}
+
+main "$@"
