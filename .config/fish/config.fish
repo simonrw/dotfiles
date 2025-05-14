@@ -69,7 +69,6 @@ status is-interactive; and begin
     alias ta _tmux_attach
     alias thor 'eza -s modified -l'
     alias tl tmux-last
-    alias trash send2trash
     alias tree 'eza -T'
     alias vim nvim
     alias vimdiff 'nvim -d'
