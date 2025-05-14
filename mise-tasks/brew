@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+#MISE description="Install homebrew packages from bundle file"
+
+set -eou pipefail
+
+HOMEBREW_NO_AUTO_UPDATE=1 brew bundle --no-upgrade --cleanup
+ln -sf /opt/homebrew/opt/emacs-mac/Emacs.app /Applications/Emacs.app

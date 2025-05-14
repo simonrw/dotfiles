@@ -1,6 +1,7 @@
 # Taps
 tap "pulumi/tap"
 tap "withgraphite/tap"
+tap "railwaycat/emacsmacport"
 
 # Brews
 
@@ -12,6 +13,7 @@ brew "cfitsio"
 brew "coreutils"
 brew "curl"
 brew "delta"
+brew "emacs-mac", args: ["with-modules"]
 brew "eza"
 brew "fd"
 brew "ffmpeg"
