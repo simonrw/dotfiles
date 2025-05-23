@@ -1,7 +1,11 @@
 [tasks.all]
 description = "Install/link packages"
-depends = ["dotfiles", "defaults", "gh-extensions"]
+depends = ["submodules", "dotfiles", "defaults", "gh-extensions"]
 depends_post = ["brew"]
+
+[tasks.submodules]
+description = "Ensure submodules are installed"
+run = "git submodule update --init"
 
 [tasks.dotfiles]
 description = "Install dotfiles"
