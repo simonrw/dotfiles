@@ -45,3 +45,4 @@ $RECYCLE.BIN/
 *.msp
 *.lnk
 Session.vim*
+mise.local.toml
