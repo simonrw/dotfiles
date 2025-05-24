@@ -50,6 +50,19 @@ jj diff -r ${REVIEW_BASE:-main}..@-
 
 [templates]
 log = "builtin_log_oneline"
+# Add detailed log in commit message by default
+# source: https://oppi.li/posts/configuring_jujutsu/
+draft_commit_description ='''
+    concat(
+      coalesce(description, default_commit_description, "\n"),
+      surround(
+        "\nJJ: This commit contains the following changes:\n", "",
+        indent("JJ:     ", diff.stat(72)),
+      ),
+      "\nJJ: ignore-rest\n",
+      diff.git(),
+    )
+'''
 
 [template-aliases]
 'format_short_signature(signature)' = 'signature.name()'
