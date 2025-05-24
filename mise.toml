@@ -9,6 +9,7 @@ run = "git submodule update --init"
 
 [tasks.dotfiles]
 description = "Install dotfiles"
+depends = ["submodules"]
 run = "stow ."
 
 [tools]
@@ -18,4 +19,5 @@ stylua = "latest"
 
 [tasks."brew:upgrade"]
 run = "brew update && brew upgrade"
+depends = ["submodules", "brew"]
 description = "Update brews"
