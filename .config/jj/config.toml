@@ -7,6 +7,9 @@ diff-editor = ":builtin"
 push-new-bookmarks = true
 # automatically track remote bookmarks
 auto-local-bookmark = true
+# Add git compatible change id header
+# source: https://oppi.li/posts/configuring_jujutsu/
+write-change-id-header = true
 
 [signing]
 behaviour = "own"
