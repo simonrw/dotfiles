@@ -69,6 +69,7 @@ return {
             root_dir = util.root_pattern('shell.nix', 'flake.nix', '.git'),
           },
         },
+        { name = "tailwindcss" },
       }
 
       local setup = {
