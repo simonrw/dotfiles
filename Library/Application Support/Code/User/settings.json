@@ -226,10 +226,5 @@
   "git.blame.editorDecoration.enabled": false,
   "chat.agent.enabled": true,
   "mise.checkForNewMiseVersion": false,
-  "github.copilot.enable": {
-    "*": false,
-    "plaintext": false,
-    "markdown": false,
-    "scminput": false
-  }
+  "github.copilot.nextEditSuggestions.enabled": true
 }
