@@ -1,6 +1,42 @@
-#!/bin/sh
+#!/usr/bin/env python
 
-set -eou pipefail
+import argparse
+import os
+from pathlib import Path
+from datetime import date
+from typing import cast
 
-urlTemplate="obsidian://open?vault=notes&file=daily%2F$(date +%Y-%m-%d)"
-open $urlTemplate
+template = f"""\
+# {date.today()}
+
+"""
+
+
+def init_file(path: Path):
+    path.parent.mkdir(parents=True, exist_ok=True)
+    with path.open("w") as outfile:
+        print(template, file=outfile)
+
+#
+#
+
+def main() -> None:
+    parser = argparse.ArgumentParser()
+    _ = parser.add_argument(
+        "-r",
+        "--recreate",
+        action="store_true",
+        default=False,
+        help="Reset file back to template",
+    )
+    args = parser.parse_args()
+
+    today = date.today()
+    filename = Path.home() / "notes" / f"{today}.md"
+    if not filename.is_file() or cast(bool, args.recreate):
+        init_file(filename)
+    os.execvp("nvim", ["nvim", str(filename), "-c", "normal G"])
+
+
+if __name__ == "__main__":
+    main()
