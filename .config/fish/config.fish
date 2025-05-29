@@ -58,6 +58,7 @@ status is-interactive; and begin
     alias ls eza
     alias lt 'eza --tree'
     alias more bat
+    alias notes 'nvim ~/notes.md'
     alias ntfy notify-wrapper
     alias nvim nvim
     alias project listprojects
