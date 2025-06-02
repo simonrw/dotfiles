@@ -18,6 +18,7 @@ key = "~/.ssh/id_signing.pub"
 
 [ui.diff]
 format = "git"
+tool = ["difft", "--color=always", "$left", "$right"]
 
 [user]
 email = "s.r.walker101@googlemail.com"
