@@ -1,4 +1,52 @@
 {
+  "vim.normalModeKeyBindingsNonRecursive": [
+    {
+      "before": ["<Esc>"],
+      "when": ["editorFocus"],
+      "commands": [":nohl"],
+      "silent": true
+    },
+    {
+      "before": ["[", "d"],
+      "commands": ["editor.action.marker.prev"],
+      "silent": true
+    },
+    {
+      "before": ["]", "d"],
+      "commands": ["editor.action.marker.next"],
+      "silent": true
+    },
+    {
+      "key": "] d",
+      "command": "editor.action.marker.next",
+      "when": "vim.mode == 'Normal' && editorTextFocus"
+    },
+    {
+      "before": ["g", "b"],
+      "commands": ["workbench.action.quickOpen"],
+      "silent": true
+    },
+    {
+      "before": ["<leader>", "f"],
+      "commands": ["workbench.action.quickOpen"],
+      "silent": true
+    },
+    {
+      "before": [":"],
+      "commands": ["workbench.action.showCommands"],
+      "silent": true
+    },
+    {
+      "before": ["g", "s"],
+      "commands": ["gitlens.showCommitsView"],
+      "silent": true
+    },
+    {
+      "before": ["g", "r"],
+      "commands": ["editor.action.goToReferences"],
+      "silent": true
+    }
+  ],
   "editor.fontFamily": "'JetBrains Mono Semibold'",
   "editor.minimap.enabled": false,
   "telemetry.telemetryLevel": "off",
@@ -173,11 +221,8 @@
   "rust-analyzer.inlayHints.parameterHints.enable": false,
   "rust-analyzer.inlayHints.typeHints.enable": false,
   "rust-analyzer.inlayHints.renderColons": false,
-  "workbench.editor.editorActionsLocation": "titleBar",
+  "workbench.editor.editorActionsLocation": "hidden",
   "workbench.activityBar.location": "hidden",
-  "extensions.experimental.affinity": {
-    "asvetliakov.vscode-neovim": 1
-  },
   "python.terminal.activateEnvironment": false,
   "go.toolsManagement.autoUpdate": true,
   "svelte.enable-ts-plugin": true,
@@ -231,5 +276,14 @@
     "plaintext": false,
     "markdown": false,
     "scminput": false
-  }
+  },
+  "workbench.statusBar.visible": false,
+  "chat.commandCenter.enabled": false,
+  "vim.hlsearch": true,
+  "vim.highlightedyank.enable": true,
+  "vim.visualstar": true,
+  "extensions.experimental.affinity": {
+    "vscodevim.vim": 1
+  },
+  "vim.leader": "<space>"
 }

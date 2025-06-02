@@ -1,5 +1,20 @@
 // Place your key bindings in this file to override the defaultsauto[]
 [
+  { "key": "ctrl+h", "command": "workbench.action.navigateLeft" },
+  { "key": "ctrl+j", "command": "workbench.action.navigateDown" },
+  { "key": "ctrl+k", "command": "workbench.action.navigateUp" },
+  { "key": "ctrl+l", "command": "workbench.action.navigateRight" },
+  // close diagnostic window with escape
+  {
+    "key": "escape",
+    "command": "closeMarkersNavigation",
+    "when": "editorFocus && markersNavigationVisible"
+  },
+  {
+    "key": "tab",
+    "command": "quickInput.next",
+    "when": "inQuickInput && quickInputType == 'quickPick'"
+  },
   {
     "key": "shift+enter",
     "command": "-python.execSelectionInTerminal",
