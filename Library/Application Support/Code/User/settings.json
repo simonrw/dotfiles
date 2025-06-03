@@ -302,5 +302,6 @@
     "scminput": false,
     "terraform": true
   },
-  "github.copilot.nextEditSuggestions.enabled": true
+  "github.copilot.nextEditSuggestions.enabled": true,
+  "workbench.statusBar.visible": false
 }
