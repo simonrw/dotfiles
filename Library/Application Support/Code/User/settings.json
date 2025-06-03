@@ -271,13 +271,6 @@
   "git.blame.editorDecoration.enabled": false,
   "chat.agent.enabled": true,
   "mise.checkForNewMiseVersion": false,
-  "github.copilot.enable": {
-    "*": false,
-    "plaintext": false,
-    "markdown": false,
-    "scminput": false
-  },
-  "workbench.statusBar.visible": false,
   "chat.commandCenter.enabled": false,
   "vim.hlsearch": true,
   "vim.highlightedyank.enable": true,
@@ -301,5 +294,13 @@
   "github.copilot.chat.newWorkspaceCreation.enabled": false,
   "github.copilot.chat.search.semanticTextResults": false,
   "github.copilot.chat.setupTests.enabled": false,
-  "github.copilot.chat.summarizeAgentConversationHistory.enabled": false
+  "github.copilot.chat.summarizeAgentConversationHistory.enabled": false,
+  "github.copilot.enable": {
+    "*": true,
+    "plaintext": false,
+    "markdown": false,
+    "scminput": false,
+    "terraform": true
+  },
+  "github.copilot.nextEditSuggestions.enabled": true
 }
