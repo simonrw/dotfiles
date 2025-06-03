@@ -1,6 +1,3 @@
-# ~/.config/fish/config.fish: DO NOT EDIT -- this file has been generated
-# automatically by home-manager.
-
 # Only execute this file once per shell.
 set -q __fish_already_sourced; and exit
 set -g __fish_already_sourced 1
@@ -98,8 +95,6 @@ status is-interactive; and begin
     # centralise where python puts its .pyc files
     set -x PYTHONPYCACHEPREFIX {$HOME}/.python-cache
 
-    set -x EDITOR nvim
-
     # set up fzf
     fzf --fish | source
 
@@ -143,8 +138,7 @@ status is-interactive; and begin
         source $HOME/.config/fish/local.fish
     end
 
-
-    set -x EDITOR nvim
+    set -x EDITOR "code --wait"
 
     # set the theme
     fish_config theme choose "Catppuccin Mocha"
