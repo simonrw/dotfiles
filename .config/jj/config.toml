@@ -2,6 +2,7 @@
 default-command = "status"
 pager = "delta"
 diff-editor = ":builtin"
+editor = "code --wait"
 
 [git]
 push-new-bookmarks = true
@@ -41,11 +42,19 @@ jj git fetch
 jj new ${REVIEW_BASE:-main}
 """, ""]
 up = ["update"]
-current-bookmark = ["util", "exec", "--", "bash", "-c", """
+current-bookmark = [
+  "util",
+  "exec",
+  "--",
+  "bash",
+  "-c",
+  """
 #!/usr/bin/env bash
 set -euo pipefail
 jj log -r 'closest_bookmark(@)' --template "bookmarks.join(' ')" --no-graph | sed 's/\\*//'
-""", ""]
+""",
+  "",
+]
 diff-base = ["util", "exec", "--", "bash", "-c", """
 #!/usr/bin/env bash
 set -euo pipefail
@@ -56,7 +65,7 @@ jj diff -r ${REVIEW_BASE:-main}..@-
 log = "builtin_log_oneline"
 # Add detailed log in commit message by default
 # source: https://oppi.li/posts/configuring_jujutsu/
-draft_commit_description ='''
+draft_commit_description = '''
     concat(
       coalesce(description, default_commit_description, "\n"),
       surround(
