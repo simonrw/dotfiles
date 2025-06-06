@@ -101,7 +101,6 @@
 	mnemonicPrefix = true
 	renames = true
 	tool = "meld"
-    external = "difft"
 
 [difftool]
 	prompt = false

@@ -2,7 +2,6 @@
 default-command = "status"
 pager = "delta"
 diff-editor = ":builtin"
-diff-formatter = ["difft", "--color=always", "$left", "$right"]
 
 [git]
 push-new-bookmarks = true
