@@ -2,6 +2,7 @@
 default-command = "status"
 pager = "delta"
 diff-editor = ":builtin"
+diff-formatter = ["difft", "--color=always", "$left", "$right"]
 
 [git]
 push-new-bookmarks = true
@@ -15,10 +16,6 @@ write-change-id-header = true
 behaviour = "own"
 backend = "ssh"
 key = "~/.ssh/id_signing.pub"
-
-[ui.diff]
-format = "git"
-tool = ["difft", "--color=always", "$left", "$right"]
 
 [user]
 email = "s.r.walker101@googlemail.com"
