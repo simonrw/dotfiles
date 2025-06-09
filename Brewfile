@@ -54,12 +54,13 @@ brew "snappy"
 
 # Casks
 
-cask "1password"
 cask "1password-cli"
+cask "1password"
 cask "barrier"
 cask "betterdisplay" if `hostname`.strip == "mm"
 cask "blender"
 cask "brave-browser"
+cask "cursor"
 cask "discord"
 cask "docker"
 cask "element"
