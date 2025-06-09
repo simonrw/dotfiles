@@ -1,6 +1,6 @@
 [tasks.all]
 description = "Install/link packages"
-depends = ["submodules", "dotfiles", "defaults", "gh-extensions"]
+depends = ["submodules", "dotfiles", "defaults", "gh-extensions", "vim-update"]
 depends_post = ["brew"]
 
 [tasks.submodules]
@@ -21,3 +21,7 @@ stylua = "latest"
 run = "brew update && brew upgrade"
 depends = ["submodules", "brew"]
 description = "Update brews"
+
+[tasks.vim-update]
+run = "nvim --headless '+Lazy! sync' +qa"
+description = "Update neovim plugins"
