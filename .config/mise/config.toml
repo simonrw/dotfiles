@@ -2,7 +2,7 @@
 go = "latest"
 node = "latest"
 python = "latest"
-rust = "beta"
+rust = { version = "beta", components = "rust-src,rust-analyzer" }
 "cargo:https://github.com/simonrw/cftail" = "latest"
 "cargo:https://github.com/simonrw/testsearch" = "latest"
 "go:github.com/simonrw/cflivestatus" = "latest"
