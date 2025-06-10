@@ -11,6 +11,8 @@ auto-local-bookmark = true
 # Add git compatible change id header
 # source: https://oppi.li/posts/configuring_jujutsu/
 write-change-id-header = true
+# sign commits on push
+sign-on-push = true
 
 [signing]
 behaviour = "own"
