@@ -1,6 +1,7 @@
 # Taps
 tap "pulumi/tap"
 tap "withgraphite/tap"
+tap "hmarr/tap"
 
 # Brews
 
@@ -24,6 +25,7 @@ brew "git"
 brew "gnu-sed"
 brew "graphviz"
 brew "helix"
+brew "hmarr/tap/codeowners"
 brew "htop"
 brew "jless"
 brew "jujutsu"
