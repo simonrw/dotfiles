@@ -9,7 +9,7 @@ shell-integration = none
 confirm-close-surface = false
 
 font-family = JetBrainsMono NFM ExtraBold
-theme = catppuccin-mocha
+theme = dark:catppuccin-mocha,light:GitHub-Light-Default
 cursor-style-blink = false
 
 window-colorspace = display-p3
