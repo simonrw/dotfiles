@@ -269,7 +269,7 @@
   "python.analysis.inlayHints.pytestParameters": true,
   "python.analysis.inlayHints.variableTypes": true,
   "git.blame.editorDecoration.enabled": false,
-  "chat.agent.enabled": false,
+  "chat.agent.enabled": true,
   "mise.checkForNewMiseVersion": false,
   "chat.commandCenter.enabled": false,
   "vim.hlsearch": true,
@@ -296,12 +296,23 @@
   "github.copilot.chat.setupTests.enabled": false,
   "github.copilot.chat.summarizeAgentConversationHistory.enabled": false,
   "github.copilot.enable": {
-    "*": false,
+    "*": true,
     "plaintext": false,
     "markdown": false,
     "scminput": false,
-    "terraform": false
+    "terraform": true
   },
-  "github.copilot.nextEditSuggestions.enabled": false,
+  "github.copilot.nextEditSuggestions.enabled": true,
+  "workbench.statusBar.visible": false
+  "github.copilot.chat.summarizeAgentConversationHistory.enabled": false,
+  "github.copilot.enable": {
+    "*": true,
+    "plaintext": false,
+    "markdown": false,
+    "scminput": false,
+    "terraform": true
+  },
+  "github.copilot.nextEditSuggestions.enabled": true,
+  "python.defaultInterpreterPath": "/Users/simon/work/localstack/localstack-ext/.venv",
   "workbench.statusBar.visible": false
 }
