@@ -1,5 +1,12 @@
-# ~/.config/fish/config.fish: DO NOT EDIT -- this file has been generated
-# automatically by home-manager.
+function __is_dark_theme
+    defaults read -g AppleInterfaceStyle >/dev/null 2>&1
+end
+
+if __is_dark_theme
+    set -gx __IS_DARK_THEME 1
+else
+    set -gx __IS_DARK_THEME 0
+end
 
 # Only execute this file once per shell.
 set -q __fish_already_sourced; and exit
@@ -8,7 +15,12 @@ set -g __fish_already_sourced 1
 # set up environment variables
 set -gx FZF_CTRL_T_COMMAND 'fd --no-ignore --hidden --type f'
 set -gx FZF_DEFAULT_COMMAND 'rg --files --no-ignore --hidden --follow -g ''!{.git,venv,node_modules}/*'' 2> /dev/null'
-set -gx FZF_DEFAULT_OPTS '--tiebreak begin --ansi --no-mouse --tabstop 4 --inline-info --color dark'
+if test $__IS_DARK_THEME -eq 1
+    set -gx FZF_DEFAULT_OPTS '--tiebreak begin --ansi --no-mouse --tabstop 4 --inline-info --color dark'
+else
+    set -gx FZF_DEFAULT_OPTS '--tiebreak begin --ansi --no-mouse --tabstop 4 --inline-info --color light'
+end
+
 set -gx GNUPGHOME "$HOME/.gnupg"
 set -gx JQ_COLORS '1;30:0;37:0;37:0;37:0;32:1;37:1;37'
 set -gx TMUX_TMPDIR (test -n "$XDG_RUNTIME_DIR" && echo "$XDG_RUNTIME_DIR" || echo '/run/user/'(id -u | string collect; or echo))
@@ -18,10 +30,6 @@ set -gx XDG_CONFIG_HOME "$HOME/.config"
 set -gx XDG_DATA_HOME "$HOME/.local/share"
 set -gx XDG_STATE_HOME "$HOME/.local/state"
 
-
-function __is_dark_theme
-    defaults read -g AppleInterfaceStyle >/dev/null 2>&1
-end
 
 status is-login; and begin
 
@@ -150,7 +158,7 @@ status is-interactive; and begin
     set -x EDITOR nvim
 
     # set the theme
-    if __is_dark_theme
+    if test $__IS_DARK_THEME -eq 1
         fish_config theme choose "Catppuccin Mocha"
     else
         fish_config theme choose Tomorrow
