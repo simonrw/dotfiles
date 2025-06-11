@@ -1,4 +1,5 @@
 vim.loader.enable()
+require("config.helpers")
 require("config.settings")
 require("config.lazy")
 require("config.keymaps")

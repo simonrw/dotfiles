@@ -1,7 +1,6 @@
 local set = vim.opt
 
 set.autowrite = true
-set.background = "dark"
 set.backspace = {"indent", "eol", "start"}
 set.backup = false
 set.backupcopy = "auto"
