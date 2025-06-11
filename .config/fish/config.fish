@@ -30,6 +30,11 @@ set -gx XDG_CONFIG_HOME "$HOME/.config"
 set -gx XDG_DATA_HOME "$HOME/.local/share"
 set -gx XDG_STATE_HOME "$HOME/.local/state"
 
+if test $__IS_DARK_THEME -eq 1
+    set -gx BAT_CONFIG_PATH "$HOME/.config/bat/dark/config"
+else
+    set -gx BAT_CONFIG_PATH "$HOME/.config/bat/light/config"
+end
 
 status is-login; and begin
 
