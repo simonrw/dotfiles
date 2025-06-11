@@ -19,6 +19,9 @@ set -gx XDG_DATA_HOME "$HOME/.local/share"
 set -gx XDG_STATE_HOME "$HOME/.local/state"
 
 
+function __is_dark_theme
+    defaults read -g AppleInterfaceStyle >/dev/null 2>&1
+end
 
 status is-login; and begin
 
@@ -147,5 +150,9 @@ status is-interactive; and begin
     set -x EDITOR nvim
 
     # set the theme
-    fish_config theme choose "Catppuccin Mocha"
+    if __is_dark_theme
+        fish_config theme choose "Catppuccin Mocha"
+    else
+        fish_config theme choose Tomorrow
+    end
 end
