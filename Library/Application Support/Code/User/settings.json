@@ -299,20 +299,7 @@
     "*": true,
     "plaintext": false,
     "markdown": false,
-    "scminput": false,
-    "terraform": true
+    "scminput": false
   },
-  "github.copilot.nextEditSuggestions.enabled": true,
-  "workbench.statusBar.visible": false
-  "github.copilot.chat.summarizeAgentConversationHistory.enabled": false,
-  "github.copilot.enable": {
-    "*": true,
-    "plaintext": false,
-    "markdown": false,
-    "scminput": false,
-    "terraform": true
-  },
-  "github.copilot.nextEditSuggestions.enabled": true,
-  "python.defaultInterpreterPath": "/Users/simon/work/localstack/localstack-ext/.venv",
-  "workbench.statusBar.visible": false
+  "python.defaultInterpreterPath": "/Users/simon/work/localstack/localstack-ext/.venv"
 }
