@@ -154,6 +154,8 @@ return {
           end
         end,
       })
+
+      vim.lsp.inlay_hint.enable(true)
     end
   }
 }
