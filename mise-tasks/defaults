@@ -10,12 +10,6 @@ defaults write -g 'AppleICUForce24HourTime' $'<?xml version="1.0" encoding="UTF-
 <true/>
 </plist>'
 
-defaults write -g 'AppleInterfaceStyle' $'<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-<plist version="1.0">
-<string>Dark</string>
-</plist>'
-
 defaults write -g 'KeyRepeat' $'<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
