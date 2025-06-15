@@ -3,11 +3,11 @@ go = "latest"
 node = "latest"
 python = "latest"
 rust = { version = "beta", components = "rust-src,rust-analyzer" }
-"cargo:https://github.com/simonrw/cftail" = "latest"
-"cargo:https://github.com/simonrw/testsearch" = "latest"
+"cargo:https://github.com/simonrw/cftail" = "branch:main"
+"cargo:https://github.com/simonrw/testsearch" = "branch:main"
 "pipx:basedpyright" = "latest"
 "go:github.com/simonrw/cert-info" = "main"
-"cargo:https://github.com/simonrw/listprojects" = "latest"
+"cargo:https://github.com/simonrw/listprojects" = "branch:main"
 
 [settings]
 experimental = true
