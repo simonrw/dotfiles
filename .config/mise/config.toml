@@ -5,7 +5,6 @@ python = "latest"
 rust = { version = "beta", components = "rust-src,rust-analyzer" }
 "cargo:https://github.com/simonrw/cftail" = "latest"
 "cargo:https://github.com/simonrw/testsearch" = "latest"
-"go:github.com/simonrw/cflivestatus" = "latest"
 "pipx:basedpyright" = "latest"
 "go:github.com/simonrw/cert-info" = "main"
 "cargo:https://github.com/simonrw/listprojects" = "latest"
