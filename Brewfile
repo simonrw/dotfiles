@@ -54,7 +54,6 @@ brew "xh"
 
 brew "libvirt"
 brew "snappy"
-cask "microsoft-teams"
 
 # Casks
 
