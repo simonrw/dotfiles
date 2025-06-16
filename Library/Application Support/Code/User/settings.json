@@ -301,5 +301,5 @@
     "markdown": false,
     "scminput": false
   },
-  "python.defaultInterpreterPath": "/Users/simon/work/localstack/localstack-ext/.venv"
+  "workbench.statusBar.visible": false
 }
