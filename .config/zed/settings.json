@@ -54,7 +54,7 @@
   "tab_bar": {
     "show": false
   },
-  "assistant": {
+  "agent": {
     "version": "2",
     "enabled": false
   },
