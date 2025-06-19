@@ -9,7 +9,7 @@ return {
     config = function()
       require("catppuccin").setup()
 
-      vim.cmd.colorscheme "catppuccin-mocha"
+      vim.cmd.colorscheme "catppuccin-macchiato"
       vim.cmd.highlight({ "TreesitterContextBottom", "gui=none" })
     end
   },
