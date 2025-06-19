@@ -26,7 +26,7 @@ vim.g.maplocalleader = "\\"
 -- Setup lazy.nvim
 local colourscheme
 if vim.g.is_dark_mode then
-    colourscheme = "catppuccin-mocha"
+    colourscheme = "catppuccin-macchiato"
 else
     colourscheme = "default"
 end
