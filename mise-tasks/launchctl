@@ -1,0 +1,16 @@
+#!/opt/homebrew/opt/python/bin/python3
+# MISE description="Ensure launchctl agents are started"
+# MISE depends=["dotfiles"]
+
+import subprocess as sp
+from pathlib import Path
+
+root = Path.home() / "Library" / "LaunchAgents"
+for agent in root.glob("com.simonrw.*"):
+    print(f"Restarting {agent}")
+    cmd = ["launchctl", "unload", str(agent)]
+    print(cmd)
+    sp.check_call(cmd)
+    cmd = ["launchctl", "load", str(agent)]
+    print(cmd)
+    sp.check_call(cmd)

@@ -1,6 +1,6 @@
 [tasks.all]
 description = "Install/link packages"
-depends = ["submodules", "dotfiles", "defaults", "gh-extensions", "vim-update", "mise:packages"]
+depends = ["submodules", "dotfiles", "defaults", "gh-extensions", "vim-update", "mise:packages", "launchctl"]
 depends_post = ["brew"]
 
 [tasks."mise:packages"]
