@@ -179,6 +179,16 @@ return {
     "leoluz/nvim-dap-go",
     config = function()
       require("dap-go").setup()
+
+      -- add mapping to debug the current test
+      vim.api.nvim_create_autocmd('FileType', {
+        group = vim.api.nvim_create_augroup('go-debug-test', { clear = true }),
+        pattern = { 'go' },
+        callback = function(event)
+          vim.keymap.set('n', '<leader>bm', function() require('dap-go').debug_test() end,
+            { noremap = true, silent = true, buffer = event.buf, desc = "Debug Go test" })
+        end,
+      })
     end,
   }
 }
