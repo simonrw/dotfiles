@@ -73,4 +73,5 @@ draft_commit_description ='''
 
 [template-aliases]
 'format_short_signature(signature)' = 'signature.name()'
+'format_short_signature_oneline(signature)' = 'signature.name()'
 'format_timestamp(timestamp)' = 'timestamp.ago()'
