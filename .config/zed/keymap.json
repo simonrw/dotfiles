@@ -17,5 +17,11 @@
     "bindings": {
       // "j k": "vim::SwitchToNormalMode"
     }
+  },
+  {
+    "context": "AgentPanel || GitPanel || ProjectPanel || CollabPanel || OutlinePanel || ChatPanel || VimControl || EmptyPane || SharedScreen || MarkdownPreview || KeyContextView || DebugPanel",
+    "bindings": {
+      "ctrl-w c": "pane::CloseAllItems"
+    }
   }
 ]
