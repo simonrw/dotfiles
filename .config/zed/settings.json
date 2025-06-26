@@ -38,7 +38,8 @@
   "vim_mode": true,
   "vim": {
     "use_smartcase_find": true,
-    "use_multiline_find": true
+    "use_multiline_find": true,
+    "use_system_clipboard": "on_yank"
   },
   "cursor_blink": false,
   "use_autoclose": false,
