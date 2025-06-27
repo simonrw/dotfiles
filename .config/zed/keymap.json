@@ -7,6 +7,28 @@
 // from the command palette.
 [
   {
+    "context": "Editor && vim_mode == normal",
+    "bindings": {
+      "f7": "debugger::StepInto",
+      "f8": "debugger::StepOver",
+      "f9": "debugger::Continue",
+      "shift-f8": "debugger::StepOut",
+      "t d b": "editor::ToggleBreakpoint"
+    }
+  },
+  {
+    "context": "vim_mode == visual",
+    "bindings": {
+      "space": null
+    }
+  },
+  {
+    "context": "vim_mode == visual && debugger_stopped",
+    "bindings": {
+      // "space e": "debugger::EvaluateSelectedText"
+    }
+  },
+  {
     "context": "Workspace",
     "bindings": {
       // "shift shift": "file_finder::Toggle"
@@ -16,6 +38,12 @@
     "context": "Editor && vim_mode == insert && !menu",
     "bindings": {
       // "j k": "vim::SwitchToNormalMode"
+    }
+  },
+  {
+    "context": "vim_mode == normal",
+    "bindings": {
+      // "space": null
     }
   },
   {
