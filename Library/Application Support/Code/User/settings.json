@@ -256,7 +256,6 @@
   "workbench.iconTheme": "catppuccin-macchiato",
   "zig.path": "zig",
   "zig.initialSetupDone": true,
-  "workbench.colorTheme": "Catppuccin Macchiato",
   "githubPullRequests.pushBranch": "always",
   "git.confirmSync": false,
   "makefile.configureOnOpen": false,
@@ -301,5 +300,7 @@
     "markdown": false,
     "scminput": false
   },
-  "workbench.statusBar.visible": false
+  "workbench.statusBar.visible": false,
+  "window.autoDetectColorScheme": true,
+  "workbench.preferredDarkColorTheme": "Catppuccin Macchiato"
 }
