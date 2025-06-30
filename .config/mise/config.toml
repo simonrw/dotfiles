@@ -1,7 +1,4 @@
 [tools]
-go = "latest"
-node = "latest"
-python = "latest"
 rust = { version = "beta", components = "rust-src,rust-analyzer" }
 "cargo:https://github.com/simonrw/cftail" = "branch:main"
 "cargo:https://github.com/simonrw/testsearch" = "branch:main"
