@@ -40,6 +40,7 @@ status is-login; and begin
 
     # Login shell initialisation
     set -x PATH /opt/homebrew/opt/curl/bin /opt/homebrew/opt/make/libexec/gnubin /opt/homebrew/opt/gnu-sed/libexec/gnubin /opt/homebrew/opt/coreutils/libexec/gnubin /opt/homebrew/bin /opt/homebrew/opt/sqlite/bin {$PATH}
+    set -x DOCKER_HOST "unix://$HOME/.config/colima/default/docker.sock"
 end
 
 status is-interactive; and begin
