@@ -302,5 +302,6 @@
   },
   "workbench.statusBar.visible": false,
   "window.autoDetectColorScheme": true,
-  "workbench.preferredDarkColorTheme": "Catppuccin Macchiato"
+  "workbench.preferredDarkColorTheme": "Catppuccin Macchiato",
+  "excalidraw.theme": "auto"
 }
