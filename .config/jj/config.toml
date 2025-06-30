@@ -39,8 +39,9 @@ ci = ["commit"]
 update = ["util", "exec", "--", "bash", "-c", """
 #!/usr/bin/env bash
 set -euo pipefail
+CURRENT_BOOKMARK=$(jj current-bookmark)
 jj git fetch
-jj new ${REVIEW_BASE:-main}
+jj new ${CURRENT_BOOKMARK}
 """, ""]
 up = ["update"]
 current-bookmark = ["util", "exec", "--", "bash", "-c", """
