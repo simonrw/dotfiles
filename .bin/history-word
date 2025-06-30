@@ -9,7 +9,7 @@ function print_all_panes() {
 }
 
 function main() {
-    local value=$(print_all_panes | fzf-tmux --height 20 --layout reverse --no-sort --print-query)
+    local value=$(print_all_panes | fzf-tmux --height 20 --layout reverse --no-sort)
     echo -n $value
 }
 
