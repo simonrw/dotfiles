@@ -11,6 +11,8 @@ return {
 
       vim.cmd.colorscheme "catppuccin-macchiato"
       vim.cmd.highlight({ "TreesitterContextBottom", "gui=none" })
+      vim.cmd.highlight({ "CursorLine", "guibg=#303347" })
+      vim.cmd.highlight({ "CursorColumn", "guibg=#303347" })
     end
   },
 }
