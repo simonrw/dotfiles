@@ -113,9 +113,9 @@ return {
                 return { noremap = true, silent = true, desc = desc }
               end
 
-              vim.keymap.set("n", "<leader>bb", function() dap.toggle_breakpoint() end, opts("Toggle breakpoint"))
+              vim.keymap.set("n", "tdb", function() dap.toggle_breakpoint() end, opts("Toggle breakpoint"))
               vim.keymap.set("n", "<leader>br", function() dap.repl.toggle() end, opts("Toggle repl"))
-              vim.keymap.set("n", "<leader>bl", function() dap.run_last() end, opts("Run last debugging session"))
+              vim.keymap.set("n", "tdl", function() dap.run_last() end, opts("Run last debugging session"))
               vim.keymap.set("n", "<leader>bf", function()
                 local widgets = require('dap.ui.widgets')
                 widgets.centered_float(widgets.frames)
