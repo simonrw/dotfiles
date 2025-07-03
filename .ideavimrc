@@ -38,3 +38,4 @@ map Q gq
 " debugging
 map tdb <Action>(ToggleLineBreakpoint)
 map tdj <Action>(RunToCursor)
+map tdt <Action>(Stop)
