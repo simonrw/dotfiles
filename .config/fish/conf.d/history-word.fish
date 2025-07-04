@@ -1,1 +1,1 @@
-bind ctrl-u "commandline -i -- (bash ~/.bin/history-word)"
+bind ctrl-o "commandline -i -- (bash ~/.bin/history-word)"
