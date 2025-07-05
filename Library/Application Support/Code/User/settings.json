@@ -302,5 +302,6 @@
   },
   "window.autoDetectColorScheme": true,
   "workbench.preferredDarkColorTheme": "Catppuccin Macchiato",
-  "excalidraw.theme": "auto"
+  "excalidraw.theme": "auto",
+  "python.analysis.nodeExecutable": "auto"
 }
