@@ -32,8 +32,10 @@ set -gx XDG_STATE_HOME "$HOME/.local/state"
 
 if test $__IS_DARK_THEME -eq 1
     set -gx BAT_CONFIG_PATH "$HOME/.config/bat/dark/config"
+    set -x GLAMOUR_STYLE dark
 else
     set -gx BAT_CONFIG_PATH "$HOME/.config/bat/light/config"
+    set -x GLAMOUR_STYLE light
 end
 
 status is-login; and begin
@@ -93,7 +95,6 @@ status is-interactive; and begin
     alias watch viddy
 
     # Interactive shell initialisation
-    set -x GLAMOUR_STYLE dark
     set -x PAGER bat
     set -x PYTHONUNBUFFERED 1
     set -x SHELL (command -v fish)
