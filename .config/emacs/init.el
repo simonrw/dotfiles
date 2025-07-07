@@ -84,3 +84,7 @@
       (use-package catppuccin-theme)
       (setq catppuccin-flavor 'macchiato)
       (load-theme 'catppuccin :no-confirm)))
+
+(use-package magit
+  :bind (("C-x g" . magit-status)
+         ("C-x C-g" . magit-status)))
