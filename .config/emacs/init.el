@@ -64,3 +64,23 @@
 
 ;; org
 (setq org-agenda-files '("~/org"))
+
+(defun system-dark-mode-enabled-ip ()
+  "Check if dark mode is currently enabled."
+  (pcase system-type
+    ('darwin
+     ;; Have to use osascript here as defaults returns inconsistent results
+     ;; - AppleInterfaceStyleSwitchesAutomatically == 1 ;; exists only if the theme is set to auto
+     ;; - AppleInterfaceStyle == Dark ;; exists only if the theme is set to dark
+     ;; How to determine if theme is light or dark when Automatic Theme switching is in place?
+     ;; Luckily, osascript can provide that detail
+     (if (string= (shell-command-to-string "printf %s \"$( osascript -e \'tell application \"System Events\" to tell appearance preferences to return dark mode\' )\"") "true") t))
+    ('gnu/linux
+     ;; prefer-dark and default are possible options
+     (if (string= (shell-command-to-string "gsettings get org.gnome.desktop.interface color-scheme") "\'prefer-dark\'\n") t))))
+
+(if (system-dark-mode-enabled-ip)
+    (progn
+      (use-package catppuccin-theme)
+      (setq catppuccin-flavor 'macchiato)
+      (load-theme 'catppuccin :no-confirm)))
