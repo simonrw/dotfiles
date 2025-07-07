@@ -1,7 +1,9 @@
 # Taps
-tap "pulumi/tap"
-tap "withgraphite/tap"
+
 tap "hmarr/tap"
+tap "pulumi/tap"
+tap "railwaycat/emacsmacport"
+tap "withgraphite/tap"
 
 # Brews
 
@@ -87,6 +89,7 @@ cask "notion"
 cask "obs"
 cask "obsidian"
 cask "pocket-casts"
+cask "railwaycat/emacsmacport/emacs-mac"
 cask "raycast"
 cask "shotcut"
 cask "slack"
