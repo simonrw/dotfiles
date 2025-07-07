@@ -11,3 +11,4 @@ home/nvim/plugin/packaer_compiled.lua
 .config/zed/prompts
 /.config/emacs/elpa
 /.config/emacs/ido.last
+/.config/emacs/smex-items
