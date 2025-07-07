@@ -9,6 +9,6 @@ home/nvim/plugin/packaer_compiled.lua
 .config/fish/fish_variables
 .config/nvim/lazy-lock.json
 .config/zed/prompts
-/.config/emacs/elpa
-/.config/emacs/ido.last
-/.config/emacs/smex-items
+/.config/emacs/custom.el
+/.config/emacs/init.el
+/.config/emacs/*
