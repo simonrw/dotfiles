@@ -74,6 +74,11 @@
 (add-hook 'ediff-mode-hook 'srw-ediff-hook)
 
 (add-to-list 'default-frame-alist `(font . "JetBrainsMono Nerd Font"))
+(set-face-attribute 'default nil
+					:family "JetBrainsMono Nerd Font"
+					:height 160
+					:weight 'normal)
+
 
 ;; org
 (setq org-agenda-files '("~/org"))
