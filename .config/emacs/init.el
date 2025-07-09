@@ -41,6 +41,19 @@
 (require 'use-package-ensure)
 (setq use-package-always-ensure t)
 
+;; evil of course
+(use-package evil
+  :init
+  (setq evil-want-integration t)
+  (setq evil-want-keybinding nil)
+  :config
+  (evil-mode 1))
+
+(use-package evil-collection
+  :after evil
+  :config
+  (evil-collection-init))
+
 ;; Ido
 (ido-mode 1)
 (ido-everywhere 1)
