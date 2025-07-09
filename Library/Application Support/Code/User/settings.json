@@ -236,7 +236,7 @@
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "[jsonc]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
+    "editor.defaultFormatter": "vscode.json-language-features"
   },
   "window.menuBarVisibility": "toggle",
   "window.customTitleBarVisibility": "auto",
@@ -295,7 +295,7 @@
   "github.copilot.chat.setupTests.enabled": false,
   "github.copilot.chat.summarizeAgentConversationHistory.enabled": false,
   "github.copilot.enable": {
-    "*": true,
+    "*": false,
     "plaintext": false,
     "markdown": false,
     "scminput": false
