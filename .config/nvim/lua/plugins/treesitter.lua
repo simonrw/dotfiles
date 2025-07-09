@@ -12,7 +12,7 @@ return {
         ensure_installed = { "lua", "vim", "rust", "python", "nix", "yaml", "hcl", "terraform", "typescript", "javascript", "tsx" },
         sync_install = false,
         highlight = { enable = true, additional_vim_regex_highlighting = false },
-        indent = { enable = false },
+        indent = { enable = true },
         -- TODO: will need to get rid of this with v1.0
         incremental_selection = {
           enable = true,
