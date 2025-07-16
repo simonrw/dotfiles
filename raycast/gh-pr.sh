@@ -9,7 +9,7 @@
 # @raycast.packageName GitHub
 # @raycast.icon images/github-logo.png
 # @raycast.iconDark images/github-logo-iconDark.png
-# @raycast.argument1 { "type": "dropdown", "placeholder": "Organization/Repository", "data": [{"title": "Community", "value": "localstack/localstack"}, {"title": "Ext", "value": "localstack/localstack-ext"}] }
+# @raycast.argument1 { "type": "dropdown", "placeholder": "Organization/Repository", "data": [{"title": "Community", "value": "localstack/localstack"}, {"title": "Ext", "value": "localstack/localstack-pro"}] }
 # @raycast.argument2 { "type": "text", "placeholder": "Pull Request or Issue #" }
 #
 # Documentation
