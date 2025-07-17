@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 
-from sqlite3 import threadsafety
 import subprocess as sp
+from typing import Protocol
 from pathlib import Path
 from enum import Enum, auto
 from concurrent.futures import ThreadPoolExecutor, as_completed
@@ -10,6 +10,10 @@ from concurrent.futures import ThreadPoolExecutor, as_completed
 class Theme(Enum):
     dark = auto()
     light = auto()
+
+
+class ThemeSwitcher(Protocol):
+    def __call__(self, theme: Theme) -> None: ...
 
 
 def current_theme() -> Theme:
@@ -26,7 +30,7 @@ def current_theme() -> Theme:
     return Theme.light
 
 
-def reload_tmux(_: Theme):
+def reload_tmux(theme: Theme):
     sp.check_call(
         ["tmux", "source-file", str(Path.home() / ".config" / "tmux" / "tmux.conf")]
     )
@@ -55,15 +59,22 @@ def reload_helix(theme: Theme):
 
     signal_editor_to_reload("hx")
 
-def reload_neovim(_: Theme):
+
+def reload_neovim(theme: Theme):
     signal_editor_to_reload("nvim")
 
 
 theme = current_theme()
 
+switchers: list[ThemeSwitcher] = [
+    reload_tmux,
+    reload_helix,
+    reload_neovim,
+]
+
 with ThreadPoolExecutor() as pool:
     futs = []
-    for fn in [reload_tmux, reload_helix, reload_neovim]:
+    for fn in switchers:
         futs.append(pool.submit(fn, theme))
 
     for fut in as_completed(futs):
