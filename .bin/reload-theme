@@ -1,12 +1,66 @@
 #!/usr/bin/env python3
 
+from sqlite3 import threadsafety
 import subprocess as sp
 from pathlib import Path
+from enum import Enum, auto
+from concurrent.futures import ThreadPoolExecutor, as_completed
 
 
-def reload_tmux():
+class Theme(Enum):
+    dark = auto()
+    light = auto()
+
+
+def current_theme() -> Theme:
+    try:
+        output = sp.check_output(
+            ["defaults", "read", "NSGlobalDomain", "AppleInterfaceStyle"]
+        )
+    except sp.CalledProcessError:
+        return Theme.light
+
+    if output.decode().strip().lower() == "dark":
+        return Theme.dark
+
+    return Theme.light
+
+
+def reload_tmux(_: Theme):
     sp.check_call(
         ["tmux", "source-file", str(Path.home() / ".config" / "tmux" / "tmux.conf")]
     )
 
-reload_tmux()
+
+def signal_editor_to_reload():
+    try:
+        raw_output = sp.check_output(["pgrep", "hx"])
+    except sp.CalledProcessError:
+        return
+
+    pids = [line.strip() for line in raw_output.decode().splitlines()]
+    cmd = ["kill", "-USR1"] + pids
+    sp.check_call(cmd)
+
+
+def reload_helix(theme: Theme):
+    theme_file = Path.home() / ".config" / "helix" / "themes" / "adaptive.toml"
+    chosen_theme = "catppuccin_macchiato"
+    if theme == Theme.light:
+        chosen_theme = "cyan_light"
+
+    with theme_file.open("w") as outfile:
+        print(f"inherits = '{chosen_theme}'", file=outfile)
+
+    signal_editor_to_reload()
+
+
+theme = current_theme()
+
+with ThreadPoolExecutor() as pool:
+    futs = []
+    futs.append(pool.submit(reload_tmux, theme))
+    futs.append(pool.submit(reload_helix, theme))
+
+    for fut in as_completed(futs):
+        fut.result()
