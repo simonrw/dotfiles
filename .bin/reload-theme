@@ -1,0 +1,12 @@
+#!/usr/bin/env python3
+
+import subprocess as sp
+from pathlib import Path
+
+
+def reload_tmux():
+    sp.check_call(
+        ["tmux", "source-file", str(Path.home() / ".config" / "tmux" / "tmux.conf")]
+    )
+
+reload_tmux()
