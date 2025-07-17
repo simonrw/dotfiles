@@ -3,4 +3,5 @@ local function is_dark_mode()
     return os.execute(cmd) == 0
 end
 
+vim.g.get_is_dark_mode = is_dark_mode
 vim.g.is_dark_mode = is_dark_mode()
