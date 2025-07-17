@@ -1,4 +1,5 @@
-theme = "catppuccin_macchiato"
+theme = "adaptive"
+
 [editor]
 auto-completion = true
 auto-pairs = false
