@@ -32,11 +32,12 @@ def reload_tmux(_: Theme):
     )
 
 
-def signal_editor_to_reload():
-    try:
-        raw_output = sp.check_output(["pgrep", "hx"])
-    except sp.CalledProcessError:
-        return
+def signal_editor_to_reload(*process_names: str):
+    for process_name in process_names:
+        try:
+            raw_output = sp.check_output(["pgrep", process_name])
+        except sp.CalledProcessError:
+            return
 
     pids = [line.strip() for line in raw_output.decode().splitlines()]
     cmd = ["kill", "-USR1"] + pids
@@ -52,15 +53,18 @@ def reload_helix(theme: Theme):
     with theme_file.open("w") as outfile:
         print(f"inherits = '{chosen_theme}'", file=outfile)
 
-    signal_editor_to_reload()
+    signal_editor_to_reload("hx")
+
+def reload_neovim(_: Theme):
+    signal_editor_to_reload("nvim")
 
 
 theme = current_theme()
 
 with ThreadPoolExecutor() as pool:
     futs = []
-    futs.append(pool.submit(reload_tmux, theme))
-    futs.append(pool.submit(reload_helix, theme))
+    for fn in [reload_tmux, reload_helix, reload_neovim]:
+        futs.append(pool.submit(fn, theme))
 
     for fut in as_completed(futs):
         fut.result()
