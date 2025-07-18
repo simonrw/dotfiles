@@ -3,6 +3,7 @@
 tap "hmarr/tap"
 tap "pulumi/tap"
 tap "railwaycat/emacsmacport"
+tap "sst/tap"
 tap "withgraphite/tap"
 
 # Brews
@@ -52,6 +53,7 @@ brew "reattach-to-user-namespace"
 brew "ripgrep"
 brew "rsync"
 brew "sqlite3"
+brew "sst/tap/opencode"
 brew "stow"
 brew "tmux"
 brew "uv"
