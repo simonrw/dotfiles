@@ -28,11 +28,6 @@ do
     options = { noremap = true, silent = true, desc = "Enter normal mode when in a terminal buffer" }
   }, {
     action = "<Esc>",
-    key = "kj",
-    mode = "i",
-    options = { noremap = true, silent = true, desc = "Another binding for escape" }
-  }, {
-    action = "<Esc>",
     key = "<C-v><Esc>",
     mode = "t",
     options = { noremap = true, silent = true, desc = "Enter normal mode when in a terminal buffer" }
