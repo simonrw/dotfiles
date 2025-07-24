@@ -60,7 +60,6 @@
     "show": false
   },
   "agent": {
-    "version": "2",
     "enabled": false
   },
   "telemetry": {
