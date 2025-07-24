@@ -34,6 +34,7 @@ map <leader>e <Action>(QuickEvaluateExpression)
 map <leader>a <Action>(GotoAction)
 map <leader>j <Action>(RecentLocations)
 map Q gq
+map yob <Action>(Annotate)
 
 " debugging
 map tdb <Action>(ToggleLineBreakpoint)
