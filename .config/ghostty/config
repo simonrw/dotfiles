@@ -7,8 +7,7 @@ window-padding-x = 8
 window-padding-y = 6
 confirm-close-surface = false
 
-# font-family = JetBrainsMonoNL NFM Medium
-font-family = PT Mono Bold
+font-family = JetBrainsMonoNL NFM ExtraBold
 theme = dark:catppuccin-macchiato,light:GitHub-Light-Default
 cursor-style-blink = false
 
