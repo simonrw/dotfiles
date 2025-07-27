@@ -78,7 +78,7 @@
 	abbrev = 12
 	askPass = ""
 	autocrlf = "input"
-	editor = "nvim"
+	editor = "zed -w"
 	ignorecase = false
 	mergeoptions = "--no-ff"
 	pager = "delta"
