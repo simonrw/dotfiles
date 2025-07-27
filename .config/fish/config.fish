@@ -114,7 +114,7 @@ status is-interactive; and begin
     # centralise where python puts its .pyc files
     set -x PYTHONPYCACHEPREFIX {$HOME}/.python-cache
 
-    set -x EDITOR nvim
+    set -x EDITOR "zed -w"
 
     # set up fzf
     fzf --fish | source
@@ -160,7 +160,7 @@ status is-interactive; and begin
     end
 
 
-    set -x EDITOR nvim
+    set -x EDITOR "zed -w"
 
     # set the theme
     if test $__IS_DARK_THEME -eq 1
