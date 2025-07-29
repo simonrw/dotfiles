@@ -93,7 +93,6 @@ status is-interactive; and begin
     alias vimdiff 'nvim -d'
     alias vup 'nvim --headless "+Lazy! sync" +qa'
     alias watch viddy
-    alias nvim 'zed -w'
 
     # Interactive shell initialisation
     set -x PAGER bat
