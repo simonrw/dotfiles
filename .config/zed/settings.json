@@ -84,5 +84,14 @@
   },
   "inlay_hints": {
     "enabled": true
+  },
+  "format_on_save": "on",
+  "languages": {
+    "Python": {
+      "enable_language_server": true,
+      "format_on_save": "on",
+      "formatter": "auto",
+      "language_servers": ["!pylsp", "ruff", "..."]
+    }
   }
 }
