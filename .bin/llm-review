@@ -22,4 +22,6 @@ if ! $(echo $pr_ref | rg -q '^(\w+/){2}\d+$'); then
     exit 1
 fi
 
-GITHUB_TOKEN=$(gh auth token) llm --usage -f "pr:$pr_ref" 'review this code'
+system_prompt="You are a senior software engineer. Focus on issues that you find. Do not summarise the PR."
+
+llm --usage --system "$system_prompt" -f "pr:$pr_ref" 'review this code'
