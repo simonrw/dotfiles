@@ -2,4 +2,24 @@
 
 set -euo pipefail
 
-llm --usage -f "pr:$1" 'review this code'
+function usage() {
+    echo "Usage: $0 <pr-def>" >&2
+    echo >&2
+    echo "  Example: $0 localstack/localstack/12345" >&2
+    exit 1
+}
+
+if [[ -z ${1:-} || $1 == "-h" || $1 == "--help" ]]; then
+    usage
+fi
+
+pr_ref="$1"
+
+if ! $(echo $pr_ref | rg -q '^(\w+/){2}\d+$'); then
+    echo "Invalid PR ref: '$pr_ref'" >&2
+    echo >&2
+    echo "  Example: $0 localstack/localstack/12345" >&2
+    exit 1
+fi
+
+GITHUB_TOKEN=$(gh auth token) llm --usage -f "pr:$pr_ref" 'review this code'
