@@ -8,7 +8,7 @@ window-padding-y = 6
 confirm-close-surface = false
 
 font-family = JetBrainsMonoNL NFM ExtraBold
-theme = dark:catppuccin-macchiato,light:GitHub-Light-Default
+theme = dark:catppuccin-macchiato,light:AtomOneLight
 cursor-style-blink = false
 
 window-colorspace = display-p3
