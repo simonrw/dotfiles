@@ -44,10 +44,9 @@
   "cursor_blink": false,
   "use_autoclose": false,
   "gutter": {
-    "line_numbers": true,
+    "line_numbers": false,
     "folds": false
   },
-  "relative_line_numbers": true,
   "scrollbar": { "show": "never" },
   "toolbar": {
     "quick_actions": false
