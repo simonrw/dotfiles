@@ -61,6 +61,7 @@ brew "tmux"
 brew "uv"
 brew "viddy"
 brew "wakeonlan"
+brew "watchexec"
 brew "withgraphite/tap/graphite"
 brew "xh"
 
