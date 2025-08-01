@@ -94,5 +94,15 @@
       "formatter": "auto",
       "language_servers": ["!pylsp", "!pyright", "basedpyright", "ruff", "..."]
     }
+  },
+  "auto_install_extensions": {
+      "html": true,
+      "catppuccin": true,
+      "toml": true,
+      "dockerfile": true,
+      "terraform": true,
+      "ruff": true,
+      "basedpyright": true,
+      "wit": true
   }
 }
