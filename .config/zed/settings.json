@@ -77,9 +77,6 @@
     }
   },
   "lsp": {
-    "basedpyright": {
-      "settings": {}
-    },
     "rust-analyzer": {
       "initialization_options": {
         "checkOnSave": true
@@ -95,7 +92,7 @@
       "enable_language_server": true,
       "format_on_save": "on",
       "formatter": "auto",
-      "language_servers": ["!pylsp", "ruff", "..."]
+      "language_servers": ["!pylsp", "!pyright", "basedpyright", "ruff", "..."]
     }
   }
 }
