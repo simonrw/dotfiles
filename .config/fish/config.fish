@@ -66,6 +66,8 @@ status is-interactive; and begin
     alias eza 'eza --group-directories-first --header'
     alias gcpr 'gh pr create -a @me --label '\''semver: patch'\'''
     alias gcprd 'gh pr create -a @me --draft --label '\''semver: patch'\'''
+    # This command shadows ghostscript but if I alias it it only affects my interactive shell 
+    alias gs gss
     alias gpr 'git pull --rebase'
     alias grep rg
     alias la 'eza -a'
