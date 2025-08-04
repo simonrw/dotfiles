@@ -6,6 +6,7 @@ macos-option-as-alt = true
 window-padding-x = 8
 window-padding-y = 6
 confirm-close-surface = false
+keybind = shift+enter=text:\n
 
 font-family = JetBrainsMonoNL NFM ExtraBold
 theme = dark:catppuccin-macchiato,light:AtomOneLight
