@@ -9,7 +9,7 @@ confirm-close-surface = false
 keybind = shift+enter=text:\n
 
 font-family = JetBrainsMonoNL NFM ExtraBold
-theme = dark:catppuccin-macchiato,light:AtomOneLight
+theme = dark:catppuccin-macchiato,light:GitHub-Light-Default
 cursor-style-blink = false
 
 window-colorspace = display-p3
