@@ -10,7 +10,9 @@ keybind = shift+enter=text:\n
 
 font-family = JetBrainsMonoNL NFM ExtraBold
 theme = dark:catppuccin-macchiato,light:GitHub-Light-Default
+cursor-style = block
 cursor-style-blink = false
+shell-integration-features = no-cursor
 
 window-colorspace = display-p3
 
