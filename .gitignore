@@ -13,3 +13,4 @@ home/nvim/plugin/packaer_compiled.lua
 /.config/emacs/init.el
 /.config/emacs/*
 /.config/helix/themes/adaptive.toml
+.doom.d/custom.el
