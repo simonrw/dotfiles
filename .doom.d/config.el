@@ -32,7 +32,7 @@
 ;; There are two ways to load a theme. Both assume the theme is installed and
 ;; available. You can either set `doom-theme' or manually load a theme with the
 ;; `load-theme' function. This is the default:
-(setq doom-theme 'doom-one-light)
+;; (setq doom-theme 'doom-one-light)
 
 ;; This determines the style of line numbers in effect. If set to `nil', line
 ;; numbers are disabled. For relative line numbers, set this to `relative'.
@@ -77,3 +77,13 @@
 
 ;; Disable smart parens
 (remove-hook 'doom-first-buffer-hook #'smartparens-global-mode)
+
+;; This is probably not safe, but I don't currently know how to add specific themes to this list :(
+(setq! custom-safe-themes t)
+
+(setq! catppuccin-flavor 'macchiato)
+
+;; automatically select the theme based on the system theme
+(after! doom-ui
+  (setq! auto-dark-themes '((catppuccin) (doom-one-light)))
+  (auto-dark-mode))
