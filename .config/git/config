@@ -16,7 +16,7 @@
 	discard = "checkout --"
 	edit = "!vim `git ls-files -m`"
 	fetchup = "fetch upstream"
-	ff = "!f() { git merge --ff-only origin/$(git branch-name); }; f"
+	ff = "!f() { git merge --ff-only $(git upstream); }; f"
 	files = "!git diff --name-only $(git base-commit)"
 	fo = "fetch origin"
 	graph = "log --graph --all --decorate --stat --date iso"
@@ -41,6 +41,7 @@
 	pushf = "push --force-with-lease --force-if-includes"
 	r = "l -20"
 	ra = "r --all"
+	reset-upstream = "!f() { git reset --hard $(git upstream); }; f"
 	reset-ignore-modifications = "!f() { git list-ignored-modifications | xargs git update-index --no-skip-worktree; }; f"
 	review = "!REVIEW_BASE=$(git base-commit) nvim -c 'set nosplitright' -p $(git files) -c \"tabdo Gvdiff $REVIEW_BASE\" -c 'set splitright'"
 	review-commits = "!nvim -c 'Gclog --reverse $REVIEW_BASE..'"
@@ -230,3 +231,5 @@
 	path = "~/work/localstack/.gitconfig"
 [gpg "ssh"]
 	allowedSignersFile = ~/.config/git/allowed-signers
+
+# vim: noexpandtab
