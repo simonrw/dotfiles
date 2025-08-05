@@ -10,6 +10,7 @@ tap "withgraphite/tap"
 
 brew "autoconf"
 brew "automake"
+brew "awscli"
 brew "bat"
 brew "cargo-instruments"
 brew "cfitsio"
