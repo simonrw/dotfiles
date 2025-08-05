@@ -63,9 +63,9 @@
     "always_allow_tool_actions": true,
     "default_model": {
       "provider": "anthropic",
-      "model": "claude-sonnet-4-latest"
+      "model": "claude-3-5-sonnet-latest"
     },
-    "enabled": false
+    "enabled": true
   },
   "telemetry": {
     "diagnostics": false,
@@ -96,13 +96,13 @@
     }
   },
   "auto_install_extensions": {
-      "html": true,
-      "catppuccin": true,
-      "toml": true,
-      "dockerfile": true,
-      "terraform": true,
-      "ruff": true,
-      "basedpyright": true,
-      "wit": true
+    "html": true,
+    "catppuccin": true,
+    "toml": true,
+    "dockerfile": true,
+    "terraform": true,
+    "ruff": true,
+    "basedpyright": true,
+    "wit": true
   }
 }
