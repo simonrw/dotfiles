@@ -28,8 +28,7 @@
     "light": "One Light",
     "dark": "Catppuccin Macchiato"
   },
-  "ui_font_family": "Monaspace Neon",
-  "buffer_font_family": "Monaspace Neon",
+  "buffer_font_family": "JetBrainsMono Nerd Font",
   "buffer_font_weight": 700,
   "buffer_font_size": 14,
   "buffer_font_features": {
@@ -93,7 +92,7 @@
       "enable_language_server": true,
       "format_on_save": "on",
       "formatter": "auto",
-      "language_servers": ["basedpyright", "ruff"]
+      "language_servers": ["!pylsp", "!pyright", "basedpyright", "ruff", "..."]
     }
   },
   "auto_install_extensions": {
