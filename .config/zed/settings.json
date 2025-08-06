@@ -10,6 +10,9 @@
   "features": {
     "edit_prediction_provider": "none"
   },
+  "preview_tabs": {
+    "enabled": false
+  },
   "ssh_connections": [
     {
       "host": "mm",
@@ -38,11 +41,17 @@
   "vim_mode": true,
   "vim": {
     "use_smartcase_find": true,
-    "use_multiline_find": true,
     "use_system_clipboard": "on_yank"
   },
+  "indent_guides": {
+    "enabled": true,
+    "coloring": "indent_aware"
+  },
+  "show_wrap_guides": true,
+  "wrap_guides": [100],
   "cursor_blink": false,
   "use_autoclose": false,
+  "soft_wrap": "preferred_line_length",
   "gutter": {
     "line_numbers": false,
     "folds": false
@@ -84,7 +93,7 @@
     }
   },
   "inlay_hints": {
-    "enabled": true
+    "enabled": false
   },
   "format_on_save": "on",
   "languages": {
