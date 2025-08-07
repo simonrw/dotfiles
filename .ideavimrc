@@ -38,5 +38,6 @@ map yob <Action>(Annotate)
 
 " debugging
 map tdb <Action>(ToggleLineBreakpoint)
+map tde <Action>(ToggleBreakpointEnabled)
 map tdj <Action>(RunToCursor)
 map tdt <Action>(Stop)
