@@ -51,7 +51,6 @@
   "wrap_guides": [100],
   "cursor_blink": false,
   "use_autoclose": false,
-  "soft_wrap": "preferred_line_length",
   "gutter": {
     "line_numbers": false,
     "folds": false
