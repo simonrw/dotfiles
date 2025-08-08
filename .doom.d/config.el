@@ -81,7 +81,7 @@
 ;; This is probably not safe, but I don't currently know how to add specific themes to this list :(
 (setq! custom-safe-themes t)
 
-(setq! catppuccin-flavor 'macchiato)
+(setq! catppuccin-flavor 'mocha)
 
 ;; automatically select the theme based on the system theme
 (after! doom-ui

@@ -29,7 +29,7 @@
   "theme": {
     "mode": "system",
     "light": "One Light",
-    "dark": "Catppuccin Macchiato"
+    "dark": "Catppuccin Mocha"
   },
   "buffer_font_family": "JetBrainsMono Nerd Font",
   "buffer_font_weight": 700,

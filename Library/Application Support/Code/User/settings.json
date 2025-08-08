@@ -253,7 +253,7 @@
   "workbench.layoutControl.enabled": false,
   "editor.inlineSuggest.suppressSuggestions": true,
   "cmake.showOptionsMovedNotification": false,
-  "workbench.iconTheme": "catppuccin-macchiato",
+  "workbench.iconTheme": "catppuccin-mocha",
   "zig.path": "zig",
   "zig.initialSetupDone": true,
   "githubPullRequests.pushBranch": "always",
@@ -301,7 +301,7 @@
     "scminput": false
   },
   "window.autoDetectColorScheme": true,
-  "workbench.preferredDarkColorTheme": "Catppuccin Macchiato",
+  "workbench.preferredDarkColorTheme": "Catppuccin Mocha",
   "excalidraw.theme": "auto",
   "python.analysis.nodeExecutable": "auto"
 }
