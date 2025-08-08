@@ -104,8 +104,8 @@ status is-interactive; and begin
     set -x MANPATH /opt/homebrew/share/man $MANPATH
 
     set -x BUILD_PREFIX {$HOME}/.local
-    set -x PATH {$BUILD_PREFIX}/bin {$HOME}/.bin  /usr/local/bin {$HOME}/.cargo/bin {$HOME}/bin {$GOPATH}/bin {$HOME}/.npm-packages/bin {$PATH}
     set -x GOPATH {$HOME}/dev/gocode
+    set -x PATH {$BUILD_PREFIX}/bin {$HOME}/.bin  /usr/local/bin {$HOME}/.cargo/bin {$HOME}/bin {$GOPATH}/bin {$HOME}/.npm-packages/bin {$PATH}
     set -x REVIEW_BASE main
     set -x lC_CTYPE en_GB.UTF-8
     set -x LC_ALL en_GB.UTF-8
