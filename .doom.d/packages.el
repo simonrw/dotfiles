@@ -51,3 +51,5 @@
 (package! catppuccin-theme)
 
 (package! auto-dark)
+
+(package! eat)
