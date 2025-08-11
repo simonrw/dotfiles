@@ -3,7 +3,6 @@
 tap "hmarr/tap"
 tap "pulumi/tap"
 tap "railwaycat/emacsmacport"
-tap "sst/tap"
 tap "withgraphite/tap"
 
 # Brews
@@ -56,7 +55,6 @@ brew "ripgrep"
 brew "rsync"
 brew "sapling"
 brew "sqlite3"
-brew "sst/tap/opencode"
 brew "stow"
 brew "tmux"
 brew "uv"
