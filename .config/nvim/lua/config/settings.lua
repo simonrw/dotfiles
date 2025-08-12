@@ -54,3 +54,4 @@ set.wildmode = {"list:longest", "list:full"}
 set.winwidth = 80
 set.wrap = false
 set.writebackup = false
+set.guicursor = ""
