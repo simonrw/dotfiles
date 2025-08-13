@@ -53,3 +53,5 @@
 (package! auto-dark)
 
 (package! eat)
+
+(package! exec-path-from-shell)
