@@ -55,3 +55,5 @@
 (package! eat)
 
 (package! exec-path-from-shell)
+
+(package! consult-gh)
