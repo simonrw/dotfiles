@@ -95,5 +95,8 @@
 (when (memq window-system '(mac ns x))
   (exec-path-from-shell-initialize))
 
+;; configure agenda mode
+(setq! org-agenda-files '("~/notes.org"))
+
 ;; start the server by default
 (server-start)
