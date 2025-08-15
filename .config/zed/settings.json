@@ -92,7 +92,7 @@
     }
   },
   "inlay_hints": {
-    "enabled": false
+    "enabled": true
   },
   "format_on_save": "on",
   "languages": {
