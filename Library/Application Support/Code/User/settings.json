@@ -1,19 +1,35 @@
 {
   "vim.normalModeKeyBindingsNonRecursive": [
     {
-      "before": ["<Esc>"],
-      "when": ["editorFocus"],
-      "commands": [":nohl"],
+      "before": [
+        "<Esc>"
+      ],
+      "when": [
+        "editorFocus"
+      ],
+      "commands": [
+        ":nohl"
+      ],
       "silent": true
     },
     {
-      "before": ["[", "d"],
-      "commands": ["editor.action.marker.prev"],
+      "before": [
+        "[",
+        "d"
+      ],
+      "commands": [
+        "editor.action.marker.prev"
+      ],
       "silent": true
     },
     {
-      "before": ["]", "d"],
-      "commands": ["editor.action.marker.next"],
+      "before": [
+        "]",
+        "d"
+      ],
+      "commands": [
+        "editor.action.marker.next"
+      ],
       "silent": true
     },
     {
@@ -22,32 +38,56 @@
       "when": "vim.mode == 'Normal' && editorTextFocus"
     },
     {
-      "before": ["g", "b"],
-      "commands": ["workbench.action.quickOpen"],
+      "before": [
+        "g",
+        "b"
+      ],
+      "commands": [
+        "workbench.action.quickOpen"
+      ],
       "silent": true
     },
     {
-      "before": ["<leader>", "f"],
-      "commands": ["workbench.action.quickOpen"],
+      "before": [
+        "<leader>",
+        "f"
+      ],
+      "commands": [
+        "workbench.action.quickOpen"
+      ],
       "silent": true
     },
     {
-      "before": [":"],
-      "commands": ["workbench.action.showCommands"],
+      "before": [
+        ":"
+      ],
+      "commands": [
+        "workbench.action.showCommands"
+      ],
       "silent": true
     },
     {
-      "before": ["g", "s"],
-      "commands": ["gitlens.showCommitsView"],
+      "before": [
+        "g",
+        "s"
+      ],
+      "commands": [
+        "gitlens.showCommitsView"
+      ],
       "silent": true
     },
     {
-      "before": ["g", "r"],
-      "commands": ["editor.action.goToReferences"],
+      "before": [
+        "g",
+        "r"
+      ],
+      "commands": [
+        "editor.action.goToReferences"
+      ],
       "silent": true
     }
   ],
-  "editor.fontFamily": "'JetBrains Mono Semibold'",
+  "editor.fontFamily": "'Zed Mono Semibold'",
   "editor.minimap.enabled": false,
   "telemetry.telemetryLevel": "off",
   "editor.autoClosingBrackets": "never",
@@ -66,7 +106,9 @@
   "breadcrumbs.enabled": false,
   "go.useLanguageServer": true,
   "[git-commit]": {
-    "editor.rulers": [72],
+    "editor.rulers": [
+      72
+    ],
     "workbench.editor.restoreViewState": false
   },
   "vim.statusBarColors.visualline": "",
@@ -74,7 +116,9 @@
   "security.workspace.trust.untrustedFiles": "open",
   "python.analysis.diagnosticMode": "workspace",
   "python.analysis.typeCheckingMode": "standard",
-  "python.testing.pytestArgs": ["--no-cov"],
+  "python.testing.pytestArgs": [
+    "--no-cov"
+  ],
   "debug.allowBreakpointsEverywhere": true,
   "editor.acceptSuggestionOnEnter": "off",
   "editor.autoClosingDelete": "never",
@@ -245,7 +289,9 @@
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "window.commandCenter": false,
-  "settingsSync.ignoredSettings": ["editor.fontFamily"],
+  "settingsSync.ignoredSettings": [
+    "editor.fontFamily"
+  ],
   "workbench.editor.showTabs": "single",
   "gitlens.currentLine.enabled": false,
   "gitlens.codeLens.enabled": false,
