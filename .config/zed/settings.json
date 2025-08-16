@@ -52,9 +52,10 @@
   "cursor_blink": false,
   "use_autoclose": false,
   "gutter": {
-    "line_numbers": false,
+    "line_numbers": true,
     "folds": false
   },
+  "relative_line_numbers": true,
   "scrollbar": { "show": "never" },
   "toolbar": {
     "quick_actions": false
@@ -68,6 +69,7 @@
     "show": false
   },
   "agent": {
+    "default_profile": "write",
     "always_allow_tool_actions": true,
     "default_model": {
       "provider": "anthropic",
