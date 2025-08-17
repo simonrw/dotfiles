@@ -87,7 +87,7 @@
       "silent": true
     }
   ],
-  "editor.fontFamily": "'Zed Mono Semibold'",
+  "editor.fontFamily": "Lilex Medium",
   "editor.minimap.enabled": false,
   "telemetry.telemetryLevel": "off",
   "editor.autoClosingBrackets": "never",
@@ -347,7 +347,7 @@
     "scminput": false
   },
   "window.autoDetectColorScheme": true,
-  "workbench.preferredDarkColorTheme": "Catppuccin Mocha",
   "excalidraw.theme": "auto",
-  "python.analysis.nodeExecutable": "auto"
+  "python.analysis.nodeExecutable": "auto",
+  "workbench.preferredDarkColorTheme": "Catppuccin Mocha"
 }
