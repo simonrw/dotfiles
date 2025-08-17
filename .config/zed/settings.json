@@ -31,7 +31,6 @@
     "light": "One Light",
     "dark": "Catppuccin Mocha"
   },
-  "buffer_font_family": "Zed Plex Mono",
   "buffer_font_weight": 700,
   "buffer_font_size": 14,
   "buffer_font_features": {
@@ -62,7 +61,6 @@
   },
   "terminal": {
     "detect_venv": "off",
-    "font_family": "Zed Plex Mono",
     "font_weight": 700
   },
   "tab_bar": {
