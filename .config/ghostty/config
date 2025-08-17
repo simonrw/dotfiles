@@ -9,6 +9,7 @@ confirm-close-surface = false
 keybind = shift+enter=text:\n
 
 font-family = Zed Mono Semibold
+font-thicken = true
 theme = dark:catppuccin-mocha,light:GitHub-Light-Default
 cursor-style = block
 cursor-style-blink = false
@@ -19,5 +20,6 @@ window-colorspace = display-p3
 # disable ligatures
 font-feature = -liga
 font-feature = -calt
+font-feature = -dlig
 
 # vim: ft=conf
