@@ -6,12 +6,6 @@ do
     -- { action = ":update|:TestSuite<cr>", key = "ta", mode = "n", options = { noremap = true, silent = true } },
     -- { action = ":update|:TestSuite<cr>", key = "ts", mode = "n", options = { noremap = true, silent = true } },
     {
-      action = function() vim.lsp.buf.format() end,
-      key = "<leader>y",
-      mode = "n",
-      options = { noremap = true, silent = true, desc = "Format the current buffer" },
-    },
-    {
       action = ":0,$y+<cr>",
       key = "cp",
       mode = "n",
