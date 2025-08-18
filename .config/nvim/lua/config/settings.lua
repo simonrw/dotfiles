@@ -55,3 +55,4 @@ set.winwidth = 80
 set.wrap = false
 set.writebackup = false
 set.guicursor = ""
+set.tags = {'.tags', '.git/tags'}
