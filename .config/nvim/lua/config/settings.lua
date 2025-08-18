@@ -43,7 +43,6 @@ set.swapfile = true
 set.switchbuf = {"useopen", "uselast"}
 set.synmaxcol = 1024
 set.tabstop = 4
-set.tags = {".git/tags"}
 set.termguicolors = true
 set.textwidth = 0
 set.timeoutlen = 500
