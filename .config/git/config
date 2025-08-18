@@ -11,8 +11,6 @@
 	cleanup-base = "!git rebase -i $(git base-commit)"
 	co = "checkout"
 	dc = "precommit"
-	dl = -c diff.external=difft log --ext-diff -p
-	ds = -c diff.external=difft show --ext-diff
 	diff-base = "!git diff origin/$REVIEW_BASE..."
 	diffup = "!git diff $(git upstream).."
 	discard = "checkout --"
@@ -104,7 +102,6 @@
 	mnemonicPrefix = true
 	renames = true
 	tool = "meld"
-	external = "difft"
 
 [difftool]
 	prompt = false
