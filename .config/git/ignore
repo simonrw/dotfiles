@@ -6,6 +6,8 @@ scratch
 Session.vim
 tags
 .tags
+.tags.lock
+.tags*temp
 tags.lock
 tags*temp
 tags*.tmp
