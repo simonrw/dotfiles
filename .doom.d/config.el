@@ -98,5 +98,8 @@
 ;; configure agenda mode
 (setq! org-agenda-files '("~/notes.org"))
 
+(setq global-hl-line-modes nil)
+
+
 ;; start the server by default
 (server-start)
