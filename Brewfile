@@ -80,7 +80,6 @@ brew "snappy"
 
 cask "1password-cli"
 cask "1password"
-cask "barrier"
 cask "betterdisplay"
 cask "blender"
 cask "brave-browser"
