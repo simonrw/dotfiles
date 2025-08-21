@@ -28,7 +28,6 @@ alias pts='pytest (testsearch)'
 alias pydoc='python -m pydoc'
 alias pylab='ipython - -pylab'
 alias sourceenv='source ./venv/bin/activate'
-alias ta=_tmux_attach
 alias thor='eza -s modified -l'
 alias tl=tmux-last
 alias tree='eza -T'
