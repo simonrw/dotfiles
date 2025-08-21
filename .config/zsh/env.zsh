@@ -1,3 +1,7 @@
+export LANG="en_GB.UTF-8"
+export LC_ALL="en_GB.UTF-8"
+export LC_CTYPE="en_GB.UTF-8"
+
 function __is_dark_theme() {
     defaults read -g AppleInterfaceStyle >/dev/null 2>&1
 }
@@ -47,12 +51,16 @@ export MANPATH=/opt/homebrew/share/man:$MANPATH
 export BUILD_PREFIX=${HOME}/.local
 export GOPATH=${HOME}/dev/gocode
 export PATH=${BUILD_PREFIX}/bin:${HOME}/.bin:/usr/local/bin:${HOME}/.cargo/bin:${HOME}/bin:${GOPATH}/bin:${HOME}/.npm-packages/bin:${PATH}
+fpath=($HOME/.config/zsh/func $HOME/.config/zsh/completion $fpath)
+typeset -U fpath
 export REVIEW_BASE=main
 export lC_CTYPE=en_GB.UTF-8
 export LC_ALL=en_GB.UTF-8
 export LANG=en_GB.UTF-8
 export NIXPKGS_ALLOW_UNFREE=1
 export NTFY_TOPIC=simonrw-notify
+export NODE_PATH=${HOME}/.npm-packages/lib/node_modules
+export NODE_COMPILE_CACHE=${HOME}/.cache/nodejs-compile-cache
 
 # centralise where python puts its .pyc files
 export PYTHONPYCACHEPREFIX=${HOME}/.python-cache
@@ -65,3 +73,15 @@ if isatty; then
     export GPG_TTY=$(tty)
 fi
 export MISE_PIPX_UVX=true
+
+export HOMEBREW_NO_ANALYTICS=1
+
+# Configure SSH agent to start on boot
+if [ -f ~/.ssh/agent.env ]; then
+    . ~/.ssh/agent.env >/dev/null
+    if ! kill -0 $SSH_AGENT_PID >/dev/null 2>&1; then
+        eval $(ssh-agent | tee ~/.ssh/agent.env)
+    fi
+else
+    eval $(ssh-agent | tee ~/.ssh/agent.env)
+fi

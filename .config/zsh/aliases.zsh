@@ -1,4 +1,5 @@
 alias add-keys='ssh-add (find ~/.ssh - maxdepth 1 - type f - name "id_rsa*" | grep - v pub | grep - v bak)'
+alias c=cargo
 alias cat=bat
 alias clear-pycs='find { $PWD } -name '\''*.pyc'\'' -delete'
 alias es='exec $SHELL'

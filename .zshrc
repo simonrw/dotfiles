@@ -8,3 +8,4 @@ source ~/.config/zsh/completion.zsh
 source ~/.config/zsh/mise.zsh
 if [ -f ~/.config/zsh/local.zsh ]; then source ~/.config/zsh/local.zsh; fi
 source ~/.config/zsh/prompt.zsh
+source ~/.config/zsh/plugins.zsh
