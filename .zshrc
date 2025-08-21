@@ -1,3 +1,8 @@
+PROFILE_STARTUP=false
+if [[ "$PROFILE_STARTUP" == true ]]; then
+    zmodload zsh/zprof
+fi
+
 source ~/.config/zsh/env.zsh
 source ~/.config/zsh/aliases.zsh
 source ~/.config/zsh/fzf.zsh
@@ -9,3 +14,13 @@ source ~/.config/zsh/mise.zsh
 if [ -f ~/.config/zsh/local.zsh ]; then source ~/.config/zsh/local.zsh; fi
 source ~/.config/zsh/prompt.zsh
 source ~/.config/zsh/plugins.zsh
+
+if [[ "$PROFILE_STARTUP" == true ]]; then
+    unsetopt xtrace
+    exec 2>&3 3>&-
+fi
+
+
+if [[ "$PROFILE_STARTUP" == true ]]; then
+    zprof
+fi
