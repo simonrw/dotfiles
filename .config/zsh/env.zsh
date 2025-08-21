@@ -13,11 +13,11 @@ else
 fi
 
 # only source this file once per shell
-if [[ "$__ZSH_ALREADY_SOURCED" == "1" ]]; then
-    exit
-fi
-export __ZSH_ALREADY_SOURCED=1
-
+# if [[ "$__ZSH_ALREADY_SOURCED" == "1" ]]; then
+#     exit
+# fi
+# export __ZSH_ALREADY_SOURCED=1
+#
 # set up environment variables
 export FZF_CTRL_T_COMMAND='fd --no-ignore --hidden --type f'
 export FZF_DEFAULT_COMMAND='rg --files --no-ignore --hidden --follow -g ''!{.git,venv,node_modules}/*'' 2> /dev/null'
@@ -51,7 +51,7 @@ export MANPATH=/opt/homebrew/share/man:$MANPATH
 export BUILD_PREFIX=${HOME}/.local
 export GOPATH=${HOME}/dev/gocode
 export PATH=${BUILD_PREFIX}/bin:${HOME}/.bin:/usr/local/bin:${HOME}/.cargo/bin:${HOME}/bin:${GOPATH}/bin:${HOME}/.npm-packages/bin:${PATH}
-fpath=($HOME/.config/zsh/func $HOME/.config/zsh/completion $fpath)
+fpath=($HOME/.config/zsh/func $HOME/.config/zsh/completion $fpath /opt/homebrew/share/zsh-abbr)
 typeset -U fpath
 export REVIEW_BASE=main
 export lC_CTYPE=en_GB.UTF-8
