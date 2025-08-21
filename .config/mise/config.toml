@@ -2,7 +2,6 @@
 rust = { version = "beta", components = "rust-src,rust-analyzer" }
 "cargo:https://github.com/simonrw/cftail" = "branch:main"
 "cargo:https://github.com/simonrw/testsearch" = "branch:main"
-"pipx:basedpyright" = "latest"
 "go:github.com/simonrw/cert-info" = "main"
 "cargo:https://github.com/simonrw/listprojects" = "branch:main"
 
