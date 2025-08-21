@@ -21,3 +21,12 @@ HISTSIZE=10000
 SAVEHIST=$HISTSIZE
 
 
+# Emacs keybindings
+bindkey "^R" history-incremental-search-backward
+bindkey -v '^?' backward-delete-char
+bindkey -e
+
+# Set up editor in command line
+autoload edit-command-line
+zle -N edit-command-line
+bindkey '^Xe' edit-command-line
