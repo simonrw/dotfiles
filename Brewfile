@@ -71,6 +71,7 @@ brew "withgraphite/tap/graphite"
 brew "xh"
 brew "zsh-autosuggestions"
 brew "zsh-syntax-highlighting"
+brew "zsh"
 
 # for localStack
 
