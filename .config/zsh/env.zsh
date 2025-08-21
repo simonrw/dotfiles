@@ -64,3 +64,4 @@ function isatty() {
 if isatty; then
     export GPG_TTY=$(tty)
 fi
+export MISE_PIPX_UVX=true
