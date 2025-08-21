@@ -69,6 +69,8 @@ brew "wakeonlan"
 brew "watchexec"
 brew "withgraphite/tap/graphite"
 brew "xh"
+brew "zsh-autosuggestions"
+brew "zsh-syntax-highlighting"
 
 # for localStack
 

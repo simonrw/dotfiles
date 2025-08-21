@@ -1,1 +1,23 @@
 setopt completealiases
+
+# Disable Ctrl-s freezing the terminal
+stty stop undef
+
+autoload add-zsh-hook
+
+setopt interactivecomments
+setopt rmstarsilent
+setopt prompt_subst
+setopt inc_append_history
+setopt share_history
+unsetopt auto_pushd
+# Only unique history entries in the reverse history search HIST_FIND_NO_DUPS=1
+setopt hist_ignore_all_dups
+setopt hist_ignore_dups
+
+
+HISTFILE=~/.zsh_history
+HISTSIZE=10000
+SAVEHIST=$HISTSIZE
+
+
