@@ -31,38 +31,13 @@ return {
               typescript = { format = { indentSize = 2 } }
             }
           },
-        }, {
-        name = "basedpyright",
-        extraOptions = {
-          on_attach = function(client, bufnr)
-            client.config.settings.useLibraryCodeForTypes =
-                false
-            client.config.settings.autoSearchPaths = false
-            client.config.settings
-            .reportTypedDictNotRequiredAccess = "warning"
-            client.config.settings.reportGeneralTypeIssues =
-            "warning"
-            client.config.settings.reportUnusedCallResult =
-                false
-            client.config.settings.reportAny = false
-            client.config.settings.reportOptionalMemberAccess =
-                false
-            client.config.settings.reportUnknownMemberType =
-                false
-            client.config.settings.reportUnknownArgumentType =
-                false
-            client.config.settings.reportUnknownVariableType =
-                false
-          end
         },
-      },
         { name = "gopls" },
         { name = "gleam" },
         { name = "elmls" },
         { name = "lua_ls" },
         { name = "zls" },
         { name = "terraformls" },
-        { name = "ruff" },
         {
           name = "nil_ls",
           extraOptions = {
