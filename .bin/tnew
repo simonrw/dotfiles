@@ -31,9 +31,9 @@ def session_exists(session_name):
     return False
 
 
-def attach_to_session(session_name):
+def attach_to_session(session_name, exec):
     logger.debug(f"attaching to session {session_name}")
-    run_tmux("attach", "-t", session_name)
+    run_tmux("attach", "-t", session_name, exec=exec)
 
 
 def create_session(session_name):
@@ -41,18 +41,22 @@ def create_session(session_name):
     run_tmux("new-session", "-d", "-s", session_name)
 
 
-def switch_client(session_name):
+def switch_client(session_name, exec):
     logger.debug(f"switching to session {session_name}")
-    run_tmux("switch-client", "-t", session_name)
+    run_tmux("switch-client", "-t", session_name, exec=exec)
 
 
-def run_tmux(*args):
+def run_tmux(*args, exec=False):
     cmd = [
         "tmux",
     ] + list(args)
     logger.debug(f"running command: {cmd}")
-    proc = sp.run(cmd, check=True, stdout=sp.PIPE)
-    return proc.stdout.decode("utf8")
+
+    if exec:
+        os.execvp(cmd[0], cmd)
+    else:
+        proc = sp.run(cmd, check=True, stdout=sp.PIPE)
+        return proc.stdout.decode("utf8")
 
 
 parser = argparse.ArgumentParser()
@@ -72,14 +76,14 @@ tmux_name = f"{args.path.parent.name}/{args.path.name}".replace(".", "-").replac
 if os.getenv("TMUX"):
     logger.debug(f"in tmux session")
     if session_exists(tmux_name):
-        switch_client(tmux_name)
+        switch_client(tmux_name, exec=True)
     else:
         create_session(tmux_name)
-        switch_client(tmux_name)
+        switch_client(tmux_name, exec=True)
 else:
     logger.debug("not in tmux session")
     if session_exists(tmux_name):
-        attach_to_session(tmux_name)
+        attach_to_session(tmux_name, exec=True)
     else:
         create_session(tmux_name)
-        attach_to_session(tmux_name)
+        attach_to_session(tmux_name, exec=True)
