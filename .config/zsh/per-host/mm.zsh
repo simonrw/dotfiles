@@ -4,5 +4,5 @@ if test -d /Volumes/External; then
     export CARGO_HOME=/Volumes/External/cargo-home
     export RUSTUP_HOME=/Volumes/External/rustup-home
     export GOPATH=/Volumes/External/gocode
-    export PATH={$CARGO_HOME}/bin:{$GOPATH}/bin:{$PATH}
+    export PATH=${CARGO_HOME}/bin:${GOPATH}/bin:${PATH}
 fi
