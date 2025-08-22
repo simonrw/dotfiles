@@ -1,7 +1,6 @@
 # Taps
 
 tap "hmarr/tap"
-tap "olets/tap"
 tap "pulumi/tap"
 tap "railwaycat/emacsmacport"
 tap "sst/tap"
@@ -50,7 +49,6 @@ brew "mergiraf"
 brew "mise"
 brew "neovim"
 brew "node"
-brew "olets/tap/zsh-abbr"
 brew "pkg-config"
 brew "prr"
 brew "pulumi/tap/pulumi"
