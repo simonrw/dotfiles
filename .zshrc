@@ -16,11 +16,5 @@ source ~/.config/zsh/prompt.zsh
 source ~/.config/zsh/plugins.zsh
 
 if [[ "$PROFILE_STARTUP" == true ]]; then
-    unsetopt xtrace
-    exec 2>&3 3>&-
-fi
-
-
-if [[ "$PROFILE_STARTUP" == true ]]; then
     zprof
 fi
