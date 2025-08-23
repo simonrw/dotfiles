@@ -1,0 +1,3 @@
+abbr "c"="cargo"
+abbr "g"="git"
+abbr "k"="kubectl"
