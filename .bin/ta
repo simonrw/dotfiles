@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+sessionname=${1:-}
+if [ -z $sessionname ]; then
+    exec tmux attach
+else
+    exec tmux attach -t $sessionname
+fi

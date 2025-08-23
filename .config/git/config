@@ -91,7 +91,6 @@
 	helper = "osxkeychain"
 
 [delta]
-	diff-so-fancy = true
 	line-numbers = false
 	side-by-side = false
 
@@ -217,6 +216,9 @@
 
 [include]
 	path = "~/.gitlocalconfig/local"
+
+[include]
+	path = "~/.config/git/delta-themes.gitconfig"
 
 [includeIf "gitdir:~/dev/"]
 	path = "~/dev/.gitconfig"
