@@ -1,5 +1,3 @@
-setopt completealiases
-
 # Disable Ctrl-s freezing the terminal
 stty stop undef
 
