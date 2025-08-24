@@ -1,0 +1,34 @@
+#!/usr/bin/env bash
+
+set -eou pipefail
+
+PRISTINE_BRANCH_NAME=pristine
+
+if [[ -n $(git status --porcelain) ]]; then
+    echo 'must start with clean tree!';
+    exit 1;
+fi
+
+function atexit_reset() {
+    git reset --hard
+    git status --porcelain | awk '{ print $2 }' | xargs rm -r
+    git checkout $REVIEW_BASE
+    git branch -D $PRISTINE_BRANCH_NAME
+}
+
+trap atexit_reset EXIT
+
+git fetch
+git branch -D ${PRISTINE_BRANCH_NAME} || true
+git checkout -b ${PRISTINE_BRANCH_NAME}
+git rebase origin/$REVIEW_BASE
+
+branch="$1"
+git branch -D "$branch"
+git checkout "$branch"
+
+git rebase origin/$REVIEW_BASE
+git reset --soft origin/$REVIEW_BASE
+git reset
+
+nvim -c ':G' # opens neovim with the fugitive plugin - replace with your favorite editor
