@@ -61,6 +61,7 @@ export NIXPKGS_ALLOW_UNFREE=1
 export NTFY_TOPIC=simonrw-notify
 export NODE_PATH=${HOME}/.npm-packages/lib/node_modules
 export NODE_COMPILE_CACHE=${HOME}/.cache/nodejs-compile-cache
+export CARGO_TARGET_DIR=${HOME}/.cargo-target
 
 # centralise where python puts its .pyc files
 export PYTHONPYCACHEPREFIX=${HOME}/.python-cache
