@@ -8,10 +8,9 @@ alias fs=tmux-session-history
 alias g=git
 alias gcpr='gh pr create -a @me --label '\''semver: patch'\'''
 alias gcprd='gh pr create -a @me --draft --label '\''semver: patch'\'''
-# This command shadows ghostscript but if I alias it it only affects my interactive shell 
-alias gs=gss
 alias gpr='git pull --rebase'
 alias grep=rg
+alias gs=gss  # This command shadows ghostscript but if I alias it it only affects my interactive shell 
 alias k=kubectl
 alias la='eza -a'
 alias less=bat
@@ -37,4 +36,3 @@ alias vim=nvim
 alias vimdiff='nvim -d'
 alias vup='nvim --headless "+Lazy! sync" +qa'
 alias watch=viddy
-
