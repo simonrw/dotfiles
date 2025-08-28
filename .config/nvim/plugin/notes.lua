@@ -25,8 +25,7 @@ local commands = {"todo", "learnings"}
 vim.api.nvim_create_autocmd({ "FileType" }, {
   group = vim.api.nvim_create_augroup("Notes", {}),
   callback = function()
-    for _, command_name in ipairs({"NotesFind", "FindNotes"}) do
-      vim.api.nvim_buf_create_user_command(0, command_name, find_matching, {
+      vim.api.nvim_buf_create_user_command(0, "NotesFind", find_matching, {
         nargs = "?",
         complete = function(_, line)
           local l = vim.split(line, "%s+")
@@ -35,7 +34,6 @@ vim.api.nvim_create_autocmd({ "FileType" }, {
           end, commands)
         end,
       })
-    end
   end,
 })
 
