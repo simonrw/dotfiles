@@ -16,7 +16,7 @@ set -euo pipefail
 # @raycast.author Simon Walker
 
 function switchToOrStart() {
-    open -a Emacs ~/notes.org
+    open -a Neovide --args --frame transparent --no-tabs --fork ~/notes.md
 }
 
 switchToOrStart
