@@ -44,7 +44,7 @@ fi
 
 export PAGER=bat
 export PYTHONUNBUFFERED=1
-export SHELL=/opt/homebrew/bin/zsh
+# export SHELL=/opt/homebrew/bin/zsh
 export MANPAGER="nvim +Man!"
 export MANPATH=/opt/homebrew/share/man:$MANPATH
 
