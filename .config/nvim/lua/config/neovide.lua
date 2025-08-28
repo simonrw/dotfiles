@@ -19,5 +19,5 @@ if vim.g.neovide then
     { noremap = true, silent = true }
   )
 
-  vim.o.guifont = "JetBrains Mono NL ExtraBold:h14"
+  vim.o.guifont = "Lilex Medium"
 end
