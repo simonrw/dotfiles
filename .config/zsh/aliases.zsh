@@ -1,4 +1,4 @@
-alias add-keys='ssh-add (find ~/.ssh - maxdepth 1 - type f - name "id_rsa*" | grep - v pub | grep - v bak)'
+alias add-keys='ssh-add $(find ~/.ssh - maxdepth 1 - type f - name "id_rsa*" | grep - v pub | grep - v bak)'
 alias c=cargo
 alias cat=bat
 alias clear-pycs='find { $PWD } -name '\''*.pyc'\'' -delete'
@@ -24,8 +24,8 @@ alias notes='open -a Emacs ~/notes.org'
 alias ntfy=notify-wrapper
 alias nvim=nvim
 alias project=listprojects
-alias ptl='pytest (testsearch rerun -l)'
-alias pts='pytest (testsearch)'
+alias ptl='pytest $(testsearch rerun -l)'
+alias pts='pytest $(testsearch)'
 alias pydoc='python -m pydoc'
 alias pylab='ipython - -pylab'
 alias sourceenv='source ./venv/bin/activate'
