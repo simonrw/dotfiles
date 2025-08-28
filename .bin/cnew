@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+project_path=$1
+shift
+cargo new $project_path $@
+cd $project_path
+exec $SHELL
