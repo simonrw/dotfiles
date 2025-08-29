@@ -1,35 +1,19 @@
 {
   "vim.normalModeKeyBindingsNonRecursive": [
     {
-      "before": [
-        "<Esc>"
-      ],
-      "when": [
-        "editorFocus"
-      ],
-      "commands": [
-        ":nohl"
-      ],
+      "before": ["<Esc>"],
+      "when": ["editorFocus"],
+      "commands": [":nohl"],
       "silent": true
     },
     {
-      "before": [
-        "[",
-        "d"
-      ],
-      "commands": [
-        "editor.action.marker.prev"
-      ],
+      "before": ["[", "d"],
+      "commands": ["editor.action.marker.prev"],
       "silent": true
     },
     {
-      "before": [
-        "]",
-        "d"
-      ],
-      "commands": [
-        "editor.action.marker.next"
-      ],
+      "before": ["]", "d"],
+      "commands": ["editor.action.marker.next"],
       "silent": true
     },
     {
@@ -38,56 +22,32 @@
       "when": "vim.mode == 'Normal' && editorTextFocus"
     },
     {
-      "before": [
-        "g",
-        "b"
-      ],
-      "commands": [
-        "workbench.action.quickOpen"
-      ],
+      "before": ["g", "b"],
+      "commands": ["workbench.action.quickOpen"],
       "silent": true
     },
     {
-      "before": [
-        "<leader>",
-        "f"
-      ],
-      "commands": [
-        "workbench.action.quickOpen"
-      ],
+      "before": ["<leader>", "f"],
+      "commands": ["workbench.action.quickOpen"],
       "silent": true
     },
     {
-      "before": [
-        ":"
-      ],
-      "commands": [
-        "workbench.action.showCommands"
-      ],
+      "before": [":"],
+      "commands": ["workbench.action.showCommands"],
       "silent": true
     },
     {
-      "before": [
-        "g",
-        "s"
-      ],
-      "commands": [
-        "gitlens.showCommitsView"
-      ],
+      "before": ["g", "s"],
+      "commands": ["gitlens.showCommitsView"],
       "silent": true
     },
     {
-      "before": [
-        "g",
-        "r"
-      ],
-      "commands": [
-        "editor.action.goToReferences"
-      ],
+      "before": ["g", "r"],
+      "commands": ["editor.action.goToReferences"],
       "silent": true
     }
   ],
-  "editor.fontFamily": "Lilex Medium",
+  "editor.fontFamily": "'JetBrains Mono Semibold'",
   "editor.minimap.enabled": false,
   "telemetry.telemetryLevel": "off",
   "editor.autoClosingBrackets": "never",
@@ -106,9 +66,7 @@
   "breadcrumbs.enabled": false,
   "go.useLanguageServer": true,
   "[git-commit]": {
-    "editor.rulers": [
-      72
-    ],
+    "editor.rulers": [72],
     "workbench.editor.restoreViewState": false
   },
   "vim.statusBarColors.visualline": "",
@@ -116,9 +74,7 @@
   "security.workspace.trust.untrustedFiles": "open",
   "python.analysis.diagnosticMode": "workspace",
   "python.analysis.typeCheckingMode": "standard",
-  "python.testing.pytestArgs": [
-    "--no-cov"
-  ],
+  "python.testing.pytestArgs": ["--no-cov"],
   "debug.allowBreakpointsEverywhere": true,
   "editor.acceptSuggestionOnEnter": "off",
   "editor.autoClosingDelete": "never",
@@ -280,7 +236,7 @@
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "[jsonc]": {
-    "editor.defaultFormatter": "vscode.json-language-features"
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "window.menuBarVisibility": "toggle",
   "window.customTitleBarVisibility": "auto",
@@ -289,9 +245,7 @@
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "window.commandCenter": false,
-  "settingsSync.ignoredSettings": [
-    "editor.fontFamily"
-  ],
+  "settingsSync.ignoredSettings": ["editor.fontFamily"],
   "workbench.editor.showTabs": "single",
   "gitlens.currentLine.enabled": false,
   "gitlens.codeLens.enabled": false,
@@ -314,7 +268,7 @@
   "python.analysis.inlayHints.pytestParameters": true,
   "python.analysis.inlayHints.variableTypes": true,
   "git.blame.editorDecoration.enabled": false,
-  "chat.agent.enabled": true,
+  "chat.agent.enabled": false,
   "mise.checkForNewMiseVersion": false,
   "chat.commandCenter.enabled": false,
   "vim.hlsearch": true,
@@ -344,12 +298,13 @@
     "*": false,
     "plaintext": false,
     "markdown": false,
-    "scminput": false
+    "scminput": false,
+    "terraform": false
   },
+  "github.copilot.nextEditSuggestions.enabled": false,
   "workbench.statusBar.visible": false,
+  "workbench.colorTheme": "Catppuccin Mocha",
   "window.autoDetectColorScheme": true,
-  "excalidraw.theme": "auto",
-  "python.analysis.nodeExecutable": "auto",
-  "workbench.preferredDarkColorTheme": "Catppuccin Mocha",
-  "workbench.preferredLightColorTheme": "Default Light+"
+  "workbench.preferredLightColorTheme": "Default Light+",
+  "workbench.preferredDarkColorTheme": "Catppuccin Mocha"
 }
