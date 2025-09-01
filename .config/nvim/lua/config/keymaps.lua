@@ -80,7 +80,17 @@ do
     key = "?",
     mode = "n",
     options = { noremap = true, silent = true}
-  }
+  }, {
+    action = ":update<Cr>",
+    key = "<leader>w",
+    mode = "n",
+    options = { noremap = true, silent = true, desc = "Save the current file" }
+  }, {
+    action = ":quit<Cr>",
+    key = "<leader>q",
+    mode = "n",
+    options = { noremap = true, silent = true, desc = "Exit vim" }
+  },
   }
   for _, map in ipairs(__binds) do
     vim.keymap.set(map.mode, map.key, map.action, map.options)
