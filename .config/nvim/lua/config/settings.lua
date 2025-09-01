@@ -55,3 +55,4 @@ set.wrap = false
 set.writebackup = false
 set.guicursor = ""
 set.tags = {'.tags', '.git/tags'}
+set.winborder = 'rounded'
