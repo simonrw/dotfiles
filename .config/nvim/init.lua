@@ -76,7 +76,7 @@ vim.pack.add({
     { src = "https://github.com/catppuccin/nvim" },
     { src = "https://github.com/projekt0n/github-nvim-theme" },
     { src = 'https://github.com/neovim/nvim-lspconfig' },
-    { src = "https://github.com/nvim-treesitter/nvim-treesitter",        version = "main" },
+    { src = "https://github.com/nvim-treesitter/nvim-treesitter",        version = "master" },
     { src = "https://github.com/mason-org/mason.nvim" },
     { src = "https://github.com/tpope/vim-fugitive" },
     { src = "https://github.com/tpope/vim-rhubarb" },
@@ -84,7 +84,12 @@ vim.pack.add({
     { src = "https://github.com/nvim-treesitter/nvim-treesitter-context" },
 })
 
-require('nvim-treesitter').setup()
+require('nvim-treesitter.configs').setup({
+    ensure_installed = { "rust", "python" },
+    highlight = {
+        enable = true,
+    },
+})
 require('treesitter-context').setup({ max_lines = 3 })
 require("mini.pick").setup({
     options = {
