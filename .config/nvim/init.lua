@@ -76,10 +76,16 @@ vim.pack.add({
     { src = "https://github.com/catppuccin/nvim" },
     { src = "https://github.com/projekt0n/github-nvim-theme" },
     { src = 'https://github.com/neovim/nvim-lspconfig' },
-    { src = "https://github.com/nvim-treesitter/nvim-treesitter", version = "main" },
+    { src = "https://github.com/nvim-treesitter/nvim-treesitter",        version = "main" },
     { src = "https://github.com/mason-org/mason.nvim" },
+    { src = "https://github.com/tpope/vim-fugitive" },
+    { src = "https://github.com/tpope/vim-rhubarb" },
+    { src = "https://github.com/lewis6991/gitsigns.nvim" },
+    { src = "https://github.com/nvim-treesitter/nvim-treesitter-context" },
 })
 
+require('nvim-treesitter').setup()
+require('treesitter-context').setup({ max_lines = 3 })
 require("mini.pick").setup({
     options = {
         content_from_bottom = true,
@@ -116,6 +122,26 @@ setkey("<C-l>", "<C-w><C-l>")
 setkey("<leader>A", vim.diagnostic.setqflist)
 setkey("<leader>W", ':mksession!<cr> :echo "Session saved"<cr>')
 setkey("<Esc>", "<C-\\><C-n>", { "t" })
+setkey('<leader>gc', ':Git commit -v<cr>')
+setkey('<leader>gd', ':Gvdiff<cr>')
+setkey('<leader>gw', ':Gwrite<cr>')
+setkey('<leader>gr', ':Gread<cr>')
+setkey('<leader>ga', ':Git commit -v --amend<cr>')
+setkey('gs', ':Git<cr>')
+setkey(']c', function()
+    if vim.wo.diff then return "]c" end
+    vim.schedule(function()
+        require('gitsigns').next_hunk()
+    end)
+    return '<Ignore>'
+end)
+setkey('[c', function()
+    if vim.wo.diff then return "[c" end
+    vim.schedule(function()
+        require('gitsigns').prev_hunk()
+    end)
+    return '<Ignore>'
+end)
 
 vim.api.nvim_create_user_command("ToggleList", function()
     local qf_exists = false
@@ -157,7 +183,6 @@ vim.api.nvim_create_user_command("Mkdir", function()
         vim.fn.mkdir(dir, 'p')
     end
 end, {})
-
 
 vim.api.nvim_create_autocmd('TermOpen', {
     callback = function()
