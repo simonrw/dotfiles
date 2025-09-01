@@ -80,7 +80,11 @@ vim.pack.add({
     { src = "https://github.com/mason-org/mason.nvim" },
 })
 
-require("mini.pick").setup()
+require("mini.pick").setup({
+    options = {
+        content_from_bottom = true,
+    },
+})
 require("oil").setup()
 require("mason").setup()
 
