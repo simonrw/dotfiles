@@ -20,4 +20,5 @@ if vim.g.neovide then
   )
 
   vim.o.guifont = "Lilex Medium"
+  vim.o.columns = 100
 end
