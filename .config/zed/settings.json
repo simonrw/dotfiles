@@ -66,10 +66,11 @@
     "show": false
   },
   "agent": {
+    "default_profile": "ask",
     "always_allow_tool_actions": true,
     "default_model": {
-      "provider": "anthropic",
-      "model": "claude-sonnet-4-latest"
+      "provider": "openai",
+      "model": "gpt-5-mini"
     },
     "enabled": true
   },
