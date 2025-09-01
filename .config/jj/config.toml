@@ -35,6 +35,11 @@ log = '@ | ancestors(trunk()..(visible_heads() & mine()), 2) | trunk()'
 
 [aliases]
 tug = ["bookmark", "move", "--from", "closest_bookmark(@-)", "--to", "@-"]
+tpush = ["util", "exec", "--", "bash", "-c", """
+set -euo pipefail
+jj tug
+jj git push
+"""]
 ci = ["commit"]
 update = ["util", "exec", "--", "bash", "-c", """
 #!/usr/bin/env bash
