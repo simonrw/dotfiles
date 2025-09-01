@@ -73,6 +73,7 @@ vim.keymap.set('n', '<leader>q', ':quit<Cr>')
 vim.pack.add({
     { src = "https://github.com/stevearc/oil.nvim" },
     { src = "https://github.com/echasnovski/mini.pick" },
+    { src = "https://github.com/echasnovski/mini.extra" },
     { src = "https://github.com/catppuccin/nvim" },
     { src = "https://github.com/projekt0n/github-nvim-theme" },
     { src = 'https://github.com/neovim/nvim-lspconfig' },
@@ -82,12 +83,33 @@ vim.pack.add({
     { src = "https://github.com/tpope/vim-rhubarb" },
     { src = "https://github.com/lewis6991/gitsigns.nvim" },
     { src = "https://github.com/nvim-treesitter/nvim-treesitter-context" },
+    { src = "https://github.com/vim-test/vim-test" },
 })
 
 require('nvim-treesitter.configs').setup({
-    ensure_installed = { "rust", "python" },
+    ensure_installed = {
+        "rust", "python", 'vim', 'hcl', 'terraform', 'typescript', 'javascript', 'tsx',
+    },
     highlight = {
         enable = true,
+        additional_vim_regex_highlighting = false,
+    },
+    textobjects = {
+        select = {
+            enable = true,
+            keymaps = {
+                ["af"] = "@function.outer",
+                ["if"] = "@function.inner",
+                ["ac"] = "@class.outer",
+                ["ic"] = "@class.inner",
+            },
+            selection_modes = {
+                ['@function.inner'] = 'V',
+                ['@class.inner'] = 'V',
+                ['@function.outer'] = 'V',
+                ['@class.outer'] = 'V',
+            },
+        }
     },
 })
 require('treesitter-context').setup({ max_lines = 3 })
@@ -96,6 +118,7 @@ require("mini.pick").setup({
         content_from_bottom = true,
     },
 })
+require('mini.extra').setup()
 require("oil").setup()
 require("mason").setup()
 
@@ -110,8 +133,45 @@ vim.diagnostic.config({
     signs = true,
     underline = false,
 })
+vim.lsp.inlay_hint.enable(true)
 
 setkey("<leader>f", function() require("mini.pick").builtin.files() end)
+
+local get_filename_fn = function()
+    local bufnr_name_cache = {}
+    return function(bufnr)
+        bufnr = vim.F.if_nil(bufnr, 0)
+        local c = bufnr_name_cache[bufnr]
+        if c then
+            return c
+        end
+
+        local n = vim.api.nvim_buf_get_name(bufnr)
+        bufnr_name_cache[bufnr] = n
+        return n
+    end
+end
+
+
+setkey('<leader>j', function()
+    local jumplist = vim.fn.getjumplist()[1]
+
+    -- reverse the list
+    local sorted_jumplist = {}
+    for i = #jumplist, 1, -1 do
+        if vim.api.nvim_buf_is_valid(jumplist[i].bufnr) then
+            jumplist[i].text = vim.api.nvim_buf_get_lines(jumplist[i].bufnr, jumplist[i].lnum - 1, jumplist[i].lnum,
+                    false)[1] or
+                ""
+            table.insert(sorted_jumplist, jumplist[i])
+        end
+    end
+    require('mini.pick').start({
+        source = {
+            items = sorted_jumplist,
+        },
+    })
+end)
 setkey("<leader>F", function()
     require("mini.pick").builtin.files({ tool = "git" })
 end)
@@ -120,6 +180,7 @@ setkey("gb", function() require("mini.pick").builtin.buffers() end)
 setkey("<leader><leader>", function() require("mini.pick").builtin.grep_live() end)
 setkey("-", ":Oil<cr>")
 setkey("<leader>y", vim.lsp.buf.format)
+setkey('<leader>r', vim.lsp.buf.rename)
 setkey("<C-h>", "<C-w><C-h>")
 setkey("<C-j>", "<C-w><C-j>")
 setkey("<C-k>", "<C-w><C-k>")
@@ -267,12 +328,84 @@ vim.api.nvim_create_autocmd("Signal", {
 })
 vim.cmd('set completeopt+=noselect')
 
+-- configure vim-test
+vim.g["test#python#runner"] = "pytest"
+vim.g["test#javascript#reactscripts#options"] = "--watchAll=false"
+vim.g["test#strategy"] = "basic"
+
+vim.keymap.set("n", "tf", function()
+    vim.cmd("update")
+    vim.cmd("TestFile")
+end, { noremap = true, silent = true, desc = "Test the current file" })
+vim.keymap.set("n", "tl", function()
+    vim.cmd("update")
+    vim.cmd("TestLast")
+end, { noremap = true, silent = true, desc = "Run the last executed test" })
+vim.keymap.set("n", "tn", function()
+    vim.cmd("update")
+    vim.cmd("TestNearest")
+end, { noremap = true, silent = true, desc = "Run the nearest test" })
+vim.keymap.set("n", "ta", function()
+    vim.cmd("update")
+    vim.cmd("TestSuite")
+end, { noremap = true, silent = true, desc = "Run the whole test suite" })
+
+-- custom command to run test on AWS (LocalStack test)
+vim.api.nvim_create_user_command("AwsTestNearest", function()
+    vim.cmd([[TestNearest TEST_TARGET=AWS_CLOUD AWS_PROFILE=ls-sandbox SNAPSHOT_UPDATE=1]])
+end, {})
+
+-- lsp bindings
+-- remove default lsp bindings
+local is_mapped = function(mode, key)
+    return vim.fn.maparg(key, mode) ~= ""
+end
+
+for _, mapping in ipairs({ 'grn', 'gra', 'grr', 'gri', 'grt' }) do
+    if is_mapped(mapping) then
+        vim.keymap.del('n', mapping)
+    end
+end
+
+setkey('gd', vim.lsp.buf.definition)
+setkey('<leader>gt', vim.lsp.buf.type_definition)
+setkey('gr', function() require('mini.extra').pickers.lsp({ scope = 'references' }) end)
+setkey('gi', vim.lsp.buf.implementation)
+setkey('<leader>s', function() require('mini.extra').pickers.lsp({ scope = 'document_symbol' }) end)
+
 vim.api.nvim_create_autocmd("LspAttach", {
     callback = function(ev)
         local client = vim.lsp.get_client_by_id(ev.data.client_id)
         if client and client:supports_method('textDocument/completion') then
             vim.lsp.completion.enable(true, client.id, ev.buf, { autotrigger = true })
         end
+
+        local show_diagnostic_for_line = function()
+            local row, col = unpack(vim.api.nvim_win_get_cursor(0))
+            local diagnostics = vim.diagnostic.get(0, { lnum = row - 1 })
+
+            local messages = {}
+            for _, diagnostic in ipairs(diagnostics) do
+                table.insert(messages, diagnostic.message)
+            end
+
+
+            local buf = vim.api.nvim_create_buf(false, true)
+            vim.api.nvim_buf_set_lines(buf, 0, -1, false, messages)
+            local opts = {
+                relative = 'cursor',
+                width = 75,
+                height = #messages,
+                col = 0,
+                row = 1,
+                anchor = 'NW',
+                style = 'minimal',
+            }
+            local win = vim.api.nvim_open_win(buf, true, opts)
+            vim.api.nvim_set_option_value('winhl', 'Normal:MyHighlight', { win = win })
+        end
+
+        vim.keymap.set('n', '<leader>d', show_diagnostic_for_line)
     end,
 })
 
