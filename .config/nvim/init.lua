@@ -88,13 +88,112 @@ require("mini.pick").setup({
 require("oil").setup()
 require("mason").setup()
 
-vim.keymap.set("n", "<leader>f", ":Pick files<cr>")
-vim.keymap.set("n", "<leader>F", function() MiniPick.builtin.files({ tool = "git" }) end)
-vim.keymap.set("n", "<leader>ht", ":Pick help<cr>")
-vim.keymap.set("n", "gb", ":Pick buffers<cr>")
-vim.keymap.set("n", "<leader><leader>", ":Pick grep_live<cr>")
-vim.keymap.set("n", "-", ":Oil<cr>")
-vim.keymap.set("n", "<leader>y", vim.lsp.buf.format)
+local setkey = function(key, action, modes, options)
+    modes = modes or "n"
+    options = options or { noremap = true, silent = true }
+    vim.keymap.set(modes, key, action, options)
+end
+
+vim.diagnostic.config({
+    virtual_text = false,
+    signs = true,
+    underline = false,
+})
+
+setkey("<leader>f", function() require("mini.pick").builtin.files() end)
+setkey("<leader>F", function()
+    require("mini.pick").builtin.files({ tool = "git" })
+end)
+setkey("<leader>ht", function() require("mini.pick").builtin.help() end)
+setkey("gb", function() require("mini.pick").builtin.buffers() end)
+setkey("<leader><leader>", function() require("mini.pick").builtin.grep_live() end)
+setkey("-", ":Oil<cr>")
+setkey("<leader>y", vim.lsp.buf.format)
+setkey("<C-h>", "<C-w><C-h>")
+setkey("<C-j>", "<C-w><C-j>")
+setkey("<C-k>", "<C-w><C-k>")
+setkey("<C-l>", "<C-w><C-l>")
+setkey("<leader>A", vim.diagnostic.setqflist)
+setkey("<leader>W", ':mksession!<cr> :echo "Session saved"<cr>')
+setkey("<Esc>", "<C-\\><C-n>", { "t" })
+
+vim.api.nvim_create_user_command("ToggleList", function()
+    local qf_exists = false
+    for _, win in pairs(vim.fn.getwininfo()) do
+        if win["quickfix"] == 1 then
+            qf_exists = true
+        end
+    end
+
+    if qf_exists then
+        vim.cmd "cclose"
+    else
+        vim.cmd "copen"
+    end
+end, {})
+setkey("Q", ":ToggleList<cr>")
+
+
+vim.api.nvim_create_user_command("T", "split | resize 30 | term <args>", {
+    complete = "shellcmd",
+    force = true,
+    nargs = "*",
+})
+
+vim.api.nvim_create_user_command("W", "write", {})
+
+vim.api.nvim_create_user_command("Mkdir", function()
+    -- full path of current file
+    local filepath = vim.fn.expand('%:p')
+    if filepath == '' then
+        return
+    end
+
+    -- parent directory
+    local dir = vim.fn.fnamemodify(filepath, ':h')
+
+    -- mkdir -p behavior: only create if not exists
+    if vim.fn.isdirectory(dir) == 0 then
+        vim.fn.mkdir(dir, 'p')
+    end
+end, {})
+
+
+vim.api.nvim_create_autocmd('TermOpen', {
+    callback = function()
+        vim.defer_fn(function()
+            if vim.api.nvim_get_option_value('buftype', { buf = 0 }) == 'terminal' then
+                vim.cmd([[startinsert]])
+            end
+        end, 100)
+    end,
+})
+
+vim.api.nvim_create_autocmd('TextYankPost', {
+    callback = function()
+        if vim.fn.has('nvim-0.11') then
+            require('vim.hl').on_yank()
+        else
+            require('vim.highlight').on_yank()
+        end
+    end,
+})
+
+vim.api.nvim_create_autocmd('BufReadPost', {
+    pattern = { '*' },
+    desc = 'When editing a file, always jump to the last known cursor position',
+    callback = function()
+        local line = vim.fn.line '\'"'
+        if
+            line >= 1
+            and line <= vim.fn.line '$'
+            and (vim.bo.filetype ~= 'commit') and (vim.bo.filetype ~= "gitcommit")
+            and vim.fn.index({ 'xxd', 'gitrebase' }, vim.bo.filetype) == -1
+        then
+            vim.cmd 'normal! g`"'
+        end
+    end,
+})
 
 vim.lsp.enable({
     "lua_ls",
