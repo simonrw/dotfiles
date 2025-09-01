@@ -50,7 +50,7 @@ export MANPATH=/opt/homebrew/share/man:$MANPATH
 
 export BUILD_PREFIX=${HOME}/.local
 export GOPATH=${HOME}/dev/gocode
-export PATH=${BUILD_PREFIX}/bin:${HOME}/.bin:/usr/local/bin:${HOME}/.cargo/bin:${HOME}/bin:${GOPATH}/bin:${HOME}/.npm-packages/bin:${PATH}:$HOME/Applications/PyCharm.app/Contents/MacOS
+export PATH=${BUILD_PREFIX}/bin:${HOME}/.bin:${HOME}/.local/share/bob/nvim-bin:/usr/local/bin:${HOME}/.cargo/bin:${HOME}/bin:${GOPATH}/bin:${HOME}/.npm-packages/bin:${PATH}:$HOME/Applications/PyCharm.app/Contents/MacOS
 fpath=($HOME/.config/zsh/func $HOME/.config/zsh/completion $fpath)
 typeset -U fpath
 export REVIEW_BASE=main
