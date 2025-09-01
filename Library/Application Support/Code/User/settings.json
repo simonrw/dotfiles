@@ -87,7 +87,7 @@
       "silent": true
     }
   ],
-  "editor.fontFamily": "Lilex Medium",
+  "editor.fontFamily": "Lilex",
   "editor.minimap.enabled": false,
   "telemetry.telemetryLevel": "off",
   "editor.autoClosingBrackets": "never",

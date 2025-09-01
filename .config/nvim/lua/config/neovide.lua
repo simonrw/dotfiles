@@ -19,6 +19,6 @@ if vim.g.neovide then
     { noremap = true, silent = true }
   )
 
-  vim.o.guifont = "Lilex Medium"
+  vim.o.guifont = "Lilex"
   vim.o.columns = 100
 end

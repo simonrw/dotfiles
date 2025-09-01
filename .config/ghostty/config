@@ -8,7 +8,7 @@ window-padding-y = 6
 confirm-close-surface = false
 keybind = shift+enter=text:\n
 
-font-family = Lilex Medium
+font-family = Lilex
 font-thicken = true
 theme = dark:catppuccin-mocha,light:GitHub-Light-Default
 cursor-style = block
