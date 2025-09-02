@@ -114,8 +114,26 @@ require('nvim-treesitter.configs').setup({
 })
 require('treesitter-context').setup({ max_lines = 3 })
 require("mini.pick").setup({
-    options = {
-        content_from_bottom = true,
+    window = {
+        config =
+            function()
+                local has_statusline = vim.o.laststatus > 0
+                local has_tabline = vim.o.showtabline == 2 or
+                    (vim.o.showtabline == 1 and #vim.api.nvim_list_tabpages() > 1)
+                local max_height = vim.o.lines - vim.o.cmdheight - (has_tabline and 1 or 0) - (has_statusline and 1 or 0)
+                local max_width = vim.o.columns
+                local height = math.floor(0.68 * max_height)
+                local width = math.floor(math.min(0.68 * max_width))
+
+                return {
+                    relative = 'editor',
+                    row = 0.5 * max_height - height / 2,
+                    col = 0.5 * max_width - width / 2,
+                    width = width,
+                    height = height,
+                    anchor = 'NW',
+                }
+            end,
     },
 })
 require('mini.extra').setup()
