@@ -87,7 +87,7 @@
       "silent": true
     }
   ],
-  "editor.fontFamily": "Lilex",
+  "editor.fontFamily": "'JetBrains Mono Semibold'",
   "editor.minimap.enabled": false,
   "telemetry.telemetryLevel": "off",
   "editor.autoClosingBrackets": "never",
