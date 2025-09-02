@@ -78,7 +78,6 @@ vim.pack.add({
     { src = "https://github.com/projekt0n/github-nvim-theme" },
     { src = 'https://github.com/neovim/nvim-lspconfig' },
     { src = "https://github.com/nvim-treesitter/nvim-treesitter",        version = "master" },
-    { src = "https://github.com/mason-org/mason.nvim" },
     { src = "https://github.com/tpope/vim-fugitive" },
     { src = "https://github.com/tpope/vim-rhubarb" },
     { src = "https://github.com/lewis6991/gitsigns.nvim" },
@@ -138,7 +137,6 @@ require("mini.pick").setup({
 })
 require('mini.extra').setup()
 require("oil").setup()
-require("mason").setup()
 
 local setkey = function(key, action, modes, options)
     modes = modes or "n"
@@ -154,21 +152,6 @@ vim.diagnostic.config({
 vim.lsp.inlay_hint.enable(true)
 
 setkey("<leader>f", function() require("mini.pick").builtin.files() end)
-
-local get_filename_fn = function()
-    local bufnr_name_cache = {}
-    return function(bufnr)
-        bufnr = vim.F.if_nil(bufnr, 0)
-        local c = bufnr_name_cache[bufnr]
-        if c then
-            return c
-        end
-
-        local n = vim.api.nvim_buf_get_name(bufnr)
-        bufnr_name_cache[bufnr] = n
-        return n
-    end
-end
 
 
 setkey('<leader>j', function()
