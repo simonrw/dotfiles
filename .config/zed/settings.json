@@ -47,12 +47,13 @@
     "enabled": true,
     "coloring": "indent_aware"
   },
+  "relative_line_numbers": true,
   "show_wrap_guides": true,
   "wrap_guides": [100],
   "cursor_blink": false,
   "use_autoclose": false,
   "gutter": {
-    "line_numbers": false,
+    "line_numbers": true,
     "folds": false
   },
   "scrollbar": { "show": "never" },
