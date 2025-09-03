@@ -87,7 +87,7 @@ vim.pack.add({
 
 require('nvim-treesitter.configs').setup({
     ensure_installed = {
-        "rust", "python", 'vim', 'hcl', 'terraform', 'typescript', 'javascript', 'tsx',
+        "rust", "python", 'vim', 'hcl', 'terraform', 'typescript', 'javascript', 'tsx', "go",
     },
     highlight = {
         enable = true,
@@ -291,6 +291,8 @@ vim.lsp.enable({
     "lua_ls",
     "rust_analyzer",
     "ruff",
+    "basedpyright",
+    "gopls",
 })
 
 local function load_theme()
