@@ -393,7 +393,10 @@ vim.api.nvim_create_autocmd("LspAttach", {
 
             local messages = {}
             for _, diagnostic in ipairs(diagnostics) do
-                table.insert(messages, diagnostic.message)
+                for every in diagnostic.message:gmatch("[^\n]+") do
+                    local message = every:gsub('%s+$', '')
+                    table.insert(messages, message)
+                end
             end
 
 
