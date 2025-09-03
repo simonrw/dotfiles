@@ -417,3 +417,6 @@ vim.api.nvim_create_autocmd("LspAttach", {
 })
 
 load_theme()
+
+
+setkey('<leader>a', vim.lsp.buf.code_action)
