@@ -412,7 +412,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
                 style = 'minimal',
             }
             local win = vim.api.nvim_open_win(buf, true, opts)
-            vim.api.nvim_set_option_value('winhl', 'Normal:MyHighlight', { win = win })
+            vim.api.nvim_set_option_value('wrap', true, { win = win })
         end
 
         vim.keymap.set('n', '<leader>d', show_diagnostic_for_line)
