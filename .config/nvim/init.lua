@@ -376,6 +376,10 @@ setkey('gr', function() require('mini.extra').pickers.lsp({ scope = 'references'
 setkey('gi', vim.lsp.buf.implementation)
 setkey('<leader>s', function() require('mini.extra').pickers.lsp({ scope = 'document_symbol' }) end)
 
+setkey('<c-space>', function()
+    vim.lsp.completion.get()
+end, { 'i' })
+
 vim.api.nvim_create_autocmd("LspAttach", {
     callback = function(ev)
         local client = vim.lsp.get_client_by_id(ev.data.client_id)
