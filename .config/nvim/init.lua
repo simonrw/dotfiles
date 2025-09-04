@@ -411,6 +411,7 @@ local function load_theme()
         vim.cmd.highlight({ "TreesitterContextBottom", "gui=none" })
         vim.cmd.highlight({ "CursorLine", "guibg=#303347" })
         vim.cmd.highlight({ "CursorColumn", "guibg=#303347" })
+        vim.cmd.highlight({ "LineNr", "guifg=#6c7086" })
     else
         vim.cmd.colorscheme "github_light"
 
