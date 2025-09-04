@@ -112,6 +112,105 @@ require('nvim-treesitter.configs').setup({
     },
 })
 require('treesitter-context').setup({ max_lines = 3 })
+function parse_grep_nul(s)
+    if type(s) ~= "string" then
+        return nil
+    end
+    if not s:find("\0", 1, true) then
+        return s
+    end
+
+    local parts = {}
+    local start = 1
+    while true do
+        local idx = s:find("\0", start, true) -- plain find
+        if not idx then
+            -- take trailing tail only if we actually saw at least one NUL;
+            -- grep-live format always has 3 NULs, so tail isn't needed
+            break
+        end
+        local splitstr = s:sub(start, idx - 1)
+        table.insert(parts, splitstr)
+        start = idx + 1
+    end
+
+    -- insert the rest of the string
+    table.insert(parts, s:sub(start, -1))
+
+    if #parts < 4 then
+        return nil
+    end
+
+    local filename = parts[1]
+    local lnum = tonumber(parts[2]) or 1
+    local col = tonumber(parts[3]) or 1
+    local text = parts[4] or ""
+
+    if filename == "" then
+        return nil
+    end
+
+    return {
+        filename = filename,
+        lnum = lnum,
+        col = col,
+        text = text,
+    }
+end
+
+local function pick_to_qf()
+    local pick = require("mini.pick")
+    local items = pick.get_picker_matches().shown
+    if not items then
+        vim.notify("mini.pick: no items", vim.log.levels.WARN)
+        return
+    end
+
+    local qf = {}
+    for _, it in ipairs(items) do
+        local e = nil
+
+        -- 1) Explicit table entries from some sources
+        if type(it) == "table" then
+            -- Try value first (MiniPick items often have .value or .text)
+            if type(it.value) == "string" then
+                e = parse_grep_nul(it.value)
+            end
+            if not e and type(it.text) == "string" then
+                e = parse_grep_nul(it.text)
+            end
+            if not e then
+                e = {
+                    filename = it.filename or it.path or it.file,
+                    lnum = it.lnum or it.line or it.row,
+                    col = it.col or it.column,
+                    text = it.text or it.label or it.value or it.display
+                        or (type(it.value) == "string" and it.value) or tostring(it),
+                }
+                if not e.filename and type(it.value) == "string" and it.value:match("[/\\]") then
+                    e.filename = it.value
+                end
+            end
+
+            -- 2) String entries (files, or grep-live raw lines)
+        elseif type(it) == "string" then
+            e = parse_grep_nul(it)
+            if not e then
+                e = { filename = it, text = it }
+            end
+
+            -- 3) Fallback
+        else
+            e = { text = tostring(it) }
+        end
+
+        table.insert(qf, e)
+    end
+
+    vim.fn.setqflist({}, " ", { title = "mini.pick results", items = qf })
+    vim.cmd("copen")
+    vim.cmd("cnext")
+end
 require("mini.pick").setup({
     window = {
         config =
@@ -133,6 +232,12 @@ require("mini.pick").setup({
                     anchor = 'NW',
                 }
             end,
+    },
+    mappings = {
+        open_in_qflist = {
+            char = "<C-q>",
+            func = pick_to_qf,
+        },
     },
 })
 require('mini.extra').setup()
