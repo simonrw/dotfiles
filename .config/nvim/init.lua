@@ -83,6 +83,7 @@ vim.pack.add({
     { src = "https://github.com/lewis6991/gitsigns.nvim" },
     { src = "https://github.com/nvim-treesitter/nvim-treesitter-context" },
     { src = "https://github.com/vim-test/vim-test" },
+    { src = "https://github.com/nvim-mini/mini.surround" },
 })
 
 require('nvim-treesitter.configs').setup({
@@ -112,6 +113,8 @@ require('nvim-treesitter.configs').setup({
     },
 })
 require('treesitter-context').setup({ max_lines = 3 })
+require('mini.surround').setup()
+
 function parse_grep_nul(s)
     if type(s) ~= "string" then
         return nil
