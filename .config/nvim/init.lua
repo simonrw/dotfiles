@@ -84,6 +84,7 @@ vim.pack.add({
     { src = "https://github.com/nvim-treesitter/nvim-treesitter-context" },
     { src = "https://github.com/vim-test/vim-test" },
     { src = "https://github.com/nvim-mini/mini.surround" },
+    { src = "https://github.com/nvim-mini/mini.notify" },
 })
 
 require('nvim-treesitter.configs').setup({
@@ -114,6 +115,14 @@ require('nvim-treesitter.configs').setup({
 })
 require('treesitter-context').setup({ max_lines = 3 })
 require('mini.surround').setup()
+local notify = require('mini.notify')
+notify.setup()
+vim.notify = notify.make_notify({
+    ERROR = { duration = 5000 },
+    WARN = { duration = 4000 },
+    INFO = { duration = 3000 },
+})
+
 
 function parse_grep_nul(s)
     if type(s) ~= "string" then
