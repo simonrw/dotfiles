@@ -26,5 +26,5 @@ depends = ["submodules", "brew"]
 description = "Update brews"
 
 [tasks.vim-update]
-run = "nvim --headless '+Lazy! sync' +qa"
+run = "nvim --headless '+UpdatePackages!' +qa"
 description = "Update neovim plugins"
