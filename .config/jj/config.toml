@@ -81,3 +81,8 @@ draft_commit_description ='''
 'format_short_signature(signature)' = 'signature.name()'
 'format_short_signature_oneline(signature)' = 'signature.name()'
 'format_timestamp(timestamp)' = 'timestamp.ago()'
+
+[[--scope]]
+--when.repositories = ["~/work/localstack"]
+[--scope.user]
+email = "simon.walker@localstack.cloud"
