@@ -375,10 +375,30 @@ setkey('<leader>gt', vim.lsp.buf.type_definition)
 setkey('gr', function() require('mini.extra').pickers.lsp({ scope = 'references' }) end)
 setkey('gi', vim.lsp.buf.implementation)
 setkey('<leader>s', function() require('mini.extra').pickers.lsp({ scope = 'document_symbol' }) end)
+setkey('<leader>a', vim.lsp.buf.code_action)
 
 setkey('<c-space>', function()
     vim.lsp.completion.get()
 end, { 'i' })
+
+-- package management commands
+local get_package_names = function()
+    local packages = vim.pack.get()
+    local package_names = {}
+    for _, package in ipairs(packages) do
+        table.insert(package_names, package.spec.name)
+    end
+    return package_names
+end
+
+vim.api.nvim_create_user_command('UpdatePackages', function(opts)
+    local package_names = get_package_names()
+    local fopts = {}
+    if opts.bang then
+        fopts.force = true
+    end
+    vim.pack.update(package_names, fopts)
+end, { bang = true })
 
 vim.api.nvim_create_autocmd("LspAttach", {
     callback = function(ev)
@@ -419,7 +439,5 @@ vim.api.nvim_create_autocmd("LspAttach", {
     end,
 })
 
+
 load_theme()
-
-
-setkey('<leader>a', vim.lsp.buf.code_action)
