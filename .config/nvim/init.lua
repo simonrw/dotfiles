@@ -77,7 +77,7 @@ vim.pack.add({
     { src = "https://github.com/catppuccin/nvim" },
     { src = "https://github.com/projekt0n/github-nvim-theme" },
     { src = 'https://github.com/neovim/nvim-lspconfig' },
-    { src = "https://github.com/nvim-treesitter/nvim-treesitter",        version = "master" },
+    { src = "https://github.com/nvim-treesitter/nvim-treesitter",          version = "master" },
     { src = "https://github.com/tpope/vim-fugitive" },
     { src = "https://github.com/tpope/vim-rhubarb" },
     { src = "https://github.com/lewis6991/gitsigns.nvim" },
@@ -363,7 +363,7 @@ vim.api.nvim_create_user_command("Mkdir", function()
 end, {})
 
 vim.api.nvim_create_autocmd('FileType', {
-    pattern = {'markdown'},
+    pattern = { 'markdown' },
     callback = function(ev)
         require('render-markdown').setup()
         local zen_mode = require('zen-mode')
@@ -420,6 +420,29 @@ vim.api.nvim_create_autocmd('BufReadPost', {
         end
     end,
 })
+
+-- mappings to toggle settings
+setkey('yow', function()
+    vim.o.wrap = not (vim.o.wrap)
+    vim.print('wrap: ' .. tostring(vim.o.wrap))
+end)
+setkey('yon', function()
+    vim.o.number = not (vim.o.number)
+    vim.print('number: ' .. tostring(vim.o.number))
+end)
+setkey('yor', function()
+    vim.o.relativenumber = not (vim.o.relativenumber)
+    vim.print('relativenumber: ' .. tostring(vim.o.relativenumber))
+end)
+setkey('yos', function()
+    vim.o.spell = not (vim.o.spell)
+    vim.print('spell: ' .. tostring(vim.o.spell))
+end)
+setkey('yod', function()
+    vim.o.diff = not (vim.o.diff)
+    vim.print('diff: ' .. tostring(vim.o.diff))
+end)
+
 
 vim.lsp.enable({
     "lua_ls",
