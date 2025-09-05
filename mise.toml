@@ -18,6 +18,7 @@ depends = ["submodules"]
 run = "stow ."
 
 [tools]
+go = "latest"
 lua-language-server = "latest"
 
 [tasks."brew:upgrade"]
