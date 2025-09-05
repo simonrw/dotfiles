@@ -1,6 +1,15 @@
 [tasks.all]
 description = "Install/link packages"
-depends = ["submodules", "dotfiles", "defaults", "gh-extensions", "vim-update", "mise:packages", "launchctl"]
+depends = [
+    "submodules",
+    "dotfiles",
+    "defaults",
+    "gh-extensions",
+    "vim-update",
+    "mise:packages",
+    "launchctl",
+    "bat-cache",
+]
 depends_post = ["brew"]
 
 [tasks."mise:packages"]
@@ -29,3 +38,7 @@ description = "Update brews"
 [tasks.vim-update]
 run = "nvim --headless '+UpdatePackages!' +qa"
 description = "Update neovim plugins"
+
+[tasks.bat-cache]
+run = "bat cache --build"
+description = "Refresh the bat syntax theme cache"
