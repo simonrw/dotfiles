@@ -444,6 +444,17 @@ setkey('yod', function()
 end)
 
 
+-- configure rust-analyzer
+vim.lsp.config('rust_analyzer', {
+    settings = {
+        ['rust-analyzer'] = {
+            cargo = {
+                allFeatures = true,
+            },
+        },
+    },
+})
+
 vim.lsp.enable({
     "lua_ls",
     "rust_analyzer",
