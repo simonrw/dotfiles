@@ -84,6 +84,8 @@ vim.pack.add({
     { src = "https://github.com/nvim-treesitter/nvim-treesitter-context" },
     { src = "https://github.com/vim-test/vim-test" },
     { src = "https://github.com/nvim-mini/mini.surround" },
+    { src = "https://github.com/MeanderingProgrammer/render-markdown.nvim" },
+    { src = "https://github.com/folke/zen-mode.nvim" },
 })
 
 require('nvim-treesitter.configs').setup({
@@ -256,7 +258,7 @@ end
 vim.diagnostic.config({
     virtual_text = false,
     signs = true,
-    underline = false,
+    underline = true,
 })
 vim.lsp.inlay_hint.enable(true)
 
@@ -359,6 +361,29 @@ vim.api.nvim_create_user_command("Mkdir", function()
         vim.fn.mkdir(dir, 'p')
     end
 end, {})
+
+vim.api.nvim_create_autocmd('FileType', {
+    pattern = {'markdown'},
+    callback = function(ev)
+        require('render-markdown').setup()
+        local zen_mode = require('zen-mode')
+        zen_mode.setup({
+            window = {
+                backdrop = 1,
+            },
+            on_open = function()
+                vim.o.number = false
+                vim.o.relativenumber = false
+            end,
+            on_close = function()
+                vim.o.number = true
+                vim.o.relativenumber = true
+            end,
+        })
+    end,
+})
+
+setkey('yoz', function() require('zen-mode').toggle() end)
 
 vim.api.nvim_create_autocmd('TermOpen', {
     callback = function()
