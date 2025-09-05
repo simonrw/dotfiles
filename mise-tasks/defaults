@@ -124,6 +124,8 @@ defaults write NSGlobalDomain 'NSToolbarTitleViewRolloverDelay' $'<?xml version=
 <integer>0</integer>
 </plist>'
 
+# disable ipv6
+networksetup -listallnetworkservices | grep -v asterisk | xargs -I {} networksetup -setv6off {}
 
 # Finally restart the Dock when finished
 killall Dock || true
