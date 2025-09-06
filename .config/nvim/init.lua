@@ -88,6 +88,14 @@ vim.pack.add({
     { src = "https://github.com/folke/zen-mode.nvim" },
 })
 
+vim.api.nvim_create_autocmd('FileType', {
+    pattern = { 'fugitive' },
+    callback = function(ev)
+        -- use this API since we want recursive mapping behaviour
+        vim.api.nvim_buf_set_keymap(ev.buf, 'n', 'q', 'gq', {})
+    end,
+})
+
 require('nvim-treesitter.configs').setup({
     ensure_installed = {
         "rust", "python", 'vim', 'hcl', 'terraform', 'typescript', 'javascript', 'tsx', "go",
