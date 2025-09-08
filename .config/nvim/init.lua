@@ -457,6 +457,20 @@ setkey('yod', function()
 end)
 
 
+-- add custom mapping for git blame
+setkey('yob', function()
+    if vim.o.filetype ~= 'fugitiveblame' then
+        vim.cmd([[Git blame]])
+    end
+end)
+
+vim.api.nvim_create_autocmd('FileType', {
+    pattern = { 'fugitiveblame' },
+    callback = function(ev)
+        vim.api.nvim_buf_set_keymap(ev.buf, 'n', 'yob', 'gq', {})
+    end,
+})
+
 -- configure rust-analyzer
 vim.lsp.config('rust_analyzer', {
     settings = {
