@@ -77,7 +77,7 @@ vim.pack.add({
     { src = "https://github.com/catppuccin/nvim" },
     { src = "https://github.com/projekt0n/github-nvim-theme" },
     { src = 'https://github.com/neovim/nvim-lspconfig' },
-    { src = "https://github.com/nvim-treesitter/nvim-treesitter",          version = "master" },
+    { src = "https://github.com/nvim-treesitter/nvim-treesitter",            version = "master" },
     { src = "https://github.com/tpope/vim-fugitive" },
     { src = "https://github.com/tpope/vim-rhubarb" },
     { src = "https://github.com/lewis6991/gitsigns.nvim" },
