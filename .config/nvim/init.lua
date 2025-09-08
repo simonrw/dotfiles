@@ -86,6 +86,7 @@ vim.pack.add({
     { src = "https://github.com/nvim-mini/mini.surround" },
     { src = "https://github.com/MeanderingProgrammer/render-markdown.nvim" },
     { src = "https://github.com/folke/zen-mode.nvim" },
+    { src = "https://github.com/nvim-treesitter/nvim-treesitter-textobjects" },
 })
 
 vim.api.nvim_create_autocmd('FileType', {
