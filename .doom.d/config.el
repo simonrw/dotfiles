@@ -84,9 +84,26 @@
 (setq! catppuccin-flavor 'mocha)
 
 ;; automatically select the theme based on the system theme
-(after! doom-ui
+;; (after! doom-ui
+;;   (setq! auto-dark-themes '((catppuccin) (doom-one-light)))
+;;   (auto-dark-mode))
+(use-package! auto-dark
+  :defer t
+  :init
   (setq! auto-dark-themes '((catppuccin) (doom-one-light)))
-  (auto-dark-mode))
+  (setq! doom-theme nil)
+  (setq! custom-safe-themes t)
+  (defun my-auto-dark-init-h ()
+    (auto-dark-mode)
+    (remove-hook 'server-after-make-frame-hook #'my-auto-dark-init-h)
+    (remove-hook 'after-init-hook #'my-auto-dark-init-h))
+  (let ((hook (if (daemonp)
+                  'server-after-make-frame-hook
+                'after-init-hook)))
+    ;; Depth -95 puts this before doom-init-theme-h, which sounds like a good
+    ;; idea, if only for performance reasons.
+    (add-hook hook #'my-auto-dark-init-h -95)))A
+  
 
 (require 'exec-path-from-shell)
 (dolist (var '("SSH_AUTH_SOCK" "SSH_AGENT_PID" "GPG_AGENT_INFO" "LANG" "LC_CTYPE"))
