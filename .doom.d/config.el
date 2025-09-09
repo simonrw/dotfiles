@@ -102,7 +102,7 @@
                 'after-init-hook)))
     ;; Depth -95 puts this before doom-init-theme-h, which sounds like a good
     ;; idea, if only for performance reasons.
-    (add-hook hook #'my-auto-dark-init-h -95)))A
+    (add-hook hook #'my-auto-dark-init-h -95)))
   
 
 (require 'exec-path-from-shell)
