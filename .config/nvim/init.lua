@@ -89,14 +89,6 @@ vim.pack.add({
     { src = "https://github.com/nvim-treesitter/nvim-treesitter-textobjects" },
 })
 
-vim.api.nvim_create_autocmd('FileType', {
-    pattern = { 'fugitive' },
-    callback = function(ev)
-        -- use this API since we want recursive mapping behaviour
-        vim.api.nvim_buf_set_keymap(ev.buf, 'n', 'q', 'gq', {})
-    end,
-})
-
 require('nvim-treesitter.configs').setup({
     ensure_installed = {
         "rust", "python", 'vim', 'hcl', 'terraform', 'typescript', 'javascript', 'tsx', "go",
@@ -470,6 +462,15 @@ vim.api.nvim_create_autocmd('FileType', {
         vim.api.nvim_buf_set_keymap(ev.buf, 'n', 'yob', 'gq', {})
     end,
 })
+
+vim.api.nvim_create_autocmd('FileType', {
+    pattern = { 'fugitive', 'fugitiveblame' },
+    callback = function(ev)
+        -- use this API since we want recursive mapping behaviour
+        vim.api.nvim_buf_set_keymap(ev.buf, 'n', 'q', 'gq', {})
+    end,
+})
+
 
 -- configure rust-analyzer
 vim.lsp.config('rust_analyzer', {
