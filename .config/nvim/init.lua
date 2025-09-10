@@ -530,6 +530,7 @@ vim.cmd('set completeopt+=noselect')
 
 -- configure vim-test
 vim.g["test#python#runner"] = "pytest"
+vim.g["test#python#pytest#executable"] = "pytest"
 vim.g["test#javascript#reactscripts#options"] = "--watchAll=false"
 vim.g["test#strategy"] = "basic"
 
