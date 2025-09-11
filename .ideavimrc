@@ -44,3 +44,7 @@ map tdj <Action>(RunToCursor)
 map tdt <Action>(Stop)
 map tdo <Action>(XDebugger.MuteBreakpoints)
 map tdv <Action>(EditBreakpoint)
+
+map <leader>w :write<cr>
+map <leader>q :quit<cr>
+map <leader>o :source ~/.ideavimrc<cr>
