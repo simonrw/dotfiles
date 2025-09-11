@@ -66,6 +66,7 @@ vim.opt.guicursor = ""
 vim.opt.tags = { '.tags', '.git/tags' }
 vim.opt.winborder = 'rounded'
 
+vim.keymap.set('n', 'cp', ':0,$y+<cr>')
 vim.keymap.set('n', '<leader>o', ':update<Cr> :source ~/.config/nvim/init.lua<Cr>')
 vim.keymap.set('n', '<leader>w', ':update<Cr>')
 vim.keymap.set('n', '<leader>q', ':quit<Cr>')
