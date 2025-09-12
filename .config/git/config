@@ -91,6 +91,7 @@
 	helper = "osxkeychain"
 
 [delta]
+	diff-so-fancy = true
 	line-numbers = false
 	side-by-side = false
 
