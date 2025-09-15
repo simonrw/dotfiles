@@ -126,6 +126,7 @@ cask "wireshark-app"
 cask "yaak"
 cask "yubico-yubikey-manager" if `hostname`.strip == "mm"
 cask "zed"
+cask "zen"
 cask "zoom"
 
 # for LocalStack
