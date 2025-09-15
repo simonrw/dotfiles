@@ -68,11 +68,11 @@
     "show": false
   },
   "agent": {
-    "default_profile": "ask",
+    "default_profile": "write",
     "always_allow_tool_actions": true,
     "default_model": {
       "provider": "openai",
-      "model": "gpt-5-mini"
+      "model": "gpt-5"
     },
     "enabled": true
   },
