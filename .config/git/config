@@ -90,10 +90,11 @@
 [credential]
 	helper = "osxkeychain"
 
-[delta]
-	diff-so-fancy = true
-	line-numbers = false
-	side-by-side = false
+; handled by theme file
+; [delta]
+; 	diff-so-fancy = false
+; 	line-numbers = false
+; 	side-by-side = false
 
 [diff]
 	algorithm = "histogram"
@@ -220,6 +221,9 @@
 
 [include]
 	path = "~/.config/git/delta-themes.gitconfig"
+
+[include]
+	path = "~/.config/git/theme.conf"
 
 [includeIf "gitdir:~/dev/"]
 	path = "~/dev/.gitconfig"

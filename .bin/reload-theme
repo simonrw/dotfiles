@@ -4,6 +4,7 @@ import subprocess as sp
 from typing import Protocol
 from pathlib import Path
 from enum import Enum, auto
+from configparser import ConfigParser
 from concurrent.futures import ThreadPoolExecutor, as_completed
 
 
@@ -64,12 +65,25 @@ def reload_neovim(theme: Theme):
     signal_editor_to_reload("nvim")
 
 
+def reload_git(theme: Theme):
+    theme_file = Path.home() / ".config" / "git" / "theme.conf"
+    config = ConfigParser()
+    config["delta"] = {
+        "diff-so-fancy": "false" if theme == Theme.light else "true",
+        "line-numbers": "false",
+        "side-by-side": "false",
+    }
+    with theme_file.open("w") as outfile:
+        config.write(outfile)
+
+
 theme = current_theme()
 
 switchers: list[ThemeSwitcher] = [
     reload_tmux,
     reload_helix,
     reload_neovim,
+    reload_git,
 ]
 
 with ThreadPoolExecutor() as pool:
