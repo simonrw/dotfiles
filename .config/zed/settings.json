@@ -8,7 +8,7 @@
 // from the command palette or from `Zed` application menu.
 {
   "features": {
-    "edit_prediction_provider": "zed"
+    "edit_prediction_provider": "none"
   },
   "preview_tabs": {
     "enabled": false
