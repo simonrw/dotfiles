@@ -15,3 +15,6 @@ home/nvim/plugin/packaer_compiled.lua
 /.config/helix/themes/adaptive.toml
 .doom.d/custom.el
 /.config/git/theme.conf
+Library/LaunchAgents/com.google.GoogleUpdater.wake.plist
+Library/LaunchAgents/com.google.keystone.agent.plist
+Library/LaunchAgents/com.google.keystone.xpcservice.plist
