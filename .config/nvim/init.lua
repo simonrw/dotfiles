@@ -90,35 +90,6 @@ vim.pack.add({
     { src = "https://github.com/nvim-treesitter/nvim-treesitter-textobjects" },
 })
 
-require('nvim-treesitter.configs').setup({
-    ensure_installed = {
-        "rust", "python", 'vim', 'hcl', 'terraform', 'typescript', 'javascript', 'tsx', "go",
-    },
-    highlight = {
-        enable = true,
-        additional_vim_regex_highlighting = false,
-    },
-    textobjects = {
-        select = {
-            enable = true,
-            keymaps = {
-                ["af"] = "@function.outer",
-                ["if"] = "@function.inner",
-                ["ac"] = "@class.outer",
-                ["ic"] = "@class.inner",
-            },
-            selection_modes = {
-                ['@function.inner'] = 'V',
-                ['@class.inner'] = 'V',
-                ['@function.outer'] = 'V',
-                ['@class.outer'] = 'V',
-            },
-        }
-    },
-})
-require('treesitter-context').setup({ max_lines = 3 })
-require('mini.surround').setup()
-
 function parse_grep_nul(s)
     if type(s) ~= "string" then
         return nil
@@ -218,51 +189,13 @@ local function pick_to_qf()
     vim.cmd("copen")
     vim.cmd("cnext")
 end
-require("mini.pick").setup({
-    window = {
-        config =
-            function()
-                local has_statusline = vim.o.laststatus > 0
-                local has_tabline = vim.o.showtabline == 2 or
-                    (vim.o.showtabline == 1 and #vim.api.nvim_list_tabpages() > 1)
-                local max_height = vim.o.lines - vim.o.cmdheight - (has_tabline and 1 or 0) - (has_statusline and 1 or 0)
-                local max_width = vim.o.columns
-                local height = math.floor(0.68 * max_height)
-                local width = math.floor(math.min(0.68 * max_width))
 
-                return {
-                    relative = 'editor',
-                    row = 0.5 * max_height - height / 2,
-                    col = 0.5 * max_width - width / 2,
-                    width = width,
-                    height = height,
-                    anchor = 'NW',
-                }
-            end,
-    },
-    mappings = {
-        open_in_qflist = {
-            char = "<C-q>",
-            func = pick_to_qf,
-        },
-    },
-})
-vim.ui.select = require('mini.pick').ui_select
-require('mini.extra').setup()
-require("oil").setup()
 
 local setkey = function(key, action, modes, options)
     modes = modes or "n"
     options = options or { noremap = true, silent = true }
     vim.keymap.set(modes, key, action, options)
 end
-
-vim.diagnostic.config({
-    virtual_text = false,
-    signs = true,
-    underline = true,
-})
-vim.lsp.inlay_hint.enable(true)
 
 setkey("<leader>f", function() require("mini.pick").builtin.files() end)
 
@@ -638,5 +571,88 @@ vim.api.nvim_create_autocmd("LspAttach", {
     end,
 })
 
+local init_done_event_name = 'InitDone'
+
+-- any lazy initialization
+vim.api.nvim_create_autocmd('User', {
+    pattern = init_done_event_name,
+    callback = function()
+        vim.diagnostic.config({
+            virtual_text = false,
+            signs = true,
+            underline = true,
+        })
+        vim.lsp.inlay_hint.enable(true)
+
+        require('nvim-treesitter.configs').setup({
+            ensure_installed = {
+                "rust", "python", 'vim', 'hcl', 'terraform', 'typescript', 'javascript', 'tsx', "go",
+            },
+            highlight = {
+                enable = true,
+                additional_vim_regex_highlighting = false,
+            },
+            textobjects = {
+                select = {
+                    enable = true,
+                    keymaps = {
+                        ["af"] = "@function.outer",
+                        ["if"] = "@function.inner",
+                        ["ac"] = "@class.outer",
+                        ["ic"] = "@class.inner",
+                    },
+                    selection_modes = {
+                        ['@function.inner'] = 'V',
+                        ['@class.inner'] = 'V',
+                        ['@function.outer'] = 'V',
+                        ['@class.outer'] = 'V',
+                    },
+                }
+            },
+        })
+        require('treesitter-context').setup({ max_lines = 3 })
+        require('mini.surround').setup()
+
+        require("mini.pick").setup({
+            window = {
+                config =
+                    function()
+                        local has_statusline = vim.o.laststatus > 0
+                        local has_tabline = vim.o.showtabline == 2 or
+                            (vim.o.showtabline == 1 and #vim.api.nvim_list_tabpages() > 1)
+                        local max_height = vim.o.lines - vim.o.cmdheight - (has_tabline and 1 or 0) -
+                            (has_statusline and 1 or 0)
+                        local max_width = vim.o.columns
+                        local height = math.floor(0.68 * max_height)
+                        local width = math.floor(math.min(0.68 * max_width))
+
+                        return {
+                            relative = 'editor',
+                            row = 0.5 * max_height - height / 2,
+                            col = 0.5 * max_width - width / 2,
+                            width = width,
+                            height = height,
+                            anchor = 'NW',
+                        }
+                    end,
+            },
+            mappings = {
+                open_in_qflist = {
+                    char = "<C-q>",
+                    func = pick_to_qf,
+                },
+            },
+        })
+        vim.ui.select = require('mini.pick').ui_select
+        require('mini.extra').setup()
+        require("oil").setup()
+    end,
+})
+
 
 load_theme()
+
+-- finally emit the config loaded event for lazy initialization
+vim.schedule(function()
+    vim.api.nvim_exec_autocmds('User', { pattern = init_done_event_name, modeline = false })
+end)
