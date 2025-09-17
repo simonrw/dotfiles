@@ -26,6 +26,8 @@ issuesSections:
   filters: is:open assignee:@me
 - title: Involved
   filters: is:open involves:@me -author:@me
+- title: "LS: issues"
+  filters: is:open org:localstack
 repo:
   branchesRefetchIntervalSeconds: 30
   prsRefetchIntervalSeconds: 60
