@@ -42,3 +42,12 @@ description = "Update neovim plugins"
 [tasks.bat-cache]
 run = "bat cache --build"
 description = "Refresh the bat syntax theme cache"
+
+[tasks.kill-nvim]
+run = "pkill nvim || true"
+description = "Close all running instances of neovim"
+
+[tasks.nvim-nightly-update]
+run = "bob update nightly"
+description = "Update to the latest neovim nightly"
+depends = ["kill-nvim"]
