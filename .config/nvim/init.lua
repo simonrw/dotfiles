@@ -586,7 +586,18 @@ vim.api.nvim_create_autocmd('User', {
 
         require('nvim-treesitter.configs').setup({
             ensure_installed = {
-                "rust", "python", 'vim', 'hcl', 'terraform', 'typescript', 'javascript', 'tsx', "go",
+                'hcl',
+                'javascript',
+                'terraform',
+                'tsx',
+                'typescript',
+                'vim',
+                'go',
+                'json',
+                'lua',
+                'python',
+                'rust',
+                'yaml',
             },
             highlight = {
                 enable = true,
