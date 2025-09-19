@@ -197,7 +197,7 @@ local setkey = function(key, action, modes, options)
     vim.keymap.set(modes, key, action, options)
 end
 
-setkey("<leader>f", function() require("mini.pick").builtin.files() end)
+setkey("<leader>f", function() require("mini.pick").builtin.files({ tool = "git" }) end)
 
 
 setkey('<leader>j', function()
@@ -220,7 +220,7 @@ setkey('<leader>j', function()
     })
 end)
 setkey("<leader>F", function()
-    require("mini.pick").builtin.files({ tool = "git" })
+    require("mini.pick").builtin.files()
 end)
 setkey("<leader>ht", function() require("mini.pick").builtin.help() end)
 setkey("gb", function() require("mini.pick").builtin.buffers() end)
