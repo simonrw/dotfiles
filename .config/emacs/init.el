@@ -1,28 +1,41 @@
 (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
 (setq org-agenda-files '("~/notes.org"))
 
+(setq custom-file "~/.config/emacs/custom.el")
+(load custom-file)
+
+(setq visible-bell nil)
+(setq ring-bell-function 'ignore)
+(setq inhibit-splash-screen t)
+(setq inhibit-startup-message t)
+(prefer-coding-system 'utf-8)
+
 (setq gc-cons-threshold 10000000)
 (setq byte-compile-warnings '(not obsolete))
 (setq warning-suppress-log-types '((comp) (bytecomp)))
 (setq native-comp-async-report-warnings-errors 'silent)
 
+(setq indent-tabs-mode nil)
+(setq-default tab-width 4)
+
 (setq inhibit-startup-echo-area-message (user-login-name))
+(setq use-package-always-ensure t)
 
 
 (setq frame-resize-pixelwise t)
 
-(tool-bar-mode -1)
+(dolist
+    (m '(tooltip-mode tool-bar-mode scroll-bar-mode menu-bar-mode))
+  (when (fboundp m) (funcall m -1)))
+
 
 (use-package evil
-  :ensure t
-
   :config
   (evil-mode)
   (evil-set-initial-state 'vterm-mode 'emacs))
 
 ;; org mode configuration
 (use-package evil-org
-  :ensure t
   :after org
   :hook (org-mode . (lambda () evil-org-mode))
   :config
@@ -31,12 +44,10 @@
   (evil-define-key 'normal org-mode-map (kbd "<tab>") #'org-cycle))
 
 (use-package catppuccin-theme
-  :ensure t
   :config
   (setq catppuccin-flavor 'mocha))
 
 (use-package auto-dark
-  :ensure t
   :custom
   (auto-dark-themes '((catppuccin) (doom-one-light)))
   :config
@@ -44,7 +55,6 @@
   (auto-dark-mode))
 
 (use-package exec-path-from-shell
-  :ensure t
   :config
   (dolist (var '("SSH_AUTH_SOCK" "SSH_AGENT_PID" "GPG_AGENT_INFO" "LANG" "LC_CTYPE"))
     (add-to-list 'exec-path-from-shell-variables var)))
@@ -67,12 +77,10 @@
         mac-right-option-modifier 'none
         s-right-option-modifier  'none)
 (use-package which-key
-  :ensure t
   :config
   (which-key-mode))
 
-(use-package doom-themes
-  :ensure t)
+(use-package doom-themes)
 
 ;; key bindings
 (global-set-key [(super a)] 'mark-whole-buffer)
@@ -85,3 +93,14 @@
 (global-set-key [(super z)] 'undo)
 
 
+
+(ido-mode 1)
+(ido-everywhere 1)
+(use-package smex
+  :config
+  (smex-initialize)
+  :bind
+  ("M-x" . smex)
+  ("C-c C-c M-x" . execute-extended-command))
+
+(add-to-list 'default-frame-alist `(font . "JetBrainsMono Nerd Font"))
