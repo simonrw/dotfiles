@@ -1,5 +1,5 @@
 (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
-(add-to-list 'org-agenda-files "~/notes.org" t)
+(setq org-agenda-files '("~/notes.org"))
 
 (setq gc-cons-threshold 10000000)
 (setq byte-compile-warnings '(not obsolete))
@@ -38,7 +38,51 @@
 (use-package auto-dark
   :ensure t
   :custom
-  (auto-dark-themes '((catppuccin) (leuven)))
+  (auto-dark-themes '((catppuccin) (doom-one-light)))
   :config
   (setq auto-dark-allow-osascript t)
   (auto-dark-mode))
+
+(use-package exec-path-from-shell
+  :ensure t
+  :config
+  (dolist (var '("SSH_AUTH_SOCK" "SSH_AGENT_PID" "GPG_AGENT_INFO" "LANG" "LC_CTYPE"))
+    (add-to-list 'exec-path-from-shell-variables var)))
+
+;; macos settings
+;; https://github.com/doomemacs/doomemacs/blob/master/modules/os/macos/config.el
+(setq locate-command "mdfind")
+(setq ns-use-native-fullscreen nil)
+(setq mac-redisplay-dont-reset-vscroll t
+      mac-mouse-wheel-smooth-scroll nil)
+(and (or (daemonp)
+         (display-graphic-p))
+     (require 'ns-auto-titlebar nil t)
+     (ns-auto-titlebar-mode +1))
+(setq mac-command-modifier      'super
+        ns-command-modifier       'super
+        mac-option-modifier       'meta
+        ns-option-modifier        'meta
+        ;; Free up the right option for character composition
+        mac-right-option-modifier 'none
+        s-right-option-modifier  'none)
+(use-package which-key
+  :ensure t
+  :config
+  (which-key-mode))
+
+(use-package doom-themes
+  :ensure t)
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(custom-safe-themes
+   '("5c7720c63b729140ed88cf35413f36c728ab7c70f8cd8422d9ee1cedeb618de5" default)))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
