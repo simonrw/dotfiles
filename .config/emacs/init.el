@@ -59,10 +59,10 @@
          (display-graphic-p))
      (require 'ns-auto-titlebar nil t)
      (ns-auto-titlebar-mode +1))
-(setq mac-command-modifier      'super
-        ns-command-modifier       'super
-        mac-option-modifier       'meta
-        ns-option-modifier        'meta
+(setq mac-command-modifier      'meta
+        ns-command-modifier       'meta
+        mac-option-modifier       'super
+        ns-option-modifier        'super
         ;; Free up the right option for character composition
         mac-right-option-modifier 'none
         s-right-option-modifier  'none)
@@ -73,16 +73,15 @@
 
 (use-package doom-themes
   :ensure t)
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(custom-safe-themes
-   '("5c7720c63b729140ed88cf35413f36c728ab7c70f8cd8422d9ee1cedeb618de5" default)))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- )
+
+;; key bindings
+(global-set-key [(super a)] 'mark-whole-buffer)
+(global-set-key [(super v)] 'yank)
+(global-set-key [(super c)] 'kill-ring-save)
+(global-set-key [(super s)] 'save-buffer)
+(global-set-key [(super l)] 'goto-line)
+(global-set-key [(super w)]
+                (lambda () (interactive) (delete-window)))
+(global-set-key [(super z)] 'undo)
+
+
