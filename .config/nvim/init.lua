@@ -476,10 +476,7 @@ vim.keymap.set("n", "tl", function()
     vim.cmd("update")
     vim.cmd("TestLast")
 end, { noremap = true, silent = true, desc = "Run the last executed test" })
-vim.keymap.set("n", "tn", function()
-    vim.cmd("update")
-    vim.cmd("TestNearest")
-end, { noremap = true, silent = true, desc = "Run the nearest test" })
+-- test nearest handled by WIP test plugin
 vim.keymap.set("n", "ta", function()
     vim.cmd("update")
     vim.cmd("TestSuite")
@@ -658,6 +655,9 @@ vim.api.nvim_create_autocmd('User', {
         require('mini.extra').setup()
         require("oil").setup()
     end,
+
+    -- TODO: make this on file open/read
+    require('modules/runtests').setup()
 })
 
 
