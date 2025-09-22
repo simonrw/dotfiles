@@ -13,6 +13,3 @@
 [submodule ".config/fish/plugins/fish-theme"]
 	path = .config/fish/plugins/fish-theme
 	url = https://github.com/catppuccin/fish
-[submodule ".config/emacs"]
-	path = .config/emacs
-	url = https://github.com/doomemacs/doomemacs
