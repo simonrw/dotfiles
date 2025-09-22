@@ -468,15 +468,12 @@ vim.g["test#python#pytest#executable"] = "pytest"
 vim.g["test#javascript#reactscripts#options"] = "--watchAll=false"
 vim.g["test#strategy"] = "basic"
 
-vim.keymap.set("n", "tf", function()
-    vim.cmd("update")
-    vim.cmd("TestFile")
-end, { noremap = true, silent = true, desc = "Test the current file" })
 vim.keymap.set("n", "tl", function()
     vim.cmd("update")
     vim.cmd("TestLast")
 end, { noremap = true, silent = true, desc = "Run the last executed test" })
 -- test nearest handled by WIP test plugin
+-- test file handled by WIP test plugin
 vim.keymap.set("n", "ta", function()
     vim.cmd("update")
     vim.cmd("TestSuite")
