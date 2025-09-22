@@ -52,16 +52,25 @@ local spawn_terminal = function(cmd)
     vim.fn.jobstart(cmd, { term = true })
 end
 
+local run_nearest_test = function()
+    local test_name = get_nearest_test()
+    local test_path = vim.api.nvim_buf_get_name(0)
+    local command = { "pytest", test_path, "-k", test_name }
+    spawn_terminal(command)
+end
+
+local run_test_file = function()
+    local test_path = vim.api.nvim_buf_get_name(0)
+    local command = { 'pytest', test_path }
+    spawn_terminal(command)
+end
+
 M.setup = function()
     vim.api.nvim_create_autocmd('FileType', {
         pattern = { 'python' },
         callback = function(ev)
-            vim.keymap.set('n', 'tn', function()
-                local test_name = get_nearest_test()
-                local test_path = vim.api.nvim_buf_get_name(0)
-                local command = { "pytest", test_path, "-k", test_name }
-                spawn_terminal(command)
-            end, { buffer = ev.buf })
+            vim.keymap.set('n', 'tn', run_nearest_test, { buffer = ev.buf })
+            vim.keymap.set('n', 'tf', run_test_file, { buffer = ev.buf })
         end,
     })
 end
