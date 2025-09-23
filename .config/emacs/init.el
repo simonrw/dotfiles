@@ -82,16 +82,6 @@
 
 (use-package doom-themes)
 
-;; key bindings
-(global-set-key [(super a)] 'mark-whole-buffer)
-(global-set-key [(super v)] 'yank)
-(global-set-key [(super c)] 'kill-ring-save)
-(global-set-key [(super s)] 'save-buffer)
-(global-set-key [(super l)] 'goto-line)
-(global-set-key [(super w)]
-                (lambda () (interactive) (delete-window)))
-(global-set-key [(super z)] 'undo)
-
 
 
 (ido-mode 1)
@@ -104,3 +94,13 @@
   ("C-c C-c M-x" . execute-extended-command))
 
 (add-to-list 'default-frame-alist `(font . "JetBrainsMono Nerd Font"))
+
+; key bindings
+(global-set-key [(super a)] 'mark-whole-buffer)
+(global-set-key [(meta v)] 'clipboard-yank)
+(global-set-key [(super c)] 'kill-ring-save)
+(global-set-key [(meta s)] 'save-buffer)
+(global-set-key [(super l)] 'goto-line)
+(global-set-key [(super w)]
+                (lambda () (interactive) (delete-window)))
+(global-set-key [(super z)] 'undo)
