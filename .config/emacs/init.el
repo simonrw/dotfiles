@@ -1,4 +1,8 @@
-(add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
+(setq package-archives
+      '(("melpa" . "https://melpa.org/packages/")
+	("gnu" . "https://elpa.gnu.org/packages/")
+	("nongnu" . "https://elpa.nongnu.org/nongnu/")))
+(package-initialize)
 (setq org-agenda-files '("~/notes.org"))
 
 (setq custom-file "~/.config/emacs/custom.el")
@@ -30,12 +34,14 @@
 
 
 (use-package evil
+             :ensure t
   :config
   (evil-mode)
   (evil-set-initial-state 'vterm-mode 'emacs))
 
 ;; org mode configuration
 (use-package evil-org
+             :ensure t
   :after org
   :hook (org-mode . (lambda () evil-org-mode))
   :config
@@ -44,10 +50,16 @@
   (evil-define-key 'normal org-mode-map (kbd "<tab>") #'org-cycle))
 
 (use-package catppuccin-theme
+             :ensure t
   :config
   (setq catppuccin-flavor 'mocha))
 
+(use-package doom-themes
+             :ensure t
+             )
+
 (use-package auto-dark
+             :ensure t
   :custom
   (auto-dark-themes '((catppuccin) (doom-one-light)))
   :config
@@ -55,6 +67,7 @@
   (auto-dark-mode))
 
 (use-package exec-path-from-shell
+             :ensure t
   :config
   (dolist (var '("SSH_AUTH_SOCK" "SSH_AGENT_PID" "GPG_AGENT_INFO" "LANG" "LC_CTYPE"))
     (add-to-list 'exec-path-from-shell-variables var)))
@@ -77,16 +90,17 @@
         mac-right-option-modifier 'none
         s-right-option-modifier  'none)
 (use-package which-key
+             :ensure t
   :config
   (which-key-mode))
 
-(use-package doom-themes)
 
 
 
 (ido-mode 1)
 (ido-everywhere 1)
 (use-package smex
+             :ensure t
   :config
   (smex-initialize)
   :bind
