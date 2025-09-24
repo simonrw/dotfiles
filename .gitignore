@@ -17,3 +17,4 @@ Library/LaunchAgents/com.google.GoogleUpdater.wake.plist
 Library/LaunchAgents/com.google.keystone.agent.plist
 Library/LaunchAgents/com.google.keystone.xpcservice.plist
 /.config/k9s/config.yaml
+\#*\#
