@@ -1,4 +1,3 @@
-elpa
-auto-save-list
-smex-items
-ido.last
+*
+!.gitignore
+!init.el
