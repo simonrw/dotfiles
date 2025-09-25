@@ -29,7 +29,7 @@
 (setq frame-resize-pixelwise t)
 
 (dolist
-    (m '(tooltip-mode tool-bar-mode scroll-bar-mode menu-bar-mode))
+    (m '(tooltip-mode tool-bar-mode scroll-bar-mode menu-bar-mode blink-cursor-mode))
   (when (fboundp m) (funcall m -1)))
 
 
@@ -118,3 +118,7 @@
 (global-set-key [(super w)]
                 (lambda () (interactive) (delete-window)))
 (global-set-key [(super z)] 'undo)
+
+
+(use-package vterm
+  :ensure t)
