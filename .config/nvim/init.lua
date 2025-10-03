@@ -300,7 +300,11 @@ end, {})
 vim.api.nvim_create_autocmd('FileType', {
     pattern = { 'markdown' },
     callback = function(ev)
-        require('render-markdown').setup()
+        require('render-markdown').setup({
+            latex = {
+                enabled = false,
+            },
+        })
         local zen_mode = require('zen-mode')
         zen_mode.setup({
             window = {
@@ -598,6 +602,7 @@ vim.api.nvim_create_autocmd('User', {
                 'python',
                 'rust',
                 'yaml',
+                'html',
             },
             highlight = {
                 enable = true,
