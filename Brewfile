@@ -63,6 +63,7 @@ brew "python"
 brew "reattach-to-user-namespace"
 brew "ripgrep"
 brew "rsync"
+brew "ruff-lsp"  # also installs ruff
 brew "sqlite3"
 brew "sst/tap/opencode"
 brew "stow"
