@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+# Sets up a mise.local.toml file (and automatically trusts the directory) for quick project setup
+
+function main() {
+    touch mise.local.toml
+    mise trust .
+}
+
+main
