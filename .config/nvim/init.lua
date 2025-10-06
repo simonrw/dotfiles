@@ -425,8 +425,8 @@ vim.lsp.enable({
     "lua_ls",
     "rust_analyzer",
     "ruff",
-    "basedpyright",
     "gopls",
+    "ty",
 })
 
 local function load_theme()

@@ -101,7 +101,7 @@
       "enable_language_server": true,
       "format_on_save": "on",
       "formatter": "auto",
-      "language_servers": ["!pylsp", "!pyright", "basedpyright", "ruff", "..."]
+      "language_servers": ["ty", "!basedpyright"]
     }
   },
   "auto_install_extensions": {
