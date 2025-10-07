@@ -1,10 +1,18 @@
 {
   "plugins": {
     "github-nvim-theme": [],
-    "gitsigns.nvim": [],
-    "mini.extra": [],
-    "mini.pick": [],
-    "mini.surround": [],
+    "gitsigns.nvim": {
+      "rev": "1ee5c1fd068c"
+    },
+    "mini.extra": {
+      "rev": "7efa774edf15"
+    },
+    "mini.pick": {
+      "rev": "96ee37d07043"
+    },
+    "mini.surround": {
+      "rev": "61db6babafbd"
+    },
     "nvim": {
       "rev": "e79d09fa347b"
     },
@@ -16,13 +24,19 @@
     },
     "nvim-treesitter-context": [],
     "nvim-treesitter-textobjects": [],
-    "oil.nvim": [],
+    "oil.nvim": {
+      "rev": "919e155fdf38"
+    },
     "render-markdown.nvim": {
       "rev": "ea3678daff66"
     },
     "vim-fugitive": [],
     "vim-rhubarb": [],
-    "vim-test": [],
-    "zen-mode.nvim": []
+    "vim-test": {
+      "rev": "ad4b7213568d"
+    },
+    "zen-mode.nvim": {
+      "rev": "dfcb72a2dfee"
+    }
   }
 }
