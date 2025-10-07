@@ -147,7 +147,7 @@
 
 [merge]
 	conflictstyle = "zdiff3"
-	tool = "diffview"
+	tool = "conflicted"
 
 [merge "mergiraf"]
 	driver = "mergiraf merge --git %O %A %B -s %S -x %X -y %Y -p %P -l %L"

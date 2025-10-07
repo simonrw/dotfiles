@@ -30,6 +30,10 @@
     "render-markdown.nvim": {
       "rev": "ea3678daff66"
     },
+    "vim-conflicted": {
+      "rev": "b0f584be18a9",
+      "src": "https://github.com/christoomey/vim-conflicted"
+    },
     "vim-fugitive": [],
     "vim-rhubarb": [],
     "vim-test": {
