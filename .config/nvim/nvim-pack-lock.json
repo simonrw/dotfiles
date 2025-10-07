@@ -1,0 +1,28 @@
+{
+  "plugins": {
+    "github-nvim-theme": [],
+    "gitsigns.nvim": [],
+    "mini.extra": [],
+    "mini.pick": [],
+    "mini.surround": [],
+    "nvim": {
+      "rev": "e79d09fa347b"
+    },
+    "nvim-lspconfig": {
+      "rev": "e688b486fe92"
+    },
+    "nvim-treesitter": {
+      "version": "'master'"
+    },
+    "nvim-treesitter-context": [],
+    "nvim-treesitter-textobjects": [],
+    "oil.nvim": [],
+    "render-markdown.nvim": {
+      "rev": "ea3678daff66"
+    },
+    "vim-fugitive": [],
+    "vim-rhubarb": [],
+    "vim-test": [],
+    "zen-mode.nvim": []
+  }
+}
