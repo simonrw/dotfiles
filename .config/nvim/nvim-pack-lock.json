@@ -13,6 +13,14 @@
     "mini.surround": {
       "rev": "61db6babafbd"
     },
+    "nord-vim": {
+      "rev": "f13f5dfbb784",
+      "src": "https://github.com/arcticicestudio/nord-vim"
+    },
+    "nord.nvim": {
+      "rev": "80c1e5321505",
+      "src": "https://github.com/shaunsingh/nord.nvim"
+    },
     "nvim": {
       "rev": "e79d09fa347b"
     },
