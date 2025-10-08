@@ -601,6 +601,7 @@ vim.api.nvim_create_autocmd('User', {
                 'rust',
                 'yaml',
                 'html',
+                "jsonc",
             },
             highlight = {
                 enable = true,
