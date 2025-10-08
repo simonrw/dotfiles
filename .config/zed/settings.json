@@ -13,6 +13,7 @@
   "preview_tabs": {
     "enabled": false
   },
+  "autosave": "on_focus_change",
   "ssh_connections": [
     {
       "host": "mm",
