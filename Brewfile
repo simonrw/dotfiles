@@ -111,7 +111,6 @@ cask "jetbrains-toolbox"
 cask "karabiner-elements"
 cask "keymapp"
 cask "mitmproxy"
-cask "notion"
 cask "obs"
 cask "obsidian"
 cask "railwaycat/emacsmacport/emacs-mac"
@@ -133,6 +132,8 @@ cask "zen"
 cask "zoom"
 
 # for LocalStack
+cask "linear-linear"
+cask "notion"
 
 # Mac App Store apps
 mas "1Password for Safari", id: 1569813296
