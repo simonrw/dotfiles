@@ -73,8 +73,9 @@ vim.keymap.set('n', '<leader>q', ':quit<Cr>')
 
 vim.pack.add({
     { src = "https://github.com/stevearc/oil.nvim" },
-    { src = "https://github.com/echasnovski/mini.pick" },
-    { src = "https://github.com/echasnovski/mini.extra" },
+    -- dependency of telescope
+    { src = "https://github.com/nvim-lua/plenary.nvim" },
+    { src = "https://github.com/nvim-telescope/telescope.nvim",              version = "0.1.x" },
     { src = "https://github.com/catppuccin/nvim" },
     { src = "https://github.com/projekt0n/github-nvim-theme" },
     { src = 'https://github.com/neovim/nvim-lspconfig' },
@@ -137,95 +138,20 @@ function parse_grep_nul(s)
     }
 end
 
-local function pick_to_qf()
-    local pick = require("mini.pick")
-    local items = pick.get_picker_matches().shown
-    if not items then
-        vim.notify("mini.pick: no items", vim.log.levels.WARN)
-        return
-    end
-
-    local qf = {}
-    for _, it in ipairs(items) do
-        local e = nil
-
-        -- 1) Explicit table entries from some sources
-        if type(it) == "table" then
-            -- Try value first (MiniPick items often have .value or .text)
-            if type(it.value) == "string" then
-                e = parse_grep_nul(it.value)
-            end
-            if not e and type(it.text) == "string" then
-                e = parse_grep_nul(it.text)
-            end
-            if not e then
-                e = {
-                    filename = it.filename or it.path or it.file,
-                    lnum = it.lnum or it.line or it.row,
-                    col = it.col or it.column,
-                    text = it.text or it.label or it.value or it.display
-                        or (type(it.value) == "string" and it.value) or tostring(it),
-                }
-                if not e.filename and type(it.value) == "string" and it.value:match("[/\\]") then
-                    e.filename = it.value
-                end
-            end
-
-            -- 2) String entries (files, or grep-live raw lines)
-        elseif type(it) == "string" then
-            e = parse_grep_nul(it)
-            if not e then
-                e = { filename = it, text = it }
-            end
-
-            -- 3) Fallback
-        else
-            e = { text = tostring(it) }
-        end
-
-        table.insert(qf, e)
-    end
-
-    vim.fn.setqflist({}, " ", { title = "mini.pick results", items = qf })
-    vim.cmd("copen")
-    vim.cmd("cnext")
-end
-
-
 local setkey = function(key, action, modes, options)
     modes = modes or "n"
     options = options or { noremap = true, silent = true }
     vim.keymap.set(modes, key, action, options)
 end
 
-setkey("<leader>f", function() require("mini.pick").builtin.files({ tool = "git" }) end)
+setkey("<leader>f", function() require("telescope.builtin").git_files() end)
+setkey("<leader>F", function() require("telescope.builtin").find_files() end)
+setkey("<leader>j", function() require("telescope.builtin").jumplist() end)
+setkey("<leader>ht", function() require("telescope.builtin").help_tags() end)
+setkey("gb", function() require("telescope.builtin").buffers() end)
+setkey("<leader><leader>", function() require("telescope.builtin").live_grep() end)
+setkey("<leader>A", function() require("telescope.builtin").diagnostics() end)
 
-
-setkey('<leader>j', function()
-    local jumplist = vim.fn.getjumplist()[1]
-
-    -- reverse the list
-    local sorted_jumplist = {}
-    for i = #jumplist, 1, -1 do
-        if vim.api.nvim_buf_is_valid(jumplist[i].bufnr) then
-            jumplist[i].text = vim.api.nvim_buf_get_lines(jumplist[i].bufnr, jumplist[i].lnum - 1, jumplist[i].lnum,
-                    false)[1] or
-                ""
-            table.insert(sorted_jumplist, jumplist[i])
-        end
-    end
-    require('mini.pick').start({
-        source = {
-            items = sorted_jumplist,
-        },
-    })
-end)
-setkey("<leader>F", function()
-    require("mini.pick").builtin.files()
-end)
-setkey("<leader>ht", function() require("mini.pick").builtin.help() end)
-setkey("gb", function() require("mini.pick").builtin.buffers() end)
-setkey("<leader><leader>", function() require("mini.pick").builtin.grep_live() end)
 setkey("-", ":Oil<cr>")
 setkey("<leader>y", vim.lsp.buf.format)
 setkey('<leader>r', vim.lsp.buf.rename)
@@ -233,7 +159,6 @@ setkey("<C-h>", "<C-w><C-h>")
 setkey("<C-j>", "<C-w><C-j>")
 setkey("<C-k>", "<C-w><C-k>")
 setkey("<C-l>", "<C-w><C-l>")
-setkey("<leader>A", require('mini.extra').pickers.diagnostic)
 setkey("<leader>W", ':mksession!<cr> :echo "Session saved"<cr>')
 setkey("<Esc>", "<C-\\><C-n>", { "t" })
 setkey('<leader>gc', ':Git commit -v<cr>')
@@ -509,9 +434,9 @@ end
 
 setkey('gd', vim.lsp.buf.definition)
 setkey('<leader>gt', vim.lsp.buf.type_definition)
-setkey('gr', function() require('mini.extra').pickers.lsp({ scope = 'references' }) end)
+setkey('gr', function() require("telescope.builtin").lsp_references() end)
 setkey('gi', vim.lsp.buf.implementation)
-setkey('<leader>s', function() require('mini.extra').pickers.lsp({ scope = 'document_symbol' }) end)
+setkey('<leader>s', function() require("telescope.builtin").lsp_document_symbols() end)
 setkey('<leader>a', vim.lsp.buf.code_action)
 
 setkey('<c-space>', function()
@@ -631,38 +556,6 @@ vim.api.nvim_create_autocmd('User', {
         require('treesitter-context').setup({ max_lines = 3 })
         require('mini.surround').setup()
 
-        require("mini.pick").setup({
-            window = {
-                config =
-                    function()
-                        local has_statusline = vim.o.laststatus > 0
-                        local has_tabline = vim.o.showtabline == 2 or
-                            (vim.o.showtabline == 1 and #vim.api.nvim_list_tabpages() > 1)
-                        local max_height = vim.o.lines - vim.o.cmdheight - (has_tabline and 1 or 0) -
-                            (has_statusline and 1 or 0)
-                        local max_width = vim.o.columns
-                        local height = math.floor(0.68 * max_height)
-                        local width = math.floor(math.min(0.68 * max_width))
-
-                        return {
-                            relative = 'editor',
-                            row = 0.5 * max_height - height / 2,
-                            col = 0.5 * max_width - width / 2,
-                            width = width,
-                            height = height,
-                            anchor = 'NW',
-                        }
-                    end,
-            },
-            mappings = {
-                open_in_qflist = {
-                    char = "<C-q>",
-                    func = pick_to_qf,
-                },
-            },
-        })
-        vim.ui.select = require('mini.pick').ui_select
-        require('mini.extra').setup()
         require("oil").setup()
     end,
 

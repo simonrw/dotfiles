@@ -27,8 +27,14 @@
     "oil.nvim": {
       "rev": "919e155fdf38"
     },
+    "plenary.nvim": [],
     "render-markdown.nvim": {
       "rev": "ea3678daff66"
+    },
+    "telescope.nvim": {
+      "rev": "a0bbec21143c",
+      "src": "https://github.com/nvim-telescope/telescope.nvim",
+      "version": "'0.1.x'"
     },
     "vim-conflicted": {
       "rev": "b0f584be18a9",
