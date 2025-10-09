@@ -10,7 +10,7 @@ keybind = shift+enter=text:\n
 
 font-family = JetBrainsMonoNL NFM Semibold
 font-thicken = true
-theme = dark:Nord,light:GitHub Light Default
+theme = dark:Catppuccin Mocha,light:GitHub Light Default
 cursor-style = block
 cursor-style-blink = false
 shell-integration = detect
