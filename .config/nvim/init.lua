@@ -75,7 +75,7 @@ vim.pack.add({
     { src = "https://github.com/stevearc/oil.nvim" },
     { src = "https://github.com/echasnovski/mini.pick" },
     { src = "https://github.com/echasnovski/mini.extra" },
-    { src = "https://github.com/shaunsingh/nord.nvim" },
+    { src = "https://github.com/catppuccin/nvim" },
     { src = "https://github.com/projekt0n/github-nvim-theme" },
     { src = 'https://github.com/neovim/nvim-lspconfig' },
     { src = "https://github.com/nvim-treesitter/nvim-treesitter",            version = "master" },
@@ -432,10 +432,13 @@ vim.lsp.enable({
 
 local function load_theme()
     if vim.g.is_dark_mode then
-        vim.o.background = "dark"
-        vim.cmd.colorscheme "nord"
+        vim.cmd.colorscheme "catppuccin-mocha"
+
+        vim.cmd.highlight({ "TreesitterContextBottom", "gui=none" })
+        vim.cmd.highlight({ "CursorLine", "guibg=#303347" })
+        vim.cmd.highlight({ "CursorColumn", "guibg=#303347" })
+        vim.cmd.highlight({ "LineNr", "guifg=#6c7086" })
     else
-        vim.o.background = "light"
         vim.cmd.colorscheme "github_light"
 
         vim.cmd.highlight({ "DiagnosticError", "guifg=Red" })
