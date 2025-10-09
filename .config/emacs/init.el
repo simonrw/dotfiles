@@ -52,7 +52,7 @@
 (use-package catppuccin-theme
              :ensure t
   :config
-  (setq catppuccin-flavor 'mocha))
+  (setq catppuccin-flavor 'macchiato))
 
 (use-package doom-themes
              :ensure t
