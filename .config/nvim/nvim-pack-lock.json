@@ -27,7 +27,10 @@
     "oil.nvim": {
       "rev": "919e155fdf38"
     },
-    "plenary.nvim": [],
+    "plenary.nvim": {
+      "rev": "b9fd5226c2f7",
+      "src": "https://github.com/nvim-lua/plenary.nvim"
+    },
     "render-markdown.nvim": {
       "rev": "ea3678daff66"
     },
