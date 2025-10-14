@@ -76,6 +76,7 @@ vim.pack.add({
     -- dependency of telescope
     { src = "https://github.com/nvim-lua/plenary.nvim" },
     { src = "https://github.com/nvim-telescope/telescope.nvim",              version = "0.1.x" },
+    { src = "https://github.com/nvim-telescope/telescope-fzf-native.nvim" },
     { src = "https://github.com/catppuccin/nvim",                            name = "catppuccin" },
     { src = "https://github.com/projekt0n/github-nvim-theme" },
     { src = 'https://github.com/neovim/nvim-lspconfig' },
@@ -557,6 +558,36 @@ vim.api.nvim_create_autocmd('User', {
         require('mini.surround').setup()
 
         require("oil").setup()
+
+        require("telescope").setup({
+            defaults = {
+                layout_config = { prompt_position = "top" },
+                layout_strategy = "horizontal",
+                sorting_strategy = "ascending",
+                preview = false,
+            },
+            extensions = {
+                fzf = {
+                    case_mode = "smart_case",
+                    fuzzy = true,
+                    override_file_sorter = true,
+                    override_generic_sorter = true
+                }
+            },
+            pickers = {
+                buffers = { disable_devicons = true },
+                current_buffer_fuzzy_find = { disable_devicons = true },
+                diagnostics = { disable_devicons = true },
+                find_files = { disable_devicons = true },
+                git_files = { disable_devicons = true },
+                live_grep = { disable_devicons = true },
+                lsp_definitions = { disable_devicons = true },
+                lsp_dynamic_workspace_symbols = { disable_devicons = true },
+                lsp_references = { disable_devicons = true }
+            }
+        })
+
+        require("telescope").load_extension("fzf")
     end,
 
     -- TODO: make this on file open/read
