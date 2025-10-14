@@ -38,6 +38,10 @@
     "render-markdown.nvim": {
       "rev": "ea3678daff66"
     },
+    "telescope-fzf-native.nvim": {
+      "rev": "1f08ed60cafc",
+      "src": "https://github.com/nvim-telescope/telescope-fzf-native.nvim"
+    },
     "telescope.nvim": {
       "rev": "a0bbec21143c",
       "src": "https://github.com/nvim-telescope/telescope.nvim",
