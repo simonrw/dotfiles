@@ -8,7 +8,7 @@ name = "typescript-language-server"
 [[language]]
 name = "python"
 auto-format = true
-language-servers = ["basedpyright"]
+language-servers = ["ty"]
 
 [[language]]
 name = "nix"
