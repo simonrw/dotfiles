@@ -4,6 +4,8 @@
 	("nongnu" . "https://elpa.nongnu.org/nongnu/")))
 (package-initialize)
 (setq org-agenda-files '("~/notes.org"))
+(setq org-todo-keywords
+	  '((sequence "TODO" "|" "DONE" "DROPPED")))
 
 (setq custom-file "~/.config/emacs/custom.el")
 (load custom-file)
