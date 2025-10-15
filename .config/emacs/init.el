@@ -36,7 +36,10 @@
 
 
 (use-package evil
-             :ensure t
+  :ensure t
+  :init
+  (setq evil-want-integration t) ;; This is optional since it's already set to t by default.
+  (setq evil-want-keybinding nil)
   :config
   (evil-mode)
   (evil-set-initial-state 'vterm-mode 'emacs))
@@ -124,3 +127,12 @@
 
 (use-package vterm
   :ensure t)
+
+(use-package magit
+  :ensure t)
+
+(use-package evil-collection
+  :after evil
+  :ensure t
+  :config
+  (evil-collection-init))
