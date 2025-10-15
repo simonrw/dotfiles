@@ -112,7 +112,10 @@
   ("M-x" . smex)
   ("C-c C-c M-x" . execute-extended-command))
 
-(add-to-list 'default-frame-alist `(font . "JetBrainsMono Nerd Font"))
+(set-face-attribute 'default nil :family  "JetBrainsMono Nerd Font" :height 130)
+(set-face-attribute 'variable-pitch nil :family "Helvetica Neue" :height 130)
+(set-face-attribute 'fixed-pitch nil :family (face-attribute 'default :family) :height 110)
+
 
 ; key bindings
 (global-set-key [(super a)] 'mark-whole-buffer)
