@@ -10,6 +10,7 @@
 (setq custom-file "~/.config/emacs/custom.el")
 (load custom-file)
 
+(fset 'yes-or-no-p 'y-or-n-p)
 (setq visible-bell nil)
 (setq ring-bell-function 'ignore)
 (setq inhibit-splash-screen t)
