@@ -354,6 +354,7 @@ vim.lsp.enable({
     "ruff",
     "gopls",
     "ty",
+    "ts_ls",
 })
 
 local function load_theme()
