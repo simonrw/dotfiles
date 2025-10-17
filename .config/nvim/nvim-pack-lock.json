@@ -53,6 +53,10 @@
     },
     "vim-fugitive": [],
     "vim-rhubarb": [],
+    "vim-surround": {
+      "rev": "3d188ed21134",
+      "src": "https://github.com/tpope/vim-surround"
+    },
     "vim-test": {
       "rev": "ad4b7213568d"
     },
