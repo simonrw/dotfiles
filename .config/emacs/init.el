@@ -140,3 +140,8 @@
   :ensure t
   :config
   (evil-collection-init))
+
+
+(with-eval-after-load 'org
+  (setq org-startup-indented nil)
+  (add-hook 'org-mode-hook #'visual-line-mode))
