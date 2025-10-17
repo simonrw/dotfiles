@@ -83,12 +83,12 @@ vim.pack.add({
     { src = "https://github.com/nvim-treesitter/nvim-treesitter",            version = "master" },
     { src = "https://github.com/tpope/vim-fugitive" },
     { src = "https://github.com/tpope/vim-surround" },
+    { src = "https://github.com/tpope/vim-repeat" },
     { src = "https://github.com/christoomey/vim-conflicted" },
     { src = "https://github.com/tpope/vim-rhubarb" },
     { src = "https://github.com/lewis6991/gitsigns.nvim" },
     { src = "https://github.com/nvim-treesitter/nvim-treesitter-context" },
     { src = "https://github.com/vim-test/vim-test" },
-    { src = "https://github.com/nvim-mini/mini.surround" },
     { src = "https://github.com/MeanderingProgrammer/render-markdown.nvim" },
     { src = "https://github.com/folke/zen-mode.nvim" },
     { src = "https://github.com/nvim-treesitter/nvim-treesitter-textobjects" },
@@ -557,7 +557,6 @@ vim.api.nvim_create_autocmd('User', {
             },
         })
         require('treesitter-context').setup({ max_lines = 3 })
-        require('mini.surround').setup()
 
         require("oil").setup()
 

@@ -52,6 +52,10 @@
       "src": "https://github.com/christoomey/vim-conflicted"
     },
     "vim-fugitive": [],
+    "vim-repeat": {
+      "rev": "65846025c154",
+      "src": "https://github.com/tpope/vim-repeat"
+    },
     "vim-rhubarb": [],
     "vim-surround": {
       "rev": "3d188ed21134",
