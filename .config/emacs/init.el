@@ -142,6 +142,8 @@
   (evil-collection-init))
 
 
+(keymap-global-set "C-c a" #'org-agenda)
+
 (with-eval-after-load 'org
   (setq org-startup-indented nil)
   (add-hook 'org-mode-hook #'visual-line-mode))
