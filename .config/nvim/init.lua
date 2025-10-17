@@ -390,7 +390,7 @@ vim.api.nvim_create_autocmd("Signal", {
     pattern = "SIGUSR1",
     callback = function()
         vim.g.is_dark_mode = vim.g.get_is_dark_mode()
-        load_theme()
+        -- load_theme()
     end,
 })
 vim.cmd('set completeopt+=noselect')
@@ -597,7 +597,7 @@ vim.api.nvim_create_autocmd('User', {
 })
 
 
-load_theme()
+-- load_theme()
 
 -- finally emit the config loaded event for lazy initialization
 vim.schedule(function()
