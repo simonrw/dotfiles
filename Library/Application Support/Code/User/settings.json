@@ -98,7 +98,6 @@
   "remote.SSH.useLocalServer": false,
   "git.enableSmartCommit": true,
   "explorer.confirmDragAndDrop": false,
-  "python.languageServer": "Pylance",
   "workbench.startupEditor": "none",
   "[rust]": {
     "editor.defaultFormatter": "rust-lang.rust-analyzer"
