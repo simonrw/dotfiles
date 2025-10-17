@@ -360,14 +360,14 @@ vim.lsp.enable({
 
 local function load_theme()
     if vim.g.is_dark_mode then
-        vim.cmd([[set background=dark ]])
+        vim.cmd.colorscheme "catppuccin-macchiato"
 
         vim.cmd.highlight({ "TreesitterContextBottom", "gui=none" })
         vim.cmd.highlight({ "CursorLine", "guibg=#303347" })
         vim.cmd.highlight({ "CursorColumn", "guibg=#303347" })
         vim.cmd.highlight({ "LineNr", "guifg=#6c7086" })
     else
-        vim.cmd([[set background=light ]])
+        vim.cmd.colorscheme "github_light"
 
         vim.cmd.highlight({ "DiagnosticError", "guifg=Red" })
         vim.cmd.highlight({ "DiagnosticHint", "guifg=Orange" })
@@ -390,7 +390,7 @@ vim.api.nvim_create_autocmd("Signal", {
     pattern = "SIGUSR1",
     callback = function()
         vim.g.is_dark_mode = vim.g.get_is_dark_mode()
-        -- load_theme()
+        load_theme()
     end,
 })
 vim.cmd('set completeopt+=noselect')
@@ -597,7 +597,7 @@ vim.api.nvim_create_autocmd('User', {
 })
 
 
--- load_theme()
+load_theme()
 
 -- finally emit the config loaded event for lazy initialization
 vim.schedule(function()
