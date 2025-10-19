@@ -515,7 +515,7 @@ vim.api.nvim_create_autocmd('User', {
             signs = true,
             underline = true,
         })
-        vim.lsp.inlay_hint.enable(true)
+        vim.lsp.inlay_hint.enable(false)
 
         require('nvim-treesitter.configs').setup({
             ensure_installed = {
