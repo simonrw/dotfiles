@@ -36,25 +36,6 @@
   (when (fboundp m) (funcall m -1)))
 
 
-(use-package evil
-  :ensure t
-  :init
-  (setq evil-want-integration t) ;; This is optional since it's already set to t by default.
-  (setq evil-want-keybinding nil)
-  :config
-  (evil-mode)
-  (evil-set-initial-state 'vterm-mode 'emacs))
-
-;; org mode configuration
-(use-package evil-org
-             :ensure t
-  :after org
-  :hook (org-mode . (lambda () evil-org-mode))
-  :config
-  (require 'evil-org-agenda)
-  (evil-org-agenda-set-keys)
-  (evil-define-key 'normal org-mode-map (kbd "<tab>") #'org-cycle))
-
 (use-package catppuccin-theme
              :ensure t
   :config
@@ -141,9 +122,43 @@
   :config
   (evil-collection-init))
 
+(defun srw/load-config ()
+  (interactive)
+  (load-file "~/.config/emacs/init.el"))
+
+(use-package evil-leader
+  :ensure t
+  :config
+  (evil-leader/set-leader "<SPC>")
+  (evil-leader/set-key
+	"w" 'save-buffer
+    "q" 'save-buffers-kill-terminal
+    "o" 'srw/load-config)
+  (global-evil-leader-mode))
+
 
 (keymap-global-set "C-c a" #'org-agenda)
 
 (with-eval-after-load 'org
   (setq org-startup-indented nil)
   (add-hook 'org-mode-hook #'visual-line-mode))
+
+(use-package evil
+  :after evil-leader
+  :ensure t
+  :init
+  (setq evil-want-integration t) ;; This is optional since it's already set to t by default.
+  (setq evil-want-keybinding nil)
+  :config
+  (evil-mode)
+  (evil-set-initial-state 'vterm-mode 'emacs))
+
+;; org mode configuration
+(use-package evil-org
+             :ensure t
+  :after org
+  :hook (org-mode . (lambda () evil-org-mode))
+  :config
+  (require 'evil-org-agenda)
+  (evil-org-agenda-set-keys)
+  (evil-define-key 'normal org-mode-map (kbd "<tab>") #'org-cycle))
