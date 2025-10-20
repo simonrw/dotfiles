@@ -349,6 +349,12 @@ vim.lsp.config('rust_analyzer', {
     },
 })
 
+-- configure my cfn-lsp lsp
+vim.lsp.config["cfn-lsp"] = {
+    cmd = {"cfn-lsp"},
+    filetypes = { "yaml", "json" },
+}
+
 vim.lsp.enable({
     "lua_ls",
     "rust_analyzer",
@@ -356,6 +362,7 @@ vim.lsp.enable({
     "gopls",
     "ty",
     "ts_ls",
+    "cfn-lsp",
 })
 
 local function load_theme()
