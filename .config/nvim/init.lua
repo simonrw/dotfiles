@@ -537,7 +537,6 @@ vim.api.nvim_create_autocmd('User', {
                 'lua',
                 'python',
                 'rust',
-                'yaml',
                 'html',
                 "jsonc",
             },
