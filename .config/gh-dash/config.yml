@@ -1,6 +1,6 @@
 prSections:
 - title: "LS: Review requested"
-  filters: "is:pr is:open review-requested:@me org:localstack"
+  filters: "is:pr is:open review-requested:@me org:localstack draft:false"
 - title: "LS: My Pull Requests"
   filters: "is:pr is:open author:@me org:localstack"
   layout:
