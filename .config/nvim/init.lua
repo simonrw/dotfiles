@@ -351,7 +351,7 @@ vim.lsp.config('rust_analyzer', {
 
 -- configure my cfn-lsp lsp
 vim.lsp.config["cfn-lsp"] = {
-    cmd = {"cfn-lsp"},
+    cmd = { "cfn-lsp" },
     filetypes = { "yaml", "json" },
 }
 
@@ -457,8 +457,15 @@ end, { 'i' })
 local get_package_names = function()
     local packages = vim.pack.get()
     local package_names = {}
+
+    local function is_nonempty_string(x)
+        return type(x) == 'string' and x ~= ''
+    end
+
     for _, package in ipairs(packages) do
-        table.insert(package_names, package.spec.name)
+        if not is_nonempty_string(package.spec.src) then
+            table.insert(package_names, package.spec.name)
+        end
     end
     return package_names
 end
