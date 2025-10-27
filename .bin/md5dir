@@ -1,0 +1,21 @@
+#!/usr/bin/env python3
+
+import subprocess as sp
+import argparse
+
+parser = argparse.ArgumentParser()
+parser.add_argument("dir")
+args = parser.parse_args()
+
+
+files_proc = sp.Popen(["find", args.dir, "-type", "f", "-exec", "md5sum", "{}", ";"], stdout=sp.PIPE)
+awk_proc = sp.Popen(["awk", "{print $1}"], stdin=files_proc.stdout, stdout=sp.PIPE)
+result = sp.check_output(["md5sum"], stdin=awk_proc.stdout, text=True).splitlines()
+if files_proc.wait() != 0:
+    raise RuntimeError("Command failed")
+
+if awk_proc.wait() != 0:
+    raise RuntimeError("Command failed")
+
+print(result[0].split()[0])
+
