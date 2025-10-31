@@ -60,6 +60,11 @@ set -euo pipefail
 jj diff -r ${REVIEW_BASE:-main}..@-
 """, ""]
 l = ["log", "-r", "::trunk()"]
+pr-view = ["util", "exec", "--", "bash", "-c", """
+#!/usr/bin/env bash
+set -euo pipefail
+gh pr view -w $(jj current-bookmark)
+""", ""]
 
 [templates]
 log = "builtin_log_oneline"
