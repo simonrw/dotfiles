@@ -310,7 +310,7 @@ setkey('yos', function()
     vim.print('spell: ' .. tostring(vim.o.spell))
 end)
 setkey('yod', function()
-    vim.o.diff = not (vim.o.diff)
+    vim.cmd([[diffthis]])
     vim.print('diff: ' .. tostring(vim.o.diff))
 end)
 
