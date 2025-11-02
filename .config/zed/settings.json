@@ -112,7 +112,6 @@
     "dockerfile": true,
     "terraform": true,
     "ruff": true,
-    "basedpyright": true,
     "wit": true
   }
 }
