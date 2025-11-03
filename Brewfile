@@ -9,6 +9,7 @@ tap "withgraphite/tap"
 # Brews
 
 brew "ast-grep"
+brew "atuin"
 brew "autoconf"
 brew "automake"
 brew "awscli"
