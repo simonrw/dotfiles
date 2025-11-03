@@ -1,7 +1,7 @@
 {
   "plugins": {
     "catppuccin": {
-      "rev": "8c4125e3c746",
+      "rev": "234fc048de93",
       "src": "https://github.com/catppuccin/nvim"
     },
     "github-nvim-theme": [],
@@ -9,7 +9,7 @@
       "rev": "20ad4419564d"
     },
     "nvim-lspconfig": {
-      "rev": "a9b2fb560c4a"
+      "rev": "a89bfcfd0e44"
     },
     "nvim-treesitter": {
       "version": "'master'"
@@ -18,7 +18,7 @@
       "rev": "ec308c7827b5"
     },
     "nvim-treesitter-textobjects": {
-      "rev": "a9742cbc1f95"
+      "rev": "5ca4aaa6efdc"
     },
     "oil.nvim": {
       "rev": "7e1cd7703ff2"
@@ -28,7 +28,7 @@
       "src": "https://github.com/nvim-lua/plenary.nvim"
     },
     "render-markdown.nvim": {
-      "rev": "bfd67f1402b9"
+      "rev": "10126effbafb"
     },
     "telescope-fzf-native.nvim": {
       "rev": "1f08ed60cafc",
@@ -57,7 +57,7 @@
       "rev": "2c264d2a5ddd"
     },
     "zen-mode.nvim": {
-      "rev": "438a59c33763"
+      "rev": "8564ce6d29ec"
     }
   }
 }
