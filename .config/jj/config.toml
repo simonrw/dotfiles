@@ -63,12 +63,17 @@ l = ["log", "-r", "::trunk()"]
 pr-view = ["util", "exec", "--", "bash", "-c", """
 #!/usr/bin/env bash
 set -euo pipefail
-gh pr view $(jj current-bookmark) $@
+gh pr view $(jj current-bookmark) "$@"
 """, ""]
 pr-create = ["util", "exec", "--", "bash", "-c", """
 #!/usr/bin/env bash
 set -euo pipefail
-gh pr create -H $(jj current-bookmark) $@
+gh pr create -H $(jj current-bookmark) "$@"
+""", ""]
+pr-edit = ["util", "exec", "--", "bash", "-c", """
+#!/usr/bin/env bash
+set -euo pipefail
+gh pr edit $(jj current-bookmark) "$@"
 """, ""]
 
 [templates]
