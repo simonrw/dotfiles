@@ -77,6 +77,22 @@ def reload_git(theme: Theme):
         config.write(outfile)
 
 
+def reload_gh_dash(theme: Theme):
+    config_path = Path.home() / ".config" / "gh-dash"
+    config_file = config_path / "config.yml"
+    config_base = config_path / "config-base.yml"
+    if theme == Theme.light:
+        theme_file = config_path / "config-light.yml"
+    else:
+        theme_file = config_path / "config-dark.yml"
+
+    with config_file.open("w") as outfile:
+        with config_base.open("r") as infile:
+            outfile.write(infile.read())
+        with theme_file.open("r") as infile:
+            outfile.write(infile.read())
+
+
 theme = current_theme()
 
 switchers: list[ThemeSwitcher] = [
@@ -84,6 +100,7 @@ switchers: list[ThemeSwitcher] = [
     reload_helix,
     reload_neovim,
     reload_git,
+    reload_gh_dash,
 ]
 
 with ThreadPoolExecutor() as pool:
