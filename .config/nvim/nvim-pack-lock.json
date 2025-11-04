@@ -20,6 +20,10 @@
     "nvim-treesitter-textobjects": {
       "rev": "5ca4aaa6efdc"
     },
+    "octo.nvim": {
+      "rev": "bb705d90ec94",
+      "src": "https://github.com/pwntester/octo.nvim"
+    },
     "oil.nvim": {
       "rev": "7e1cd7703ff2"
     },
