@@ -92,6 +92,7 @@ vim.pack.add({
     { src = "https://github.com/MeanderingProgrammer/render-markdown.nvim" },
     { src = "https://github.com/folke/zen-mode.nvim" },
     { src = "https://github.com/nvim-treesitter/nvim-treesitter-textobjects" },
+    { src = "https://github.com/pwntester/octo.nvim" },
 })
 
 function parse_grep_nul(s)
@@ -608,6 +609,13 @@ vim.api.nvim_create_autocmd('User', {
     -- require('modules/runtests').setup()
 })
 
+-- This needs to be eagerly loaded to support my GH pr review workflow
+require('octo').setup({
+    use_local_fs = true,
+    file_panel = {
+        use_icons = false,
+    },
+})
 
 load_theme()
 
