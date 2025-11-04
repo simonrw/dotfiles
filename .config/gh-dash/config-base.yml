@@ -86,12 +86,6 @@ keybindings:
   branches: []
 repoPaths:
   localstack/*: "~/work/localstack/*"
-theme:
-  ui:
-    sectionsShowCount: true
-    table:
-      showSeparator: true
-      compact: false
 pager:
   diff: "delta"
 confirmQuit: false
