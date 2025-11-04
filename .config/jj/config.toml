@@ -68,6 +68,7 @@ gh pr view $(jj current-bookmark) "$@"
 pr-create = ["util", "exec", "--", "bash", "-c", """
 #!/usr/bin/env bash
 set -euo pipefail
+jj git push -b $(jj current-bookmark)
 gh pr create -H $(jj current-bookmark) "$@"
 """, ""]
 pr-edit = ["util", "exec", "--", "bash", "-c", """
