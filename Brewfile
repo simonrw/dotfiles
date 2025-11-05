@@ -138,7 +138,6 @@ cask "zoom"
 
 # for LocalStack
 
-cask "linear-linear"
 cask "notion"
 
 # Mac App Store apps
