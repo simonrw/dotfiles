@@ -57,7 +57,7 @@ jj log -r 'closest_bookmark(@)' --template "bookmarks.join(' ')" --no-graph | se
 diff-base = ["util", "exec", "--", "bash", "-c", """
 #!/usr/bin/env bash
 set -euo pipefail
-jj diff -r ${REVIEW_BASE:-main}..@-
+jj diff -r ${REVIEW_BASE:-main}..@- "$@"
 """, ""]
 l = ["log", "-r", "::trunk()"]
 pr-view = ["util", "exec", "--", "bash", "-c", """
