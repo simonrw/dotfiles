@@ -9,7 +9,7 @@
       "rev": "20ad4419564d"
     },
     "nvim-lspconfig": {
-      "rev": "a89bfcfd0e44"
+      "rev": "2010fc6ec03e"
     },
     "nvim-treesitter": {
       "version": "'master'"
@@ -21,7 +21,7 @@
       "rev": "5ca4aaa6efdc"
     },
     "octo.nvim": {
-      "rev": "bb705d90ec94",
+      "rev": "13ba3e8651ee",
       "src": "https://github.com/pwntester/octo.nvim"
     },
     "oil.nvim": {
@@ -32,7 +32,7 @@
       "src": "https://github.com/nvim-lua/plenary.nvim"
     },
     "render-markdown.nvim": {
-      "rev": "10126effbafb"
+      "rev": "060c911c62f9"
     },
     "telescope-fzf-native.nvim": {
       "rev": "1f08ed60cafc",
