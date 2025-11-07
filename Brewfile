@@ -138,8 +138,6 @@ cask "zoom"
 
 # for LocalStack
 
-cask "notion"
-
 # Mac App Store apps
 mas "1Password for Safari", id: 1569813296
 mas "DaisyDisk", id: 411643860
