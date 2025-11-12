@@ -48,7 +48,7 @@
     "enabled": true,
     "coloring": "indent_aware"
   },
-  "relative_line_numbers": true,
+  "relative_line_numbers": "enabled",
   "show_wrap_guides": true,
   "wrap_guides": [100],
   "cursor_blink": false,
@@ -69,13 +69,12 @@
     "show": false
   },
   "agent": {
-    "default_profile": "write",
     "always_allow_tool_actions": true,
     "default_model": {
       "provider": "anthropic",
       "model": "claude-sonnet-4-5-latest"
     },
-    "enabled": true
+    "model_parameters": []
   },
   "telemetry": {
     "diagnostics": false,
