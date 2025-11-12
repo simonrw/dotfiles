@@ -1,1 +1,1 @@
-export PATH=/opt/homebrew/opt/grep/libexec/gnubin:/opt/homebrew/opt/curl/bin:/opt/homebrew/opt/make/libexec/gnubin:/opt/homebrew/opt/gnu-sed/libexec/gnubin:/opt/homebrew/opt/coreutils/libexec/gnubin:/opt/homebrew/opt/sqlite/bin:${PATH}:/opt/homebrew/bin
+export PATH=/opt/homebrew/opt/grep/libexec/gnubin:/opt/homebrew/opt/curl/bin:/opt/homebrew/opt/make/libexec/gnubin:/opt/homebrew/opt/gnu-sed/libexec/gnubin:/opt/homebrew/opt/coreutils/libexec/gnubin:/opt/homebrew/opt/sqlite/bin:/opt/homebrew/bin:${PATH}
