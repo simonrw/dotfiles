@@ -364,6 +364,7 @@ vim.lsp.enable({
     "ty",
     "ts_ls",
     "cfn-lsp",
+    "terraformls",
 })
 
 local function load_theme()
