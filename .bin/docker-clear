@@ -1,29 +1,52 @@
 #!/usr/bin/env python3
 
 from concurrent.futures import ThreadPoolExecutor, as_completed
+import time
+from threading import Lock
 import subprocess as sp
+from contextlib import contextmanager
+
+print_lock = Lock()
+
+@contextmanager
+def timeit(name: str):
+    start = time.monotonic()
+    try:
+        yield
+    finally:
+        end = time.monotonic()
+        with print_lock:
+            print(f"[{name}] time taken: {end - start:.1f} s")
+
+
+def remove_container(line: str):
+    id, rest = line.split("|", maxsplit=2)
+    with timeit(id):
+        labels = [kv.split("=", maxsplit=2) for kv in rest.split(",")]
+        skip_container = False
+        for every in labels:
+            if len(every) != 2:
+                continue
+
+            k, v = every[:2]
+            if k.strip() == "clear" and v.strip() == "false":
+                skip_container = True
+                break
+
+        if not skip_container:
+            cmd = ["docker", "rm", "-f", id]
+            sp.check_call(cmd, stdout=sp.PIPE)
+
 
 cmd = ["docker", "ps", "-a", "--format", "{{.ID}}|{{.Labels}}"]
 res = sp.check_output(cmd).decode()
 
 
-def remove_container(line: str):
-    id, rest = line.split("|", maxsplit=2)
-    labels = [kv.split("=", maxsplit=2) for kv in rest.split(",")]
-    skip_container = False
-    for every in labels:
-        if len(every) != 2:
-            continue
-
-        k, v = every[:2]
-        if k.strip() == "clear" and v.strip() == "false":
-            skip_container = True
-            break
-
-    if not skip_container:
-        cmd = ["docker", "rm", "-f", id]
-        sp.check_call(cmd)
-
-
 with ThreadPoolExecutor() as pool:
-    pool.map(remove_container, res.splitlines())
+    futs = []
+    for line in res.splitlines():
+        id, _ = line.split("|", maxsplit=2)
+        futs.append(pool.submit(remove_container, line))
+
+    for fut in as_completed(futs):
+        fut.result()
