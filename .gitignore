@@ -16,6 +16,9 @@ home/nvim/plugin/packaer_compiled.lua
 Library/LaunchAgents/com.google.GoogleUpdater.wake.plist
 Library/LaunchAgents/com.google.keystone.agent.plist
 Library/LaunchAgents/com.google.keystone.xpcservice.plist
+Library/Application\ Support/Cursor/*
+!Library/Application\ Support/Cursor/User/keybindings.json
+!Library/Application\ Support/Cursor/User/settings.json
 /.config/k9s/config.yaml
 \#*\#
 /.config/gh-dash/config.yml

@@ -104,5 +104,9 @@
     "key": "f5",
     "command": "-workbench.action.debug.continue",
     "when": "debugState == 'stopped'"
+  },
+  {
+    "key": "cmd+i",
+    "command": "composerMode.agent"
   }
 ]

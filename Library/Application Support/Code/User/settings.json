@@ -287,7 +287,7 @@
   "[typescript]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
-  "window.commandCenter": false,
+  "window.commandCenter": true,
   "settingsSync.ignoredSettings": [
     "editor.fontFamily"
   ],
@@ -345,10 +345,14 @@
     "markdown": false,
     "scminput": false
   },
-  "workbench.statusBar.visible": false,
   "window.autoDetectColorScheme": true,
   "excalidraw.theme": "auto",
   "python.analysis.nodeExecutable": "auto",
   "workbench.preferredDarkColorTheme": "Catppuccin Mocha",
-  "workbench.preferredLightColorTheme": "Default Light+"
+  "workbench.preferredLightColorTheme": "Default Light+",
+  "cursor.cpp.disabledLanguages": [
+    "plaintext",
+    "markdown",
+    "scminput"
+  ]
 }
