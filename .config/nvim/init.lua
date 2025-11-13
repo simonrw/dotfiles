@@ -575,6 +575,15 @@ vim.api.nvim_create_autocmd('User', {
 
         require("oil").setup()
 
+        local make_telescope_picker_settings = function()
+            return {
+                disable_devicons = true,
+                mappings = {
+                    i = { ["<c-f>"] = require('telescope.actions').to_fuzzy_refine },
+                },
+            }
+        end
+
         require("telescope").setup({
             defaults = {
                 layout_config = { prompt_position = "top" },
@@ -591,15 +600,15 @@ vim.api.nvim_create_autocmd('User', {
                 }
             },
             pickers = {
-                buffers = { disable_devicons = true },
-                current_buffer_fuzzy_find = { disable_devicons = true },
-                diagnostics = { disable_devicons = true },
-                find_files = { disable_devicons = true },
-                git_files = { disable_devicons = true },
-                live_grep = { disable_devicons = true },
-                lsp_definitions = { disable_devicons = true },
-                lsp_dynamic_workspace_symbols = { disable_devicons = true },
-                lsp_references = { disable_devicons = true }
+                buffers = make_telescope_picker_settings(),
+                current_buffer_fuzzy_find = make_telescope_picker_settings(),
+                diagnostics = make_telescope_picker_settings(),
+                find_files = make_telescope_picker_settings(),
+                git_files = make_telescope_picker_settings(),
+                live_grep = make_telescope_picker_settings(),
+                lsp_definitions = make_telescope_picker_settings(),
+                lsp_dynamic_workspace_symbols = make_telescope_picker_settings(),
+                lsp_references = make_telescope_picker_settings(),
             }
         })
 
