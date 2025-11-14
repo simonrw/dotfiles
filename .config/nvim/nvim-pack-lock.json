@@ -34,14 +34,9 @@
     "render-markdown.nvim": {
       "rev": "060c911c62f9"
     },
-    "telescope-fzf-native.nvim": {
-      "rev": "1f08ed60cafc",
-      "src": "https://github.com/nvim-telescope/telescope-fzf-native.nvim"
-    },
-    "telescope.nvim": {
-      "rev": "a0bbec21143c",
-      "src": "https://github.com/nvim-telescope/telescope.nvim",
-      "version": "'0.1.x'"
+    "snacks.nvim": {
+      "rev": "3c5c23ba91e6",
+      "src": "https://github.com/folke/snacks.nvim"
     },
     "vim-conflicted": {
       "rev": "b0f584be18a9",
