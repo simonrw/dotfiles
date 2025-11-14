@@ -75,8 +75,6 @@ vim.pack.add({
     { src = "https://github.com/stevearc/oil.nvim" },
     -- dependency of telescope
     { src = "https://github.com/nvim-lua/plenary.nvim" },
-    { src = "https://github.com/nvim-telescope/telescope.nvim",              version = "0.1.x" },
-    { src = "https://github.com/nvim-telescope/telescope-fzf-native.nvim" },
     { src = "https://github.com/catppuccin/nvim",                            name = "catppuccin" },
     { src = "https://github.com/projekt0n/github-nvim-theme" },
     { src = 'https://github.com/neovim/nvim-lspconfig' },
@@ -93,6 +91,7 @@ vim.pack.add({
     { src = "https://github.com/folke/zen-mode.nvim" },
     { src = "https://github.com/nvim-treesitter/nvim-treesitter-textobjects" },
     { src = "https://github.com/pwntester/octo.nvim" },
+    { src = "https://github.com/folke/snacks.nvim" },
 })
 
 function parse_grep_nul(s)
@@ -147,13 +146,13 @@ local setkey = function(key, action, modes, options)
     vim.keymap.set(modes, key, action, options)
 end
 
-setkey("<leader>f", function() require("telescope.builtin").git_files() end)
-setkey("<leader>F", function() require("telescope.builtin").find_files() end)
-setkey("<leader>j", function() require("telescope.builtin").jumplist() end)
-setkey("<leader>ht", function() require("telescope.builtin").help_tags() end)
-setkey("gb", function() require("telescope.builtin").buffers() end)
-setkey("<leader><leader>", function() require("telescope.builtin").live_grep() end)
-setkey("<leader>A", function() require("telescope.builtin").diagnostics() end)
+setkey("<leader>f", function() Snacks.picker.git_files() end)
+setkey("<leader>F", function() Snacks.picker.files() end)
+setkey("<leader>j", function() Snacks.picker.jumps() end)
+setkey("<leader>ht", function() Snacks.picker.help() end)
+setkey("gb", function() Snacks.picker.buffers() end)
+setkey("<leader><leader>", function() Snacks.picker.grep() end)
+setkey("<leader>A", function() Snacks.picker.diagnostics() end)
 
 setkey("-", ":Oil<cr>")
 setkey("<leader>y", vim.lsp.buf.format)
@@ -446,9 +445,9 @@ end
 
 setkey('gd', vim.lsp.buf.definition)
 setkey('<leader>gt', vim.lsp.buf.type_definition)
-setkey('gr', function() require("telescope.builtin").lsp_references() end)
+setkey('gr', function() Snacks.picker.lsp_references() end)
 setkey('gi', vim.lsp.buf.implementation)
-setkey('<leader>s', function() require("telescope.builtin").lsp_document_symbols() end)
+setkey('<leader>s', function() Snacks.picker.lsp_symbols() end)
 setkey('<leader>a', vim.lsp.buf.code_action)
 
 setkey('<c-space>', function()
@@ -575,44 +574,21 @@ vim.api.nvim_create_autocmd('User', {
 
         require("oil").setup()
 
-        local make_telescope_picker_settings = function()
-            return {
-                disable_devicons = true,
-                mappings = {
-                    i = { ["<c-f>"] = require('telescope.actions').to_fuzzy_refine },
-                },
-            }
-        end
-
-        require("telescope").setup({
-            defaults = {
-                layout_config = { prompt_position = "top" },
-                layout_strategy = "horizontal",
-                sorting_strategy = "ascending",
-                preview = false,
-            },
-            extensions = {
-                fzf = {
-                    case_mode = "smart_case",
-                    fuzzy = true,
-                    override_file_sorter = true,
-                    override_generic_sorter = true
+        if not Snacks.did_setup then
+            require('snacks').setup({
+                picker = {
+                    layout = {
+                        preview = false,
+                    },
+                    matcher = {
+                        frecenty = true,
+                    },
+                    debug = {
+                        scores = true,
+                    },
                 }
-            },
-            pickers = {
-                buffers = make_telescope_picker_settings(),
-                current_buffer_fuzzy_find = make_telescope_picker_settings(),
-                diagnostics = make_telescope_picker_settings(),
-                find_files = make_telescope_picker_settings(),
-                git_files = make_telescope_picker_settings(),
-                live_grep = make_telescope_picker_settings(),
-                lsp_definitions = make_telescope_picker_settings(),
-                lsp_dynamic_workspace_symbols = make_telescope_picker_settings(),
-                lsp_references = make_telescope_picker_settings(),
-            }
-        })
-
-        require("telescope").load_extension("fzf")
+            })
+        end
     end,
 
     -- TODO: make this on file open/read
@@ -622,6 +598,7 @@ vim.api.nvim_create_autocmd('User', {
 -- This needs to be eagerly loaded to support my GH pr review workflow
 require('octo').setup({
     use_local_fs = true,
+    picker = "snacks",
     file_panel = {
         use_icons = false,
     },
