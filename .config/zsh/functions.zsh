@@ -5,5 +5,5 @@ function mcd() {
 
 function tcd() {
     cd "$(mktemp -d)"
-    pwd
+    tnew
 }
