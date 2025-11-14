@@ -71,7 +71,7 @@ def reload_git(theme: Theme):
     config["delta"] = {
         "diff-so-fancy": "false" if theme == Theme.light else "true",
         "line-numbers": "false",
-        "side-by-side": "true",
+        "side-by-side": "false",
     }
     with theme_file.open("w") as outfile:
         config.write(outfile)
