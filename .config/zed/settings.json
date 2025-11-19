@@ -107,7 +107,7 @@
       "enable_language_server": true,
       "format_on_save": "on",
       "formatter": "auto",
-      "language_servers": ["ty", "!basedpyright"]
+      "language_servers": ["pyrefly", "!basedpyright"]
     }
   },
   "auto_install_extensions": {
