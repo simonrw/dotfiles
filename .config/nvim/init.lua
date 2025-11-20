@@ -360,10 +360,10 @@ vim.lsp.enable({
     "rust_analyzer",
     "ruff",
     "gopls",
+    "ty",
     "ts_ls",
     "cfn-lsp",
     "terraformls",
-    "pyrefly",
 })
 
 local function load_theme()
