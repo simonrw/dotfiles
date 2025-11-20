@@ -78,6 +78,12 @@ pr-edit = ["util", "exec", "--", "bash", "-c", """
 set -euo pipefail
 gh pr edit $(jj current-bookmark) "$@"
 """, ""]
+pr-checkout = ["util", "exec", "--", "bash", "-c", """
+#!/usr/bin/env bash
+set -euo pipefail
+jj up
+jj new $(gh pr view 13377 --json headRefName -q .headRefName)
+""", ""]
 
 [templates]
 log = "builtin_log_oneline"
