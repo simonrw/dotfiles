@@ -78,7 +78,7 @@
     "always_allow_tool_actions": true,
     "default_model": {
       "provider": "openrouter",
-      "model": "google/gemini-3-pro-preview"
+      "model": "openai/gpt-5.1-codex"
     },
     "model_parameters": []
   },
