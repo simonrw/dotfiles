@@ -19,6 +19,3 @@ source ~/.config/zsh/atuin.zsh
 if [[ "$PROFILE_STARTUP" == true ]]; then
     zprof
 fi
-
-# Added by Antigravity
-export PATH="/Users/simon/.antigravity/antigravity/bin:$PATH"
