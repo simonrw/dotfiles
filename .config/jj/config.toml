@@ -28,13 +28,15 @@ diff-args = ["--color=always", "$left", "right"]
 
 [revset-aliases]
 'closest_bookmark(to)' = 'heads(::to & bookmarks())'
+'closest_pushable(to)' = 'heads(::to & mutable() & ~description(exact:"") & (~empty() | merges()))'
 
 [revsets]
 # https://github.com/willhbr/dotfiles/blob/ca9cabda249d0f77e09263af30760e8c5603d1a7/jj/jjconfig.toml#L25
 log = '@ | ancestors(trunk()..(visible_heads() & mine()), 2) | trunk()'
 
 [aliases]
-tug = ["bookmark", "move", "--from", "closest_bookmark(@-)", "--to", "@-"]
+# tug = ["bookmark", "move", "--from", "closest_bookmark(@-)", "--to", "@-"]
+tug = ["bookmark", "move", "--from", "closest_bookmark(@)", "--to", "closest_pushable(@)"]
 tpush = ["util", "exec", "--", "bash", "-c", """
 set -euo pipefail
 jj tug
