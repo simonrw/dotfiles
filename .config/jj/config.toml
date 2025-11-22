@@ -81,8 +81,8 @@ gh pr edit $(jj current-bookmark) "$@"
 pr-checkout = ["util", "exec", "--", "bash", "-c", """
 #!/usr/bin/env bash
 set -euo pipefail
-jj up
-jj new $(gh pr view 13377 --json headRefName -q .headRefName)
+jj git fetch --quiet
+jj new $(gh pr view "$1" --json headRefName -q .headRefName)
 """, ""]
 
 [templates]
