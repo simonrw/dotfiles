@@ -86,6 +86,7 @@ brew "zsh"
 
 # for localStack
 
+brew "bitwarden-cli"
 brew "libvirt"
 brew "snappy"
 
