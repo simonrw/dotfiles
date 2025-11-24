@@ -1,5 +1,9 @@
 {
   "plugins": {
+    "alabaster.nvim": {
+      "rev": "b14f4527bd5d5528cac33599f71ad542c2f38748",
+      "src": "https://github.com/p00f/alabaster.nvim"
+    },
     "catppuccin": {
       "rev": "234fc048de93",
       "src": "https://github.com/catppuccin/nvim"
@@ -20,9 +24,25 @@
       "rev": "7dc4facca9702f95353d5a1f87daf23d78e31c2a",
       "src": "https://github.com/mason-org/mason.nvim"
     },
+    "mini.extra": {
+      "rev": "7efa774edf154fa06c037e903db8beacdc6f2850",
+      "src": "https://github.com/echasnovski/mini.extra"
+    },
+    "mini.pick": {
+      "rev": "96ee37d07043aeed90ae6ae32733b2d0db8f1c13",
+      "src": "https://github.com/echasnovski/mini.pick"
+    },
+    "mini.surround": {
+      "rev": "61db6babafbd10e862a7ac4713fa043126329247",
+      "src": "https://github.com/nvim-mini/mini.surround"
+    },
     "nord.nvim": {
       "rev": "80c1e5321505aeb22b7a9f23eb82f1e193c12470",
       "src": "https://github.com/shaunsingh/nord.nvim"
+    },
+    "nvim": {
+      "rev": "e79d09fa347b367e0e7f693bfe87dba932a8cbd1",
+      "src": "https://github.com/catppuccin/nvim"
     },
     "nvim-lspconfig": {
       "rev": "2010fc6ec03e2da552b4886fceb2f7bc0fc2e9c0",
@@ -64,6 +84,14 @@
     "snacks.nvim": {
       "rev": "3c5c23ba91e6",
       "src": "https://github.com/folke/snacks.nvim"
+    },
+    "telescope-fzf-native.nvim": {
+      "rev": "1f08ed60cafc8f6168b72b80be2b2ea149813e55",
+      "src": "https://github.com/nvim-telescope/telescope-fzf-native.nvim"
+    },
+    "telescope.nvim": {
+      "rev": "a0bbec21143c7bc5f8bb02e0005fa0b982edc026",
+      "src": "https://github.com/nvim-telescope/telescope.nvim"
     },
     "vim-conflicted": {
       "rev": "b0f584be18a9",
