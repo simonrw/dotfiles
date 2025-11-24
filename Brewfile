@@ -91,6 +91,11 @@ brew "snappy"
 
 # Casks
 
+## music
+
+cask "focusrite-control-2"
+cask "reaper"
+
 cask "1password-cli"
 cask "1password"
 cask "antigravity"
