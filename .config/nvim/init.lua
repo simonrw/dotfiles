@@ -146,6 +146,7 @@ local setkey = function(key, action, modes, options)
     vim.keymap.set(modes, key, action, options)
 end
 
+setkey("<leader>b", function() Snacks.picker.smart() end)
 setkey("<leader>f", function() Snacks.picker.git_files() end)
 setkey("<leader>F", function() Snacks.picker.files() end)
 setkey("<leader>j", function() Snacks.picker.jumps() end)
@@ -584,7 +585,7 @@ vim.api.nvim_create_autocmd('User', {
                         frecenty = true,
                     },
                     debug = {
-                        scores = true,
+                        scores = false,
                     },
                 }
             })
