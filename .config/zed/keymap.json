@@ -13,7 +13,9 @@
       "f8": "debugger::StepOver",
       "f9": "debugger::Continue",
       "shift-f8": "debugger::StepOut",
-      "t d b": "editor::ToggleBreakpoint"
+      "t d b": "editor::ToggleBreakpoint",
+      "y o w": "editor::ToggleSoftWrap",
+      "y o b": "git::Blame"
     }
   },
   {
