@@ -7,6 +7,10 @@
 // custom settings, run the `open default settings` command
 // from the command palette or from `Zed` application menu.
 {
+  "edit_predictions": {
+    "mode": "subtle"
+  },
+  "show_edit_predictions": true,
   "disable_ai": false,
   "audio": {
     "experimental.rodio_audio": true
