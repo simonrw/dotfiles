@@ -1,11 +1,14 @@
 let mapleader = "\<space>"
+Plug 'dbakker/vim-paragraph-motion'
 
 " plugins
+Plug 'dbakker/vim-paragraph-motion'
 set surround
 set commentary
 set functiontextobj
 let g:highlightedyank_highlight_duration = "200"
 set highlightedyank
+set paragraph-motion
 
 " settings
 set incsearch
@@ -36,6 +39,7 @@ map <leader>j <Action>(RecentLocations)
 map Q gq
 map yob <Action>(Annotate)
 map tc <Action>(CreateRunConfiguration)
+map yow <Action>(EditorToggleUseSoftWraps)
 
 " debugging
 map tdb <Action>(ToggleLineBreakpoint)
@@ -48,3 +52,5 @@ map tdv <Action>(EditBreakpoint)
 map <leader>w :write<cr>
 map <leader>q :quit<cr>
 map <leader>o :source ~/.ideavimrc<cr>
+
+set ideastatusicon=disabled
