@@ -376,7 +376,7 @@ local function load_theme()
         vim.cmd.highlight({ "CursorColumn", "guibg=#303347" })
         vim.cmd.highlight({ "LineNr", "guifg=#6c7086" })
     else
-        vim.cmd.colorscheme "github_light"
+        vim.cmd.colorscheme "catppuccin-latte"
 
         vim.cmd.highlight({ "DiagnosticError", "guifg=Red" })
         vim.cmd.highlight({ "DiagnosticHint", "guifg=Orange" })
