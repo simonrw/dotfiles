@@ -68,6 +68,7 @@ brew "ruff-lsp"  # also installs ruff
 brew "sqlite3"
 brew "sst/tap/opencode"
 brew "stow"
+brew "television"
 brew "tmux"
 brew "tokei"
 brew "tree-sitter-cli"
