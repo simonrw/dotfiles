@@ -59,6 +59,27 @@
     },
     {
       "before": [
+        "y",
+        "o",
+        "w"
+      ],
+      "commands": [
+        "editor.action.toggleWordWrap"
+      ],
+      "silent": true
+    },
+    {
+      "before": [
+        "<leader>",
+        " "
+      ],
+      "commands": [
+        "find-it-faster.findWithinFiles"
+      ],
+      "silent": true
+    },
+    {
+      "before": [
         "<leader>",
         " "
       ],
