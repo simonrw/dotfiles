@@ -308,7 +308,7 @@
   "workbench.layoutControl.enabled": false,
   "editor.inlineSuggest.suppressSuggestions": true,
   "cmake.showOptionsMovedNotification": false,
-  "workbench.iconTheme": "catppuccin-latte",
+  "workbench.iconTheme": "catppuccin-macchiato",
   "zig.path": "zig",
   "zig.initialSetupDone": true,
   "githubPullRequests.pushBranch": "always",
