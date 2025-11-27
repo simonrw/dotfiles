@@ -53,7 +53,17 @@
         "f"
       ],
       "commands": [
-        "workbench.action.quickOpen"
+        "find-it-faster.findFiles"
+      ],
+      "silent": true
+    },
+    {
+      "before": [
+        "<leader>",
+        " "
+      ],
+      "commands": [
+        "find-it-faster.findWithinFiles"
       ],
       "silent": true
     },
@@ -356,4 +366,8 @@
     "scminput"
   ],
   "find-it-faster.findFiles.showPreview": false,
+  "editor.fontSize": 13,
+  "find-it-faster.advanced.disableStartupChecks": true,
+  "find-it-faster.advanced.useEditorSelectionAsQuery": false,
+  "find-it-faster.findWithinFiles.showPreview": false,
 }
