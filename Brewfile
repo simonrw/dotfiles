@@ -95,7 +95,10 @@ brew "snappy"
 
 ## music
 
+cask "ableton-live-lite"
 cask "focusrite-control-2"
+
+## other
 
 cask "1password-cli"
 cask "1password"
