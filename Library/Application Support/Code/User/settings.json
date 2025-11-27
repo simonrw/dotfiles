@@ -354,5 +354,6 @@
     "plaintext",
     "markdown",
     "scminput"
-  ]
+  ],
+  "find-it-faster.findFiles.showPreview": false,
 }
