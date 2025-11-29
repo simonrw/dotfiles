@@ -95,7 +95,7 @@ brew "snappy"
 
 ## music
 
-cask "ableton-live-lite"
+cask "ableton-live-lite" if `hostname`.strip == "mm"
 cask "focusrite-control-2"
 
 ## other
