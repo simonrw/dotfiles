@@ -62,7 +62,9 @@ set -euo pipefail
 jj diff -r ${REVIEW_BASE:-main}..@- "$@"
 """, ""]
 l = ["log", "-r", "::trunk()"]
+la = ["log", "-r", "::"]
 r = ["log", "-r", "parents(trunk(), 20)::trunk()"]
+ra = ["log", "-r", "parents(trunk(), 20)::"]
 pr-view = ["util", "exec", "--", "bash", "-c", """
 #!/usr/bin/env bash
 set -euo pipefail
