@@ -2,6 +2,16 @@
   "vim.normalModeKeyBindingsNonRecursive": [
     {
       "before": [
+        "<c-w>",
+        "c"
+      ],
+      "commands": [
+        "workbench.action.closeEditorsInGroup"
+      ],
+      "silent": true
+    },
+    {
+      "before": [
         "<Esc>"
       ],
       "when": [
