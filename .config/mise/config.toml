@@ -3,7 +3,7 @@ rust = { version = "beta", components = "rust-src,rust-analyzer" }
 "cargo:https://github.com/simonrw/cftail" = "branch:main"
 "cargo:https://github.com/cloudflare/networkquality-rs" = "branch:main"
 "cargo:https://github.com/simonrw/testsearch" = "branch:main"
-"go:github.com/simonrw/cert-info" = "main"
+"go:github.com/simonrw/cert-info" = "0"
 "cargo:https://github.com/simonrw/listprojects" = "branch:main"
 
 [settings]
