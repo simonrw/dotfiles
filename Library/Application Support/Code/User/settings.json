@@ -401,4 +401,5 @@
   "find-it-faster.advanced.disableStartupChecks": true,
   "find-it-faster.advanced.useEditorSelectionAsQuery": false,
   "find-it-faster.findWithinFiles.showPreview": false,
+  "editor.inlayHints.enabled": "off",
 }
