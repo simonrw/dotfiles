@@ -4,6 +4,6 @@ function mcd() {
 }
 
 function tcd() {
-    cd "$(mktemp -d)"
+    cd "$(mktemp -d $TMPDIR/tempXXXX)"
     tnew
 }
