@@ -607,6 +607,10 @@ require('octo').setup({
 
 load_theme()
 
+-- Enable the new experimental command-line features.
+vim.o.cmdheight = 0
+require('vim._extui').enable {}
+
 -- finally emit the config loaded event for lazy initialization
 vim.schedule(function()
     vim.api.nvim_exec_autocmds('User', { pattern = init_done_event_name, modeline = false })
