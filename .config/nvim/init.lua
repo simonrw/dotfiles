@@ -607,8 +607,8 @@ require('octo').setup({
 
 load_theme()
 
+vim.o.cmdheight = 1
 -- Enable the new experimental command-line features.
-vim.o.cmdheight = 0
 require('vim._extui').enable {}
 
 -- finally emit the config loaded event for lazy initialization
