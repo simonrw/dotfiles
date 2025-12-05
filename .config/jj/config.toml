@@ -3,6 +3,7 @@ default-command = "status"
 pager = "delta"
 diff-editor = ":builtin"
 diff-formatter = ":git"
+merge-editor = "vscode"
 
 [git]
 push-new-bookmarks = true
