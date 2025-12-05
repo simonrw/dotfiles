@@ -6,9 +6,6 @@ diff-formatter = ":git"
 merge-editor = "vscode"
 
 [git]
-push-new-bookmarks = true
-# automatically track remote bookmarks
-auto-local-bookmark = true
 # Add git compatible change id header
 # source: https://oppi.li/posts/configuring_jujutsu/
 write-change-id-header = true
@@ -114,3 +111,7 @@ draft_commit_description ='''
 --when.repositories = ["~/work/localstack"]
 [--scope.user]
 email = "simon.walker@localstack.cloud"
+
+[remotes.origin]
+push-new-bookmarks = "glob:*"
+auto-track-bookmarks = "glob:*"
