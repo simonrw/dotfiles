@@ -1,8 +1,9 @@
 [ui]
 default-command = "status"
 pager = "delta"
-diff-editor = ":builtin"
+diff-editor = "meld"
 diff-formatter = ":git"
+merge-editor = "meld"
 
 [git]
 push-new-bookmarks = true
@@ -23,8 +24,11 @@ key = "~/.ssh/id_signing.pub"
 email = "s.r.walker101@googlemail.com"
 name = "Simon Walker"
 
-[mergetools.difft]
+[merge-tools.difft]
 diff-args = ["--color=always", "$left", "right"]
+
+[merge-tools.meld]
+merge-args = ["$left", "$base", "$right", "-o", "$output", "--auto-merge"]
 
 [revset-aliases]
 'closest_bookmark(to)' = 'heads(::to & bookmarks())'
