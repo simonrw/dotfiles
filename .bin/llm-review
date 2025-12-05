@@ -1,27 +1,62 @@
-#!/usr/bin/env bash
+#!/usr/bin/env python
+#
+# set -euo pipefail
+#
+# function usage() {
+#     echo "Usage: $0 <pr-def>" >&2
+#     echo >&2
+#     echo "  Example: $0 localstack/localstack/12345" >&2
+#     exit 1
+# }
+#
+# if [[ -z ${1:-} || $1 == "-h" || $1 == "--help" ]]; then
+#     usage
+# fi
+#
+# pr_ref="$1"
+#
+# if ! $(echo $pr_ref | rg -q '^(\w+/){2}\d+$'); then
+#     echo "Invalid PR ref: '$pr_ref'" >&2
+#     echo >&2
+#     echo "  Example: $0 localstack/localstack/12345" >&2
+#     exit 1
+# fi
+#
+# system_prompt="You are a senior software engineer. Focus on issues that you find. Do not summarise the PR."
+#
+# llm --usage --system "$system_prompt" -f "pr:$pr_ref" 'review this code'
 
-set -euo pipefail
 
-function usage() {
-    echo "Usage: $0 <pr-def>" >&2
-    echo >&2
-    echo "  Example: $0 localstack/localstack/12345" >&2
-    exit 1
-}
+import argparse
+import re
+import sys
+import os
 
-if [[ -z ${1:-} || $1 == "-h" || $1 == "--help" ]]; then
-    usage
-fi
 
-pr_ref="$1"
+def error_log(message: str):
+    print(message, file=sys.stderr)
+    sys.exit(1)
 
-if ! $(echo $pr_ref | rg -q '^(\w+/){2}\d+$'); then
-    echo "Invalid PR ref: '$pr_ref'" >&2
-    echo >&2
-    echo "  Example: $0 localstack/localstack/12345" >&2
-    exit 1
-fi
 
-system_prompt="You are a senior software engineer. Focus on issues that you find. Do not summarise the PR."
+PR_REF_RE = re.compile(r"^(\w+/){2}\d+$")
 
-llm --usage --system "$system_prompt" -f "pr:$pr_ref" 'review this code'
+parser = argparse.ArgumentParser()
+parser.add_argument("pr")
+parser.add_argument("-m", "--model", help="Model to use")
+args = parser.parse_args()
+
+if not PR_REF_RE.match(args.pr):
+    error_log(f"Invalid PR ref '{args.pr}'. Example: localstack/localstack/12345")
+
+system_prompt = "You are a senior software engineer. Focus on issues that you find. Do not summarise the PR."
+
+args = [
+    "llm",
+    "--usage",
+    "--system",
+    system_prompt,
+    "--fragment",
+    f"pr:{args.pr}",
+    "review this code",
+]
+os.execvp("llm", args)
