@@ -237,20 +237,6 @@ vim.api.nvim_create_autocmd('FileType', {
                 enabled = false,
             },
         })
-        local zen_mode = require('zen-mode')
-        zen_mode.setup({
-            window = {
-                backdrop = 1,
-            },
-            on_open = function()
-                vim.o.number = false
-                vim.o.relativenumber = false
-            end,
-            on_close = function()
-                vim.o.number = true
-                vim.o.relativenumber = true
-            end,
-        })
     end,
 })
 
@@ -594,6 +580,21 @@ vim.api.nvim_create_autocmd('User', {
                 }
             })
         end
+
+        require("zen-mode").setup({
+            window = {
+                backdrop = 1.0,
+                options = {
+                    number = false,
+                    relativenumber = false,
+                },
+            },
+            plugins = {
+                options = {
+                    laststatus = 0,
+                },
+            },
+        })
     end,
 
     -- TODO: make this on file open/read
