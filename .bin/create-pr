@@ -1,4 +1,5 @@
-#!/usr/bin/env -S uv run
+#!/usr/bin/env -S uv run --script
+# vim: ft=python
 """Helper script to craft GH PR messages in a persistent file."""
 
 from __future__ import annotations
@@ -58,12 +59,7 @@ def main(argv: list[str]) -> int:
         add_help=True,
         allow_abbrev=False,
     )
-    ns.add_argument(
-        "gh_args",
-        nargs=argparse.REMAINDER,
-        help="Arguments forwarded to `gh pr create`.",
-    )
-    gh_args = ns.parse_args(argv)
+    args, gh_args = ns.parse_known_args(argv)
 
     ensure_message_file(MESSAGE_FILE)
     open_editor(MESSAGE_FILE)
