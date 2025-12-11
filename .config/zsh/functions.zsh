@@ -7,3 +7,11 @@ function tcd() {
     cd "$(mktemp -d $TMPDIR/tempXXXX)"
     tnew
 }
+
+function session-history() {
+    if test -z "${TMUX:-}"; then
+        builtin cd $(command zoxide query --interactive)
+    else
+        builtin cd $(command zoxide query --interactive)
+    fi
+}
