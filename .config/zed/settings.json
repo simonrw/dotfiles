@@ -59,13 +59,13 @@
     "enabled": true,
     "coloring": "indent_aware"
   },
-  "relative_line_numbers": "enabled",
+  "relative_line_numbers": "disabled",
   "show_wrap_guides": true,
   "wrap_guides": [100],
   "cursor_blink": false,
   "use_autoclose": false,
   "gutter": {
-    "line_numbers": true,
+    "line_numbers": false,
     "folds": false
   },
   "scrollbar": { "show": "never" },
@@ -80,6 +80,7 @@
     "show": false
   },
   "agent": {
+    "default_profile": "ask",
     "always_allow_tool_actions": true,
     "default_model": {
       "provider": "openrouter",
