@@ -36,6 +36,10 @@
       "rev": "61db6babafbd10e862a7ac4713fa043126329247",
       "src": "https://github.com/nvim-mini/mini.surround"
     },
+    "monokai-pro.nvim": {
+      "rev": "1ac671f6da720cba967d28d25c2f16b8b4e18808",
+      "src": "https://github.com/loctvl842/monokai-pro.nvim"
+    },
     "nord.nvim": {
       "rev": "80c1e5321505aeb22b7a9f23eb82f1e193c12470",
       "src": "https://github.com/shaunsingh/nord.nvim"

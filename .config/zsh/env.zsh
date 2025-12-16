@@ -36,7 +36,7 @@ export XDG_STATE_HOME="$HOME/.local/state"
 if [[ "$__IS_DARK_THEME" == "1" ]]; then
     export BAT_CONFIG_PATH="$HOME/.config/bat/dark/config"
     export GLAMOUR_STYLE=dark
-    export K9S_SKIN=catppuccin-macchiato
+    export K9S_SKIN=monokai
 else
     export BAT_CONFIG_PATH="$HOME/.config/bat/light/config"
     export GLAMOUR_STYLE=light
