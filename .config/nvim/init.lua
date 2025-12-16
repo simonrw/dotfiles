@@ -17,7 +17,7 @@ vim.opt.backupcopy = "auto"
 vim.opt.backupdir = { "~/.vim/backup" }
 vim.opt.breakindent = true
 vim.opt.complete = { ".", "o", "w", "b", "u", "i" }
-vim.opt.completeopt = { "fuzzy", "menuone", "popup" }
+vim.opt.completeopt = { "fuzzy", "menuone", "popup", "noselect" }
 vim.opt.conceallevel = 0
 vim.opt.cursorline = false
 vim.opt.pumheight = 7
@@ -79,6 +79,7 @@ vim.pack.add({
     -- dependency of telescope
     { src = "https://github.com/nvim-lua/plenary.nvim" },
     { src = "https://github.com/catppuccin/nvim",                            name = "catppuccin" },
+    { src = "https://github.com/loctvl842/monokai-pro.nvim" },
     { src = "https://github.com/projekt0n/github-nvim-theme" },
     { src = 'https://github.com/neovim/nvim-lspconfig' },
     { src = "https://github.com/nvim-treesitter/nvim-treesitter",            version = "master" },
@@ -358,12 +359,14 @@ vim.lsp.enable({
 
 local function load_theme()
     if vim.g.is_dark_mode then
-        vim.cmd.colorscheme "catppuccin-macchiato"
+        vim.cmd.colorscheme "monokai-pro"
 
         vim.cmd.highlight({ "TreesitterContextBottom", "gui=none" })
-        vim.cmd.highlight({ "CursorLine", "guibg=#303347" })
-        vim.cmd.highlight({ "CursorColumn", "guibg=#303347" })
-        vim.cmd.highlight({ "LineNr", "guifg=#6c7086" })
+        local snacks_paths = { "NonText" }
+        for _, name in ipairs(snacks_paths) do
+            vim.cmd.highlight({ name, "guifg=white" })
+        end
+        vim.cmd.highlight({ "Normal", "guibg=none" })
     else
         vim.cmd.colorscheme "catppuccin-latte"
 
@@ -391,7 +394,6 @@ vim.api.nvim_create_autocmd("Signal", {
         load_theme()
     end,
 })
-vim.cmd('set completeopt+=noselect')
 
 -- configure vim-test
 vim.g["test#python#runner"] = "pytest"

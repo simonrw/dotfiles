@@ -41,7 +41,7 @@
   "theme": {
     "mode": "system",
     "light": "Catppuccin Latte",
-    "dark": "Catppuccin Macchiato"
+    "dark": "KTRZ Monokai"
   },
   "buffer_font_family": "JetBrainsMono Nerd Font",
   "buffer_font_weight": 700,
@@ -117,7 +117,7 @@
   },
   "auto_install_extensions": {
     "html": true,
-    "catppuccin": true,
+    "catppuccin": false,
     "toml": true,
     "dockerfile": true,
     "terraform": true,
