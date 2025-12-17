@@ -337,7 +337,6 @@
   "gitlens.codeLens.enabled": false,
   "editor.formatOnSave": true,
   "workbench.layoutControl.enabled": false,
-  "editor.inlineSuggest.suppressSuggestions": true,
   "cmake.showOptionsMovedNotification": false,
   "workbench.iconTheme": "catppuccin-macchiato",
   "zig.path": "zig",
