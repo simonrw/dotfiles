@@ -32,20 +32,26 @@ import re
 import sys
 import os
 
+import subprocess as sp
+
 
 def error_log(message: str):
     print(message, file=sys.stderr)
     sys.exit(1)
 
 
-PR_REF_RE = re.compile(r"^(\w+/){2}\d+$")
+PR_REF_RE = re.compile(r"^(?P<owner>[a-z-]+)/(?P<repo>[a-z-]+)/\d+")
 
 parser = argparse.ArgumentParser()
 parser.add_argument("pr")
 parser.add_argument("-m", "--model", help="Model to use")
 args = parser.parse_args()
 
-if not PR_REF_RE.match(args.pr):
+if match := PR_REF_RE.match(args.pr):
+    if match.group("owner") == "localstack" and match.group("repo") == "localstack-pro":
+        # set the token so we can access private repos
+        os.environ["GITHUB_TOKEN"] = sp.check_output(["gh", "auth", "token"]).decode().strip()
+else:
     error_log(f"Invalid PR ref '{args.pr}'. Example: localstack/localstack/12345")
 
 system_prompt = "You are a senior software engineer. Focus on issues that you find. Do not summarise the PR."
