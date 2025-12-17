@@ -105,7 +105,6 @@ cask "focusrite-control-2"
 
 cask "1password-cli"
 cask "1password"
-cask "antigravity"
 cask "betterdisplay"
 cask "blender"
 cask "brave-browser"
