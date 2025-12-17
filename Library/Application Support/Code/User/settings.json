@@ -402,4 +402,5 @@
   "cursorpyright.analysis.inlayHints.variableTypes": true,
   "cursorpyright.analysis.typeCheckingMode": "standard",
   "cursorpyright.nodeExecutable": "auto",
+  "cursor.cpp.enablePartialAccepts": true,
 }
