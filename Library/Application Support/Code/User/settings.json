@@ -382,7 +382,7 @@
   "window.autoDetectColorScheme": true,
   "excalidraw.theme": "auto",
   "python.analysis.nodeExecutable": "auto",
-  "workbench.preferredDarkColorTheme": "Monokai",
+  "workbench.preferredDarkColorTheme": "Catppuccin Macchiato",
   "workbench.preferredLightColorTheme": "Catppuccin Latte",
   "cursor.cpp.disabledLanguages": [
     "plaintext",

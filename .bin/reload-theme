@@ -51,7 +51,7 @@ def signal_editor_to_reload(*process_names: str):
 
 def reload_helix(theme: Theme):
     theme_file = Path.home() / ".config" / "helix" / "themes" / "adaptive.toml"
-    chosen_theme = "monokai_pro"
+    chosen_theme = "catppuccin_macchiato"
     if theme == Theme.light:
         chosen_theme = "onelight"
 
