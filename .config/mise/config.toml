@@ -5,6 +5,7 @@ rust = { version = "beta", components = "rust-src,rust-analyzer" }
 "cargo:https://github.com/simonrw/testsearch" = "branch:main"
 "go:github.com/simonrw/cert-info" = "0"
 "cargo:https://github.com/simonrw/listprojects" = "branch:main"
+"npm:@sourcegraph/amp" = "latest"
 
 [settings]
 experimental = true

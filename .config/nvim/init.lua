@@ -95,6 +95,7 @@ vim.pack.add({
     { src = "https://github.com/nvim-treesitter/nvim-treesitter-textobjects" },
     { src = "https://github.com/pwntester/octo.nvim" },
     { src = "https://github.com/folke/snacks.nvim" },
+    { src = "https://github.com/sourcegraph/amp.nvim" },
 })
 
 function parse_grep_nul(s)
@@ -595,6 +596,13 @@ vim.api.nvim_create_autocmd('User', {
                 },
             },
         })
+
+        require("amp").setup({
+            auto_start = true,
+            log_level = "info",
+        })
+
+        -- set up additional packages above this comment
     end,
 
     -- TODO: make this on file open/read
