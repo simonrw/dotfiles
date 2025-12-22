@@ -4,6 +4,10 @@
       "rev": "b14f4527bd5d5528cac33599f71ad542c2f38748",
       "src": "https://github.com/p00f/alabaster.nvim"
     },
+    "amp.nvim": {
+      "rev": "3b9ad5ef0328de1b35cc9bfa723a37db5daf9434",
+      "src": "https://github.com/sourcegraph/amp.nvim"
+    },
     "catppuccin": {
       "rev": "234fc048de93",
       "src": "https://github.com/catppuccin/nvim"
