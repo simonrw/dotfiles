@@ -8,21 +8,21 @@
 // from the command palette or from `Zed` application menu.
 {
   "edit_predictions": {
-    "mode": "eager"
+    "mode": "eager",
   },
   "show_edit_predictions": true,
   "disable_ai": false,
   "audio": {
-    "experimental.rodio_audio": true
+    "experimental.rodio_audio": true,
   },
   "calls": {
-    "mute_on_join": true
+    "mute_on_join": true,
   },
   "features": {
-    "edit_prediction_provider": "zed"
+    "edit_prediction_provider": "zed",
   },
   "preview_tabs": {
-    "enabled": false
+    "enabled": false,
   },
   "autosave": "on_focus_change",
   "ssh_connections": [
@@ -30,34 +30,34 @@
       "host": "mm",
       "projects": [
         {
-          "paths": ["~/work/localstack/cdk"]
+          "paths": ["~/work/localstack/cdk"],
         },
         {
-          "paths": ["~/work/localstack/localstack-ext"]
-        }
-      ]
-    }
+          "paths": ["~/work/localstack/localstack-ext"],
+        },
+      ],
+    },
   ],
   "theme": {
     "mode": "system",
     "light": "Catppuccin Latte",
-    "dark": "Catppuccin Macchiato"
+    "dark": "Catppuccin Macchiato",
   },
   "buffer_font_family": "JetBrainsMono Nerd Font",
   "buffer_font_weight": 700,
   "buffer_font_size": 14,
   "buffer_font_features": {
     // disable ligatures
-    "calt": false
+    "calt": false,
   },
   "vim_mode": true,
   "vim": {
     "use_smartcase_find": true,
-    "use_system_clipboard": "on_yank"
+    "use_system_clipboard": "on_yank",
   },
   "indent_guides": {
     "enabled": true,
-    "coloring": "indent_aware"
+    "coloring": "indent_aware",
   },
   "relative_line_numbers": "enabled",
   "show_wrap_guides": true,
@@ -65,19 +65,19 @@
   "cursor_blink": false,
   "use_autoclose": false,
   "gutter": {
-    "line_numbers": true,
-    "folds": false
+    "line_numbers": false,
+    "folds": false,
   },
   "scrollbar": { "show": "never" },
   "toolbar": {
-    "quick_actions": false
+    "quick_actions": false,
   },
   "terminal": {
     "detect_venv": "off",
-    "font_weight": 700
+    "font_weight": 700,
   },
   "tab_bar": {
-    "show": false
+    "show": false,
   },
   "agent": {
     "always_allow_tool_actions": true,
@@ -85,26 +85,26 @@
       "provider": "openrouter",
       "model": "openai/gpt-5.1-codex"
     },
-    "model_parameters": []
+    "model_parameters": [],
   },
   "telemetry": {
     "diagnostics": false,
-    "metrics": false
+    "metrics": false,
   },
   "git": {
     "inline_blame": {
-      "enabled": false
-    }
+      "enabled": false,
+    },
   },
   "lsp": {
     "rust-analyzer": {
       "initialization_options": {
-        "checkOnSave": true
-      }
-    }
+        "checkOnSave": true,
+      },
+    },
   },
   "inlay_hints": {
-    "enabled": false
+    "enabled": false,
   },
   "format_on_save": "on",
   "languages": {
@@ -122,6 +122,6 @@
     "dockerfile": true,
     "terraform": true,
     "ruff": true,
-    "wit": true
-  }
+    "wit": true,
+  },
 }
