@@ -1,10 +1,21 @@
 [tools]
+go = "latest"
 rust = { version = "beta", components = "rust-src,rust-analyzer" }
 "cargo:https://github.com/simonrw/cftail" = "branch:main"
-"cargo:https://github.com/cloudflare/networkquality-rs" = "branch:main"
 "cargo:https://github.com/simonrw/testsearch" = "branch:main"
 "go:github.com/simonrw/cert-info" = "0"
+"github:atuinsh/atuin" = { version = "latest", os = ["linux"] }
+"github:jj-vcs/jj" = { version = "latest", os = ["linux"] }
 "cargo:https://github.com/simonrw/listprojects" = "branch:main"
+"github:tmux/tmux-builds" = { version = "latest", os = ["linux"] }
+
+[tools."github:MordechaiHadad/bob"]
+version = "latest"
+os = ["linux"]
+
+[tools."github:MordechaiHadad/bob".platforms]
+linux-x64 = { asset_pattern = "bob-linux-x86_64-openssl.zip" }
+macos-arm64 = { asset_pattern = "bob-macos-arm.zip" }
 
 [settings]
 experimental = true

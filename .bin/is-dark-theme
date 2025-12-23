@@ -1,0 +1,28 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+case $OSTYPE in
+    darwin*)
+        if defaults read -g AppleInterfaceStyle >/dev/null 2>&1; then
+            exit 0
+        fi
+        ;;
+    *)
+        # GNOME/Ubuntu: gsettings color-scheme or gtk-theme
+        if type gsettings >/dev/null 2>&1; then
+            colorscheme=$(gsettings get org.gnome.desktop.interface color-scheme 2>/dev/null | tr -d "'")
+            if [[ "$colorscheme" == *dark* || "$colorscheme" == *default* ]]; then
+                exit 0
+            fi
+
+            gtktheme=$(gsettings get org.gnome.desktop.interface gtk-theme 2>/dev/null | tr -d "'")
+            if [[ "$gtktheme" == *dark* ]]; then
+                exit 0
+            fi
+        fi
+
+        # Default to light
+        exit 1
+        ;;
+esac

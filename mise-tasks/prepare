@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+#MISE description="Prepare system"
+ 
+set -euo pipefail
+
+if echo $OSTYPE | grep -q darwin; then
+    echo "Only works for ubuntu" >&2
+    exit 0
+fi
+
+if cat /etc/lsb-release  | grep DISTRIB_ID | grep -qvi ubuntu; then
+    echo "Only works for ubuntu" >&2
+    exit 0
+fi
+
+echo "Installing dependencies"
+sudo apt update && sudo apt install -y git curl ansible

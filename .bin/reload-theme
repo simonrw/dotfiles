@@ -6,6 +6,7 @@ from pathlib import Path
 from enum import Enum, auto
 from configparser import ConfigParser
 from concurrent.futures import ThreadPoolExecutor, as_completed
+from platform import platform
 
 
 class Theme(Enum):
@@ -18,17 +19,61 @@ class ThemeSwitcher(Protocol):
 
 
 def current_theme() -> Theme:
-    try:
-        output = sp.check_output(
-            ["defaults", "read", "NSGlobalDomain", "AppleInterfaceStyle"]
-        )
-    except sp.CalledProcessError:
+    import sys
+
+    # MacOS: use 'defaults'
+    if sys.platform == "darwin":
+        try:
+            output = sp.check_output(
+                ["defaults", "read", "NSGlobalDomain", "AppleInterfaceStyle"]
+            )
+            if output.decode().strip().lower() == "dark":
+                return Theme.dark
+        except sp.CalledProcessError:
+            # If the key doesn't exist or light mode is set, treat as light
+            return Theme.light
         return Theme.light
 
-    if output.decode().strip().lower() == "dark":
-        return Theme.dark
+    # Ubuntu with GNOME: check gsettings color-scheme
+    if sys.platform.startswith("linux"):
+        try:
+            output = sp.check_output(
+                [
+                    "gsettings",
+                    "get",
+                    "org.gnome.desktop.interface",
+                    "color-scheme",
+                ]
+            )
+            val = output.decode().strip().lower().replace("'", "")
+            # Possible values: 'default', 'prefer-dark', 'prefer-light'
+            if "dark" in val:
+                return Theme.dark
+            if "light" in val:
+                return Theme.light
+        except (sp.CalledProcessError, FileNotFoundError):
+            # gsettings not present, or schema not available
+            pass
 
-    return Theme.light
+        # Fallback: try gtk-theme, which may end in '-dark', commonly
+        try:
+            output = sp.check_output(
+                [
+                    "gsettings",
+                    "get",
+                    "org.gnome.desktop.interface",
+                    "gtk-theme",
+                ]
+            )
+            val = output.decode().strip().lower().replace("'", "")
+            if val.endswith("-dark") or "dark" in val:
+                return Theme.dark
+        except (sp.CalledProcessError, FileNotFoundError):
+            pass
+        return Theme.light
+
+    # Fallback to dark by default
+    return Theme.dark
 
 
 def reload_tmux(theme: Theme):

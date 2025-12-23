@@ -1,6 +1,6 @@
 aliases:
-  inbox: api notifications --template '{{range .}}{{tablerow .subject.title .subject.url}}{{end}}'
-  review-requests: search prs --owner localstack --review-requested @me --state open
+    inbox: api notifications --template '{{range .}}{{tablerow .subject.title .subject.url}}{{end}}'
+    review-requests: search prs --owner localstack --review-requested @me --state open
 editor: ''
 git_protocol: ssh
 pager: delta

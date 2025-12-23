@@ -1,6 +1,5 @@
 alias add-keys='ssh-add $(find ~/.ssh - maxdepth 1 - type f - name "id_rsa*" | grep - v pub | grep - v bak)'
 alias c=cargo
-alias cat=bat
 alias clear-pycs='find { $PWD } -name '\''*.pyc'\'' -delete'
 alias es='exec $SHELL'
 alias eza='eza --group-directories-first --header'
@@ -13,13 +12,11 @@ alias grep=rg
 alias gs=gss  # This command shadows ghostscript but if I alias it it only affects my interactive shell 
 alias k=kubectl
 alias la='eza -a'
-alias less=bat
 alias ll='eza -l'
 alias lla='eza -la'
 alias lr=thor
 alias ls=eza
 alias lt='eza --tree'
-alias more=bat
 alias notes='open -a Emacs ~/notes.org'
 alias ntfy=notify-wrapper
 alias nvim=nvim
@@ -36,3 +33,18 @@ alias vim=nvim
 alias vimdiff='nvim -d'
 alias vup='nvim --headless "+Lazy! sync" +qa'
 alias watch=viddy
+
+# handle os specific binaries
+case $OSTYPE in
+    darwin*)
+        alias cat=bat
+        alias less=bat
+        alias more=bat
+        ;;
+    *)
+        alias bat=batcat
+        alias cat=batcat
+        alias less=batcat
+        alias more=batcat
+        ;;
+esac
