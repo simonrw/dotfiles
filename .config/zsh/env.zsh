@@ -2,11 +2,7 @@ export LANG="en_GB.UTF-8"
 export LC_ALL="en_GB.UTF-8"
 export LC_CTYPE="en_GB.UTF-8"
 
-function __is_dark_theme() {
-    defaults read -g AppleInterfaceStyle >/dev/null 2>&1
-}
-
-if __is_dark_theme; then
+if $HOME/.bin/is-dark-theme; then
     export __IS_DARK_THEME=1
 else
     export __IS_DARK_THEME=0

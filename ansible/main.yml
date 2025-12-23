@@ -1,0 +1,41 @@
+---
+- name: Install dependencies
+  hosts: localhost
+  become: yes
+  vars_files:
+    - packages.yml
+  tasks:
+    - name: Set user variable
+      set_fact:
+        ansible_target_user: "{{ lookup('env', 'USER') | default('simon', true) }}"
+
+    - name: Ensure /etc/apt/keyrings directory exists
+      file:
+        path: /etc/apt/keyrings
+        state: directory
+        mode: '0755'
+
+    - name: Add APT keys
+      get_url:
+        url: "{{ item.url }}"
+        dest: "{{ item.keyring }}"
+        mode: '0644'
+      loop: "{{ apt_keys | default([]) }}"
+
+    - name: Add APT repositories
+      apt_repository:
+        repo: "{{ item.repo }}"
+        filename: "{{ item.filename }}"
+        state: present
+      loop: "{{ apt_repositories | default([]) }}"
+
+    - name: Install packages
+      apt:
+        name: "{{ packages }}"
+        state: present
+        update_cache: yes
+
+    - name: Update default shell to /usr/bin/zsh
+      user:
+        name: "{{ ansible_target_user }}"
+        shell: /usr/bin/zsh

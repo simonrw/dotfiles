@@ -1,0 +1,27 @@
+---
+apt_keys:
+  - url: https://mise.jdx.dev/gpg-key.pub
+    keyring: /etc/apt/keyrings/mise.gpg
+
+apt_repositories:
+  - repo: "deb [signed-by=/etc/apt/keyrings/mise-archive-keyring.pub arch=amd64] https://mise.jdx.dev/deb stable main"
+    filename: mise
+
+packages:
+
+  - bat
+  - build-essential
+  - curl
+  - eza
+  - fzf
+  - gh
+  - git-delta
+  - htop
+  - htop
+  - mise
+  - ripgrep
+  - stow
+  - tmux
+  - zsh
+  - zsh-autosuggestions
+  - zsh-syntax-highlighting

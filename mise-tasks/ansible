@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+#MISE description="Provision system with ansible"
+ 
+set -euo pipefail
+
+if echo $OSTYPE | grep -q darwin; then
+    echo "Only works for ubuntu" >&2
+    exit 0
+fi
+
+if ! command -v ansible >/dev/null; then
+    bash "$(dirname $(readlink -f $0))/prepare"
+fi
+
+ansible-playbook --ask-become-pass ansible/main.yml
+
