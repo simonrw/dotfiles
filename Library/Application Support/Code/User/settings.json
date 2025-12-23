@@ -403,4 +403,5 @@
   "cursorpyright.analysis.typeCheckingMode": "standard",
   "cursorpyright.nodeExecutable": "auto",
   "cursor.cpp.enablePartialAccepts": true,
+  "remote.autoForwardPortsSource": "hybrid",
 }
