@@ -13,11 +13,15 @@ packages:
   - build-essential
   - curl
   - eza
+  - fzf
   - gh
+  - git-delta
+  - htop
   - htop
   - mise
   - ripgrep
   - stow
+  - tmux
   - zsh
   - zsh-autosuggestions
   - zsh-syntax-highlighting
