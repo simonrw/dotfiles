@@ -167,7 +167,7 @@
   "editor.semanticHighlighting.enabled": true,
   "diffEditor.ignoreTrimWhitespace": false,
   "zig.zls.path": "zls",
-  "editor.lineNumbers": "relative",
+  "editor.lineNumbers": "off",
   "githubPullRequests.pullBranch": "never",
   "git.openRepositoryInParentFolders": "always",
   "remote.SSH.remotePlatform": {
