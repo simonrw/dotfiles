@@ -35,6 +35,10 @@
         state: present
         update_cache: yes
 
+    - name: Install snaps
+      community.general.snap:
+        name: "{{ snaps }}"
+
     - name: Update default shell to /usr/bin/zsh
       user:
         name: "{{ ansible_target_user }}"
