@@ -1,7 +1,7 @@
 vim.loader.enable(true)
 
 local function is_dark_mode()
-    local cmd = "defaults read -g AppleInterfaceStyle >/dev/null 2>&1"
+    local cmd = "~/.bin/is-dark-theme"
     return os.execute(cmd) == 0
 end
 
