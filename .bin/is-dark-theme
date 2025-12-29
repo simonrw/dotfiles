@@ -6,6 +6,8 @@ case $OSTYPE in
     darwin*)
         if defaults read -g AppleInterfaceStyle >/dev/null 2>&1; then
             exit 0
+        else
+            exit 1
         fi
         ;;
     *)
