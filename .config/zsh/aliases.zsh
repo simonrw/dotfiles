@@ -44,6 +44,7 @@ case $OSTYPE in
     *)
         alias bat=batcat
         alias cat=batcat
+        alias fd=fdfind
         alias less=batcat
         alias more=batcat
         ;;
