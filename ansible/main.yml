@@ -43,3 +43,14 @@
       user:
         name: "{{ ansible_target_user }}"
         shell: /usr/bin/zsh
+
+    - name: Create ~/.local/bin
+      ansible.builtin.file:
+        dest: "/home/{{ ansible_target_user }}/.local/bin"
+        state: directory
+
+    - name: Create fd symlink
+      ansible.builtin.file:
+        src: /usr/bin/fdfind
+        dest: "/home/{{ ansible_target_user }}/.local/bin/fd"
+        state: link
