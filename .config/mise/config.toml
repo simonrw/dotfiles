@@ -8,6 +8,7 @@ rust = { version = "beta", components = "rust-src,rust-analyzer" }
 "github:jj-vcs/jj" = { version = "latest", os = ["linux"] }
 "cargo:https://github.com/simonrw/listprojects" = "branch:main"
 "github:tmux/tmux-builds" = { version = "latest", os = ["linux"] }
+fzf = { version = "latest", os = ["linux"] }
 
 [tools."github:MordechaiHadad/bob"]
 version = "latest"
