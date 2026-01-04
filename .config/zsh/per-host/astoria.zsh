@@ -1,5 +1,5 @@
-# use my external HDD for cargo builds and go package downloads
-__LOCATION=/Volumes/External
+# use the external drive for cargo builds and go package downloads
+__LOCATION=/mnt/data
 
 if test -d ${__LOCATION}; then
     export CARGO_TARGET_DIR=${__LOCATION}/cargo-target
@@ -8,3 +8,4 @@ if test -d ${__LOCATION}; then
     export GOPATH=${__LOCATION}/gocode
     export PATH=${CARGO_HOME}/bin:${GOPATH}/bin:${PATH}
 fi
+
