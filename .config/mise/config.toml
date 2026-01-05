@@ -11,6 +11,7 @@ rust = { version = "beta", components = "rust-src,rust-analyzer" }
 fzf = { version = "latest", os = ["linux"] }
 node = { version = "lts", os = ["linux"] }
 "npm:@anthropic-ai/claude-code" = { version = "latest", os = ["linux"] }
+"github:sachaos/viddy" = { version = "latest", os = ["linux"] }
 
 [tools."github:MordechaiHadad/bob"]
 version = "latest"
