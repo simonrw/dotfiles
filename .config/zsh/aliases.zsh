@@ -42,9 +42,5 @@ case $OSTYPE in
         alias more=bat
         ;;
     *)
-        alias bat=batcat
-        alias cat=batcat
-        alias less=batcat
-        alias more=batcat
         ;;
 esac

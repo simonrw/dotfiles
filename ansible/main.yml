@@ -55,6 +55,8 @@
       ansible.builtin.file:
         dest: "/home/{{ ansible_target_user }}/.local/bin"
         state: directory
+        owner: "{{ ansible_target_user }}"
+        group: "{{ ansible_target_user }}"
 
     - name: Create fd symlink
       ansible.builtin.file:
@@ -71,3 +73,13 @@
       become: yes
       ansible.builtin.apt:
         deb: /tmp/ghostty_{{ ghostty_version }}.ppa1_amd64_24.04.deb
+
+    - name: Download zed installer
+      ansible.builtin.get_url:
+        url: https://zed.dev/install.sh
+        dest: /tmp/zed-install.sh
+
+    - name: Install zed
+      ansible.builtin.command: sh /tmp/zed-install.sh
+      args:
+        creates: "/home/{{ ansible_target_user }}/.local/bin/zed"
