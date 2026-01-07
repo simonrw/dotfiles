@@ -18,6 +18,8 @@ packages:
   - git-delta
   - htop
   - htop
+  - liblua5.4-dev
+  - lua5.4
   - mise
   - ripgrep
   - stow
