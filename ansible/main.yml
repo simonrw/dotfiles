@@ -1,21 +1,24 @@
 ---
 - name: Install dependencies
   hosts: localhost
-  become: yes
   vars_files:
     - packages.yml
+    - vars.yml
   tasks:
+
     - name: Set user variable
       set_fact:
         ansible_target_user: "{{ lookup('env', 'USER') | default('simon', true) }}"
 
     - name: Ensure /etc/apt/keyrings directory exists
+      become: true
       file:
         path: /etc/apt/keyrings
         state: directory
         mode: '0755'
 
     - name: Add APT keys
+      become: true
       get_url:
         url: "{{ item.url }}"
         dest: "{{ item.keyring }}"
@@ -23,6 +26,7 @@
       loop: "{{ apt_keys | default([]) }}"
 
     - name: Add APT repositories
+      become: true
       apt_repository:
         repo: "{{ item.repo }}"
         filename: "{{ item.filename }}"
@@ -30,16 +34,19 @@
       loop: "{{ apt_repositories | default([]) }}"
 
     - name: Install packages
+      become: true
       apt:
         name: "{{ packages }}"
         state: present
         update_cache: yes
 
     - name: Install snaps
+      become: true
       community.general.snap:
         name: "{{ snaps }}"
 
     - name: Update default shell to /usr/bin/zsh
+      become: true
       user:
         name: "{{ ansible_target_user }}"
         shell: /usr/bin/zsh
@@ -54,3 +61,13 @@
         src: /usr/bin/fdfind
         dest: "/home/{{ ansible_target_user }}/.local/bin/fd"
         state: link
+
+    - name: Download ghostty .deb
+      ansible.builtin.get_url:
+        url: "https://github.com/mkasberg/ghostty-ubuntu/releases/download/{{ ghostty_version }}-ppa1/ghostty_{{ ghostty_version }}.ppa1_amd64_24.04.deb"
+        dest: /tmp/ghostty_{{ ghostty_version }}.ppa1_amd64_24.04.deb
+
+    - name: Install ghostty deb
+      become: yes
+      ansible.builtin.apt:
+        deb: /tmp/ghostty_{{ ghostty_version }}.ppa1_amd64_24.04.deb
