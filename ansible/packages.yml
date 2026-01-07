@@ -9,7 +9,6 @@ apt_repositories:
 
 packages:
 
-  - bat
   - build-essential
   - curl
   - eza
