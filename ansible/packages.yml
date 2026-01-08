@@ -20,6 +20,7 @@ packages:
   - liblua5.4-dev
   - lua5.4
   - mise
+  - podman
   - ripgrep
   - stow
   - tmux
