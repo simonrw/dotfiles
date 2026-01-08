@@ -13,6 +13,7 @@ node = { version = "lts", os = ["linux"] }
 "npm:@anthropic-ai/claude-code" = { version = "latest", os = ["linux"] }
 "github:sachaos/viddy" = { version = "latest", os = ["linux"] }
 "github:sharkdp/bat" = { version = "latest", os = ["linux"] }
+"github:bootandy/dust" = { version = "latest", os = ["linux"] }
 
 [tools."github:MordechaiHadad/bob"]
 version = "latest"
