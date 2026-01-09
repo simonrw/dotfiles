@@ -86,6 +86,7 @@
 	preloadindex = true
 	safecrlf = true
 	whitespace = "fix"
+	commentChar = $
 
 [credential]
 	helper = "osxkeychain"
