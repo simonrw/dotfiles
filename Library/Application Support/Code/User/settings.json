@@ -406,4 +406,5 @@
   "remote.autoForwardPortsSource": "hybrid",
   "claudeCode.preferredLocation": "sidebar",
   "claudeCode.selectedModel": "opus",
+  "git.autofetch": true,
 }
