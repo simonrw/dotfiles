@@ -21,6 +21,7 @@ packages:
   - lua5.4
   - mise
   - podman
+  - qemu-system
   - ripgrep
   - stow
   - tmux
