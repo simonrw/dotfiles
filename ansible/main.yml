@@ -10,6 +10,13 @@
       set_fact:
         ansible_target_user: "{{ lookup('env', 'USER') | default('simon', true) }}"
 
+    - name: Configure user
+      become: true
+      ansible.builtin.user:
+        name: "{{ ansible_target_user }}"
+        groups: adm,cdrom,sudo,dip,plugdev,users,lpadmin,docker,kvm,libvirt,sudo
+        shell: /usr/bin/zsh
+
     - name: Ensure /etc/apt/keyrings directory exists
       become: true
       file:
@@ -44,12 +51,6 @@
       become: true
       community.general.snap:
         name: "{{ snaps }}"
-
-    - name: Update default shell to /usr/bin/zsh
-      become: true
-      user:
-        name: "{{ ansible_target_user }}"
-        shell: /usr/bin/zsh
 
     - name: Create ~/.local/bin
       ansible.builtin.file:
