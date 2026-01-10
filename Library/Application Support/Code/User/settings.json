@@ -338,7 +338,7 @@
   "editor.formatOnSave": true,
   "workbench.layoutControl.enabled": false,
   "cmake.showOptionsMovedNotification": false,
-  "workbench.iconTheme": "catppuccin-macchiato",
+  "workbench.iconTheme": "catppuccin-mocha",
   "zig.path": "zig",
   "zig.initialSetupDone": true,
   "githubPullRequests.pushBranch": "always",
@@ -381,7 +381,7 @@
   "window.autoDetectColorScheme": true,
   "excalidraw.theme": "auto",
   "python.analysis.nodeExecutable": "auto",
-  "workbench.preferredDarkColorTheme": "Catppuccin Macchiato",
+  "workbench.preferredDarkColorTheme": "Catppuccin Mocha",
   "workbench.preferredLightColorTheme": "Catppuccin Latte",
   "cursor.cpp.disabledLanguages": [
     "plaintext",
