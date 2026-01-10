@@ -404,4 +404,6 @@
   "cursorpyright.nodeExecutable": "auto",
   "cursor.cpp.enablePartialAccepts": true,
   "remote.autoForwardPortsSource": "hybrid",
+  "claudeCode.preferredLocation": "sidebar",
+  "claudeCode.selectedModel": "opus",
 }
