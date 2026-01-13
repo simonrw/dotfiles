@@ -19,7 +19,6 @@ alias ls=eza
 alias lt='eza --tree'
 alias notes='open -a Emacs ~/notes.org'
 alias ntfy=notify-wrapper
-alias nvim=nvim
 alias project=listprojects
 alias ptl='pytest $(testsearch rerun -l)'
 alias pts='pytest $(testsearch)'
