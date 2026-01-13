@@ -3,7 +3,7 @@ default-command = "status"
 pager = "delta"
 diff-editor = ":builtin"
 diff-formatter = ":git"
-merge-editor = "vscode"
+merge-editor = ":builtin"
 
 [git]
 # Add git compatible change id header
