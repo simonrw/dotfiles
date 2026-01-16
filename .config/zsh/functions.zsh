@@ -10,8 +10,8 @@ function tcd() {
 
 function session-history() {
     if test -z "${TMUX:-}"; then
-        builtin cd $(command zoxide query --interactive)
+        builtin cd $(command zoxide query --list | fzf)
     else
-        builtin cd $(command zoxide query --interactive)
+        builtin cd $(command zoxide query --list | fzf)
     fi
 }
