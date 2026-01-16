@@ -116,15 +116,14 @@
 (use-package magit
   :ensure t)
 
-(use-package evil-collection
-  :after evil
+(use-package evil
   :ensure t
+  :init
+  (setq evil-want-integration t) ;; This is optional since it's already set to t by default.
+  (setq evil-want-keybinding nil)
   :config
-  (evil-collection-init))
-
-(defun srw/load-config ()
-  (interactive)
-  (load-file "~/.config/emacs/init.el"))
+  (evil-mode)
+  (evil-set-initial-state 'vterm-mode 'emacs))
 
 (use-package evil-leader
   :ensure t
@@ -136,22 +135,21 @@
     "o" 'srw/load-config)
   (global-evil-leader-mode))
 
+(defun srw/load-config ()
+  (interactive)
+  (load-file "~/.config/emacs/init.el"))
+
+(use-package evil-collection
+  :after evil
+  :ensure t
+  :config
+  (evil-collection-init))
 
 (keymap-global-set "C-c a" #'org-agenda)
 
 (with-eval-after-load 'org
   (setq org-startup-indented nil)
   (add-hook 'org-mode-hook #'visual-line-mode))
-
-(use-package evil
-  :after evil-leader
-  :ensure t
-  :init
-  (setq evil-want-integration t) ;; This is optional since it's already set to t by default.
-  (setq evil-want-keybinding nil)
-  :config
-  (evil-mode)
-  (evil-set-initial-state 'vterm-mode 'emacs))
 
 ;; org mode configuration
 (use-package evil-org
