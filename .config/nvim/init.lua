@@ -328,17 +328,6 @@ vim.api.nvim_create_autocmd('FileType', {
 })
 
 
--- configure rust-analyzer
-vim.lsp.config('rust_analyzer', {
-    settings = {
-        ['rust-analyzer'] = {
-            cargo = {
-                allFeatures = true,
-            },
-        },
-    },
-})
-
 -- configure my cfn-lsp lsp
 vim.lsp.config["cfn-lsp"] = {
     cmd = { "cfn-lsp" },
