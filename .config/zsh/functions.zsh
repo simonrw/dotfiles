@@ -15,3 +15,7 @@ function session-history() {
         builtin cd $(command zoxide query --list | fzf)
     fi
 }
+
+function project() {
+    z $(listprojects --list | fzf)
+}
