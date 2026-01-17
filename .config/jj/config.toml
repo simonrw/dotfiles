@@ -5,6 +5,8 @@ diff-editor = ":builtin"
 diff-formatter = ":git"
 merge-editor = ":builtin"
 
+
+
 [git]
 # Add git compatible change id header
 # source: https://oppi.li/posts/configuring_jujutsu/
@@ -84,6 +86,12 @@ pr-checkout = ["util", "exec", "--", "bash", "-c", """
 set -euo pipefail
 jj git fetch --quiet
 jj new $(gh pr view "$1" --json headRefName -q .headRefName)
+""", ""]
+z = ["fuzzy_bookmark"]
+za = ["bookmark", "list", "-a"]
+
+fuzzy_bookmark = ["util", "exec", "--", "sh", "-c", """
+  jj bookmark list --sort committer-date -a -T 'separate("@", name, remote) ++ "\n"' 2>/dev/null | fzf --no-sort --ansi --select-1 --exit-0 | xargs jj new
 """, ""]
 
 [templates]
