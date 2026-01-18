@@ -64,7 +64,6 @@ brew "ruff-lsp"  # also installs ruff
 brew "sqlite3"
 brew "stow"
 brew "television"
-brew "tmux"
 brew "tokei"
 brew "universal-ctags"
 brew "uv"
