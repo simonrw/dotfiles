@@ -25,3 +25,4 @@
 ^/.config/helix/themes/adaptive.toml
 \.DS_Store
 ^/ansible
+^\.jj
