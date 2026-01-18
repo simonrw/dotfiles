@@ -76,12 +76,6 @@ def current_theme() -> Theme:
     return Theme.dark
 
 
-def reload_tmux(theme: Theme):
-    sp.check_call(
-        ["tmux", "source-file", str(Path.home() / ".config" / "tmux" / "tmux.conf")]
-    )
-
-
 def signal_editor_to_reload(*process_names: str):
     for process_name in process_names:
         try:
@@ -141,7 +135,6 @@ def reload_gh_dash(theme: Theme):
 theme = current_theme()
 
 switchers: list[ThemeSwitcher] = [
-    reload_tmux,
     reload_helix,
     reload_neovim,
     reload_git,
