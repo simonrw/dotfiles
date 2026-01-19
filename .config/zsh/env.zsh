@@ -74,6 +74,7 @@ fi
 export MISE_PIPX_UVX=true
 
 export HOMEBREW_NO_ANALYTICS=1
+export HOMEBREW_NO_AUTO_UPDATE=1
 
 # Configure SSH agent to start on boot
 if [ -f ~/.ssh/agent.env ]; then
