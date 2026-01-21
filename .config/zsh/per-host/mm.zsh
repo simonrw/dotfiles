@@ -2,7 +2,7 @@
 __LOCATION=/Volumes/External
 
 if test -d ${__LOCATION}; then
-    export CARGO_TARGET_DIR=${__LOCATION}/cargo-target
+    export CARGO_TARGET_DIR=${__LOCATION}/cargo-target/$(cargo_target_dir)
     export CARGO_HOME=${__LOCATION}/cargo-home
     export RUSTUP_HOME=${__LOCATION}/rustup-home
     export GOPATH=${__LOCATION}/gocode
