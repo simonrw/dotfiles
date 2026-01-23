@@ -62,6 +62,7 @@ brew "python"
 brew "qemu"
 brew "reattach-to-user-namespace"
 brew "ripgrep"
+brew "rlwrap"
 brew "rsync"
 brew "ruff-lsp"  # also installs ruff
 brew "sqlite3"
