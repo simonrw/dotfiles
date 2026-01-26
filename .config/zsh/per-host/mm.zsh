@@ -7,4 +7,5 @@ if test -d ${__LOCATION}; then
     export RUSTUP_HOME=${__LOCATION}/rustup-home
     export GOPATH=${__LOCATION}/gocode
     export PATH=${CARGO_HOME}/bin:${GOPATH}/bin:${PATH}
+    export COLIMA_HOME=${__LOCATION}/colima
 fi
