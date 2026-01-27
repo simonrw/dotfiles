@@ -1,5 +1,5 @@
 ---
-allowed-tools: Bash(jj status:*), Bash(jj diff:*), Bash(jj current-bookmark:*), Bash(jj diff-base:*), Bash(jj log:*), Bash(jj commit:*)
+allowed-tools: Bash(jj status:*), Bash(jj diff:*), Bash(jj current-bookmark:*), Bash(jj diff-base:*), Bash(jj log:*), Bash(jj commit:*), Bash(jj describe:*), Bash(jj show:*)
 description: Create a commit with jj
 ---
 
