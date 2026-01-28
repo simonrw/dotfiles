@@ -48,7 +48,7 @@ export MANPATH=/opt/homebrew/share/man:$MANPATH
 
 export BUILD_PREFIX=${HOME}/.local
 export GOPATH=${HOME}/dev/gocode
-export PATH=/opt/homebrew/opt/gnu-sed/libexec/gnubin:${BUILD_PREFIX}/bin:${HOME}/.bin:${HOME}/.local/share/bob/nvim-bin:/usr/local/bin:${HOME}/.cargo/bin:${HOME}/bin:${GOPATH}/bin:${HOME}/.npm-packages/bin:${PATH}:$HOME/Applications/PyCharm.app/Contents/MacOS:/opt/homebrew/opt/grep/libexec/gnubin:/opt/homebrew/opt/curl/bin:/opt/homebrew/opt/make/libexec/gnubin:/opt/homebrew/opt/coreutils/libexec/gnubin:/opt/homebrew/opt/sqlite/bin:/opt/homebrew/bin:$HOME/.rd/bin:${HOME}/.antigravity/antigravity/bin
+export PATH=/opt/homebrew/opt/gnu-sed/libexec/gnubin:${BUILD_PREFIX}/bin:${HOME}/.bin:${HOME}/.local/share/bob/nvim-bin:/usr/local/bin:${HOME}/.cargo/bin:${HOME}/bin:${GOPATH}/bin:${HOME}/.npm-packages/bin:/opt/homebrew/bin:/opt/homebrew/sbin:${PATH}:$HOME/Applications/PyCharm.app/Contents/MacOS:/opt/homebrew/opt/grep/libexec/gnubin:/opt/homebrew/opt/curl/bin:/opt/homebrew/opt/make/libexec/gnubin:/opt/homebrew/opt/coreutils/libexec/gnubin:/opt/homebrew/opt/sqlite/bin:$HOME/.rd/bin:${HOME}/.antigravity/antigravity/bin
 fpath=($HOME/.config/zsh/func $HOME/.config/zsh/completion $fpath /opt/homebrew/share/zsh/site-functions)
 typeset -U fpath
 export REVIEW_BASE=main
