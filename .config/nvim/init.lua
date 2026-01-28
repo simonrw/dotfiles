@@ -347,7 +347,7 @@ vim.lsp.enable({
 
 local function load_theme()
     if vim.g.is_dark_mode then
-        vim.cmd.colorscheme "catppuccin-mocha"
+        vim.cmd.colorscheme "catppuccin-macchiato"
 
         vim.cmd.highlight({ "TreesitterContextBottom", "gui=none" })
         vim.cmd.highlight({ "CursorLine", "guibg=#303347" })
