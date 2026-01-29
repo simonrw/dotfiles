@@ -406,9 +406,10 @@ vim.keymap.set("n", "ta", function()
 end, { noremap = true, silent = true, desc = "Run the whole test suite" })
 
 -- custom command to run test on AWS (LocalStack test)
-vim.api.nvim_create_user_command("AwsTestNearest", function()
-    vim.cmd([[TestNearest TEST_TARGET=AWS_CLOUD AWS_PROFILE=ls-sandbox SNAPSHOT_UPDATE=1]])
-end, {})
+vim.api.nvim_create_user_command("AwsTestNearest",
+    "TestNearest TEST_TARGET=AWS_CLOUD AWS_PROFILE=ls-sandbox SNAPSHOT_UPDATE=1 <args>", {
+    nargs = "*",
+})
 
 -- lsp bindings
 -- remove default lsp bindings
