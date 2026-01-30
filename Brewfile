@@ -1,5 +1,6 @@
 # Taps
 
+tap "oven-sh/bun"
 tap "pulumi/tap"
 tap "railwaycat/emacsmacport"
 
@@ -55,6 +56,7 @@ brew "mkcert"
 brew "ncdu"
 brew "node"
 brew "opencode"
+brew "oven-sh/bun/bun"
 brew "pandoc"
 brew "pkg-config"
 brew "pstree"
