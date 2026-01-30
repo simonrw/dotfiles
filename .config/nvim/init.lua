@@ -74,27 +74,212 @@ vim.keymap.set('n', '<leader>o', ':update<Cr> :source ~/.config/nvim/init.lua<Cr
 vim.keymap.set('n', '<leader>w', ':update<Cr>')
 vim.keymap.set('n', '<leader>q', ':quit<Cr>')
 
-vim.pack.add({
-    { src = "https://github.com/stevearc/oil.nvim" },
-    -- dependency of telescope
-    { src = "https://github.com/nvim-lua/plenary.nvim" },
-    { src = "https://github.com/catppuccin/nvim",                            name = "catppuccin" },
-    { src = "https://github.com/projekt0n/github-nvim-theme" },
-    { src = 'https://github.com/neovim/nvim-lspconfig' },
-    { src = "https://github.com/nvim-treesitter/nvim-treesitter",            version = "master" },
-    { src = "https://github.com/tpope/vim-fugitive" },
-    { src = "https://github.com/tpope/vim-surround" },
-    { src = "https://github.com/tpope/vim-repeat" },
-    { src = "https://github.com/christoomey/vim-conflicted" },
-    { src = "https://github.com/tpope/vim-rhubarb" },
-    { src = "https://github.com/lewis6991/gitsigns.nvim" },
-    { src = "https://github.com/nvim-treesitter/nvim-treesitter-context" },
-    { src = "https://github.com/vim-test/vim-test" },
-    { src = "https://github.com/MeanderingProgrammer/render-markdown.nvim" },
-    { src = "https://github.com/folke/zen-mode.nvim" },
-    { src = "https://github.com/nvim-treesitter/nvim-treesitter-textobjects" },
-    { src = "https://github.com/pwntester/octo.nvim" },
-    { src = "https://github.com/folke/snacks.nvim" },
+-- Bootstrap lazy.nvim
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+if not (vim.uv or vim.loop).fs_stat(lazypath) then
+    local lazyrepo = "https://github.com/folke/lazy.nvim.git"
+    local out = vim.fn.system({ "git", "clone", "--filter=blob:none", "--branch=stable", lazyrepo, lazypath })
+    if vim.v.shell_error ~= 0 then
+        vim.api.nvim_echo({
+            { "Failed to clone lazy.nvim:\n", "ErrorMsg" },
+            { out,                            "WarningMsg" },
+            { "\nPress any key to exit..." },
+        }, true, {})
+        vim.fn.getchar()
+        os.exit(1)
+    end
+end
+vim.opt.rtp:prepend(lazypath)
+
+require("lazy").setup({
+    spec = {
+        {
+            'stevearc/oil.nvim',
+            opts = {},
+            dependencies = { { "nvim-mini/mini.icons", opts = {} } },
+            lazy = false,
+        },
+        { "catppuccin/nvim", name = "catppuccin", priority = 1000 },
+        {
+            'nvim-treesitter/nvim-treesitter',
+            branch = 'master',
+            lazy = false,
+            build = ':TSUpdate',
+            config = function()
+                local configs = require("nvim-treesitter.configs")
+
+                configs.setup({
+                    ensure_installed = {
+                        'go',
+                        'hcl',
+                        'html',
+                        'javascript',
+                        'json',
+                        'lua',
+                        'nix',
+                        'python',
+                        'rust',
+                        'terraform',
+                        'tsx',
+                        'typescript',
+                        'vim',
+                        'yaml',
+                        "jsonc",
+                    },
+                    sync_install = false,
+                    highlight = { enable = true, additional_vim_regex_highlighting = false },
+                    indent = { enable = false },
+                    -- TODO: will need to get rid of this with v1.0
+                    incremental_selection = {
+                        enable = true,
+                        keymaps = {
+                            node_incremental = "v",
+                            node_decremental = "V",
+                        },
+                    },
+                    textobjects = {
+                        select = {
+                            enable = true,
+                            keymaps = {
+                                ["af"] = "@function.outer",
+                                ["if"] = "@function.inner",
+                                ["ac"] = "@class.outer",
+                                ["ic"] = "@class.inner",
+                            },
+                            selection_modes = {
+                                ['@function.inner'] = 'V',
+                                ['@class.inner'] = 'V',
+                                ['@function.outer'] = 'V',
+                                ['@class.outer'] = 'V',
+                            },
+                        }
+                    },
+                })
+            end,
+        },
+        'neovim/nvim-lspconfig',
+        'tpope/vim-fugitive',
+        'tpope/vim-surround',
+        'tpope/vim-repeat',
+        'tpope/vim-rhubarb',
+        'christoomey/vim-conflicted',
+        'lewis6991/gitsigns.nvim',
+        {
+            'nvim-treesitter/nvim-treesitter-context',
+            opts = {
+                max_lines = 3,
+            },
+        },
+        {
+            'nvim-treesitter/nvim-treesitter-textobjects',
+            dependencies = {
+                'nvim-treesitter/nvim-treesitter',
+            },
+        },
+        'vim-test/vim-test',
+        {
+            'MeanderingProgrammer/render-markdown.nvim',
+            filetype = "markdown",
+        },
+        {
+            'folke/zen-mode.nvim',
+            opts = {
+                window = {
+                    backdrop = 1.0,
+                    options = {
+                        number = false,
+                        relativenumber = false,
+                    },
+                },
+                plugins = {
+                    options = {
+                        laststatus = 0,
+                    },
+                },
+            },
+            keys = {
+                { "yoz", function() require('zen-mode').toggle() end, desc = "Toggle zen mode" },
+            },
+        },
+        {
+            "pwntester/octo.nvim",
+            cmd = "Octo",
+            opts = {
+                picker = "snacks",
+                use_local_fs = true,
+                file_panel = {
+                    use_icons = false,
+                },
+            },
+            dependencies = {
+                "nvim-lua/plenary.nvim",
+                {
+                    "folke/snacks.nvim",
+                    opts = {
+                        picker = {
+                            layout = {
+                                preview = false,
+                            },
+                            matcher = {
+                                frecenty = true,
+                            },
+                            debug = {
+                                scores = false,
+                            },
+                        }
+                    },
+                },
+                "nvim-tree/nvim-web-devicons",
+            },
+        },
+        {
+
+            'saghen/blink.cmp',
+            version = '1.*',
+            opts = {
+                enabled = function()
+                    return not vim.tbl_contains({
+                        "markdown",
+                        "gitcommit",
+                        "octo",
+                        "jjdescription",
+                    }, vim.bo.filetype)
+                end,
+                keymap = { preset = 'default' },
+
+                appearance = {
+                    use_nvim_cmp_as_default = true,
+                    nerd_font_variant = 'mono'
+                },
+
+                signature = { enabled = true },
+
+                completion = {
+                    documentation = {
+                        auto_show = true,
+                    },
+                    menu = {
+                        draw = {
+                            columns = {
+                                { "label",     "label_description", gap = 1 },
+                                { "kind_icon", "kind",              gap = 1 },
+                            },
+                            treesitter = { "lsp" },
+                        }
+                    }
+                },
+
+                cmdline = {
+                    enabled = false,
+                    sources = {},
+                },
+                sources = {
+                    default = { 'lsp', 'path', 'snippets', 'buffer' },
+                },
+            },
+            opts_extend = { "sources.default" }
+        }
+    },
 })
 
 function parse_grep_nul(s)
@@ -149,14 +334,14 @@ local setkey = function(key, action, modes, options)
     vim.keymap.set(modes, key, action, options)
 end
 
-setkey("<leader>b", function() Snacks.picker.smart() end)
-setkey("<leader>f", function() Snacks.picker.git_files() end)
-setkey("<leader>F", function() Snacks.picker.files() end)
-setkey("<leader>j", function() Snacks.picker.jumps() end)
-setkey("<leader>ht", function() Snacks.picker.help() end)
-setkey("gb", function() Snacks.picker.buffers() end)
-setkey("<leader><leader>", function() Snacks.picker.grep() end)
-setkey("<leader>A", function() Snacks.picker.diagnostics() end)
+setkey("<leader>b", function() require('snacks').picker.smart() end)
+setkey("<leader>f", function() require('snacks').picker.git_files() end)
+setkey("<leader>F", function() require('snacks').picker.files() end)
+setkey("<leader>j", function() require('snacks').picker.jumps() end)
+setkey("<leader>ht", function() require('snacks').picker.help() end)
+setkey("gb", function() require('snacks').picker.buffers() end)
+setkey("<leader><leader>", function() require('snacks').picker.grep() end)
+setkey("<leader>A", function() require('snacks').picker.diagnostics() end)
 
 setkey("-", ":Oil<cr>")
 setkey("<leader>y", vim.lsp.buf.format)
@@ -228,19 +413,6 @@ vim.api.nvim_create_user_command("Mkdir", function()
         vim.fn.mkdir(dir, 'p')
     end
 end, {})
-
-vim.api.nvim_create_autocmd('FileType', {
-    pattern = { 'markdown' },
-    callback = function(ev)
-        require('render-markdown').setup({
-            latex = {
-                enabled = false,
-            },
-        })
-    end,
-})
-
-setkey('yoz', function() require('zen-mode').toggle() end)
 
 vim.api.nvim_create_autocmd('TermOpen', {
     callback = function()
@@ -408,8 +580,8 @@ end, { noremap = true, silent = true, desc = "Run the whole test suite" })
 -- custom command to run test on AWS (LocalStack test)
 vim.api.nvim_create_user_command("AwsTestNearest",
     "TestNearest TEST_TARGET=AWS_CLOUD AWS_PROFILE=ls-sandbox SNAPSHOT_UPDATE=1 <args>", {
-    nargs = "*",
-})
+        nargs = "*",
+    })
 
 -- lsp bindings
 -- remove default lsp bindings
@@ -425,10 +597,10 @@ end
 
 setkey('gd', vim.lsp.buf.definition)
 setkey('<leader>gt', vim.lsp.buf.type_definition)
-setkey('gr', function() Snacks.picker.lsp_references() end)
+setkey('gr', function() require('snacks').picker.lsp_references() end)
 setkey('gi', vim.lsp.buf.implementation)
-setkey('<leader>S', function() Snacks.picker.lsp_symbols() end)
-setkey('<leader>s', function() Snacks.picker.lsp_workspace_symbols() end)
+setkey('<leader>S', function() require('snacks').picker.lsp_symbols() end)
+setkey('<leader>s', function() require('snacks').picker.lsp_workspace_symbols() end)
 setkey('<leader>a', vim.lsp.buf.code_action)
 
 setkey('<c-space>', function()
@@ -512,92 +684,10 @@ vim.api.nvim_create_autocmd('User', {
             underline = true,
         })
         vim.lsp.inlay_hint.enable(false)
-
-        require('nvim-treesitter.configs').setup({
-            ensure_installed = {
-                'hcl',
-                'javascript',
-                'terraform',
-                'tsx',
-                'typescript',
-                'vim',
-                'go',
-                'json',
-                'lua',
-                'python',
-                'rust',
-                'html',
-                "jsonc",
-            },
-            highlight = {
-                enable = true,
-                additional_vim_regex_highlighting = false,
-            },
-            textobjects = {
-                select = {
-                    enable = true,
-                    keymaps = {
-                        ["af"] = "@function.outer",
-                        ["if"] = "@function.inner",
-                        ["ac"] = "@class.outer",
-                        ["ic"] = "@class.inner",
-                    },
-                    selection_modes = {
-                        ['@function.inner'] = 'V',
-                        ['@class.inner'] = 'V',
-                        ['@function.outer'] = 'V',
-                        ['@class.outer'] = 'V',
-                    },
-                }
-            },
-        })
-        require('treesitter-context').setup({ max_lines = 3 })
-
-        require("oil").setup()
-
-        if not Snacks.did_setup then
-            require('snacks').setup({
-                picker = {
-                    layout = {
-                        preview = false,
-                    },
-                    matcher = {
-                        frecenty = true,
-                    },
-                    debug = {
-                        scores = false,
-                    },
-                }
-            })
-        end
-
-        require("zen-mode").setup({
-            window = {
-                backdrop = 1.0,
-                options = {
-                    number = false,
-                    relativenumber = false,
-                },
-            },
-            plugins = {
-                options = {
-                    laststatus = 0,
-                },
-            },
-        })
     end,
 
     -- TODO: make this on file open/read
     -- require('modules/runtests').setup()
-})
-
--- This needs to be eagerly loaded to support my GH pr review workflow
-require('octo').setup({
-    use_local_fs = true,
-    picker = "snacks",
-    file_panel = {
-        use_icons = false,
-    },
 })
 
 load_theme()
