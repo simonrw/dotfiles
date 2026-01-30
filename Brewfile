@@ -3,6 +3,7 @@
 tap "oven-sh/bun"
 tap "pulumi/tap"
 tap "railwaycat/emacsmacport"
+tap "owenthereal/upterm"
 
 # Brews
 
@@ -128,6 +129,7 @@ cask "keyboard-cleaner"
 cask "mitmproxy"
 cask "obs"
 cask "obsidian"
+cask "owenthereal/upterm/upterm"
 cask "railwaycat/emacsmacport/emacs-mac"
 cask "raycast"
 cask "shotcut"
