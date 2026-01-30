@@ -162,6 +162,7 @@ require("lazy").setup({
         'tpope/vim-surround',
         'tpope/vim-repeat',
         'tpope/vim-rhubarb',
+        'tpope/vim-dispatch',
         'christoomey/vim-conflicted',
         'lewis6991/gitsigns.nvim',
         {
