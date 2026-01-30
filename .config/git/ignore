@@ -51,3 +51,5 @@ Session.vim*
 mise.local.toml
 
 **/.claude/settings.local.json
+
+make.ts
