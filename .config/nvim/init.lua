@@ -582,7 +582,7 @@ for _, mapping in ipairs({ 'grn', 'gra', 'grr', 'gri', 'grt' }) do
     end
 end
 
-setkey('gd', function() require("fzf-lua").definitions() end)
+setkey('gd', function() require("fzf-lua").lsp_definitions() end)
 setkey('<leader>gt', function() require("fzf-lua").lsp_typedefs() end)
 setkey('gr', function() require("fzf-lua").lsp_references() end)
 setkey('gi', function() require("fzf-lua").lsp_implementations() end)
