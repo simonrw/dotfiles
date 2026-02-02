@@ -96,7 +96,7 @@ require("lazy").setup({
         {
             'stevearc/oil.nvim',
             opts = {},
-            dependencies = { { "nvim-mini/mini.icons", opts = {} } },
+            dependencies = {},
             lazy = false,
         },
         { "catppuccin/nvim", name = "catppuccin", priority = 1000 },
@@ -203,37 +203,6 @@ require("lazy").setup({
             },
         },
         {
-            "pwntester/octo.nvim",
-            cmd = "Octo",
-            opts = {
-                picker = "snacks",
-                use_local_fs = true,
-                file_panel = {
-                    use_icons = false,
-                },
-            },
-            dependencies = {
-                "nvim-lua/plenary.nvim",
-                {
-                    "folke/snacks.nvim",
-                    opts = {
-                        picker = {
-                            layout = {
-                                preview = false,
-                            },
-                            matcher = {
-                                frecenty = true,
-                            },
-                            debug = {
-                                scores = false,
-                            },
-                        }
-                    },
-                },
-                "nvim-tree/nvim-web-devicons",
-            },
-        },
-        {
 
             'saghen/blink.cmp',
             version = '1.*',
@@ -279,7 +248,20 @@ require("lazy").setup({
                 },
             },
             opts_extend = { "sources.default" }
-        }
+        },
+        {
+            "ibhagwan/fzf-lua",
+            config = function()
+                require("fzf-lua").setup({
+                    "max-perf",
+                    defaults = {
+                        previewer = false,
+                    },
+                })
+
+                require("fzf-lua").register_ui_select()
+            end,
+        },
     },
 })
 
@@ -335,14 +317,13 @@ local setkey = function(key, action, modes, options)
     vim.keymap.set(modes, key, action, options)
 end
 
-setkey("<leader>b", function() require('snacks').picker.smart() end)
-setkey("<leader>f", function() require('snacks').picker.git_files() end)
-setkey("<leader>F", function() require('snacks').picker.files() end)
-setkey("<leader>j", function() require('snacks').picker.jumps() end)
-setkey("<leader>ht", function() require('snacks').picker.help() end)
-setkey("gb", function() require('snacks').picker.buffers() end)
-setkey("<leader><leader>", function() require('snacks').picker.grep() end)
-setkey("<leader>A", function() require('snacks').picker.diagnostics() end)
+setkey("<leader>f", function() require("fzf-lua").git_files() end)
+setkey("<leader>F", function() require("fzf-lua").files() end)
+setkey("<leader>j", function() require("fzf-lua").jumps() end)
+setkey("<leader>ht", function() require("fzf-lua").helptags() end)
+setkey("gb", function() require("fzf-lua").buffers() end)
+setkey("<leader><leader>", function() require("fzf-lua").live_grep_native() end)
+setkey("<leader>A", function() require("fzf-lua").diagnostics_workspace() end)
 
 setkey("-", ":Oil<cr>")
 setkey("<leader>y", vim.lsp.buf.format)
@@ -596,13 +577,13 @@ for _, mapping in ipairs({ 'grn', 'gra', 'grr', 'gri', 'grt' }) do
     end
 end
 
-setkey('gd', vim.lsp.buf.definition)
-setkey('<leader>gt', vim.lsp.buf.type_definition)
-setkey('gr', function() require('snacks').picker.lsp_references() end)
-setkey('gi', vim.lsp.buf.implementation)
-setkey('<leader>S', function() require('snacks').picker.lsp_symbols() end)
-setkey('<leader>s', function() require('snacks').picker.lsp_workspace_symbols() end)
-setkey('<leader>a', vim.lsp.buf.code_action)
+setkey('gd', function() require("fzf-lua").definitions() end)
+setkey('<leader>gt', function() require("fzf-lua").lsp_typedefs() end)
+setkey('gr', function() require("fzf-lua").lsp_references() end)
+setkey('gi', function() require("fzf-lua").lsp_implementations() end)
+setkey('<leader>S', function() require("fzf-lua").lsp_document_symbols() end)
+setkey('<leader>s', function() require("fzf-lua").lsp_workspace_symbols() end)
+setkey('<leader>a', function() require("fzf-lua").lsp_code_actions() end)
 
 setkey('<c-space>', function()
     vim.lsp.completion.get()
