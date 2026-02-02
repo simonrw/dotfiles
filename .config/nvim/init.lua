@@ -253,14 +253,17 @@ require("lazy").setup({
             "ibhagwan/fzf-lua",
             config = function()
                 require("fzf-lua").setup({
-                    "max-perf",
-                    defaults = {
-                        previewer = false,
-                    },
-                    keymap = {
-                        fzf = {
-                            ["ctrl-q"] = "select-all+accept",
+                    "telescope",
+                    winopts = {
+                        preview = {
+                            default = false,
                         },
+                    },
+                    fzf_opts = {
+                        ["--layout"] = "reverse",
+                        ["--marker"] = "+",
+                        ["--gutter"] = " ",
+                        ["--cycle"] = true
                     },
                 })
 
