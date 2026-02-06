@@ -22,3 +22,4 @@ Library/Application\ Support/Cursor/*
 /.config/k9s/config.yaml
 \#*\#
 /.config/gh-dash/config.yml
+/.config/jj/repos
