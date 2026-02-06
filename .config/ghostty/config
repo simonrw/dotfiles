@@ -23,7 +23,7 @@ shell-integration = detect
 shell-integration-features = no-cursor,ssh-env
 mouse-hide-while-typing = false
 
-window-colorspace = display-p3
+window-colorspace = srgb
 
 # disable ligatures
 font-feature = -liga
