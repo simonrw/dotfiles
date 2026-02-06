@@ -408,4 +408,8 @@
   "claudeCode.preferredLocation": "sidebar",
   "claudeCode.selectedModel": "opus",
   "git.autofetch": true,
+  "inlineChat.defaultModel": "Raptor mini (Preview) (copilot)",
+  "chat.viewSessions.orientation": "stacked",
+  "http.systemCertificatesNode": true,
+  "geminicodeassist.project": "gen-lang-client-0954412299",
 }
