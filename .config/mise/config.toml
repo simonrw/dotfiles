@@ -14,6 +14,8 @@ node = { version = "lts", os = ["linux"] }
 "github:sachaos/viddy" = { version = "latest", os = ["linux"] }
 "github:sharkdp/bat" = { version = "latest", os = ["linux"] }
 "github:bootandy/dust" = { version = "latest", os = ["linux"] }
+"cargo:zoxide" = { version = "latest", os = ["linux"] }
+"cargo:worktrunk" = { version = "latest", os = ["linux"] }
 
 [tools."github:MordechaiHadad/bob"]
 version = "latest"
