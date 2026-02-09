@@ -8,6 +8,7 @@
 // from the command palette or from `Zed` application menu.
 {
   "edit_predictions": {
+    "provider": "zed",
     "mode": "subtle",
   },
   "show_edit_predictions": true,
@@ -17,9 +18,6 @@
   },
   "calls": {
     "mute_on_join": true,
-  },
-  "features": {
-    "edit_prediction_provider": "zed",
   },
   "preview_tabs": {
     "enabled": false,
@@ -80,10 +78,14 @@
     "show": false,
   },
   "agent": {
+    "inline_assistant_model": {
+      "provider": "google",
+      "model": "gemini-3-pro-preview"
+    },
     "always_allow_tool_actions": true,
     "default_model": {
-      "provider": "anthropic",
-      "model": "claude-haiku-4-5-thinking-latest"
+      "provider": "google",
+      "model": "gemini-3-flash-preview"
     },
     "model_parameters": [],
   },
