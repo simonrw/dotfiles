@@ -52,6 +52,13 @@
       community.general.snap:
         name: "{{ snaps }}"
 
+    - name: Install classic snaps
+      become: true
+      community.general.snap:
+        name: "{{ item }}"
+        classic: true
+      loop: "{{ classic_snaps | default([]) }}"
+
     - name: Create ~/.local/bin
       ansible.builtin.file:
         dest: "/home/{{ ansible_target_user }}/.local/bin"
