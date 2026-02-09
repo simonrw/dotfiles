@@ -15,6 +15,7 @@ packages:
   - curl
   - eza
   - fd-find
+  - fonts-jetbrains-mono
   - gh
   - git-delta
   - gnome-tweaks
