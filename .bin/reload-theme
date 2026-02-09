@@ -113,8 +113,20 @@ def reload_neovim(theme: Theme):
 def reload_git(theme: Theme):
     theme_file = Path.home() / ".config" / "git" / "theme.conf"
     config = ConfigParser()
+    if theme == Theme.light:
+        syntax_theme = "GitHub"
+        dark = "false"
+        light = "true"
+    else:
+        syntax_theme = "Catppuccin Mocha"
+        dark = "true"
+        light = "false"
+
     config["delta"] = {
         "diff-so-fancy": "false" if theme == Theme.light else "true",
+        "syntax-theme": syntax_theme,
+        "dark": dark,
+        "light": light,
         "line-numbers": "false",
         "side-by-side": "false",
     }
