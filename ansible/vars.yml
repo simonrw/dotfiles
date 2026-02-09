@@ -3,3 +3,30 @@ ghostty_version: 1.2.3-0
 dconf_settings:
   - key: "/org/gnome/desktop/input-sources/xkb-options"
     value: ['caps:ctrl_modifier']
+
+  - key: "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings"
+    value:
+      - "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/"
+      - "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/"
+
+    # terminal
+  - key: "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/binding"
+    value: "'<Alt><Super>t'"
+
+  - key: "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/command"
+    value: "'wmctrl -x -a ghostty'"
+
+  - key: "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/name"
+    value: "'Terminal'"
+
+    # browser
+  - key: "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/binding"
+    value: "'<Alt><Super>c'"
+
+  - key: "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/command"
+    value: "'wmctrl -x -a firefox'"
+
+  - key: "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/name"
+    value: "'Browser'"
+
+
