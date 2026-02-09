@@ -75,6 +75,13 @@
       ansible.builtin.apt:
         deb: /tmp/ghostty_{{ ghostty_version }}.ppa1_amd64_24.04.deb
 
+    - name: Apply dconf settings
+      community.general.dconf:
+        key: "{{ item.key }}"
+        value: "{{ item.value }}"
+        state: present
+      loop: "{{ dconf_settings | default([]) }}"
+
     - name: Download zed installer
       ansible.builtin.get_url:
         url: https://zed.dev/install.sh
