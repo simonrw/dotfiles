@@ -24,7 +24,13 @@ run = "git submodule update --init"
 [tasks.dotfiles]
 description = "Install dotfiles"
 depends = ["submodules"]
-run = "stow ."
+run = """
+if [ "$(uname)" = "Linux" ]; then
+  stow --ignore='^Library' .
+else
+  stow .
+fi
+"""
 
 [tools]
 go = "latest"
