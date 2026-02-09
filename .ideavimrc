@@ -16,8 +16,8 @@ set smartcase
 set nohlsearch
 set ignorecase
 set scrolloff=5
-set norelativenumber
-set nonumber
+set relativenumber
+set number
 
 " configure mappings
 map <leader>f <Action>(GotoFile)
