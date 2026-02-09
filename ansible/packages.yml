@@ -39,4 +39,6 @@ packages:
   - zsh-syntax-highlighting
 
 snaps:
+
+  - slack
   - steam
