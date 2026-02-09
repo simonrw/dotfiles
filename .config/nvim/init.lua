@@ -166,12 +166,6 @@ require("lazy").setup({
         'christoomey/vim-conflicted',
         'lewis6991/gitsigns.nvim',
         {
-            'nvim-treesitter/nvim-treesitter-context',
-            opts = {
-                max_lines = 3,
-            },
-        },
-        {
             'nvim-treesitter/nvim-treesitter-textobjects',
             dependencies = {
                 'nvim-treesitter/nvim-treesitter',
