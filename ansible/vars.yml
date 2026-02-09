@@ -1,1 +1,5 @@
 ghostty_version: 1.2.3-0
+
+dconf_settings:
+  - key: "/org/gnome/desktop/input-sources/xkb-options"
+    value: ['caps:ctrl_modifier']

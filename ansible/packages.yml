@@ -17,6 +17,7 @@ packages:
   - fd-find
   - gh
   - git-delta
+  - gnome-tweaks
   - htop
   - htop
   - liblua5.4-dev
@@ -25,6 +26,7 @@ packages:
   - lua5.4
   - mise
   - podman
+  - python3-psutil           # dconf module
   - qemu-system
   - ripgrep
   - stow
