@@ -1,0 +1,12 @@
+[Unit]
+Description=x11vnc VNC server for the current X session
+After=graphical-session.target
+
+[Service]
+Type=simple
+ExecStart=/bin/sh -c 'exec /usr/bin/x11vnc -display :0 -forever -loop -noxdamage -repeat -nopw -listen $(tailscale ip -4) -rfbport 5900 -shared'
+Restart=on-failure
+RestartSec=5
+
+[Install]
+WantedBy=graphical-session.target
