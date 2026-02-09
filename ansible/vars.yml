@@ -14,7 +14,8 @@ dconf_settings:
     value: "'<Alt><Super>t'"
 
   - key: "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/command"
-    value: "'wmctrl -x -a ghostty'"
+    value: >
+      "sh -c 'wmctrl -x -a ghostty || ghostty'"
 
   - key: "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/name"
     value: "'Terminal'"
@@ -24,7 +25,8 @@ dconf_settings:
     value: "'<Alt><Super>c'"
 
   - key: "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/command"
-    value: "'wmctrl -x -a firefox'"
+    value: >
+      "sh -c 'wmctrl -x -a firefox || firefox'"
 
   - key: "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/name"
     value: "'Browser'"
