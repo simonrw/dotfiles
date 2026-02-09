@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 
 import argparse
+import platform
 import subprocess as sp
 import sys
 
@@ -44,6 +45,43 @@ class OSAScript:
         sp.run(cmd, check=True, capture_output=True)
 
 
+class GSettings:
+    SCHEMA = "org.gnome.desktop.interface"
+    KEY = "color-scheme"
+
+    @classmethod
+    def toggle(cls):
+        if cls.is_dark_mode():
+            cls.set_not_dark_mode()
+        else:
+            cls.set_dark_mode()
+
+    @classmethod
+    def is_dark_mode(cls) -> bool:
+        cmd = ["gsettings", "get", cls.SCHEMA, cls.KEY]
+        ret = sp.run(cmd, check=True, capture_output=True)
+        return "dark" in ret.stdout.decode().strip()
+
+    @classmethod
+    def set_dark_mode(cls):
+        cmd = ["gsettings", "set", cls.SCHEMA, cls.KEY, "prefer-dark"]
+        sp.run(cmd, check=True, capture_output=True)
+
+    @classmethod
+    def set_not_dark_mode(cls):
+        cmd = ["gsettings", "set", cls.SCHEMA, cls.KEY, "prefer-light"]
+        sp.run(cmd, check=True, capture_output=True)
+
+
+def get_backend():
+    if platform.system() == "Darwin":
+        return OSAScript
+    if platform.system() == "Linux":
+        return GSettings
+    print(f"Unsupported platform: {platform.system()}", file=sys.stderr)
+    raise SystemExit(1)
+
+
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument("--dark", action="store_true", default=False)
@@ -54,9 +92,11 @@ if __name__ == "__main__":
         print("Cannot specify dark and light", file=sys.stderr)
         raise SystemExit(1)
 
+    backend = get_backend()
+
     if args.dark:
-        OSAScript.set_dark_mode()
+        backend.set_dark_mode()
     elif args.light:
-        OSAScript.set_not_dark_mode()
+        backend.set_not_dark_mode()
     else:
-        OSAScript.toggle()
+        backend.toggle()

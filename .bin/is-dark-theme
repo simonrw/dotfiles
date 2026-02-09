@@ -14,10 +14,13 @@ case $OSTYPE in
         # GNOME/Ubuntu: gsettings color-scheme or gtk-theme
         if type gsettings >/dev/null 2>&1; then
             colorscheme=$(gsettings get org.gnome.desktop.interface color-scheme 2>/dev/null | tr -d "'")
-            if [[ "$colorscheme" == *dark* || "$colorscheme" == *default* ]]; then
+            if [[ "$colorscheme" == *dark* ]]; then
                 exit 0
+            elif [[ "$colorscheme" == *light* ]]; then
+                exit 1
             fi
 
+            # Fall back to gtk-theme only if color-scheme is unset/default
             gtktheme=$(gsettings get org.gnome.desktop.interface gtk-theme 2>/dev/null | tr -d "'")
             if [[ "$gtktheme" == *dark* ]]; then
                 exit 0
