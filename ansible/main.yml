@@ -47,6 +47,14 @@
         state: present
         update_cache: yes
 
+    - name: Configure unattended-upgrades
+      become: true
+      ansible.builtin.copy:
+        dest: /etc/apt/apt.conf.d/20auto-upgrades
+        content: |
+          APT::Periodic::Update-Package-Lists "1";
+          APT::Periodic::Unattended-Upgrade "1";
+
     - name: Install snaps
       become: true
       community.general.snap:
