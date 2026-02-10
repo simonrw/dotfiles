@@ -1,5 +1,4 @@
-PROFILE_STARTUP=false
-if [[ "$PROFILE_STARTUP" == true ]]; then
+if [[ "$__ZSH_PROFILE_STARTUP" == true ]]; then
     zmodload zsh/zprof
 fi
 
@@ -18,6 +17,6 @@ source ~/.config/zsh/atuin.zsh
 source ~/.config/zsh/zoxide.zsh
 source ~/.config/zsh/worktrunk.zsh
 
-if [[ "$PROFILE_STARTUP" == true ]]; then
+if [[ "$__ZSH_PROFILE_STARTUP" == true ]]; then
     zprof
 fi
