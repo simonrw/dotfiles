@@ -21,6 +21,7 @@ packages:
   - gnome-tweaks
   - htop
   - htop
+  - libcfitsio-dev
   - liblua5.4-dev
   - libvirt-clients       # kvm
   - libvirt-daemon        # kvm
@@ -31,8 +32,8 @@ packages:
   - qemu-system
   - ripgrep
   - stow
-  - unattended-upgrades
   - tmux
+  - unattended-upgrades
   - virt-manager
   - wmctrl
   - zsh
