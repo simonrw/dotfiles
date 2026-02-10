@@ -41,6 +41,10 @@ run = "brew update && brew upgrade"
 depends = ["submodules", "brew"]
 description = "Update brews"
 
+[tasks."apt:upgrade"]
+run = "sudo bash -c 'apt update && sudo apt upgrade'"
+description = "Update apt packages"
+
 [tasks.vim-update]
 run = "nvim --headless '+Lazy! sync' +qa"
 description = "Update neovim plugins"
