@@ -10,6 +10,7 @@ apt_repositories:
 packages:
 
   - bridge-utils          # kvm
+  - 1password-cli
   - build-essential
   - cpu-checker           # kvm
   - curl
