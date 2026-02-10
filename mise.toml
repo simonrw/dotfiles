@@ -28,7 +28,7 @@ run = """
 if [ "$(uname)" = "Linux" ]; then
   stow --ignore='^Library' .
 else
-  stow .
+  stow --ignore='^\\.config/systemd' .
 fi
 """
 

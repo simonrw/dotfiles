@@ -1,0 +1,14 @@
+[Unit]
+Description=x11vnc VNC server for the current X session
+After=graphical-session.target
+
+[Service]
+Type=simple
+Environment=DISPLAY=:1
+Environment=XAUTHORITY=/run/user/1000/gdm/Xauthority
+ExecStart=/bin/sh -c 'exec /usr/bin/x11vnc -display :1 -auth /run/user/1000/gdm/Xauthority -clip 2560x1440+0+0 -forever -loop -noxdamage -repeat -passwd test12 -listen $(tailscale ip -4) -rfbport 5900 -shared'
+Restart=on-failure
+RestartSec=5
+
+[Install]
+WantedBy=graphical-session.target

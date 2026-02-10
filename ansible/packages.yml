@@ -9,8 +9,8 @@ apt_repositories:
 
 packages:
 
-  - bridge-utils          # kvm
   - 1password-cli
+  - bridge-utils          # kvm
   - build-essential
   - cpu-checker           # kvm
   - curl
@@ -37,6 +37,7 @@ packages:
   - unattended-upgrades
   - virt-manager
   - wmctrl
+  - x11vnc
   - zsh
   - zsh-autosuggestions
   - zsh-syntax-highlighting

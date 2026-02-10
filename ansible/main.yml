@@ -109,3 +109,10 @@
       ansible.builtin.command: sh /tmp/zed-install.sh
       args:
         creates: "/home/{{ ansible_target_user }}/.local/bin/zed"
+
+    - name: Enable x11vnc systemd user service
+      ansible.builtin.systemd:
+        name: x11vnc.service
+        enabled: true
+        scope: user
+        daemon_reload: true
