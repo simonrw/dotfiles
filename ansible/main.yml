@@ -40,6 +40,9 @@
         state: present
       loop: "{{ apt_repositories | default([]) }}"
 
+    - name: Setup 1Password CLI
+      ansible.builtin.include_tasks: 1password.yml
+
     - name: Install packages
       become: true
       apt:
