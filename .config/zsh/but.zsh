@@ -1,0 +1,1 @@
+eval "$(but completions zsh)"
