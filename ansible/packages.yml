@@ -9,6 +9,7 @@ apt_repositories:
 
 packages:
 
+  - 1password
   - 1password-cli
   - bridge-utils          # kvm
   - build-essential
