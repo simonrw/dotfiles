@@ -18,6 +18,7 @@ node = { version = "lts", os = ["linux"] }
 "cargo:worktrunk" = { version = "latest", os = ["linux"] }
 bun = { version = "latest", os = ["linux"] }
 usage = { version = "latest", os = ["linux"] }
+"github:lima-vm/lima" = { version = "latest", os = ["linux"] }
 
 [tools."github:MordechaiHadad/bob"]
 version = "latest"
