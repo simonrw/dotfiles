@@ -23,19 +23,7 @@
     "enabled": false,
   },
   "autosave": "on_focus_change",
-  "ssh_connections": [
-    {
-      "host": "mm",
-      "projects": [
-        {
-          "paths": ["~/work/localstack/cdk"],
-        },
-        {
-          "paths": ["~/work/localstack/localstack-ext"],
-        },
-      ],
-    },
-  ],
+  "ssh_connections": [],
   "theme": {
     "mode": "system",
     "light": "Catppuccin Latte",
