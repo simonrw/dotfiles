@@ -31,4 +31,6 @@ dconf_settings:
   - key: "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/name"
     value: "'Browser'"
 
+  - key: "/org/gnome/desktop/wm/preferences/button-layout"
+    value: "'close,minimize,maximize:'"
 
