@@ -16,7 +16,6 @@ source ~/.config/zsh/plugins.zsh
 source ~/.config/zsh/atuin.zsh
 source ~/.config/zsh/zoxide.zsh
 source ~/.config/zsh/worktrunk.zsh
-source ~/.config/zsh/but.zsh
 
 if [[ "$__ZSH_PROFILE_STARTUP" == true ]]; then
     zprof
