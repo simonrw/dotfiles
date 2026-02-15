@@ -34,3 +34,9 @@ dconf_settings:
   - key: "/org/gnome/desktop/wm/preferences/button-layout"
     value: "'close,minimize,maximize:'"
 
+  - key: "/org/gnome/desktop/peripherals/mouse/speed"
+    value: "-0.65"
+
+  - key: "/org/gnome/desktop/peripherals/mouse/accel-profile"
+    value: "'flat'"
+
