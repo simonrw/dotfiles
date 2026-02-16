@@ -4,7 +4,7 @@ rust = { version = "beta", components = "rust-src,rust-analyzer" }
 "cargo:https://github.com/simonrw/cftail" = "branch:main"
 "cargo:https://github.com/simonrw/testsearch" = "branch:main"
 "go:github.com/simonrw/cert-info" = "0"
-"github:atuinsh/atuin" = { version = "latest", os = ["linux"] }
+"github:atuinsh/atuin" = { version = "latest", os = ["linux"], asset_pattern = "atuin-x86_64-unknown-linux-gnu.tar.gz" }
 "github:jj-vcs/jj" = { version = "latest", os = ["linux"] }
 "cargo:https://github.com/simonrw/listprojects" = "branch:main"
 "github:tmux/tmux-builds" = { version = "latest", os = ["linux"] }
