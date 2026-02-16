@@ -20,6 +20,7 @@ bun = { version = "latest", os = ["linux"] }
 usage = { version = "latest", os = ["linux"] }
 "github:lima-vm/lima" = { version = "latest", os = ["linux"] }
 "cargo:mergiraf" = { version = "latest", os = ["linux"] }
+jless = { version = "latest", os = ["linux"] }
 
 [tools."github:MordechaiHadad/bob"]
 version = "latest"
