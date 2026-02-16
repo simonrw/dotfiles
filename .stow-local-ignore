@@ -27,3 +27,4 @@
 ^/ansible
 ^\.jj
 ^/mise.local.toml
+^/CLAUDE.md
