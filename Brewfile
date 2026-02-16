@@ -141,7 +141,6 @@ cask "tailscale-app"
 cask "utm"
 cask "visual-studio-code"
 cask "wacom-tablet" if `hostname`.strip == "mm"
-cask "whatsapp"
 cask "zed"
 cask "zoom"
 
