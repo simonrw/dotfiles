@@ -28,3 +28,4 @@
 ^\.jj
 ^/mise.local.toml
 ^/CLAUDE.md
+^/.config/ghostty/.*\.config$

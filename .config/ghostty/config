@@ -8,9 +8,6 @@ window-padding-y = 6
 confirm-close-surface = false
 keybind = shift+enter=text:\n
 
-font-family = JetBrainsMonoNL NFM Semibold
-font-family-italic = JetBrainsMonoNL NFM Semibold
-font-family-bold-italic = JetBrainsMonoNL NFM Semibold
 font-style-italic = false
 font-style-bold-italic = false
 font-synthetic-style = "no-italic"
@@ -28,5 +25,7 @@ window-colorspace = display-p3
 font-feature = -liga
 font-feature = -calt
 font-feature = -dlig
+
+config-file = ?local.config
 
 # vim: ft=conf
