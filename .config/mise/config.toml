@@ -23,6 +23,7 @@ usage = { version = "latest", os = ["linux"] }
 jless = { version = "latest", os = ["linux"] }
 gh = { version = "latest", os = ["linux"] }
 uv = { version = "latest", os = ["linux"] }
+jjui = { version = "latest", os = ["linux"] }
 
 [tools."github:MordechaiHadad/bob"]
 version = "latest"
