@@ -1,5 +1,6 @@
 ghostty_version: 1.2.3-0
 nomachine_version: 9.3.7
+sunshine_version: 0.23.1
 
 dconf_settings:
   - key: "/org/gnome/desktop/input-sources/xkb-options"

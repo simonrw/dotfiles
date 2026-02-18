@@ -103,6 +103,16 @@
       ansible.builtin.apt:
         deb: /tmp/nomachine_{{ nomachine_version }}_1_amd64.deb
 
+    - name: Download Sunshine .deb
+      ansible.builtin.get_url:
+        url: "https://github.com/LizardByte/Sunshine/releases/download/v{{ sunshine_version }}/sunshine-ubuntu-24.04-amd64.deb"
+        dest: /tmp/sunshine-ubuntu-24.04-amd64.deb
+
+    - name: Install Sunshine deb
+      become: yes
+      ansible.builtin.apt:
+        deb: /tmp/sunshine-ubuntu-24.04-amd64.deb
+
     - name: Apply dconf settings
       community.general.dconf:
         key: "{{ item.key }}"
