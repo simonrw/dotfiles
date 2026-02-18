@@ -28,7 +28,7 @@ run = """
 if [ "$(uname)" = "Linux" ]; then
   stow --ignore='^Library' .
 else
-  stow --ignore='^\\.config/systemd' .
+  stow --ignore='^\\.config/systemd' --ignore='^\\.config/fontconfig' .
 fi
 """
 
