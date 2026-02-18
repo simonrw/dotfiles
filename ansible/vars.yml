@@ -40,3 +40,9 @@ dconf_settings:
   - key: "/org/gnome/desktop/peripherals/mouse/accel-profile"
     value: "'flat'"
 
+  - key: "/org/gnome/settings-daemon/plugins/xsettings/antialiasing"
+    value: "'rgba'"
+
+  - key: "/org/gnome/settings-daemon/plugins/xsettings/hinting"
+    value: "'slight'"
+
