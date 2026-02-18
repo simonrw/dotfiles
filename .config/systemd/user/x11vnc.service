@@ -6,7 +6,7 @@ After=graphical-session.target
 Type=simple
 Environment=DISPLAY=:1
 Environment=XAUTHORITY=/run/user/1000/gdm/Xauthority
-ExecStart=/bin/sh -c 'exec /usr/bin/x11vnc -display :1 -auth /run/user/1000/gdm/Xauthority -clip 2560x1440+0+0 -forever -loop -noxdamage -repeat -passwd test12 -listen $(tailscale ip -4) -rfbport 5900 -shared'
+ExecStart=/bin/sh -c 'exec /usr/bin/x11vnc -display :1 -auth /run/user/1000/gdm/Xauthority -clip 2560x1440+0+0 -forever -loop -noxdamage -repeat -passwd test12 -listen $(tailscale ip -4) -rfbport 5900 -shared -wait 5 -defer 5 -speeds lan -threads'
 Restart=on-failure
 RestartSec=5
 
