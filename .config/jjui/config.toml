@@ -1,0 +1,6 @@
+[custom_commands.tug]
+key = ["t"]
+lua = '''
+jj("tug")
+revisions.refresh()
+'''
