@@ -93,6 +93,16 @@
       ansible.builtin.apt:
         deb: /tmp/ghostty_{{ ghostty_version }}.ppa1_amd64_24.04.deb
 
+    - name: Download NoMachine .deb
+      ansible.builtin.get_url:
+        url: "https://download.nomachine.com/download/{{ nomachine_version.split('.')[:2] | join('.') }}/Linux/nomachine_{{ nomachine_version }}_1_amd64.deb"
+        dest: /tmp/nomachine_{{ nomachine_version }}_1_amd64.deb
+
+    - name: Install NoMachine deb
+      become: yes
+      ansible.builtin.apt:
+        deb: /tmp/nomachine_{{ nomachine_version }}_1_amd64.deb
+
     - name: Apply dconf settings
       community.general.dconf:
         key: "{{ item.key }}"
