@@ -6,6 +6,8 @@ apt_keys:
 apt_repositories:
   - repo: "deb [signed-by=/etc/apt/keyrings/mise-archive-keyring.pub arch=amd64] https://mise.jdx.dev/deb stable main"
     filename: mise
+  - repo: "ppa:fish-shell/release-4"
+    filename: fish-shell-release-4
 
 packages:
 
