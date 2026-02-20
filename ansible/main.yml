@@ -15,7 +15,7 @@
       ansible.builtin.user:
         name: "{{ ansible_target_user }}"
         groups: adm,cdrom,sudo,dip,plugdev,users,lpadmin,docker,kvm,libvirt,sudo
-        shell: /usr/bin/zsh
+        shell: /usr/bin/fish
 
     - name: Ensure /etc/apt/keyrings directory exists
       become: true

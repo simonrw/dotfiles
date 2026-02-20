@@ -38,9 +38,8 @@ packages:
   - virt-manager
   - wmctrl
   - x11vnc
+  - fish
   - zsh
-  - zsh-autosuggestions
-  - zsh-syntax-highlighting
 
 snaps:
 
