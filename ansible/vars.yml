@@ -1,6 +1,7 @@
 ghostty_version: 1.2.3-0
 nomachine_version: 9.3.7
 sunshine_version: 0.23.1
+helium_version: "0.9.3.1"
 lilex_version: "2.621"
 
 dconf_settings:

@@ -113,6 +113,42 @@
       ansible.builtin.apt:
         deb: /tmp/sunshine-ubuntu-24.04-amd64.deb
 
+    - name: Download Helium browser AppImage
+      ansible.builtin.get_url:
+        url: "https://github.com/imputnet/helium-linux/releases/download/{{ helium_version }}/helium-{{ helium_version }}-x86_64.AppImage"
+        dest: "/usr/local/bin/helium"
+        mode: "0755"
+      become: true
+
+    - name: Ensure icon directory exists
+      become: true
+      ansible.builtin.file:
+        path: /usr/local/share/icons/hicolor/scalable/apps
+        state: directory
+        mode: "0755"
+
+    - name: Download Helium browser icon
+      become: true
+      ansible.builtin.get_url:
+        url: "https://raw.githubusercontent.com/imputnet/helium/main/resources/branding/product_logo.svg"
+        dest: /usr/local/share/icons/hicolor/scalable/apps/helium.svg
+        mode: "0644"
+
+    - name: Install Helium AppArmor profile
+      become: true
+      ansible.builtin.copy:
+        dest: /etc/apparmor.d/helium-appimage
+        mode: "0644"
+        content: |
+          abi <abi/4.0>,
+          include <tunables/global>
+
+          profile helium-appimage "/usr/local/bin/helium" flags=(default_allow) {
+            userns,
+            include if exists <local/helium-appimage>
+          }
+      notify: Load Helium AppArmor profile
+
     - name: Install Lilex font
       ansible.builtin.include_tasks: font.yml
       vars:
@@ -142,3 +178,8 @@
         enabled: true
         scope: user
         daemon_reload: true
+
+  handlers:
+    - name: Load Helium AppArmor profile
+      become: true
+      ansible.builtin.command: apparmor_parser -r /etc/apparmor.d/helium-appimage
