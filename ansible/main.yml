@@ -113,6 +113,12 @@
       ansible.builtin.apt:
         deb: /tmp/sunshine-ubuntu-24.04-amd64.deb
 
+    - name: Install Lilex font
+      ansible.builtin.include_tasks: font.yml
+      vars:
+        font_name: Lilex
+        font_url: "https://github.com/mishamyrt/Lilex/releases/download/{{ lilex_version }}/Lilex.zip"
+
     - name: Apply dconf settings
       community.general.dconf:
         key: "{{ item.key }}"
