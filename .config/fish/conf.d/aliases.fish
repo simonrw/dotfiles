@@ -30,6 +30,7 @@ alias thor 'eza --group-directories-first --header -s modified -l'
 alias tree 'eza --group-directories-first --header -T'
 alias grep rg
 alias notes 'open -a Emacs ~/notes.org'
+alias awslocal aws
 
 alias cat bat
 alias less bat
