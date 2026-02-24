@@ -107,7 +107,6 @@ cask "focusrite-control-2" if `hostname`.strip == "mm"
 
 cask "1password-cli"
 cask "1password"
-cask "antigravity"
 cask "betterdisplay"
 cask "blender"
 cask "claude-code"
