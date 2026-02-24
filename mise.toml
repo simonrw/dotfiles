@@ -13,6 +13,11 @@ depends = [
 depends_post = ["brew"]
 
 [tasks."mise:packages"]
+description = "Install global mise packages"
+depends = ["dotfiles"]
+run = "mise --cd $HOME install"
+
+[tasks."mise:upgrade"]
 description = "Update globally installed mise packages"
 depends = ["dotfiles"]
 run = "mise --cd $HOME upgrade"
