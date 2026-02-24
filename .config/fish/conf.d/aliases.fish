@@ -31,12 +31,9 @@ alias tree 'eza --group-directories-first --header -T'
 alias grep rg
 alias notes 'open -a Emacs ~/notes.org'
 
-# macOS specific
-if test (uname) = Darwin
-    alias cat bat
-    alias less bat
-    alias more bat
-end
+alias cat bat
+alias less bat
+alias more bat
 
 # Functions for aliases with command substitution
 function add-keys
