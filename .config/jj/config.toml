@@ -123,11 +123,3 @@ email = "simon.walker@localstack.cloud"
 [remotes.origin]
 push-new-bookmarks = "glob:*"
 auto-track-bookmarks = "glob:*"
-
-# add diff pager configuration using delta for jjui
-[[--scope]]
-"--when.commands" = ["diff", "show"]
-
-[--scope.ui]
-pager = "delta"
-diff-formatter = "delta"
