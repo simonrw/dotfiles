@@ -8,4 +8,5 @@ if test -d $__LOCATION
     set -gx GOPATH $__LOCATION/gocode
     fish_add_path $CARGO_HOME/bin $GOPATH/bin
     set -gx COLIMA_HOME $__LOCATION/colima
+    set -gx UV_CACHE_DIR $__LOCATION/uv
 end
