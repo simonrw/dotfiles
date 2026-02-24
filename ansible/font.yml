@@ -1,0 +1,17 @@
+---
+- name: "Download {{ font_name }} font"
+  ansible.builtin.get_url:
+    url: "{{ font_url }}"
+    dest: "/tmp/{{ font_name }}.zip"
+
+- name: "Install {{ font_name }} font"
+  become: true
+  ansible.builtin.unarchive:
+    src: "/tmp/{{ font_name }}.zip"
+    dest: /usr/share/fonts/
+    creates: "/usr/share/fonts/{{ font_name }}"
+
+- name: Refresh font cache
+  become: true
+  ansible.builtin.command: fc-cache -f
+  changed_when: false
