@@ -30,7 +30,7 @@ dconf_settings:
 
   - key: "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/command"
     value: >
-      "sh -c 'wmctrl -x -a firefox || firefox'"
+      "sh -c 'wmctrl -x -a helium || helium'"
 
   - key: "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/name"
     value: "'Browser'"
