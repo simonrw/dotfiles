@@ -285,7 +285,24 @@ require("lazy").setup({
                 "nvim-lua/plenary.nvim",
                 "ibhagwan/fzf-lua",
             },
-        }
+        },
+        {
+            "mfussenegger/nvim-dap",
+        },
+        {
+            "mfussenegger/nvim-dap-python",
+            dependencies = { "mfussenegger/nvim-dap" },
+            ft = "python",
+            config = function()
+                require("dap-python").setup("uv")
+                require("dap-python").test_runner = "pytest"
+            end,
+        },
+        {
+            "igorlfs/nvim-dap-view",
+            dependencies = { "mfussenegger/nvim-dap" },
+            opts = {},
+        },
     },
 })
 
@@ -608,6 +625,21 @@ setkey('gi', function() require("fzf-lua").lsp_implementations() end)
 setkey('<leader>S', function() require("fzf-lua").lsp_document_symbols() end)
 setkey('<leader>s', function() require("fzf-lua").lsp_workspace_symbols() end)
 setkey('<leader>a', function() require("fzf-lua").lsp_code_actions() end)
+
+-- dap keymaps (td prefix matches .ideavimrc)
+setkey('tdb', function() require('dap').toggle_breakpoint() end)
+setkey('tdv', function() require('dap').set_breakpoint(vim.fn.input('Breakpoint condition: ')) end)
+setkey('tdj', function() require('dap').run_to_cursor() end)
+setkey('tdt', function() require('dap').terminate() end)
+setkey('tdn', function() require('dap-python').test_method() end)
+setkey('tdc', function() require('dap-python').test_class() end)
+setkey('tdl', function() require('dap').run_last() end)
+setkey('tdw', ':DapViewToggle<cr>')
+-- stepping (F-keys, standard debugger convention)
+setkey('<F5>', function() require('dap').continue() end)
+setkey('<F10>', function() require('dap').step_over() end)
+setkey('<F11>', function() require('dap').step_into() end)
+setkey('<F12>', function() require('dap').step_out() end)
 
 setkey('<c-space>', function()
     vim.lsp.completion.get()
