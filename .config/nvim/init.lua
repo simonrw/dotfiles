@@ -203,53 +203,6 @@ require("lazy").setup({
             },
         },
         {
-
-            'saghen/blink.cmp',
-            version = '1.*',
-            opts = {
-                enabled = function()
-                    return not vim.tbl_contains({
-                        "markdown",
-                        "gitcommit",
-                        "octo",
-                        "jjdescription",
-                    }, vim.bo.filetype)
-                end,
-                keymap = { preset = 'default' },
-
-                appearance = {
-                    use_nvim_cmp_as_default = true,
-                    nerd_font_variant = 'mono'
-                },
-
-                signature = { enabled = true },
-
-                completion = {
-                    documentation = {
-                        auto_show = true,
-                    },
-                    menu = {
-                        draw = {
-                            columns = {
-                                { "label",     "label_description", gap = 1 },
-                                { "kind_icon", "kind",              gap = 1 },
-                            },
-                            treesitter = { "lsp" },
-                        }
-                    }
-                },
-
-                cmdline = {
-                    enabled = false,
-                    sources = {},
-                },
-                sources = {
-                    default = { 'lsp', 'path', 'snippets', 'buffer' },
-                },
-            },
-            opts_extend = { "sources.default" }
-        },
-        {
             "ibhagwan/fzf-lua",
             config = function()
                 require("fzf-lua").setup({
