@@ -6,6 +6,11 @@
     - vars.yml
   tasks:
 
+    - name: Verify become password
+      become: true
+      ansible.builtin.command: /bin/true
+      changed_when: false
+
     - name: Set user variable
       set_fact:
         ansible_target_user: "{{ lookup('env', 'USER') | default('simon', true) }}"
@@ -155,6 +160,10 @@
         font_name: Lilex
         font_url: "https://github.com/mishamyrt/Lilex/releases/download/{{ lilex_version }}/Lilex.zip"
 
+    - name: Install Ollama
+      ansible.builtin.include_tasks: ollama.yml
+      when: ansible_hostname == 'astoria'
+
     - name: Apply dconf settings
       community.general.dconf:
         key: "{{ item.key }}"
@@ -183,3 +192,10 @@
     - name: Load Helium AppArmor profile
       become: true
       ansible.builtin.command: apparmor_parser -r /etc/apparmor.d/helium-appimage
+
+    - name: Restart ollama
+      become: true
+      ansible.builtin.systemd:
+        name: ollama
+        state: restarted
+        daemon_reload: true

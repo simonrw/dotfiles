@@ -1,0 +1,73 @@
+- name: Create ollama group
+  become: true
+  ansible.builtin.group:
+    name: ollama
+    system: true
+    state: present
+
+- name: Create ollama user
+  become: true
+  ansible.builtin.user:
+    name: ollama
+    system: true
+    shell: /bin/false
+    home: /usr/share/ollama
+    create_home: true
+    group: ollama
+
+- name: Add ollama user to GPU access groups
+  become: true
+  ansible.builtin.user:
+    name: ollama
+    groups: render,video
+    append: true
+
+- name: Download ollama tarball
+  become: true
+  ansible.builtin.get_url:
+    url: "https://github.com/ollama/ollama/releases/download/v{{ ollama_version }}/ollama-linux-amd64.tar.zst"
+    dest: "/tmp/ollama-{{ ollama_version }}.tar.zst"
+
+- name: Extract ollama to /usr
+  become: true
+  ansible.builtin.unarchive:
+    src: "/tmp/ollama-{{ ollama_version }}.tar.zst"
+    dest: /usr
+    remote_src: true
+    creates: "/usr/share/ollama/.version-{{ ollama_version }}"
+
+- name: Write version marker
+  become: true
+  ansible.builtin.copy:
+    content: "{{ ollama_version }}"
+    dest: "/usr/share/ollama/.version-{{ ollama_version }}"
+  notify: Restart ollama
+
+- name: Create ollama systemd service
+  become: true
+  ansible.builtin.copy:
+    dest: /etc/systemd/system/ollama.service
+    content: |
+      [Unit]
+      Description=Ollama Service
+      After=network-online.target
+
+      [Service]
+      ExecStart=/usr/bin/ollama serve
+      User=ollama
+      Group=ollama
+      Restart=always
+      RestartSec=3
+      Environment="PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+
+      [Install]
+      WantedBy=default.target
+  notify: Restart ollama
+
+- name: Enable and start ollama service
+  become: true
+  ansible.builtin.systemd:
+    name: ollama
+    enabled: true
+    state: started
+    daemon_reload: true
