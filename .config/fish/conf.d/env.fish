@@ -84,6 +84,18 @@ end
 if test -f ~/.ssh/agent.fish
     source ~/.ssh/agent.fish
 end
+
+# claude telemetry to astoria
+set -gx CLAUDE_CODE_ENABLE_TELEMETRY 1
+set -gx OTEL_METRICS_EXPORTER console,otlp
+set -gx OTEL_LOGS_EXPORTER console,otlp
+set -gx OTEL_EXPORTER_OTLP_PROTOCOL grpc
+set -gx OTEL_EXPORTER_OTLP_ENDPOINT http://astoria.local:4317
+set -gx OTEL_METRIC_EXPORT_INTERVAL 10000
+set -gx OTEL_LOGS_EXPORT_INTERVAL 5000
+set -gx OTEL_LOG_USER_PROMPTS 1
+set -gx OTEL_LOG_TOOL_DETAILS 1
+
 if not set -q SSH_AGENT_PID; or not kill -0 $SSH_AGENT_PID 2>/dev/null
     ssh-agent -c | string replace 'setenv' 'set -gx' | string replace ';' '' | source
     printf "set -gx SSH_AUTH_SOCK %s\nset -gx SSH_AGENT_PID %s\n" $SSH_AUTH_SOCK $SSH_AGENT_PID >~/.ssh/agent.fish
