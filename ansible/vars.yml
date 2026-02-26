@@ -51,3 +51,21 @@ dconf_settings:
   - key: "/org/gnome/settings-daemon/plugins/xsettings/hinting"
     value: "'slight'"
 
+  - key: "/org/gnome/shell/extensions/dash-to-dock/dock-fixed"
+    value: false
+
+  - key: "/org/gnome/shell/extensions/dash-to-dock/extend-height"
+    value: false
+
+  - key: "/org/gnome/shell/extensions/dash-to-dock/dock-position"
+    value: "'BOTTOM'"
+
+  - key: "/org/gnome/desktop/interface/font-name"
+    value: "'Ubuntu Mono 12'"
+
+  - key: "/org/gnome/desktop/interface/monospace-font-name"
+    value: "'Lilex Semi-Bold 12'"
+
+  - key: "/org/gnome/desktop/wm/preferences/resize-with-right-button"
+    value: true
+
