@@ -27,7 +27,7 @@
   "theme": {
     "mode": "system",
     "light": "Catppuccin Latte",
-    "dark": "Catppuccin Macchiato",
+    "dark": "Catppuccin Mocha",
   },
   "buffer_font_family": "JetBrainsMono Nerd Font",
   "buffer_font_weight": 700,
