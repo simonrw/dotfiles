@@ -18,6 +18,7 @@ abbr --add vim nvim
 abbr --add vimdiff 'nvim -d'
 abbr --add vup 'nvim --headless "+Lazy! sync" +qa'
 abbr --add watch viddy
+abbr --add claude "claude --allow-dangerously-skip-permissions"
 
 # eza wrappers (alias so they replace silently)
 alias ls 'eza --group-directories-first --header'
