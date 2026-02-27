@@ -1,5 +1,4 @@
 let mapleader = "\<space>"
-Plug 'dbakker/vim-paragraph-motion'
 
 " plugins
 Plug 'dbakker/vim-paragraph-motion'
