@@ -1,15 +1,30 @@
-#!/usr/bin/env bash
+#!/usr/bin/env python3
 
-set -euo pipefail
+import argparse
+import subprocess
+import socket
+import sys
 
-function wakeastoria() {
-    wakeonlan -i 192.168.0.255 -p 7 40:B0:76:DE:79:B3 >/dev/null
-    readonly ip_address="$(nslookup astoria | grep Address | grep 192 | awk '{print $2}')"
-    test -z ${ip_address} && {
-        ping -o 192.168.0.10 >/dev/null
-    } || {
-        ping -o ${ip_address} >/dev/null
-    }
-}
 
-wakeastoria
+def wake():
+    parser = argparse.ArgumentParser()
+    parser.add_argument(
+        "-b", "--broadcast", help="Broadcast IP address", default="192.168.1.255"
+    )
+    parser.add_argument("-m", "--mac", help="MAC Address", default="40:B0:76:DE:79:B3")
+    args = parser.parse_args()
+
+    subprocess.run(
+        ["wakeonlan", "-i", args.broadcast, "-p", "7", args.mac],
+        stdout=subprocess.DEVNULL,
+    )
+
+    ip_address = socket.gethostbyname("astoria")
+    subprocess.run(["ping", "-o", ip_address], stdout=subprocess.DEVNULL)
+
+
+if __name__ == "__main__":
+    try:
+        wake()
+    except KeyboardInterrupt:
+        sys.exit(130)
