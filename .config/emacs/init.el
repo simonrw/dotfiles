@@ -28,6 +28,10 @@
 (setq inhibit-startup-echo-area-message (user-login-name))
 (setq use-package-always-ensure t)
 
+;; macos setting, move when we have os detection
+(set-frame-parameter nil 'ns-transparent-titlebar t)
+(add-to-list 'default-frame-alist '(ns-transparent-titlebar . t))
+
 
 (setq frame-resize-pixelwise t)
 
@@ -160,3 +164,20 @@
   (require 'evil-org-agenda)
   (evil-org-agenda-set-keys)
   (evil-define-key 'normal org-mode-map (kbd "<tab>") #'org-cycle))
+
+(use-package moody
+  :ensure t
+  :config
+  (setq-default mode-line-format
+				`(""
+				  mode-line-front-space
+				  mode-line-client
+				  mode-line-frame-identification
+				  mode-line-buffer-identification
+				  " "
+				  mode-line-position
+				  (vc-mode vc-mode)
+				  mode-line-modes
+				  mode-line-end-spaces))
+  (moody-replace-mode-line-buffer-identification)
+  (moody-replace-vc-mode))
