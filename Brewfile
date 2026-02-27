@@ -1,9 +1,10 @@
 # Taps
 
+tap "d12frosted/emacs-plus"
 tap "oven-sh/bun"
+tap "owenthereal/upterm"
 tap "pulumi/tap"
 tap "railwaycat/emacsmacport"
-tap "owenthereal/upterm"
 
 # Brews
 
@@ -119,6 +120,7 @@ cask "claude"
 cask "codex"
 cask "cursor"
 cask "deskpad"
+cask "emacs-plus-app"
 cask "firefox"
 cask "font-jetbrains-mono-nerd-font"
 cask "font-lilex"
@@ -137,7 +139,6 @@ cask "moonlight"
 cask "obs"
 cask "obsidian"
 cask "owenthereal/upterm/upterm"
-cask "railwaycat/emacsmacport/emacs-mac"
 cask "raycast"
 cask "shotcut"
 cask "slack"
