@@ -48,6 +48,9 @@
     - name: Setup 1Password CLI
       ansible.builtin.include_tasks: 1password.yml
 
+    - name: Setup Hyprland
+      ansible.builtin.include_tasks: hyprland.yml
+
     - name: Install packages
       become: true
       apt:
