@@ -1,0 +1,43 @@
+---
+- name: Add Hyprland PPA
+  become: true
+  ansible.builtin.apt_repository:
+    repo: ppa:cppiber/hyprland
+    state: present
+  when: hyprland_enabled
+
+- name: Install Hyprland packages
+  become: true
+  ansible.builtin.apt:
+    name:
+      - hyprland
+      - waybar
+      - fuzzel
+      - hyprlock
+      - hypridle
+      - hyprpaper
+      - xdg-desktop-portal-hyprland
+    state: present
+    update_cache: yes
+  when: hyprland_enabled
+
+- name: Remove Hyprland packages
+  become: true
+  ansible.builtin.apt:
+    name:
+      - hyprland
+      - waybar
+      - fuzzel
+      - hyprlock
+      - hypridle
+      - hyprpaper
+      - xdg-desktop-portal-hyprland
+    state: absent
+  when: not hyprland_enabled
+
+- name: Remove Hyprland PPA
+  become: true
+  ansible.builtin.apt_repository:
+    repo: ppa:cppiber/hyprland
+    state: absent
+  when: not hyprland_enabled
