@@ -81,6 +81,7 @@
         ;; Free up the right option for character composition
         mac-right-option-modifier 'none
         s-right-option-modifier  'none)
+
 (use-package which-key
              :ensure t
   :config
@@ -182,3 +183,10 @@
 				  mode-line-end-spaces))
   (moody-replace-mode-line-buffer-identification)
   (moody-replace-vc-mode))
+
+
+(use-package projectile
+  :ensure t
+  :config
+  (projectile-mode +1)
+  (define-key projectile-mode-map (kbd "s-p") 'projectile-command-map))
