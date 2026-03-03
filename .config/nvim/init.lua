@@ -9,19 +9,17 @@ vim.g.get_is_dark_mode = is_dark_mode
 vim.g.is_dark_mode = is_dark_mode()
 vim.g.mapleader = " "
 
-vim.opt.autocomplete = false
 vim.opt.autowrite = true
 vim.opt.backspace = { "indent", "eol", "start" }
 vim.opt.backup = false
 vim.opt.backupcopy = "auto"
 vim.opt.backupdir = { "~/.vim/backup" }
 vim.opt.breakindent = true
-vim.opt.complete = { ".", "o", "w", "b", "u", "i" }
+vim.opt.complete = { ".", "w", "b", "u", "i" }
 vim.opt.completeopt = { "fuzzy", "menuone", "popup" }
 vim.opt.conceallevel = 0
 vim.opt.cursorline = false
 vim.opt.pumheight = 7
-vim.opt.pummaxwidth = 80
 vim.opt.expandtab = true
 vim.opt.formatoptions = "jtcroql"
 vim.opt.gdefault = true
@@ -67,7 +65,14 @@ vim.opt.wrap = false
 vim.opt.writebackup = false
 vim.opt.guicursor = ""
 vim.opt.tags = { '.tags', '.git/tags' }
-vim.opt.winborder = 'rounded'
+
+-- options added in nvim 0.12
+if vim.fn.has('nvim-0.12') == 1 then
+    vim.opt.autocomplete = false
+    vim.opt.complete = { ".", "o", "w", "b", "u", "i" }
+    vim.opt.pummaxwidth = 80
+    vim.opt.winborder = 'rounded'
+end
 
 vim.keymap.set('n', 'cp', ':0,$y+<cr>')
 vim.keymap.set('n', '<leader>o', ':update<Cr> :source ~/.config/nvim/init.lua<Cr>')
@@ -476,7 +481,7 @@ vim.api.nvim_create_autocmd('FileType', {
 })
 
 
--- configure my cfn-lsp lsp
+-- configure LSP servers
 vim.lsp.config["cfn-lsp"] = {
     cmd = { "cfn-lsp" },
     filetypes = { "yaml", "json" },
@@ -596,40 +601,17 @@ setkey('<F8>', function() require('dap').step_over() end)
 setkey('<F7>', function() require('dap').step_into() end)
 setkey('<S-F7>', function() require('dap').step_out() end)
 
-setkey('<c-space>', function()
-    vim.lsp.completion.get()
-end, { 'i' })
-
--- package management commands
-local get_package_names = function()
-    local packages = vim.pack.get()
-    local package_names = {}
-
-    local function is_nonempty_string(x)
-        return type(x) == 'string' and x ~= ''
-    end
-
-    for _, package in ipairs(packages) do
-        if not is_nonempty_string(package.spec.src) then
-            table.insert(package_names, package.spec.name)
-        end
-    end
-    return package_names
+-- native LSP completion (nvim 0.12+)
+if vim.fn.has('nvim-0.12') == 1 then
+    setkey('<c-space>', function()
+        vim.lsp.completion.get()
+    end, { 'i' })
 end
-
-vim.api.nvim_create_user_command('UpdatePackages', function(opts)
-    local package_names = get_package_names()
-    local fopts = {}
-    if opts.bang then
-        fopts.force = true
-    end
-    vim.pack.update(package_names, fopts)
-end, { bang = true })
 
 vim.api.nvim_create_autocmd("LspAttach", {
     callback = function(ev)
         local client = vim.lsp.get_client_by_id(ev.data.client_id)
-        if client and client:supports_method('textDocument/completion') then
+        if vim.fn.has('nvim-0.12') == 1 and client and client:supports_method('textDocument/completion') then
             vim.lsp.completion.enable(true, client.id, ev.buf, { autotrigger = true })
         end
 
