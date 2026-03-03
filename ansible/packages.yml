@@ -17,8 +17,10 @@ packages:
   - build-essential
   - cpu-checker           # kvm
   - curl
+  - emacs
   - eza
   - fd-find
+  - fish
   - fonts-jetbrains-mono
   - git-delta
   - gnome-tweaks
@@ -40,7 +42,6 @@ packages:
   - virt-manager
   - wmctrl
   - x11vnc
-  - fish
   - zsh
 
 snaps:
