@@ -13,4 +13,4 @@ description: Create a commit with jj
 
 ## Task
 
-Based on the above changes, create a single commit
+Based on the above changes, create a single commit. With jj this is normally done by calling `jj describe` to update the message of the current commit, then `jj new` to create a new empty commit on top of the previous one.
