@@ -1,0 +1,29 @@
+---
+- name: Install Sway packages
+  become: true
+  ansible.builtin.apt:
+    name:
+      - sway
+      - waybar
+      - fuzzel
+      - swaylock
+      - swayidle
+      - swaybg
+      - xdg-desktop-portal-wlr
+    state: present
+    update_cache: yes
+  when: sway_enabled
+
+- name: Remove Sway packages
+  become: true
+  ansible.builtin.apt:
+    name:
+      - sway
+      - waybar
+      - fuzzel
+      - swaylock
+      - swayidle
+      - swaybg
+      - xdg-desktop-portal-wlr
+    state: absent
+  when: not sway_enabled

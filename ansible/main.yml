@@ -51,6 +51,9 @@
     - name: Setup Hyprland
       ansible.builtin.include_tasks: hyprland.yml
 
+    - name: Setup Sway
+      ansible.builtin.include_tasks: sway.yml
+
     - name: Install packages
       become: true
       apt:
