@@ -87,20 +87,27 @@
   :config
   (which-key-mode))
 
-
-
-
-(ido-mode 1)
-(ido-everywhere 1)
-(use-package smex
-             :ensure t
+(use-package ivy
+  :ensure t
+  :init
+  (setopt ivy-use-virtual-buffers t)
   :config
-  (smex-initialize)
-  :bind
-  ("M-x" . smex)
-  ("C-c C-c M-x" . execute-extended-command))
+  (ivy-mode))
 
-(set-face-attribute 'default nil :family  "JetBrainsMono Nerd Font" :height 130)
+(use-package counsel
+  :ensure t
+  :after ivy
+  :config
+  (counsel-mode)
+  :bind (("M-x" . counsel-M-x)
+		 ("C-x C-f" . counsel-find-file)))
+
+(use-package swiper
+  :ensure t
+  :after counsel)
+
+
+(set-face-attribute 'default nil :family  "Lilex" :height 130)
 (set-face-attribute 'variable-pitch nil :family "Helvetica Neue" :height 130)
 (set-face-attribute 'fixed-pitch nil :family (face-attribute 'default :family) :height 110)
 
@@ -133,12 +140,14 @@
 
 (use-package evil-leader
   :ensure t
+  :after (evil swiper)
   :config
   (evil-leader/set-leader "<SPC>")
   (evil-leader/set-key
 	"w" 'save-buffer
     "q" 'save-buffers-kill-terminal
-    "o" 'srw/load-config)
+    "o" 'srw/load-config
+    "<SPC>" 'swiper-isearch)
   (global-evil-leader-mode))
 
 (defun srw/load-config ()
@@ -190,3 +199,11 @@
   :config
   (projectile-mode +1)
   (define-key projectile-mode-map (kbd "s-p") 'projectile-command-map))
+
+(use-package agent-shell
+  :ensure t
+  :config
+  (setq agent-shell-anthropic-claude-environment
+		(agent-shell-make-environment-variables :inherit-env t))
+  (setq agent-shell-anthropic-claude-acp-command
+		'("bunx" "@zed-industries/claude-agent-acp")))
