@@ -3,6 +3,21 @@
     "commit": "",
     "pr": ""
   },
+  "permissions": {
+    "allow": [
+      "Bash(git diff:*)",
+      "Bash(git log:*)",
+      "Bash(cargo check:*)",
+      "Bash(rg:*)",
+      "WebFetch(domain:docs.rs)",
+      "Bash(cargo search:*)",
+      "Bash(cargo tree:*)",
+      "WebSearch",
+      "WebFetch(domain:github.com)",
+      "Bash(gh run view:*)"
+    ],
+    "defaultMode": "default"
+  },
   "statusLine": {
     "type": "command",
     "command": "~/.claude/scripts/status_line_command.sh"
@@ -16,13 +31,5 @@
     "typescript-lsp@claude-plugins-official": true
   },
   "alwaysThinkingEnabled": true,
-  "skipDangerousModePermissionPrompt": true,
-  "permissions": {
-    "allow": [
-      "Bash(git diff:*)",
-      "Bash(git log:*)",
-      "Bash(cargo check:*)",
-      "Bash(rg:*)"
-    ]
-  }
+  "skipDangerousModePermissionPrompt": true
 }
