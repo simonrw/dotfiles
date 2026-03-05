@@ -87,8 +87,8 @@ end
 
 # claude telemetry to astoria
 set -gx CLAUDE_CODE_ENABLE_TELEMETRY 1
-set -gx OTEL_METRICS_EXPORTER console,otlp
-set -gx OTEL_LOGS_EXPORTER console,otlp
+set -gx OTEL_METRICS_EXPORTER otlp
+set -gx OTEL_LOGS_EXPORTER otlp
 set -gx OTEL_EXPORTER_OTLP_PROTOCOL grpc
 set -gx OTEL_EXPORTER_OTLP_ENDPOINT http://astoria.local:4317
 set -gx OTEL_METRIC_EXPORT_INTERVAL 10000
