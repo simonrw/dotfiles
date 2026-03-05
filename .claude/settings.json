@@ -19,10 +19,10 @@
   "skipDangerousModePermissionPrompt": true,
   "permissions": {
     "allow": [
-      "Bash(git diff *)",
-      "Bash(git log *)",
-      "Bash(cargo check *)",
-      "Bash(rg *)"
+      "Bash(git diff:*)",
+      "Bash(git log:*)",
+      "Bash(cargo check:*)",
+      "Bash(rg:*)"
     ]
   }
 }
