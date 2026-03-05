@@ -87,6 +87,9 @@
   :config
   (which-key-mode))
 
+;; eglot TODO
+;; (add-hook 'rust-mtde-hook
+
 (use-package ivy
   :ensure t
   :init
@@ -196,14 +199,19 @@
 
 (use-package projectile
   :ensure t
+  :init
+  (setq projectile-project-search-path '("~/dev" "~/work"))
   :config
   (projectile-mode +1)
-  (define-key projectile-mode-map (kbd "s-p") 'projectile-command-map))
+  (define-key projectile-mode-map (kbd "s-p") 'projectile-command-map)
+  (global-set-key (kbd "C-c p") 'projectile-command-map))
 
 (use-package agent-shell
   :ensure t
   :config
-  (setq agent-shell-anthropic-claude-environment
-		(agent-shell-make-environment-variables :inherit-env t))
+  (setq agent-shell-anthropic-claude-environment (agent-shell-make-environment-variables :inherit-env t))
   (setq agent-shell-anthropic-claude-acp-command
 		'("bunx" "@zed-industries/claude-agent-acp")))
+
+(use-package rg
+  :ensure t)
