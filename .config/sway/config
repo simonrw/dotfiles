@@ -30,6 +30,7 @@ exec swayidle -w
 exec_always {
     gsettings set org.gnome.desktop.interface cursor-size 24
 }
+exec dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSOCK XDG_CURRENT_DESKTOP
 
 # App launchers
 bindsym Alt+Mod4+t exec $terminal
