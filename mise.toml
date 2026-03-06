@@ -33,7 +33,7 @@ run = """
 if [ "$(uname)" = "Linux" ]; then
   stow --ignore='^Library' .
 else
-  stow --ignore='^\\.config/systemd' --ignore='^\\.config/fontconfig' --ignore='^\\.config/xdg-desktop-portal' --ignore='^\\.local' --ignore='^\\.config/waybar' .
+  stow --ignore='^\\.config/systemd' --ignore='^\\.config/fontconfig' --ignore='^\\.config/xdg-desktop-portal' --ignore='^\\.local' --ignore='^\\.config/waybar' --ignore='^\\.config/hypr' --ignore='^\\.config/sway' .
 fi
 ln -sf "$(pwd)/.config/ghostty/$(hostname -s).config" "$HOME/.config/ghostty/local.config"
 """
