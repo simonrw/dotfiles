@@ -14,6 +14,14 @@
     update_cache: yes
   when: sway_enabled
 
+- name: Allow Sway on NVIDIA GPU
+  become: yes
+  ansible.builtin.lineinfile:
+    path: /usr/share/wayland-sessions/sway.desktop
+    regexp: '^Exec=sway'
+    line: 'Exec=sway --unsupported-gpu'
+  when: sway_enabled
+
 - name: Remove Sway packages
   become: true
   ansible.builtin.apt:
