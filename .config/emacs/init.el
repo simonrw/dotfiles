@@ -8,7 +8,7 @@
 	  '((sequence "TODO" "|" "DONE" "DROPPED")))
 
 (setq custom-file "~/.config/emacs/custom.el")
-(load custom-file)
+(load custom-file 'noerror 'nomessage)
 
 (fset 'yes-or-no-p 'y-or-n-p)
 (setq visible-bell nil)
@@ -83,7 +83,7 @@
         s-right-option-modifier  'none)
 
 (use-package which-key
-             :ensure t
+  :ensure t
   :config
   (which-key-mode))
 
@@ -235,3 +235,12 @@
 (with-eval-after-load 'tramp
   (with-eval-after-load 'compile
     (remove-hook 'compilation-mode-hook #'tramp-compile-disable-ssh-controlmaster-options)))
+
+;; taken from https://www.youtube.com/watch?v=51eSeqcaikM
+(recentf-mode 1)
+(setq history-length 25)
+(savehist-mode 1)
+(save-place-mode 1)
+(setq use-dialog-box nil)
+(global-auto-revert-mode 1)
+(setq global-auto-revert-non-file-buffers t)
