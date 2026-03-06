@@ -21,22 +21,24 @@ window#waybar {
 
 /* Workspace buttons */
 #workspaces button {
-    padding: 0 6px;
+    padding: 0 8px;
+    margin: 4px 2px;
     color: #595959;
     background: transparent;
     border: none;
-    border-radius: 0;
+    border-radius: 4px;
+    min-width: 24px;
     transition: all 0.2s ease;
 }
 
 #workspaces button.active {
-    color: #33ccff;
-    text-shadow: 0 0 8px rgba(51, 204, 255, 0.5);
+    color: #15161e;
+    background: #33ccff;
 }
 
 #workspaces button:hover {
-    background: rgba(51, 204, 255, 0.15);
-    color: #33ccff;
+    background: rgba(51, 204, 255, 0.3);
+    color: #cdd6f4;
 }
 
 #workspaces button.empty {
