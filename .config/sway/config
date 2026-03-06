@@ -89,8 +89,8 @@ bindsym $mod+Shift+8 move container to workspace number 8
 bindsym $mod+Shift+9 move container to workspace number 9
 
 # Scroll through workspaces
-bindsym $mod+mouse_down workspace next
-bindsym $mod+mouse_up workspace prev
+bindsym $mod+button4 workspace next
+bindsym $mod+button5 workspace prev
 
 # Move/resize with mouse
 floating_modifier $mod normal
