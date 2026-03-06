@@ -9,12 +9,7 @@
     "modules-right": ["pulseaudio", "network", "battery", "tray"],
 
     "hyprland/workspaces": {
-        "format": "{icon}",
-        "format-icons": {
-            "active": "",
-            "default": "",
-            "empty": ""
-        },
+        "format": "{id}",
         "persistent-workspaces": {
             "*": 5
         }
