@@ -14,6 +14,7 @@ packages:
   - 1password
   - 1password-cli
   - bridge-utils          # kvm
+  - bubblewrap            # for claude sandboxing
   - build-essential
   - cmake
   - cpu-checker           # kvm
@@ -36,6 +37,7 @@ packages:
   - python3-psutil           # dconf module
   - qemu-system
   - ripgrep
+  - socat                 # for claude sandboxing
   - stow
   - tmux
   - unattended-upgrades
