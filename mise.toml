@@ -1,7 +1,6 @@
 [tasks.all]
 description = "Install/link packages"
 depends = [
-    "submodules",
     "dotfiles",
     "defaults",
     "gh-extensions",
@@ -22,13 +21,8 @@ description = "Update globally installed mise packages"
 depends = ["dotfiles"]
 run = "mise --cd $HOME upgrade"
 
-[tasks.submodules]
-description = "Ensure submodules are installed"
-run = "git submodule update --init"
-
 [tasks.dotfiles]
 description = "Install dotfiles"
-depends = ["submodules"]
 run = """
 if [ "$(uname)" = "Linux" ]; then
   stow --ignore='^Library' .
@@ -44,7 +38,6 @@ lua-language-server = "latest"
 
 [tasks."brew:upgrade"]
 run = "brew update && brew upgrade"
-depends = ["submodules", "brew"]
 description = "Update brews"
 
 [tasks."apt:upgrade"]
