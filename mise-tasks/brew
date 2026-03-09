@@ -1,6 +1,5 @@
 #!/usr/bin/env bash
 #MISE description="Install homebrew packages from bundle file"
-#MISE depends=["submodules"]
 
 set -eou pipefail
 

@@ -1,6 +1,5 @@
 #!/usr/bin/env bash
 #MISE description="Install gh CLI extensions"
-#MISE depends=["submodules"]
 
 set -euo pipefail
 
