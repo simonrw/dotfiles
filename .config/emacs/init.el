@@ -201,7 +201,7 @@
 (use-package projectile
   :ensure t
   :init
-  (setq projectile-project-search-path '("~/dev" "~/work"))
+  (setq projectile-project-search-path '("~/dev" "~/dev/forks" "~/work/localstack"))
   :config
   (projectile-mode +1)
   (define-key projectile-mode-map (kbd "s-p") 'projectile-command-map)
