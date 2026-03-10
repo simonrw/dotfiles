@@ -8,7 +8,6 @@ set -g fish_greeting
 mise activate fish | source
 fzf --fish | source
 atuin init fish | source
-command -q wt && wt config shell init fish | source
 
 # Per-host config
 set -l this_hostname (hostname -s)
