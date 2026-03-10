@@ -11,4 +11,4 @@ while [[ $# -gt 0 ]]; do
     esac
 done
 
-claude -p --model "$model" "$*"
+claude --model "$model" "$*"
