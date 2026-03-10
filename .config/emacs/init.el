@@ -165,6 +165,12 @@
 
 (keymap-global-set "C-c a" #'org-agenda)
 
+(use-package visual-fill-column
+  :ensure t
+  :custom
+  (visual-fill-column-center-text t)
+  :hook (org-mode . visual-fill-column-mode))
+
 (with-eval-after-load 'org
   (setq org-startup-indented nil)
   (add-hook 'org-mode-hook #'visual-line-mode))
