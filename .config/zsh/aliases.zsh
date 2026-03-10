@@ -32,14 +32,8 @@ alias vim=nvim
 alias vimdiff='nvim -d'
 alias vup='nvim --headless "+Lazy! sync" +qa'
 alias watch=viddy
+alias awslocal=aws
 
-# handle os specific binaries
-case $OSTYPE in
-    darwin*)
-        alias cat=bat
-        alias less=bat
-        alias more=bat
-        ;;
-    *)
-        ;;
-esac
+alias cat=bat
+alias less=bat
+alias more=bat
