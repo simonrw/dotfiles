@@ -87,8 +87,20 @@
   :config
   (which-key-mode))
 
-;; eglot TODO
-;; (add-hook 'rust-mtde-hook
+(use-package eglot
+  :ensure nil
+  :hook ((python-mode . eglot-ensure)
+         (python-ts-mode . eglot-ensure)
+         (rust-mode . eglot-ensure)
+         (rust-ts-mode . eglot-ensure))
+  :config
+  (add-to-list 'eglot-server-programs
+               '((python-mode python-ts-mode) . ("ty" "server"))))
+
+(use-package flymake-ruff
+  :ensure t
+  :hook ((python-mode . flymake-ruff-load)
+         (python-ts-mode . flymake-ruff-load)))
 
 (use-package ivy
   :ensure t
