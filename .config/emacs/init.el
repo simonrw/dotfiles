@@ -143,13 +143,14 @@
 
 (use-package evil-leader
   :ensure t
-  :after (evil swiper)
+  :after (evil swiper projectile)
   :config
   (evil-leader/set-leader "<SPC>")
   (evil-leader/set-key
 	"w" 'save-buffer
     "q" 'save-buffers-kill-terminal
     "o" 'srw/load-config
+    "f" 'projectile-find-file
     "<SPC>" 'swiper-isearch)
   (global-evil-leader-mode))
 
@@ -251,3 +252,11 @@
 (setq use-dialog-box nil)
 (global-auto-revert-mode 1)
 (setq global-auto-revert-non-file-buffers t)
+
+;; consult
+(use-package consult
+  :ensure t
+  :after (evil)
+  :bind ("C-x b" . consult-buffer)
+  :config
+  (evil-define-key 'normal 'global (kbd "g b") 'consult-buffer))
