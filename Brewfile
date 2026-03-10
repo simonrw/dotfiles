@@ -91,7 +91,6 @@ brew "worktrunk"
 brew "xh"
 brew "yq"
 brew "yt-dlp"
-brew "zoxide"
 brew "zsh"
 
 # for localStack

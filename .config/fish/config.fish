@@ -8,7 +8,6 @@ set -g fish_greeting
 mise activate fish | source
 fzf --fish | source
 atuin init fish | source
-zoxide init fish | source
 command -q wt && wt config shell init fish | source
 
 # Per-host config
