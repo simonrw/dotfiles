@@ -72,6 +72,7 @@ if vim.fn.has('nvim-0.12') == 1 then
     vim.opt.complete = { ".", "o", "w", "b", "u", "i" }
     vim.opt.pummaxwidth = 80
     vim.opt.winborder = 'rounded'
+    vim.opt.guicursor = "a:blinkon0"
 end
 
 vim.keymap.set('n', 'cp', ':0,$y+<cr>')
