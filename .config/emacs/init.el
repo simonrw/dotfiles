@@ -196,6 +196,7 @@
   (moody-replace-mode-line-buffer-identification)
   (moody-replace-vc-mode))
 
+(define-key global-map (kbd "s-p") nil)
 
 (use-package projectile
   :ensure t
