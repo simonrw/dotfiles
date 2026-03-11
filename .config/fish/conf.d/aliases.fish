@@ -18,6 +18,12 @@ abbr --add vim nvim
 abbr --add vimdiff 'nvim -d'
 abbr --add vup 'nvim --headless "+Lazy! sync" +qa'
 abbr --add watch viddy
+abbr --add ec 'emacsclient -n'
+abbr --add grep rg
+abbr --add awslocal aws
+abbr --add cat bat
+abbr --add less bat
+abbr --add more bat
 
 # eza wrappers (alias so they replace silently)
 alias ls 'eza --group-directories-first --header'
@@ -28,13 +34,7 @@ alias lt 'eza --group-directories-first --header --tree'
 alias lr 'eza --group-directories-first --header -s modified -l'
 alias thor 'eza --group-directories-first --header -s modified -l'
 alias tree 'eza --group-directories-first --header -T'
-alias grep rg
 alias notes 'open -a Emacs ~/notes.org'
-alias awslocal aws
-
-alias cat bat
-alias less bat
-alias more bat
 
 # Functions for aliases with command substitution
 function add-keys
