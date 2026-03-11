@@ -77,6 +77,14 @@
     (add-to-list 'exec-path-from-shell-variables var))
   (exec-path-from-shell-initialize))
 
+(use-package treesit-auto
+  :ensure t
+  :custom
+  (treesit-auto-install 'prompt)
+  :config
+  (treesit-auto-add-to-auto-mode-alist 'all)
+  (global-treesit-auto-mode))
+
 ;; macos settings
 ;; https://github.com/doomemacs/doomemacs/blob/master/modules/os/macos/config.el
 (setq locate-command "mdfind")
@@ -105,7 +113,12 @@
   :hook ((python-mode . eglot-ensure)
          (python-ts-mode . eglot-ensure)
          (rust-mode . eglot-ensure)
-         (rust-ts-mode . eglot-ensure))
+         (rust-ts-mode . eglot-ensure)
+         (go-ts-mode . eglot-ensure)
+         (yaml-ts-mode . eglot-ensure)
+         (json-ts-mode . eglot-ensure)
+         (typescript-ts-mode . eglot-ensure)
+         (tsx-ts-mode . eglot-ensure))
   :config
   (add-to-list 'eglot-server-programs
                '((python-mode python-ts-mode) . ("ty" "server"))))
