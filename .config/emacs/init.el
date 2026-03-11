@@ -118,7 +118,8 @@
          (yaml-ts-mode . eglot-ensure)
          (json-ts-mode . eglot-ensure)
          (typescript-ts-mode . eglot-ensure)
-         (tsx-ts-mode . eglot-ensure))
+         (tsx-ts-mode . eglot-ensure)
+         (markdown-mode . eglot-ensure))
   :config
   (add-to-list 'eglot-server-programs
                '((python-mode python-ts-mode) . ("ty" "server"))))
@@ -208,7 +209,9 @@
   :ensure t
   :custom
   (visual-fill-column-center-text t)
-  :hook (org-mode . visual-fill-column-mode))
+  :hook
+  (org-mode . visual-fill-column-mode)
+  (markdown-mode . visual-fill-column-mode))
 
 (with-eval-after-load 'org
   (setq org-startup-indented nil)
@@ -258,6 +261,9 @@
   (setq agent-shell-anthropic-claude-environment (agent-shell-make-environment-variables :inherit-env t))
   (setq agent-shell-anthropic-claude-acp-command
 		'("bunx" "@zed-industries/claude-agent-acp")))
+
+(use-package markdown-mode
+  :ensure t)
 
 (use-package rg
   :ensure t)
