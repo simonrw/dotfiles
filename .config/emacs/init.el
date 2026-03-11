@@ -265,6 +265,10 @@
 (global-auto-revert-mode 1)
 (setq global-auto-revert-non-file-buffers t)
 
+(require 'server)
+(unless (server-running-p)
+  (server-start))
+
 ;; consult
 (use-package consult
   :ensure t
