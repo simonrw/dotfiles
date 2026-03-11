@@ -41,21 +41,34 @@
 
 
 (use-package catppuccin-theme
-             :ensure t
-  :config
-  (setq catppuccin-flavor 'mocha))
+             :ensure t)
 
 (use-package doom-themes
-             :ensure t
-             )
+  :ensure t
+  )
 
 (use-package auto-dark
              :ensure t
   :custom
-  (auto-dark-themes '((catppuccin) (doom-one-light)))
+  (auto-dark-themes '((catppuccin) (catppuccin)))
+  :init
+  (defun my/server-auto-dark (frame)
+    (with-selected-frame frame
+      (when (display-graphic-p)
+        (auto-dark-mode 1)
+        (remove-hook 'after-make-frame-functions #'my/server-auto-dark))))
   :config
   (setq auto-dark-allow-osascript t)
-  (auto-dark-mode))
+  (add-hook 'auto-dark-dark-mode-hook
+            (lambda ()
+              (setq catppuccin-flavor 'mocha)
+              (catppuccin-reload)))
+  (add-hook 'auto-dark-light-mode-hook
+            (lambda ()
+              (setq catppuccin-flavor 'latte)
+              (catppuccin-reload)))
+  (add-hook 'after-make-frame-functions #'my/server-auto-dark)
+  (auto-dark-mode 1))
 
 (use-package exec-path-from-shell
              :ensure t
@@ -265,10 +278,6 @@
 (global-auto-revert-mode 1)
 (setq global-auto-revert-non-file-buffers t)
 
-(require 'server)
-(unless (server-running-p)
-  (server-start))
-
 ;; consult
 (use-package consult
   :ensure t
@@ -276,3 +285,9 @@
   :bind ("C-x b" . consult-buffer)
   :config
   (evil-define-key 'normal 'global (kbd "g b") 'consult-buffer))
+
+(add-hook 'after-init-hook
+          (lambda ()
+            (require 'server)
+            (unless (server-running-p)
+              (server-start))))
