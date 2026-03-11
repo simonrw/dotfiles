@@ -3,9 +3,6 @@
     "commit": "",
     "pr": ""
   },
-  "sandbox": {
-    "enabled": true
-  },
   "permissions": {
     "allow": [
       "Bash(git diff:*)",
