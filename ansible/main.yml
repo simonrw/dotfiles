@@ -177,13 +177,6 @@
       args:
         creates: "/home/{{ ansible_target_user }}/.local/bin/zed"
 
-    - name: Enable emacs systemd user service
-      ansible.builtin.systemd:
-        name: emacs.service
-        enabled: true
-        scope: user
-        daemon_reload: true
-
     - name: Enable x11vnc systemd user service
       ansible.builtin.systemd:
         name: x11vnc.service
