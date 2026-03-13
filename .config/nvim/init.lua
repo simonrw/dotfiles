@@ -9,6 +9,9 @@ vim.g.get_is_dark_mode = is_dark_mode
 vim.g.is_dark_mode = is_dark_mode()
 vim.g.mapleader = " "
 
+-- disable editorconfig as it's not providing value
+vim.g.editorconfig = false
+
 vim.opt.autowrite = true
 vim.opt.backspace = { "indent", "eol", "start" }
 vim.opt.backup = false
