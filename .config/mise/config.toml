@@ -26,6 +26,7 @@ uv = { version = "latest", os = ["linux"] }
 jjui = { version = "latest", os = ["linux"] }
 lazygit = { version = "latest", os = ["linux"] }
 "github:tummychow/git-absorb" = { version = "latest", os = ["linux"] }
+"go:github.com/simonrw/quickfix-review" = "latest"
 
 [tools."github:MordechaiHadad/bob"]
 version = "latest"
