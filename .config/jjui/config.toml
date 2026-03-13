@@ -1,6 +1,11 @@
-[custom_commands.tug]
-key = ["t"]
+[[actions]]
+name = "tug"
 lua = '''
 jj("tug")
 revisions.refresh()
 '''
+
+[[bindings]]
+action = "tug"
+key = "t"
+scope = "revisions"
