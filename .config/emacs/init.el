@@ -76,7 +76,8 @@
   :config
   (dolist (var '("SSH_AUTH_SOCK" "SSH_AGENT_PID" "GPG_AGENT_INFO" "LANG" "LC_CTYPE"))
     (add-to-list 'exec-path-from-shell-variables var))
-  (exec-path-from-shell-initialize))
+  (when (memq window-system '(mac ns x))
+	(exec-path-from-shell-initialize)))
 
 (use-package treesit-auto
   :ensure t
@@ -123,10 +124,12 @@
          (markdown-mode . eglot-ensure))
   :config
   (add-to-list 'eglot-server-programs
-               '((python-mode python-ts-mode) . ("ty" "server"))))
+               '((python-mode python-ts-mode) . ("uv" "run" "ty" "server"))))
 
 (use-package flymake-ruff
   :ensure t
+  :init
+  (setq flymake-ruff-program '("uv" "run" "ruff"))
   :hook ((python-mode . flymake-ruff-load)
          (python-ts-mode . flymake-ruff-load)))
 
@@ -307,9 +310,3 @@
   :bind ("C-x b" . consult-buffer)
   :config
   (evil-define-key 'normal 'global (kbd "g b") 'consult-buffer))
-
-(add-hook 'after-init-hook
-          (lambda ()
-            (require 'server)
-            (unless (server-running-p)
-              (server-start))))
