@@ -35,6 +35,7 @@ ln -sf "$(pwd)/.config/ghostty/$(hostname -s).config" "$HOME/.config/ghostty/loc
 [tools]
 go = "latest"
 lua-language-server = "latest"
+"npm:@fission-ai/openspec" = "latest"
 
 [tasks."brew:upgrade"]
 run = "brew update && brew upgrade"
