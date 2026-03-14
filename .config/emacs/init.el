@@ -79,6 +79,11 @@
     (add-to-list 'exec-path-from-shell-variables var))
   (exec-path-from-shell-initialize))
 
+(use-package mise
+  :ensure t
+  :config
+  (global-mise-mode))
+
 (use-package treesit-auto
   :ensure t
   :custom
