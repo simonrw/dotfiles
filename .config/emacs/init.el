@@ -29,9 +29,9 @@
 (setq inhibit-startup-echo-area-message (user-login-name))
 (setq use-package-always-ensure t)
 
-;; macos setting, move when we have os detection
-(set-frame-parameter nil 'ns-transparent-titlebar t)
-(add-to-list 'default-frame-alist '(ns-transparent-titlebar . t))
+(when (eq system-type 'darwin)
+  (set-frame-parameter nil 'ns-transparent-titlebar t)
+  (add-to-list 'default-frame-alist '(ns-transparent-titlebar . t)))
 
 
 (setq frame-resize-pixelwise t)
@@ -72,12 +72,12 @@
   (auto-dark-mode 1))
 
 (use-package exec-path-from-shell
-             :ensure t
+  :ensure t
+  :if (eq system-type 'darwin)
   :config
   (dolist (var '("SSH_AUTH_SOCK" "SSH_AGENT_PID" "GPG_AGENT_INFO" "LANG" "LC_CTYPE"))
     (add-to-list 'exec-path-from-shell-variables var))
-  (when (memq window-system '(mac ns x))
-	(exec-path-from-shell-initialize)))
+  (exec-path-from-shell-initialize))
 
 (use-package treesit-auto
   :ensure t
@@ -87,23 +87,23 @@
   (treesit-auto-add-to-auto-mode-alist 'all)
   (global-treesit-auto-mode))
 
-;; macos settings
+;; macOS-specific settings
 ;; https://github.com/doomemacs/doomemacs/blob/master/modules/os/macos/config.el
-(setq locate-command "mdfind")
-(setq ns-use-native-fullscreen nil)
-(setq mac-redisplay-dont-reset-vscroll t
-      mac-mouse-wheel-smooth-scroll nil)
-(and (or (daemonp)
-         (display-graphic-p))
-     (require 'ns-auto-titlebar nil t)
-     (ns-auto-titlebar-mode +1))
-(setq mac-command-modifier      'meta
+(when (eq system-type 'darwin)
+  (setq locate-command "mdfind")
+  (setq ns-use-native-fullscreen nil)
+  (setq mac-redisplay-dont-reset-vscroll t
+        mac-mouse-wheel-smooth-scroll nil)
+  (and (or (daemonp)
+           (display-graphic-p))
+       (require 'ns-auto-titlebar nil t)
+       (ns-auto-titlebar-mode +1))
+  (setq mac-command-modifier      'meta
         ns-command-modifier       'meta
         mac-option-modifier       'super
         ns-option-modifier        'super
-        ;; Free up the right option for character composition
         mac-right-option-modifier 'none
-        s-right-option-modifier  'none)
+        s-right-option-modifier  'none))
 
 (use-package which-key
   :ensure t
@@ -133,40 +133,48 @@
   :hook ((python-mode . flymake-ruff-load)
          (python-ts-mode . flymake-ruff-load)))
 
-(use-package ivy
+;; Completion stack: Vertico + Orderless + Marginalia + Consult + Embark
+(use-package vertico
   :ensure t
-  :init
-  (setopt ivy-use-virtual-buffers t)
   :config
-  (ivy-mode))
+  (vertico-mode))
 
-(use-package counsel
+(use-package orderless
   :ensure t
-  :after ivy
+  :custom
+  (completion-styles '(orderless basic))
+  (completion-category-overrides '((file (styles basic partial-completion)))))
+
+(use-package marginalia
+  :ensure t
   :config
-  (counsel-mode)
-  :bind (("M-x" . counsel-M-x)
-		 ("C-x C-f" . counsel-find-file)))
+  (marginalia-mode))
 
-(use-package swiper
+(use-package embark
   :ensure t
-  :after counsel)
+  :bind
+  (("C-." . embark-act)
+   ("C-;" . embark-dwim)))
 
 
-(set-face-attribute 'default nil :family  "Lilex" :height 130)
-(set-face-attribute 'variable-pitch nil :family "Helvetica Neue" :height 130)
-(set-face-attribute 'fixed-pitch nil :family (face-attribute 'default :family) :height 110)
+(when (display-graphic-p)
+  (set-face-attribute 'default nil :family "Lilex" :height 130)
+  (set-face-attribute 'variable-pitch nil
+                      :family (if (eq system-type 'darwin) "Helvetica Neue" "Sans Serif")
+                      :height 130)
+  (set-face-attribute 'fixed-pitch nil :family (face-attribute 'default :family) :height 110))
 
 
-; key bindings
-(global-set-key [(super a)] 'mark-whole-buffer)
-(global-set-key [(meta v)] 'clipboard-yank)
-(global-set-key [(super c)] 'kill-ring-save)
-(global-set-key [(meta s)] 'save-buffer)
-(global-set-key [(super l)] 'goto-line)
-(global-set-key [(super w)]
-                (lambda () (interactive) (delete-window)))
-(global-set-key [(super z)] 'undo)
+;; macOS Cmd-key bindings (super = Cmd after modifier remap)
+(when (eq system-type 'darwin)
+  (global-set-key [(super a)] 'mark-whole-buffer)
+  (global-set-key [(meta v)] 'clipboard-yank)
+  (global-set-key [(super c)] 'kill-ring-save)
+  (global-set-key [(meta s)] 'save-buffer)
+  (global-set-key [(super l)] 'goto-line)
+  (global-set-key [(super w)]
+                  (lambda () (interactive) (delete-window)))
+  (global-set-key [(super z)] 'undo))
 
 
 (use-package vterm
@@ -188,15 +196,31 @@
 
 (use-package evil-leader
   :ensure t
-  :after (evil swiper projectile)
+  :after evil
   :config
   (evil-leader/set-leader "<SPC>")
   (evil-leader/set-key
-	"w" 'save-buffer
+    "w" 'save-buffer
     "q" 'save-buffers-kill-terminal
     "o" 'srw/load-config
-    "f" 'projectile-find-file
-    "<SPC>" 'swiper-isearch)
+    "f" 'project-find-file
+    "F" 'consult-find
+    "<SPC>" 'consult-ripgrep
+    ;; LSP
+    "r" 'eglot-rename
+    "y" 'eglot-format
+    "a" 'eglot-code-actions
+    "d" 'flymake-show-buffer-diagnostics
+    "A" 'flymake-show-project-diagnostics
+    "S" 'consult-imenu
+    "s" 'consult-eglot-symbols
+    ;; Git
+    "gc" 'magit-commit
+    "gd" 'magit-diff-dwim
+    "gw" 'magit-stage-file
+    "gr" 'magit-unstage-file
+    "ga" 'magit-commit-amend
+    "gt" 'eglot-find-typeDefinition)
   (global-evil-leader-mode))
 
 (defun srw/load-config ()
@@ -208,6 +232,57 @@
   :ensure t
   :config
   (evil-collection-init))
+
+;; LSP navigation in eglot buffers
+(with-eval-after-load 'eglot
+  (evil-define-key 'normal eglot-mode-map
+    (kbd "gd") 'xref-find-definitions
+    (kbd "gr") 'xref-find-references
+    (kbd "gi") 'eglot-find-implementation))
+
+;; Git status, file browsing, copy file, quickfix
+(with-eval-after-load 'evil
+  (evil-define-key 'normal 'global (kbd "gs") 'magit-status)
+  (evil-define-key 'normal 'global (kbd "-") 'dired-jump)
+  (evil-define-key 'normal 'global (kbd "cp")
+    (lambda () (interactive)
+      (clipboard-kill-ring-save (point-min) (point-max))
+      (message "Buffer copied to clipboard")))
+  (evil-define-key 'normal 'global (kbd "Q")
+    (lambda () (interactive)
+      (if-let ((win (get-buffer-window "*Flymake diagnostics*")))
+          (delete-window win)
+        (flymake-show-buffer-diagnostics))))
+  ;; Toggle bindings (yo* prefix)
+  (evil-define-key 'normal 'global (kbd "yow")
+    (lambda () (interactive) (visual-line-mode 'toggle)))
+  (evil-define-key 'normal 'global (kbd "yon")
+    (lambda () (interactive) (display-line-numbers-mode 'toggle)))
+  (evil-define-key 'normal 'global (kbd "yor")
+    (lambda () (interactive)
+      (if (eq display-line-numbers 'relative)
+          (setq display-line-numbers t)
+        (setq display-line-numbers 'relative))))
+  (evil-define-key 'normal 'global (kbd "yos")
+    (lambda () (interactive) (flyspell-mode 'toggle)))
+  (evil-define-key 'normal 'global (kbd "yoz")
+    (lambda () (interactive) (visual-fill-column-mode 'toggle)))
+  (evil-define-key 'normal 'global (kbd "yob") 'magit-blame))
+
+;; Git gutter signs
+(use-package diff-hl
+  :ensure t
+  :config
+  (global-diff-hl-mode)
+  (add-hook 'magit-pre-refresh-hook 'diff-hl-magit-pre-refresh)
+  (add-hook 'magit-post-refresh-hook 'diff-hl-magit-post-refresh)
+  (evil-define-key 'normal 'global (kbd "]c") 'diff-hl-next-hunk)
+  (evil-define-key 'normal 'global (kbd "[c") 'diff-hl-previous-hunk))
+
+;; GitHub integration
+(use-package forge
+  :ensure t
+  :after magit)
 
 (keymap-global-set "C-c a" #'org-agenda)
 
@@ -250,16 +325,6 @@
   (moody-replace-mode-line-buffer-identification)
   (moody-replace-vc-mode))
 
-(define-key global-map (kbd "s-p") nil)
-
-(use-package projectile
-  :ensure t
-  :init
-  (setq projectile-project-search-path '("~/dev" "~/dev/forks" "~/work/localstack"))
-  :config
-  (projectile-mode +1)
-  (define-key projectile-mode-map (kbd "s-p") 'projectile-command-map)
-  (global-set-key (kbd "C-c p") 'projectile-command-map))
 
 (use-package agent-shell
   :ensure t
@@ -307,6 +372,10 @@
 (use-package consult
   :ensure t
   :after (evil)
-  :bind ("C-x b" . consult-buffer)
+  :bind (("C-x b" . consult-buffer))
   :config
   (evil-define-key 'normal 'global (kbd "g b") 'consult-buffer))
+
+(use-package consult-eglot
+  :ensure t
+  :after (consult eglot))
