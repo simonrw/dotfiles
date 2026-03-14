@@ -220,7 +220,20 @@
     "gw" 'magit-stage-file
     "gr" 'magit-unstage-file
     "ga" 'magit-commit-amend
-    "gt" 'eglot-find-typeDefinition)
+    "gt" 'eglot-find-typeDefinition
+    "cp" (lambda () (interactive)
+           (clipboard-kill-ring-save (point-min) (point-max))
+           (message "Buffer copied to clipboard"))
+    ;; Toggles
+    "tw" (lambda () (interactive) (visual-line-mode 'toggle))
+    "tn" (lambda () (interactive) (display-line-numbers-mode 'toggle))
+    "tr" (lambda () (interactive)
+           (if (eq display-line-numbers 'relative)
+               (setq display-line-numbers t)
+             (setq display-line-numbers 'relative)))
+    "ts" (lambda () (interactive) (flyspell-mode 'toggle))
+    "tz" (lambda () (interactive) (visual-fill-column-mode 'toggle))
+    "tb" 'magit-blame)
   (global-evil-leader-mode))
 
 (defun srw/load-config ()
@@ -244,30 +257,12 @@
 (with-eval-after-load 'evil
   (evil-define-key 'normal 'global (kbd "gs") 'magit-status)
   (evil-define-key 'normal 'global (kbd "-") 'dired-jump)
-  (evil-define-key 'normal 'global (kbd "cp")
-    (lambda () (interactive)
-      (clipboard-kill-ring-save (point-min) (point-max))
-      (message "Buffer copied to clipboard")))
   (evil-define-key 'normal 'global (kbd "Q")
     (lambda () (interactive)
       (if-let ((win (get-buffer-window "*Flymake diagnostics*")))
           (delete-window win)
         (flymake-show-buffer-diagnostics))))
-  ;; Toggle bindings (yo* prefix)
-  (evil-define-key 'normal 'global (kbd "yow")
-    (lambda () (interactive) (visual-line-mode 'toggle)))
-  (evil-define-key 'normal 'global (kbd "yon")
-    (lambda () (interactive) (display-line-numbers-mode 'toggle)))
-  (evil-define-key 'normal 'global (kbd "yor")
-    (lambda () (interactive)
-      (if (eq display-line-numbers 'relative)
-          (setq display-line-numbers t)
-        (setq display-line-numbers 'relative))))
-  (evil-define-key 'normal 'global (kbd "yos")
-    (lambda () (interactive) (flyspell-mode 'toggle)))
-  (evil-define-key 'normal 'global (kbd "yoz")
-    (lambda () (interactive) (visual-fill-column-mode 'toggle)))
-  (evil-define-key 'normal 'global (kbd "yob") 'magit-blame))
+)
 
 ;; Git gutter signs
 (use-package diff-hl
