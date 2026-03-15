@@ -35,8 +35,7 @@ diff-args = ["--color=always", "$left", "right"]
 log = '@ | ancestors(trunk()..(visible_heads() & mine()), 2) | trunk()'
 
 [aliases]
-# tug = ["bookmark", "move", "--from", "closest_bookmark(@-)", "--to", "@-"]
-tug = ["bookmark", "move", "--from", "closest_bookmark(@)", "--to", "closest_pushable(@)"]
+tug = ["bookmark", "advance", "--to", "@-"]
 tpush = ["util", "exec", "--", "bash", "-c", """
 set -euo pipefail
 jj tug
