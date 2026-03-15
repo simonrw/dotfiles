@@ -262,6 +262,7 @@
 ;; Git status, file browsing, copy file, quickfix
 (with-eval-after-load 'evil
   (evil-define-key 'normal 'global (kbd "gs") 'magit-status)
+  (evil-define-key 'normal 'global (kbd "g b") 'consult-buffer)
   (evil-define-key 'normal 'global (kbd "-") 'dired-jump)
   (evil-define-key 'normal 'global (kbd "Q")
     (lambda () (interactive)
@@ -383,8 +384,7 @@
   :ensure t
   :after (evil)
   :bind (("C-x b" . consult-buffer))
-  :config
-  (evil-define-key 'normal 'global (kbd "g b") 'consult-buffer))
+)
 
 (use-package consult-eglot
   :ensure t
