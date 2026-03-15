@@ -369,6 +369,15 @@
 (global-auto-revert-mode 1)
 (setq global-auto-revert-non-file-buffers t)
 
+;; Keep default-directory at the project root
+(defun srw/set-default-directory-to-project-root ()
+  "Set default-directory to the project root if in a project."
+  (when-let ((project (project-current))
+             (root (project-root project)))
+    (setq default-directory root)))
+
+(add-hook 'find-file-hook #'srw/set-default-directory-to-project-root)
+
 ;; consult
 (use-package consult
   :ensure t
