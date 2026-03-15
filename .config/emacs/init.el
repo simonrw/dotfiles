@@ -138,6 +138,31 @@
   :hook ((python-mode . flymake-ruff-load)
          (python-ts-mode . flymake-ruff-load)))
 
+;; In-buffer completion popup (like nvim's blink.cmp)
+(use-package corfu
+  :ensure t
+  :custom
+  (corfu-auto t)
+  (corfu-auto-delay 0.2)
+  (corfu-auto-prefix 2)
+  (corfu-popupinfo-delay '(0.5 . 0.2))
+  :config
+  (global-corfu-mode)
+  (corfu-popupinfo-mode)
+  ;; Vim-style keybindings in the completion popup
+  (define-key corfu-map (kbd "C-n") #'corfu-next)
+  (define-key corfu-map (kbd "C-p") #'corfu-previous)
+  (define-key corfu-map (kbd "RET") #'corfu-insert)
+  (define-key corfu-map (kbd "C-e") #'corfu-quit)
+  (define-key corfu-map (kbd "C-SPC") #'corfu-insert-separator))
+
+;; Extra completion sources: file paths, buffer words, etc.
+(use-package cape
+  :ensure t
+  :init
+  (add-hook 'completion-at-point-functions #'cape-file)
+  (add-hook 'completion-at-point-functions #'cape-dabbrev))
+
 ;; Completion stack: Vertico + Orderless + Marginalia + Consult + Embark
 (use-package vertico
   :ensure t
