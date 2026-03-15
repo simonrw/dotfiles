@@ -153,6 +153,7 @@
   (define-key corfu-map (kbd "C-n") #'corfu-next)
   (define-key corfu-map (kbd "C-p") #'corfu-previous)
   (define-key corfu-map (kbd "RET") #'corfu-insert)
+  (define-key corfu-map (kbd "C-y") #'corfu-insert)
   (define-key corfu-map (kbd "C-e") #'corfu-quit)
   (define-key corfu-map (kbd "C-SPC") #'corfu-insert-separator))
 
