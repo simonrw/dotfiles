@@ -27,6 +27,7 @@ jjui = { version = "latest", os = ["linux"] }
 lazygit = { version = "latest", os = ["linux"] }
 "github:tummychow/git-absorb" = { version = "latest", os = ["linux"] }
 "go:github.com/simonrw/quickfix-review" = "latest"
+"npm:@fission-ai/openspec" = { version = "latest", os = ["linux"] }
 
 [tools."github:MordechaiHadad/bob"]
 version = "latest"
