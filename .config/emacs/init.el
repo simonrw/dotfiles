@@ -230,6 +230,7 @@
     "cp" (lambda () (interactive)
            (clipboard-kill-ring-save (point-min) (point-max))
            (message "Buffer copied to clipboard"))
+    "j" 'consult-mark
     ;; Toggles
     "tw" (lambda () (interactive) (visual-line-mode 'toggle))
     "tn" (lambda () (interactive) (display-line-numbers-mode 'toggle))
@@ -269,6 +270,13 @@
       (if-let ((win (get-buffer-window "*Flymake diagnostics*")))
           (delete-window win)
         (flymake-show-buffer-diagnostics))))
+
+  ;; Window navigation (C-h/j/k/l)
+  (evil-define-key 'normal 'global (kbd "C-h") 'evil-window-left)
+  (evil-define-key 'normal 'global (kbd "C-j") 'evil-window-down)
+  (evil-define-key 'normal 'global (kbd "C-k") 'evil-window-up)
+  (evil-define-key 'normal 'global (kbd "C-l") 'evil-window-right)
+
 )
 
 ;; Git gutter signs
@@ -284,7 +292,11 @@
 ;; GitHub integration
 (use-package forge
   :ensure t
-  :after magit)
+  :after magit
+  :init
+  (setq forge-add-default-bindings nil)
+  :config
+  (keymap-set magit-mode-map "'" #'forge-dispatch))
 
 (keymap-global-set "C-c a" #'org-agenda)
 
