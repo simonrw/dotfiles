@@ -427,3 +427,11 @@
 (use-package consult-eglot
   :ensure t
   :after (consult eglot))
+
+(use-package server
+  :ensure nil
+  :defer 1
+  :config
+  (setq server-client-instructions nil)
+  (unless (server-running-p)
+	(server-start)))
