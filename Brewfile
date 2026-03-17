@@ -149,6 +149,7 @@ cask "tailscale-app"
 cask "utm"
 cask "visual-studio-code"
 cask "wacom-tablet" if `hostname`.strip == "mm"
+cask "wispr-flow"
 cask "zed"
 cask "zoom"
 
