@@ -33,7 +33,8 @@ def run(*cmd: str) -> None:
 
 
 def open_review() -> NoReturn:
-    run("git", "reset", "--soft", f"{_remote}/{_base}")
+    merge_base = sp.check_output(["git", "merge-base", f"{_remote}/{_base}", "HEAD"]).decode()
+    run("git", "reset", "--soft", merge_base)
     os.execvp("nvim", ["nvim", "-c", ":G"])
 
 
