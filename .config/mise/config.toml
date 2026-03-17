@@ -6,7 +6,7 @@ rust = { version = "beta", components = "rust-src,rust-analyzer" }
 "go:github.com/simonrw/cert-info" = "0"
 "github:atuinsh/atuin" = { version = "latest", os = ["linux"], asset_pattern = "atuin-x86_64-unknown-linux-gnu.tar.gz" }
 "github:jj-vcs/jj" = { version = "latest", os = ["linux"] }
-"cargo:https://github.com/simonrw/listprojects" = "branch:main"
+"github:simonrw/listprojects" = "latest"
 "github:tmux/tmux-builds" = { version = "latest", os = ["linux"] }
 fzf = { version = "latest", os = ["linux"] }
 node = { version = "lts", os = ["linux"] }
