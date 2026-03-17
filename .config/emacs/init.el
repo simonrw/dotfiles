@@ -149,7 +149,6 @@
   :config
   (global-corfu-mode)
   (corfu-popupinfo-mode)
-  ;; Vim-style keybindings in the completion popup
   (define-key corfu-map (kbd "C-n") #'corfu-next)
   (define-key corfu-map (kbd "C-p") #'corfu-previous)
   (define-key corfu-map (kbd "RET") #'corfu-insert)
@@ -215,95 +214,57 @@
 (use-package magit
   :ensure t)
 
-(use-package evil
-  :ensure t
-  :init
-  (setq evil-want-integration t) ;; This is optional since it's already set to t by default.
-  (setq evil-want-keybinding nil)
-  (setq evil-split-window-below t)
-  (setq evil-vsplit-window-right t)
-  :config
-  (evil-mode)
-  (evil-set-initial-state 'vterm-mode 'emacs))
+;; Split window behavior
+(setq split-window-below t)
+(setq split-window-right t)
 
-(use-package evil-leader
-  :ensure t
-  :after evil
-  :config
-  (evil-leader/set-leader "<SPC>")
-  (evil-leader/set-key
-    "w" 'save-buffer
-    "q" 'save-buffers-kill-terminal
-    "o" 'srw/load-config
-    "f" 'project-find-file
-    "F" 'consult-find
-    "<SPC>" 'consult-ripgrep
-    ;; LSP
-    "r" 'eglot-rename
-    "y" 'eglot-format
-    "a" 'eglot-code-actions
-    "d" 'flymake-show-buffer-diagnostics
-    "A" 'flymake-show-project-diagnostics
-    "S" 'consult-imenu
-    "s" 'consult-eglot-symbols
-    ;; Git
-    "gc" 'magit-commit
-    "gd" 'magit-diff-dwim
-    "gw" 'magit-stage-file
-    "gr" 'magit-unstage-file
-    "ga" 'magit-commit-amend
-    "gt" 'eglot-find-typeDefinition
-    "cp" (lambda () (interactive)
-           (clipboard-kill-ring-save (point-min) (point-max))
-           (message "Buffer copied to clipboard"))
-    "j" 'consult-mark
-    ;; Toggles
-    "tw" (lambda () (interactive) (visual-line-mode 'toggle))
-    "tn" (lambda () (interactive) (display-line-numbers-mode 'toggle))
-    "tr" (lambda () (interactive)
-           (if (eq display-line-numbers 'relative)
-               (setq display-line-numbers t)
-             (setq display-line-numbers 'relative)))
-    "ts" (lambda () (interactive) (flyspell-mode 'toggle))
-    "tz" (lambda () (interactive) (visual-fill-column-mode 'toggle))
-    "tb" 'magit-blame)
-  (global-evil-leader-mode))
+;; C-c prefix keybindings
+(keymap-global-set "C-c w" #'save-buffer)
+(keymap-global-set "C-c q" #'save-buffers-kill-terminal)
+(keymap-global-set "C-c o" #'srw/load-config)
+(keymap-global-set "C-c f" #'project-find-file)
+(keymap-global-set "C-c F" #'consult-find)
+(keymap-global-set "C-c SPC" #'consult-ripgrep)
+;; LSP
+(keymap-global-set "C-c r" #'eglot-rename)
+(keymap-global-set "C-c y" #'eglot-format)
+(keymap-global-set "C-c c a" #'eglot-code-actions)
+(keymap-global-set "C-c d" #'flymake-show-buffer-diagnostics)
+(keymap-global-set "C-c A" #'flymake-show-project-diagnostics)
+(keymap-global-set "C-c S" #'consult-imenu)
+(keymap-global-set "C-c s" #'consult-eglot-symbols)
+;; Git
+(keymap-global-set "C-c g c" #'magit-commit)
+(keymap-global-set "C-c g d" #'magit-diff-dwim)
+(keymap-global-set "C-c g w" #'magit-stage-file)
+(keymap-global-set "C-c g r" #'magit-unstage-file)
+(keymap-global-set "C-c g a" #'magit-commit-amend)
+(keymap-global-set "C-c g s" #'magit-status)
+(keymap-global-set "C-c g t" #'eglot-find-typeDefinition)
+(keymap-global-set "C-c g b" #'magit-blame)
+(keymap-global-set "C-c c p" (lambda () (interactive)
+                                (clipboard-kill-ring-save (point-min) (point-max))
+                                (message "Buffer copied to clipboard")))
+(keymap-global-set "C-c j" #'consult-mark)
+;; Toggles
+(keymap-global-set "C-c t w" (lambda () (interactive) (visual-line-mode 'toggle)))
+(keymap-global-set "C-c t n" (lambda () (interactive) (display-line-numbers-mode 'toggle)))
+(keymap-global-set "C-c t s" (lambda () (interactive) (flyspell-mode 'toggle)))
+(keymap-global-set "C-c t z" (lambda () (interactive) (visual-fill-column-mode 'toggle)))
 
 (defun srw/load-config ()
   (interactive)
   (load-file "~/.config/emacs/init.el"))
 
-(use-package evil-collection
-  :after evil
-  :ensure t
-  :config
-  (evil-collection-init))
-
 ;; LSP navigation in eglot buffers
 (with-eval-after-load 'eglot
-  (evil-define-key 'normal eglot-mode-map
-    (kbd "gd") 'xref-find-definitions
-    (kbd "gr") 'xref-find-references
-    (kbd "gi") 'eglot-find-implementation))
+  (keymap-set eglot-mode-map "M-." #'xref-find-definitions)
+  (keymap-set eglot-mode-map "M-?" #'xref-find-references)
+  (keymap-set eglot-mode-map "C-c i" #'eglot-find-implementation))
 
-;; Git status, file browsing, copy file, quickfix
-(with-eval-after-load 'evil
-  (evil-define-key 'normal 'global (kbd "gs") 'magit-status)
-  (evil-define-key 'normal 'global (kbd "g b") 'consult-buffer)
-  (evil-define-key 'normal 'global (kbd "-") 'dired-jump)
-  (evil-define-key 'normal 'global (kbd "Q")
-    (lambda () (interactive)
-      (if-let ((win (get-buffer-window "*Flymake diagnostics*")))
-          (delete-window win)
-        (flymake-show-buffer-diagnostics))))
-
-  ;; Window navigation (C-h/j/k/l)
-  (evil-define-key 'normal 'global (kbd "C-h") 'evil-window-left)
-  (evil-define-key 'normal 'global (kbd "C-j") 'evil-window-down)
-  (evil-define-key 'normal 'global (kbd "C-k") 'evil-window-up)
-  (evil-define-key 'normal 'global (kbd "C-l") 'evil-window-right)
-
-)
+;; Buffer switching and file browsing
+(keymap-global-set "C-c b" #'consult-buffer)
+(keymap-global-set "C-c -" #'dired-jump)
 
 ;; Git gutter signs
 (use-package diff-hl
@@ -312,8 +273,8 @@
   (global-diff-hl-mode)
   (add-hook 'magit-pre-refresh-hook 'diff-hl-magit-pre-refresh)
   (add-hook 'magit-post-refresh-hook 'diff-hl-magit-post-refresh)
-  (evil-define-key 'normal 'global (kbd "]c") 'diff-hl-next-hunk)
-  (evil-define-key 'normal 'global (kbd "[c") 'diff-hl-previous-hunk))
+  (keymap-global-set "C-c h n" #'diff-hl-next-hunk)
+  (keymap-global-set "C-c h p" #'diff-hl-previous-hunk))
 
 ;; GitHub integration
 (use-package forge
@@ -337,16 +298,6 @@
 (with-eval-after-load 'org
   (setq org-startup-indented nil)
   (add-hook 'org-mode-hook #'visual-line-mode))
-
-;; org mode configuration
-(use-package evil-org
-             :ensure t
-  :after org
-  :hook (org-mode . (lambda () evil-org-mode))
-  :config
-  (require 'evil-org-agenda)
-  (evil-org-agenda-set-keys)
-  (evil-define-key 'normal org-mode-map (kbd "<tab>") #'org-cycle))
 
 (use-package moody
   :ensure t
@@ -420,7 +371,7 @@
 ;; consult
 (use-package consult
   :ensure t
-  :after (evil)
+  :after (vertico)
   :bind (("C-x b" . consult-buffer))
 )
 
