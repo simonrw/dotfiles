@@ -8,6 +8,7 @@ end
 vim.g.get_is_dark_mode = is_dark_mode
 vim.g.is_dark_mode = is_dark_mode()
 vim.g.mapleader = " "
+vim.g.maplocalleader = "\\"
 
 -- disable editorconfig as it's not providing value
 vim.g.editorconfig = false
