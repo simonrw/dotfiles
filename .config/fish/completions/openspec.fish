@@ -165,7 +165,6 @@ complete -c openspec -n '__fish_openspec_using_subcommand config; and not __fish
 complete -c openspec -n '__fish_openspec_using_subcommand config; and not __fish_openspec_using_subcommand unset' -a 'unset' -d 'Remove a key (revert to default)'
 complete -c openspec -n '__fish_openspec_using_subcommand config; and not __fish_openspec_using_subcommand reset' -a 'reset' -d 'Reset configuration to defaults'
 complete -c openspec -n '__fish_openspec_using_subcommand config; and not __fish_openspec_using_subcommand edit' -a 'edit' -d 'Open config in \$EDITOR'
-complete -c openspec -n '__fish_openspec_using_subcommand config; and not __fish_openspec_using_subcommand profile' -a 'profile' -d 'Configure workflow profile (interactive picker or preset shortcut)'
 
 complete -c openspec -n '__fish_openspec_using_subcommand config' -l scope -a 'global' -d 'Config scope (only "global" supported currently)'
 # config path flags
@@ -180,7 +179,6 @@ complete -c openspec -n '__fish_openspec_using_subcommand config; and __fish_ope
 complete -c openspec -n '__fish_openspec_using_subcommand config; and __fish_openspec_using_subcommand reset' -l all -d 'Reset all configuration (required)'
 complete -c openspec -n '__fish_openspec_using_subcommand config; and __fish_openspec_using_subcommand reset' -s y -l yes -d 'Skip confirmation prompts'
 # config edit flags
-# config profile flags
 
 complete -c openspec -n '__fish_openspec_using_subcommand schema; and not __fish_openspec_using_subcommand which' -a 'which' -d 'Show where a schema resolves from'
 complete -c openspec -n '__fish_openspec_using_subcommand schema; and not __fish_openspec_using_subcommand validate' -a 'validate' -d 'Validate a schema structure and templates'
