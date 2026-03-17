@@ -1,0 +1,157 @@
+#!/usr/bin/env python3
+
+import argparse
+import os
+import sys
+import subprocess as sp
+from pathlib import Path
+from typing import NoReturn
+from urllib.parse import urlparse
+
+
+# GitHub owner/repo -> local directory name, for repos where the names differ
+REPO_ALIASES: dict[str, str] = {
+    "localstack/localstack-core": "localstack/localstack",
+}
+
+_remote: str
+_base: str
+
+
+def die(msg: str) -> NoReturn:
+    print(msg, file=sys.stderr)
+    sys.exit(1)
+
+
+def require_tmux() -> None:
+    if not os.getenv("TMUX"):
+        die("error: must be running inside tmux")
+
+
+def run(*cmd: str) -> None:
+    sp.check_call(cmd)
+
+
+def open_review() -> NoReturn:
+    run("git", "reset", "--soft", f"{_remote}/{_base}")
+    os.execvp("nvim", ["nvim", "-c", ":G"])
+
+
+def handle_pr_number(number: str) -> NoReturn:
+    require_tmux()
+    run("git", "fetch", _remote)
+    run("gh", "pr", "checkout", number)
+    open_review()
+
+
+def handle_branch(branch: str) -> NoReturn:
+    require_tmux()
+    run("git", "fetch", _remote)
+
+    # Check if local branch exists
+    result = sp.run(
+        ["git", "rev-parse", "--verify", branch],
+        capture_output=True,
+    )
+    if result.returncode != 0:
+        run("git", "checkout", "-b", branch, "--track", f"{_remote}/{branch}")
+    else:
+        run("git", "checkout", branch)
+        run("git", "merge", "--ff-only", f"{_remote}/{branch}")
+
+    open_review()
+
+
+def tmux(*args: str) -> sp.CompletedProcess[str]:
+    return sp.run(["tmux"] + list(args), capture_output=True, text=True)
+
+
+def session_exists(name: str) -> bool:
+    result = tmux("ls", "-F", "#S")
+    if result.returncode != 0:
+        return False
+    return name in result.stdout.split()
+
+
+def handle_url(url: str) -> NoReturn:
+    parsed = urlparse(url)
+    parts = parsed.path.strip("/").split("/")
+    if len(parts) < 4 or parts[2] != "pull":
+        die(f"error: cannot parse GitHub PR URL: {url}")
+
+    owner_repo = f"{parts[0]}/{parts[1]}"
+    pr_number = parts[3]
+
+    local_suffix = REPO_ALIASES.get(owner_repo, owner_repo)
+
+    # Find local path via listprojects
+    result = sp.run(["listprojects", "-l"], capture_output=True, text=True, check=True)
+    local_path: str | None = None
+    for line in result.stdout.strip().splitlines():
+        if line.rstrip("/").endswith(local_suffix):
+            local_path = line.strip()
+            break
+
+    if not local_path:
+        die(f"error: no local checkout found for {owner_repo}")
+
+    # Derive tmux session name (same format as tnew)
+    p = Path(local_path)
+    tmux_name = f"{p.parent.name}/{p.name}".replace(".", "-").replace(":", "-")
+
+    # Create session if needed
+    if not session_exists(tmux_name):
+        tmux("new-session", "-d", "-s", tmux_name, "-c", local_path)
+
+    # Send the nvimreview command to the new session
+    tmux("send-keys", "-t", tmux_name, f"nvimreview {pr_number}", "Enter")
+
+    # Switch to the session
+    if os.getenv("TMUX"):
+        os.execvp("tmux", ["tmux", "switch-client", "-t", tmux_name])
+    else:
+        os.execvp("tmux", ["tmux", "attach", "-t", tmux_name])
+
+
+def main() -> None:
+    parser = argparse.ArgumentParser(
+        description="Review a PR in neovim with fugitive. "
+        "Fetches the branch, soft-resets against the base branch, and opens nvim with :G.",
+        epilog="examples:\n"
+        "  nvimreview 1234                                        # checkout PR by number\n"
+        "  nvimreview feature-branch                              # checkout branch by name\n"
+        "  nvimreview https://github.com/owner/repo/pull/1234     # find local repo, open in new tmux session",
+        formatter_class=argparse.RawDescriptionHelpFormatter,
+    )
+    parser.add_argument(
+        "target",
+        help="PR number, branch name, or GitHub PR URL",
+    )
+    parser.add_argument(
+        "-r", "--remote",
+        default="origin",
+        help="git remote to fetch from (default: origin)",
+    )
+    parser.add_argument(
+        "-b", "--base",
+        default=os.getenv("REVIEW_BASE", "main"),
+        help="base branch to diff against (default: $REVIEW_BASE or 'main')",
+    )
+    args = parser.parse_args()
+
+    # Make base/remote available to helper functions
+    global _remote, _base
+    _remote = args.remote
+    _base = args.base
+
+    target = args.target
+    if target.startswith("https://github.com"):
+        handle_url(target)
+    elif target.isdigit():
+        handle_pr_number(target)
+    else:
+        handle_branch(target)
+
+
+if __name__ == "__main__":
+    main()
