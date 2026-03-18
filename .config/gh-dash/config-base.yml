@@ -88,6 +88,7 @@ keybindings:
       tmux new-window -c {{.RepoPath}} 'gh pr checkout {{.PrNumber}} && nvim -c ":Octo pr edit {{.PrNumber}}"'
   branches: []
 repoPaths:
+  localstack/localstack-core: "~/work/localstack/localstack"
   localstack/*: "~/work/localstack/*"
 pager:
   diff: "delta"
