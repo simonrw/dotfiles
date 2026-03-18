@@ -123,7 +123,7 @@ def reload_git(theme: Theme):
         light = "false"
 
     config["delta"] = {
-        "diff-so-fancy": "false" if theme == Theme.light else "true",
+        "diff-so-fancy": "false",
         "syntax-theme": syntax_theme,
         "dark": dark,
         "light": light,
