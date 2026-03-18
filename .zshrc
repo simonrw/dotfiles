@@ -14,6 +14,7 @@ if [ -f ~/.config/zsh/local.zsh ]; then source ~/.config/zsh/local.zsh; fi
 source ~/.config/zsh/prompt.zsh
 source ~/.config/zsh/plugins.zsh
 source ~/.config/zsh/atuin.zsh
+source ~/.config/zsh/worktrunk.zsh
 
 if [[ "$__ZSH_PROFILE_STARTUP" == true ]]; then
     zprof
