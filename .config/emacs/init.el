@@ -90,8 +90,8 @@
   (treesit-auto-install 'prompt)
   :config
   (setq treesit-auto-langs
-        '(go html javascript json jsonc lua nix python rust
-          terraform tsx typescript vim yaml))
+        '(go html javascript json lua nix python rust
+          tsx typescript yaml))
   (treesit-auto-install-all)
   (treesit-auto-add-to-auto-mode-alist 'all)
   (setq major-mode-remap-alist (treesit-auto--build-major-mode-remap-alist)))
@@ -157,8 +157,7 @@
   (define-key corfu-map (kbd "C-p") #'corfu-previous)
   (define-key corfu-map (kbd "RET") #'corfu-insert)
   (define-key corfu-map (kbd "C-y") #'corfu-insert)
-  (define-key corfu-map (kbd "C-e") #'corfu-quit)
-  (define-key corfu-map (kbd "C-SPC") #'corfu-insert-separator))
+  (define-key corfu-map (kbd "C-e") #'corfu-quit))
 
 ;; Extra completion sources: file paths, buffer words, etc.
 (use-package cape
@@ -191,6 +190,9 @@
   (("C-." . embark-act)
    ("C-;" . embark-dwim)))
 
+(use-package embark-consult
+  :ensure t
+  :after (embark consult))
 
 (when (display-graphic-p)
   (set-face-attribute 'default nil :family "Lilex" :height 130)
