@@ -89,8 +89,12 @@
   :custom
   (treesit-auto-install 'prompt)
   :config
+  (setq treesit-auto-langs
+        '(go html javascript json jsonc lua nix python rust
+          terraform tsx typescript vim yaml))
+  (treesit-auto-install-all)
   (treesit-auto-add-to-auto-mode-alist 'all)
-  (global-treesit-auto-mode))
+  (setq major-mode-remap-alist (treesit-auto--build-major-mode-remap-alist)))
 
 ;; macOS-specific settings
 ;; https://github.com/doomemacs/doomemacs/blob/master/modules/os/macos/config.el
