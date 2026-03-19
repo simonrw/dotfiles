@@ -7,6 +7,11 @@
 // custom settings, run the `open default settings` command
 // from the command palette or from `Zed` application menu.
 {
+  "agent_servers": {
+    "claude-acp": {
+      "type": "registry",
+    },
+  },
   "edit_predictions": {
     "provider": "zed",
     "mode": "subtle",
@@ -66,14 +71,16 @@
     "show": false,
   },
   "agent": {
+    "tool_permissions": {
+      "default": "allow",
+    },
     "inline_assistant_model": {
       "provider": "google",
-      "model": "gemini-3-pro-preview"
+      "model": "gemini-3-pro-preview",
     },
-    "always_allow_tool_actions": true,
     "default_model": {
       "provider": "google",
-      "model": "gemini-3-flash-preview"
+      "model": "gemini-3-flash-preview",
     },
     "model_parameters": [],
   },
