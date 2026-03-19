@@ -80,7 +80,7 @@ keybindings:
   prs:
   - key: W
     command: |
-      tmux new-window -c {{.RepoPath}} 'wt switch {{.HeadRefName}} -x "nvim -c \'Octo pr\'"'
+      tmux new-window -c {{.RepoPath}} 'wt switch {{.HeadRefName}} -x nvim -- -c "Octo pr"'
   branches: []
 repoPaths:
   localstack/localstack-core: "~/work/localstack/localstack"
