@@ -133,7 +133,9 @@
          (markdown-mode . eglot-ensure))
   :config
   (add-to-list 'eglot-server-programs
-               '((python-mode python-ts-mode) . ("uv" "run" "ty" "server"))))
+               '((python-mode python-ts-mode) . ("uv" "run" "ty" "server")))
+  (add-to-list 'eglot-server-programs
+               '((rust-mode rust-ts-mode) . ("rust-analyzer"))))
 
 (use-package flymake-ruff
   :ensure t
