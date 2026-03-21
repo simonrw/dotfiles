@@ -9,6 +9,13 @@ mise activate fish | source
 fzf --fish | source
 atuin init fish | source
 
+# Theme
+if test "$__IS_DARK_THEME" = 1
+    fish_config theme choose base16-default
+else
+    fish_config theme choose default
+end
+
 # Per-host config
 set -l this_hostname (hostname -s)
 if test -f ~/.config/fish/conf.d/per-host/$this_hostname.fish
