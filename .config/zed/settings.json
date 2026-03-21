@@ -32,7 +32,7 @@
   "theme": {
     "mode": "system",
     "light": "Catppuccin Latte",
-    "dark": "Catppuccin Mocha",
+    "dark": "Jellybeans",
   },
   "buffer_font_family": "Lilex",
   "buffer_font_weight": 700,
