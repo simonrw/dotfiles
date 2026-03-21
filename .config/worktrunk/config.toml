@@ -1,0 +1,1 @@
+post-create = "tmux new-session -d -s \"$(basename $(dirname '{{ repo_path }}'))/{{ repo }}/{{ branch | sanitize }}\" -c '{{ worktree_path }}' 2>/dev/null; tmux switch-client -t \"$(basename $(dirname '{{ repo_path }}'))/{{ repo }}/{{ branch | sanitize }}\""
