@@ -109,7 +109,6 @@ require("lazy").setup({
             dependencies = {},
             lazy = false,
         },
-        { "catppuccin/nvim", name = "catppuccin", priority = 1000 },
         {
             'nvim-treesitter/nvim-treesitter',
             branch = 'master',
@@ -166,6 +165,12 @@ require("lazy").setup({
                     },
                 })
             end,
+        },
+        {
+            "wtfox/jellybeans.nvim",
+            lazy = false,
+            priority = 1000,
+            opts = {},
         },
         'neovim/nvim-lspconfig',
         'tpope/vim-fugitive',
@@ -552,8 +557,10 @@ vim.lsp.enable({
 
 local function load_theme()
     if vim.g.is_dark_mode then
-        vim.cmd.colorscheme "catppuccin-mocha"
+        vim.cmd.colorscheme "jellybeans"
 
+        vim.cmd.highlight({ "Normal", "guibg=none" })
+        vim.cmd.highlight({ "NormalNC", "guibg=none" })
         vim.cmd.highlight({ "TreesitterContextBottom", "gui=none" })
         vim.cmd.highlight({ "CursorLine", "guibg=#303347" })
         vim.cmd.highlight({ "CursorColumn", "guibg=#303347" })
