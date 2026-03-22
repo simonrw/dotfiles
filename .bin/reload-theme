@@ -118,7 +118,7 @@ def reload_git(theme: Theme):
         dark = "false"
         light = "true"
     else:
-        syntax_theme = "Catppuccin Mocha"
+        syntax_theme = "Monokai Extended"
         dark = "true"
         light = "false"
 
