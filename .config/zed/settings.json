@@ -31,8 +31,8 @@
   "ssh_connections": [],
   "theme": {
     "mode": "system",
-    "light": "Catppuccin Latte",
-    "dark": "Jellybeans",
+    "light": "Rosé Pine Dawn",
+    "dark": "Rosé Pine",
   },
   "buffer_font_family": "Lilex",
   "buffer_font_weight": 700,
@@ -114,7 +114,7 @@
   },
   "auto_install_extensions": {
     "html": true,
-    "catppuccin": true,
+    "rose-pine": true,
     "toml": true,
     "dockerfile": true,
     "terraform": true,

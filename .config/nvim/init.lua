@@ -167,7 +167,8 @@ require("lazy").setup({
             end,
         },
         {
-            "wtfox/jellybeans.nvim",
+            "rose-pine/neovim",
+            name = "rose-pine",
             lazy = false,
             priority = 1000,
             opts = {},
@@ -557,31 +558,18 @@ vim.lsp.enable({
 
 local function load_theme()
     if vim.g.is_dark_mode then
-        vim.cmd.colorscheme "jellybeans"
+        vim.cmd.colorscheme "rose-pine"
 
         vim.cmd.highlight({ "Normal", "guibg=none" })
         vim.cmd.highlight({ "NormalNC", "guibg=none" })
         vim.cmd.highlight({ "TreesitterContextBottom", "gui=none" })
-        vim.cmd.highlight({ "CursorLine", "guibg=#303347" })
-        vim.cmd.highlight({ "CursorColumn", "guibg=#303347" })
-        vim.cmd.highlight({ "LineNr", "guifg=#6c7086" })
+        vim.cmd.highlight({ "CursorLine", "guibg=#26233a" })
+        vim.cmd.highlight({ "CursorColumn", "guibg=#26233a" })
+        vim.cmd.highlight({ "LineNr", "guifg=#6e6a86" })
     else
-        vim.cmd.colorscheme "catppuccin-latte"
+        vim.cmd.colorscheme "rose-pine-dawn"
 
-        vim.cmd.highlight({ "DiagnosticError", "guifg=Red" })
-        vim.cmd.highlight({ "DiagnosticHint", "guifg=Orange" })
-        vim.cmd.highlight({ "DiagnosticWarn", "guifg=Orange" })
-        vim.cmd.highlight({ "DiagnosticInfo", "guifg=LightBlue" })
-        vim.cmd.highlight({ "DiagnosticFloatingError", "guifg=Red" })
-        vim.cmd.highlight({ "DiagnosticFloatingHint", "guifg=Orange" })
-        vim.cmd.highlight({ "DiagnosticFloatingInfo", "guifg=LightBlue" })
-        vim.cmd.highlight({ "DiagnosticFloatingWarn", "guifg=Orange" })
-        vim.cmd.highlight({ "DiagnosticVirtualTextError", "guifg=Red" })
-        vim.cmd.highlight({ "DiagnosticVirtualTextHint", "guifg=Orange" })
-        vim.cmd.highlight({ "DiagnosticVirtualTextInfo", "guifg=LightBlue" })
-        vim.cmd.highlight({ "DiagnosticVirtualTextWarn", "guifg=Orange" })
-        vim.cmd.highlight({ "Comment", "guifg=#e69340" })
-        vim.cmd.highlight({ "TreesitterContext", "guibg=#f0f0f0" })
+        vim.cmd.highlight({ "TreesitterContext", "guibg=#f2e9e1" })
     end
 end
 
