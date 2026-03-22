@@ -134,6 +134,10 @@ defaults write NSGlobalDomain 'NSToolbarTitleViewRolloverDelay' $'<?xml version=
 <integer>0</integer>
 </plist>'
 
+# disable menu icons in tahoe
+# https://512pixels.net/2026/03/hide-macos-tahoes-menu-icons-with-this-one-simple-trick/
+defaults write -g NSMenuEnableActionImages -bool NO
+
 # press and hold key to repeat
 defaults write -g ApplePressAndHoldEnabled -bool false
 
