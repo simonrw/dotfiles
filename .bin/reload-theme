@@ -96,9 +96,9 @@ def signal_editor_to_reload(*process_names: str):
 
 def reload_helix(theme: Theme):
     theme_file = Path.home() / ".config" / "helix" / "themes" / "adaptive.toml"
-    chosen_theme = "rose_pine"
+    chosen_theme = "catppuccin_mocha"
     if theme == Theme.light:
-        chosen_theme = "rose_pine_dawn"
+        chosen_theme = "onelight"
 
     with theme_file.open("w") as outfile:
         print(f"inherits = '{chosen_theme}'", file=outfile)
@@ -114,11 +114,11 @@ def reload_git(theme: Theme):
     theme_file = Path.home() / ".config" / "git" / "theme.conf"
     config = ConfigParser()
     if theme == Theme.light:
-        syntax_theme = "rose-pine-dawn"
+        syntax_theme = "GitHub"
         dark = "false"
         light = "true"
     else:
-        syntax_theme = "rose-pine"
+        syntax_theme = "Monokai Extended"
         dark = "true"
         light = "false"
 

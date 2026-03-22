@@ -29,11 +29,11 @@ set -gx OPENSPEC_TELEMETRY 0
 if test "$__IS_DARK_THEME" = 1
     set -gx BAT_CONFIG_PATH $HOME/.config/bat/dark/config
     set -gx GLAMOUR_STYLE dark
-    set -gx K9S_SKIN rose-pine
+    set -gx K9S_SKIN catppuccin-mocha
 else
     set -gx BAT_CONFIG_PATH $HOME/.config/bat/light/config
     set -gx GLAMOUR_STYLE light
-    set -gx K9S_SKIN rose-pine-dawn
+    set -gx K9S_SKIN catppuccin-latte
 end
 
 set -gx PAGER bat
