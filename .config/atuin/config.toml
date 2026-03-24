@@ -3,6 +3,7 @@
 ## windows: %USERPROFILE%/.local/share/atuin/history.db
 # db_path = "~/.history.db"
 
+search_mode = "daemon-fuzzy"
 ## where to store your encryption key, default is your system data directory
 ## linux/mac: ~/.local/share/atuin/key
 ## windows: %USERPROFILE%/.local/share/atuin/key
@@ -246,7 +247,6 @@ records = true
 ## fixed: use max_preview_height as fixed height.
 # strategy = "auto"
 
-[daemon]
 ## Enables using the daemon to sync. Requires the daemon to be running in the background. Start it with `atuin daemon`
 # enabled = false
 
@@ -287,3 +287,8 @@ records = true
 ## The "workspace" mode is skipped when not in a workspace or workspaces = false.
 ## Default filter mode can be overridden with the filter_mode setting.
 # filters = [ "global", "host", "session", "session-preload", "workspace", "directory" ]
+
+
+[daemon]
+enabled = true
+autostart = true
