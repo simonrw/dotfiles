@@ -7,7 +7,7 @@ set -g fish_greeting
 # Tool integrations (order matters: fzf before atuin so atuin overrides Ctrl-R)
 mise activate fish | source
 fzf --fish | source
-atuin init fish | source
+atuin hex init fish | source
 
 # Theme
 if test "$__IS_DARK_THEME" = 1
