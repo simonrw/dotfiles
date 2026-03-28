@@ -76,6 +76,11 @@ fish_add_path --append /opt/homebrew/opt/sqlite/bin
 fish_add_path --append $HOME/.rd/bin
 fish_add_path --append $HOME/.antigravity/antigravity/bin
 
+# Disable 1Password biometric unlock over SSH
+if set -q SSH_CONNECTION
+    set -gx OP_BIOMETRIC_UNLOCK_ENABLED false
+end
+
 # GPG TTY
 if isatty
     set -gx GPG_TTY (tty)

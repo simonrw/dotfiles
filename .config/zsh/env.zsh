@@ -76,6 +76,11 @@ export MISE_PIPX_UVX=true
 export HOMEBREW_NO_ANALYTICS=1
 export HOMEBREW_NO_AUTO_UPDATE=1
 
+# Disable 1Password biometric unlock over SSH
+if [[ -n "$SSH_CONNECTION" ]]; then
+    export OP_BIOMETRIC_UNLOCK_ENABLED=false
+fi
+
 # Configure SSH agent to start on boot
 if [ -f ~/.ssh/agent.env ]; then
     . ~/.ssh/agent.env >/dev/null
