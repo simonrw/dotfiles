@@ -112,58 +112,31 @@ require("lazy").setup({
         { "catppuccin/nvim", name = "catppuccin", priority = 1000 },
         {
             'nvim-treesitter/nvim-treesitter',
-            branch = 'master',
+            branch = 'main',
             lazy = false,
             build = ':TSUpdate',
             config = function()
-                local configs = require("nvim-treesitter.configs")
+                local enabled_languages = {
+                    'go',
+                    'hcl',
+                    'html',
+                    'javascript',
+                    'json',
+                    'lua',
+                    'nix',
+                    'python',
+                    'rust',
+                    'terraform',
+                    'tsx',
+                    'typescript',
+                    'vim',
+                    'yaml',
+                }
+                require("nvim-treesitter").install(enabled_languages)
 
-                configs.setup({
-                    ensure_installed = {
-                        'go',
-                        'hcl',
-                        'html',
-                        'javascript',
-                        'json',
-                        'lua',
-                        'nix',
-                        'python',
-                        'rust',
-                        'terraform',
-                        'tsx',
-                        'typescript',
-                        'vim',
-                        'yaml',
-                        "jsonc",
-                    },
-                    sync_install = false,
-                    highlight = { enable = true, additional_vim_regex_highlighting = false },
-                    indent = { enable = false },
-                    -- TODO: will need to get rid of this with v1.0
-                    incremental_selection = {
-                        enable = true,
-                        keymaps = {
-                            node_incremental = "v",
-                            node_decremental = "V",
-                        },
-                    },
-                    textobjects = {
-                        select = {
-                            enable = true,
-                            keymaps = {
-                                ["af"] = "@function.outer",
-                                ["if"] = "@function.inner",
-                                ["ac"] = "@class.outer",
-                                ["ic"] = "@class.inner",
-                            },
-                            selection_modes = {
-                                ['@function.inner'] = 'V',
-                                ['@class.inner'] = 'V',
-                                ['@function.outer'] = 'V',
-                                ['@class.outer'] = 'V',
-                            },
-                        }
-                    },
+                vim.api.nvim_create_autocmd('FileType', {
+                    pattern = enabled_languages,
+                    callback = function() vim.treesitter.start() end,
                 })
             end,
         },
@@ -179,12 +152,6 @@ require("lazy").setup({
             'nvim-treesitter/nvim-treesitter-context',
             opts = {
                 max_lines = 3,
-            },
-        },
-        {
-            'nvim-treesitter/nvim-treesitter-textobjects',
-            dependencies = {
-                'nvim-treesitter/nvim-treesitter',
             },
         },
         'vim-test/vim-test',
