@@ -29,6 +29,7 @@ packages:
   - htop
   - libcfitsio-dev
   - liblua5.4-dev
+  - libnss3-tools         # mkcert
   - libvirt-clients       # kvm
   - libvirt-daemon        # kvm
   - lua5.4
