@@ -60,3 +60,8 @@ description = "Close all running instances of neovim"
 run = "bob update nightly"
 description = "Update to the latest neovim nightly"
 depends = ["kill-nvim"]
+
+[tasks.nvim-stable-update]
+run = "bob update stable"
+description = "Update to the latest neovim stable build"
+depends = ["kill-nvim"]
