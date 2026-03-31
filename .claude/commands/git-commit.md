@@ -1,6 +1,7 @@
 ---
 allowed-tools: Bash(git status), Bash(git diff:*), Bash(git branch-name:*), Bash(git diff-base:*), Bash(git r:*), Bash(git commit:*), Bash(git add:*)
 description: Create a commit with git
+model: haiku
 ---
 
 ## Context
