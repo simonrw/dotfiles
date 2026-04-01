@@ -10,7 +10,6 @@ rust = { version = "beta", components = "rust-src,rust-analyzer" }
 "github:tmux/tmux-builds" = { version = "latest", os = ["linux"] }
 fzf = { version = "latest", os = ["linux"] }
 node = { version = "lts", os = ["linux"] }
-"npm:@anthropic-ai/claude-code" = { version = "latest", os = ["linux"] }
 "github:sachaos/viddy" = { version = "latest", os = ["linux"] }
 "github:sharkdp/bat" = { version = "latest", os = ["linux"] }
 "github:sharkdp/hyperfine" = { version = "latest", os = ["linux"] }
