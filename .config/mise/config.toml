@@ -28,6 +28,7 @@ lazygit = { version = "latest", os = ["linux"] }
 "npm:@fission-ai/openspec" = { version = "latest", os = ["linux"] }
 television = { version = "latest", os = ["linux"] }
 mkcert = { version = "latest", os = ["linux"] }
+tree-sitter = "latest"
 
 [tools."github:MordechaiHadad/bob"]
 version = "latest"

@@ -222,6 +222,11 @@ version = "0.15.3"
 backend = "aqua:alexpasmantier/television"
 "platforms.linux-x64" = { checksum = "sha256:01894db9c61239e1b409c6d1b1d81d02d997ae8f0571d564c4beb9f759356204", url = "https://github.com/alexpasmantier/television/releases/download/0.15.3/tv-0.15.3-x86_64-unknown-linux-musl.tar.gz"}
 
+[[tools.tree-sitter]]
+version = "0.26.8"
+backend = "aqua:tree-sitter/tree-sitter"
+"platforms.linux-x64" = { checksum = "sha256:9754a32800f0b970152782df177b4a47c711e34e651a7aceb384d8bd29fa136e", url = "https://github.com/tree-sitter/tree-sitter/releases/download/v0.26.8/tree-sitter-linux-x64.gz"}
+
 [[tools.usage]]
 version = "3.0.0"
 backend = "aqua:jdx/usage"
