@@ -1,0 +1,9 @@
+- name: Download zed installer
+  ansible.builtin.get_url:
+    url: https://zed.dev/install.sh
+    dest: /tmp/zed-install.sh
+
+- name: Install zed
+  ansible.builtin.command: sh /tmp/zed-install.sh
+  args:
+    creates: "/home/{{ ansible_target_user }}/.local/bin/zed"

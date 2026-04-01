@@ -1,0 +1,9 @@
+- name: Download ghostty .deb
+  ansible.builtin.get_url:
+    url: "https://github.com/mkasberg/ghostty-ubuntu/releases/download/{{ ghostty_version }}-ppa1/ghostty_{{ ghostty_version }}.ppa1_amd64_24.04.deb"
+    dest: /tmp/ghostty_{{ ghostty_version }}.ppa1_amd64_24.04.deb
+
+- name: Install ghostty deb
+  become: yes
+  ansible.builtin.apt:
+    deb: /tmp/ghostty_{{ ghostty_version }}.ppa1_amd64_24.04.deb
