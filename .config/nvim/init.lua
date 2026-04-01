@@ -156,30 +156,6 @@ require("lazy").setup({
         },
         'vim-test/vim-test',
         {
-            "coder/claudecode.nvim",
-            config = true,
-            keys = {
-                { "<localleader>a",  nil,                              desc = "Claude Code" },
-                { "<localleader>ac", "<cmd>ClaudeCode<cr>",            desc = "Toggle Claude" },
-                { "<localleader>af", "<cmd>ClaudeCodeFocus<cr>",       desc = "Focus Claude" },
-                { "<localleader>ar", "<cmd>ClaudeCode --resume<cr>",   desc = "Resume Claude" },
-                { "<localleader>aC", "<cmd>ClaudeCode --continue<cr>", desc = "Continue Claude" },
-                { "<localleader>am", "<cmd>ClaudeCodeSelectModel<cr>", desc = "Select Claude model" },
-                { "<localleader>ab", "<cmd>ClaudeCodeAdd %<cr>",       desc = "Add current buffer" },
-                { "<localleader>as", "<cmd>ClaudeCodeSend<cr>",        mode = "v",                  desc = "Send to Claude" },
-                {
-                    "<localleader>as",
-                    "<cmd>ClaudeCodeTreeAdd<cr>",
-                    desc = "Add file",
-                    ft = { "NvimTree", "neo-tree", "oil", "minifiles", "netrw" },
-                },
-                -- Diff management
-                { "<localleader>aa", "<cmd>ClaudeCodeDiffAccept<cr>", desc = "Accept diff" },
-                { "<localleader>ad", "<cmd>ClaudeCodeDiffDeny<cr>",   desc = "Deny diff" },
-
-            },
-        },
-        {
             'MeanderingProgrammer/render-markdown.nvim',
             filetype = "markdown",
         },
