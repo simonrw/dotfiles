@@ -94,61 +94,14 @@
         dest: "/home/{{ ansible_target_user }}/.local/bin/fd"
         state: link
 
-    - name: Download ghostty .deb
-      ansible.builtin.get_url:
-        url: "https://github.com/mkasberg/ghostty-ubuntu/releases/download/{{ ghostty_version }}-ppa1/ghostty_{{ ghostty_version }}.ppa1_amd64_24.04.deb"
-        dest: /tmp/ghostty_{{ ghostty_version }}.ppa1_amd64_24.04.deb
+    - name: Setup Ghostty
+      ansible.builtin.include_tasks: ghostty.yml
 
-    - name: Install ghostty deb
-      become: yes
-      ansible.builtin.apt:
-        deb: /tmp/ghostty_{{ ghostty_version }}.ppa1_amd64_24.04.deb
+    - name: Setup Sunshine
+      ansible.builtin.include_tasks: sunshine.yml
 
-    - name: Download Sunshine .deb
-      ansible.builtin.get_url:
-        url: "https://github.com/LizardByte/Sunshine/releases/download/v{{ sunshine_version }}/sunshine-ubuntu-24.04-amd64.deb"
-        dest: /tmp/sunshine-ubuntu-24.04-amd64.deb
-
-    - name: Install Sunshine deb
-      become: yes
-      ansible.builtin.apt:
-        deb: /tmp/sunshine-ubuntu-24.04-amd64.deb
-
-    - name: Download Helium browser AppImage
-      ansible.builtin.get_url:
-        url: "https://github.com/imputnet/helium-linux/releases/download/{{ helium_version }}/helium-{{ helium_version }}-x86_64.AppImage"
-        dest: "/usr/local/bin/helium"
-        mode: "0755"
-      become: true
-
-    - name: Ensure icon directory exists
-      become: true
-      ansible.builtin.file:
-        path: /usr/local/share/icons/hicolor/scalable/apps
-        state: directory
-        mode: "0755"
-
-    - name: Download Helium browser icon
-      become: true
-      ansible.builtin.get_url:
-        url: "https://raw.githubusercontent.com/imputnet/helium/main/resources/branding/product_logo.svg"
-        dest: /usr/local/share/icons/hicolor/scalable/apps/helium.svg
-        mode: "0644"
-
-    - name: Install Helium AppArmor profile
-      become: true
-      ansible.builtin.copy:
-        dest: /etc/apparmor.d/helium-appimage
-        mode: "0644"
-        content: |
-          abi <abi/4.0>,
-          include <tunables/global>
-
-          profile helium-appimage "/usr/local/bin/helium" flags=(default_allow) {
-            userns,
-            include if exists <local/helium-appimage>
-          }
-      notify: Load Helium AppArmor profile
+    - name: Setup Helium
+      ansible.builtin.include_tasks: helium.yml
 
     - name: Install Lilex font
       ansible.builtin.include_tasks: font.yml
@@ -167,15 +120,8 @@
         state: present
       loop: "{{ dconf_settings | default([]) }}"
 
-    - name: Download zed installer
-      ansible.builtin.get_url:
-        url: https://zed.dev/install.sh
-        dest: /tmp/zed-install.sh
-
-    - name: Install zed
-      ansible.builtin.command: sh /tmp/zed-install.sh
-      args:
-        creates: "/home/{{ ansible_target_user }}/.local/bin/zed"
+    - name: Setup Zed
+      ansible.builtin.include_tasks: zed.yml
 
     - name: Enable x11vnc systemd user service
       ansible.builtin.systemd:
