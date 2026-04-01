@@ -184,6 +184,9 @@
         scope: user
         daemon_reload: true
 
+    - name: Install Claude Code
+      ansible.builtin.include_tasks: claude-code.yml
+
   handlers:
     - name: Load Helium AppArmor profile
       become: true
