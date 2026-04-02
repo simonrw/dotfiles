@@ -1,3 +1,6 @@
+;; -*- lexical-binding: t; -*-
+
+
 (setq package-archives
       '(("melpa" . "https://melpa.org/packages/")
 	("gnu" . "https://elpa.gnu.org/packages/")
