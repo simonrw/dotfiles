@@ -130,6 +130,7 @@ require("lazy").setup({
                     'tsx',
                     'typescript',
                     'vim',
+                    'xml',
                     'yaml',
                 }
                 require("nvim-treesitter").install(enabled_languages)
