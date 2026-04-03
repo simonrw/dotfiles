@@ -382,7 +382,6 @@
   "window.autoDetectColorScheme": true,
   "excalidraw.theme": "auto",
   "python.analysis.nodeExecutable": "auto",
-  "workbench.preferredDarkColorTheme": "Catppuccin Macchiato",
   "workbench.preferredLightColorTheme": "Catppuccin Latte",
   "cursor.cpp.disabledLanguages": [
     "plaintext",
@@ -412,4 +411,5 @@
   "chat.viewSessions.orientation": "stacked",
   "http.systemCertificatesNode": true,
   "geminicodeassist.project": "gen-lang-client-0954412299",
+  "workbench.preferredDarkColorTheme": "Catppuccin Mocha",
 }
