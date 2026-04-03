@@ -54,6 +54,7 @@ set -gx EDITOR nvim
 set -gx MISE_PIPX_UVX true
 set -gx HOMEBREW_NO_ANALYTICS 1
 set -gx HOMEBREW_NO_AUTO_UPDATE 1
+set -gx CLAUDE_CODE_NO_FLICKER 1
 
 # PATH (highest priority first)
 fish_add_path /opt/homebrew/opt/gnu-sed/libexec/gnubin
