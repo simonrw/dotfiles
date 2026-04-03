@@ -1,2 +1,7 @@
 post-create = "tmux new-session -d -s \"$(basename $(dirname '{{ repo_path }}'))/{{ repo }}/{{ branch | sanitize }}\" -c '{{ worktree_path }}' 2>/dev/null; tmux switch-client -t \"$(basename $(dirname '{{ repo_path }}'))/{{ repo }}/{{ branch | sanitize }}\""
 post-remove = "tmux kill-session -t \"$(basename $(dirname '{{ repo_path }}'))/{{ repo }}/{{ branch | sanitize }}\" 2>/dev/null || true"
+
+[commit.generation]
+command = "MAX_THINKING_TOKENS=0 claude -p --model=haiku --tools='' --disable-slash-commands --setting-sources='' --system-prompt=''"
+
+[projects]
