@@ -77,6 +77,11 @@ if vim.fn.has('nvim-0.12') == 1 then
     vim.opt.pummaxwidth = 80
     vim.opt.winborder = 'rounded'
     vim.opt.guicursor = "a:blinkon0"
+
+    -- add some default built-in packages
+    vim.cmd.packadd('cfilter')
+    vim.cmd.packadd('nvim.undotree')
+    vim.cmd.packadd('nvim.difftool')
 end
 
 vim.keymap.set('n', 'cp', ':0,$y+<cr>')
