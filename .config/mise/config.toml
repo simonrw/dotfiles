@@ -32,6 +32,7 @@ tree-sitter = { version = "latest", os = ["linux"] }
 "github:antinomyhq/forgecode" = { version = "latest", bin = "forge" }
 tokei = { version = "latest", os = ["linux"] }
 "npm:@openai/codex" = { version = "latest", os = ["linux"] }
+"npm:@mariozechner/pi-coding-agent" = { version = "latest", os = ["linux"] }
 
 [tools."github:MordechaiHadad/bob"]
 version = "latest"
