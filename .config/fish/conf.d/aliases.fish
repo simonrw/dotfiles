@@ -24,6 +24,7 @@ abbr --add awslocal aws
 abbr --add cat bat
 abbr --add less bat
 abbr --add more bat
+abbr --add cc 'claude --dangerously-skip-permissions'
 
 # eza wrappers (alias so they replace silently)
 alias ls 'eza --group-directories-first --header'
