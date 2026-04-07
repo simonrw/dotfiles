@@ -29,7 +29,6 @@ lazygit = { version = "latest", os = ["linux"] }
 television = { version = "latest", os = ["linux"] }
 mkcert = { version = "latest", os = ["linux"] }
 tree-sitter = { version = "latest", os = ["linux"] }
-"github:antinomyhq/forgecode" = { version = "latest", bin = "forge" }
 tokei = { version = "latest", os = ["linux"] }
 "npm:@openai/codex" = { version = "latest", os = ["linux"] }
 "npm:@mariozechner/pi-coding-agent" = { version = "latest", os = ["linux"] }
