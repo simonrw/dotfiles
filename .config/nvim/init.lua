@@ -77,6 +77,7 @@ if vim.fn.has('nvim-0.12') == 1 then
     vim.opt.pummaxwidth = 80
     vim.opt.winborder = 'rounded'
     vim.opt.guicursor = "a:blinkon0"
+    vim.opt.confirm = true
 
     -- add some default built-in packages
     vim.cmd.packadd('cfilter')
