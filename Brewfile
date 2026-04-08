@@ -157,6 +157,8 @@ cask "zoom"
 
 # for LocalStack
 cask "clockify"
+cask "linear-linear"
+cask "notion"
 
 # Mac App Store apps
 mas "1Password for Safari", id: 1569813296
