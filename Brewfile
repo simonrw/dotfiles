@@ -157,7 +157,6 @@ cask "zoom"
 
 # for LocalStack
 cask "clockify"
-cask "linear-linear"
 cask "notion"
 
 # Mac App Store apps
