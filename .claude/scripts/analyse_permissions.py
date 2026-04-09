@@ -12,10 +12,10 @@ Usage:
   python3 analyze_permissions.py [--project <name>] [--min-count <n>] [--tool <Tool>]
 """
 
-import os, json, re, argparse
+import os, json, re, argparse, csv, sys
 from collections import defaultdict
 
-CLAUDE_DIR = os.path.expanduser("~/.claude")
+CLAUDE_DIR = os.getenv("CLAUDE_CONFIG_DIR") or os.path.expanduser("~/.claude")
 SETTINGS_FILE = os.path.join(CLAUDE_DIR, "settings.json")
 
 
@@ -150,12 +150,15 @@ def main():
     parser.add_argument(
         "--show-allowed", action="store_true", help="Also show already-allowed patterns"
     )
+    parser.add_argument(
+        "--no-duckdb", action="store_true", help="Output CSV to stdout instead of launching DuckDB"
+    )
     args = parser.parse_args()
 
     allow_list = load_allow_list()
     projects_dir = os.path.join(CLAUDE_DIR, "projects")
 
-    print("Loading sessions...", flush=True)
+    print("Loading sessions...", file=sys.stderr, flush=True)
     tool_uses, tool_results = load_sessions(projects_dir, args.project)
 
     stats = defaultdict(
@@ -172,9 +175,8 @@ def main():
             key = (tool_name, binary, sub)
         elif tool_name in ("Edit", "Write", "Read", "Glob", "Grep"):
             path = inp.get("file_path", inp.get("pattern", inp.get("path", "")))
-            parts = path.replace(os.path.expanduser("~"), "~").split("/")
-            path_key = "/".join(parts[:4]) + "/..." if len(parts) > 4 else path
-            key = (tool_name, path_key, "")
+            path = path.replace(os.path.expanduser("~"), "~")
+            key = (tool_name, path, "")
         else:
             key = (tool_name, "", "")
 
@@ -210,29 +212,35 @@ def main():
 
     rows.sort(key=lambda r: (r[5], -r[3]))
 
-    col_w = [6, 12, 14, 8, 7, 9, 30]
-    header = f"{'Tool':<{col_w[0]}}  {'Binary':<{col_w[1]}}  {'Subcommand':<{col_w[2]}} {'Count':>{col_w[3]}}  {'Done%':>{col_w[2]}}  {'Count':>{col_w[3]}}  {'Done%':{col_w[4]}}  {'Allowed':<{col_w[5]}}  {'Suggested rule'}"
-    print()
-    print(header)
-    print("-" * len(header))
+    if not args.no_duckdb:
+        launch_duckdb(rows)
+    else:
+        writer = csv.writer(sys.stdout)
+        writer.writerow(["tool", "binary", "subcommand", "count", "done_pct", "allowed", "suggested_rule"])
+        for tool, binary, sub, attempts, pct, allowed, rule in rows:
+            writer.writerow([tool, binary, sub, attempts, pct, "yes" if allowed else "", rule])
 
-    current_tool = None
-    for tool, binary, sub, attempts, pct, allowed, rule in rows:
-        if tool != current_tool:
-            if current_tool is not None:
-                print()
-            current_tool = tool
-        allowed_str = "yes" if allowed else ""
-        print(
-            f"{tool:<{col_w[0]}}  {binary:<{col_w[1]}}  {sub:<{col_w[2]}} {attempts:>{col_w[3]}}  {pct:>{col_w[2]}}  {attempts:>{col_w[3]}}  {pct:6}%  {allowed_str:<{col_w[5]}}  {rule}"
-        )
 
-    print()
-    print(f"Tool invocations indexed: {len(tool_uses)}")
-    print(f"Current allow list: {len(allow_list)} rules")
-    print(
-        f"Rows shown (>={args.min_count} attempts, not yet allowed): {sum(1 for r in rows if not r[5])}"
-    )
+def launch_duckdb(rows):
+    import shutil, subprocess, tempfile
+
+    duckdb_bin = shutil.which("duckdb")
+    if not duckdb_bin:
+        print("Error: duckdb binary not found on PATH", file=sys.stderr)
+        sys.exit(1)
+
+    with tempfile.NamedTemporaryFile(mode="w", suffix=".csv", delete=False) as f:
+        writer = csv.writer(f)
+        writer.writerow(["tool", "binary", "subcommand", "count", "done_pct", "allowed", "suggested_rule"])
+        for tool, binary, sub, count, pct, allowed, rule in rows:
+            writer.writerow([tool, binary, sub, count, pct, "yes" if allowed else "", rule])
+        csv_path = f.name
+
+    try:
+        init_sql = f"CREATE TABLE permissions AS SELECT * FROM read_csv_auto('{csv_path}');"
+        subprocess.run([duckdb_bin, "-cmd", init_sql], check=True)
+    finally:
+        os.unlink(csv_path)
 
 
 if __name__ == "__main__":
