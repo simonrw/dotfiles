@@ -83,6 +83,11 @@ if vim.fn.has('nvim-0.12') == 1 then
     vim.cmd.packadd('cfilter')
     vim.cmd.packadd('nvim.undotree')
     vim.cmd.packadd('nvim.difftool')
+
+    -- ui2
+    require('vim._core.ui2').enable({
+        enable = true,
+    })
 end
 
 vim.keymap.set('n', 'cp', ':0,$y+<cr>')
