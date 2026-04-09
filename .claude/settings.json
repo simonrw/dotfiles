@@ -4,16 +4,19 @@
   },
   "permissions": {
     "allow": [
-      "Bash(git diff:*)",
-      "Bash(git log:*)",
-      "Bash(cargo check:*)",
-      "Bash(rg:*)",
-      "WebFetch(domain:docs.rs)",
+      "Bash(cargo check*)",
       "Bash(cargo search:*)",
       "Bash(cargo tree:*)",
-      "WebSearch",
+      "Bash(gh run view:*)",
+      "Bash(git add*)",
+      "Bash(git diff*)",
+      "Bash(git log*)",
+      "Bash(git status*)",
+      "Bash(ls*)",
+      "Bash(rg:*)",
+      "WebFetch(domain:docs.rs)",
       "WebFetch(domain:github.com)",
-      "Bash(gh run view:*)"
+      "WebSearch"
     ],
     "defaultMode": "default"
   },
