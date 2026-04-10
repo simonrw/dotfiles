@@ -7,6 +7,7 @@
 // custom settings, run the `open default settings` command
 // from the command palette or from `Zed` application menu.
 {
+  "restore_on_file_reopen": false,
   "agent_servers": {
     "claude-acp": {
       "type": "registry",
@@ -18,16 +19,13 @@
   },
   "show_edit_predictions": true,
   "disable_ai": false,
-  "audio": {
-    "experimental.rodio_audio": true,
-  },
   "calls": {
     "mute_on_join": true,
   },
   "preview_tabs": {
     "enabled": false,
   },
-  "autosave": "on_focus_change",
+  "autosave": "off",
   "ssh_connections": [],
   "theme": {
     "mode": "system",
