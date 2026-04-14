@@ -6,4 +6,3 @@ git_protocol: ssh
 pager: delta
 prompt: enabled
 version: '1'
-http_unix_socket: /home/simon/.local/share/forgeproxy/forgeproxy.sock
