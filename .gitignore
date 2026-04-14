@@ -24,3 +24,4 @@ Library/Application\ Support/Cursor/*
 /.config/gh-dash/config.yml
 /.config/jj/repos
 /.config/ghostty/local.config
+.config/emacs
