@@ -18,6 +18,7 @@
       "Bash(git status*)",
       "Bash(ls*)",
       "Bash(rg:*)",
+      "Bash(pip show:*)",
       "WebFetch(domain:docs.rs)",
       "WebFetch(domain:github.com)",
       "WebSearch"
