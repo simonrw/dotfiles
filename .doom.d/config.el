@@ -17,8 +17,7 @@
 (use-package! auto-dark
   :defer t
   :init
-  (setopt auto-dark-themes '((catppuccin) (catppuccin)))
-  (setopt doom-theme nil)
+  (setq doom-theme nil)
   (defun my-auto-dark-init-h ()
     (auto-dark-mode)
     (remove-hook 'server-after-make-frame-hook #'my-auto-dark-init-h)
@@ -29,6 +28,10 @@
     (add-hook hook #'my-auto-dark-init-h -95))
   :config
   (setq auto-dark-allow-osascript t)
+  ;; Use setq to avoid the defcustom :set function calling load-theme during
+  ;; auto-dark.el loading, where load-file-name is still bound to auto-dark.elc
+  ;; and catppuccin-definitions.el can't be found.
+  (setq auto-dark-themes '((catppuccin) (catppuccin)))
   (add-hook 'auto-dark-dark-mode-hook
             (lambda ()
               (setq catppuccin-flavor 'mocha)
