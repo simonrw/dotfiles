@@ -98,7 +98,7 @@ def reload_helix(theme: Theme):
     theme_file = Path.home() / ".config" / "helix" / "themes" / "adaptive.toml"
     chosen_theme = "catppuccin_mocha"
     if theme == Theme.light:
-        chosen_theme = "onelight"
+        chosen_theme = "catppuccin_latte"
 
     with theme_file.open("w") as outfile:
         print(f"inherits = '{chosen_theme}'", file=outfile)
