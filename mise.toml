@@ -3,6 +3,7 @@ description = "Install/link packages"
 depends = [
     "dotfiles",
     "defaults",
+    "doom",
     "gh-extensions",
     "vim-update",
     "mise:packages",

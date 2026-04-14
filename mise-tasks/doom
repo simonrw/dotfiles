@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+#MISE description="Clone/update Doom Emacs framework"
+#MISE depends=["dotfiles"]
+
+set -eou pipefail
+
+DOOM_DIR="$HOME/.config/emacs"
+
+if [ -d "$DOOM_DIR/.git" ]; then
+  echo "Doom already installed, running sync..."
+  "$DOOM_DIR/bin/doom" sync
+else
+  echo "Cloning Doom Emacs..."
+  rm -rf "$DOOM_DIR"
+  git clone --depth 1 https://github.com/doomemacs/doomemacs "$DOOM_DIR"
+  "$DOOM_DIR/bin/doom" install
+fi
