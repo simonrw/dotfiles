@@ -50,7 +50,7 @@ set -gx NODE_PATH $HOME/.npm-packages/lib/node_modules
 set -gx NODE_COMPILE_CACHE $HOME/.cache/nodejs-compile-cache
 set -gx CARGO_TARGET_DIR $HOME/.cargo-target
 set -gx PYTHONPYCACHEPREFIX $HOME/.python-cache
-set -gx EDITOR nvim
+set -gx EDITOR hx
 set -gx MISE_PIPX_UVX true
 set -gx HOMEBREW_NO_ANALYTICS 1
 set -gx HOMEBREW_NO_AUTO_UPDATE 1
@@ -92,6 +92,6 @@ if test -f ~/.ssh/agent.fish
 end
 
 if not set -q SSH_AGENT_PID; or not kill -0 $SSH_AGENT_PID 2>/dev/null
-    ssh-agent -c | string replace 'setenv' 'set -gx' | string replace ';' '' | source
+    ssh-agent -c | string replace setenv 'set -gx' | string replace ';' '' | source
     printf "set -gx SSH_AUTH_SOCK %s\nset -gx SSH_AGENT_PID %s\n" $SSH_AUTH_SOCK $SSH_AGENT_PID >~/.ssh/agent.fish
 end

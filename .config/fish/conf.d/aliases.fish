@@ -14,9 +14,9 @@ abbr --add pydoc 'python -m pydoc'
 abbr --add pylab 'ipython --pylab'
 abbr --add sourceenv 'source ./venv/bin/activate.fish'
 abbr --add tl tmux-last
-abbr --add vim nvim
+abbr --add vim hx
 abbr --add vimdiff 'nvim -d'
-abbr --add vup 'nvim --headless "+Lazy! sync" +qa'
+abbr --add nvim hx
 abbr --add watch viddy
 abbr --add ec 'emacsclient -n'
 abbr --add grep rg
