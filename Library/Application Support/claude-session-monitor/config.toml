@@ -1,0 +1,5 @@
+# claude-session-monitor configuration
+# See the project README or `--help` for the list of recognized keys.
+
+[server]
+url = "https://csm.tortoise-bearded.ts.net"
