@@ -55,6 +55,12 @@
         ]
       }
     ],
+    "PostToolUse": [
+      {
+        "matcher": "",
+        "hooks": [{ "type": "command", "command": "csm-reporter" }]
+      }
+    ],
     "Notification": [
       {
         "matcher": "",
