@@ -338,7 +338,7 @@
   "editor.formatOnSave": true,
   "workbench.layoutControl.enabled": false,
   "cmake.showOptionsMovedNotification": false,
-  "workbench.iconTheme": "catppuccin-macchiato",
+  "workbench.iconTheme": "catppuccin-mocha",
   "zig.path": "zig",
   "zig.initialSetupDone": true,
   "githubPullRequests.pushBranch": "always",
