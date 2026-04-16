@@ -403,7 +403,6 @@
   "cursorpyright.nodeExecutable": "auto",
   "cursor.cpp.enablePartialAccepts": true,
   "remote.autoForwardPortsSource": "hybrid",
-  "claudeCode.preferredLocation": "sidebar",
   "claudeCode.selectedModel": "opus",
   "git.autofetch": true,
   "inlineChat.defaultModel": "Raptor mini (Preview) (copilot)",
