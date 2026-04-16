@@ -63,7 +63,7 @@ export CARGO_TARGET_DIR=${HOME}/.cargo-target
 
 # centralise where python puts its .pyc files
 export PYTHONPYCACHEPREFIX=${HOME}/.python-cache
-export EDITOR=nvim
+export EDITOR="code -w"
 
 function isatty() {
     [ -t 0 ] && [ -t 1 ]
