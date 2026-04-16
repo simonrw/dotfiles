@@ -329,7 +329,6 @@
   "[typescript]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
-  "window.commandCenter": true,
   "settingsSync.ignoredSettings": [
     "editor.fontFamily"
   ],
@@ -412,4 +411,5 @@
   "http.systemCertificatesNode": true,
   "geminicodeassist.project": "gen-lang-client-0954412299",
   "workbench.preferredDarkColorTheme": "Catppuccin Mocha",
+  "window.commandCenter": false,
 }
