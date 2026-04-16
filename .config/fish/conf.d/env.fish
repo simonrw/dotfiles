@@ -49,7 +49,7 @@ set -gx NTFY_TOPIC simonrw-notify
 set -gx NODE_PATH $HOME/.npm-packages/lib/node_modules
 set -gx NODE_COMPILE_CACHE $HOME/.cache/nodejs-compile-cache
 set -gx PYTHONPYCACHEPREFIX $HOME/.python-cache
-set -gx EDITOR nvim
+set -gx EDITOR "code -w"
 set -gx MISE_PIPX_UVX true
 set -gx HOMEBREW_NO_ANALYTICS 1
 set -gx HOMEBREW_NO_AUTO_UPDATE 1
