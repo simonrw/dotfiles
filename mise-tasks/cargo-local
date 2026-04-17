@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+#MISE description="Install local cargo projects from ~/dev"
+
+set -euo pipefail
+
+PROJECTS=(
+    cftail
+    testsearch
+    lbtree
+    testsearch
+)
+
+for project in "${PROJECTS[@]}"; do
+    REPO_PATH="$HOME/dev/$project"
+    test -d $REPO_PATH && cargo install --path $REPO_PATH --locked
+done
