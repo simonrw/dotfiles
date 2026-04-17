@@ -7,7 +7,6 @@ depends = [
     "gh-extensions",
     "vim-update",
     "mise:packages",
-    "launchctl",
     "bat-cache",
 ]
 depends_post = ["brew"]
