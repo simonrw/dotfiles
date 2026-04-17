@@ -25,24 +25,6 @@
     ],
     "defaultMode": "default"
   },
-  "statusLine": {
-    "type": "command",
-    "command": "~/.claude/scripts/status_line_command.sh"
-  },
-  "enabledPlugins": {
-    "frontend-design@claude-plugins-official": true,
-    "gopls-lsp@claude-plugins-official": true,
-    "lua-lsp@claude-plugins-official": true,
-    "rust-analyzer-lsp@claude-plugins-official": true,
-    "swift-lsp@claude-plugins-official": true,
-    "typescript-lsp@claude-plugins-official": true
-  },
-  "alwaysThinkingEnabled": true,
-  "autoUpdatesChannel": "stable",
-  "autoDreamEnabled": true,
-  "skipDangerousModePermissionPrompt": true,
-  "teammateMode": "tmux",
-  "effortLevel": "high",
   "hooks": {
     "PreToolUse": [
       {
@@ -58,7 +40,12 @@
     "PostToolUse": [
       {
         "matcher": "",
-        "hooks": [{ "type": "command", "command": "csm-reporter" }]
+        "hooks": [
+          {
+            "type": "command",
+            "command": "csm-reporter"
+          }
+        ]
       }
     ],
     "Notification": [
@@ -116,5 +103,24 @@
         ]
       }
     ]
-  }
+  },
+  "statusLine": {
+    "type": "command",
+    "command": "~/.claude/scripts/status_line_command.sh"
+  },
+  "enabledPlugins": {
+    "frontend-design@claude-plugins-official": true,
+    "gopls-lsp@claude-plugins-official": true,
+    "lua-lsp@claude-plugins-official": true,
+    "rust-analyzer-lsp@claude-plugins-official": true,
+    "swift-lsp@claude-plugins-official": true,
+    "typescript-lsp@claude-plugins-official": true
+  },
+  "alwaysThinkingEnabled": true,
+  "effortLevel": "high",
+  "autoUpdatesChannel": "latest",
+  "autoDreamEnabled": true,
+  "skipDangerousModePermissionPrompt": true,
+  "teammateMode": "tmux",
+  "skipAutoPermissionPrompt": true
 }
