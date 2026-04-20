@@ -53,3 +53,7 @@ end
 function pts
     pytest (testsearch)
 end
+
+function octo
+    nvim -c "Octo $argv"
+end
