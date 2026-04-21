@@ -177,7 +177,8 @@
     "pi5": "linux",
     "mm.local": "macOS",
     "mm": "macOS",
-    "astoria.local": "linux"
+    "astoria.local": "linux",
+    "astoria.ts": "linux"
   },
   "editor.fontVariations": false,
   "editor.tokenColorCustomizations": {
