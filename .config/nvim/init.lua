@@ -67,7 +67,6 @@ vim.opt.wildmode = { "list:longest", "list:full" }
 vim.opt.winwidth = 80
 vim.opt.wrap = false
 vim.opt.writebackup = false
-vim.opt.guicursor = ""
 vim.opt.tags = { '.tags', '.git/tags' }
 
 -- options added in nvim 0.12
@@ -76,7 +75,6 @@ if vim.fn.has('nvim-0.12') == 1 then
     vim.opt.complete = { ".", "o", "w", "b", "u", "i" }
     vim.opt.pummaxwidth = 80
     vim.opt.winborder = 'rounded'
-    vim.opt.guicursor = "a:blinkon0"
     vim.opt.confirm = true
 
     -- add some default built-in packages
