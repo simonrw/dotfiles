@@ -412,4 +412,5 @@
   "geminicodeassist.project": "gen-lang-client-0954412299",
   "workbench.preferredDarkColorTheme": "Catppuccin Mocha",
   "window.commandCenter": false,
+  "ruff.format.preview": true,
 }
