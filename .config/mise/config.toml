@@ -23,7 +23,6 @@ uv = { version = "latest", os = ["linux"] }
 jjui = { version = "latest", os = ["linux"] }
 lazygit = { version = "latest", os = ["linux"] }
 "github:tummychow/git-absorb" = { version = "latest", os = ["linux"] }
-"go:github.com/simonrw/quickfix-review" = "latest"
 television = { version = "latest", os = ["linux"] }
 mkcert = { version = "latest", os = ["linux"] }
 tree-sitter = { version = "latest", os = ["linux"] }
