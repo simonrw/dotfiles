@@ -82,6 +82,7 @@
     "show": false,
   },
   "agent": {
+    "thinking_display": "auto",
     "dock": "left",
     "tool_permissions": {
       "default": "allow",
