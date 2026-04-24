@@ -48,13 +48,18 @@ set -gx NIXPKGS_ALLOW_UNFREE 1
 set -gx NTFY_TOPIC simonrw-notify
 set -gx NODE_PATH $HOME/.npm-packages/lib/node_modules
 set -gx NODE_COMPILE_CACHE $HOME/.cache/nodejs-compile-cache
-set -gx CARGO_TARGET_DIR $HOME/.cargo-target
 set -gx PYTHONPYCACHEPREFIX $HOME/.python-cache
 set -gx EDITOR nvim
 set -gx MISE_PIPX_UVX true
 set -gx HOMEBREW_NO_ANALYTICS 1
 set -gx HOMEBREW_NO_AUTO_UPDATE 1
 set -gx CLAUDE_CODE_NO_FLICKER 1
+
+function __cargo_target_dir
+    pwd | md5sum | cut -f 1 -d ' '
+end
+
+set -gx CARGO_TARGET_DIR $HOME/.cargo-target/(__cargo_target_dir)
 
 # PATH (highest priority first)
 fish_add_path /opt/homebrew/opt/gnu-sed/libexec/gnubin
