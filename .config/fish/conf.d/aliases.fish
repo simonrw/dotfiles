@@ -25,7 +25,7 @@ abbr --add cat bat
 abbr --add less bat
 abbr --add more bat
 abbr --add cc 'claude --model claude-opus-4-6 --effort high --dangerously-skip-permissions'
-abbr --add claude 'claude --model claude-opus-4-6 --effort high --allow-dangerously-skip-permissions'
+abbr --add claude 'claude --model claude-opus-4-6 --effort high'
 abbr --add switch --command wt -- "switch --no-cd"
 
 # eza wrappers (alias so they replace silently)
