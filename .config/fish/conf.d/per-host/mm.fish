@@ -2,7 +2,7 @@
 set -l __LOCATION /Volumes/External
 
 if test -d $__LOCATION
-    set -gx CARGO_TARGET_DIR $__LOCATION/cargo-target/(__cargo_target_dir)
+    set -gx CARGO_TARGET_DIR $__LOCATION/cargo-target
     set -gx CARGO_HOME $__LOCATION/cargo-home
     set -gx RUSTUP_HOME $__LOCATION/rustup-home
     set -gx GOPATH $__LOCATION/gocode
