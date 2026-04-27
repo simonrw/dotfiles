@@ -32,6 +32,7 @@ tokei = { version = "latest", os = ["linux"] }
 duckdb = { version = "latest", os = ["linux"] }
 helix = { version = "latest", os = ["linux"] }
 watchexec = { version = "latest", os = ["linux"] }
+xh = { version = "latest", os = ["linux"] }
 
 [tools."github:MordechaiHadad/bob"]
 version = "latest"
