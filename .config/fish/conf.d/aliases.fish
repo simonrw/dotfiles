@@ -29,6 +29,10 @@ abbr --add claude 'claude --model claude-opus-4-6 --effort high'
 abbr --add switch --command wt -- "switch --no-cd"
 abbr --add laws 'AWS_PROFILE=ls-sandbox aws'
 
+if type -q csm-codex
+    alias codex csm-codex
+end
+
 # eza wrappers (alias so they replace silently)
 alias ls 'eza --group-directories-first --header'
 alias la 'eza --group-directories-first --header -a'
