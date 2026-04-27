@@ -8,6 +8,9 @@ model_reasoning_effort = "high"
 [mcp_servers.linear]
 url = "https://mcp.linear.app/mcp"
 
+[mcp_servers.openaiDeveloperDocs]
+url = "https://developers.openai.com/mcp"
+
 [projects."/home/simon/dotfiles"]
 trust_level = "trusted"
 
