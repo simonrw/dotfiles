@@ -27,6 +27,7 @@ abbr --add more bat
 abbr --add cc 'claude --model claude-opus-4-6 --effort high --dangerously-skip-permissions'
 abbr --add claude 'claude --model claude-opus-4-6 --effort high'
 abbr --add switch --command wt -- "switch --no-cd"
+abbr --add laws 'AWS_PROFILE=ls-sandbox aws'
 
 # eza wrappers (alias so they replace silently)
 alias ls 'eza --group-directories-first --header'
