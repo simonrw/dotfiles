@@ -1,6 +1,6 @@
-approvals_reviewer = "user"
-model = "gpt-5.4"
-model_reasoning_effort = "medium"
+approvals_reviewer = "guardian_subagent"
+model = "gpt-5.5"
+model_reasoning_effort = "high"
 
 [tui.model_availability_nux]
 "gpt-5.5" = 2
