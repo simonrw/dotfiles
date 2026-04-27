@@ -8,6 +8,12 @@ model_reasoning_effort = "high"
 [mcp_servers.linear]
 url = "https://mcp.linear.app/mcp"
 
+[projects."/home/simon/dotfiles"]
+trust_level = "trusted"
+
+[projects."/home/simon/dev"]
+trust_level = "trusted"
+
 [features]
 codex_hooks = true
 
