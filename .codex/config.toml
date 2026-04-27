@@ -7,3 +7,52 @@ model_reasoning_effort = "high"
 
 [mcp_servers.linear]
 url = "https://mcp.linear.app/mcp"
+
+[features]
+codex_hooks = true
+
+[[hooks.SessionStart]]
+matcher = "startup|resume|clear"
+
+[[hooks.SessionStart.hooks]]
+type = "command"
+command = "sh -c 'csm-reporter --agent codex || true'"
+timeout = 5
+
+[[hooks.UserPromptSubmit]]
+
+[[hooks.UserPromptSubmit.hooks]]
+type = "command"
+command = "sh -c 'csm-reporter --agent codex || true'"
+timeout = 5
+
+[[hooks.PreToolUse]]
+matcher = "*"
+
+[[hooks.PreToolUse.hooks]]
+type = "command"
+command = "sh -c 'csm-reporter --agent codex || true'"
+timeout = 5
+
+[[hooks.PermissionRequest]]
+matcher = "*"
+
+[[hooks.PermissionRequest.hooks]]
+type = "command"
+command = "sh -c 'csm-reporter --agent codex || true'"
+timeout = 5
+
+[[hooks.PostToolUse]]
+matcher = "*"
+
+[[hooks.PostToolUse.hooks]]
+type = "command"
+command = "sh -c 'csm-reporter --agent codex || true'"
+timeout = 5
+
+[[hooks.Stop]]
+
+[[hooks.Stop.hooks]]
+type = "command"
+command = "sh -c 'csm-reporter --agent codex || true'"
+timeout = 5
