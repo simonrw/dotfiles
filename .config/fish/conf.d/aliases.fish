@@ -28,6 +28,7 @@ abbr --add cc 'claude --model claude-opus-4-6 --effort high --dangerously-skip-p
 abbr --add claude 'claude --model claude-opus-4-6 --effort high'
 abbr --add switch --command wt -- "switch --no-cd"
 abbr --add laws 'AWS_PROFILE=ls-sandbox aws'
+abbr --add cy 'codex --yolo'
 
 if type -q csm-codex
     alias codex csm-codex
