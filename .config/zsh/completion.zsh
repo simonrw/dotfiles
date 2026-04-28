@@ -2,9 +2,9 @@ autoload -Uz compinit
 
 zcompdump="${ZDOTDIR:-$HOME}/.zcompdump-${ZSH_VERSION}"
 if [[ ! -f "$zcompdump" || -n "$zcompdump"(#qN.mh+24) ]]; then
-    compinit -d "$zcompdump"
+    compinit -u -d "$zcompdump"
 else
-    compinit -C -d "$zcompdump"
+    compinit -C -u -d "$zcompdump"
 fi
 
 if [ -f /Applications/Ghostty.app/Contents/Resources/zsh/site-functions/_ghostty ]; then
