@@ -92,6 +92,8 @@ brew "worktrunk"
 brew "xh"
 brew "yq"
 brew "yt-dlp"
+brew "zsh-autosuggestions"
+brew "zsh-syntax-highlighting"
 brew "zsh"
 
 # for localStack
