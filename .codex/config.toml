@@ -1,5 +1,5 @@
 approvals_reviewer = "guardian_subagent"
-model = "gpt-5.5"
+model = "gpt-5.4"
 model_reasoning_effort = "high"
 
 [tui.model_availability_nux]
