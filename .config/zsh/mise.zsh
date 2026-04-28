@@ -1,1 +1,1 @@
-eval "$(mise completion zsh)"
+eval "$(mise activate zsh)"
