@@ -11,6 +11,10 @@ depends = [
 ]
 depends_post = ["brew"]
 
+[tasks.submodules]
+description = "Initialize git submodules"
+run = "git submodule update --init --recursive"
+
 [tasks."mise:packages"]
 description = "Install global mise packages"
 depends = ["dotfiles"]
@@ -23,6 +27,7 @@ run = "mise --cd $HOME upgrade"
 
 [tasks.dotfiles]
 description = "Install dotfiles"
+depends = ["submodules"]
 run = """
 if [ "$(uname)" = "Linux" ]; then
   stow --ignore='^Library' .

@@ -1,39 +1,37 @@
-alias add-keys='ssh-add $(find ~/.ssh - maxdepth 1 - type f - name "id_rsa*" | grep - v pub | grep - v bak)'
-alias c=cargo
-alias clear-pycs='find { $PWD } -name '\''*.pyc'\'' -delete'
-alias es='exec $SHELL'
-alias eza='eza --group-directories-first --header'
-alias fs=tmux-session-history
-alias g=git
-alias gcpr='gh pr create -a @me --label '\''semver: patch'\'''
-alias gcprd='gh pr create -a @me --draft --label '\''semver: patch'\'''
-alias gpr='git pull --rebase'
-alias grep=rg
-alias gs=gss  # This command shadows ghostscript but if I alias it it only affects my interactive shell 
-alias k=kubectl
-alias la='eza -a'
-alias ll='eza -l'
-alias lla='eza -la'
-alias lr=thor
-alias ls=eza
-alias lt='eza --tree'
-alias notes='open -a Emacs ~/notes.org'
-alias ntfy=notify-wrapper
-alias project=listprojects
-alias ptl='pytest $(testsearch rerun -l)'
-alias pts='pytest $(testsearch)'
-alias pydoc='python -m pydoc'
-alias pylab='ipython - -pylab'
-alias sourceenv='source ./venv/bin/activate'
-alias thor='eza -s modified -l'
-alias tl=tmux-last
-alias tree='eza -T'
-alias vim=nvim
-alias vimdiff='nvim -d'
-alias vup='nvim --headless "+Lazy! sync" +qa'
-alias watch=viddy
-alias awslocal=aws
+# Silent replacements and shell functions live here.
+# Fish-style inline expansions live in ~/.config/zsh/abbreviations via zsh-abbr.
 
-alias cat=bat
-alias less=bat
-alias more=bat
+if command -v csm-codex >/dev/null 2>&1; then
+    alias codex=csm-codex
+fi
+
+alias eza='eza --group-directories-first --header'
+alias la='eza --group-directories-first --header -a'
+alias ll='eza --group-directories-first --header -l'
+alias lla='eza --group-directories-first --header -la'
+alias lr='eza --group-directories-first --header -s modified -l'
+alias ls='eza --group-directories-first --header'
+alias lt='eza --group-directories-first --header --tree'
+alias notes='open -a Emacs ~/notes.org'
+alias thor='eza --group-directories-first --header -s modified -l'
+alias tree='eza --group-directories-first --header -T'
+
+add-keys() {
+    ssh-add $(find ~/.ssh -maxdepth 1 -type f -name "id_rsa*" | command grep -v pub | command grep -v bak)
+}
+
+clear-pycs() {
+    find "$PWD" -name '*.pyc' -delete
+}
+
+ptl() {
+    pytest $(testsearch rerun -l)
+}
+
+pts() {
+    pytest $(testsearch)
+}
+
+octo() {
+    nvim -c "Octo $*"
+}

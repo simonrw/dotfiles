@@ -28,6 +28,7 @@ export XDG_CACHE_HOME="$HOME/.cache"
 export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_DATA_HOME="$HOME/.local/share"
 export XDG_STATE_HOME="$HOME/.local/state"
+export OPENSPEC_TELEMETRY=0
 
 if [[ "$__IS_DARK_THEME" == "1" ]]; then
     export BAT_CONFIG_PATH="$HOME/.config/bat/dark/config"
@@ -42,7 +43,6 @@ fi
 
 export PAGER=bat
 export PYTHONUNBUFFERED=1
-# export SHELL=/opt/homebrew/bin/zsh
 export MANPAGER="nvim +Man!"
 export MANPATH=/opt/homebrew/share/man:$MANPATH
 
@@ -75,6 +75,7 @@ export MISE_PIPX_UVX=true
 
 export HOMEBREW_NO_ANALYTICS=1
 export HOMEBREW_NO_AUTO_UPDATE=1
+export CLAUDE_CODE_NO_FLICKER=1
 
 # Disable 1Password biometric unlock over SSH
 if [[ -n "$SSH_CONNECTION" ]]; then

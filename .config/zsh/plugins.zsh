@@ -1,3 +1,6 @@
+# repo-managed zsh plugins
+test -f ~/.config/zsh/plugins/zsh-abbr/zsh-abbr.plugin.zsh && source ~/.config/zsh/plugins/zsh-abbr/zsh-abbr.plugin.zsh
+
 # zsh syntax highlighting
 test -f /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh && source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 test -f /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh && source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh

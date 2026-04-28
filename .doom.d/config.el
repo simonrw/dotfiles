@@ -10,8 +10,8 @@
 
 ;;; --- Handle shells
 (setq shell-file-name (executable-find "bash"))
-(setq-default vterm-shell "fish")
-(setq-default explicit-shell-file-name "fish")
+(setq-default vterm-shell "zsh")
+(setq-default explicit-shell-file-name "zsh")
 
 
 (use-package! auto-dark

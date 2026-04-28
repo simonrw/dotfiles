@@ -1,1 +1,1 @@
-source ~/.config/zsh/atuin.generated.zsh
+eval "$(atuin hex init zsh)"
