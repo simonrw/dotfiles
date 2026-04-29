@@ -4,13 +4,11 @@
 set -euo pipefail
 
 PROJECTS=(
-    cftail
-    testsearch
-    lbtree
-    testsearch
+    https://github.com/simonrw/cftail
+    https://github.com/simonrw/testsearch
+    https://github.com/simonrw/lbtree
 )
 
 for project in "${PROJECTS[@]}"; do
-    REPO_PATH="$HOME/dev/$project"
-    test -d $REPO_PATH && cargo install --path $REPO_PATH --locked
+    cargo install --git $project --locked
 done
