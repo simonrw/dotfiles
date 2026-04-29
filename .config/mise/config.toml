@@ -40,7 +40,7 @@ version = "latest"
 os = ["linux"]
 
 [tools."github:MordechaiHadad/bob".platforms]
-linux-x64 = { asset_pattern = "bob-linux-x86_64-openssl.zip" }
+linux-x64 = { asset_pattern = "bob-linux-x86_64.zip" }
 macos-arm64 = { asset_pattern = "bob-macos-arm.zip" }
 
 [settings]
