@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+#MISE description="Update globally installed mise packages"
+#MISE depends=["dotfiles"]
+
+set -euo pipefail
+
+mise --cd "$HOME" upgrade
+
+mise --cd "$HOME" ls --json | jq -r '
+  to_entries[]
+  | .key as $tool
+  | .value[]
+  | select((.source.path? // "") | endswith("/.config/mise/config.toml"))
+  | select((.requested_version? // "") | startswith("branch:"))
+  | "\($tool)@\(.requested_version)"
+' | while IFS= read -r tool; do
+  mise --cd "$HOME" install -f --raw "$tool"
+done
