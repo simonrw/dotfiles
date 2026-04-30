@@ -24,3 +24,9 @@ zstyle ':completion:*' accept-exact '*(N)'
 
 # Use a cache for completion
 zstyle ':completion:*' use-cache on
+
+# set up aws completion
+if command -v aws >/dev/null 2>&1; then
+    autoload bashcompinit && bashcompinit
+    complete -C $(which aws_completer) aws
+fi
