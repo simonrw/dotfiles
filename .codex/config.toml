@@ -19,6 +19,7 @@ trust_level = "trusted"
 
 [features]
 codex_hooks = true
+remote_connections = true
 
 [[hooks.SessionStart]]
 matcher = "startup|resume|clear"
