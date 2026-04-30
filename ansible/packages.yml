@@ -28,6 +28,7 @@ packages:
   - gnome-tweaks
   - htop
   - libcfitsio-dev
+  - libdbus-1-dev         # for nono
   - liblua5.4-dev
   - libnss3-tools         # mkcert
   - libssl-dev

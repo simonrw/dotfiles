@@ -35,6 +35,7 @@ duckdb = { version = "latest", os = ["linux"] }
 helix = { version = "latest", os = ["linux"] }
 watchexec = { version = "latest", os = ["linux"] }
 xh = { version = "latest", os = ["linux"] }
+"github:always-further/nono" = { version = "latest", os = ["linux"] }
 
 [tools."github:MordechaiHadad/bob"]
 version = "latest"
