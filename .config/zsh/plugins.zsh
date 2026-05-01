@@ -13,6 +13,9 @@ _source_first_deferred() {
 }
 
 # zsh autosuggestions
+# Use an explicit grey rather than the plugin default (fg=8), because some terminal
+# themes map ANSI bright black to the normal foreground colour.
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=244'
 _source_first_deferred \
     /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh \
     /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh
