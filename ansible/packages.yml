@@ -37,6 +37,7 @@ packages:
   - lua5.4
   - mise
   - mosh
+  - ncdu
   - podman
   - python3-psutil           # dconf module
   - qemu-system
