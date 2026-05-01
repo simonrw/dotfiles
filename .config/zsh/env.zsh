@@ -65,7 +65,10 @@ export CARGO_TARGET_DIR=${HOME}/.cargo-target
 export PYTHONPYCACHEPREFIX=${HOME}/.python-cache
 export EDITOR=nvim
 
-if [[ -t 0 && -t 1 ]]; then
+function isatty() {
+    [ -t 0 ] && [ -t 1 ]
+}
+if isatty; then
     export GPG_TTY=$(tty)
 fi
 export MISE_PIPX_UVX=true
@@ -79,10 +82,12 @@ if [[ -n "$SSH_CONNECTION" ]]; then
     export OP_BIOMETRIC_UNLOCK_ENABLED=false
 fi
 
-# Use an agent started by the login/session environment when available.
-if [[ -z "$SSH_AUTH_SOCK" && -r "$HOME/.ssh/agent.env" ]]; then
-    . "$HOME/.ssh/agent.env" >/dev/null
-    if ! kill -0 "$SSH_AGENT_PID" >/dev/null 2>&1; then
-        unset SSH_AGENT_PID SSH_AUTH_SOCK
+# Configure SSH agent to start on boot
+if [ -f ~/.ssh/agent.env ]; then
+    . ~/.ssh/agent.env >/dev/null
+    if ! kill -0 $SSH_AGENT_PID >/dev/null 2>&1; then
+        eval $(ssh-agent | tee ~/.ssh/agent.env)
     fi
+else
+    eval $(ssh-agent | tee ~/.ssh/agent.env)
 fi

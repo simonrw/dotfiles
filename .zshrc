@@ -4,9 +4,8 @@ fi
 
 source ~/.config/zsh/env.zsh
 source ~/.config/zsh/aliases.zsh
-source ~/.config/zsh/defer.zsh
-zsh-defer source ~/.config/zsh/fzf.zsh
-this_hostname=${HOST%%.*}
+source ~/.config/zsh/fzf.zsh
+this_hostname=$(hostname -s)
 if [ -f ~/.config/zsh/per-host/${this_hostname}.zsh ]; then source ~/.config/zsh/per-host/${this_hostname}.zsh; fi
 source ~/.config/zsh/functions.zsh
 source ~/.config/zsh/options.zsh

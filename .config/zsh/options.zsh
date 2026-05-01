@@ -1,5 +1,5 @@
 # Disable Ctrl-s freezing the terminal
-[[ -t 0 ]] && stty stop undef
+stty stop undef
 
 autoload add-zsh-hook
 
