@@ -1,10 +1,25 @@
 # repo-managed zsh plugins
+test -f ~/.config/zsh/defer.zsh && source ~/.config/zsh/defer.zsh
 test -f ~/.config/zsh/lightweight-abbr.zsh && source ~/.config/zsh/lightweight-abbr.zsh
 
-# zsh syntax highlighting
-test -f /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh && source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-test -f /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh && source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+_source_first_deferred() {
+    local file
+    for file in "$@"; do
+        if [[ -r "$file" ]]; then
+            zsh-defer source "$file"
+            return
+        fi
+    done
+}
 
 # zsh autosuggestions
-test -f /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh && source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-test -f /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh && source /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+_source_first_deferred \
+    /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh \
+    /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+
+# zsh syntax highlighting must be loaded after other plugins that add ZLE widgets.
+_source_first_deferred \
+    /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh \
+    /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+unfunction _source_first_deferred
