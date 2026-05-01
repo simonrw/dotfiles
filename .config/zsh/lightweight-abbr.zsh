@@ -65,11 +65,11 @@ if [[ -r "$HOME/.config/zsh/abbreviations" ]]; then
 fi
 
 if [[ -o interactive ]]; then
-    zle -N _zsh_abbr_expand_space
-    zle -N _zsh_abbr_expand_accept_line
+    zle -N zsh-abbr-expand-space _zsh_abbr_expand_space
+    zle -N zsh-abbr-expand-accept-line _zsh_abbr_expand_accept_line
 
-    bindkey -M emacs ' ' _zsh_abbr_expand_space
-    bindkey -M viins ' ' _zsh_abbr_expand_space
-    bindkey -M emacs '^M' _zsh_abbr_expand_accept_line
-    bindkey -M viins '^M' _zsh_abbr_expand_accept_line
+    bindkey -M emacs ' ' zsh-abbr-expand-space
+    bindkey -M viins ' ' zsh-abbr-expand-space
+    bindkey -M emacs '^M' zsh-abbr-expand-accept-line
+    bindkey -M viins '^M' zsh-abbr-expand-accept-line
 fi
