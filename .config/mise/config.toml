@@ -37,6 +37,7 @@ watchexec = { version = "latest", os = ["linux"] }
 xh = { version = "latest", os = ["linux"] }
 "npm:ntn" = "latest"
 "npm:hunkdiff" = { version = "latest", os = ["linux"] }
+opencode = { version = "latest", os = ["linux"] }
 
 [tools."github:MordechaiHadad/bob"]
 version = "latest"
