@@ -82,7 +82,7 @@
 	editor = "nvim"
 	ignorecase = false
 	mergeoptions = "--no-ff"
-	pager = "delta"
+	pager = "hunk pager"
 	preloadindex = true
 	safecrlf = true
 	whitespace = "fix"

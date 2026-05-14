@@ -1,6 +1,7 @@
 # Taps
 
 tap "d12frosted/emacs-plus"
+tap "modem-dev/tap"
 tap "oven-sh/bun"
 tap "owenthereal/upterm"
 tap "pulumi/tap"
@@ -59,6 +60,7 @@ brew "make"
 brew "mas"
 brew "mise"
 brew "mkcert"
+brew "modem-dev/tap/hunk"
 brew "mosh"
 brew "ncdu"
 brew "node"
