@@ -1,5 +1,6 @@
 hyprland_enabled: false
 sway_enabled: false
+ollama_enabled: false
 
 ghostty_version: 1.2.3-0
 sunshine_version: 0.23.1
@@ -70,4 +71,3 @@ dconf_settings:
 
   - key: "/org/gnome/desktop/wm/preferences/resize-with-right-button"
     value: true
-

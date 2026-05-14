@@ -109,7 +109,7 @@
         font_name: Lilex
         font_url: "https://github.com/mishamyrt/Lilex/releases/download/{{ lilex_version }}/Lilex.zip"
 
-    - name: Install Ollama
+    - name: Setup Ollama
       ansible.builtin.include_tasks: ollama.yml
       when: ansible_hostname == 'astoria'
 
