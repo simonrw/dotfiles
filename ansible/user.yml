@@ -1,32 +1,18 @@
 ---
-- name: Resolve target user
-  ansible.builtin.set_fact:
-    ansible_target_user: "{{ dotfiles_user_name | default(ansible_user_id, true) }}"
-
 - name: Ensure managed user groups exist
   become: true
   ansible.builtin.group:
     name: "{{ item }}"
     state: present
   loop: "{{ dotfiles_user_groups }}"
-  when: ansible_hostname == 'astoria'
 
 - name: Configure managed user account
   become: true
   ansible.builtin.user:
     name: "{{ ansible_target_user }}"
     groups: "{{ dotfiles_user_groups }}"
+    append: true
     shell: "{{ dotfiles_user_shell }}"
-  when: ansible_hostname == 'astoria'
-
-- name: Read target user account
-  ansible.builtin.getent:
-    database: passwd
-    key: "{{ ansible_target_user }}"
-
-- name: Resolve target user home
-  ansible.builtin.set_fact:
-    ansible_target_home: "{{ dotfiles_user_home | default(getent_passwd[ansible_target_user][4], true) }}"
 
 - name: Create ~/.local/bin
   ansible.builtin.file:

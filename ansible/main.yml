@@ -11,8 +11,28 @@
       ansible.builtin.command: /bin/true
       changed_when: false
 
-    - name: Setup target user
-      ansible.builtin.include_tasks: user.yml
+    - name: Resolve target user
+      ansible.builtin.set_fact:
+        ansible_target_user: "{{ dotfiles_user_name | default(ansible_facts.user_id, true) }}"
+
+    - name: Read target user account
+      ansible.builtin.getent:
+        database: passwd
+        key: "{{ ansible_target_user }}"
+
+    - name: Resolve target user home
+      ansible.builtin.set_fact:
+        ansible_target_home: "{{ dotfiles_user_home | default(ansible_facts.getent_passwd[ansible_target_user][4], true) }}"
+
+    - name: Resolve profile for this host
+      ansible.builtin.set_fact:
+        dotfiles_profile: "{{ host_profiles.get(ansible_facts.hostname, default_profile) }}"
+
+    - name: Resolve package lists for this profile
+      ansible.builtin.set_fact:
+        resolved_packages: "{{ package_profiles.get(dotfiles_profile, {}).get('apt', []) }}"
+        resolved_snaps: "{{ package_profiles.get(dotfiles_profile, {}).get('snaps', []) }}"
+        resolved_classic_snaps: "{{ package_profiles.get(dotfiles_profile, {}).get('classic_snaps', []) }}"
 
     - name: Ensure /etc/apt/keyrings directory exists
       become: true
@@ -21,11 +41,37 @@
         state: directory
         mode: '0755'
 
+    - name: Normalize legacy mise APT source keyring
+      become: true
+      ansible.builtin.shell:
+        cmd: |
+          set -eu
+          files="$(grep -rl 'https://mise.jdx.dev/deb' /etc/apt/sources.list /etc/apt/sources.list.d 2>/dev/null || true)"
+          [ -n "$files" ] || exit 0
+          grep -q '/etc/apt/keyrings/mise-archive-keyring.pub' $files || exit 0
+          sed -i 's#/etc/apt/keyrings/mise-archive-keyring.pub#/etc/apt/keyrings/mise.gpg#g' $files
+      changed_when: false
+
+    - name: Install APT repository prerequisites
+      become: true
+      ansible.builtin.apt:
+        name:
+          - ca-certificates
+          - curl
+          - gnupg
+        state: present
+
     - name: Add APT keys
       become: true
-      get_url:
-        url: "{{ item.url }}"
-        dest: "{{ item.keyring }}"
+      ansible.builtin.shell:
+        cmd: "curl -fsSL {{ item.url | quote }} | gpg --dearmor --yes --output {{ item.keyring | quote }}"
+      loop: "{{ apt_keys | default([]) }}"
+      changed_when: false
+
+    - name: Set APT key permissions
+      become: true
+      ansible.builtin.file:
+        path: "{{ item.keyring }}"
         mode: '0644'
       loop: "{{ apt_keys | default([]) }}"
 
@@ -49,9 +95,13 @@
     - name: Install packages
       become: true
       apt:
-        name: "{{ packages }}"
+        name: "{{ resolved_packages }}"
         state: present
         update_cache: yes
+      when: resolved_packages | length > 0
+
+    - name: Setup target user
+      ansible.builtin.include_tasks: user.yml
 
     - name: Configure unattended-upgrades
       become: true
@@ -64,33 +114,34 @@
     - name: Install snaps
       become: true
       community.general.snap:
-        name: "{{ snaps }}"
+        name: "{{ resolved_snaps }}"
+      when: resolved_snaps | length > 0
 
     - name: Install classic snaps
       become: true
       community.general.snap:
         name: "{{ item }}"
         classic: true
-      loop: "{{ classic_snaps | default([]) }}"
+      loop: "{{ resolved_classic_snaps }}"
 
     - name: Setup Ghostty
       ansible.builtin.include_tasks: ghostty.yml
-
-    - name: Setup Sunshine
-      ansible.builtin.include_tasks: sunshine.yml
+      when: dotfiles_profile == 'desktop'
 
     - name: Setup Helium
       ansible.builtin.include_tasks: helium.yml
+      when: dotfiles_profile == 'desktop'
 
     - name: Install Lilex font
       ansible.builtin.include_tasks: font.yml
       vars:
         font_name: Lilex
         font_url: "https://github.com/mishamyrt/Lilex/releases/download/{{ lilex_version }}/Lilex.zip"
+      when: dotfiles_profile == 'desktop'
 
     - name: Setup Ollama
       ansible.builtin.include_tasks: ollama.yml
-      when: ansible_hostname == 'astoria'
+      when: ollama_enabled
 
     - name: Apply dconf settings
       community.general.dconf:
@@ -98,9 +149,11 @@
         value: "{{ item.value }}"
         state: present
       loop: "{{ dconf_settings | default([]) }}"
+      when: dotfiles_profile == 'desktop'
 
     - name: Setup Zed
       ansible.builtin.include_tasks: zed.yml
+      when: dotfiles_profile == 'desktop'
 
     - name: Enable x11vnc systemd user service
       ansible.builtin.systemd:
@@ -108,6 +161,7 @@
         enabled: true
         scope: user
         daemon_reload: true
+      when: dotfiles_profile == 'desktop'
 
     - name: Install Claude Code
       ansible.builtin.include_tasks: claude-code.yml

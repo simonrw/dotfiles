@@ -2,60 +2,98 @@
 apt_keys:
   - url: https://mise.jdx.dev/gpg-key.pub
     keyring: /etc/apt/keyrings/mise.gpg
+  - url: "https://keyserver.ubuntu.com/pks/lookup?op=get&search=0x88421E703EDC7AF54967DED473C9FCC9E2BB48DA"
+    keyring: /etc/apt/keyrings/fish-shell-release-4.gpg
 
 apt_repositories:
-  - repo: "deb [signed-by=/etc/apt/keyrings/mise-archive-keyring.pub arch=amd64] https://mise.jdx.dev/deb stable main"
+  - repo: "deb [signed-by=/etc/apt/keyrings/mise.gpg arch=amd64] https://mise.jdx.dev/deb stable main"
     filename: mise
-  - repo: "ppa:fish-shell/release-4"
+  - repo: "deb [signed-by=/etc/apt/keyrings/fish-shell-release-4.gpg] https://ppa.launchpadcontent.net/fish-shell/release-4/ubuntu {{ ansible_facts.distribution_release }} main"
     filename: fish-shell-release-4
 
-packages:
+default_profile: dev
 
-  - 1password
-  - 1password-cli
-  - bridge-utils          # kvm
-  - build-essential
-  - cmake
-  - cpu-checker           # kvm
-  - curl
-  - emacs
-  - eza
-  - fd-find
-  - ffmpeg
-  - fish
-  - fonts-jetbrains-mono
-  - git-delta
-  - gnome-tweaks
-  - htop
-  - libcfitsio-dev
-  - liblua5.4-dev
-  - libnss3-tools         # mkcert
-  - libssl-dev
-  - libvirt-clients       # kvm
-  - libvirt-daemon        # kvm
-  - lua5.4
-  - mise
-  - mosh
-  - ncdu
-  - podman
-  - python3-psutil           # dconf module
-  - qemu-system
-  - ripgrep
-  - socat                 # for claude sandboxing
-  - sqlite3
-  - stow
-  - tmux
-  - unattended-upgrades
-  - virt-manager
-  - wmctrl
-  - x11vnc
-  - zsh
+host_profiles:
+  astoria: desktop
 
-snaps:
+package_profiles:
+  dev:
+    apt:
+      - 1password-cli
+      - build-essential
+      - cmake
+      - curl
+      - emacs
+      - eza
+      - fd-find
+      - fish
+      - git-delta
+      - htop
+      - libcfitsio-dev
+      - liblua5.4-dev
+      - libnss3-tools         # mkcert
+      - libssl-dev
+      - lua5.4
+      - mise
+      - mosh
+      - ncdu
+      - podman
+      - ripgrep
+      - socat                 # for claude sandboxing
+      - sqlite3
+      - stow
+      - tmux
+      - unattended-upgrades
+      - unzip
+      - zsh
+    snaps: []
+    classic_snaps: []
 
-  - slack
-  - steam
-
-classic_snaps:
-
-  - pycharm
+  desktop:
+    apt:
+      - 1password
+      - 1password-cli
+      - bridge-utils          # kvm
+      - build-essential
+      - cmake
+      - cpu-checker           # kvm
+      - curl
+      - dconf-cli
+      - emacs
+      - eza
+      - fd-find
+      - ffmpeg
+      - fish
+      - fonts-jetbrains-mono
+      - git-delta
+      - gnome-tweaks
+      - htop
+      - libcfitsio-dev
+      - liblua5.4-dev
+      - libnss3-tools         # mkcert
+      - libssl-dev
+      - libvirt-clients       # kvm
+      - libvirt-daemon        # kvm
+      - lua5.4
+      - mise
+      - mosh
+      - ncdu
+      - podman
+      - python3-psutil        # dconf module
+      - qemu-system
+      - ripgrep
+      - socat                 # for claude sandboxing
+      - sqlite3
+      - stow
+      - tmux
+      - unattended-upgrades
+      - unzip
+      - virt-manager
+      - wmctrl
+      - x11vnc
+      - zsh
+    snaps:
+      - slack
+      - steam
+    classic_snaps:
+      - pycharm

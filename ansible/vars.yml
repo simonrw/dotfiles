@@ -2,7 +2,7 @@ hyprland_enabled: false
 sway_enabled: false
 ollama_enabled: false
 
-dotfiles_user_name: "{{ ansible_user_id }}"
+dotfiles_user_name: "{{ ansible_facts.user_id }}"
 dotfiles_user_shell: /usr/bin/zsh
 dotfiles_user_groups:
   - adm
@@ -17,7 +17,6 @@ dotfiles_user_groups:
   - libvirt
 
 ghostty_version: 1.2.3-0
-sunshine_version: 0.23.1
 helium_version: "0.9.3.1"
 lilex_version: "2.621"
 ollama_version: "0.17.0"
