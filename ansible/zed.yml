@@ -6,4 +6,4 @@
 - name: Install zed
   ansible.builtin.command: sh /tmp/zed-install.sh
   args:
-    creates: "/home/{{ ansible_target_user }}/.local/bin/zed"
+    creates: "{{ ansible_target_home }}/.local/bin/zed"

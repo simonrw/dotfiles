@@ -1,6 +1,6 @@
 - name: Check if Claude Code is installed
   ansible.builtin.stat:
-    path: "/home/{{ ansible_target_user }}/.local/bin/claude"
+    path: "{{ ansible_target_home }}/.local/bin/claude"
   register: claude_bin
 
 - name: Download Claude Code install script

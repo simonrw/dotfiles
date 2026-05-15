@@ -11,16 +11,8 @@
       ansible.builtin.command: /bin/true
       changed_when: false
 
-    - name: Set user variable
-      set_fact:
-        ansible_target_user: "{{ lookup('env', 'USER') | default('simon', true) }}"
-
-    - name: Configure user
-      become: true
-      ansible.builtin.user:
-        name: "{{ ansible_target_user }}"
-        groups: adm,cdrom,sudo,dip,plugdev,users,lpadmin,docker,kvm,libvirt,sudo
-        shell: /usr/bin/zsh
+    - name: Setup target user
+      ansible.builtin.include_tasks: user.yml
 
     - name: Ensure /etc/apt/keyrings directory exists
       become: true
@@ -80,19 +72,6 @@
         name: "{{ item }}"
         classic: true
       loop: "{{ classic_snaps | default([]) }}"
-
-    - name: Create ~/.local/bin
-      ansible.builtin.file:
-        dest: "/home/{{ ansible_target_user }}/.local/bin"
-        state: directory
-        owner: "{{ ansible_target_user }}"
-        group: "{{ ansible_target_user }}"
-
-    - name: Create fd symlink
-      ansible.builtin.file:
-        src: /usr/bin/fdfind
-        dest: "/home/{{ ansible_target_user }}/.local/bin/fd"
-        state: link
 
     - name: Setup Ghostty
       ansible.builtin.include_tasks: ghostty.yml
