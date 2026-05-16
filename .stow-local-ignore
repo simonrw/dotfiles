@@ -31,3 +31,4 @@
 ^/.config/ghostty/.*\.config$
 ^/openspec
 ^/AGENTS.md
+^/mise.lock
