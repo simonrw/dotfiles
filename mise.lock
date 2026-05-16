@@ -7,3 +7,31 @@ backend = "core:go"
 [[tools.lua-language-server]]
 version = "3.15.0"
 backend = "aqua:LuaLS/lua-language-server"
+
+[tools.lua-language-server."platforms.linux-arm64"]
+checksum = "sha256:7dff8edfed4f34cf6325ff384791287d95f9a8dd9615a5279c7c6af81cf8c45d"
+url = "https://github.com/LuaLS/lua-language-server/releases/download/3.15.0/lua-language-server-3.15.0-linux-arm64.tar.gz"
+
+[tools.lua-language-server."platforms.linux-arm64-musl"]
+checksum = "sha256:7dff8edfed4f34cf6325ff384791287d95f9a8dd9615a5279c7c6af81cf8c45d"
+url = "https://github.com/LuaLS/lua-language-server/releases/download/3.15.0/lua-language-server-3.15.0-linux-arm64.tar.gz"
+
+[tools.lua-language-server."platforms.linux-x64"]
+checksum = "sha256:4877b874c52fb7587707898da9026cc3a6c854d9bbab115ef49ac4e6a1b88007"
+url = "https://github.com/LuaLS/lua-language-server/releases/download/3.15.0/lua-language-server-3.15.0-linux-x64.tar.gz"
+
+[tools.lua-language-server."platforms.linux-x64-musl"]
+checksum = "sha256:076a2d772fedb3a5fe315e6034f9a7f9a436ec155363501beff2dfc39e857e2e"
+url = "https://github.com/LuaLS/lua-language-server/releases/download/3.15.0/lua-language-server-3.15.0-linux-x64-musl.tar.gz"
+
+[tools.lua-language-server."platforms.macos-arm64"]
+checksum = "sha256:050f5f493f65112afc116e31281a9f73918546782d3696485dc052724838f58b"
+url = "https://github.com/LuaLS/lua-language-server/releases/download/3.15.0/lua-language-server-3.15.0-darwin-arm64.tar.gz"
+
+[tools.lua-language-server."platforms.macos-x64"]
+checksum = "sha256:01d28a31e264434e51662814a68f584af068393caecfa158c4df5f7fdc3ca2f7"
+url = "https://github.com/LuaLS/lua-language-server/releases/download/3.15.0/lua-language-server-3.15.0-darwin-x64.tar.gz"
+
+[tools.lua-language-server."platforms.windows-x64"]
+checksum = "sha256:76a10c05e8c947a448f00a61acead4240484cd1e2e8c66d54401c67d99b77535"
+url = "https://github.com/LuaLS/lua-language-server/releases/download/3.15.0/lua-language-server-3.15.0-win32-x64.zip"
