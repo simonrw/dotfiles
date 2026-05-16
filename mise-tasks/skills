@@ -1,0 +1,22 @@
+#!/usr/bin/env python3
+# MISE description="Install agents skills"
+
+import subprocess as sp
+
+type Repo = str
+type Name = str
+
+SKILLS: dict[Repo, list[Name]] = {"mattpocock/skills": []}
+
+AGENTS: list[str] = ["codex", "claude-code", "pi"]
+
+for repo, names in SKILLS.items():
+    command = (
+        ["npx", "skills@latest", "add", "--global", repo, "--yes"]
+        + ["--agent"]
+        + AGENTS
+    )
+    if names:
+        command = command + ["--skill"] + names
+
+    sp.check_call(command)

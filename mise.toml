@@ -8,6 +8,7 @@ depends = [
     "vim-update",
     "mise:packages",
     "bat-cache",
+    "skills",
 ]
 depends_post = ["brew"]
 
