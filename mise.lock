@@ -40,6 +40,62 @@ url = "https://github.com/LuaLS/lua-language-server/releases/download/3.15.0/lua
 version = "0.14.5"
 backend = "aqua:astral-sh/ruff"
 
+[tools.ruff."platforms.linux-arm64"]
+checksum = "sha256:ebef9d7119119e67b1065a5a35128148898e1581037e7d68c3aa9223983af0a4"
+url = "https://github.com/astral-sh/ruff/releases/download/0.14.5/ruff-aarch64-unknown-linux-musl.tar.gz"
+
+[tools.ruff."platforms.linux-arm64-musl"]
+checksum = "sha256:ebef9d7119119e67b1065a5a35128148898e1581037e7d68c3aa9223983af0a4"
+url = "https://github.com/astral-sh/ruff/releases/download/0.14.5/ruff-aarch64-unknown-linux-musl.tar.gz"
+
+[tools.ruff."platforms.linux-x64"]
+checksum = "sha256:69ddecf374a4f53eeda238399614ed6f92c5e75fe04436c604fb78435d5658eb"
+url = "https://github.com/astral-sh/ruff/releases/download/0.14.5/ruff-x86_64-unknown-linux-musl.tar.gz"
+
+[tools.ruff."platforms.linux-x64-musl"]
+checksum = "sha256:69ddecf374a4f53eeda238399614ed6f92c5e75fe04436c604fb78435d5658eb"
+url = "https://github.com/astral-sh/ruff/releases/download/0.14.5/ruff-x86_64-unknown-linux-musl.tar.gz"
+
+[tools.ruff."platforms.macos-arm64"]
+checksum = "sha256:c07616663ac63792c16269d6798a47fb1f45b29997706178d60e90da698a9970"
+url = "https://github.com/astral-sh/ruff/releases/download/0.14.5/ruff-aarch64-apple-darwin.tar.gz"
+
+[tools.ruff."platforms.macos-x64"]
+checksum = "sha256:d7285770c5098be00c9b4ff099d6ef7f8b2a54b4019c9507b628ee9f0d404c06"
+url = "https://github.com/astral-sh/ruff/releases/download/0.14.5/ruff-x86_64-apple-darwin.tar.gz"
+
+[tools.ruff."platforms.windows-x64"]
+checksum = "sha256:9b998bf1a790a18b829fab3368ee7404a8f1f2cec2acb650aa1fd1b74962d023"
+url = "https://github.com/astral-sh/ruff/releases/download/0.14.5/ruff-x86_64-pc-windows-msvc.zip"
+
 [[tools.ty]]
 version = "0.0.23"
 backend = "aqua:astral-sh/ty"
+
+[tools.ty."platforms.linux-arm64"]
+checksum = "sha256:b0c78ec69fa044249b558d2545db0b272a1ce569708cdd63f27098a75f8101b3"
+url = "https://github.com/astral-sh/ty/releases/download/0.0.23/ty-aarch64-unknown-linux-musl.tar.gz"
+
+[tools.ty."platforms.linux-arm64-musl"]
+checksum = "sha256:b0c78ec69fa044249b558d2545db0b272a1ce569708cdd63f27098a75f8101b3"
+url = "https://github.com/astral-sh/ty/releases/download/0.0.23/ty-aarch64-unknown-linux-musl.tar.gz"
+
+[tools.ty."platforms.linux-x64"]
+checksum = "sha256:252d9e5048c2fa555993d8e962574fe74508aa0455f982103fe169c29b4aef03"
+url = "https://github.com/astral-sh/ty/releases/download/0.0.23/ty-x86_64-unknown-linux-musl.tar.gz"
+
+[tools.ty."platforms.linux-x64-musl"]
+checksum = "sha256:252d9e5048c2fa555993d8e962574fe74508aa0455f982103fe169c29b4aef03"
+url = "https://github.com/astral-sh/ty/releases/download/0.0.23/ty-x86_64-unknown-linux-musl.tar.gz"
+
+[tools.ty."platforms.macos-arm64"]
+checksum = "sha256:d1b36c7c2777b5245c27f33f13b5b0e24e7004e3638fcb1fe8e3874af0bc5e24"
+url = "https://github.com/astral-sh/ty/releases/download/0.0.23/ty-aarch64-apple-darwin.tar.gz"
+
+[tools.ty."platforms.macos-x64"]
+checksum = "sha256:08ee907db7bb6e5ca9eccad053e0347085df7292311c2b0ba03608f93f99d063"
+url = "https://github.com/astral-sh/ty/releases/download/0.0.23/ty-x86_64-apple-darwin.tar.gz"
+
+[tools.ty."platforms.windows-x64"]
+checksum = "sha256:7a1c32809b33e06573cc0714fabe6cd0445d57697c1096504ee456db514485b1"
+url = "https://github.com/astral-sh/ty/releases/download/0.0.23/ty-x86_64-pc-windows-msvc.zip"
