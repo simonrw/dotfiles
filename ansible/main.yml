@@ -29,6 +29,15 @@
         mode: '0644'
       loop: "{{ apt_keys | default([]) }}"
 
+    - name: Normalize managed APT source files
+      become: true
+      ansible.builtin.copy:
+        dest: "/etc/apt/sources.list.d/{{ item.filename }}.list"
+        content: "{{ item.repo }}\n"
+        mode: '0644'
+      loop: "{{ apt_repositories | default([]) }}"
+      when: item.managed_source_file | default(false)
+
     - name: Add APT repositories
       become: true
       apt_repository:

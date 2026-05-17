@@ -1,11 +1,12 @@
 ---
 apt_keys:
-  - url: https://mise.jdx.dev/gpg-key.pub
-    keyring: /etc/apt/keyrings/mise.gpg
+  - url: https://mise.en.dev/gpg-key.pub
+    keyring: /etc/apt/keyrings/mise-archive-keyring.asc
 
 apt_repositories:
-  - repo: "deb [signed-by=/etc/apt/keyrings/mise-archive-keyring.pub arch=amd64] https://mise.jdx.dev/deb stable main"
+  - repo: "deb [signed-by=/etc/apt/keyrings/mise-archive-keyring.asc arch=amd64] https://mise.en.dev/deb stable main"
     filename: mise
+    managed_source_file: true
   - repo: "ppa:fish-shell/release-4"
     filename: fish-shell-release-4
 
