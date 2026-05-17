@@ -413,4 +413,5 @@
   "workbench.preferredDarkColorTheme": "Catppuccin Mocha",
   "window.commandCenter": false,
   "ruff.format.preview": true,
+  "chat.titleBar.signIn.enabled": false,
 }
