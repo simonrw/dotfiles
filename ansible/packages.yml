@@ -15,6 +15,7 @@ packages:
   - 1password-cli
   - bridge-utils          # kvm
   - build-essential
+  - clang-18
   - cmake
   - cpu-checker           # kvm
   - curl
@@ -28,6 +29,7 @@ packages:
   - gnome-tweaks
   - htop
   - libcfitsio-dev
+  - libclang-18-dev
   - liblua5.4-dev
   - libnss3-tools         # mkcert
   - libssl-dev
