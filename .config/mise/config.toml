@@ -51,4 +51,3 @@ experimental = true
 # support .python-version files in Python
 # required for LocalStack
 idiomatic_version_file_enable_tools = ["python", "rust"]
-lockfile = true
