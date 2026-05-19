@@ -279,7 +279,7 @@ require("lazy").setup({
                 -- bare Octo command opens picker of commands
                 enable_builtin = true,
                 file_panel = {
-                    use_icons = false,
+                    icons = false,
                 },
             },
             dependencies = {
