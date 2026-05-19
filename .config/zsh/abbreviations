@@ -21,7 +21,6 @@ abbr "vup"='nvim --headless "+Lazy! sync" +qa'
 abbr "watch"="viddy"
 abbr "ec"="emacsclient -n"
 abbr "grep"="rg"
-abbr "awslocal"="aws"
 abbr "cat"="bat"
 abbr "less"="bat"
 abbr "more"="bat"

@@ -15,6 +15,7 @@ alias lt='eza --group-directories-first --header --tree'
 alias notes='open -a Emacs ~/notes.org'
 alias thor='eza --group-directories-first --header -s modified -l'
 alias tree='eza --group-directories-first --header -T'
+alias awslocal=aws
 
 add-keys() {
     ssh-add $(find ~/.ssh -maxdepth 1 -type f -name "id_rsa*" | command grep -v pub | command grep -v bak)
