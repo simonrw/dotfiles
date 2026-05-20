@@ -57,6 +57,14 @@ _zsh_abbr_expand_space() {
 
 _zsh_abbr_expand_accept_line() {
     _zsh_abbr_expand_lbuffer
+    unset POSTDISPLAY
+    if (( $+functions[_zsh_autosuggest_highlight_reset] )); then
+        _zsh_autosuggest_highlight_reset
+    fi
+    if (( $+functions[_zsh_highlight] )); then
+        _zsh_highlight
+        zle -R
+    fi
     zle .accept-line
 }
 

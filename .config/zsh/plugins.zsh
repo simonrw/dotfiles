@@ -9,3 +9,6 @@ test -f /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh && source
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=244'
 test -f /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh && source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 test -f /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh && source /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+if (( ${+ZSH_AUTOSUGGEST_CLEAR_WIDGETS} )); then
+    ZSH_AUTOSUGGEST_CLEAR_WIDGETS+=(zsh-abbr-expand-accept-line)
+fi
