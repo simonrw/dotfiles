@@ -4,6 +4,7 @@ tap "d12frosted/emacs-plus"
 tap "oven-sh/bun"
 tap "owenthereal/upterm"
 tap "pulumi/tap"
+tap "simonrw/tap"
 
 # Brews
 
@@ -150,6 +151,7 @@ cask "pocket-casts"
 cask "rancher" if `hostname`.strip == "mm"
 cask "raycast"
 cask "shotcut"
+cask "simonrw/tap/mdv"
 cask "slack"
 cask "steam"
 cask "t3-code"
