@@ -104,18 +104,6 @@
   :config
   (global-mise-mode))
 
-(use-package treesit-auto
-  :ensure t
-  :custom
-  (treesit-auto-install 'prompt)
-  :config
-  (setq treesit-auto-langs
-        '(go html javascript json lua nix python rust
-          tsx typescript yaml))
-  (treesit-auto-install-all)
-  (treesit-auto-add-to-auto-mode-alist 'all)
-  (setq major-mode-remap-alist (treesit-auto--build-major-mode-remap-alist)))
-
 ;; macOS-specific settings
 ;; https://github.com/doomemacs/doomemacs/blob/master/modules/os/macos/config.el
 (when (eq system-type 'darwin)
