@@ -4,7 +4,6 @@ theme = "adaptive"
 auto-completion = true
 auto-pairs = false
 color-modes = true
-line-number = "relative"
 true-color = true
 
 [editor.cursor-shape]
