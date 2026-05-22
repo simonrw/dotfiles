@@ -9,3 +9,6 @@ revisions.refresh()
 action = "tug"
 key = "t"
 scope = "revisions"
+
+[preview]
+show_at_start = true
