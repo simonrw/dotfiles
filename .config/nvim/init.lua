@@ -184,6 +184,9 @@ require("lazy").setup({
             filetype = "markdown",
         },
         {
+            "simonrw/ask-agent",
+        },
+        {
             'folke/zen-mode.nvim',
             opts = {
                 window = {
