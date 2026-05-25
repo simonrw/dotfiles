@@ -22,6 +22,9 @@
   "icon_theme": "Zed (Default)",
   "restore_on_file_reopen": false,
   "agent_servers": {
+    "codex-acp": {
+      "type": "registry"
+    },
     "claude-acp": {
       "type": "registry",
     },
