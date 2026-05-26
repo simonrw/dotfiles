@@ -5,6 +5,7 @@ tap "oven-sh/bun"
 tap "owenthereal/upterm"
 tap "pulumi/tap"
 tap "simonrw/tap"
+tap "steipete/tap"
 
 # Brews
 
@@ -154,6 +155,7 @@ cask "shotcut"
 cask "simonrw/tap/mdv"
 cask "slack"
 cask "steam"
+cask "steipete/tap/codexbar"
 cask "t3-code"
 cask "tailscale-app"
 cask "todoist-app"
