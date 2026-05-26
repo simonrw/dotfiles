@@ -8,6 +8,7 @@ depends = [
     "mise:packages",
     "bat-cache",
     "skills",
+    "codex:config",
 ]
 depends_post = ["brew"]
 

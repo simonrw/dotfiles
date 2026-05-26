@@ -1,0 +1,68 @@
+approvals_reviewer = "guardian_subagent"
+model = "gpt-5.5"
+model_reasoning_effort = "medium"
+
+[mcp_servers.openaiDeveloperDocs]
+url = "https://developers.openai.com/mcp"
+
+[features]
+codex_hooks = true
+remote_connections = true
+
+[desktop]
+ambient-suggestions-enabled = false
+appearanceLightCodeThemeId = "github"
+appearanceDarkCodeThemeId = "github"
+sansFontSize = 14
+codeFontSize = 14
+composerEnterBehavior = "cmdIfMultiline"
+conversationDetailMode = "STEPS_COMMANDS"
+git-pull-request-merge-method = "squash"
+
+[desktop.appearanceLightChromeTheme]
+accent = "#0969da"
+contrast = 45
+ink = "#1f2328"
+opaqueWindows = false
+surface = "#ffffff"
+
+[desktop.appearanceLightChromeTheme.fonts]
+
+[desktop.appearanceLightChromeTheme.semanticColors]
+diffAdded = "#1a7f37"
+diffRemoved = "#cf222e"
+skill = "#8250df"
+
+[desktop.appearanceDarkChromeTheme]
+accent = "#1f6feb"
+contrast = 60
+ink = "#e6edf3"
+opaqueWindows = false
+surface = "#0d1117"
+
+[desktop.appearanceDarkChromeTheme.fonts]
+
+[desktop.appearanceDarkChromeTheme.semanticColors]
+diffAdded = "#3fb950"
+diffRemoved = "#f85149"
+skill = "#bc8cff"
+
+[desktop.open-in-target-preferences]
+global = "zed"
+
+[desktop.open-in-target-preferences.perPath]
+"/Users/simon/.codex/worktrees/1af2/dap-gui" = "zed"
+"/Users/simon/dev/ask-agent" = "zed"
+"/Users/simon/dev/dap-gui" = "ghostty"
+"/Users/simon/work/localstack/limastack" = "zed"
+"/home/simon/dev/rvw" = "vscode"
+"/home/simon/work/localstack/localstack-pro" = "zed"
+
+[plugins."browser@openai-bundled"]
+enabled = true
+
+[plugins."linear@openai-curated"]
+enabled = true
+
+[plugins."notion@openai-curated"]
+enabled = true

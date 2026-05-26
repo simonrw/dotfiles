@@ -32,3 +32,4 @@
 ^/openspec
 ^/AGENTS.md
 ^/mise.lock
+^/\.codex/config\.toml$
