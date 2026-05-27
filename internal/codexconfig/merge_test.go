@@ -85,7 +85,19 @@ func TestMergeReturnsErrorForInvalidTOML(t *testing.T) {
 	}
 }
 
-func TestMergeFilesReturnsErrorForMissingFiles(t *testing.T) {
+func TestMergeFilesTreatsMissingTargetAsEmpty(t *testing.T) {
+	dir := t.TempDir()
+	source := writeTestFile(t, dir, "base.toml", `model = "gpt-5.5"`)
+
+	got, err := MergeFiles(filepath.Join(dir, "missing-target.toml"), source)
+	if err != nil {
+		t.Fatalf("merge with missing target: %v", err)
+	}
+
+	assertTOMLValue(t, got, "model", "gpt-5.5")
+}
+
+func TestMergeFilesReturnsErrorForMissingSource(t *testing.T) {
 	dir := t.TempDir()
 	target := filepath.Join(dir, "config.toml")
 
@@ -95,14 +107,6 @@ func TestMergeFilesReturnsErrorForMissingFiles(t *testing.T) {
 	}
 	if !strings.Contains(err.Error(), "read source") {
 		t.Fatalf("expected source read context, got %q", err)
-	}
-
-	_, err = MergeFiles(filepath.Join(dir, "missing-target.toml"), writeTestFile(t, dir, "base.toml", `model = "gpt-5.5"`))
-	if err == nil {
-		t.Fatal("expected missing target file to return an error")
-	}
-	if !strings.Contains(err.Error(), "read target") {
-		t.Fatalf("expected target read context, got %q", err)
 	}
 }
 

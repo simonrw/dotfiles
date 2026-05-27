@@ -2,6 +2,7 @@ package codexconfig
 
 import (
 	"bytes"
+	"errors"
 	"fmt"
 	"os"
 
@@ -15,7 +16,7 @@ func MergeFiles(targetPath, sourcePath string) ([]byte, error) {
 	}
 
 	targetData, err := os.ReadFile(targetPath)
-	if err != nil {
+	if err != nil && !errors.Is(err, os.ErrNotExist) {
 		return nil, fmt.Errorf("read target %q: %w", targetPath, err)
 	}
 

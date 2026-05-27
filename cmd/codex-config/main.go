@@ -1,6 +1,7 @@
 package main
 
 import (
+	"errors"
 	"flag"
 	"fmt"
 	"os"
@@ -64,8 +65,12 @@ func defaultTargetPath() string {
 
 func writeFilePreservingMode(path string, data []byte) error {
 	info, err := os.Stat(path)
-	if err != nil {
+	perm := os.FileMode(0o600)
+	if err != nil && !errors.Is(err, os.ErrNotExist) {
 		return fmt.Errorf("stat target %q: %w", path, err)
+	}
+	if err == nil {
+		perm = info.Mode().Perm()
 	}
 
 	dir := filepath.Dir(path)
@@ -82,7 +87,7 @@ func writeFilePreservingMode(path string, data []byte) error {
 		return fmt.Errorf("write temporary file %q: %w", tempPath, err)
 	}
 
-	if err := temp.Chmod(info.Mode().Perm()); err != nil {
+	if err := temp.Chmod(perm); err != nil {
 		temp.Close()
 		return fmt.Errorf("chmod temporary file %q: %w", tempPath, err)
 	}
