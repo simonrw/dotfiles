@@ -15,7 +15,7 @@ font-thicken = true
 theme = dark:Catppuccin Mocha,light:Catppuccin Latte
 cursor-style = block
 cursor-style-blink = false
-shell-integration = detect
+shell-integration = none
 shell-integration-features = no-cursor,ssh-terminfo,ssh-env
 mouse-hide-while-typing = false
 
