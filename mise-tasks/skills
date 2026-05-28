@@ -6,7 +6,7 @@ import subprocess as sp
 type Repo = str
 type Name = str
 
-SKILLS: dict[Repo, list[Name]] = {"mattpocock/skills": []}
+SKILLS: dict[Repo, list[Name]] = {"mattpocock/skills": [], "simonrw/skills": []}
 
 AGENTS: list[str] = ["codex", "claude-code", "pi"]
 
