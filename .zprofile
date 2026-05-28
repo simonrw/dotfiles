@@ -1,5 +1,5 @@
 if [ -f /opt/homebrew/bin/mise ]; then
-    export PATH=/opt/homebrew/bin:$PATH
+    export PATH=$PATH:/opt/homebrew/bin
 fi
 
 # set up mise early on
