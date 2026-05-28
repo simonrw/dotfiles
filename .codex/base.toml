@@ -6,7 +6,7 @@ model_reasoning_effort = "medium"
 url = "https://developers.openai.com/mcp"
 
 [features]
-codex_hooks = true
+hooks = true
 remote_connections = true
 
 [desktop]
