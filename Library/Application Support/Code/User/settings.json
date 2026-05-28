@@ -414,4 +414,6 @@
   "window.commandCenter": false,
   "ruff.format.preview": true,
   "chat.titleBar.signIn.enabled": false,
+  "claudeCode.preferredLocation": "panel",
+  "claudeCode.useCtrlEnterToSend": true,
 }
