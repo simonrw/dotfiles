@@ -54,3 +54,4 @@
 ;; (unpin! t)
 
 (package! catppuccin-theme)
+(package! auto-dark)
