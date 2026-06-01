@@ -90,4 +90,4 @@
        (setopt catppuccin-flavor 'latte)
        (catppuccin-reload))))
 
-(add-to-list 'org-agenda-files "~/notes.org")
+(setq org-agenda-files '("~/notes.org" "~/org"))
