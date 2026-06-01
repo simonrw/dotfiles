@@ -76,21 +76,16 @@
 ;; Compatibility for newer Consult on Emacs 29.
 (defvar minibuffer-visible-completions nil)
 
+(setq custom-safe-themes t)
+
+(use-package batppuccin
+             :init
+             (load-theme 'batppuccin-latte :no-confirm))
+
 (use-package! auto-dark
-  :defer t
-  :init
-  (setopt auto-dark-themes '((catppuccin) (catppuccin)))
-  (setopt doom-theme 'catppuccin)
-  :config
-  (setopt auto-dark-allow-osascript t)
-  :hook
-  (auto-dark-dark-mode-hook
-   . (lambda ()
-       (setopt catppuccin-flavor 'mocha)
-       (catppuccin-reload)))
-  (auto-dark-light-mode-hook
-   . (lambda ()
-       (setopt catppuccin-flavor 'latte)
-       (catppuccin-reload))))
+            :custom
+        (auto-dark-themes '((batppuccin-mocha) (batppuccin-latte)))
+        :init
+        (auto-dark-mode))
 
 (setq org-agenda-files '("~/notes.org" "~/org"))

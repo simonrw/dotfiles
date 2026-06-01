@@ -55,3 +55,5 @@
 
 (package! catppuccin-theme)
 (package! auto-dark)
+(package! batppuccin
+    :recipe (:host github :repo "bbatsov/batppuccin-emacs"))
