@@ -73,6 +73,9 @@
 ;; You can also try 'gd' (or 'C-c c d') to jump to their definition and see how
 ;; they are implemented.
 
+;; Compatibility for newer Consult on Emacs 29.
+(defvar minibuffer-visible-completions nil)
+
 (use-package! auto-dark
   :defer t
   :init
