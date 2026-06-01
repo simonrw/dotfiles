@@ -174,3 +174,5 @@ cask "clockify"
 mas "1Password for Safari", id: 1569813296
 mas "DaisyDisk", id: 411643860
 mas "Wipr 2", id: 1662217862
+mas "Pages", id: 361309726
+mas "iMovie", id: 408981434
