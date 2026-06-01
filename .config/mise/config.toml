@@ -38,6 +38,7 @@ xh = { version = "latest", os = ["linux"] }
 "npm:ntn" = "latest"
 opencode = { version = "latest", os = ["linux"] }
 python = "latest"
+"pipx:ipython" = "latest"
 
 [tools."github:MordechaiHadad/bob"]
 version = "latest"
