@@ -9,6 +9,7 @@ depends = [
     "bat-cache",
     "skills",
     "codex:config",
+    "zed:config",
 ]
 depends_post = ["brew"]
 

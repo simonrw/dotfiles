@@ -25,3 +25,4 @@ Library/Application\ Support/Cursor/*
 /.config/jj/repos
 /.config/ghostty/local.config
 /.codex/config.toml
+/.config/zed/settings.json
