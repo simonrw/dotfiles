@@ -21,6 +21,7 @@ brew "bob"
 brew "cargo-instruments"
 brew "cfitsio"
 brew "cmake"
+brew "container", restart_service: true
 brew "coreutils"
 brew "curl"
 brew "delta"
