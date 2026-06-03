@@ -22,6 +22,9 @@ helium_version: "0.12.5.1"
 lilex_version: "2.621"
 ollama_version: "0.17.0"
 
+wakeonlan_interfaces:
+  - eno1
+
 dconf_settings:
   - key: "/org/gnome/desktop/input-sources/xkb-options"
     value: ['caps:ctrl_modifier']

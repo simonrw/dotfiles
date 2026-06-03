@@ -62,6 +62,9 @@
         state: present
         update_cache: yes
 
+    - name: Configure networking
+      ansible.builtin.include_tasks: network.yml
+
     - name: Configure unattended-upgrades
       become: true
       ansible.builtin.copy:

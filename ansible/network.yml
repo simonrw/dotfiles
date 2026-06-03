@@ -1,0 +1,26 @@
+- name: Install Wake-on-LAN systemd service
+  become: true
+  ansible.builtin.copy:
+    dest: /etc/systemd/system/wakeonlan@.service
+    mode: '0644'
+    content: |
+      [Unit]
+      Description=Enable Wake-on-LAN for %i
+      After=network.target
+      ConditionPathExists=/sys/class/net/%i
+
+      [Service]
+      Type=oneshot
+      ExecStart=/usr/sbin/ethtool -s %i wol g
+
+      [Install]
+      WantedBy=multi-user.target
+
+- name: Enable Wake-on-LAN interfaces
+  become: true
+  ansible.builtin.systemd:
+    name: "wakeonlan@{{ item }}.service"
+    enabled: true
+    state: started
+    daemon_reload: true
+  loop: "{{ wakeonlan_interfaces | default([]) }}"
