@@ -21,7 +21,7 @@ brew "bob"
 brew "cargo-instruments"
 brew "cfitsio"
 brew "cmake"
-brew "colima"
+brew "colima", restart_service: true
 brew "container", restart_service: true
 brew "coreutils"
 brew "curl"
@@ -178,6 +178,7 @@ cask "clockify"
 # Mac App Store apps
 mas "1Password for Safari", id: 1569813296
 mas "DaisyDisk", id: 411643860
-mas "Wipr 2", id: 1662217862
-mas "Pages", id: 361309726
 mas "iMovie", id: 408981434
+mas "Pages", id: 361309726
+mas "Wipr 2", id: 1662217862
+mas "Xcode", id: 497799835
