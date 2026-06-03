@@ -18,7 +18,7 @@ dotfiles_user_groups:
 
 ghostty_version: 1.2.3-0
 sunshine_version: 0.23.1
-helium_version: "0.9.3.1"
+helium_version: "0.12.5.1"
 lilex_version: "2.621"
 ollama_version: "0.17.0"
 
