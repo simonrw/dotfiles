@@ -1,0 +1,6 @@
+k9s:
+  ui:
+    headless: true
+    logoless: true
+    splashless: true
+    reactive: true
