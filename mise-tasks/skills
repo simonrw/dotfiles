@@ -19,7 +19,10 @@ SKILLS: dict[Repo, list[Name]] = {
 
 AGENTS: list[str] = ["codex", "claude-code", "pi"]
 
+UNINSTALL_LIST: list[str] = ["caveman"]
+
 for repo, names in SKILLS.items():
+    # add skills
     command = (
         ["npx", "skills@latest", "add", "--global", repo, "--yes"]
         + ["--agent"]
@@ -29,3 +32,10 @@ for repo, names in SKILLS.items():
         command = command + ["--skill"] + names
 
     sp.check_call(command)
+
+# potentially remove skills
+if not UNINSTALL_LIST:
+    exit()
+
+command = ["npx", "skills@latest", "rm", "--global", "--yes"] + UNINSTALL_LIST
+sp.check_call(command)
