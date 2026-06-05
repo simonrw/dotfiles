@@ -14,7 +14,7 @@
 	diff-base = "!git diff ${REVIEW_ORIGIN:-origin}/$REVIEW_BASE..."
 	diffup = "!git diff $(git upstream).."
 	discard = "checkout --"
-	edit = "!vim `git ls-files -m`"
+	edit = "!zed `git ls-files -m`"
 	fetchup = "fetch upstream"
 	ff = "!f() { git merge --ff-only $(git upstream); }; f"
 	files = "!git diff --name-only $(git base-commit)"
@@ -79,7 +79,7 @@
 	abbrev = 12
 	askPass = ""
 	autocrlf = "input"
-	editor = "nvim"
+	editor = "zed --wait"
 	ignorecase = false
 	mergeoptions = "--no-ff"
 	pager = "delta"

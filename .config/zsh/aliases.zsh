@@ -12,9 +12,11 @@ alias lla='eza --group-directories-first --header -la'
 alias lr='eza --group-directories-first --header -s modified -l'
 alias ls='eza --group-directories-first --header'
 alias lt='eza --group-directories-first --header --tree'
+alias nvim='zed'
 alias notes='open -a Emacs ~/notes.org'
 alias thor='eza --group-directories-first --header -s modified -l'
 alias tree='eza --group-directories-first --header -T'
+alias vim='zed'
 alias awslocal=aws
 
 add-keys() {

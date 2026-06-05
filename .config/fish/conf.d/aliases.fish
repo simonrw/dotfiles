@@ -14,7 +14,8 @@ abbr --add pydoc 'python -m pydoc'
 abbr --add pylab 'ipython --pylab'
 abbr --add sourceenv 'source ./venv/bin/activate.fish'
 abbr --add tl tmux-last
-abbr --add vim nvim
+abbr --add nvim zed
+abbr --add vim zed
 abbr --add vimdiff 'nvim -d'
 abbr --add vup 'nvim --headless "+Lazy! sync" +qa'
 abbr --add watch viddy
@@ -40,9 +41,11 @@ alias la 'eza --group-directories-first --header -a'
 alias ll 'eza --group-directories-first --header -l'
 alias lla 'eza --group-directories-first --header -la'
 alias lt 'eza --group-directories-first --header --tree'
+alias nvim zed
 alias lr 'eza --group-directories-first --header -s modified -l'
 alias thor 'eza --group-directories-first --header -s modified -l'
 alias tree 'eza --group-directories-first --header -T'
+alias vim zed
 alias notes 'open -a Emacs ~/notes.org'
 
 # Functions for aliases with command substitution
