@@ -1,3 +1,54 @@
+if [[ -z "${__ZSH_FZF_LOADING:-}" ]]; then
+  typeset -g __ZSH_FZF_SOURCE="${${(%):-%N}:A}"
+  typeset -gi __ZSH_FZF_LOADED=0
+
+  __zsh_fzf_load() {
+    (( __ZSH_FZF_LOADED )) && return 0
+    if (( ${+functions[__zsh_compinit]} )); then
+      __zsh_compinit || return
+    fi
+    __ZSH_FZF_LOADED=1
+    local __ZSH_FZF_LOADING=1
+    source "$__ZSH_FZF_SOURCE" || {
+      __ZSH_FZF_LOADED=0
+      return 1
+    }
+  }
+
+  __zsh_fzf_lazy_widget() {
+    local widget="$WIDGET"
+    __zsh_fzf_load || return
+    zle "$widget" "$@"
+  }
+
+  if [[ -o interactive ]]; then
+    if [[ -z "${fzf_default_completion:-}" ]]; then
+      typeset __zsh_fzf_tab_binding
+      __zsh_fzf_tab_binding=$(bindkey '^I' 2>/dev/null)
+      [[ "$__zsh_fzf_tab_binding" =~ 'undefined-key' ]] || fzf_default_completion=$__zsh_fzf_tab_binding[(s: :w)2]
+      unset __zsh_fzf_tab_binding
+    fi
+
+    zle -N fzf-file-widget __zsh_fzf_lazy_widget
+    zle -N fzf-cd-widget __zsh_fzf_lazy_widget
+    zle -N fzf-history-widget __zsh_fzf_lazy_widget
+    zle -N fzf-completion __zsh_fzf_lazy_widget
+
+    bindkey -M emacs '^T' fzf-file-widget
+    bindkey -M vicmd '^T' fzf-file-widget
+    bindkey -M viins '^T' fzf-file-widget
+    bindkey -M emacs '\ec' fzf-cd-widget
+    bindkey -M vicmd '\ec' fzf-cd-widget
+    bindkey -M viins '\ec' fzf-cd-widget
+    bindkey -M emacs '^R' fzf-history-widget
+    bindkey -M vicmd '^R' fzf-history-widget
+    bindkey -M viins '^R' fzf-history-widget
+    bindkey '^I' fzf-completion
+  fi
+
+  return 0
+fi
+
 ### key-bindings.zsh ###
 #     ____      ____
 #    / __/___  / __/

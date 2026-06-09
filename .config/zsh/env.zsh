@@ -2,11 +2,26 @@ export LANG="en_GB.UTF-8"
 export LC_ALL="en_GB.UTF-8"
 export LC_CTYPE="en_GB.UTF-8"
 
-if $HOME/.bin/is-dark-theme; then
-    export __IS_DARK_THEME=1
-else
-    export __IS_DARK_THEME=0
-fi
+case $OSTYPE in
+    darwin*)
+        if defaults read -g AppleInterfaceStyle >/dev/null 2>&1; then
+            export __IS_DARK_THEME=1
+        else
+            export __IS_DARK_THEME=0
+        fi
+        ;;
+    *)
+        export __IS_DARK_THEME=0
+        if (( ${+commands[gsettings]} )); then
+            __zsh_color_scheme=$(gsettings get org.gnome.desktop.interface color-scheme 2>/dev/null)
+            __zsh_gtk_theme=$(gsettings get org.gnome.desktop.interface gtk-theme 2>/dev/null)
+            if [[ "$__zsh_color_scheme" == *dark* || "$__zsh_gtk_theme" == *dark* ]]; then
+                export __IS_DARK_THEME=1
+            fi
+            unset __zsh_color_scheme __zsh_gtk_theme
+        fi
+        ;;
+esac
 
 # only source this file once per shell
 # if [[ "$__ZSH_ALREADY_SOURCED" == "1" ]]; then
@@ -65,10 +80,7 @@ export CARGO_TARGET_DIR=${HOME}/.cargo-target
 export PYTHONPYCACHEPREFIX=${HOME}/.python-cache
 export EDITOR=nvim
 
-function isatty() {
-    [ -t 0 ] && [ -t 1 ]
-}
-if isatty; then
+if [[ -t 0 && -t 1 ]]; then
     export GPG_TTY=$(tty)
 fi
 export MISE_PIPX_UVX=true
@@ -82,12 +94,25 @@ if [[ -n "$SSH_CONNECTION" ]]; then
     export OP_BIOMETRIC_UNLOCK_ENABLED=false
 fi
 
-# Configure SSH agent to start on boot
-if [ -f ~/.ssh/agent.env ]; then
-    . ~/.ssh/agent.env >/dev/null
-    if ! kill -0 $SSH_AGENT_PID >/dev/null 2>&1; then
-        eval $(ssh-agent | tee ~/.ssh/agent.env)
-    fi
-else
-    eval $(ssh-agent | tee ~/.ssh/agent.env)
+__zsh_load_ssh_agent_env() {
+    [[ -f "$HOME/.ssh/agent.env" ]] || return 1
+    . "$HOME/.ssh/agent.env" >/dev/null
+    [[ -n "${SSH_AGENT_PID:-}" ]] && kill -0 "$SSH_AGENT_PID" >/dev/null 2>&1
+}
+
+__zsh_start_ssh_agent() {
+    emulate -L zsh
+
+    __zsh_load_ssh_agent_env && return 0
+    mkdir -p "$HOME/.ssh/agent"
+    eval "$(ssh-agent | tee "$HOME/.ssh/agent.env")"
+}
+
+if ! __zsh_load_ssh_agent_env; then
+    unset SSH_AUTH_SOCK SSH_AGENT_PID
 fi
+
+ssh-add() {
+    __zsh_start_ssh_agent || return
+    command ssh-add "$@"
+}
