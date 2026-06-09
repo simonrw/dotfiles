@@ -7,6 +7,7 @@ end
 
 # Taps
 
+tap "michel-kraemer/zsh-patina"
 tap "oven-sh/bun"
 tap "owenthereal/upterm"
 tap "pulumi/tap"
@@ -114,7 +115,7 @@ brew "xh"
 brew "yq"
 brew "yt-dlp"
 brew "zsh-autosuggestions"
-brew "zsh-syntax-highlighting"
+brew "zsh-patina"
 brew "zsh"
 
 # for localStack
