@@ -1,3 +1,10 @@
+# configuration
+if `hostname`.strip == 'mm'
+  docker_emulator = 'docker-desktop'
+else
+  docker_emulator = 'colima'
+end
+
 # Taps
 
 tap "oven-sh/bun"
@@ -22,16 +29,16 @@ brew "bob"
 brew "cargo-instruments"
 brew "cfitsio"
 brew "cmake"
-brew "colima"
+brew "colima" if docker_emulator == 'colima'
 brew "container"
 brew "coreutils"
 brew "curl"
 brew "delta"
 brew "dive"
-brew "docker-buildx"
-brew "docker-compose"
-brew "docker-credential-helper"
-brew "docker"
+brew "docker-buildx" if docker_emulator == 'colima'
+brew "docker-compose" if docker_emulator == 'colima'
+brew "docker-credential-helper" if docker_emulator == 'colima'
+brew "docker" if docker_emulator == 'colima'
 brew "dos2unix"
 brew "duckdb"
 brew "dust"
@@ -127,6 +134,7 @@ cask "focusrite-control-2" if `hostname`.strip == "mm"
 
 ## other
 
+cask 'docker-desktop' if docker_emulator == 'docker-desktop'
 cask "1password-cli"
 cask "1password"
 cask "affinity"
