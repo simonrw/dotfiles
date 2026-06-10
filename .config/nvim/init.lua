@@ -83,7 +83,6 @@ if vim.fn.has('nvim-0.12') == 1 then
 end
 
 vim.keymap.set('n', 'cp', ':0,$y+<cr>')
-vim.keymap.set('n', '<leader>o', ':update<Cr> :source ~/.config/nvim/init.lua<Cr>')
 vim.keymap.set('n', '<leader>w', ':update<Cr>')
 vim.keymap.set('n', '<leader>q', ':quit<Cr>')
 
@@ -205,6 +204,15 @@ require("lazy").setup({
             keys = {
                 { "yoz", function() require('zen-mode').toggle() end, desc = "Toggle zen mode" },
             },
+        },
+        {
+            "hedyhli/outline.nvim",
+            lazy = true,
+            cmd = { "Outline", "OutlineOpen" },
+            keys = {
+                { "<leader>o", "<cmd>Outline<CR>", desc = "Toggle outline" },
+            },
+            opts = {},
         },
         {
 
