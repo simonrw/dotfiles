@@ -26,39 +26,43 @@
       "type": "registry"
     },
     "claude-acp": {
-      "type": "registry"
-    }
+      "type": "registry",
+    },
   },
   "edit_predictions": {
     "provider": "zed",
-    "mode": "subtle"
+    "mode": "subtle",
   },
   "show_edit_predictions": true,
   "disable_ai": false,
   "calls": {
-    "mute_on_join": true
+    "mute_on_join": true,
   },
   "preview_tabs": {
-    "enabled": false
+    "enabled": false,
   },
   "autosave": "off",
   "ssh_connections": [],
   "theme": {
     "mode": "system",
     "light": "Catppuccin Latte",
-    "dark": "Catppuccin Mocha"
+    "dark": "Catppuccin Mocha",
   },
   "buffer_font_family": "Lilex",
   "buffer_font_weight": 700,
   "buffer_font_size": 14,
+  "buffer_font_features": {
+    // disable ligatures
+    "calt": false,
+  },
   "vim_mode": true,
   "vim": {
     "use_smartcase_find": true,
-    "use_system_clipboard": "on_yank"
+    "use_system_clipboard": "on_yank",
   },
   "indent_guides": {
     "enabled": true,
-    "coloring": "indent_aware"
+    "coloring": "indent_aware",
   },
   "relative_line_numbers": "disabled",
   "show_wrap_guides": true,
@@ -67,53 +71,53 @@
   "use_autoclose": false,
   "gutter": {
     "line_numbers": false,
-    "folds": false
+    "folds": false,
   },
   "scrollbar": { "show": "never" },
   "toolbar": {
-    "quick_actions": false
+    "quick_actions": false,
   },
   "terminal": {
     "detect_venv": "off",
-    "font_weight": 700
+    "font_weight": 700,
   },
   "tab_bar": {
-    "show": false
+    "show": false,
   },
   "agent": {
     "thinking_display": "auto",
     "dock": "left",
     "tool_permissions": {
-      "default": "allow"
+      "default": "allow",
     },
     "inline_assistant_model": {
       "provider": "google",
-      "model": "gemini-3-pro-preview"
+      "model": "gemini-3-pro-preview",
     },
     "default_model": {
       "provider": "google",
-      "model": "gemini-3-flash-preview"
+      "model": "gemini-3-flash-preview",
     },
-    "model_parameters": []
+    "model_parameters": [],
   },
   "telemetry": {
     "diagnostics": false,
-    "metrics": false
+    "metrics": false,
   },
   "git": {
     "inline_blame": {
-      "enabled": false
-    }
+      "enabled": false,
+    },
   },
   "lsp": {
     "rust-analyzer": {
       "initialization_options": {
-        "checkOnSave": true
-      }
-    }
+        "checkOnSave": true,
+      },
+    },
   },
   "inlay_hints": {
-    "enabled": false
+    "enabled": false,
   },
   "format_on_save": "on",
   "languages": {
@@ -121,8 +125,8 @@
       "enable_language_server": true,
       "format_on_save": "on",
       "formatter": "auto",
-      "language_servers": ["ty", "!basedpyright", "ruff"]
-    }
+      "language_servers": ["ty", "!basedpyright", "ruff"],
+    },
   },
   "auto_install_extensions": {
     "html": true,
@@ -131,6 +135,6 @@
     "dockerfile": true,
     "terraform": true,
     "ruff": true,
-    "wit": true
-  }
+    "wit": true,
+  },
 }
