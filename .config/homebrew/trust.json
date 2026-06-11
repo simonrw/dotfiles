@@ -1,0 +1,15 @@
+{
+  "trustedformulae": [
+    "slp/krun/krunkit"
+  ],
+  "trustedtaps": [
+    "michel-kraemer/zsh-patina",
+    "oven-sh/bun",
+    "owenthereal/upterm",
+    "pulumi/tap",
+    "railwaycat/emacsmacport",
+    "simonrw/tap",
+    "slp/krun",
+    "steipete/tap"
+  ]
+}
