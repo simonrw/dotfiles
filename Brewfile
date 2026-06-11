@@ -2,7 +2,7 @@
 if `hostname`.strip == 'mm'
   docker_emulator = 'docker-desktop'
 else
-  docker_emulator = 'docker-desktop'
+  docker_emulator = 'colima'
 end
 
 # Taps
