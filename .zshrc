@@ -20,5 +20,3 @@ source ~/.config/zsh/worktrunk.zsh
 if [[ "$__ZSH_PROFILE_STARTUP" == true ]]; then
     zprof
 fi
-
-(( ${+commands[zsh-patina]} )) && eval "$(zsh-patina activate)"
