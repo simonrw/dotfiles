@@ -1,6 +1,6 @@
 # configuration
 if `hostname`.strip == 'mm'
-  docker_emulator = 'docker-desktop'
+  docker_emulator = 'colima'
 else
   docker_emulator = 'colima'
 end
