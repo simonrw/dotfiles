@@ -5,9 +5,18 @@ stty stop undef 2>/dev/null
 set -g fish_greeting
 
 # Tool integrations (order matters: fzf before atuin so atuin overrides Ctrl-R)
-mise activate fish | source
-fzf --fish | source
-atuin hex init fish | source
+if type -q mise
+    mise activate fish | source
+end
+
+if type -q fzf
+    fzf --fish | source
+end
+
+if type -q atuin
+    atuin hex init fish | source
+    atuin init fish | source
+end
 
 # Theme
 if test "$__IS_DARK_THEME" = 1

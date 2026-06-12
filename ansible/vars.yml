@@ -3,7 +3,7 @@ sway_enabled: false
 ollama_enabled: false
 
 dotfiles_user_name: "{{ ansible_user_id }}"
-dotfiles_user_shell: /usr/bin/zsh
+dotfiles_user_shell: /usr/bin/fish
 dotfiles_user_groups:
   - adm
   - cdrom

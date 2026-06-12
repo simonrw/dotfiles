@@ -7,5 +7,6 @@ if test -d $__LOCATION
     set -gx RUSTUP_HOME $__LOCATION/rustup-home
     set -gx GOPATH $__LOCATION/gocode
     fish_add_path $CARGO_HOME/bin $GOPATH/bin
+    set -gx OLLAMA_MODELS $__LOCATION/ollama
     set -gx COLIMA_HOME $__LOCATION/colima
 end

@@ -24,10 +24,9 @@ abbr --add awslocal aws
 abbr --add cat bat
 abbr --add less bat
 abbr --add more bat
-abbr --add cc 'claude --model claude-opus-4-6 --effort high --dangerously-skip-permissions'
-abbr --add claude 'claude --model claude-opus-4-6 --effort high'
+abbr --add cc 'claude --dangerously-skip-permissions'
 abbr --add switch --command wt -- "switch --no-cd"
-abbr --add laws 'AWS_PROFILE=ls-sandbox aws'
+abbr --add laws 'AWS_PROFILE=ls-sandbox'
 abbr --add cy 'codex --yolo'
 
 if type -q csm-codex

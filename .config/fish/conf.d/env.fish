@@ -75,6 +75,7 @@ fish_add_path --append /opt/homebrew/opt/make/libexec/gnubin
 fish_add_path --append /opt/homebrew/opt/coreutils/libexec/gnubin
 fish_add_path --append /opt/homebrew/opt/sqlite/bin
 fish_add_path --append $HOME/.rd/bin
+fish_add_path --append $HOME/.config/emacs/bin
 fish_add_path --append $HOME/.antigravity/antigravity/bin
 
 # Disable 1Password biometric unlock over SSH
@@ -88,11 +89,27 @@ if isatty
 end
 
 # SSH agent
-if test -f ~/.ssh/agent.fish
+function __fish_load_ssh_agent_env
+    test -f ~/.ssh/agent.fish; or return 1
     source ~/.ssh/agent.fish
+    set -q SSH_AGENT_PID; and kill -0 $SSH_AGENT_PID 2>/dev/null
 end
 
-if not set -q SSH_AGENT_PID; or not kill -0 $SSH_AGENT_PID 2>/dev/null
+function __fish_start_ssh_agent
+    __fish_load_ssh_agent_env; and return 0
+
+    mkdir -p ~/.ssh/agent
     ssh-agent -c | string replace 'setenv' 'set -gx' | string replace ';' '' | source
+    set -l statuses $pipestatus
+    test $statuses[1] -eq 0; and test $statuses[-1] -eq 0; or return 1
     printf "set -gx SSH_AUTH_SOCK %s\nset -gx SSH_AGENT_PID %s\n" $SSH_AUTH_SOCK $SSH_AGENT_PID >~/.ssh/agent.fish
+end
+
+if not __fish_load_ssh_agent_env
+    set -e SSH_AUTH_SOCK SSH_AGENT_PID
+end
+
+function ssh-add
+    __fish_start_ssh_agent; or return
+    command ssh-add $argv
 end
