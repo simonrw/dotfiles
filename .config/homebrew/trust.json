@@ -1,6 +1,7 @@
 {
   "trustedformulae": [
-    "slp/krun/krunkit"
+    "slp/krun/krunkit",
+    "webstonehq/tap/tuxedo"
   ],
   "trustedtaps": [
     "michel-kraemer/zsh-patina",

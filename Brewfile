@@ -15,6 +15,7 @@ tap "railwaycat/emacsmacport"
 tap "simonrw/tap"
 tap "slp/krun"
 tap "steipete/tap"
+tap "webstonehq/tap"
 
 # Brews
 
@@ -111,6 +112,7 @@ brew "wakeonlan"
 brew "watchexec"
 brew "watchexec"
 brew "websocat"
+brew "webstonehq/tap/tuxedo"
 brew "worktrunk"
 brew "xh"
 brew "yq"
