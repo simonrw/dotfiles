@@ -1,8 +1,5 @@
 {
-  "trustedformulae": [
-    "slp/krun/krunkit",
-    "webstonehq/tap/tuxedo"
-  ],
+  "trustedformulae": [],
   "trustedtaps": [
     "michel-kraemer/zsh-patina",
     "oven-sh/bun",
