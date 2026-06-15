@@ -9,3 +9,6 @@
   (auto-dark-themes '((batppuccin-mocha) (batppuccin-latte)))
   :init
   (auto-dark-mode))
+
+;; always start the server
+(server-start)
