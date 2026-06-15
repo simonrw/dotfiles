@@ -104,190 +104,150 @@ vim.keymap.set('n', 'cp', ':0,$y+<cr>')
 vim.keymap.set('n', '<leader>w', ':update<Cr>')
 vim.keymap.set('n', '<leader>q', ':quit<Cr>')
 
--- Bootstrap lazy.nvim
-local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
-if not (vim.uv or vim.loop).fs_stat(lazypath) then
-    local lazyrepo = "https://github.com/folke/lazy.nvim.git"
-    local out = vim.fn.system({ "git", "clone", "--filter=blob:none", "--branch=stable", lazyrepo, lazypath })
-    if vim.v.shell_error ~= 0 then
-        vim.api.nvim_echo({
-            { "Failed to clone lazy.nvim:\n", "ErrorMsg" },
-            { out,                            "WarningMsg" },
-            { "\nPress any key to exit..." },
-        }, true, {})
-        vim.fn.getchar()
-        os.exit(1)
-    end
+if vim.fn.has('nvim-0.12') ~= 1 or not vim.pack then
+    error("This config requires Neovim 0.12 or newer for vim.pack package management.")
 end
-vim.opt.rtp:prepend(lazypath)
 
-require("lazy").setup({
-    spec = {
-        {
-            'stevearc/oil.nvim',
-            opts = {},
-            dependencies = {},
-            lazy = false,
-        },
-        { "catppuccin/nvim", name = "catppuccin", priority = 1000 },
-        {
-            'nvim-treesitter/nvim-treesitter',
-            branch = 'main',
-            lazy = false,
-            build = ':TSUpdate',
-            config = function()
-                local enabled_languages = {
-                    'go',
-                    'hcl',
-                    'html',
-                    'javascript',
-                    'json',
-                    'lua',
-                    'nix',
-                    'python',
-                    'rust',
-                    'terraform',
-                    'tsx',
-                    'typescript',
-                    'vim',
-                    'xml',
-                    'yaml',
-                }
-                require("nvim-treesitter").install(enabled_languages)
+local gh = function(repo)
+    return "https://github.com/" .. repo
+end
 
-                vim.api.nvim_create_autocmd('FileType', {
-                    pattern = enabled_languages,
-                    callback = function() vim.treesitter.start() end,
-                })
-            end,
-        },
-        'neovim/nvim-lspconfig',
-        'tpope/vim-fugitive',
-        'tpope/vim-surround',
-        'tpope/vim-repeat',
-        'tpope/vim-rhubarb',
-        'tpope/vim-dispatch',
-        'christoomey/vim-conflicted',
-        'lewis6991/gitsigns.nvim',
-        {
-            'nvim-treesitter/nvim-treesitter-context',
-            opts = {
-                max_lines = 3,
-            },
-        },
-        'vim-test/vim-test',
-        {
-            "coder/claudecode.nvim",
-            opts = {
-                terminal = {
-                    provider = "none",
-                },
-            },
-            config = true,
-            keys = {
-                { "<localleader>ac", "<cmd>ClaudeCode<cr>",           desc = "Toggle Claude" },
-                { "<localleader>ab", "<cmd>ClaudeCodeAdd %<cr>",      desc = "Add current buffer" },
-                { "<localleader>as", "<cmd>ClaudeCodeSend<cr>",       mode = "v",                 desc = "Send to Claude" },
-                { "<localleader>aa", "<cmd>ClaudeCodeDiffAccept<cr>", desc = "Accept diff" },
-                { "<localleader>ad", "<cmd>ClaudeCodeDiffDeny<cr>",   desc = "Deny diff" },
+vim.api.nvim_create_autocmd('PackChanged', {
+    group = vim.api.nvim_create_augroup('PackHooks', { clear = true }),
+    callback = function(ev)
+        local data = ev.data or {}
+        local spec = data.spec or {}
+        if spec.name == 'nvim-treesitter' and (data.kind == 'install' or data.kind == 'update') then
+            vim.schedule(function()
+                pcall(vim.cmd, 'TSUpdate')
+            end)
+        end
+    end,
+})
 
-            },
-            cmd = {
-                "ClaudeCode",
-            },
-        },
-        {
-            'MeanderingProgrammer/render-markdown.nvim',
-            filetype = "markdown",
-        },
-        {
-            "simonrw/ask-agent",
-        },
-        {
-            'folke/zen-mode.nvim',
-            opts = {
-                window = {
-                    backdrop = 1.0,
-                    options = {
-                        number = false,
-                        relativenumber = false,
-                    },
-                },
-                plugins = {
-                    options = {
-                        laststatus = 0,
-                    },
-                },
-            },
-            keys = {
-                { "yoz", function() require('zen-mode').toggle() end, desc = "Toggle zen mode" },
-            },
-        },
-        {
-            "hedyhli/outline.nvim",
-            lazy = true,
-            cmd = { "Outline", "OutlineOpen" },
-            keys = {
-                { "<leader>o", "<cmd>Outline<CR>", desc = "Toggle outline" },
-            },
-            opts = {},
-        },
-        {
-            "ibhagwan/fzf-lua",
-            config = function()
-                require("fzf-lua").setup({
-                    "telescope",
-                    winopts = {
-                        preview = {
-                            default = false,
-                        },
-                    },
-                    fzf_opts = {
-                        ["--layout"] = "reverse",
-                        ["--marker"] = "+",
-                        ["--gutter"] = " ",
-                        ["--cycle"] = true
-                    },
-                })
+vim.pack.add({
+    { src = gh('stevearc/oil.nvim') },
+    { src = gh('catppuccin/nvim'), name = 'catppuccin' },
+    { src = gh('nvim-treesitter/nvim-treesitter'), version = 'main' },
+    { src = gh('neovim/nvim-lspconfig') },
+    { src = gh('tpope/vim-fugitive') },
+    { src = gh('tpope/vim-surround') },
+    { src = gh('tpope/vim-repeat') },
+    { src = gh('tpope/vim-rhubarb') },
+    { src = gh('tpope/vim-dispatch') },
+    { src = gh('christoomey/vim-conflicted') },
+    { src = gh('lewis6991/gitsigns.nvim') },
+    { src = gh('nvim-treesitter/nvim-treesitter-context') },
+    { src = gh('vim-test/vim-test') },
+    { src = gh('coder/claudecode.nvim') },
+    { src = gh('MeanderingProgrammer/render-markdown.nvim') },
+    { src = gh('simonrw/ask-agent') },
+    { src = gh('folke/zen-mode.nvim') },
+    { src = gh('hedyhli/outline.nvim') },
+    { src = gh('ibhagwan/fzf-lua') },
+    { src = gh('nvim-lua/plenary.nvim') },
+    { src = gh('pwntester/octo.nvim') },
+    { src = gh('mfussenegger/nvim-dap') },
+    { src = gh('mfussenegger/nvim-dap-python') },
+    { src = gh('igorlfs/nvim-dap-view') },
+}, { confirm = false, load = true })
 
-                require("fzf-lua").register_ui_select()
-            end,
+require("oil").setup({})
+
+local enabled_treesitter_languages = {
+    'go',
+    'hcl',
+    'html',
+    'javascript',
+    'json',
+    'lua',
+    'nix',
+    'python',
+    'rust',
+    'terraform',
+    'tsx',
+    'typescript',
+    'vim',
+    'xml',
+    'yaml',
+}
+local nvim_treesitter = require("nvim-treesitter")
+if type(nvim_treesitter.install) == "function" then
+    nvim_treesitter.install(enabled_treesitter_languages)
+else
+    require("nvim-treesitter.configs").setup({
+        ensure_installed = enabled_treesitter_languages,
+    })
+end
+
+vim.api.nvim_create_autocmd('FileType', {
+    pattern = enabled_treesitter_languages,
+    callback = function() vim.treesitter.start() end,
+})
+
+require("treesitter-context").setup({
+    max_lines = 3,
+})
+
+require("claudecode").setup({
+    auto_start = false,
+    terminal = {
+        provider = "none",
+    },
+})
+vim.keymap.set('n', '<localleader>ac', '<cmd>ClaudeCode<cr>', { desc = "Toggle Claude" })
+vim.keymap.set('n', '<localleader>ab', '<cmd>ClaudeCodeAdd %<cr>', { desc = "Add current buffer" })
+vim.keymap.set('v', '<localleader>as', '<cmd>ClaudeCodeSend<cr>', { desc = "Send to Claude" })
+vim.keymap.set('n', '<localleader>aa', '<cmd>ClaudeCodeDiffAccept<cr>', { desc = "Accept diff" })
+vim.keymap.set('n', '<localleader>ad', '<cmd>ClaudeCodeDiffDeny<cr>', { desc = "Deny diff" })
+
+require('zen-mode').setup({
+    window = {
+        backdrop = 1.0,
+        options = {
+            number = false,
+            relativenumber = false,
         },
-        {
-            "pwntester/octo.nvim",
-            cmd = "Octo",
-            opts = {
-                picker = "fzf-lua",
-                -- bare Octo command opens picker of commands
-                enable_builtin = true,
-                file_panel = {
-                    icons = false,
-                },
-            },
-            dependencies = {
-                "nvim-lua/plenary.nvim",
-                "ibhagwan/fzf-lua",
-            },
-        },
-        {
-            "mfussenegger/nvim-dap",
-        },
-        {
-            "mfussenegger/nvim-dap-python",
-            dependencies = { "mfussenegger/nvim-dap" },
-            ft = "python",
-            config = function()
-                require("dap-python").setup("uv")
-                require("dap-python").test_runner = "pytest"
-            end,
-        },
-        {
-            "igorlfs/nvim-dap-view",
-            dependencies = { "mfussenegger/nvim-dap" },
-            opts = {},
+    },
+    plugins = {
+        options = {
+            laststatus = 0,
         },
     },
 })
+vim.keymap.set('n', 'yoz', function() require('zen-mode').toggle() end, { desc = "Toggle zen mode" })
+
+require("outline").setup({})
+vim.keymap.set('n', '<leader>o', '<cmd>Outline<CR>', { desc = "Toggle outline" })
+
+require("fzf-lua").setup({
+    "telescope",
+    winopts = {
+        preview = {
+            default = false,
+        },
+    },
+    fzf_opts = {
+        ["--layout"] = "reverse",
+        ["--marker"] = "+",
+        ["--gutter"] = " ",
+        ["--cycle"] = true
+    },
+})
+require("fzf-lua").register_ui_select()
+
+require("octo").setup({
+    picker = "fzf-lua",
+    -- bare Octo command opens picker of commands
+    enable_builtin = true,
+    file_panel = {
+        icons = false,
+    },
+})
+
+require("dap-python").setup("uv")
+require("dap-python").test_runner = "pytest"
+require("dap-view").setup({})
 
 function parse_grep_nul(s)
     if type(s) ~= "string" then
@@ -680,7 +640,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
 
 local init_done_event_name = 'InitDone'
 
--- any lazy initialization
+-- deferred initialization
 vim.api.nvim_create_autocmd('User', {
     pattern = init_done_event_name,
     callback = function()
@@ -700,7 +660,7 @@ load_theme()
 
 vim.o.cmdheight = 1
 
--- finally emit the config loaded event for lazy initialization
+-- finally emit the config loaded event for deferred initialization
 vim.schedule(function()
     vim.api.nvim_exec_autocmds('User', { pattern = init_done_event_name, modeline = false })
 end)

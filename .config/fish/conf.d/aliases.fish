@@ -16,7 +16,7 @@ abbr --add sourceenv 'source ./venv/bin/activate.fish'
 abbr --add tl tmux-last
 abbr --add vim nvim
 abbr --add vimdiff 'nvim -d'
-abbr --add vup 'nvim --headless "+Lazy! sync" +qa'
+abbr --add vup 'nvim --headless "+packupdate!" +qa'
 abbr --add watch viddy
 abbr --add ec 'emacsclient -n'
 abbr --add grep rg
