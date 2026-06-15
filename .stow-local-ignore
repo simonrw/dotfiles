@@ -33,6 +33,7 @@
 ^/AGENTS.md
 ^/mise.lock
 ^/\.codex/config\.toml$
+^/\.codex/environments$
 ^/\.config/zed/settings\.json$
 ^/internal
 ^/go.mod
