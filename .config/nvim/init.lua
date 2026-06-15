@@ -10,6 +10,17 @@ vim.g.is_dark_mode = is_dark_mode()
 vim.g.mapleader = " "
 vim.g.maplocalleader = "\\"
 
+local native_completion_disabled_filetypes = {
+    "markdown",
+    "gitcommit",
+    "octo",
+    "jjdescription",
+}
+
+local function native_completion_enabled(bufnr)
+    return not vim.tbl_contains(native_completion_disabled_filetypes, vim.bo[bufnr].filetype)
+end
+
 -- disable editorconfig as it's not providing value
 vim.g.editorconfig = false
 
@@ -20,7 +31,7 @@ vim.opt.backupcopy = "auto"
 vim.opt.backupdir = { "~/.vim/backup" }
 vim.opt.breakindent = true
 vim.opt.complete = { ".", "w", "b", "u", "i" }
-vim.opt.completeopt = { "fuzzy", "menuone", "popup" }
+vim.opt.completeopt = { "fuzzy", "menuone", "popup", "noselect" }
 vim.opt.conceallevel = 0
 vim.opt.cursorline = false
 vim.opt.pumheight = 7
@@ -71,8 +82,8 @@ vim.opt.tags = { '.tags', '.git/tags' }
 
 -- options added in nvim 0.12
 if vim.fn.has('nvim-0.12') == 1 then
-    vim.opt.autocomplete = false
-    vim.opt.complete = { ".", "o", "w", "b", "u", "i" }
+    vim.opt.autocomplete = true
+    vim.opt.complete = { "o", ".", "w", "b", "u", "i" }
     vim.opt.pummaxwidth = 80
     vim.opt.winborder = 'rounded'
     vim.opt.confirm = true
@@ -80,6 +91,13 @@ if vim.fn.has('nvim-0.12') == 1 then
     -- add some default built-in packages
     vim.cmd.packadd('cfilter')
     vim.cmd.packadd('nvim.undotree')
+
+    vim.api.nvim_create_autocmd("FileType", {
+        pattern = native_completion_disabled_filetypes,
+        callback = function(ev)
+            vim.bo[ev.buf].autocomplete = false
+        end,
+    })
 end
 
 vim.keymap.set('n', 'cp', ':0,$y+<cr>')
@@ -213,53 +231,6 @@ require("lazy").setup({
                 { "<leader>o", "<cmd>Outline<CR>", desc = "Toggle outline" },
             },
             opts = {},
-        },
-        {
-
-            'saghen/blink.cmp',
-            version = '1.*',
-            opts = {
-                enabled = function()
-                    return not vim.tbl_contains({
-                        "markdown",
-                        "gitcommit",
-                        "octo",
-                        "jjdescription",
-                    }, vim.bo.filetype)
-                end,
-                keymap = { preset = 'default' },
-
-                appearance = {
-                    use_nvim_cmp_as_default = true,
-                    nerd_font_variant = 'mono'
-                },
-
-                signature = { enabled = true },
-
-                completion = {
-                    documentation = {
-                        auto_show = true,
-                    },
-                    menu = {
-                        draw = {
-                            columns = {
-                                { "label",     "label_description", gap = 1 },
-                                { "kind_icon", "kind",              gap = 1 },
-                            },
-                            treesitter = { "lsp" },
-                        }
-                    }
-                },
-
-                cmdline = {
-                    enabled = false,
-                    sources = {},
-                },
-                sources = {
-                    default = { 'lsp', 'path', 'snippets', 'buffer' },
-                },
-            },
-            opts_extend = { "sources.default" }
         },
         {
             "ibhagwan/fzf-lua",
@@ -587,8 +558,6 @@ vim.api.nvim_create_autocmd("Signal", {
         load_theme()
     end,
 })
-vim.cmd('set completeopt+=noselect')
-
 -- configure vim-test
 vim.g["test#python#runner"] = "pytest"
 vim.g["test#python#pytest#executable"] = "pytest"
@@ -665,7 +634,12 @@ end
 vim.api.nvim_create_autocmd("LspAttach", {
     callback = function(ev)
         local client = vim.lsp.get_client_by_id(ev.data.client_id)
-        if vim.fn.has('nvim-0.12') == 1 and client and client:supports_method('textDocument/completion') then
+        if
+            vim.fn.has('nvim-0.12') == 1
+            and native_completion_enabled(ev.buf)
+            and client
+            and client:supports_method('textDocument/completion')
+        then
             vim.lsp.completion.enable(true, client.id, ev.buf, { autotrigger = true })
         end
 
