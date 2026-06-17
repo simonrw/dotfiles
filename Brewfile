@@ -12,7 +12,6 @@ tap "railwaycat/emacsmacport"
 
 # Brews
 
-brew "atuin"
 brew "autoconf"
 brew "automake"
 brew "awscli"
