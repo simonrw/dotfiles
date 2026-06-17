@@ -39,3 +39,4 @@
 ^/go.mod
 ^/go.sum
 ^/cmd
+^/\.config/gh/hosts.yml

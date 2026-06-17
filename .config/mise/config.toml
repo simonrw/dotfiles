@@ -53,4 +53,4 @@ experimental = true
 idiomatic_version_file_enable_tools = ["python", "rust"]
 
 [settings.github]
-use_git_credentials = true
+credential_command = "gh auth token"

@@ -4,9 +4,9 @@
 
 set -euo pipefail
 
-mise --cd "$HOME" upgrade
+(cd "$HOME" && mise upgrade)
 
-mise --cd "$HOME" ls --json | jq -r '
+(cd "$HOME" && mise ls --json | jq -r '
   to_entries[]
   | .key as $tool
   | .value[]
@@ -15,4 +15,4 @@ mise --cd "$HOME" ls --json | jq -r '
   | "\($tool)@\(.requested_version)"
 ' | while IFS= read -r tool; do
   mise --cd "$HOME" install -f --raw "$tool"
-done
+done)

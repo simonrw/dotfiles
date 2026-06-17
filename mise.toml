@@ -20,7 +20,7 @@ run = "git submodule update --init --recursive"
 [tasks."mise:packages"]
 description = "Install global mise packages"
 depends = ["dotfiles"]
-run = "mise --cd $HOME install"
+run = "cd $HOME && mise install"
 
 [tasks.dotfiles]
 description = "Install dotfiles"
