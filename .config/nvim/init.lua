@@ -720,16 +720,16 @@ vim.api.nvim_create_autocmd('User', {
         -- TODO: make this on file open/read
         -- require('modules/runtests').setup()
 
-        require("codex_apply").setup()
+        require("ask-agent").setup()
 
-	codex_apply_statusline = function()
-	    return require("codex_apply").statusline()
-	end
-
-        vim.o.statusline = vim.o.statusline .. " %{v:lua.codex_apply_statusline()}"
+        vim.o.statusline = vim.o.statusline .. " %{v:lua.ask_agent_statusline()}"
     end,
 
 })
+
+ask_agent_statusline = function()
+    return require("ask-agent").statusline()
+end
 
 
 load_theme()
