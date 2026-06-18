@@ -716,11 +716,21 @@ vim.api.nvim_create_autocmd('User', {
             underline = true,
         })
         vim.lsp.inlay_hint.enable(false)
+
+        -- TODO: make this on file open/read
+        -- require('modules/runtests').setup()
+
+        require("codex_apply").setup()
+
+	codex_apply_statusline = function()
+	    return require("codex_apply").statusline()
+	end
+
+        vim.o.statusline = vim.o.statusline .. " %{v:lua.codex_apply_statusline()}"
     end,
 
-    -- TODO: make this on file open/read
-    -- require('modules/runtests').setup()
 })
+
 
 load_theme()
 
