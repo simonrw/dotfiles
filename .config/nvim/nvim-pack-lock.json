@@ -5,7 +5,7 @@
       "src": "https://github.com/p00f/alabaster.nvim"
     },
     "ask-agent": {
-      "rev": "64146452c637406c613d2a972603a06b6fc221b0",
+      "rev": "337b35835d74fbd87e39c19619c307faee171f21",
       "src": "https://github.com/simonrw/ask-agent"
     },
     "blink.cmp": {
