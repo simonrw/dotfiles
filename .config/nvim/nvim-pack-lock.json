@@ -32,6 +32,10 @@
       "rev": "25050e4ed39e628282831d4cbecb1850454ce915",
       "src": "https://github.com/lewis6991/gitsigns.nvim"
     },
+    "guh.nvim": {
+      "rev": "943779f7cdb0acee203985ad531fb53ff95d9c8e",
+      "src": "https://github.com/justinmk/guh.nvim"
+    },
     "mason.nvim": {
       "rev": "2a6940af80375532e5e9e7c1f2fc6319a1b7a69d",
       "src": "https://github.com/mason-org/mason.nvim"
