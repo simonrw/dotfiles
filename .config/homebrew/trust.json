@@ -7,7 +7,6 @@
     "pulumi/tap",
     "railwaycat/emacsmacport",
     "simonrw/tap",
-    "slp/krun",
     "steipete/tap"
   ]
 }
