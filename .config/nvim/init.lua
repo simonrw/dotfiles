@@ -151,6 +151,7 @@ vim.pack.add({
     { src = gh('mfussenegger/nvim-dap-python') },
     { src = gh('igorlfs/nvim-dap-view') },
     { src = gh('justinmk/guh.nvim') },
+    { src = gh('barrettruth/diffs.nvim') },
 }, { confirm = false, load = true })
 
 require("oil").setup({})
