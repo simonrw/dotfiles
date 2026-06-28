@@ -127,8 +127,8 @@ vim.api.nvim_create_autocmd('PackChanged', {
 
 vim.pack.add({
     { src = gh('stevearc/oil.nvim') },
-    { src = gh('catppuccin/nvim'), name = 'catppuccin' },
-    { src = gh('nvim-treesitter/nvim-treesitter'), version = 'main' },
+    { src = gh('catppuccin/nvim'),                          name = 'catppuccin' },
+    { src = gh('nvim-treesitter/nvim-treesitter'),          version = 'main' },
     { src = gh('neovim/nvim-lspconfig') },
     { src = gh('tpope/vim-fugitive') },
     { src = gh('tpope/vim-surround') },
@@ -540,6 +540,33 @@ vim.lsp.config["cfn-lsp"] = {
     filetypes = { "yaml", "json" },
 }
 
+vim.lsp.config["sourcekit-lsp"] = {
+    cmd = { 'sourcekit-lsp' },
+    filetypes = { 'swift' },
+    root_markers = {
+        '.git',
+        'compile_commands.json',
+        '.sourcekit-lsp',
+        'Package.swift',
+    },
+    get_language_id = function(_, ftype)
+        return ftype
+    end,
+    capabilities = {
+        workspace = {
+            didChangeWatchedFiles = {
+                dynamicRegistration = true,
+            },
+        },
+        textDocument = {
+            diagnostic = {
+                dynamicRegistration = true,
+                relatedDocumentSupport = true,
+            },
+        },
+    },
+}
+
 vim.lsp.enable({
     "lua_ls",
     "rust_analyzer",
@@ -549,6 +576,7 @@ vim.lsp.enable({
     "ts_ls",
     "cfn-lsp",
     "terraformls",
+    "sourcekit-lsp",
 })
 
 local function load_theme()
