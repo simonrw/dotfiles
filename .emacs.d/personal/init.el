@@ -12,5 +12,8 @@
 
 (use-package vterm :ensure t)
 
+;; set up org
+(setq org-agenda-files (quote ("~/notes")))
+
 ;; always start the server
 (server-start)
