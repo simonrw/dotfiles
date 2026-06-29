@@ -457,9 +457,9 @@ vim.api.nvim_create_autocmd('TermOpen', {
 
 vim.api.nvim_create_autocmd('TextYankPost', {
     callback = function()
-        if vim.fn.has('nvim-0.13') then
+        if vim.fn.has('nvim-0.13') == 1 then
             vim.hl.hl_op()
-        elseif vim.fn.has('nvim-0.11') then
+        elseif vim.fn.has('nvim-0.11') == 1 then
             require('vim.hl').on_yank()
         else
             require('vim.highlight').on_yank()
