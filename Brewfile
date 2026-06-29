@@ -148,6 +148,7 @@ cask "wacom-tablet" if `hostname`.strip == "mm"
 cask "whatsapp"
 cask "wispr-flow"
 cask "zed"
+cask "zen"
 cask "zoom"
 
 # for LocalStack
