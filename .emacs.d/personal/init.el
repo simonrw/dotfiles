@@ -10,5 +10,7 @@
   :init
   (auto-dark-mode))
 
+(use-package vterm :ensure t)
+
 ;; always start the server
 (server-start)
