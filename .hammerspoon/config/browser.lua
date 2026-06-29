@@ -1,7 +1,8 @@
-local browser_name = "Helium"
+local applications = require('config/applications')
 
 -- set default browser
 local function handleBrowse(scheme, host, params, fullURL, senderPID)
+    local browser_name = applications.browser.name
     hs.application.launchOrFocus(browser_name)
     local app = hs.application.get(browser_name)
     if app == nil then
