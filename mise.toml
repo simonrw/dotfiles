@@ -27,7 +27,7 @@ description = "Install dotfiles"
 depends = ["submodules"]
 run = """
 if [ "$(uname)" = "Linux" ]; then
-  stow --ignore='^Library' .
+  stow --ignore='^Library' --ignore='^\\.hammerspoon' .
 else
   stow --ignore='^\\.config/systemd' --ignore='^\\.config/fontconfig' --ignore='^\\.config/xdg-desktop-portal' --ignore='^\\.local' --ignore='^\\.config/waybar' --ignore='^\\.config/hypr' --ignore='^\\.config/sway' .
 fi
