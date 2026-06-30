@@ -50,7 +50,7 @@ run = "sudo bash -c 'apt update && sudo apt upgrade'"
 description = "Update apt packages"
 
 [tasks.vim-update]
-run = "nvim --headless '+packupdate!' +qa"
+run = "NVIM_VIM_UPDATE=1 nvim --headless"
 description = "Update neovim packages"
 
 [tasks.bat-cache]

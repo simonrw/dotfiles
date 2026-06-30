@@ -153,6 +153,21 @@ vim.pack.add({
     { src = gh('barrettruth/diffs.nvim') },
 }, { confirm = false, load = true })
 
+vim.api.nvim_create_user_command('VimUpdate', function(opts)
+    if vim.fn.has('nvim-0.13') == 1 then
+        vim.cmd('packupdate' .. (opts.bang and '!' or ''))
+        return
+    end
+
+    vim.pack.update(nil, { force = opts.bang })
+end, { bang = true })
+
+if vim.env.NVIM_VIM_UPDATE == '1' then
+    vim.cmd('VimUpdate!')
+    vim.cmd('qa')
+    return
+end
+
 require("oil").setup({})
 
 local enabled_treesitter_languages = {
