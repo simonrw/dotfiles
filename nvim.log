@@ -1,0 +1,2 @@
+WRN 2026-07-01T23:12:33.149 ?.26441    server_start:197: Failed to start server: operation not permitted: /var/folders/df/yvybr_g57zzdynm0x2_fqhy40000gn/T/nvim.simon/w5u9N7/nvim.26441.0
+WRN 2026-07-01T23:12:33.239 ?.26441    server_start:197: Failed to start server: operation not permitted: /var/folders/df/yvybr_g57zzdynm0x2_fqhy40000gn/T/nvim.simon/w5u9N7/fzf-lua.1782943953.26441.1
