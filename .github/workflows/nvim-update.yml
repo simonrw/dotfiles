@@ -1,0 +1,64 @@
+name: Update Neovim Packages
+
+on:
+  schedule:
+    - cron: "0 6 * * 1"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  update:
+    name: Update lockfile
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+        with:
+          token: ${{ secrets.DOTFILES_PR_TOKEN }}
+
+      - name: Install mise
+        uses: jdx/mise-action@v3
+        with:
+          install: false
+
+      - name: Install bob
+        run: |
+          curl -fsSL https://raw.githubusercontent.com/MordechaiHadad/bob/master/scripts/install.sh | bash
+          mkdir -p "$HOME/.config/bob"
+          printf '{"add_neovim_binary_to_path":false}\n' > "$HOME/.config/bob/config.json"
+          echo "$HOME/.local/bin" >> "$GITHUB_PATH"
+          echo "$HOME/.local/share/bob/nvim-bin" >> "$GITHUB_PATH"
+
+      - name: Install stable Neovim
+        run: bob use stable
+        env:
+          GITHUB_TOKEN: ${{ secrets.DOTFILES_PR_TOKEN }}
+
+      - name: Check Neovim version
+        run: nvim --version | head -n 1
+
+      - name: Prepare Neovim runtime
+        run: |
+          mkdir -p "$RUNNER_TEMP/nvim-runtime" "$RUNNER_TEMP/nvim-state"
+          chmod 700 "$RUNNER_TEMP/nvim-runtime"
+
+      - name: Update Neovim packages
+        run: mise run vim-update
+        env:
+          XDG_CONFIG_HOME: ${{ github.workspace }}/.config
+          XDG_RUNTIME_DIR: ${{ runner.temp }}/nvim-runtime
+          XDG_STATE_HOME: ${{ runner.temp }}/nvim-state
+
+      - name: Create pull request
+        uses: peter-evans/create-pull-request@v7
+        with:
+          token: ${{ secrets.DOTFILES_PR_TOKEN }}
+          add-paths: .config/nvim/nvim-pack-lock.json
+          branch: automation/nvim-package-update
+          commit-message: "nvim: update packages"
+          title: "nvim: update packages"
+          body: "Automated weekly Neovim package lockfile update."
+          delete-branch: true
