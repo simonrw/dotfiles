@@ -21,9 +21,10 @@ class Ntfy:
         self.session = requests.Session()
         self.topic_name = os.environ["NTFY_TOPIC"]
         self.auth_token = os.getenv("NTFY_TOKEN")
+        self.base_url = os.getenv("NTFY_BASE_URL", "https://ntfy.sh")
 
     def publish(self, message: str, tags: List[str]) -> None:
-        url = f"https://ntfy.sh/{self.topic_name}"
+        url = f"{self.base_url}/{self.topic_name}"
         headers = {
             "Title": "Watched task finished",
             "Tags": ",".join(tags),
