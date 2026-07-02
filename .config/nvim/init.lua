@@ -1,8 +1,8 @@
 vim.loader.enable(true)
 
 local function is_dark_mode()
-    local cmd = "~/.bin/is-dark-theme"
-    return os.execute(cmd) == 0
+    local is_dark_theme = vim.env.__IS_DARK_THEME
+    return is_dark_theme == nil or is_dark_theme == "1"
 end
 
 vim.g.get_is_dark_mode = is_dark_mode
