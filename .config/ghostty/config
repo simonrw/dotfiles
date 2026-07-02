@@ -21,6 +21,11 @@ mouse-hide-while-typing = false
 
 window-colorspace = display-p3
 
+# disable ligatures
+font-feature = -liga
+font-feature = -calt
+font-feature = -dlig
+
 config-file = ?local.config
 
 # vim: ft=conf
