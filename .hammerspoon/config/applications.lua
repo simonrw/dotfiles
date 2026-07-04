@@ -17,6 +17,9 @@ local applications = {
     notes = {
         name = "Obsidian",
     },
+    editor = {
+        name = "Zed",
+    },
 }
 
 return applications
