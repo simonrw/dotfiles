@@ -61,5 +61,8 @@
 ;; set up org
 (setq org-agenda-files (quote ("~/notes")))
 
+;; disable line number mode
+(global-display-line-numbers-mode -1)
+
 ;; always start the server
 (server-start)
