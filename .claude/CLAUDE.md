@@ -1,1 +1,1 @@
-/Users/simon/.codex/AGENTS.md
+../.codex/AGENTS.md
