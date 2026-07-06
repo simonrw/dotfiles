@@ -150,7 +150,6 @@ cask "utm"
 cask "visual-studio-code"
 cask "wacom-tablet" if `hostname`.strip == "mm"
 cask "whatsapp"
-cask "wispr-flow"
 cask "zed"
 cask "zoom"
 
