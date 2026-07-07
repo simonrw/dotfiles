@@ -51,6 +51,12 @@
 
 (use-package vterm :ensure t)
 
+(defun srw-update-buffer ()
+  "Save the current buffer only when it has unsaved changes."
+  (interactive)
+  (when (buffer-modified-p)
+    (save-buffer)))
+
 (use-package evil-leader
   :ensure t
   :after evil
@@ -95,7 +101,9 @@
                 root))))
 
 (with-eval-after-load 'evil-leader
-  (evil-leader/set-key "f" #'srw-find-git-file))
+  (evil-leader/set-key
+    "f" #'srw-find-git-file
+    "w" #'srw-update-buffer))
 
 ;; set up org
 (setq org-agenda-files (quote ("~/notes")))
