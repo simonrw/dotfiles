@@ -10,6 +10,45 @@
   :init
   (auto-dark-mode))
 
+(defvar srw-default-font-height 130
+  "Default global font height, measured in tenths of a point.")
+
+(defvar srw-font-height-step 10
+  "Amount to change the global font height by.")
+
+(defvar srw-current-font-height srw-default-font-height
+  "Current global font height.")
+
+(defun srw-set-font-height (height)
+  "Set the global font HEIGHT, measured in tenths of a point."
+  (interactive "nFont height: ")
+  (setq srw-current-font-height height)
+  (set-face-attribute 'default nil :height height)
+  (message "Font height: %s" height))
+
+(defun srw-increase-font-height ()
+  "Increase the global font height."
+  (interactive)
+  (srw-set-font-height (+ srw-current-font-height srw-font-height-step)))
+
+(defun srw-decrease-font-height ()
+  "Decrease the global font height."
+  (interactive)
+  (srw-set-font-height (max srw-font-height-step
+                            (- srw-current-font-height srw-font-height-step))))
+
+(defun srw-reset-font-height ()
+  "Reset the global font height to `srw-default-font-height'."
+  (interactive)
+  (srw-set-font-height srw-default-font-height))
+
+(srw-set-font-height srw-default-font-height)
+
+(global-set-key (kbd "C-+") #'srw-increase-font-height)
+(global-set-key (kbd "C-=") #'srw-increase-font-height)
+(global-set-key (kbd "C--") #'srw-decrease-font-height)
+(global-set-key (kbd "C-0") #'srw-reset-font-height)
+
 (use-package vterm :ensure t)
 
 (use-package evil-leader
