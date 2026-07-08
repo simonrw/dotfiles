@@ -25,6 +25,7 @@ jless = { version = "latest", os = ["linux"] }
 gh = { version = "latest", os = ["linux"] }
 uv = { version = "latest", os = ["linux"] }
 jjui = { version = "latest", os = ["linux"] }
+"github:antinomyhq/forgecode" = { version = "latest", bin = "forge", os = ["linux"] }
 lazygit = { version = "latest", os = ["linux"] }
 "github:tummychow/git-absorb" = { version = "latest", os = ["linux"] }
 television = { version = "latest", os = ["linux"] }
