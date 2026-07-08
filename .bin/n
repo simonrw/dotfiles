@@ -14,24 +14,8 @@ parser = argparse.ArgumentParser(
     usage="Open notes file",
     description=description,
 )
-parser.add_argument("-T", "--no-tmux", action="store_true", default=False, help="If in a tmux session, open the file in this pane")
+parser.add_argument("-T", "--no-split", action="store_true", default=False, help="Open the file in this terminal surface")
 args = parser.parse_args()
 
-if "TMUX" in os.environ and not args.no_tmux:
-    cmd = [
-        "tmux",
-        "display-popup",
-        "-E",  # quit pane on exit
-        "-h",
-        "95%",
-        "-w",
-        "100",
-        "-T",  # pane title
-        "notes",
-        "-b",  # border style
-        "rounded",
-        f"nvim -c 'normal G' {NOTES_PATH}",
-    ]
-else:
-    cmd = ["nvim", "-c", "normal G", str(NOTES_PATH)]
+cmd = ["nvim", "-c", "normal G", str(NOTES_PATH)]
 os.execvp(cmd[0], cmd)

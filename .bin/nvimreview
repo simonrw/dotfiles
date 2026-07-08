@@ -7,6 +7,7 @@ import subprocess as sp
 from pathlib import Path
 from typing import NoReturn
 from urllib.parse import urlparse
+import re
 
 
 # GitHub owner/repo -> local directory name, for repos where the names differ
@@ -18,14 +19,16 @@ _remote: str
 _base: str
 
 
+def zmx_session_name(*parts: str) -> str:
+    raw = "-".join(parts)
+    sanitised = re.sub(r"[^A-Za-z0-9_-]+", "-", raw)
+    sanitised = re.sub(r"-+", "-", sanitised).strip("-")
+    return sanitised or "default"
+
+
 def die(msg: str) -> NoReturn:
     print(msg, file=sys.stderr)
     sys.exit(1)
-
-
-def require_tmux() -> None:
-    if not os.getenv("TMUX"):
-        die("error: must be running inside tmux")
 
 
 def run(*cmd: str) -> None:
@@ -39,14 +42,12 @@ def open_review() -> NoReturn:
 
 
 def handle_pr_number(number: str) -> NoReturn:
-    require_tmux()
     run("git", "fetch", _remote)
     run("gh", "pr", "checkout", number)
     open_review()
 
 
 def handle_branch(branch: str) -> NoReturn:
-    require_tmux()
     run("git", "fetch", _remote)
 
     # Check if local branch exists
@@ -63,15 +64,11 @@ def handle_branch(branch: str) -> NoReturn:
     open_review()
 
 
-def tmux(*args: str) -> sp.CompletedProcess[str]:
-    return sp.run(["tmux"] + list(args), capture_output=True, text=True)
-
-
 def session_exists(name: str) -> bool:
-    result = tmux("ls", "-F", "#S")
+    result = sp.run(["zmx", "list", "--short"], capture_output=True, text=True)
     if result.returncode != 0:
         return False
-    return name in result.stdout.split()
+    return name in result.stdout.splitlines()
 
 
 def handle_url(url: str) -> NoReturn:
@@ -96,22 +93,16 @@ def handle_url(url: str) -> NoReturn:
     if not local_path:
         die(f"error: no local checkout found for {owner_repo}")
 
-    # Derive tmux session name (same format as tnew)
+    # Derive zmx session name, matching tnew.
     p = Path(local_path)
-    tmux_name = f"{p.parent.name}/{p.name}".replace(".", "-").replace(":", "-")
+    session_name = zmx_session_name(p.parent.name, p.name)
 
-    # Create session if needed
-    if not session_exists(tmux_name):
-        tmux("new-session", "-d", "-s", tmux_name, "-c", local_path)
+    if session_exists(session_name):
+        run("zmx", "send", session_name, f"nvimreview {pr_number}\n")
+        os.execvp("zmx", ["zmx", "attach", session_name])
 
-    # Send the nvimreview command to the new session
-    tmux("send-keys", "-t", tmux_name, f"nvimreview {pr_number}", "Enter")
-
-    # Switch to the session
-    if os.getenv("TMUX"):
-        os.execvp("tmux", ["tmux", "switch-client", "-t", tmux_name])
-    else:
-        os.execvp("tmux", ["tmux", "attach", "-t", tmux_name])
+    os.chdir(local_path)
+    os.execvp("zmx", ["zmx", "attach", session_name, "nvimreview", pr_number])
 
 
 def main() -> None:
@@ -121,7 +112,7 @@ def main() -> None:
         epilog="examples:\n"
         "  nvimreview 1234                                        # checkout PR by number\n"
         "  nvimreview feature-branch                              # checkout branch by name\n"
-        "  nvimreview https://github.com/owner/repo/pull/1234     # find local repo, open in new tmux session",
+        "  nvimreview https://github.com/owner/repo/pull/1234     # find local repo, open in a zmx session",
         formatter_class=argparse.RawDescriptionHelpFormatter,
     )
     parser.add_argument(

@@ -2,22 +2,7 @@
 # -*- coding: utf-8 -*-
 
 from __future__ import division, print_function, absolute_import
-import datetime
 import subprocess as sp
-
-def build_job_mapping(lines):
-    for line in lines:
-        line = line.strip()
-        if line:
-            time_str = line.split('(created')[-1].split(')')[0].strip()
-            time = datetime.datetime.strptime(time_str,
-                    '%a %b %d %H:%M:%S %Y')
-            title = line.split(':')[0].strip()
-            yield {
-                    'time': time,
-                    'title': title,
-                    'text': line,
-                    }
 
 def check_output(command):
     p = sp.Popen(command, stdout=sp.PIPE)
@@ -28,11 +13,7 @@ def check_output(command):
 
 
 def main():
-    command = ['tmux', 'ls']
-    lines = check_output(command).decode('utf-8').split('\n')
-    job_mapping = build_job_mapping(lines)
-    for line in sorted(job_mapping, key=lambda row: row['time']):
-        print(line['text'])
+    print(check_output(['zmx', 'list']).decode('utf-8'), end='')
 
 
 if __name__ == '__main__':

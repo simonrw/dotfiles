@@ -1,16 +1,7 @@
 #!/usr/bin/env bash
 
-# Creates a second session that can separately control an existing session.
+# zmx supports multiple clients attached to one session, so attaching is enough.
 
-set -eou pipefail
+set -euo pipefail
 
-
-main() {
-    readonly sessionname="$(tmux ls -F '#S' | fzf)"
-    readonly sessionid="${sessionname}-$(uuidgen)"
-
-    tmux new-session -s $sessionid -t ${sessionname} || true
-    tmux kill-session -t $sessionid
-}
-
-main "$@"
+exec tmux-session-history

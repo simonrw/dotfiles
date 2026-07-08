@@ -29,8 +29,8 @@ create_git_project() {
     git commit -m 'Initial commit'
 }
 
-spawn_tmux_session() {
-    tmux new -s `basename $(pwd)`
+spawn_zmx_session() {
+    zmx attach `basename $(pwd)`
 }
 
 construct_setup_file() {
@@ -57,7 +57,7 @@ construct_project() {
     initialise_subdirs "${PROJECT_NAME}"
     construct_setup_file "${PROJECT_NAME}"
     create_git_project
-    spawn_tmux_session
+    spawn_zmx_session
 }
 
 main() {

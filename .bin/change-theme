@@ -45,31 +45,6 @@ THEME_MAPS = {
         "emacs": "whiteboard",
     },
 }
-TMUX_COLOURS = {
-    "light": {
-        "status_bg": "#ffffff",
-        "accent_color": "#032f62",
-        "text_color": "colour7",
-        "active_text_color": "#032f62",
-        "pane_border_color": "colour6",
-    },
-    "dark": {
-        "status_bg": "#2b2b2b",
-        "accent_color": "colour12",
-        "text_color": "colour7",
-        "active_text_color": "colour12",
-        "pane_border_color": "colour240",
-    },
-    "solarized-light": {
-        "status_bg": "#fdf6e3",
-        "accent_color": "colour9",
-        "text_color": "colour7",
-        "active_text_color": "colour9",
-        "pane_border_color": "colour6",
-    },
-}
-
-
 HOME_DIR = Path.home()
 
 
@@ -98,7 +73,6 @@ class ThemeChooser:
         # TODO(maybe): emacs
         self.method_names = [
             "update_vim",
-            "update_tmux",
             "update_kitty",
             "update_fzf",
             "update_ipython",
@@ -155,15 +129,6 @@ class ThemeChooser:
             r"^let g:lightline.colorscheme.*$",
             f"let g:lightline.colorscheme = '{lightline_theme}'",
         )
-
-    def update_tmux(self):
-        tmux_conf = HOME_DIR / ".tmux.d" / "colourschemes" / "srw.conf"
-        for key, value in TMUX_COLOURS[self.theme_name].items():
-            self.replacer.replace_in_file(
-                tmux_conf,
-                fr"^{key}.*$",
-                f"{key}={value}",
-            )
 
     def update_kitty(self):
         kitty_conf = HOME_DIR / ".config" / "kitty" / "kitty.conf"

@@ -1,15 +1,15 @@
 #!/usr/bin/env bash
 
 main() {
-    SESSION="$(tmux list-sessions -F '#S' | fzf-tmux -m)"
+    SESSION="$(zmx list --short 2>/dev/null | fzf -m)"
     if [ -z "$SESSION" ]; then
         echo "No session selected" >&2
         return
     fi
 
-    for name in ${SESSION[@]}; do
-        tmux kill-session -t "$name"
-    done
+    while IFS= read -r name; do
+        zmx kill "$name" --force
+    done <<< "$SESSION"
 }
 
-main
+main "$@"

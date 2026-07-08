@@ -9,6 +9,7 @@ end
 
 tap "pulumi/tap"
 tap "railwaycat/emacsmacport"
+tap "neurosnap/tap"
 
 # Brews
 
@@ -83,7 +84,6 @@ brew "ripgrep"
 brew "rsync"
 brew "sqlite3"
 brew "stow"
-brew "tmux"
 brew "tokei"
 brew "tree-sitter-cli"
 brew "universal-ctags"
@@ -96,6 +96,7 @@ brew "xh"
 brew "yq"
 brew "yt-dlp"
 brew "zsh"
+brew "zmx"
 
 # for localStack
 

@@ -76,3 +76,9 @@ if [ -f /Applications/Ghostty.app/Contents/Resources/zsh/site-functions/_ghostty
     # TODO
     # eval /Applications/Ghostty.app/Contents/Resources/zsh/site-functions/_ghostty
 fi
+
+__zsh_zmx_completion() {
+    (( ${+commands[zmx]} )) && eval "$(zmx completions zsh)"
+}
+
+__zsh_add_compinit_hook __zsh_zmx_completion

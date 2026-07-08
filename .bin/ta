@@ -3,8 +3,8 @@
 set -euo pipefail
 
 sessionname=${1:-}
-if [ -z $sessionname ]; then
-    exec tmux attach
+if [ -z "$sessionname" ]; then
+    exec tmux-session-history
 else
-    exec tmux attach -t $sessionname
+    exec zmx attach "$(zmx-session-name "$sessionname")"
 fi

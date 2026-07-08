@@ -1,4 +1,4 @@
-#!/usr/bin/env sh
+#!/usr/bin/env bash
 
 set -eu
 
@@ -14,7 +14,7 @@ verify_args() {
 main() {
     verify_args "$@"
 
-    tmux switch-client -t "${session_name}"
+    exec zmx attach "$(zmx-session-name "${session_name}")"
 }
 
 main "$@"

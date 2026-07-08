@@ -5,22 +5,69 @@ from pathlib import Path
 from datetime import datetime, timezone, timedelta
 import logging
 import argparse
+import re
 
 logging.basicConfig(
     level=logging.WARNING, format="%(asctime)s|%(levelname)s: %(message)s"
 )
-logger = logging.getLogger("tmux-prune")
+logger = logging.getLogger("zmx-prune")
 
 
 def kill_session(name):
-    sp.check_call(["tmux", "kill-session", "-t", name])
+    sp.check_call(["zmx", "kill", name, "--force"])
+
+
+def parse_time(value):
+    if value.isdigit():
+        return datetime.fromtimestamp(int(value), tz=timezone.utc)
+
+    normalised = value.removesuffix("Z")
+    try:
+        parsed = datetime.fromisoformat(normalised)
+    except ValueError:
+        logger.warning(f"could not parse created time {value!r}")
+        return None
+
+    if parsed.tzinfo is None:
+        return parsed.replace(tzinfo=timezone.utc)
+    return parsed.astimezone(timezone.utc)
+
+
+def list_sessions():
+    output = sp.check_output(["zmx", "list"], stderr=sp.DEVNULL).decode().splitlines()
+    for line in output:
+        fields = {}
+        for part in re.split(r"\s+", line.strip()):
+            if "=" not in part:
+                continue
+            key, value = part.split("=", 1)
+            fields[key] = value
+
+        if not fields:
+            continue
+
+        name = fields.get("session_name") or fields.get("name")
+        if fields.get("status") == "unreachable":
+            logger.info(f"session {name} is unreachable; skipping")
+            continue
+
+        created = fields.get("created") or fields.get("created_at")
+        if not name or not created:
+            logger.warning(f"invalid zmx list output: {line}")
+            continue
+
+        parsed = parse_time(created)
+        if parsed is None:
+            continue
+
+        yield name, parsed
 
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument("-f", "--force", action="store_true", default=False)
     parser.add_argument("-C", "--created", action="store_true", default=False,
-                        help="Use session created at rather than last activity")
+                        help="Kept for compatibility; zmx exposes created time")
     parser.add_argument(
         "-c",
         "--cutoff",
@@ -40,44 +87,20 @@ if __name__ == "__main__":
     now = datetime.now(tz=timezone.utc)
     cutoff = now - timedelta(days=args.cutoff)
 
-    prune_dir = Path.home() / ".tmux" / "prunes"
-    prune_dir.mkdir(exist_ok=True, parents=True)
-    logger.info(f"using prune directory {prune_dir}")
-
     logger.info(f"now:\t{now}")
     logger.info(f"cutoff:\t{cutoff}")
 
     to_prune = []
 
-    timestamp_key = "session_created" if args.created else "session_activity"
-    cmd = ["tmux", "ls", "-F", "#S #{%s}" % timestamp_key]
-    output = (
-        sp.check_output(cmd)
-        .decode()
-        .split("\n")
-    )
-    for line in output:
-        line = line.strip()
-        if not line:
-            continue
-
-        parts = line.split()
-        if len(parts) != 2:
-            logger.warning(f"invalid output")
-            continue
-        name, activity = parts
-        activity = datetime.fromtimestamp(int(activity))
-        # XXX: this may be different depending on what timezone the user is,
-        # however it is unlikely to be out by near the cutoff period (default:
-        # 1 week)
-        if activity < cutoff.replace(tzinfo=None):
+    for name, created in list_sessions():
+        if created < cutoff:
             logger.info(
-                f"session {name} last activity {activity:%Y-%m-%d %H:%M:%S} pruning"
+                f"session {name} created {created:%Y-%m-%d %H:%M:%S} pruning"
             )
             to_prune.append(name)
         else:
             logger.debug(
-                f"session {name} last activity {activity:%Y-%m-%d %H:%M:%S} not pruning"
+                f"session {name} created {created:%Y-%m-%d %H:%M:%S} not pruning"
             )
 
     if len(to_prune) == 0:
@@ -87,6 +110,10 @@ if __name__ == "__main__":
     if not args.force:
         logger.warning("-f/--force not supplied; not pruning")
         exit(0)
+
+    prune_dir = Path.home() / ".local" / "state" / "zmx" / "prunes"
+    prune_dir.mkdir(exist_ok=True, parents=True)
+    logger.info(f"using prune directory {prune_dir}")
 
     prune_fname = prune_dir / f"{now}.txt"
     assert not prune_fname.is_file()

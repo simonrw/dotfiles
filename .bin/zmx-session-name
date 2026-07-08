@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+raw="$*"
+if [[ -z "$raw" ]]; then
+    raw="$(cat)"
+fi
+
+printf "%s\n" "$raw" | tr "/.:" "---" | tr -cs "[:alnum:]_-" "-" | sed "s/^-//;s/-$//"

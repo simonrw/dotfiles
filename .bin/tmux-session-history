@@ -2,5 +2,45 @@
 
 set -euo pipefail
 
-SESSION_NAME="$(tmux ls -F "#{session_activity} #S" | sort -n -r | awk '{print $2}' | fzf --no-sort)"
-tat ${SESSION_NAME}
+display_sessions() {
+    zmx list 2>/dev/null | while IFS=$'\t' read -r name pid clients created dir _; do
+        [[ "$name" == *=* ]] || continue
+        name="${name#*=}"
+        pid="${pid#*=}"
+        clients="${clients#*=}"
+        created="${created#*=}"
+        dir="${dir#*=}"
+        printf "%s\tpid:%s\tclients:%s\tcreated:%s\t%s\n" "$name" "$pid" "$clients" "$created" "$dir"
+    done
+}
+
+set +e
+output="$(
+    display_sessions | fzf \
+        --print-query \
+        --expect=ctrl-n \
+        --height=80% \
+        --reverse \
+        --prompt="zmx> " \
+        --header="Enter: select | Ctrl-N: create new" \
+        --preview='zmx history {1}' \
+        --preview-window=right:60%:follow
+)"
+rc=$?
+set -e
+
+query="$(printf "%s\n" "$output" | sed -n '1p')"
+key="$(printf "%s\n" "$output" | sed -n '2p')"
+selected="$(printf "%s\n" "$output" | sed -n '3p')"
+
+if [[ "$key" == "ctrl-n" && -n "$query" ]]; then
+    session_name="$(zmx-session-name "$query")"
+elif [[ $rc -eq 0 && -n "$selected" ]]; then
+    session_name="${selected%%$'\t'*}"
+elif [[ -n "$query" ]]; then
+    session_name="$(zmx-session-name "$query")"
+else
+    exit 130
+fi
+
+exec zmx attach "$session_name"
