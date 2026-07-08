@@ -9,6 +9,7 @@ end
 
 tap "pulumi/tap"
 tap "railwaycat/emacsmacport"
+tap "neurosnap/tap"
 
 # Brews
 
@@ -95,7 +96,9 @@ brew "worktrunk"
 brew "xh"
 brew "yq"
 brew "yt-dlp"
+brew "zmx"
 brew "zsh"
+
 
 # for localStack
 

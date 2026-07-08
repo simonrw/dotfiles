@@ -1,5 +1,7 @@
 {
-  "trustedformulae": [],
+  "trustedformulae": [
+    "neurosnap/tap/zmx"
+  ],
   "trustedtaps": [
     "michel-kraemer/zsh-patina",
     "oven-sh/bun",
