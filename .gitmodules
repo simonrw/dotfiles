@@ -1,3 +1,6 @@
 [submodule ".config/zsh/plugins/zsh-abbr"]
 	path = .config/zsh/plugins/zsh-abbr
 	url = https://github.com/olets/zsh-abbr.git
+[submodule ".config/fish/plugins/shell-agent"]
+	path = .config/fish/plugins/shell-agent
+	url = git@github.com:simonrw/shell-agent

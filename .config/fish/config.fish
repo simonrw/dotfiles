@@ -20,6 +20,12 @@ else
     fish_config theme choose --color-theme=light catppuccin-mocha
 end
 
+# shell agent
+if test -f {$HOME}/.config/fish/plugins/shell-agent/fish/shell-agent.fish; and type -q codex
+    source {$HOME}/.config/fish/plugins/shell-agent/fish/shell-agent.fish
+    shell_agent_enable
+end
+
 # Per-host config
 set -l this_hostname (hostname -s)
 if test -f ~/.config/fish/conf.d/per-host/$this_hostname.fish
