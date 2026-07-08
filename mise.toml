@@ -45,6 +45,16 @@ ty = "latest"
 run = "brew update && brew upgrade"
 description = "Update brews"
 
+[tasks."brew:mas"]
+description = "Install Mac App Store packages from Brewfile.mas"
+run = """
+if [[ $(uname -s) != "Darwin" ]]; then
+  exit 0
+fi
+
+HOMEBREW_NO_AUTO_UPDATE=1 brew bundle --file Brewfile.mas --no-upgrade
+"""
+
 [tasks."apt:upgrade"]
 run = "sudo bash -c 'apt update && sudo apt upgrade'"
 description = "Update apt packages"
