@@ -7,9 +7,10 @@ end
 
 # Taps
 
+tap "can1357/tap"
+tap "neurosnap/tap"
 tap "pulumi/tap"
 tap "railwaycat/emacsmacport"
-tap "neurosnap/tap"
 
 # Brews
 
@@ -21,6 +22,7 @@ brew "bash"
 brew "bat"
 brew "bob"
 brew "btop"
+brew "can1357/tap/omp"
 brew "cargo-instruments"
 brew "cfitsio"
 brew "cmake"

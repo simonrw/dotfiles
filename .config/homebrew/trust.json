@@ -1,5 +1,6 @@
 {
   "trustedformulae": [
+    "can1357/tap/omp",
     "neurosnap/tap/zmx"
   ],
   "trustedtaps": [
