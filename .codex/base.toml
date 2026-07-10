@@ -1,5 +1,5 @@
 approvals_reviewer = "guardian_subagent"
-model = "gpt-5.5"
+model = "gpt-5.6-sol"
 model_reasoning_effort = "medium"
 
 [mcp_servers.openaiDeveloperDocs]
