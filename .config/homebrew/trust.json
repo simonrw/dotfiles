@@ -1,15 +1,11 @@
 {
   "trustedformulae": [
-    "can1357/tap/omp",
-    "neurosnap/tap/zmx"
+    "can1357/tap/omp"
+  ],
+  "trustedcasks": [
+    "railwaycat/emacsmacport/emacs-mac"
   ],
   "trustedtaps": [
-    "michel-kraemer/zsh-patina",
-    "oven-sh/bun",
-    "owenthereal/upterm",
-    "pulumi/tap",
-    "railwaycat/emacsmacport",
-    "simonrw/tap",
-    "steipete/tap"
+    "simonrw/tap"
   ]
 }

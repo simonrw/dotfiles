@@ -7,10 +7,9 @@ end
 
 # Taps
 
-tap "can1357/tap"
-tap "neurosnap/tap"
-tap "pulumi/tap"
-tap "railwaycat/emacsmacport"
+tap "can1357/tap", trusted: { formula: "omp" }
+tap "railwaycat/emacsmacport", trusted: { casks: ["emacs-mac"] }
+tap "simonrw/tap", trusted: true
 
 # Brews
 
@@ -98,7 +97,6 @@ brew "worktrunk"
 brew "xh"
 brew "yq"
 brew "yt-dlp"
-brew "zmx"
 brew "zsh"
 
 
@@ -107,7 +105,6 @@ brew "zsh"
 brew "aws-sam-cli"
 brew "bitwarden-cli"
 brew "libvirt"
-brew "pulumi/tap/pulumi"
 brew "snappy"
 
 # Casks
