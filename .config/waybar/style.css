@@ -1,6 +1,7 @@
 * {
-    font-family: "JetBrains Mono", "Font Awesome 6 Free", monospace;
+    font-family: "JetBrainsMono NFM SemiBold", "Font Awesome 6 Free", monospace;
     font-size: 13px;
+    font-weight: 600;
     min-height: 0;
 }
 
@@ -48,7 +49,7 @@ window#waybar {
 /* Clock */
 #clock {
     color: #cdd6f4;
-    font-weight: bold;
+    font-weight: 600;
 }
 
 /* Right-side modules */

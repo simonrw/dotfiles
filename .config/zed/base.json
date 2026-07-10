@@ -48,8 +48,8 @@
     "light": "Catppuccin Latte",
     "dark": "Catppuccin Mocha",
   },
-  "buffer_font_family": "Lilex",
-  "buffer_font_weight": 700,
+  "buffer_font_family": "JetBrainsMono NFM SemiBold",
+  "buffer_font_weight": 600,
   "buffer_font_size": 14,
   "buffer_font_features": {
     // disable ligatures
@@ -79,7 +79,7 @@
   },
   "terminal": {
     "detect_venv": "off",
-    "font_weight": 700,
+    "font_weight": 600,
   },
   "tab_bar": {
     "show": false,
