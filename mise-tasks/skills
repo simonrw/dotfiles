@@ -15,6 +15,9 @@ AGENTS: list[str] = ["codex", "claude-code", "pi"]
 
 UNINSTALL_LIST: list[str] = ["caveman"]
 
+# first clear the directory
+sp.check_call(["npx", "skills@latest", "remove", "--global", "--all", "--yes"])
+
 for repo, names in SKILLS.items():
     # add skills
     command = (
