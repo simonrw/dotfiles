@@ -21,7 +21,7 @@ sp.check_call(["npx", "skills@latest", "remove", "--global", "--all", "--yes"])
 for repo, names in SKILLS.items():
     # add skills
     command = (
-        ["npx", "skills@latest", "add", "--global", repo, "--yes"]
+        ["npx", "skills@latest", "add", "--global", repo]
         + ["--agent"]
         + AGENTS
     )
