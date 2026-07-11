@@ -13,6 +13,7 @@
 # Custom ignore rules
 ^/mise.toml
 ^/Brewfile
+^/Brewfile.mas
 ^/.stow-local-ignore
 ^/\.github
 ^/scratch
