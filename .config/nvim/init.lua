@@ -767,6 +767,12 @@ vim.api.nvim_create_autocmd('User', {
         require("ask-agent").setup()
 
         vim.o.statusline = vim.o.statusline .. " %{v:lua.ask_agent_statusline()}"
+
+        -- configure neovide
+        if vim.g.neovide then
+            vim.g.neovide_cursor_animation_length = 0
+        end
+
     end,
 
 })
