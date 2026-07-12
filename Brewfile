@@ -7,7 +7,6 @@ end
 
 # Taps
 
-tap "can1357/tap", trusted: { formula: "can1357/tap/omp" }
 tap "railwaycat/emacsmacport", trusted: { casks: ["railwaycat/emacsmacport/emacs-mac"] }
 tap "simonrw/tap", trusted: true
 
@@ -21,7 +20,6 @@ brew "bash"
 brew "bat"
 brew "bob"
 brew "btop"
-brew "can1357/tap/omp"
 brew "cargo-instruments"
 brew "cfitsio"
 brew "cmake"
