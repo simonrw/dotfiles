@@ -3,10 +3,7 @@ go = "latest"
 rust = { version = "beta", components = "rust-src,rust-analyzer" }
 "pipx:ipython" = "latest"
 python = "latest"
-"cargo:https://github.com/simonrw/cftail" = "branch:main"
 "cargo:https://github.com/simonrw/listprojects" = "branch:main"
-"cargo:https://github.com/simonrw/testsearch" = "branch:main"
-"cargo:https://github.com/simonrw/dap-gui" =  { version = "branch:main", crate = "dap-tui" }
 "go:github.com/simonrw/cert-info" = "0"
 "github:jj-vcs/jj" = { version = "latest", os = ["linux"] }
 "github:tmux/tmux-builds" = { version = "latest", os = ["linux"] }
@@ -16,7 +13,7 @@ node = { version = "lts", os = ["linux"] }
 "github:sharkdp/bat" = { version = "latest", os = ["linux"] }
 "github:sharkdp/hyperfine" = { version = "latest", os = ["linux"] }
 "github:bootandy/dust" = { version = "latest", os = ["linux"] }
-"cargo:worktrunk" = { version = "latest", os = ["linux"] }
+"github:max-sixty/worktrunk" = { version = "latest", os = ["linux"] }
 bun = { version = "latest", os = ["linux"] }
 usage = { version = "latest", os = ["linux"] }
 "github:lima-vm/lima" = { version = "latest", os = ["linux"] }
