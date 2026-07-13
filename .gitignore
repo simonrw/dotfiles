@@ -24,3 +24,5 @@ Library/Application\ Support/Cursor/*
 /.codex/config.toml
 /.config/zed/settings.json
 /.emacs.d/personal/custom.el
+/.codex/*
+!/.codex/base.toml
