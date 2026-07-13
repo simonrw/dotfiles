@@ -3,7 +3,6 @@
 .env
 .vim
 scratch
-.scratch
 Session.vim
 tags
 .tags
