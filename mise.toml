@@ -2,7 +2,6 @@
 description = "Install/link packages"
 depends = [
     "dotfiles",
-    "defaults",
     "gh-extensions",
     "vim-update",
     "mise:packages",
@@ -80,3 +79,26 @@ depends = ["kill-nvim"]
 run = "bob update stable"
 description = "Update to the latest neovim stable build"
 depends = ["kill-nvim"]
+
+[bootstrap.macos.dock]
+autohide = true
+orientation = "bottom"
+tilesize = 28
+magnification = true
+largesize = 92
+mru_spaces = false
+
+[bootstrap.macos.finder]
+show_pathbar = true
+show_extensions_warning = false
+preferred_view_style = "list"
+
+[bootstrap.macos.keyboard]
+key_repeat = 2
+press_and_hold = false
+
+[bootstrap.macos.defaults]
+NSGlobalDomain = { AppleICUForce24HourTime = true, NSWindowShouldDragOnGesture = true, "com.apple.mouse.scaling" = -1.0, NSToolbarTitleViewRolloverDelay = 0, NSMenuEnableActionImages = false, NSGlassDiffusionSetting = 1 }
+"com.apple.dock" = { "show-process-indicators" = false, showhidden = false }
+"com.apple.finder" = { AppleShowAllExtensions = false, FXDefaultSearchScope = "SCcf", _FXShowPosixPathInTitle = true }
+"com.apple.screencapture" = { location = "~/Pictures/screenshots" }
