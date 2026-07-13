@@ -1,5 +1,9 @@
+# helpers
+hostname = `hostname -s`.strip
+is_work = hostname == 'localstack-simonwalker'
+
 # configuration
-if `hostname`.strip == 'mm'
+if hostname == 'mm'
   docker_emulator = 'docker-desktop'
 else
   docker_emulator = 'docker-desktop'
@@ -110,8 +114,8 @@ brew "snappy"
 
 ## music
 
-cask "ableton-live-lite" if `hostname`.strip == "mm"
-cask "focusrite-control-2" if `hostname`.strip == "mm"
+cask "ableton-live-lite" if hostname == "mm"
+cask "focusrite-control-2" if hostname == "mm"
 
 ## other
 
@@ -128,13 +132,13 @@ cask "font-lilex"
 cask "ghostty"
 cask "gimp"
 cask "godot"
-cask "google-chrome" if `hostname` != "localstack-simonwalker"
+cask "google-chrome" if not is_work
 cask "hammerspoon"
 cask "helium-browser"
 cask "iina"
 cask "inkscape"
 cask "karabiner-elements"
-cask "keyboard-cleaner" if `hostname`.strip != "mm"
+cask "keyboard-cleaner" if hostname != "mm"
 cask "linear"
 cask "mitmproxy"
 cask "ngrok"
@@ -149,7 +153,7 @@ cask "steam"
 cask "tailscale-app"
 cask "utm"
 cask "visual-studio-code"
-cask "wacom-tablet" if `hostname`.strip == "mm"
+cask "wacom-tablet" if hostname == "mm"
 cask "whatsapp"
 cask "wispr-flow"
 cask "zed"
