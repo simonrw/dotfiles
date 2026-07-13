@@ -96,8 +96,6 @@ function __fish_load_ssh_agent_env
 end
 
 function __fish_start_ssh_agent
-    __fish_load_ssh_agent_env; and return 0
-
     mkdir -p ~/.ssh/agent
     ssh-agent -c | string replace 'setenv' 'set -gx' | string replace ';' '' | source
     set -l statuses $pipestatus
@@ -106,16 +104,8 @@ function __fish_start_ssh_agent
 end
 
 if not __fish_load_ssh_agent_env
+    __fish_start_ssh_agent
     set -e SSH_AUTH_SOCK SSH_AGENT_PID
-end
-
-function __ssh-add
-    __fish_start_ssh_agent; or return
-    command ssh-add $argv
-end
-
-function ssh-add
-    __ssh-add
 end
 
 function ssh-add-all
