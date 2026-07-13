@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+FILENAME=${1:-}
+
+if test -z ${FILENAME}; then
+    echo "Usage: $0 <filename>" >&2
+    exit 1
+fi
+
+nvim ${FILENAME} -c ':ZenMode'
