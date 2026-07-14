@@ -764,7 +764,9 @@ vim.api.nvim_create_autocmd('User', {
         -- TODO: make this on file open/read
         -- require('modules/runtests').setup()
 
-        require("ask-agent").setup()
+        require("ask-agent").setup({
+            provider = "claude",
+        })
 
         vim.o.statusline = vim.o.statusline .. " %{v:lua.ask_agent_statusline()}"
 
@@ -772,7 +774,6 @@ vim.api.nvim_create_autocmd('User', {
         if vim.g.neovide then
             vim.g.neovide_cursor_animation_length = 0
         end
-
     end,
 
 })
