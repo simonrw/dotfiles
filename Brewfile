@@ -122,7 +122,7 @@ cask "focusrite-control-2" if hostname == "mm"
 cask "1password-cli"
 cask "1password"
 cask "betterdisplay"
-cask "blender"
+cask "blender" if not is_work
 cask "claude-code"
 cask "claude"
 cask "codex-app"
@@ -133,7 +133,7 @@ cask "font-jetbrains-mono-nerd-font"
 cask "font-lilex"
 cask "ghostty"
 cask "gimp"
-cask "godot"
+cask "godot" if not is_work
 cask "google-chrome" if not is_work
 cask "hammerspoon"
 cask "helium-browser"
@@ -149,12 +149,12 @@ cask "railwaycat/emacsmacport/emacs-mac"
 cask "raycast"
 cask "shotcut"
 cask "slack"
-cask "steam"
+cask "steam" if not is_work
 cask "tailscale-app"
 cask "utm"
 cask "visual-studio-code"
 cask "wacom-tablet" if hostname == "mm"
-cask "whatsapp"
+cask "whatsapp" if not is_work
 cask "zed"
 cask "zoom"
 
