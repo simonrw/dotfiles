@@ -160,3 +160,4 @@ cask "zoom"
 
 # for LocalStack
 cask "clockify"
+cask "pycharm" if is_work
