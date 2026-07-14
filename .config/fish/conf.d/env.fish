@@ -111,3 +111,8 @@ end
 function ssh-add-all
     find ~/.ssh -type f -name "id_*" -and -not -name "*.pub" | xargs ssh-add
 end
+
+# use aperture when on tailscale
+if tailscale status >/dev/null
+    set -gx ANTHROPIC_BASE_URL "http://ai.tortoise-bearded.ts.net"
+end
