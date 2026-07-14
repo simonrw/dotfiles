@@ -5,11 +5,11 @@
       "src": "https://github.com/p00f/alabaster.nvim"
     },
     "ask-agent": {
-      "rev": "81da861373300a551b3e37e7bb782e21361c2421",
+      "rev": "38501cb8b10d8d1e7aad80792fddb85a37dd6419",
       "src": "https://github.com/simonrw/ask-agent"
     },
     "blink.cmp": {
-      "rev": "db8ea0b7c7ab8c8f8faa3912833c1671381e6304",
+      "rev": "5aa67dac95d5aed426013633e7b9f63d40c80134",
       "src": "https://github.com/saghen/blink.cmp"
     },
     "catppuccin": {
@@ -33,7 +33,7 @@
       "src": "https://github.com/projekt0n/github-nvim-theme"
     },
     "gitsigns.nvim": {
-      "rev": "eb60cc7b94c46005237fd34170d76f3a089a90aa",
+      "rev": "31d6fb2d618bca1482b9f274751ead5f03461408",
       "src": "https://github.com/lewis6991/gitsigns.nvim"
     },
     "guh.nvim": {
