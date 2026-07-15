@@ -1,8 +1,2 @@
-skills
-backups
-cache
-plugins
-.claude.json
-history.jsonl
-mcp-needs-auth-cache.json
-projects
+*
+!settings.json
