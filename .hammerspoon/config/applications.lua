@@ -1,3 +1,5 @@
+local intr = require('config/introspection')
+
 local applications = {
     terminal = {
         name = "Ghostty",
@@ -21,5 +23,9 @@ local applications = {
         name = "Zed",
     },
 }
+
+if intr.is_work() then
+    applications.notes.name = "Notes"
+end
 
 return applications
