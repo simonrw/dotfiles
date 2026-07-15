@@ -98,7 +98,7 @@ key_repeat = 2
 press_and_hold = false
 
 [bootstrap.macos.defaults]
-NSGlobalDomain = { AppleICUForce24HourTime = true, NSWindowShouldDragOnGesture = true, "com.apple.mouse.scaling" = -1.0, NSToolbarTitleViewRolloverDelay = 0, NSMenuEnableActionImages = false, NSGlassDiffusionSetting = 1 }
+NSGlobalDomain = { AppleICUForce24HourTime = true, NSWindowShouldDragOnGesture = true, "com.apple.mouse.scaling" = -1.0, NSToolbarTitleViewRolloverDelay = 0, NSMenuEnableActionImages = false, NSGlassDiffusionSetting = 0 }
 "com.apple.dock" = { "show-process-indicators" = false, showhidden = false }
 "com.apple.finder" = { AppleShowAllExtensions = false, FXDefaultSearchScope = "SCcf", _FXShowPosixPathInTitle = true }
 "com.apple.screencapture" = { location = "~/Pictures/screenshots" }
