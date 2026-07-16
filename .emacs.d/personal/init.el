@@ -23,6 +23,12 @@
               (lambda () (if (srw--mac-dark-mode-p) 'dark 'light)))
   (auto-dark-mode 1))
 
+(defvar srw-default-font-family "Lilex"
+  "Default global font family.")
+
+(defvar srw-default-font-weight 'medium
+  "Default global font weight.")
+
 (defvar srw-default-font-height 130
   "Default global font height, measured in tenths of a point.")
 
@@ -36,7 +42,10 @@
   "Set the global font HEIGHT, measured in tenths of a point."
   (interactive "nFont height: ")
   (setq srw-current-font-height height)
-  (set-face-attribute 'default nil :height height)
+  (set-face-attribute 'default nil
+                      :family srw-default-font-family
+                      :weight srw-default-font-weight
+                      :height height)
   (message "Font height: %s" height))
 
 (defun srw-increase-font-height ()
