@@ -22,3 +22,4 @@ done
 # public extensions
 gh extension install dlvhdr/gh-dash
 gh extension install yusukebe/gh-markdown-preview
+gh extension install github/gh-stack
