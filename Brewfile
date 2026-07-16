@@ -155,7 +155,7 @@ cask "tailscale-app"
 cask "utm"
 cask "visual-studio-code" if not is_work
 cask "wacom-tablet" if hostname == "mm"
-cask "whatsapp" if not is_work
+cask "whatsapp"
 cask "zed"
 cask "zoom"
 
