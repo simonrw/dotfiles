@@ -77,6 +77,12 @@
   (global-evil-leader-mode)
   (evil-leader/set-leader "<SPC>"))
 
+(use-package evil-collection
+  :after evil
+  :ensure t
+  :config
+  (evil-collection-init))
+
 (defun srw-project-root ()
   "Return the best project root for the current buffer."
   (let ((root (or (when (fboundp 'projectile-project-root)
