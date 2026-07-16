@@ -45,6 +45,7 @@
   "tui": "fullscreen",
   "autoDreamEnabled": true,
   "skipDangerousModePermissionPrompt": true,
+  "theme": "auto",
   "teammateMode": "tmux",
   "agentPushNotifEnabled": true
 }
