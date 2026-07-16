@@ -7,8 +7,21 @@
   :ensure t
   :custom
   (auto-dark-themes '((batppuccin-mocha) (batppuccin-latte)))
-  :init
-  (auto-dark-mode))
+  :config
+  ;; emacs-mac reacts to appearance changes natively via
+  ;; `mac-effective-appearance-change-hook'. auto-dark's built-in readers all
+  ;; shell an AppleScript at System Events, which needs Automation permission
+  ;; ("Not authorised to send Apple events to System Events"). Read the state
+  ;; via `defaults' instead, which needs no permission.
+  (defun srw--mac-dark-mode-p ()
+    "Return non-nil when macOS is in dark mode, without sending Apple events."
+    (string-equal "Dark"
+                  (string-trim
+                   (shell-command-to-string
+                    "defaults read -g AppleInterfaceStyle 2>/dev/null"))))
+  (advice-add 'auto-dark--current-system-mode :override
+              (lambda () (if (srw--mac-dark-mode-p) 'dark 'light)))
+  (auto-dark-mode 1))
 
 (defvar srw-default-font-height 130
   "Default global font height, measured in tenths of a point.")
