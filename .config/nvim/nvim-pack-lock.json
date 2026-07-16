@@ -121,6 +121,10 @@
       "rev": "882c996cf28183f4d63640de0b4c02ec886d01f2",
       "src": "https://github.com/folke/snacks.nvim"
     },
+    "teamtype-nvim": {
+      "rev": "711eade8cd5d7d3efa9ec25ea0a390a954030222",
+      "src": "https://github.com/teamtype/teamtype-nvim"
+    },
     "telescope-fzf-native.nvim": {
       "rev": "b25b749b9db64d375d782094e2b9dce53ad53a40",
       "src": "https://github.com/nvim-telescope/telescope-fzf-native.nvim"

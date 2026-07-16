@@ -151,6 +151,7 @@ vim.pack.add({
     { src = gh('mfussenegger/nvim-dap-python') },
     { src = gh('igorlfs/nvim-dap-view') },
     { src = gh('barrettruth/diffs.nvim') },
+    { src = gh('teamtype/teamtype-nvim') },
 }, { confirm = false, load = true })
 
 vim.api.nvim_create_user_command('VimUpdate', function(opts)
@@ -685,7 +686,7 @@ setkey('tdt', function() require('dap').terminate() end)
 setkey('tdn', function() require('dap-python').test_method() end)
 setkey('tdc', function() require('dap-python').test_class() end)
 setkey('tdl', function() require('dap').run_last() end)
-setkey('<leader>e', function() require("dap.ui.widgets").hover() end)
+-- setkey('<leader>e', function() require("dap.ui.widgets").hover() end)
 
 setkey('tdw', ':DapViewToggle<cr>')
 -- stepping (F-keys, standard debugger convention)
@@ -747,6 +748,9 @@ vim.api.nvim_create_autocmd("LspAttach", {
         require('config.prioritised_diagnostic').setup()
     end,
 })
+
+vim.keymap.set("n", "<leader>ej", "<cmd>TeamtypeJumpToCursor<cr>")
+vim.keymap.set("n", "<leader>ef", "<cmd>TeamtypeFollow<cr>")
 
 local init_done_event_name = 'InitDone'
 
