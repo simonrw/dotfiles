@@ -1,6 +1,6 @@
 # helpers
 hostname = `hostname -s`.strip
-is_work = hostname == 'localstack-simonwalker'
+is_work = hostname == 'walker-s'
 
 # configuration
 if hostname == 'mm'
@@ -153,7 +153,7 @@ cask "slack"
 cask "steam" if not is_work
 cask "tailscale-app"
 cask "utm"
-cask "visual-studio-code"
+cask "visual-studio-code" if not is_work
 cask "wacom-tablet" if hostname == "mm"
 cask "whatsapp" if not is_work
 cask "zed"
