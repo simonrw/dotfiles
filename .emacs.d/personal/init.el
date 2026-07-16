@@ -125,7 +125,7 @@
     "w" #'srw-update-buffer))
 
 ;; set up org
-(setq org-agenda-files (quote ("~/notes")))
+(setq org-agenda-files (file-expand-wildcards "~/org/*"))
 
 ;; disable line number mode
 (global-display-line-numbers-mode -1)
