@@ -98,6 +98,7 @@ brew "viddy"
 brew "wakeonlan"
 brew "watchexec"
 brew "worktrunk"
+brew "xcodegen" if not is_work
 brew "xh"
 brew "yq"
 brew "yt-dlp"
