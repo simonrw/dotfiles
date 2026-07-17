@@ -7,20 +7,6 @@
     "pr": ""
   },
   "permissions": {
-    "deny": [
-      "EnterPlanMode",
-      "ExitPlanMode",
-      "DesignSync",
-      "NotebookEdit",
-      "SendMessage",
-      "PushNotification",
-      "RemoteTrigger",
-      "ReportFindings",
-      "ScheduleWakeup",
-      "CronCreate",
-      "CronDelete",
-      "CronList"
-    ],
     "allow": [
       "Bash(cargo check*)",
       "Bash(cargo search:*)",
@@ -36,6 +22,20 @@
       "WebFetch(domain:docs.rs)",
       "WebFetch(domain:github.com)",
       "WebSearch"
+    ],
+    "deny": [
+      "EnterPlanMode",
+      "ExitPlanMode",
+      "DesignSync",
+      "NotebookEdit",
+      "SendMessage",
+      "PushNotification",
+      "RemoteTrigger",
+      "ReportFindings",
+      "ScheduleWakeup",
+      "CronCreate",
+      "CronDelete",
+      "CronList"
     ],
     "defaultMode": "default"
   },
@@ -56,6 +56,7 @@
   "effortLevel": "medium",
   "autoUpdatesChannel": "latest",
   "tui": "fullscreen",
+  "autoMemoryEnabled": false,
   "autoDreamEnabled": true,
   "skipDangerousModePermissionPrompt": true,
   "theme": "auto",
