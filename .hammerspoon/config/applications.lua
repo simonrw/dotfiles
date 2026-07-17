@@ -17,15 +17,11 @@ local applications = {
         name = "Reminders",
     },
     notes = {
-        name = "Obsidian",
+        name = "Emacs",
     },
     editor = {
         name = "Zed",
     },
 }
-
-if intr.is_work() then
-    applications.notes.name = "Notes"
-end
 
 return applications
