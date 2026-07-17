@@ -39,7 +39,7 @@
     ],
     "defaultMode": "auto"
   },
-  "model": "opus[1m]",
+  "model": "opus",
   "statusLine": {
     "type": "command",
     "command": "~/.claude/scripts/status_line_command.sh"
@@ -62,5 +62,6 @@
   "skipDangerousModePermissionPrompt": true,
   "theme": "auto",
   "teammateMode": "tmux",
-  "agentPushNotifEnabled": true
+  "agentPushNotifEnabled": true,
+  "useAutoModeDuringPlan": true
 }
