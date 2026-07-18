@@ -14,6 +14,7 @@ node = { version = "lts", os = ["linux"] }
 "github:sharkdp/hyperfine" = { version = "latest", os = ["linux"] }
 "github:bootandy/dust" = { version = "latest", os = ["linux"] }
 "github:max-sixty/worktrunk" = { version = "latest", os = ["linux"] }
+"cargo:iroh-ssh" = "latest"
 bun = { version = "latest", os = ["linux"] }
 usage = { version = "latest", os = ["linux"] }
 "github:lima-vm/lima" = { version = "latest", os = ["linux"] }
