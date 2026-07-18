@@ -6,6 +6,7 @@
 # Tooling
 
 * I use ripgrep (rg) not grep
+* I use 1Password and the `op` CLI for credential management, but NEVER try to access my credentials using this tool. You can look up account information but don't try to fetch credentials
 
 # Rust
 
