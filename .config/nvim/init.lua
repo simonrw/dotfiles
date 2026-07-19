@@ -726,6 +726,10 @@ vim.api.nvim_create_autocmd("LspAttach", {
                 end
             end
 
+            if #messages == 0 then
+                print("No diagnostics found")
+                return
+            end
 
             local buf = vim.api.nvim_create_buf(false, true)
             vim.api.nvim_buf_set_lines(buf, 0, -1, false, messages)
