@@ -748,8 +748,16 @@ vim.api.nvim_create_autocmd("LspAttach", {
 
         vim.keymap.set('n', '<leader>d', show_diagnostic_for_line)
 
-        -- require my custom priorised diagnostic command
-        require('config.prioritised_diagnostic').setup()
+        vim.keymap.set('n', ']d', function()
+            vim.diagnostic.jump({
+                count = vim.v.count1,
+            })
+        end)
+        vim.keymap.set('n', '[d', function()
+            vim.diagnostic.jump({
+                count = -vim.v.count1,
+            })
+        end)
     end,
 })
 
