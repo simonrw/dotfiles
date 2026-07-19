@@ -137,7 +137,7 @@ cask "ghostty"
 cask "gimp"
 cask "godot" if not is_work
 cask "google-chrome" if not is_work
-cask "google-drive" if is_work
+cask "google-drive"
 cask "hammerspoon"
 cask "helium-browser"
 cask "iina"
