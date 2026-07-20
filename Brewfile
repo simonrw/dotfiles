@@ -154,6 +154,7 @@ cask "raycast"
 cask "shotcut"
 cask "slack"
 cask "steam" if not is_work
+cask "t3-code"
 cask "tailscale-app"
 cask "utm"
 cask "visual-studio-code" if not is_work
