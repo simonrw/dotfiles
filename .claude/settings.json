@@ -24,8 +24,6 @@
       "WebSearch"
     ],
     "deny": [
-      "EnterPlanMode",
-      "ExitPlanMode",
       "DesignSync",
       "NotebookEdit",
       "SendMessage",
