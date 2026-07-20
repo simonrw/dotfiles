@@ -151,7 +151,6 @@ vim.pack.add({
     { src = gh('mfussenegger/nvim-dap-python') },
     { src = gh('igorlfs/nvim-dap-view') },
     { src = gh('barrettruth/diffs.nvim') },
-    { src = gh('teamtype/teamtype-nvim') },
 }, { confirm = false, load = true })
 
 vim.api.nvim_create_user_command('VimUpdate', function(opts)
