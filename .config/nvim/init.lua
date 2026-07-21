@@ -140,7 +140,7 @@ vim.pack.add({
     { src = gh('nvim-treesitter/nvim-treesitter-context') },
     { src = gh('vim-test/vim-test') },
     { src = gh('coder/claudecode.nvim') },
-    { src = gh('MeanderingProgrammer/render-markdown.nvim') },
+    { src = gh('noisesfromspace/touchup.nvim') },
     { src = gh('simonrw/ask-agent') },
     { src = gh('folke/zen-mode.nvim') },
     { src = gh('hedyhli/outline.nvim') },
@@ -619,6 +619,17 @@ local function load_theme()
         vim.cmd.highlight({ "Comment", "guifg=#e69340" })
         vim.cmd.highlight({ "TreesitterContext", "guibg=#f0f0f0" })
     end
+
+    -- touchup.nvim defines heading underlines with `default = true`, so
+    -- catppuccin's own heading groups override them. Re-apply the underline
+    -- while preserving catppuccin's heading colors.
+    for group, extra in pairs({
+        ["@markup.heading.1.markdown"] = { bold = true, underline = true },
+        ["@markup.heading.2.markdown"] = { underline = true },
+    }) do
+        local hl = vim.api.nvim_get_hl(0, { name = group, link = false })
+        vim.api.nvim_set_hl(0, group, vim.tbl_extend("force", hl, extra))
+    end
 end
 
 vim.api.nvim_create_autocmd("Signal", {
@@ -782,6 +793,8 @@ vim.api.nvim_create_autocmd('User', {
         require("ask-agent").setup({
             provider = "claude",
         })
+
+        require('touchup').setup()
 
         vim.o.statusline = vim.o.statusline .. " %{v:lua.ask_agent_statusline()}"
 

@@ -133,6 +133,10 @@
       "rev": "427b576c16792edad01a92b89721d923c19ad60f",
       "src": "https://github.com/nvim-telescope/telescope.nvim"
     },
+    "touchup.nvim": {
+      "rev": "8924dc42a059d4b48d0168aa99be49e68bf5dc76",
+      "src": "https://github.com/noisesfromspace/touchup.nvim"
+    },
     "vim-conflicted": {
       "rev": "b0f584be18a9a95748122f439efcd30e9ec787dc",
       "src": "https://github.com/christoomey/vim-conflicted"
