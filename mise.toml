@@ -102,3 +102,13 @@ NSGlobalDomain = { AppleICUForce24HourTime = true, NSWindowShouldDragOnGesture =
 "com.apple.dock" = { "show-process-indicators" = false, showhidden = false }
 "com.apple.finder" = { AppleShowAllExtensions = false, FXDefaultSearchScope = "SCcf", _FXShowPosixPathInTitle = true }
 "com.apple.screencapture" = { location = "~/Pictures/screenshots" }
+
+[bootstrap.macos.launchd.agents.t3-code]
+program = "/opt/homebrew/bin/mise"
+args = ["exec", "node", "npm:t3@nightly", "--", "t3"]
+run_at_load = true
+working_directory = "~"
+stdout_path = "~/Library/Logs/t3-code.log"
+stderr_path = "~/Library/Logs/t3-code.err.log"
+keep_alive = true
+environment = { PATH = "/opt/homebrew/bin:/usr/bin:/bin:/usr/sbin:/sbin" }
