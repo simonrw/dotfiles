@@ -4,3 +4,6 @@
 [submodule ".config/fish/plugins/shell-agent"]
 	path = .config/fish/plugins/shell-agent
 	url = https://github.com/simonrw/shell-agent
+[submodule ".config/tmux/plugins/tmux-agent-sidebar"]
+	path = .config/tmux/plugins/tmux-agent-sidebar
+	url = https://github.com/hiroppy/tmux-agent-sidebar.git
