@@ -76,10 +76,37 @@ def current_theme() -> Theme:
     return Theme.dark
 
 
+def restart_agent_sidebars() -> None:
+    """Respawn open agent-sidebar panes so they re-read @sidebar_color_* options.
+
+    The sidebar reads its palette only at startup, so a theme change requires
+    restarting the binary. Only currently-open sidebar panes are touched.
+    """
+    try:
+        sidebar_bin = (
+            sp.check_output(["tmux", "show-option", "-gqv", "@agent_sidebar_bin"])
+            .decode()
+            .strip()
+        )
+        if not sidebar_bin:
+            return
+        panes = sp.check_output(
+            ["tmux", "list-panes", "-a", "-F", "#{pane_id} #{@pane_role}"]
+        ).decode()
+    except sp.CalledProcessError:
+        return
+
+    for line in panes.splitlines():
+        parts = line.split()
+        if len(parts) == 2 and parts[1] == "sidebar":
+            sp.call(["tmux", "respawn-pane", "-k", "-t", parts[0], sidebar_bin])
+
+
 def reload_tmux(theme: Theme):
     sp.check_call(
         ["tmux", "source-file", str(Path.home() / ".config" / "tmux" / "tmux.conf")]
     )
+    restart_agent_sidebars()
 
 
 def signal_editor_to_reload(*process_names: str):
