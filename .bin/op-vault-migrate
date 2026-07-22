@@ -1,0 +1,326 @@
+#!/usr/bin/env bash
+#
+# op-vault-migrate - create a new 1Password vault, move items into it, and mint a
+#                    read-only service account token scoped to that vault.
+#
+# Usage:
+#   op-vault-migrate [--dry-run] [--service-account-name NAME] \
+#                    <new-vault-name> <item-uuid> [item-uuid ...]
+#
+# Items are specified by their UUID, e.g.:
+#   op-vault-migrate CI-Secrets 4pxu... 7abc...
+#
+# Each item's current vault is looked up automatically; a warning is printed for
+# anything that is not currently in the Private vault. Referenced items are MOVED
+# (a true server-side move - the original is deleted and the item gets a new id).
+
+set -euo pipefail
+
+SERVICE_ACCOUNT_NAME=""
+DRY_RUN=false
+PASSWORD_FIX=true
+DUMMY_PW="op-vault-migrate placeholder - safe to delete"
+
+err() { printf '%s\n' "$*" >&2; }
+die() { err "error: $*"; exit 1; }
+
+usage() {
+    cat >&2 <<'EOF'
+Usage: op-vault-migrate [--dry-run] [--service-account-name NAME] <new-vault-name> <item-uuid> [item-uuid ...]
+
+Creates <new-vault-name>, moves each item (given by UUID) into it, then creates a
+read-only service account for the vault and stores its token inside the vault.
+
+Options:
+  --dry-run                     Show what would happen without making any changes.
+  --service-account-name NAME   Name for the service account (default: <vault>-sa).
+  --no-password-fix             Don't work around empty-password Password items
+                                (which op refuses to move) by setting/clearing a
+                                temporary placeholder password.
+  -h, --help                    Show this help.
+
+Items are given by UUID. Find them with:  op item list --format json | jq '.[].id'
+A warning is printed for any item not currently in the Private vault.
+EOF
+    exit 1
+}
+
+require_deps() {
+    command -v op >/dev/null 2>&1 || die "1Password CLI ('op') not found on PATH"
+    command -v jq >/dev/null 2>&1 || die "'jq' not found on PATH"
+}
+
+require_signed_in() {
+    if ! op whoami >/dev/null 2>&1; then
+        err "Not signed in to 1Password CLI."
+        err "Run:  op signin --account my"
+        exit 1
+    fi
+}
+
+main() {
+    local -a uuids=()
+    local new_vault=""
+
+    # --- Parse arguments -----------------------------------------------------
+    while [ $# -gt 0 ]; do
+        case "$1" in
+            --dry-run)
+                DRY_RUN=true
+                shift
+                ;;
+            --service-account-name)
+                [ $# -ge 2 ] || die "--service-account-name requires a value"
+                SERVICE_ACCOUNT_NAME="$2"
+                shift 2
+                ;;
+            --service-account-name=*)
+                SERVICE_ACCOUNT_NAME="${1#*=}"
+                shift
+                ;;
+            --no-password-fix)
+                PASSWORD_FIX=false
+                shift
+                ;;
+            -h|--help)
+                usage
+                ;;
+            --)
+                shift
+                break
+                ;;
+            -*)
+                die "unknown option: $1"
+                ;;
+            *)
+                if [ -z "$new_vault" ]; then
+                    new_vault="$1"
+                else
+                    uuids+=("$1")
+                fi
+                shift
+                ;;
+        esac
+    done
+
+    # Any remaining args after `--`
+    while [ $# -gt 0 ]; do
+        if [ -z "$new_vault" ]; then
+            new_vault="$1"
+        else
+            uuids+=("$1")
+        fi
+        shift
+    done
+
+    [ -n "$new_vault" ] || usage
+    [ "${#uuids[@]}" -ge 1 ] || usage
+
+    local sa_name="${SERVICE_ACCOUNT_NAME:-${new_vault}-sa}"
+
+    require_deps
+    require_signed_in
+
+    # --- Resolve each UUID to (vault id, vault name, title) -------------------
+    # Parallel arrays; de-duplicated on UUID. Items that fail to resolve are
+    # warned about and skipped (we can't move what we can't find).
+    local -a ids=() vault_ids=() vault_names=() titles=()
+    local -a seen=()
+    local uuid json vault_id vault_name title dup s
+
+    for uuid in "${uuids[@]}"; do
+        dup=false
+        for s in ${seen[@]+"${seen[@]}"}; do
+            [ "$s" = "$uuid" ] && { dup=true; break; }
+        done
+        $dup && continue
+        seen+=("$uuid")
+
+        local get_errfile; get_errfile="$(mktemp)"
+        if ! json="$(op item get "$uuid" --format json 2>"$get_errfile")"; then
+            err "⚠ could not resolve item '${uuid}' - skipping:"
+            err "    $(cat "$get_errfile")"
+            rm -f "$get_errfile"
+            continue
+        fi
+        rm -f "$get_errfile"
+
+        vault_id="$(jq -r '.vault.id' <<<"$json")"
+        vault_name="$(jq -r '.vault.name' <<<"$json")"
+        title="$(jq -r '.title' <<<"$json")"
+
+        if [ "$vault_name" != "Private" ]; then
+            err "⚠ '${title}' is in '${vault_name}', not Private"
+        fi
+
+        ids+=("$uuid")
+        vault_ids+=("$vault_id")
+        vault_names+=("$vault_name")
+        titles+=("$title")
+    done
+
+    local n="${#ids[@]}"
+    [ "$n" -ge 1 ] || die "no valid items to move"
+
+    # --- Summarise -----------------------------------------------------------
+    local i
+    echo "Plan:"
+    echo "  Create vault:        ${new_vault}"
+    echo "  Move items:"
+    for ((i = 0; i < n; i++)); do
+        printf '    - %s  [%s]  (from %s)\n' "${titles[$i]}" "${ids[$i]}" "${vault_names[$i]}"
+    done
+    echo "  Service account:     ${sa_name} (read-only on ${new_vault})"
+    echo "  Store token in:      ${new_vault}  (item: '${sa_name} token')"
+    echo
+    echo "Note: moving deletes the original and gives each item a NEW id."
+    echo
+
+    if $DRY_RUN; then
+        echo "[dry-run] no changes made."
+        return 0
+    fi
+
+    # --- Confirm -------------------------------------------------------------
+    printf 'Continue? [y/N] '
+    local reply
+    read -r reply
+    case "$reply" in
+        y|Y|yes|YES) ;;
+        *) echo "Aborted."; return 1 ;;
+    esac
+
+    # --- Create vault --------------------------------------------------------
+    if op vault get "$new_vault" >/dev/null 2>&1; then
+        err "⚠ vault '${new_vault}' already exists; reusing it"
+    else
+        echo "Creating vault '${new_vault}'..."
+        local vault_err
+        if ! vault_err="$(op vault create "$new_vault" \
+                --description "Created by op-vault-migrate" 2>&1 >/dev/null)"; then
+            die "failed to create vault '${new_vault}': ${vault_err}"
+        fi
+    fi
+
+    # --- Move items ----------------------------------------------------------
+    # `op item move` rejects Password-category items that have an empty password
+    # ("Password item requires ps value"). When that happens (and unless
+    # --no-password-fix is set) we set a temporary placeholder password, move the
+    # item, then clear the password again in the destination vault. Editing a
+    # built-in field to empty IS allowed - only create/move reject empty passwords.
+    local moved=0 failed=0 move_err edit_err
+    local -a dummy_remaining=()
+    for ((i = 0; i < n; i++)); do
+        echo "Moving '${titles[$i]}' from '${vault_names[$i]}' -> '${new_vault}'..."
+
+        # Capture stderr (discard stdout) so any op error is shown to the user.
+        if move_err="$(op item move "${ids[$i]}" \
+                --current-vault "${vault_ids[$i]}" \
+                --destination-vault "$new_vault" 2>&1 >/dev/null)"; then
+            moved=$((moved + 1))
+            continue
+        fi
+
+        # Only retry for the empty-password case, and only if the fix is enabled.
+        if ! $PASSWORD_FIX || [[ "$move_err" != *"ps value"* ]]; then
+            err "  ✗ failed to move '${titles[$i]}' (${ids[$i]}):"
+            err "    ${move_err}"
+            failed=$((failed + 1))
+            continue
+        fi
+
+        err "  … '${titles[$i]}' has an empty password; setting a temporary placeholder and retrying"
+        if ! edit_err="$(op item edit "${ids[$i]}" --vault "${vault_ids[$i]}" \
+                "password=${DUMMY_PW}" 2>&1 >/dev/null)"; then
+            err "  ✗ could not set placeholder password on '${titles[$i]}':"
+            err "    ${edit_err}"
+            failed=$((failed + 1))
+            continue
+        fi
+
+        if ! move_err="$(op item move "${ids[$i]}" \
+                --current-vault "${vault_ids[$i]}" \
+                --destination-vault "$new_vault" 2>&1 >/dev/null)"; then
+            err "  ✗ still failed to move '${titles[$i]}' after adding a placeholder:"
+            err "    ${move_err}"
+            # Best-effort: undo the placeholder on the still-in-place original item.
+            op item edit "${ids[$i]}" --vault "${vault_ids[$i]}" 'password=' >/dev/null 2>&1 || true
+            failed=$((failed + 1))
+            continue
+        fi
+        moved=$((moved + 1))
+
+        # Clear the placeholder in the destination vault (reference by title since
+        # the move gave the item a new id).
+        if ! edit_err="$(op item edit "${titles[$i]}" --vault "$new_vault" \
+                'password=' 2>&1 >/dev/null)"; then
+            err "  ⚠ moved '${titles[$i]}' but could not clear the placeholder password:"
+            err "    ${edit_err}"
+            dummy_remaining+=("${titles[$i]}")
+        fi
+    done
+
+    # --- Create service account ----------------------------------------------
+    # Capture stdout (the token) and stderr separately so errors are shown.
+    local token="" have_token=false sa_errfile
+    sa_errfile="$(mktemp)"
+    echo "Creating read-only service account '${sa_name}'..."
+    if token="$(op service-account create "$sa_name" \
+            --vault "${new_vault}:read_items" --raw 2>"$sa_errfile")" \
+            && [ -n "$token" ]; then
+        have_token=true
+    else
+        err "⚠ could not create service account '${sa_name}':"
+        err "  $(cat "$sa_errfile")"
+        err "  (Service accounts may require a 1Password Business plan.)"
+        err "  Skipping token creation; vault and item moves are unaffected."
+    fi
+    rm -f "$sa_errfile"
+
+    # --- Store token ---------------------------------------------------------
+    if $have_token; then
+        local store_err
+        echo "Storing service token in '${new_vault}'..."
+        if store_err="$(op item create \
+                --category "API Credential" \
+                --vault "$new_vault" \
+                --title "${sa_name} token" \
+                --tags service-account \
+                "credential=${token}" 2>&1 >/dev/null)"; then
+            :
+        else
+            err "⚠ failed to store the token as an item:"
+            err "  ${store_err}"
+            err "  The service account WAS created - retrieve/rotate it via the 1Password app."
+        fi
+        # Drop the token from memory as best we can.
+        token=""
+        unset token
+    fi
+
+    # --- Summary -------------------------------------------------------------
+    echo
+    echo "Done."
+    echo "  Vault:          ${new_vault}"
+    echo "  Items moved:    ${moved}/${n}"
+    [ "$failed" -gt 0 ] && echo "  Items failed:   ${failed}"
+    if [ "${#dummy_remaining[@]}" -gt 0 ]; then
+        local t
+        echo "  ⚠ Placeholder password could NOT be cleared on:"
+        for t in "${dummy_remaining[@]}"; do
+            echo "      - ${t}  (clear it manually in the 1Password app)"
+        done
+    fi
+    if $have_token; then
+        echo "  Service token:  stored in '${new_vault}' as '${sa_name} token'"
+    else
+        echo "  Service token:  NOT created (see warnings above)"
+    fi
+    echo
+    echo "Remember: moved items have new ids - update anything that referenced"
+    echo "their old ids or vault."
+
+    [ "$failed" -eq 0 ] || return 1
+}
+
+main "$@"
