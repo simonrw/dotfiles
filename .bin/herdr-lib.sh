@@ -13,7 +13,7 @@ current_mux() {
   elif [ -n "${TMUX:-}" ]; then
     echo tmux
   else
-    echo none
+    echo herdr
   fi
 }
 
