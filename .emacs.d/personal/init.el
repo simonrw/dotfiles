@@ -135,6 +135,7 @@
 
 ;; set up org
 (setq org-agenda-files (file-expand-wildcards "~/org/*"))
+(setq org-image-actual-width nil)
 
 ;; disable line number mode
 (global-display-line-numbers-mode -1)
