@@ -123,20 +123,13 @@ args.path.mkdir(exist_ok=True, parents=True)
 
 tmux_name = f"{args.path.parent.name}/{args.path.name}".replace(".", "-").replace(":", "-")
 
-if os.getenv("HERDR_PANE_ID"):
-    logger.debug("in herdr pane")
-    run_herdr_in_herdr(tmux_name, args.path)
-elif os.getenv("TMUX"):
-    logger.debug(f"in tmux session")
+if os.getenv("TMUX"):
+    logger.debug("in tmux session")
     if session_exists(tmux_name):
         switch_client(tmux_name, exec=True)
     else:
         create_session(tmux_name)
         switch_client(tmux_name, exec=True)
 else:
-    logger.debug("not in tmux session")
-    if session_exists(tmux_name):
-        attach_to_session(tmux_name, exec=True)
-    else:
-        create_session(tmux_name)
-        attach_to_session(tmux_name, exec=True)
+    logger.debug("in herdr pane")
+    run_herdr_in_herdr(tmux_name, args.path)
