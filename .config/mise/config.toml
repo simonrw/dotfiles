@@ -4,6 +4,7 @@ rust = { version = "beta", components = "rust-src,rust-analyzer" }
 "pipx:ipython" = "latest"
 python = "latest"
 "cargo:https://github.com/simonrw/listprojects" = "branch:main"
+"cargo:https://github.com/simonrw/claude-session-monitor" = { version = "branch:main", crate = "csm-reporter" }
 "go:github.com/simonrw/cert-info" = "0"
 "github:jj-vcs/jj" = { version = "latest", os = ["linux"] }
 "github:tmux/tmux-builds" = { version = "latest", os = ["linux"] }
