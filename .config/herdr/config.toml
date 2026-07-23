@@ -19,6 +19,7 @@ pane_borders = false
 prefix = "ctrl+s"               # tmux: unbind C-b; set -g prefix C-s
 split_vertical = "prefix+i"     # side-by-side, matching tmux `i` (and `|`); `-` stays stacked
 previous_workspace = "prefix+ctrl+j"  # mirror tmux `C-j last-window`
+detach = "prefix+d"                   # tmux: prefix d detach-client (herdr default is prefix+q)
 
 [[keys.command]]                # tmux: prefix u -> lazygit
 key = "prefix+u"
