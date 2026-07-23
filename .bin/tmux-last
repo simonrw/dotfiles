@@ -2,6 +2,22 @@
 
 set -euo pipefail
 
+. "$(dirname "$0")/herdr-lib.sh"
+
+# herdr: jump back to the previously-focused workspace (recorded by the herdr
+# session helpers). Falls back to the most recent other workspace.
+if [ "$(current_mux)" = herdr ]; then
+  target=""
+  [ -f "$HERDR_LAST_WS_FILE" ] && target="$(cat "$HERDR_LAST_WS_FILE")"
+  current="$(herdr_focused_ws)"
+  if [ -z "$target" ] || [ "$target" = "$current" ]; then
+    # newest workspace that isn't the focused one
+    target="$(herdr_workspaces | awk -F'\t' '$3 != "true" { id = $1 } END { print id }')"
+  fi
+  [ -n "${target:-}" ] && herdr_focus "$target"
+  exit 0
+fi
+
 SESSION_NAME="$(tmux ls -F '#S #{session_activity}' | sort -n -k 2 | tail -n 1 | awk '{print $1}')"
 if [ ! -z "${SESSION_NAME}" ]; then
     if [ ! -z "${TMUX:-}" ]; then

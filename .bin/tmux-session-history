@@ -2,5 +2,14 @@
 
 set -euo pipefail
 
+. "$(dirname "$0")/herdr-lib.sh"
+
+if [ "$(current_mux)" = herdr ]; then
+  # Fuzzy-pick a herdr workspace (show the label, keep the id) and focus it.
+  choice="$(herdr_workspaces | fzf --no-sort --delimiter='\t' --with-nth=2 | cut -f1)"
+  [ -n "${choice:-}" ] && herdr_focus "$choice"
+  exit 0
+fi
+
 SESSION_NAME="$(tmux ls -F "#{session_activity} #S" | sort -n -r | awk '{print $2}' | fzf --no-sort)"
 tat ${SESSION_NAME}

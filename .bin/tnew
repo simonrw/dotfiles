@@ -4,12 +4,62 @@
 import subprocess as sp
 from pathlib import Path
 import argparse
+import json
 import os
 import logging
 
 
 logging.basicConfig(level=logging.WARNING)
 logger = logging.getLogger("tnew")
+
+
+HERDR_LAST_WS_FILE = Path(
+    os.environ.get("HERDR_LAST_WS_FILE")
+    or os.path.join(
+        os.environ.get("XDG_CACHE_HOME", os.path.expanduser("~/.cache")),
+        "herdr",
+        "last-workspace",
+    )
+)
+
+
+def herdr_workspaces():
+    """Return the herdr workspace list (list of dicts)."""
+    out = sp.run(
+        ["herdr", "workspace", "list"], check=True, stdout=sp.PIPE
+    ).stdout.decode("utf8")
+    data = json.loads(out)
+    return data.get("result", data).get("workspaces", [])
+
+
+def herdr_focused_id(workspaces):
+    for ws in workspaces:
+        if ws.get("focused"):
+            return ws.get("workspace_id")
+    return None
+
+
+def herdr_record_last(workspaces):
+    """Remember the currently-focused workspace so `tl` can jump back."""
+    current = herdr_focused_id(workspaces)
+    if current:
+        HERDR_LAST_WS_FILE.parent.mkdir(parents=True, exist_ok=True)
+        HERDR_LAST_WS_FILE.write_text(current + "\n")
+
+
+def run_herdr_in_herdr(label, path):
+    """Focus a workspace with this label, or create one for the given path."""
+    workspaces = herdr_workspaces()
+    herdr_record_last(workspaces)
+    for ws in workspaces:
+        if ws.get("label") == label:
+            logger.debug(f"focusing existing workspace {label}")
+            os.execvp("herdr", ["herdr", "workspace", "focus", ws["workspace_id"]])
+    logger.debug(f"creating workspace {label}")
+    os.execvp(
+        "herdr",
+        ["herdr", "workspace", "create", "--cwd", str(path), "--label", label, "--focus"],
+    )
 
 
 def list_sessions():
@@ -73,7 +123,10 @@ args.path.mkdir(exist_ok=True, parents=True)
 
 tmux_name = f"{args.path.parent.name}/{args.path.name}".replace(".", "-").replace(":", "-")
 
-if os.getenv("TMUX"):
+if os.getenv("HERDR_PANE_ID"):
+    logger.debug("in herdr pane")
+    run_herdr_in_herdr(tmux_name, args.path)
+elif os.getenv("TMUX"):
     logger.debug(f"in tmux session")
     if session_exists(tmux_name):
         switch_client(tmux_name, exec=True)

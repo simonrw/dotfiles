@@ -1,0 +1,37 @@
+# herdr config - mirrors ~/.config/tmux where herdr differs from its defaults.
+# Most tmux bindings (new_tab=c, next/prev tab=n/p, focus h/j/k/l, zoom=z) are already herdr
+# defaults, so only the overrides below are needed. Regenerate the full schema with
+# `herdr --default-config`.
+onboarding = false
+
+[terminal]
+default_shell = "fish"          # tmux ran fish via default-command
+
+[ui]
+# herdr renders workspaces in a left sidebar and tabs in a top tab bar; there is
+# no tmux-style single top status row combining both. Keep both visible:
+hide_tab_bar_when_single_tab = false  # always show the tab row at the top
+sidebar_collapsed_mode = "compact"    # prefix+b collapses to a narrow rail, not zero width
+prompt_new_tab_name = false           # prefix+c makes a numbered tab immediately (rename later), like tmux
+pane_borders = false
+
+[keys]
+prefix = "ctrl+s"               # tmux: unbind C-b; set -g prefix C-s
+split_vertical = "prefix+i"     # side-by-side, matching tmux `i` (and `|`); `-` stays stacked
+previous_workspace = "prefix+ctrl+j"  # mirror tmux `C-j last-window`
+
+[[keys.command]]                # tmux: prefix u -> lazygit
+key = "prefix+u"
+type = "pane"
+command = "lazygit"
+
+[[keys.command]]                # tmux: prefix o -> jjui (shadows default open_notification_target)
+key = "prefix+o"
+type = "pane"
+command = "jjui"
+
+[theme]
+name = "catppuccin"             # Catppuccin Mocha (dark)
+auto_switch = true              # follow host light/dark like tmux's is-dark-theme
+dark_name = "catppuccin"
+light_name = "catppuccin-latte"
