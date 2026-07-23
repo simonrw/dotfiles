@@ -23,10 +23,10 @@
               (lambda () (if (srw--mac-dark-mode-p) 'dark 'light)))
   (auto-dark-mode 1))
 
-(defvar srw-default-font-family "Lilex"
+(defvar srw-default-font-family "JetBrainsMono NF"
   "Default global font family.")
 
-(defvar srw-default-font-weight 'medium
+(defvar srw-default-font-weight 'bold
   "Default global font weight.")
 
 (defvar srw-default-font-height 130
