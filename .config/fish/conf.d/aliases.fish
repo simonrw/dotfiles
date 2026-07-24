@@ -50,7 +50,7 @@ function add-keys
 end
 
 function clear-pycs
-    find $PWD -name '*.pyc' -delete
+    find $PWD -name '*.pyc' -or -name '__pycache__' -delete
 end
 
 function ptl
