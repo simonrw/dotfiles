@@ -272,7 +272,7 @@ require("treesitter-context").setup({
 require("claudecode").setup({
     auto_start = false,
     terminal = {
-        provider = "none",
+        provider = "auto",
     },
 })
 vim.keymap.set('n', '<localleader>ac', '<cmd>ClaudeCode<cr>', { desc = "Toggle Claude" })
