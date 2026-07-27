@@ -111,13 +111,3 @@ post-defaults = '''
 [ "$(uname)" = "Darwin" ] || exit 0
 defaults write -g NSUserKeyEquivalents -dict-add 'Emoji & Symbols' '\0'
 '''
-
-[bootstrap.macos.launchd.agents.t3-code]
-program = "/opt/homebrew/bin/mise"
-args = ["exec", "node", "npm:t3@nightly", "--", "t3"]
-run_at_load = true
-working_directory = "~"
-stdout_path = "~/Library/Logs/t3-code.log"
-stderr_path = "~/Library/Logs/t3-code.err.log"
-keep_alive = true
-environment = { PATH = "/opt/homebrew/bin:/usr/bin:/bin:/usr/sbin:/sbin" }
