@@ -19,11 +19,6 @@ jobs:
         with:
           token: ${{ secrets.DOTFILES_PR_TOKEN }}
 
-      - name: Install mise
-        uses: jdx/mise-action@v3
-        with:
-          install: false
-
       - name: Install bob
         run: |
           curl -fsSL https://raw.githubusercontent.com/MordechaiHadad/bob/master/scripts/install.sh | bash
@@ -46,7 +41,9 @@ jobs:
           chmod 700 "$RUNNER_TEMP/nvim-runtime"
 
       - name: Update Neovim packages
-        run: mise run vim-update --skip-deps --skip-tools
+        # XXX don't use mise here as it tries to deploy the world
+        #     manually make sure this step stays in sync with the equivalent mise task
+        run: NVIM_VIM_UPDATE=1 nvim --headless
         env:
           XDG_CONFIG_HOME: ${{ github.workspace }}/.config
           XDG_RUNTIME_DIR: ${{ runner.temp }}/nvim-runtime
