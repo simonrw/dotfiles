@@ -103,6 +103,15 @@ NSGlobalDomain = { AppleICUForce24HourTime = true, NSWindowShouldDragOnGesture =
 "com.apple.finder" = { AppleShowAllExtensions = false, FXDefaultSearchScope = "SCcf", _FXShowPosixPathInTitle = true }
 "com.apple.screencapture" = { location = "~/Pictures/screenshots" }
 
+[bootstrap.hooks]
+# [bootstrap.macos.defaults] only takes scalar values, so nested dicts like
+# NSUserKeyEquivalents (here: unbind cmd-ctrl-space from "Emoji & Symbols")
+# have to go through `defaults write -dict-add`.
+post-defaults = '''
+[ "$(uname)" = "Darwin" ] || exit 0
+defaults write -g NSUserKeyEquivalents -dict-add 'Emoji & Symbols' '\0'
+'''
+
 [bootstrap.macos.launchd.agents.t3-code]
 program = "/opt/homebrew/bin/mise"
 args = ["exec", "node", "npm:t3@nightly", "--", "t3"]
