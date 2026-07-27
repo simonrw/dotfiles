@@ -4,6 +4,9 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>$if(title-prefix)$$title-prefix$ – $endif$$pagetitle$</title>
+$if(source-path)$
+  <meta name="plan-source" content="$source-path$">
+$endif$
   <style>
     /* ---- plan.html5 - review console -------------------------------------
        For reading AI agent plans / design docs. The evidence is the hero:
@@ -14,6 +17,10 @@
 
        Rendered by ~/.bin/render-plan. Metadata (title, status, ...) is
        lifted from the document by ~/.config/pandoc/plan-meta.lua.
+
+       Review comments: select text to attach a comment; comments persist in
+       localStorage and "Copy for agent" turns them into a prompt-ready
+       markdown block naming the source file, section, and quoted text.
 
        NB: a bare dollar sign is pandoc template syntax. To use one literally
        in the CSS or JS below, double it ($$) - a stray one fails the parse.
@@ -337,6 +344,166 @@
     .footnotes { margin-top: 3rem; padding-top: 1rem; border-top: 1px solid var(--border); font-size: 0.82rem; color: var(--subtext); }
     .footnotes hr { display: none; }
 
+    /* ---- review comments ---- */
+
+    mark.comment-mark {
+      background: color-mix(in oklab, var(--yellow) 24%, transparent);
+      color: inherit;
+      border-bottom: 1px solid color-mix(in oklab, var(--yellow) 55%, transparent);
+      border-radius: 2px;
+      cursor: pointer;
+      transition: background 90ms;
+    }
+    mark.comment-mark:hover,
+    mark.comment-mark.flash {
+      background: color-mix(in oklab, var(--yellow) 45%, transparent);
+    }
+
+    .ui-btn {
+      font: inherit;
+      font-size: 0.72rem;
+      font-weight: 600;
+      padding: 0.3rem 0.6rem;
+      border-radius: 6px;
+      border: 1px solid var(--border);
+      background: var(--surface2);
+      color: var(--text);
+      cursor: pointer;
+    }
+    .ui-btn:hover { background: var(--overlay); }
+    .ui-btn.primary { background: var(--blue); border-color: var(--blue); color: var(--bg); }
+    .ui-btn.primary:hover { filter: brightness(1.08); background: var(--blue); }
+    .ui-btn.primary.done { background: var(--green); border-color: var(--green); }
+    .ui-btn.primary.failed { background: var(--red); border-color: var(--red); }
+    .ui-btn.danger { color: var(--red); margin-right: auto; }
+
+    .sel-btn, .comment-popover { position: absolute; z-index: 60; display: none; }
+
+    .sel-btn {
+      font: inherit;
+      font-size: 0.72rem;
+      font-weight: 600;
+      background: var(--surface2);
+      color: var(--text);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 0.28rem 0.55rem;
+      cursor: pointer;
+      white-space: nowrap;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.18);
+    }
+    .sel-btn:hover { background: var(--overlay); }
+
+    .comment-popover {
+      width: 19rem;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 0.6rem;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+    }
+    .comment-popover .pop-quote {
+      font-size: 0.7rem;
+      font-style: italic;
+      color: var(--subtext);
+      border-left: 2px solid var(--yellow);
+      padding-left: 0.5rem;
+      margin-bottom: 0.5rem;
+      max-height: 3.6em;
+      overflow: hidden;
+    }
+    .comment-popover textarea {
+      width: 100%;
+      resize: vertical;
+      font: inherit;
+      font-size: 0.8rem;
+      color: var(--text);
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 0.45rem 0.55rem;
+      margin: 0 0 0.5rem;
+    }
+    .comment-popover textarea:focus {
+      outline: 2px solid color-mix(in oklab, var(--blue) 45%, transparent);
+      border-color: var(--blue);
+    }
+    .pop-row { display: flex; gap: 0.4rem; justify-content: flex-end; }
+
+    .comments-panel {
+      position: fixed;
+      right: 1.1rem;
+      bottom: 1.1rem;
+      z-index: 55;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 0.5rem;
+      font-size: 0.8rem;
+    }
+    .panel-pill {
+      font: inherit;
+      font-size: 0.75rem;
+      font-weight: 600;
+      background: var(--surface2);
+      color: var(--text);
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      padding: 0.4rem 0.85rem;
+      cursor: pointer;
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2);
+    }
+    .panel-pill:hover { background: var(--overlay); }
+    .panel-drawer {
+      display: none;
+      flex-direction: column;
+      width: 21rem;
+      max-height: 55vh;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 12px 34px rgba(0, 0, 0, 0.28);
+    }
+    .comments-panel.open .panel-drawer { display: flex; }
+    .panel-list {
+      list-style: none;
+      margin: 0;
+      padding: 0.35rem 0;
+      overflow-y: auto;
+    }
+    .panel-list li {
+      margin: 0;
+      padding: 0.55rem 0.75rem;
+      border-bottom: 1px solid var(--border);
+    }
+    .panel-list li:last-child { border-bottom: 0; }
+    .card-head { display: flex; flex-wrap: wrap; gap: 0.3rem; margin-bottom: 0.3rem; }
+    .chip.is-orphan { color: var(--red); border-color: color-mix(in oklab, var(--red) 40%, transparent); }
+    .card-quote { font-size: 0.72rem; font-style: italic; color: var(--subtext); margin-bottom: 0.25rem; }
+    .card-text { white-space: pre-wrap; }
+    .card-actions { display: flex; gap: 0.6rem; margin-top: 0.35rem; }
+    .card-actions button {
+      font: inherit;
+      font-size: 0.68rem;
+      font-weight: 500;
+      background: none;
+      border: 0;
+      padding: 0;
+      color: var(--blue);
+      cursor: pointer;
+    }
+    .card-actions button:hover { text-decoration: underline; }
+    .card-actions button.danger { color: var(--red); }
+    .panel-foot {
+      display: flex;
+      gap: 0.4rem;
+      justify-content: flex-end;
+      padding: 0.5rem 0.6rem;
+      border-top: 1px solid var(--border);
+      background: var(--surface2);
+    }
+
     @media print {
       /* always print light, whatever the screen theme was */
       :root {
@@ -346,6 +513,8 @@
         --mauve: #6b2fc0; --red: #b00c30; --yellow: #9a6410; --teal: #12727a;
       }
       .rail, .codeblock-bar { display: none !important; }
+      .sel-btn, .comment-popover, .comments-panel { display: none !important; }
+      mark.comment-mark { background: none; color: inherit; outline: 1px dashed #9a6410; }
       .shell { display: block; }
       main { padding: 0; max-width: none; }
       body { background: #fff; font-size: 10pt; }
@@ -498,6 +667,462 @@ $body$
     requestAnimationFrame(function () { update(); ticking = false; });
   }, { passive: true });
   update();
+})();
+</script>
+
+<script>
+(function () {
+  /* ---- review comments ---------------------------------------------------
+     Select text in the document to attach a comment. Comments persist in
+     localStorage (keyed by the source path baked in at render time) and the
+     panel's "Copy for agent" button turns them into one markdown block --
+     file, section, quote, comment -- ready to paste into an agent prompt.
+     Anchoring is quote-based (W3C TextQuoteSelector style): each comment
+     stores its exact text plus ~30 chars of context either side, and is
+     re-found by string search on load, so comments survive re-renders. */
+
+  var main = document.querySelector('main');
+  if (!main) return;
+
+  var srcMeta = document.querySelector('meta[name="plan-source"]');
+  var sourcePath = srcMeta ? srcMeta.getAttribute('content') : '';
+  var storeKey = 'plan-comments:' + (sourcePath || document.title);
+  var CTX = 30;
+
+  var comments = [];
+  try { comments = JSON.parse(localStorage.getItem(storeKey) || '[]') || []; } catch (e) { comments = []; }
+  function persist() {
+    try { localStorage.setItem(storeKey, JSON.stringify(comments)); } catch (e) {}
+  }
+  function newId() {
+    return 'c' + Date.now().toString(36) + Math.floor(Math.random() * 1679616).toString(36);
+  }
+  function excerpt(s, n) {
+    s = s.replace(/\s+/g, ' ').trim();
+    return s.length > n ? s.slice(0, n) + '…' : s;
+  }
+
+  // ---- text index over main's text nodes ---------------------------------
+  // idx.text matches Range.toString() over the same content: both are the
+  // concatenation of text node data in document order.
+  function buildIndex() {
+    var nodes = [], offsets = [], text = '';
+    var walker = document.createTreeWalker(main, NodeFilter.SHOW_TEXT, null);
+    var n;
+    while ((n = walker.nextNode())) {
+      nodes.push(n);
+      offsets.push(text.length);
+      text += n.nodeValue;
+    }
+    return { nodes: nodes, offsets: offsets, text: text };
+  }
+
+  function globalOffset(container, offset) {
+    var r = document.createRange();
+    r.selectNodeContents(main);
+    r.setEnd(container, offset);
+    return r.toString().length;
+  }
+
+  // Wrap [startG, endG) in <mark> elements, one per intersecting text node --
+  // surroundContents would throw on ranges spanning element boundaries.
+  function wrapRange(startG, endG, cid) {
+    var idx = buildIndex();
+    var segs = [];
+    for (var i = 0; i < idx.nodes.length; i++) {
+      var node = idx.nodes[i];
+      var a = idx.offsets[i], b = a + node.nodeValue.length;
+      if (b <= startG || a >= endG) continue;
+      segs.push({
+        node: node,
+        s: Math.max(0, startG - a),
+        e: Math.min(node.nodeValue.length, endG - a)
+      });
+    }
+    segs.forEach(function (seg) {
+      var node = seg.node;
+      if (!node.nodeValue.slice(seg.s, seg.e).trim()) return;
+      if (seg.e < node.nodeValue.length) node.splitText(seg.e);
+      var target = seg.s > 0 ? node.splitText(seg.s) : node;
+      var mark = document.createElement('mark');
+      mark.className = 'comment-mark';
+      mark.setAttribute('data-cid', cid);
+      target.parentNode.insertBefore(mark, target);
+      mark.appendChild(target);
+    });
+  }
+
+  function unwrap(cid) {
+    var marks = main.querySelectorAll('mark.comment-mark[data-cid="' + cid + '"]');
+    Array.prototype.forEach.call(marks, function (m) {
+      var p = m.parentNode;
+      while (m.firstChild) p.insertBefore(m.firstChild, m);
+      p.removeChild(m);
+      p.normalize();
+    });
+  }
+
+  function sectionFor(node) {
+    var el = node.nodeType === 1 ? node : node.parentElement;
+    if (!el) return { id: '', title: '' };
+    var heads = main.querySelectorAll('h2[id], h3[id]');
+    var best = null;
+    for (var i = 0; i < heads.length; i++) {
+      if (heads[i].compareDocumentPosition(el) & Node.DOCUMENT_POSITION_FOLLOWING) best = heads[i];
+    }
+    if (!best) return { id: '', title: '' };
+    // strip the injected hover-anchor "#" from the heading text
+    return { id: best.id, title: best.textContent.replace(/^#\s*/, '').trim() };
+  }
+
+  // Last-resort matcher: whitespace-normalized search, mapping the hit back
+  // to original offsets. Rescues comments when a re-render moved soft wraps.
+  function normSearch(text, quote) {
+    var norm = '', map = [];
+    for (var i = 0; i < text.length; i++) {
+      var ch = text.charAt(i);
+      if (/\s/.test(ch)) {
+        if (norm && norm.charAt(norm.length - 1) !== ' ') { norm += ' '; map.push(i); }
+      } else {
+        norm += ch;
+        map.push(i);
+      }
+    }
+    var nq = quote.replace(/\s+/g, ' ').trim();
+    if (!nq) return null;
+    var j = norm.indexOf(nq);
+    if (j < 0) return null;
+    return { start: map[j], end: map[j + nq.length - 1] + 1 };
+  }
+
+  function anchorComment(c) {
+    var idx = buildIndex();
+    var start = -1, end = -1;
+    if (c.prefix || c.suffix) {
+      var j = idx.text.indexOf(c.prefix + c.quote + c.suffix);
+      if (j >= 0) start = j + c.prefix.length;
+    }
+    if (start < 0) start = idx.text.indexOf(c.quote);
+    if (start >= 0) {
+      end = start + c.quote.length;
+    } else {
+      var hit = normSearch(idx.text, c.quote);
+      if (hit) { start = hit.start; end = hit.end; }
+    }
+    c.anchored = start >= 0;
+    if (c.anchored) wrapRange(start, end, c.id);
+  }
+
+  // ---- floating UI: selection button + popover ---------------------------
+  function mkBtn(label, cls) {
+    var b = document.createElement('button');
+    b.type = 'button';
+    b.className = 'ui-btn' + (cls ? ' ' + cls : '');
+    b.textContent = label;
+    return b;
+  }
+  function placeAt(el, x, y) {
+    el.style.display = 'block';
+    var maxX = window.scrollX + document.documentElement.clientWidth - el.offsetWidth - 8;
+    el.style.left = Math.max(8, Math.min(x, maxX)) + 'px';
+    el.style.top = y + 'px';
+  }
+
+  var selBtn = document.createElement('button');
+  selBtn.type = 'button';
+  selBtn.className = 'sel-btn';
+  selBtn.textContent = '💬 comment';
+  document.body.appendChild(selBtn);
+
+  var pop = document.createElement('div');
+  pop.className = 'comment-popover';
+  var popQuote = document.createElement('div');
+  popQuote.className = 'pop-quote';
+  var ta = document.createElement('textarea');
+  ta.rows = 3;
+  ta.placeholder = 'Leave a comment… (⌘⏎ to save)';
+  var popRow = document.createElement('div');
+  popRow.className = 'pop-row';
+  var btnDelete = mkBtn('Delete', 'danger');
+  var btnCancel = mkBtn('Cancel');
+  var btnSave = mkBtn('Save', 'primary');
+  popRow.appendChild(btnDelete);
+  popRow.appendChild(btnCancel);
+  popRow.appendChild(btnSave);
+  pop.appendChild(popQuote);
+  pop.appendChild(ta);
+  pop.appendChild(popRow);
+  document.body.appendChild(pop);
+
+  var editing = null;      // {mode:'create', range} | {mode:'edit', comment}
+  var pendingRange = null; // captured on mouseup, before the click clears it
+
+  function openPopover(state, rect) {
+    editing = state;
+    if (state.mode === 'edit') {
+      popQuote.textContent = excerpt(state.comment.quote, 120);
+      ta.value = state.comment.text;
+      btnDelete.style.display = '';
+    } else {
+      popQuote.textContent = excerpt(state.range.toString(), 120);
+      ta.value = '';
+      btnDelete.style.display = 'none';
+    }
+    placeAt(pop, window.scrollX + rect.left, window.scrollY + rect.bottom + 8);
+    ta.focus();
+  }
+  function closePopover() {
+    editing = null;
+    pop.style.display = 'none';
+  }
+
+  function save() {
+    if (!editing) return;
+    var text = ta.value.trim();
+    if (!text) { closePopover(); return; } // empty comment = cancel
+    if (editing.mode === 'edit') {
+      editing.comment.text = text;
+    } else {
+      var r = editing.range;
+      var startG = globalOffset(r.startContainer, r.startOffset);
+      var endG = globalOffset(r.endContainer, r.endOffset);
+      var idx = buildIndex();
+      var sec = sectionFor(r.startContainer);
+      var c = {
+        id: newId(),
+        quote: idx.text.slice(startG, endG),
+        prefix: idx.text.slice(Math.max(0, startG - CTX), startG),
+        suffix: idx.text.slice(endG, endG + CTX),
+        sectionId: sec.id,
+        sectionTitle: sec.title,
+        text: text,
+        anchored: true
+      };
+      comments.push(c);
+      wrapRange(startG, endG, c.id);
+      window.getSelection().removeAllRanges();
+    }
+    persist();
+    renderPanel();
+    closePopover();
+  }
+
+  btnSave.addEventListener('click', save);
+  btnCancel.addEventListener('click', closePopover);
+  btnDelete.addEventListener('click', function () {
+    if (editing && editing.mode === 'edit') removeComment(editing.comment.id);
+    closePopover();
+  });
+  ta.addEventListener('keydown', function (ev) {
+    if (ev.key === 'Escape') closePopover();
+    if (ev.key === 'Enter' && (ev.metaKey || ev.ctrlKey)) save();
+  });
+
+  function removeComment(id) {
+    unwrap(id);
+    comments = comments.filter(function (c) { return c.id !== id; });
+    persist();
+    renderPanel();
+  }
+
+  function currentSelectionRange() {
+    var sel = window.getSelection();
+    if (!sel || sel.rangeCount === 0 || sel.isCollapsed) return null;
+    var r = sel.getRangeAt(0);
+    if (!main.contains(r.startContainer) || !main.contains(r.endContainer)) return null;
+    if (!r.toString().trim()) return null;
+    return r;
+  }
+
+  document.addEventListener('mouseup', function (ev) {
+    if (ev.target.closest && ev.target.closest('.sel-btn, .comment-popover, .comments-panel')) return;
+    setTimeout(function () {
+      var r = currentSelectionRange();
+      if (!r) { selBtn.style.display = 'none'; return; }
+      pendingRange = r.cloneRange();
+      var rect = r.getBoundingClientRect();
+      placeAt(selBtn, window.scrollX + rect.right - 20, window.scrollY + rect.bottom + 8);
+    }, 0);
+  });
+  document.addEventListener('selectionchange', function () {
+    var sel = window.getSelection();
+    if (!sel || sel.isCollapsed) selBtn.style.display = 'none';
+  });
+  // keep the browser from collapsing the selection when the button is pressed
+  selBtn.addEventListener('mousedown', function (ev) { ev.preventDefault(); });
+  selBtn.addEventListener('click', function () {
+    if (!pendingRange) return;
+    openPopover({ mode: 'create', range: pendingRange }, pendingRange.getBoundingClientRect());
+    selBtn.style.display = 'none';
+  });
+  document.addEventListener('mousedown', function (ev) {
+    if (!editing) return;
+    if (ev.target.closest && ev.target.closest('.comment-popover, .sel-btn, mark.comment-mark')) return;
+    closePopover();
+  });
+
+  main.addEventListener('click', function (ev) {
+    var m = ev.target.closest && ev.target.closest('mark.comment-mark');
+    if (!m) return;
+    var id = m.getAttribute('data-cid'), c = null;
+    for (var i = 0; i < comments.length; i++) if (comments[i].id === id) c = comments[i];
+    if (c) openPopover({ mode: 'edit', comment: c }, m.getBoundingClientRect());
+  });
+
+  // ---- comments panel ----------------------------------------------------
+  var panel = document.createElement('aside');
+  panel.className = 'comments-panel';
+  var drawer = document.createElement('div');
+  drawer.className = 'panel-drawer';
+  var listEl = document.createElement('ol');
+  listEl.className = 'panel-list';
+  var foot = document.createElement('div');
+  foot.className = 'panel-foot';
+  var btnCopy = mkBtn('Copy for agent', 'primary');
+  var btnClear = mkBtn('Clear all');
+  foot.appendChild(btnClear);
+  foot.appendChild(btnCopy);
+  drawer.appendChild(listEl);
+  drawer.appendChild(foot);
+  var pill = document.createElement('button');
+  pill.type = 'button';
+  pill.className = 'panel-pill';
+  panel.appendChild(drawer);
+  panel.appendChild(pill);
+  document.body.appendChild(panel);
+
+  pill.addEventListener('click', function () { panel.classList.toggle('open'); });
+
+  function jumpTo(c) {
+    var m = main.querySelector('mark.comment-mark[data-cid="' + c.id + '"]');
+    if (!m) return;
+    m.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    m.classList.add('flash');
+    setTimeout(function () { m.classList.remove('flash'); }, 1500);
+  }
+
+  function renderPanel() {
+    panel.style.display = comments.length ? '' : 'none';
+    if (!comments.length) panel.classList.remove('open');
+    pill.textContent = '💬 ' + comments.length + ' comment' + (comments.length === 1 ? '' : 's');
+    listEl.textContent = '';
+    comments.forEach(function (c) {
+      var li = document.createElement('li');
+      var head = document.createElement('div');
+      head.className = 'card-head';
+      var chip = document.createElement('span');
+      chip.className = 'chip';
+      chip.textContent = c.sectionTitle || 'Top';
+      head.appendChild(chip);
+      if (c.anchored === false) {
+        var warn = document.createElement('span');
+        warn.className = 'chip is-orphan';
+        warn.textContent = 'unanchored';
+        head.appendChild(warn);
+      }
+      var q = document.createElement('div');
+      q.className = 'card-quote';
+      q.textContent = '“' + excerpt(c.quote, 90) + '”';
+      var t = document.createElement('div');
+      t.className = 'card-text';
+      t.textContent = c.text;
+      var actions = document.createElement('div');
+      actions.className = 'card-actions';
+      if (c.anchored !== false) {
+        var bJump = document.createElement('button');
+        bJump.type = 'button';
+        bJump.textContent = 'jump';
+        bJump.addEventListener('click', function () { jumpTo(c); });
+        actions.appendChild(bJump);
+      }
+      var bEdit = document.createElement('button');
+      bEdit.type = 'button';
+      bEdit.textContent = 'edit';
+      bEdit.addEventListener('click', function () {
+        var m = main.querySelector('mark.comment-mark[data-cid="' + c.id + '"]');
+        openPopover({ mode: 'edit', comment: c }, (m || li).getBoundingClientRect());
+      });
+      actions.appendChild(bEdit);
+      var bDel = document.createElement('button');
+      bDel.type = 'button';
+      bDel.className = 'danger';
+      bDel.textContent = 'delete';
+      bDel.addEventListener('click', function () { removeComment(c.id); });
+      actions.appendChild(bDel);
+      li.appendChild(head);
+      li.appendChild(q);
+      li.appendChild(t);
+      li.appendChild(actions);
+      listEl.appendChild(li);
+    });
+  }
+
+  // ---- copy for agent ----------------------------------------------------
+  function buildMarkdown() {
+    var head = sourcePath
+      ? 'Apply the following review feedback to the plan at ' + sourcePath + ':'
+      : 'Apply the following review feedback to the plan titled "' + document.title + '":';
+    var lines = [head, ''];
+    comments.forEach(function (c, i) {
+      var tag = '[Section: ' + (c.sectionTitle || 'Top')
+        + (c.anchored === false ? ' - anchor may have moved' : '') + ']';
+      lines.push((i + 1) + '. ' + tag + ' Re: "' + excerpt(c.quote, 200) + '"');
+      c.text.split('\n').forEach(function (t) { lines.push('   ' + t); });
+      lines.push('');
+    });
+    return lines.join('\n').replace(/[ \t]+\n/g, '\n').trim() + '\n';
+  }
+
+  function copyFallback(s) {
+    var t = document.createElement('textarea');
+    t.value = s;
+    t.style.position = 'fixed';
+    t.style.opacity = '0';
+    document.body.appendChild(t);
+    t.select();
+    var ok = false;
+    try { ok = document.execCommand('copy'); } catch (e) {}
+    document.body.removeChild(t);
+    if (!ok) throw new Error('copy failed');
+  }
+  function copyText(s) {
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      return navigator.clipboard.writeText(s).catch(function () { copyFallback(s); });
+    }
+    return Promise.resolve().then(function () { copyFallback(s); });
+  }
+  function flashCopyBtn(label, cls) {
+    btnCopy.textContent = label;
+    btnCopy.classList.add(cls);
+    setTimeout(function () {
+      btnCopy.textContent = 'Copy for agent';
+      btnCopy.classList.remove(cls);
+    }, 1400);
+  }
+  btnCopy.addEventListener('click', function () {
+    copyText(buildMarkdown()).then(function () {
+      flashCopyBtn('Copied', 'done');
+    }).catch(function () {
+      flashCopyBtn('Copy failed', 'failed');
+    });
+  });
+  btnClear.addEventListener('click', function () {
+    if (!window.confirm('Delete all ' + comments.length + ' comments?')) return;
+    comments.slice().forEach(function (c) { unwrap(c.id); });
+    comments = [];
+    persist();
+    renderPanel();
+  });
+
+  comments.forEach(anchorComment);
+  persist();
+  renderPanel();
+
+  // handle for scripting / debugging (not part of the UI)
+  window.__planReview = {
+    buildMarkdown: buildMarkdown,
+    comments: function () { return comments; }
+  };
 })();
 </script>
 

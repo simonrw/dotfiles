@@ -49,9 +49,16 @@ fi
 # frontmatter and stop the filter lifting the heading at all.
 fallback_title="$(basename "${input%.*}")"
 
+# Absolute path of the source, embedded in the page so review comments can
+# name the file they refer to when copied into an agent prompt.
+if [ "$input" != "/dev/stdin" ]; then
+  meta+=(--metadata "source-path=$(cd "$(dirname "$input")" && pwd)/$(basename "$input")")
+fi
+
 pandoc "$input" \
   --from=gfm+footnotes+definition_lists+pipe_tables+task_lists+yaml_metadata_block \
   --to=html5 \
+  --wrap=none \
   --standalone \
   --embed-resources \
   --toc --toc-depth=3 \
