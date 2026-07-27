@@ -1,0 +1,70 @@
+#!/usr/bin/env bash
+# Render a markdown plan / design doc to a self-contained HTML file for review.
+#
+#   render-plan PLAN.md               # -> PLAN.html, opened in the browser
+#   render-plan PLAN.md -o out.html   # explicit output path
+#   render-plan PLAN.md --no-open     # just write the file
+#   render-plan PLAN.md -             # write HTML to stdout
+#
+# The output is a single file with all CSS/JS inlined, so it can be mailed,
+# attached to a ticket, or opened from anywhere.
+set -euo pipefail
+
+PANDOC_CONFIG="${XDG_CONFIG_HOME:-$HOME/.config}/pandoc"
+TEMPLATE="$PANDOC_CONFIG/templates/plan.html5"
+FILTER="$PANDOC_CONFIG/plan-meta.lua"
+
+die() { printf 'render-plan: %s\n' "$1" >&2; exit 1; }
+
+input=""
+output=""
+open_after=1
+declare -a meta=()
+
+while [ $# -gt 0 ]; do
+  case "$1" in
+    -o|--output) [ $# -ge 2 ] || die "$1 needs an argument"; output="$2"; shift 2 ;;
+    --no-open)   open_after=0; shift ;;
+    -M|--metadata)
+      [ $# -ge 2 ] || die "$1 needs an argument"
+      meta+=(--metadata "$2"); shift 2 ;;
+    -h|--help)   sed -n '2,9p' "$0" | cut -c3-; exit 0 ;;
+    -)           input="/dev/stdin"; output="-"; shift ;;
+    -*)          die "unknown option: $1" ;;
+    *)           [ -z "$input" ] || die "only one input file"; input="$1"; shift ;;
+  esac
+done
+
+[ -n "$input" ] || die "no input file (try --help)"
+[ "$input" = "/dev/stdin" ] || [ -f "$input" ] || die "no such file: $input"
+[ -f "$TEMPLATE" ] || die "template missing: $TEMPLATE"
+command -v pandoc >/dev/null || die "pandoc not installed"
+
+if [ -z "$output" ]; then
+  output="${input%.*}.html"
+fi
+
+# Only a fallback: the filter prefers the document's own "# Title" and uses this
+# when there isn't one. Passing it as `title` would look like explicit
+# frontmatter and stop the filter lifting the heading at all.
+fallback_title="$(basename "${input%.*}")"
+
+pandoc "$input" \
+  --from=gfm+footnotes+definition_lists+pipe_tables+task_lists+yaml_metadata_block \
+  --to=html5 \
+  --standalone \
+  --embed-resources \
+  --toc --toc-depth=3 \
+  --syntax-highlighting=breezedark \
+  --lua-filter="$FILTER" \
+  --template="$TEMPLATE" \
+  --metadata=fallback-title="$fallback_title" \
+  "${meta[@]+"${meta[@]}"}" \
+  --output="$output"
+
+[ "$output" = "-" ] && exit 0
+
+printf '%s\n' "$output"
+if [ "$open_after" = 1 ] && command -v open >/dev/null; then
+  open "$output"
+fi

@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="$lang$"$if(dir)$ dir="$dir$"$endif$>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>$if(title-prefix)$$title-prefix$ – $endif$$pagetitle$</title>
+  <style>
+    /* ---- plan.html5 - review console -------------------------------------
+       For reading AI agent plans / design docs. The evidence is the hero:
+       code blocks and file:line references get chrome and prominence, prose
+       is dense and secondary, and a sticky rail with scroll-spy keeps your
+       place in a long document. Catppuccin Latte / Mocha, following the
+       system theme. Prints light regardless of screen theme.
+
+       Rendered by ~/.bin/render-plan. Metadata (title, status, ...) is
+       lifted from the document by ~/.config/pandoc/plan-meta.lua.
+
+       NB: a bare dollar sign is pandoc template syntax. To use one literally
+       in the CSS or JS below, double it ($$) - a stray one fails the parse.
+       -------------------------------------------------------------------- */
+
+    :root {
+      color-scheme: light dark;
+      /* Catppuccin Latte */
+      --bg:       #eff1f5;
+      --surface:  #e6e9ef;
+      --surface2: #dce0e8;
+      --overlay:  #ccd0da;
+      --border:   #bcc0cc;
+      --text:     #4c4f69;
+      --subtext:  #6c6f85;
+      --muted:    #8c8fa1;
+      --blue:     #1e66f5;
+      --sky:      #04a5e5;
+      --green:    #40a02b;
+      --peach:    #fe640b;
+      --mauve:    #8839ef;
+      --red:      #d20f39;
+      --yellow:   #df8e1d;
+      --teal:     #179299;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        /* Catppuccin Mocha */
+        --bg:       #1e1e2e;
+        --surface:  #181825;
+        --surface2: #313244;
+        --overlay:  #45475a;
+        --border:   #45475a;
+        --text:     #cdd6f4;
+        --subtext:  #a6adc8;
+        --muted:    #7f849c;
+        --blue:     #89b4fa;
+        --sky:      #89dceb;
+        --green:    #a6e3a1;
+        --peach:    #fab387;
+        --mauve:    #cba6f7;
+        --red:      #f38ba8;
+        --yellow:   #f9e2af;
+        --teal:     #94e2d5;
+      }
+    }
+
+    *, *::before, *::after { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: ui-sans-serif, -apple-system, "Inter", "Helvetica Neue", sans-serif;
+      font-size: 15px;
+      line-height: 1.58;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    code, pre, .mono {
+      font-family: "SF Mono", "JetBrains Mono", Menlo, Consolas, monospace;
+      font-variant-ligatures: none;
+      font-feature-settings: "liga" 0, "calt" 0;
+    }
+
+    /* ---- shell ---- */
+
+    .shell {
+      display: grid;
+      grid-template-columns: 17rem minmax(0, 1fr);
+      gap: 0;
+      max-width: 84rem;
+      margin: 0 auto;
+      align-items: start;
+    }
+    @media (max-width: 60rem) {
+      .shell { grid-template-columns: 1fr; }
+      .rail { position: static !important; height: auto !important; border-right: 0 !important; border-bottom: 1px solid var(--border); }
+      nav#TOC { max-height: 14rem; }
+    }
+
+    /* ---- left rail ---- */
+
+    .rail {
+      position: sticky;
+      top: 0;
+      height: 100vh;
+      overflow-y: auto;
+      overscroll-behavior: contain;
+      padding: 1.5rem 1.1rem 3rem 1.5rem;
+      border-right: 1px solid var(--border);
+      background: var(--surface);
+      font-size: 0.8rem;
+    }
+
+    .rail .doc-kind {
+      font-size: 0.6rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin: 0 0 0.5rem;
+    }
+    .rail .rail-title {
+      font-size: 0.95rem;
+      font-weight: 620;
+      line-height: 1.3;
+      margin: 0 0 0.85rem;
+      color: var(--text);
+      text-wrap: balance;
+    }
+    .chips { display: flex; flex-wrap: wrap; gap: 0.3rem; margin-bottom: 1.2rem; }
+    .chip {
+      font-size: 0.63rem;
+      letter-spacing: 0.04em;
+      padding: 0.16rem 0.44rem;
+      border-radius: 4px;
+      background: var(--surface2);
+      color: var(--subtext);
+      border: 1px solid var(--border);
+      white-space: nowrap;
+    }
+    .chip.is-status { color: var(--peach); border-color: color-mix(in oklab, var(--peach) 40%, transparent); }
+
+    .rail-sep {
+      border: 0; border-top: 1px solid var(--border);
+      margin: 0 0 0.9rem;
+    }
+
+    nav#TOC ul { list-style: none; margin: 0; padding: 0; }
+    nav#TOC > ul > li > ul { padding-left: 0.75rem; margin: 0.1rem 0 0.35rem; }
+    nav#TOC > ul > li > ul > li > ul { display: none; }
+    nav#TOC a {
+      display: block;
+      color: var(--subtext);
+      text-decoration: none;
+      padding: 0.19rem 0.5rem 0.19rem 0.6rem;
+      border-left: 2px solid transparent;
+      border-radius: 0 3px 3px 0;
+      line-height: 1.4;
+      transition: color 90ms, background 90ms;
+    }
+    nav#TOC > ul > li > ul a { font-size: 0.74rem; color: var(--muted); }
+    nav#TOC a:hover { color: var(--text); background: var(--surface2); }
+    nav#TOC a.active {
+      color: var(--blue);
+      border-left-color: var(--blue);
+      background: color-mix(in oklab, var(--blue) 10%, transparent);
+      font-weight: 550;
+    }
+
+    /* ---- main column ---- */
+
+    main {
+      padding: 3rem 3rem 8rem;
+      max-width: 56rem;
+      min-width: 0;
+    }
+    @media (max-width: 60rem) { main { padding: 2rem 1.25rem 6rem; } }
+
+    main > h1:first-child, .doc-h1 {
+      font-size: 1.85rem;
+      font-weight: 650;
+      letter-spacing: -0.02em;
+      line-height: 1.2;
+      margin: 0 0 2rem;
+      text-wrap: balance;
+    }
+
+    h2, h3, h4 { scroll-margin-top: 1.5rem; position: relative; text-wrap: balance; }
+
+    h2 {
+      font-size: 1.18rem;
+      font-weight: 620;
+      letter-spacing: -0.01em;
+      margin: 3rem 0 0.9rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 1px solid var(--border);
+    }
+    h3 { font-size: 0.98rem; font-weight: 620; margin: 2rem 0 0.55rem; color: var(--text); }
+    h4 { font-size: 0.87rem; font-weight: 620; margin: 1.5rem 0 0.4rem; color: var(--subtext); }
+
+    /* hover anchor, PR-review style */
+    h2 .anchor, h3 .anchor {
+      position: absolute; left: -1.15rem; top: 0;
+      color: var(--muted); text-decoration: none;
+      opacity: 0; transition: opacity 90ms;
+      font-weight: 400;
+    }
+    h2:hover .anchor, h3:hover .anchor { opacity: 1; }
+    h2 .anchor:hover, h3 .anchor:hover { color: var(--blue); }
+
+    p { margin: 0 0 0.9rem; }
+    a { color: var(--blue); text-decoration-thickness: 1px; text-underline-offset: 2px; }
+
+    ul, ol { margin: 0 0 0.9rem; padding-left: 1.2rem; }
+    li { margin-bottom: 0.3rem; }
+    li::marker { color: var(--muted); }
+
+    blockquote {
+      margin: 1.1rem 0;
+      padding: 0.7rem 1rem;
+      background: var(--surface);
+      border-left: 3px solid var(--yellow);
+      border-radius: 0 5px 5px 0;
+      color: var(--subtext);
+    }
+    blockquote p:last-child { margin-bottom: 0; }
+
+    hr { border: 0; border-top: 1px solid var(--border); margin: 2rem 0; }
+
+    /* ---- inline code + file:line chips ---- */
+
+    :not(pre) > code {
+      font-size: 0.82em;
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      padding: 0.06em 0.32em;
+      border-radius: 4px;
+      color: var(--peach);
+      word-break: break-word;
+    }
+    :not(pre) > code.ref {
+      color: var(--teal);
+      background: color-mix(in oklab, var(--teal) 12%, transparent);
+      border-color: color-mix(in oklab, var(--teal) 35%, transparent);
+      white-space: nowrap;
+    }
+    :not(pre) > code.ref .line {
+      color: var(--yellow);
+      font-weight: 600;
+    }
+
+    /* ---- code blocks with a header bar ---- */
+
+    .codeblock {
+      margin: 1.2rem 0 1.4rem;
+      border: 1px solid var(--border);
+      border-radius: 7px;
+      overflow: hidden;
+      background: var(--surface);
+    }
+    .codeblock-bar {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      padding: 0.3rem 0.5rem 0.3rem 0.75rem;
+      background: var(--surface2);
+      border-bottom: 1px solid var(--border);
+      font-size: 0.65rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+    .codeblock-bar .lang { font-weight: 600; }
+    .codeblock-bar .spacer { flex: 1; }
+    .codeblock-bar button {
+      font: inherit;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      background: transparent;
+      color: var(--muted);
+      border: 1px solid transparent;
+      border-radius: 4px;
+      padding: 0.14rem 0.42rem;
+      cursor: pointer;
+    }
+    .codeblock-bar button:hover { color: var(--text); background: var(--overlay); }
+    .codeblock-bar button.done { color: var(--green); }
+
+    pre {
+      margin: 0;
+      padding: 0.8rem 0.95rem;
+      overflow-x: auto;
+      font-size: 0.775rem;
+      line-height: 1.62;
+      background: transparent;
+      color: var(--text);
+    }
+    pre code { background: none; border: 0; padding: 0; font-size: inherit; color: inherit; }
+
+    pre .kw, pre .cf            { color: var(--mauve); }
+    pre .im, pre .pp            { color: var(--mauve); }
+    pre .dt, pre .bu            { color: var(--yellow); }
+    pre .st, pre .ch, pre .vs, pre .ss { color: var(--green); }
+    pre .dv, pre .bn, pre .fl, pre .cn { color: var(--peach); }
+    pre .co, pre .cv, pre .an   { color: var(--muted); font-style: italic; }
+    pre .fu                     { color: var(--blue); }
+    pre .va                     { color: var(--text); }
+    pre .op                     { color: var(--sky); }
+    pre .at                     { color: var(--teal); }
+    pre .al, pre .er            { color: var(--red); }
+    pre .wa                     { color: var(--yellow); }
+
+    /* ---- tables ---- */
+
+    table {
+      border-collapse: collapse;
+      width: 100%;
+      margin: 1.2rem 0;
+      font-size: 0.8rem;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      overflow: hidden;
+    }
+    caption { caption-side: top; text-align: left; font-size: 0.72rem; color: var(--muted); margin-bottom: 0.4rem; }
+    th {
+      text-align: left;
+      background: var(--surface2);
+      font-weight: 620;
+      font-size: 0.7rem;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: var(--subtext);
+      padding: 0.45rem 0.7rem;
+      border-bottom: 1px solid var(--border);
+    }
+    td { padding: 0.45rem 0.7rem; border-bottom: 1px solid var(--border); vertical-align: top; }
+    tbody tr:last-child td { border-bottom: 0; }
+    tbody tr:nth-child(even) { background: color-mix(in oklab, var(--surface) 55%, transparent); }
+
+    .footnotes { margin-top: 3rem; padding-top: 1rem; border-top: 1px solid var(--border); font-size: 0.82rem; color: var(--subtext); }
+    .footnotes hr { display: none; }
+
+    @media print {
+      /* always print light, whatever the screen theme was */
+      :root {
+        --bg: #fff; --surface: #f7f8fa; --surface2: #eef0f4; --overlay: #e0e3ea;
+        --border: #c8ccd6; --text: #2b2d3c; --subtext: #5a5d70; --muted: #85889c;
+        --blue: #1e50c0; --sky: #0a7f9c; --green: #2f7d22; --peach: #b8500a;
+        --mauve: #6b2fc0; --red: #b00c30; --yellow: #9a6410; --teal: #12727a;
+      }
+      .rail, .codeblock-bar { display: none !important; }
+      .shell { display: block; }
+      main { padding: 0; max-width: none; }
+      body { background: #fff; font-size: 10pt; }
+      .codeblock, pre, table, li, blockquote { break-inside: avoid; }
+      h2, h3 { break-after: avoid; }
+    }
+  </style>
+$for(css)$
+  <link rel="stylesheet" href="$css$">
+$endfor$
+$for(header-includes)$
+  $header-includes$
+$endfor$
+</head>
+<body>
+<div class="shell">
+
+  <aside class="rail">
+    <p class="doc-kind">$if(kicker)$$kicker$$else$Plan review$endif$</p>
+$if(title)$
+    <p class="rail-title">$title$</p>
+$endif$
+    <div class="chips">
+$if(status)$      <span class="chip is-status">$status$</span>
+$endif$
+$if(date)$      <span class="chip">$date$</span>
+$endif$
+$if(repo)$      <span class="chip mono">$repo$</span>
+$endif$
+$if(author)$$for(author)$      <span class="chip">$author$</span>
+$endfor$$endif$
+    </div>
+    <hr class="rail-sep">
+$if(toc)$
+    <nav id="$idprefix$TOC" role="doc-toc">
+$table-of-contents$
+    </nav>
+$endif$
+  </aside>
+
+  <main>
+$for(include-before)$
+$include-before$
+$endfor$
+$if(title)$
+    <h1 class="doc-h1">$title$</h1>
+$endif$
+$body$
+  </main>
+</div>
+
+<script>
+(function () {
+  // ---- code blocks: language label + copy button -------------------------
+  document.querySelectorAll('pre').forEach(function (pre) {
+    if (pre.closest('.codeblock')) return;
+    var code = pre.querySelector('code');
+    var lang = '';
+    if (code) {
+      code.classList.forEach(function (c) {
+        if (c !== 'sourceCode' && !lang) lang = c;
+      });
+    }
+    var wrap = document.createElement('div');
+    wrap.className = 'codeblock';
+    var bar = document.createElement('div');
+    bar.className = 'codeblock-bar';
+    bar.innerHTML = '<span class="lang"></span><span class="spacer"></span>';
+    bar.querySelector('.lang').textContent = lang || 'text';
+    var btn = document.createElement('button');
+    btn.type = 'button';
+    btn.textContent = 'copy';
+    btn.addEventListener('click', function () {
+      navigator.clipboard.writeText(pre.innerText).then(function () {
+        btn.textContent = 'copied';
+        btn.classList.add('done');
+        setTimeout(function () { btn.textContent = 'copy'; btn.classList.remove('done'); }, 1400);
+      });
+    });
+    bar.appendChild(btn);
+    pre.parentNode.insertBefore(wrap, pre);
+    wrap.appendChild(bar);
+    wrap.appendChild(pre);
+  });
+
+  // ---- file:line references get chip treatment ---------------------------
+  // NB: no trailing regex anchor - a bare dollar sign is pandoc template syntax.
+  var REF = /^[\w./~-]+\.(go|ts|tsx|js|py|rs|yaml|yml|json|toml|md|sh|tf|sql|c|h|cpp|java|rb)(:\d+(-\d+)?)?/;
+  document.querySelectorAll('main :not(pre) > code').forEach(function (c) {
+    var t = c.textContent.trim();
+    var m = REF.exec(t);
+    if (!m || m[0].length !== t.length) return;
+    c.classList.add('ref');
+    var i = t.lastIndexOf(':');
+    if (i > 0 && /^\d/.test(t.slice(i + 1))) {
+      c.textContent = '';
+      c.appendChild(document.createTextNode(t.slice(0, i)));
+      var s = document.createElement('span');
+      s.className = 'line';
+      s.textContent = t.slice(i);
+      c.appendChild(s);
+    }
+  });
+
+  // ---- hover anchors -----------------------------------------------------
+  document.querySelectorAll('main h2[id], main h3[id]').forEach(function (h) {
+    var a = document.createElement('a');
+    a.className = 'anchor';
+    a.href = '#' + h.id;
+    a.textContent = '#';
+    a.setAttribute('aria-hidden', 'true');
+    h.insertBefore(a, h.firstChild);
+  });
+
+  // ---- scroll-spy ---------------------------------------------------------
+  var links = Array.prototype.slice.call(document.querySelectorAll('#TOC a[href^="#"]'));
+  var byId = {};
+  var targets = [];
+  links.forEach(function (a) {
+    var el = document.getElementById(decodeURIComponent(a.getAttribute('href').slice(1)));
+    if (el) { byId[el.id] = a; targets.push(el); }
+  });
+
+  var current = null;
+  function update() {
+    var best = null;
+    for (var i = 0; i < targets.length; i++) {
+      if (targets[i].getBoundingClientRect().top <= 90) best = targets[i];
+      else break;
+    }
+    if (!best && targets.length) best = targets[0];
+    if (best && best !== current) {
+      current = best;
+      links.forEach(function (a) { a.classList.remove('active'); });
+      var a = byId[best.id];
+      if (a) {
+        a.classList.add('active');
+        var rail = document.querySelector('.rail');
+        var ar = a.getBoundingClientRect(), rr = rail.getBoundingClientRect();
+        if (ar.top < rr.top + 40 || ar.bottom > rr.bottom - 40) {
+          rail.scrollTop += ar.top - rr.top - rail.clientHeight / 3;
+        }
+      }
+    }
+  }
+  var ticking = false;
+  window.addEventListener('scroll', function () {
+    if (ticking) return;
+    ticking = true;
+    requestAnimationFrame(function () { update(); ticking = false; });
+  }, { passive: true });
+  update();
+})();
+</script>
+
+$for(include-after)$
+$include-after$
+$endfor$
+</body>
+</html>
