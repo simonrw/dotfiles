@@ -46,7 +46,7 @@ jobs:
           chmod 700 "$RUNNER_TEMP/nvim-runtime"
 
       - name: Update Neovim packages
-        run: mise run vim-update
+        run: mise run vim-update --skip-deps --skip-tools
         env:
           XDG_CONFIG_HOME: ${{ github.workspace }}/.config
           XDG_RUNTIME_DIR: ${{ runner.temp }}/nvim-runtime
