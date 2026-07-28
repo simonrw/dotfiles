@@ -127,7 +127,6 @@ cask "1password-cli"
 cask "1password"
 cask "betterdisplay"
 cask "blender" if not is_work
-cask "claude-code"
 cask "claude"
 cask "docker-desktop" if docker_emulator == "docker-desktop"
 cask "fluidvoice"
