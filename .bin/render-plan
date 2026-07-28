@@ -4,31 +4,46 @@
 #   render-plan PLAN.md               # -> PLAN.html, opened in the browser
 #   render-plan PLAN.md -o out.html   # explicit output path
 #   render-plan PLAN.md --no-open     # just write the file
+#   render-plan PLAN.md --no-mermaid  # leave ```mermaid blocks as source
 #   render-plan PLAN.md -             # write HTML to stdout
 #
-# The output is a single file with all CSS/JS inlined, so it can be mailed,
-# attached to a ticket, or opened from anywhere.
+# ```mermaid fences are rendered as diagrams. The mermaid bundle is cached
+# under $XDG_CACHE_HOME/render-plan and inlined only into documents that use
+# it, so the output stays a single file with all CSS/JS embedded - mailable,
+# attachable to a ticket, and readable offline.
 set -euo pipefail
 
 PANDOC_CONFIG="${XDG_CONFIG_HOME:-$HOME/.config}/pandoc"
 TEMPLATE="$PANDOC_CONFIG/templates/plan.html5"
 FILTER="$PANDOC_CONFIG/plan-meta.lua"
+MERMAID_INIT="$PANDOC_CONFIG/mermaid-init.js"
+MERMAID_VERSION="${RENDER_PLAN_MERMAID_VERSION:-11}"
+CACHE_DIR="${XDG_CACHE_HOME:-$HOME/.cache}/render-plan"
+MERMAID_JS="${RENDER_PLAN_MERMAID_JS:-$CACHE_DIR/mermaid-$MERMAID_VERSION.min.js}"
 
 die() { printf 'render-plan: %s\n' "$1" >&2; exit 1; }
+warn() { printf 'render-plan: %s\n' "$1" >&2; }
 
 input=""
 output=""
 open_after=1
+mermaid=1
 declare -a meta=()
+declare -a extra=()
+declare -a scratch=()
+
+cleanup() { [ ${#scratch[@]} -eq 0 ] || rm -f "${scratch[@]}"; }
+trap cleanup EXIT
 
 while [ $# -gt 0 ]; do
   case "$1" in
     -o|--output) [ $# -ge 2 ] || die "$1 needs an argument"; output="$2"; shift 2 ;;
     --no-open)   open_after=0; shift ;;
+    --no-mermaid) mermaid=0; shift ;;
     -M|--metadata)
       [ $# -ge 2 ] || die "$1 needs an argument"
       meta+=(--metadata "$2"); shift 2 ;;
-    -h|--help)   sed -n '2,9p' "$0" | cut -c3-; exit 0 ;;
+    -h|--help)   sed -n '2,13p' "$0" | cut -c3-; exit 0 ;;
     -)           input="/dev/stdin"; output="-"; shift ;;
     -*)          die "unknown option: $1" ;;
     *)           [ -z "$input" ] || die "only one input file"; input="$1"; shift ;;
@@ -40,9 +55,60 @@ done
 [ -f "$TEMPLATE" ] || die "template missing: $TEMPLATE"
 command -v pandoc >/dev/null || die "pandoc not installed"
 
+# Spool stdin so the mermaid scan below can read the document without
+# consuming the stream pandoc needs.
+if [ "$input" = "/dev/stdin" ]; then
+  stdin_copy="$(mktemp "${TMPDIR:-/tmp}/render-plan.XXXXXX")"
+  scratch+=("$stdin_copy")
+  cat >"$stdin_copy"
+  input="$stdin_copy"
+  from_stdin=1
+else
+  from_stdin=0
+fi
+
 if [ -z "$output" ]; then
   output="${input%.*}.html"
 fi
+
+# ---- mermaid ---------------------------------------------------------------
+# Fetch the bundle once and keep it; a missing bundle is not fatal, the
+# diagrams just stay as source blocks.
+fetch_mermaid() {
+  [ -s "$MERMAID_JS" ] && return 0
+  command -v curl >/dev/null || { warn "curl not installed, skipping mermaid"; return 1; }
+  mkdir -p "$(dirname "$MERMAID_JS")"
+  warn "fetching mermaid@$MERMAID_VERSION (cached at $MERMAID_JS)"
+  if ! curl -fsSL --retry 2 -o "$MERMAID_JS.part" \
+      "https://cdn.jsdelivr.net/npm/mermaid@$MERMAID_VERSION/dist/mermaid.min.js"; then
+    rm -f "$MERMAID_JS.part"
+    warn "could not download mermaid, rendering diagrams as source"
+    return 1
+  fi
+  mv "$MERMAID_JS.part" "$MERMAID_JS"
+}
+
+have_mermaid=0
+if [ "$mermaid" = 1 ] && grep -Eq '^[[:space:]]*(```|~~~)+[[:space:]]*\{?[.]?mermaid\b' "$input"; then
+  if [ ! -f "$MERMAID_INIT" ]; then
+    warn "missing $MERMAID_INIT, rendering diagrams as source"
+  elif fetch_mermaid; then
+    have_mermaid=1
+    # One <script> per file so a syntax error in the bundle cannot swallow the
+    # bootstrap. Appended after the body, where the diagram nodes already exist.
+    after="$(mktemp "${TMPDIR:-/tmp}/render-plan-mermaid.XXXXXX")"
+    scratch+=("$after")
+    {
+      printf '<script>\n'; cat "$MERMAID_JS";     printf '\n</script>\n'
+      printf '<script>\n'; cat "$MERMAID_INIT";   printf '\n</script>\n'
+    } >"$after"
+    extra+=(--include-after-body="$after")
+  fi
+fi
+
+# Without the bundle there is nothing to draw the diagram, so tell the filter
+# to leave the fences as ordinary code blocks - highlighted, with a copy button.
+[ "$have_mermaid" = 1 ] || meta+=(--metadata "no-mermaid=true")
 
 # Only a fallback: the filter prefers the document's own "# Title" and uses this
 # when there isn't one. Passing it as `title` would look like explicit
@@ -51,8 +117,10 @@ fallback_title="$(basename "${input%.*}")"
 
 # Absolute path of the source, embedded in the page so review comments can
 # name the file they refer to when copied into an agent prompt.
-if [ "$input" != "/dev/stdin" ]; then
+if [ "$from_stdin" = 0 ]; then
   meta+=(--metadata "source-path=$(cd "$(dirname "$input")" && pwd)/$(basename "$input")")
+else
+  fallback_title="plan"
 fi
 
 pandoc "$input" \
@@ -67,6 +135,7 @@ pandoc "$input" \
   --template="$TEMPLATE" \
   --metadata=fallback-title="$fallback_title" \
   "${meta[@]+"${meta[@]}"}" \
+  "${extra[@]+"${extra[@]}"}" \
   --output="$output"
 
 [ "$output" = "-" ] && exit 0

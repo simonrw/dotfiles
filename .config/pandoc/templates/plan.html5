@@ -290,6 +290,61 @@ $endif$
     .codeblock-bar button:hover { color: var(--text); background: var(--overlay); }
     .codeblock-bar button.done { color: var(--green); }
 
+    /* ---- mermaid diagrams ----
+       Each diagram is rendered twice by ~/.config/pandoc/mermaid-init.js,
+       light and dark, and the pair is switched here. Printing takes the light
+       copy whatever the screen theme is, matching the print rules below. */
+
+    figure.diagram {
+      margin: 1.4rem 0;
+      padding: 0.9rem 0.75rem 0.5rem;
+      border: 1px solid var(--border);
+      border-radius: 7px;
+      background: var(--surface);
+      overflow: hidden;
+    }
+    .diagram-svg { overflow-x: auto; text-align: center; }
+    .diagram-svg svg { max-width: 100%; height: auto; }
+    .diagram-svg.is-dark { display: none; }
+    @media (prefers-color-scheme: dark) {
+      .diagram-svg.is-light { display: none; }
+      .diagram-svg.is-dark { display: block; }
+    }
+    figure.diagram pre.mermaid {
+      border-top: 1px solid var(--border);
+      margin-top: 0.6rem;
+      color: var(--subtext);
+    }
+    figure.diagram pre.mermaid[hidden] { display: none; }
+    .diagram-bar {
+      display: flex;
+      justify-content: flex-end;
+      gap: 0.35rem;
+      padding-top: 0.35rem;
+      font-size: 0.65rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+    .diagram-bar button {
+      font: inherit;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      background: transparent;
+      color: var(--muted);
+      border: 1px solid transparent;
+      border-radius: 4px;
+      padding: 0.14rem 0.42rem;
+      cursor: pointer;
+    }
+    .diagram-bar button:hover { color: var(--text); background: var(--overlay); }
+    .diagram-bar button.done { color: var(--blue); }
+    .diagram-error {
+      margin: 0 0 0.5rem;
+      font-size: 0.78rem;
+      color: var(--red);
+    }
+
     pre {
       margin: 0;
       padding: 0.8rem 0.95rem;
@@ -512,7 +567,10 @@ $endif$
         --blue: #1e50c0; --sky: #0a7f9c; --green: #2f7d22; --peach: #b8500a;
         --mauve: #6b2fc0; --red: #b00c30; --yellow: #9a6410; --teal: #12727a;
       }
-      .rail, .codeblock-bar { display: none !important; }
+      .rail, .codeblock-bar, .diagram-bar { display: none !important; }
+      .diagram-svg.is-dark { display: none !important; }
+      .diagram-svg.is-light { display: block !important; }
+      figure.diagram { break-inside: avoid; }
       .sel-btn, .comment-popover, .comments-panel { display: none !important; }
       mark.comment-mark { background: none; color: inherit; outline: 1px dashed #9a6410; }
       .shell { display: block; }
@@ -571,6 +629,7 @@ $body$
   // ---- code blocks: language label + copy button -------------------------
   document.querySelectorAll('pre').forEach(function (pre) {
     if (pre.closest('.codeblock')) return;
+    if (pre.closest('figure.diagram')) return;  // diagrams get their own chrome
     var code = pre.querySelector('code');
     var lang = '';
     if (code) {

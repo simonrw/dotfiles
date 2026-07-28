@@ -7,6 +7,25 @@
 -- the filename). That fallback must NOT be passed as `title` directly - doing
 -- so looks like explicit frontmatter and suppresses lifting the "# Title".
 
+-- Mermaid fences are handed to the browser as-is: pandoc must not syntax
+-- highlight them, and the template's code-block chrome must not wrap them.
+-- Emitting raw HTML here (rather than a plain CodeBlock the JS picks up later)
+-- keeps the source out of the highlighter and marks the block unambiguously.
+-- render-plan sets `no-mermaid` when it has no bundle to inline (or was told
+-- not to); the fences then stay ordinary code blocks rather than becoming
+-- diagram shells nothing will ever draw into.
+local function html_escape(s)
+  return s:gsub("&", "&amp;"):gsub("<", "&lt;"):gsub(">", "&gt;")
+end
+
+local function mermaid_block(block)
+  if block.classes[1] ~= "mermaid" then return nil end
+  return pandoc.RawBlock("html",
+    '<figure class="diagram"><pre class="mermaid">'
+      .. html_escape(block.text)
+      .. "</pre></figure>")
+end
+
 local LIFTABLE = {
   status = true, owner = true, author = true, date = true,
   repo = true, ticket = true, issue = true, ["last-updated"] = true,
@@ -14,6 +33,13 @@ local LIFTABLE = {
 
 function Pandoc(doc)
   local blocks = doc.blocks
+
+  -- Done here rather than in a CodeBlock filter because the decision depends
+  -- on metadata, which is only available once the whole document is in hand.
+  if not doc.meta["no-mermaid"] then
+    blocks = doc:walk({ CodeBlock = mermaid_block }).blocks
+  end
+  doc.meta["no-mermaid"] = nil
 
   if not doc.meta.title and blocks[1] and blocks[1].t == "Header" and blocks[1].level == 1 then
     doc.meta.title = pandoc.MetaInlines(blocks[1].content)
