@@ -37,6 +37,7 @@ watchexec = { version = "latest", os = ["linux"] }
 xh = { version = "latest", os = ["linux"] }
 golangci-lint = "2.9.0"
 "github:simonrw/shell-agent" = { version = "latest", minimum_release_age = "0s" }
+"github:agavra/tuicr" = "latest"
 
 [tools."github:MordechaiHadad/bob"]
 version = "latest"

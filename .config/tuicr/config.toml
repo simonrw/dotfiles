@@ -1,0 +1,5 @@
+appearance = "system"
+theme_dark = "catppuccin-mocha"
+theme_light = "catppuccin-latte"
+leader = " "
+
