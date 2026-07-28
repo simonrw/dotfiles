@@ -2,6 +2,7 @@
 
 * When writing markdown, do not hard wrap text.
 * Never use em-dashes: "—", always use ascii dashes: "-"
+* Be concise when responding. Use punctuation like bullet lists to convey information when relevant.
 
 # Tooling
 
