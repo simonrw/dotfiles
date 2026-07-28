@@ -2,4 +2,38 @@ appearance = "system"
 theme_dark = "catppuccin-mocha"
 theme_light = "catppuccin-latte"
 leader = " "
+ignore_whitespace = false
+diff_view = "unified"
 
+[[comment_types]]
+id = "issue"
+color = "red"
+definition = "must fix before merge"
+
+[[comment_types]]
+id = "note"
+color = "blue"
+definition = "non-blocking note"
+
+[[comment_types]]
+id = "suggestion"
+color = "blue"
+definition = "suggest a change"
+
+[[comment_types]]
+id = "question"
+color = "yellow"
+definition = "suggest a change"
+
+[[comment_types]]
+id = "praise"
+color = "green"
+definition = "highlight a good idea"
+
+[[comment_types]]
+id = "thought"
+color = "grey"
+definition = "a casual thought"
+
+[forge]
+comment_type_prefix = false
