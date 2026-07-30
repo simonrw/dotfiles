@@ -1,0 +1,1 @@
+workspace-path = "{{ repo_path }}/../{{ repo }}.{{ name }}"

@@ -109,6 +109,10 @@ if not __fish_load_ssh_agent_env
     set -e SSH_AUTH_SOCK SSH_AGENT_PID
 end
 
+if command -v djo >/dev/null
+    djo shell init fish | source
+end
+
 function ssh-add-all
     find ~/.ssh -type f -name "id_*" -and -not -name "*.pub" | xargs ssh-add
 end
