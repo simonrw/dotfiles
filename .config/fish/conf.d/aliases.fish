@@ -43,6 +43,7 @@ alias lr 'eza --group-directories-first --header -s modified -l'
 alias thor 'eza --group-directories-first --header -s modified -l'
 alias tree 'eza --group-directories-first --header -T'
 alias notes 'open -a Emacs ~/notes.org'
+alias claude-personal 'CLAUDE_CONFIG_DIR=~/.claude claude'
 
 # Functions for aliases with command substitution
 function add-keys
