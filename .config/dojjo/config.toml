@@ -1,1 +1,1 @@
-workspace-path = "{{ repo_path }}/../{{ repo }}.{{ name }}"
+workspace-path = "{{ repo_path }}/../{{ repo }}-{{ name }}"
