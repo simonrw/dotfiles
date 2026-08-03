@@ -134,6 +134,7 @@ cask "font-jetbrains-mono-nerd-font"
 cask "font-lilex"
 cask "ghostty"
 cask "gimp"
+cask "gitbutler"
 cask "godot" if not is_work
 cask "google-chrome" if not is_work
 cask "google-drive" if is_work
