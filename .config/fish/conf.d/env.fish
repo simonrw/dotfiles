@@ -113,5 +113,5 @@ if command -v djo >/dev/null
 end
 
 function ssh-add-all
-    find ~/.ssh -type f -name "id_*" -and -not -name "*.pub" | xargs ssh-add
+    find -L ~/.ssh -type f -name "id_*" -and -not -name "*.pub" | xargs ssh-add
 end
