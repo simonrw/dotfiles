@@ -159,6 +159,7 @@ cask "slack"
 cask "steam" if not is_work
 cask "t3-code"
 cask "tailscale-app"
+cask "tldraw"
 cask "utm"
 cask "visual-studio-code" if not is_work
 cask "wacom-tablet" if hostname == "mm"
