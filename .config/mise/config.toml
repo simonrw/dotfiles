@@ -35,13 +35,12 @@ helix = { version = "latest", os = ["linux"] }
 watchexec = { version = "latest", os = ["linux"] }
 xh = { version = "latest", os = ["linux"] }
 golangci-lint = "2.9.0"
-"github:simonrw/shell-agent" = { version = "latest", minimum_release_age = "0s" }
+"github:simonrw/shell-agent" = "latest"
 "github:agavra/tuicr" = "latest"
 "github:tjarvstrand/dojjo" = "latest"
 
 [tools."github:simonrw/listprojects"]
 version = "latest"
-minimum_release_age = "0s"
 
 [tools."github:simonrw/listprojects".platforms]
 macos-arm64 = { asset_pattern = "*-aarch64-apple-darwin*" }
@@ -59,6 +58,7 @@ experimental = true
 # support .python-version files in Python
 # required for LocalStack
 idiomatic_version_file_enable_tools = ["python", "rust"]
+minimum_release_age = "0s"
 
 [settings.github]
 credential_command = "gh auth token"
