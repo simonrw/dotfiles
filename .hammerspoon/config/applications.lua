@@ -5,7 +5,7 @@ local applications = {
         name = "Ghostty",
     },
     browser = {
-        name = "Helium",
+        name = "Safari",
     },
     chat = {
         name = "Slack",
