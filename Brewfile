@@ -130,6 +130,8 @@ cask "1password"
 cask "betterdisplay"
 cask "blender" if not is_work
 cask "claude"
+cask "codex-app"
+cask "codex"
 cask "docker-desktop" if docker_emulator == "docker-desktop"
 cask "fluidvoice"
 cask "font-jetbrains-mono-nerd-font"
