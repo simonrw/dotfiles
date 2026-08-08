@@ -11,7 +11,6 @@ end
 
 # Taps
 
-tap "keith/formulae", trusted: { formulae: ["keith/formulae/reminders-cli"] } if not is_work
 tap "railwaycat/emacsmacport", trusted: { casks: ["railwaycat/emacsmacport/emacs-mac"] }
 tap "simonrw/tap", trusted: true
 
@@ -68,7 +67,6 @@ brew "ispell"
 brew "jjui"
 brew "jless"
 brew "jujutsu"
-brew "keith/formulae/reminders-cli" if not is_work
 brew "lazygit"
 brew "lima"
 brew "lua"
