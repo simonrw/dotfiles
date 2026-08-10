@@ -152,7 +152,6 @@ cask "ngrok"
 cask "notion"
 cask "obs"
 cask "obsidian"
-cask "paseo"
 cask "pocket-casts" if not is_work
 cask "railwaycat/emacsmacport/emacs-mac"
 cask "raycast"
