@@ -5,7 +5,8 @@
   "defaultThinkingLevel": "medium",
   "packages": [
     "npm:pi-web-access",
-    "npm:pi-mcp-adapter"
+    "npm:pi-mcp-adapter",
+    "npm:pi-subagents"
   ],
   "enabledModels": [
     "openai-codex/gpt-5.6-sol"
