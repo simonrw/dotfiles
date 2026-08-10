@@ -144,7 +144,6 @@ cask "google-chrome" if not is_work
 cask "google-drive" if is_work
 cask "hammerspoon"
 cask "helium-browser"
-cask "hermes-desktop" if hostname == "mm"
 cask "iina"
 cask "inkscape"
 cask "karabiner-elements"
