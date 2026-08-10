@@ -2,5 +2,19 @@
 
 set -euo pipefail
 
-SESSION_NAME="$(tmux ls -F "#{session_activity} #S" | sort -n -r | awk '{print $2}' | fzf --no-sort)"
-tat ${SESSION_NAME}
+if [[ "${HERDR_ENV:-}" == "1" ]]; then
+  WORKSPACE_ID="$(
+    herdr workspace list \
+      | jq -r '.result.workspaces[] | [.label, .workspace_id] | @tsv' \
+      | fzf --no-sort --delimiter=$'\t' --with-nth=1 \
+      | cut -f2
+  )" || exit 0
+  [[ -n "${WORKSPACE_ID}" ]] || exit 0
+
+  herdr workspace focus "${WORKSPACE_ID}" >/dev/null
+  exit 0
+fi
+
+SESSION_NAME="$(tmux ls -F "#{session_activity} #S" | sort -n -r | awk '{print $2}' | fzf --no-sort)" || exit 0
+[[ -n "${SESSION_NAME}" ]] || exit 0
+tat "${SESSION_NAME}"

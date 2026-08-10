@@ -1,0 +1,101 @@
+# Keep Herdr close to the minimal tmux setup in ~/.config/tmux/tmux.conf.
+onboarding = false
+
+[theme]
+auto_switch = true
+dark_name = "catppuccin"
+light_name = "catppuccin-latte"
+
+[theme.custom]
+panel_bg = "reset"
+surface0 = "reset"
+
+[terminal]
+new_cwd = "follow"
+
+[keys]
+prefix = "ctrl+s"
+reload_config = "prefix+r"
+open_notification_target = ""
+workspace_picker = "prefix+w"
+next_workspace = "prefix+0"
+new_tab = "prefix+c"
+previous_tab = "prefix+p"
+next_tab = "prefix+n"
+switch_tab = "prefix+1..9"
+focus_pane_left = "prefix+h"
+focus_pane_down = "prefix+j"
+focus_pane_up = "prefix+k"
+focus_pane_right = "prefix+l"
+split_vertical = "prefix+i"
+split_horizontal = "prefix+minus"
+zoom = "prefix+z"
+
+[[keys.command]]
+key = "prefix+u"
+type = "popup"
+command = "jjui"
+width = "98%"
+height = "98%"
+
+[[keys.command]]
+key = "prefix+o"
+type = "popup"
+command = "lazygit"
+width = "98%"
+height = "98%"
+
+[[keys.command]]
+key = "prefix+y"
+type = "pane"
+command = "mise exec -- csm-tui --exit-on-select"
+
+[[keys.command]]
+key = "prefix+a"
+type = "popup"
+command = "listprojects"
+width = "100%"
+height = "40%"
+
+[[keys.command]]
+key = "prefix+f"
+type = "popup"
+command = "~/.bin/tmux-session-history"
+width = "100%"
+height = "40%"
+
+[ui]
+sidebar_start_collapsed = true
+sidebar_collapsed_mode = "hidden"
+mouse_capture = true
+copy_on_select = true
+confirm_close = false
+prompt_new_tab_name = false
+prompt_new_workspace_name = false
+pane_borders = true
+pane_scrollbars = false
+pane_gaps = false
+show_agent_labels_on_pane_borders = false
+hide_tab_bar_when_single_tab = false
+tab_bar_position = "top"
+accent = "#89b4fa"
+
+[ui.sidebar.agents]
+row_gap = 0
+rows = [["state_icon", "workspace", "tab"], ["agent"]]
+
+[ui.sidebar.spaces]
+row_gap = 0
+rows = [["state_icon", "workspace"], ["branch", "git_status"]]
+
+[ui.toast]
+delivery = "off"
+
+[ui.sound]
+enabled = false
+
+[experimental]
+pane_history = true
+
+[advanced]
+scrollback_limit_bytes = 100000000
