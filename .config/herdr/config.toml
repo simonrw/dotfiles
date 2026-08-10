@@ -80,6 +80,7 @@ hide_tab_bar_when_single_tab = false
 tab_bar_position = "top"
 accent = "#89b4fa"
 
+agent_panel_sort = "priority"
 [ui.sidebar.agents]
 row_gap = 0
 rows = [["state_icon", "workspace", "tab"], ["agent"]]
