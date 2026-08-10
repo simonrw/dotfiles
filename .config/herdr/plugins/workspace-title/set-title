@@ -3,7 +3,8 @@
 set -euo pipefail
 
 HERDR="${HERDR_BIN_PATH:-herdr}"
-TITLE="$("${HERDR}" workspace list | jq -er '.result.workspaces[] | select(.focused) | .label' | head -n 1)" || exit 0
+HERDR_HOSTNAME="$(hostname -s)"
+TITLE="${HERDR_HOSTNAME}:$("${HERDR}" workspace list | jq -er '.result.workspaces[] | select(.focused) | .label' | head -n 1)" || exit 0
 
 [[ -n "${TITLE}" ]] || exit 0
 "${HERDR}" terminal title set "${TITLE}" >/dev/null
