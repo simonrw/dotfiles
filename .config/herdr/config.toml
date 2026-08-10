@@ -49,15 +49,15 @@ height = "98%"
 key = "prefix+a"
 type = "popup"
 command = "listprojects"
-width = "100%"
-height = "40%"
+width = "90%"
+height = "70%"
 
 [[keys.command]]
 key = "prefix+f"
 type = "popup"
 command = "~/.bin/tmux-session-history"
-width = "100%"
-height = "40%"
+width = "90%"
+height = "70%"
 
 [ui]
 sidebar_start_collapsed = true
