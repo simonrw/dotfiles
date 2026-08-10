@@ -46,11 +46,6 @@ width = "98%"
 height = "98%"
 
 [[keys.command]]
-key = "prefix+y"
-type = "pane"
-command = "mise exec -- csm-tui --exit-on-select"
-
-[[keys.command]]
 key = "prefix+a"
 type = "popup"
 command = "listprojects"
