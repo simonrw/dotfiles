@@ -32,6 +32,18 @@ split_horizontal = "prefix+minus"
 zoom = "prefix+z"
 
 [[keys.command]]
+key = "prefix+ctrl+j"
+type = "plugin_action"
+command = "dotfiles.last-focus.last-tab"
+description = "switch to last tab"
+
+[[keys.command]]
+key = "prefix+ctrl+l"
+type = "plugin_action"
+command = "dotfiles.last-focus.last-workspace"
+description = "switch to last workspace"
+
+[[keys.command]]
 key = "prefix+u"
 type = "popup"
 command = "jjui"

@@ -1,0 +1,28 @@
+id = "dotfiles.last-focus"
+name = "Last focused tab and workspace"
+version = "0.1.0"
+min_herdr_version = "0.8.0"
+platforms = ["macos", "linux"]
+
+[[startup]]
+command = ["./last-focus", "startup"]
+
+[[actions]]
+id = "last-tab"
+title = "Switch to last tab"
+contexts = ["workspace"]
+command = ["./last-focus", "last-tab"]
+
+[[actions]]
+id = "last-workspace"
+title = "Switch to last workspace"
+contexts = ["workspace"]
+command = ["./last-focus", "last-workspace"]
+
+[[events]]
+on = "tab.focused"
+command = ["./last-focus", "event"]
+
+[[events]]
+on = "workspace.focused"
+command = ["./last-focus", "event"]

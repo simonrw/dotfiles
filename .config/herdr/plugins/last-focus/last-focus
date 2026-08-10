@@ -1,0 +1,131 @@
+#!/usr/bin/env python3
+
+import fcntl
+import json
+import os
+import subprocess
+import sys
+from pathlib import Path
+
+HERDR = os.environ.get("HERDR_BIN_PATH", "herdr")
+STATE_DIR = Path(os.environ["HERDR_PLUGIN_STATE_DIR"])
+STATE_PATH = STATE_DIR / "focus-history.json"
+LOCK_PATH = STATE_DIR / "focus-history.lock"
+
+
+def herdr(*args):
+    result = subprocess.run(
+        [HERDR, *args], check=True, stdout=subprocess.PIPE, text=True
+    )
+    return json.loads(result.stdout)["result"]
+
+
+def load_state():
+    try:
+        return json.loads(STATE_PATH.read_text())
+    except (FileNotFoundError, json.JSONDecodeError):
+        return {"workspace": {}, "tabs": {}}
+
+
+def save_state(state):
+    temporary = STATE_PATH.with_suffix(".tmp")
+    temporary.write_text(json.dumps(state, sort_keys=True) + "\n")
+    temporary.replace(STATE_PATH)
+
+
+def remember(history, focused_id):
+    if focused_id and history.get("current") != focused_id:
+        history["previous"] = history.get("current")
+        history["current"] = focused_id
+
+
+def bootstrap(state):
+    workspaces = herdr("workspace", "list")["workspaces"]
+    for workspace in workspaces:
+        workspace_id = workspace["workspace_id"]
+        tab_id = workspace.get("active_tab_id")
+        if tab_id:
+            state["tabs"].setdefault(workspace_id, {}).setdefault("current", tab_id)
+        if workspace.get("focused"):
+            state["workspace"].setdefault("current", workspace_id)
+
+
+def handle_event(state):
+    event = json.loads(os.environ["HERDR_PLUGIN_EVENT_JSON"])
+    data = event["data"]
+    if event["event"] == "workspace.focused":
+        remember(state["workspace"], data["workspace_id"])
+    elif event["event"] == "tab.focused":
+        history = state["tabs"].setdefault(data["workspace_id"], {})
+        remember(history, data["tab_id"])
+
+
+def switch_last_tab(state):
+    workspaces = herdr("workspace", "list")["workspaces"]
+    focused = next(
+        (workspace for workspace in workspaces if workspace["focused"]), None
+    )
+    if not focused:
+        return
+
+    workspace_id = focused["workspace_id"]
+    history = state["tabs"].setdefault(workspace_id, {})
+    current = focused.get("active_tab_id")
+    remember(history, current)
+    target = history.get("previous")
+    valid_tabs = {
+        tab["tab_id"]
+        for tab in herdr("tab", "list", "--workspace", workspace_id)["tabs"]
+    }
+    if not target or target not in valid_tabs or target == current:
+        history.pop("previous", None)
+        return
+
+    history["current"], history["previous"] = target, current
+    save_state(state)
+    herdr("tab", "focus", target)
+
+
+def switch_last_workspace(state):
+    workspaces = herdr("workspace", "list")["workspaces"]
+    focused = next(
+        (workspace for workspace in workspaces if workspace["focused"]), None
+    )
+    if not focused:
+        return
+
+    current = focused["workspace_id"]
+    history = state["workspace"]
+    remember(history, current)
+    target = history.get("previous")
+    valid_workspaces = {workspace["workspace_id"] for workspace in workspaces}
+    if not target or target not in valid_workspaces or target == current:
+        history.pop("previous", None)
+        return
+
+    history["current"], history["previous"] = target, current
+    save_state(state)
+    herdr("workspace", "focus", target)
+
+
+def main():
+    STATE_DIR.mkdir(parents=True, exist_ok=True)
+    with LOCK_PATH.open("w") as lock:
+        fcntl.flock(lock, fcntl.LOCK_EX)
+        state = load_state()
+        command = sys.argv[1]
+        if command == "startup":
+            bootstrap(state)
+        elif command == "event":
+            handle_event(state)
+        elif command == "last-tab":
+            switch_last_tab(state)
+        elif command == "last-workspace":
+            switch_last_workspace(state)
+        else:
+            raise SystemExit(f"unknown command: {command}")
+        save_state(state)
+
+
+if __name__ == "__main__":
+    main()
