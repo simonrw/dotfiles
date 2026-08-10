@@ -1,0 +1,16 @@
+id = "dotfiles.workspace-title"
+name = "Workspace title"
+version = "0.1.0"
+min_herdr_version = "0.8.0"
+platforms = ["macos", "linux"]
+
+[[startup]]
+command = ["./set-title"]
+
+[[events]]
+on = "workspace.focused"
+command = ["./set-title"]
+
+[[events]]
+on = "workspace.renamed"
+command = ["./set-title"]

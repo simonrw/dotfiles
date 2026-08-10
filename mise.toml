@@ -9,6 +9,7 @@ depends = [
     "skills",
     "codex:config",
     "zed:config",
+    "herdr-plugins",
 ]
 depends_post = ["brew"]
 
@@ -20,6 +21,16 @@ run = "git submodule update --init --recursive"
 description = "Install global mise packages"
 depends = ["dotfiles"]
 run = "cd $HOME && mise install"
+
+[tasks.herdr-plugins]
+description = "Link local Herdr plugins"
+depends = ["dotfiles"]
+run = '''
+for plugin in "$HOME"/.config/herdr/plugins/*; do
+  [ -f "$plugin/herdr-plugin.toml" ] || continue
+  herdr plugin link "$plugin" --enabled
+done
+'''
 
 [tasks.dotfiles]
 description = "Install dotfiles"
