@@ -3,3 +3,7 @@
 session.json
 plugins/config/
 plugins/state/
+.plugins.lock
+plugins.json
+release-notes.json
+session-history.json
