@@ -31,6 +31,7 @@ focus_pane_right = "prefix+l"
 split_vertical = "prefix+i"
 split_horizontal = "prefix+minus"
 zoom = "prefix+z"
+goto = "prefix+f"
 
 [[keys.command]]
 key = "prefix+ctrl+j"
@@ -62,13 +63,6 @@ height = "98%"
 key = "prefix+a"
 type = "popup"
 command = "listprojects"
-width = "90%"
-height = "70%"
-
-[[keys.command]]
-key = "prefix+f"
-type = "popup"
-command = "~/.bin/tmux-session-history"
 width = "90%"
 height = "70%"
 
