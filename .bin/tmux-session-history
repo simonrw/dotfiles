@@ -3,18 +3,35 @@
 set -euo pipefail
 
 if [[ "${HERDR_ENV:-}" == "1" ]]; then
-  WORKSPACE_ID="$(
-    herdr workspace list \
-      | jq -r '.result.workspaces[] | [.label, .workspace_id] | @tsv' \
-      | fzf --no-sort --delimiter=$'\t' --with-nth=1 \
-      | cut -f2
-  )" || exit 0
-  [[ -n "${WORKSPACE_ID}" ]] || exit 0
-
-  herdr workspace focus "${WORKSPACE_ID}" >/dev/null
-  exit 0
+  SESSION_BACKEND="herdr"
+elif [[ -n "${TMUX:-}" ]]; then
+  SESSION_BACKEND="tmux"
+else
+  SESSION_BACKEND="${SESSION_HISTORY_BACKEND:-herdr}"
 fi
 
-SESSION_NAME="$(tmux ls -F "#{session_activity} #S" | sort -n -r | awk '{print $2}' | fzf --no-sort)" || exit 0
-[[ -n "${SESSION_NAME}" ]] || exit 0
-tat "${SESSION_NAME}"
+case "${SESSION_BACKEND}" in
+  herdr)
+    WORKSPACE_ID="$(
+      herdr workspace list \
+        | jq -r '.result.workspaces[] | [.label, .workspace_id] | @tsv' \
+        | fzf --no-sort --delimiter=$'\t' --with-nth=1 \
+        | cut -f2
+    )" || exit 0
+    [[ -n "${WORKSPACE_ID}" ]] || exit 0
+
+    herdr workspace focus "${WORKSPACE_ID}" >/dev/null
+    if [[ "${HERDR_ENV:-}" != "1" ]]; then
+      exec herdr
+    fi
+    ;;
+  tmux)
+    SESSION_NAME="$(tmux ls -F "#{session_activity} #S" | sort -n -r | awk '{print $2}' | fzf --no-sort)" || exit 0
+    [[ -n "${SESSION_NAME}" ]] || exit 0
+    tat "${SESSION_NAME}"
+    ;;
+  *)
+    printf 'Unknown session history backend: %s\n' "${SESSION_BACKEND}" >&2
+    exit 1
+    ;;
+esac
