@@ -16,12 +16,13 @@ new_cwd = "follow"
 [keys]
 prefix = "ctrl+s"
 reload_config = "prefix+r"
+detach = "prefix+d"
 open_notification_target = ""
 workspace_picker = "prefix+w"
 next_workspace = "prefix+0"
 new_tab = "prefix+c"
-previous_tab = "prefix+p"
-next_tab = "prefix+n"
+previous_tab = ["prefix+p", "prefix+ctrl+p"]
+next_tab = ["prefix+n", "prefix+ctrl+n"]
 switch_tab = "prefix+1..9"
 focus_pane_left = "prefix+h"
 focus_pane_down = "prefix+j"
