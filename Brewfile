@@ -1,13 +1,4 @@
-# helpers
-hostname = `hostname -s`.strip
-is_work = hostname == 'walker-s'
-
-# configuration
-if hostname == 'mm'
-  docker_emulator = 'docker-desktop'
-else
-  docker_emulator = 'docker-desktop'
-end
+require_relative("brew_helpers")
 
 # Taps
 
@@ -28,16 +19,16 @@ brew "btop"
 brew "cargo-instruments"
 brew "cfitsio"
 brew "cmake"
-brew "colima" if docker_emulator == 'colima'
+brew "colima" if Helpers.docker_emulator == 'colima'
 brew "container"
 brew "coreutils"
 brew "curl"
 brew "delta"
 brew "dive"
-brew "docker-buildx" if docker_emulator == 'colima'
-brew "docker-compose" if docker_emulator == 'colima'
-brew "docker-credential-helper" if docker_emulator == 'colima'
-brew "docker" if docker_emulator == 'colima'
+brew "docker-buildx" if Helpers.docker_emulator == 'colima'
+brew "docker-compose" if Helpers.docker_emulator == 'colima'
+brew "docker-credential-helper" if Helpers.docker_emulator == 'colima'
+brew "docker" if Helpers.docker_emulator == 'colima'
 brew "dos2unix"
 brew "duckdb"
 brew "dust"
@@ -102,7 +93,7 @@ brew "viddy"
 brew "wakeonlan"
 brew "watchexec"
 brew "worktrunk"
-brew "xcodegen" if not is_work
+brew "xcodegen" if not Helpers.is_work
 brew "xh"
 brew "yq"
 brew "yt-dlp"
@@ -120,56 +111,56 @@ brew "snappy"
 
 ## music
 
-cask "ableton-live-lite" if hostname == "mm"
-cask "focusrite-control-2" if not is_work
+cask "ableton-live-lite" if Helpers.hostname == "mm"
+cask "focusrite-control-2" if not Helpers.is_work
 
 ## other
 
 cask "1password-cli"
 cask "1password"
 cask "betterdisplay"
-cask "blender" if not is_work
+cask "blender" if not Helpers.is_work
 cask "chatgpt"
 cask "claude"
 cask "codex"
-cask "docker-desktop" if docker_emulator == "docker-desktop"
+cask "docker-desktop" if Helpers.docker_emulator == "docker-desktop"
 cask "fluidvoice"
 cask "font-jetbrains-mono-nerd-font"
 cask "font-lilex"
 cask "ghostty"
 cask "gimp"
 cask "gitbutler"
-cask "godot" if not is_work
-cask "google-chrome" if not is_work
-cask "google-drive" if is_work
+cask "godot" if not Helpers.is_work
+cask "google-chrome" if not Helpers.is_work
+cask "google-drive" if Helpers.is_work
 cask "hammerspoon"
 cask "helium-browser"
 cask "iina"
 cask "inkscape"
 cask "karabiner-elements"
-cask "keyboard-cleaner" if hostname != "mm"
+cask "keyboard-cleaner" if Helpers.hostname != "mm"
 cask "linear"
 cask "mitmproxy"
 cask "ngrok"
 cask "notion"
 cask "obs"
 cask "obsidian"
-cask "pocket-casts" if not is_work
+cask "pocket-casts" if not Helpers.is_work
 cask "railwaycat/emacsmacport/emacs-mac"
 cask "raycast"
 cask "shotcut"
 cask "slack"
-cask "steam" if not is_work
+cask "steam" if not Helpers.is_work
 cask "t3-code"
 cask "tailscale-app"
 cask "tldraw"
 cask "utm"
-cask "visual-studio-code" if not is_work
-cask "wacom-tablet" if hostname == "mm"
+cask "visual-studio-code" if not Helpers.is_work
+cask "wacom-tablet" if Helpers.hostname == "mm"
 cask "whatsapp"
 cask "zed"
 cask "zoom"
 
 # for LocalStack
 cask "clockify"
-cask "pycharm" if is_work
+cask "pycharm" if Helpers.is_work
