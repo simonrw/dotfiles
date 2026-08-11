@@ -46,6 +46,12 @@ command = "dotfiles.last-focus.last-workspace"
 description = "switch to last workspace"
 
 [[keys.command]]
+key = "prefix+y"
+type = "shell"
+command = "\"$HERDR_BIN_PATH\" pane move \"$HERDR_ACTIVE_PANE_ID\" --new-tab --focus"
+description = "move pane to new tab"
+
+[[keys.command]]
 key = "prefix+u"
 type = "popup"
 command = "jjui"
