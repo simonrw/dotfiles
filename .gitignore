@@ -26,5 +26,4 @@ Library/Application\ Support/Cursor/*
 /.emacs.d/personal/custom.el
 /.codex/*
 !/.codex/base.toml
-/.pi
 !/.pi/agent/settings.json
