@@ -47,6 +47,7 @@ set -gx REVIEW_BASE main
 set -gx SESSION_BACKEND herdr
 set -gx NIXPKGS_ALLOW_UNFREE 1
 set -gx NTFY_TOPIC simonrw-notify
+set -gx NTFY_DEFAULT_TOPIC $NTFY_TOPIC
 set -gx NODE_PATH $HOME/.npm-packages/lib/node_modules
 set -gx NODE_COMPILE_CACHE $HOME/.cache/nodejs-compile-cache
 set -gx PYTHONPYCACHEPREFIX $HOME/.python-cache
