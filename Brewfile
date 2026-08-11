@@ -144,7 +144,7 @@ cask "mitmproxy"
 cask "ngrok"
 cask "notion"
 cask "obs"
-cask "obsidian"
+cask "obsidian" if not Helpers.is_work
 cask "pocket-casts" if not Helpers.is_work
 cask "railwaycat/emacsmacport/emacs-mac"
 cask "raycast"
