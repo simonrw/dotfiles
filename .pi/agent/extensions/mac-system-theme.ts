@@ -27,13 +27,21 @@ export default function (pi: ExtensionAPI) {
 
 	pi.on("session_start", async (_event, ctx) => {
 		let currentTheme = (await isDarkMode()) ? "dark" : "light";
-		ctx.ui.setTheme(currentTheme);
+		const themes = {
+			dark: ctx.ui.getTheme("dark"),
+			light: ctx.ui.getTheme("light"),
+		};
+		const setTheme = (name: keyof typeof themes) => {
+			const theme = themes[name];
+			if (theme) ctx.ui.setTheme(theme);
+		};
+		setTheme(currentTheme);
 
 		intervalId = setInterval(async () => {
 			const newTheme = (await isDarkMode()) ? "dark" : "light";
 			if (newTheme !== currentTheme) {
 				currentTheme = newTheme;
-				ctx.ui.setTheme(currentTheme);
+				setTheme(currentTheme);
 			}
 		}, 2000);
 	});

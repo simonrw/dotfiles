@@ -11,6 +11,6 @@
   "enabledModels": [
     "openai-codex/gpt-5.6-sol"
   ],
-  "theme": "dark",
-  "tuiMode": "fullscreen"
+  "tuiMode": "fullscreen",
+  "theme": "light"
 }
