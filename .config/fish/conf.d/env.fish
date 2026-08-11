@@ -44,6 +44,7 @@ set -gx MANPATH /opt/homebrew/share/man $MANPATH
 set -gx BUILD_PREFIX $HOME/.local
 set -gx GOPATH $HOME/dev/gocode
 set -gx REVIEW_BASE main
+set -gx SESSION_BACKEND herdr
 set -gx NIXPKGS_ALLOW_UNFREE 1
 set -gx NTFY_TOPIC simonrw-notify
 set -gx NODE_PATH $HOME/.npm-packages/lib/node_modules

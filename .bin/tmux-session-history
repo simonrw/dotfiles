@@ -7,7 +7,7 @@ if [[ "${HERDR_ENV:-}" == "1" ]]; then
 elif [[ -n "${TMUX:-}" ]]; then
   SESSION_BACKEND="tmux"
 else
-  SESSION_BACKEND="${SESSION_HISTORY_BACKEND:-herdr}"
+  SESSION_BACKEND="${SESSION_BACKEND:-herdr}"
 fi
 
 case "${SESSION_BACKEND}" in
