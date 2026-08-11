@@ -54,3 +54,5 @@ mise.local.toml
 **/.claude/settings.local.json
 
 make.ts
+
+.pi-subagents
