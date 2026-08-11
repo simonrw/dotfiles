@@ -792,7 +792,12 @@ vim.api.nvim_create_autocmd('User', {
         -- require('modules/runtests').setup()
 
         require("ask-agent").setup({
-            provider = "claude",
+            provider = "codex",
+            extra_args = {
+                "--config",
+                "model_reasoning_effort=low",
+            },
+            model = "gpt-5.6-luna",
         })
 
         require('touchup').setup()
