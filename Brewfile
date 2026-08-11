@@ -121,7 +121,7 @@ brew "snappy"
 ## music
 
 cask "ableton-live-lite" if hostname == "mm"
-cask "focusrite-control-2" if hostname == "mm"
+cask "focusrite-control-2" if not is_work
 
 ## other
 
