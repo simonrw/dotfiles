@@ -1,3 +1,7 @@
+# Approaches
+
+I love to focus on simplification, building complex things as simply as possible. I love to reduce complexity.
+
 # Writing
 
 * When writing markdown, do not hard wrap text.
