@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 
 import argparse
+import os
 import platform
 import subprocess as sp
 import sys
@@ -86,6 +87,11 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument("--dark", action="store_true", default=False)
     parser.add_argument("--light", action="store_true", default=False)
+    parser.add_argument(
+        "--no-exec-shell",
+        action="store_true",
+        help="do not replace this process with $SHELL after changing the theme",
+    )
     args = parser.parse_args()
 
     if args.dark and args.light:
@@ -100,3 +106,7 @@ if __name__ == "__main__":
         backend.set_not_dark_mode()
     else:
         backend.toggle()
+
+    if not args.no_exec_shell:
+        shell = os.environ["SHELL"]
+        os.execv(shell, [shell])
