@@ -1,0 +1,60 @@
+#!/usr/bin/env bash
+
+set -eu
+
+usage() {
+    printf 'Usage: %s <pre-start|post-remove> <repo-path> <repo> <branch> [worktree-path]\n' "${0##*/}" >&2
+    exit 2
+}
+
+ACTION="${1:-}"
+REPO_PATH="${2:-}"
+REPO="${3:-}"
+BRANCH="${4:-}"
+WORKTREE_PATH="${5:-}"
+
+[[ -n "$REPO_PATH" && -n "$REPO" && -n "$BRANCH" ]] || usage
+
+LABEL="$(basename "$(dirname "$REPO_PATH")")/$REPO/$BRANCH"
+
+case "${SESSION_BACKEND:-}" in
+    herdr)
+        case "$ACTION" in
+            pre-start)
+                [[ $# -eq 5 ]] || usage
+                herdr workspace create --cwd "$WORKTREE_PATH" --label "$LABEL" --focus
+                ;;
+            post-remove)
+                [[ $# -eq 4 ]] || usage
+                herdr workspace list \
+                    | jq -r --arg label "$LABEL" '.result.workspaces[] | select(.label == $label) | .workspace_id' \
+                    | while IFS= read -r workspace_id; do
+                        herdr workspace close "$workspace_id"
+                    done
+                ;;
+            *)
+                usage
+                ;;
+        esac
+        ;;
+    tmux)
+        case "$ACTION" in
+            pre-start)
+                [[ $# -eq 5 ]] || usage
+                tmux new-session -d -s "$LABEL" -c "$WORKTREE_PATH" 2>/dev/null || true
+                tmux switch-client -t "$LABEL"
+                ;;
+            post-remove)
+                [[ $# -eq 4 ]] || usage
+                tmux kill-session -t "$LABEL" 2>/dev/null || true
+                ;;
+            *)
+                usage
+                ;;
+        esac
+        ;;
+    *)
+        printf 'Unknown session backend: %s\n' "${SESSION_BACKEND:-}" >&2
+        exit 1
+        ;;
+esac

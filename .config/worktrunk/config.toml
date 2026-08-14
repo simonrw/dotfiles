@@ -1,5 +1,5 @@
-post-remove = "label=\"$(basename $(dirname '{{ repo_path }}'))/{{ repo }}/{{ branch | sanitize }}\"; herdr workspace list | jq -r --arg label \"$label\" '.result.workspaces[] | select(.label == $label) | .workspace_id' | while IFS= read -r workspace_id; do herdr workspace close \"$workspace_id\"; done"
-pre-start = "herdr workspace create --cwd '{{ worktree_path }}' --label \"$(basename $(dirname '{{ repo_path }}'))/{{ repo }}/{{ branch | sanitize }}\" --focus"
+post-remove = "worktrunk-session-hook post-remove '{{ repo_path }}' '{{ repo }}' '{{ branch | sanitize }}'"
+pre-start = "worktrunk-session-hook pre-start '{{ repo_path }}' '{{ repo }}' '{{ branch | sanitize }}' '{{ worktree_path }}'"
 
 [commit.generation]
 command = "MAX_THINKING_TOKENS=0 claude -p --model=haiku --tools='' --disable-slash-commands --setting-sources='' --system-prompt=''"
