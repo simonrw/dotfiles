@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 # MISE description="Install agents skills"
 
+from pathlib import Path
 import subprocess as sp
 
 type Repo = str
@@ -22,15 +23,16 @@ sp.check_call(["npx", "skills@latest", "remove", "--global", "--all", "--yes"])
 
 for repo, names in SKILLS.items():
     # add skills
-    command = (
-        ["npx", "skills@latest", "add", "--global", repo]
-        + ["--agent"]
-        + AGENTS
-    )
+    command = ["npx", "skills@latest", "add", "--global", repo] + ["--agent"] + AGENTS
     if names:
         command = command + ["--skill"] + names
 
     sp.check_call(command)
+
+# then install openspec globally
+sp.check_call(
+    ["mise", "exec", "--", "openspec", "init", "--tools", "codex"], cwd=Path.home()
+)
 
 # potentially remove skills
 if not UNINSTALL_LIST:
