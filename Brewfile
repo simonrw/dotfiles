@@ -151,7 +151,7 @@ cask "raycast"
 cask "shotcut"
 cask "slack"
 cask "steam" if not Helpers.is_work
-cask "t3-code"
+cask "t3-code@nightly"
 cask "tailscale-app"
 cask "tldraw"
 cask "utm"
