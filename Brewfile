@@ -155,7 +155,6 @@ cask "t3-code@nightly"
 cask "tailscale-app"
 cask "tldraw"
 cask "utm"
-cask "visual-studio-code" if not Helpers.is_work
 cask "vorssaint"
 cask "wacom-tablet" if Helpers.hostname == "mm"
 cask "whatsapp"
