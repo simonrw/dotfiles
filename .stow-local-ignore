@@ -42,3 +42,4 @@
 ^/cmd
 ^/\.config/gh/hosts.yml
 ^/Brewfile.mas
+^/brew_helpers.rb
