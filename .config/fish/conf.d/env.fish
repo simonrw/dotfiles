@@ -50,6 +50,7 @@ set -gx NTFY_TOPIC simonrw-notify
 set -gx NTFY_DEFAULT_TOPIC $NTFY_TOPIC
 set -gx NODE_PATH $HOME/.npm-packages/lib/node_modules
 set -gx NODE_COMPILE_CACHE $HOME/.cache/nodejs-compile-cache
+set -gx CARGO_TARGET_DIR $HOME/.cargo-target
 set -gx PYTHONPYCACHEPREFIX $HOME/.python-cache
 set -gx EDITOR nvim
 set -gx MISE_PIPX_UVX true
