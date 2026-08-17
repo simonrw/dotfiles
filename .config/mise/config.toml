@@ -36,7 +36,6 @@ xh = { version = "latest", os = ["linux"] }
 "github:simonrw/shell-agent" = "latest"
 "github:agavra/tuicr" = "latest"
 "github:tjarvstrand/dojjo" = "latest"
-"github:tinylabscom/mvm" = "latest"
 
 [tools."github:simonrw/listprojects"]
 version = "latest"
