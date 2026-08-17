@@ -32,7 +32,12 @@ if test -f ~/.config/fish/conf.d/per-host/$this_hostname.fish
     source ~/.config/fish/conf.d/per-host/$this_hostname.fish
 end
 
+if status is-interactive
+    atuin init fish | source
+end
+
 # Local overrides
 if test -f ~/.config/fish/local.fish
     source ~/.config/fish/local.fish
 end
+

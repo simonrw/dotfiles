@@ -8,6 +8,7 @@ tap "slp/krun", trusted: true
 
 # Brews
 
+brew "atuin"
 brew "autoconf"
 brew "automake"
 brew "awscli"
