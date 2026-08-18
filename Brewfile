@@ -4,7 +4,6 @@ require_relative("brew_helpers")
 
 tap "railwaycat/emacsmacport", trusted: { casks: ["railwaycat/emacsmacport/emacs-mac"] }
 tap "simonrw/tap", trusted: true
-tap "slp/krun", trusted: true
 
 # Brews
 
@@ -81,7 +80,6 @@ brew "reattach-to-user-namespace"
 brew "ripgrep"
 brew "rsync"
 brew "slides"
-brew "slp/krun/libkrun"
 brew "sqlite3"
 brew "stow"
 brew "teamtype"
