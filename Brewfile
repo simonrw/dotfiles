@@ -2,6 +2,7 @@ require_relative("brew_helpers")
 
 # Taps
 
+tap "docker/tap", trusted: { casks: ["docker/tap/sbx"] }
 tap "railwaycat/emacsmacport", trusted: { casks: ["railwaycat/emacsmacport/emacs-mac"] }
 tap "simonrw/tap", trusted: true
 
@@ -123,6 +124,7 @@ cask "chatgpt"
 cask "claude"
 cask "codex"
 cask "docker-desktop" if Helpers.docker_emulator == "docker-desktop"
+cask "docker/tap/sbx"
 cask "fluidvoice"
 cask "font-jetbrains-mono-nerd-font"
 cask "font-lilex"
