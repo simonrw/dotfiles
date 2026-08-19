@@ -43,13 +43,6 @@ version = "latest"
 [tools."github:simonrw/listprojects".platforms]
 macos-arm64 = { asset_pattern = "*-aarch64-apple-darwin*" }
 
-[tools."github:simonrw/claude-session-monitor"]
-version = "latest"
-matching = "csm-tui"
-
-[tools."github:simonrw/claude-session-monitor".platforms]
-macos-arm64 = { asset_pattern = "*-aarch64-apple-darwin*" }
-
 [tools."github:MordechaiHadad/bob"]
 version = "latest"
 os = ["linux"]
