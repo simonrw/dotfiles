@@ -10,7 +10,6 @@ type Name = str
 SKILLS: dict[Repo, list[Name]] = {
     "mattpocock/skills": [],
     "simonrw/skills": [],
-    "gitstua/stu-skills": ["ntfy-notify"],
 }
 
 AGENTS: list[str] = ["codex", "claude-code", "pi"]
