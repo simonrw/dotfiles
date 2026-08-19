@@ -122,7 +122,8 @@ post-defaults = '''
 [ "$(uname)" = "Darwin" ] || exit 0
 defaults write -g NSUserKeyEquivalents -dict-add 'Emoji & Symbols' '\0'
 '''
-# install claude code from cloud installer
+# install agents from cloud installer
 final = '''
 command -v claude >/dev/null || curl -fsSL https://claude.ai/install.sh | bash
+command -v codex >/dev/null || curl -fsSL https://chatgpt.com/codex/install.sh | sh
 '''
