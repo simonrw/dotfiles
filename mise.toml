@@ -150,7 +150,7 @@ description = "Update to the latest neovim stable build"
 depends = ["kill-nvim"]
 
 [bootstrap.macos.dock]
-autohide = false
+autohide = true
 orientation = "bottom"
 tilesize = 28
 magnification = true
