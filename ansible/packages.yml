@@ -47,7 +47,6 @@ packages:
   - ripgrep
   - socat                 # for claude sandboxing
   - sqlite3
-  - stow
   - tmux
   - unattended-upgrades
   - virt-manager

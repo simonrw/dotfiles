@@ -1,0 +1,11 @@
+[dotfiles]
+"~/.config/karabiner/karabiner.json" = { source = ".config/karabiner/karabiner.json", mode = "symlink" }
+"~/.hammerspoon" = { source = ".hammerspoon", mode = "symlink" }
+"~/.pi/agent/extensions/mac-system-theme.ts" = { source = ".pi/agent/extensions/mac-system-theme.ts", mode = "symlink" }
+"~/Library/Application Support/claude-session-monitor" = { source = "Library/Application Support/claude-session-monitor", mode = "symlink" }
+"~/Library/Application Support/Code/User/keybindings.json" = { source = "Library/Application Support/Code/User/keybindings.json", mode = "symlink" }
+"~/Library/Application Support/Code/User/settings.json" = { source = "Library/Application Support/Code/User/settings.json", mode = "symlink" }
+"~/Library/Application Support/Cursor/User/keybindings.json" = { source = "Library/Application Support/Cursor/User/keybindings.json", mode = "symlink" }
+"~/Library/Application Support/Cursor/User/settings.json" = { source = "Library/Application Support/Cursor/User/settings.json", mode = "symlink" }
+"~/Library/Application Support/Firefox" = { source = "Library/Application Support/Firefox", mode = "symlink" }
+"~/Library/Preferences/sapling" = { source = "Library/Preferences/sapling", mode = "symlink" }

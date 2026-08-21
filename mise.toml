@@ -1,3 +1,5 @@
+min_version = "2026.7.16"
+
 [tasks.all]
 description = "Install/link packages"
 depends = [
@@ -35,14 +37,71 @@ done
 [tasks.dotfiles]
 description = "Install dotfiles"
 depends = ["submodules"]
-run = """
-if [ "$(uname)" = "Linux" ]; then
-  stow --ignore='^Library' --ignore='^\\.hammerspoon' .
-else
-  stow --ignore='^\\.config/systemd' --ignore='^\\.config/fontconfig' --ignore='^\\.config/xdg-desktop-portal' --ignore='^\\.local' --ignore='^\\.config/waybar' --ignore='^\\.config/hypr' --ignore='^\\.config/sway' .
-fi
-ln -sf "$(pwd)/.config/ghostty/$(hostname -s).config" "$HOME/.config/ghostty/local.config"
-"""
+run = "mise bootstrap dotfiles apply"
+
+[dotfiles]
+"~/.bin" = { source = ".bin", mode = "symlink" }
+"~/.claude/CLAUDE.md" = { source = ".claude/CLAUDE.md", mode = "symlink" }
+"~/.claude/commands" = { source = ".claude/commands", mode = "symlink" }
+"~/.claude/keybindings.json" = { source = ".claude/keybindings.json", mode = "symlink" }
+"~/.claude/scripts" = { source = ".claude/scripts", mode = "symlink" }
+"~/.claude/settings.json" = { source = ".claude/settings.json", mode = "symlink" }
+"~/.codex/AGENTS.md" = { source = ".codex/AGENTS.md", mode = "symlink" }
+"~/.codex/base.toml" = { source = ".codex/base.toml", mode = "symlink" }
+"~/.config/atuin/config.toml" = { source = ".config/atuin/config.toml", mode = "symlink" }
+"~/.config/bat/dark" = { source = ".config/bat/dark", mode = "symlink" }
+"~/.config/bat/light" = { source = ".config/bat/light", mode = "symlink" }
+"~/.config/bat/themes" = { source = ".config/bat/themes", mode = "symlink" }
+"~/.config/claude-session-monitor" = { source = ".config/claude-session-monitor", mode = "symlink" }
+"~/.config/dojjo" = { source = ".config/dojjo", mode = "symlink" }
+"~/.config/fish/completions" = { source = ".config/fish/completions", mode = "symlink" }
+"~/.config/fish/conf.d" = { source = ".config/fish/conf.d", mode = "symlink" }
+"~/.config/fish/config.fish" = { source = ".config/fish/config.fish", mode = "symlink" }
+"~/.config/fish/functions" = { source = ".config/fish/functions", mode = "symlink" }
+"~/.config/fish/plugins" = { source = ".config/fish/plugins", mode = "symlink" }
+"~/.config/gh/config.yml" = { source = ".config/gh/config.yml", mode = "symlink" }
+"~/.config/gh-dash/config-base.yml" = { source = ".config/gh-dash/config-base.yml", mode = "symlink" }
+"~/.config/gh-dash/config-dark.yml" = { source = ".config/gh-dash/config-dark.yml", mode = "symlink" }
+"~/.config/gh-dash/config-light.yml" = { source = ".config/gh-dash/config-light.yml", mode = "symlink" }
+"~/.config/ghostty/config" = { source = ".config/ghostty/config", mode = "symlink" }
+"~/.config/ghostty/local.config" = { source = ".config/ghostty/local.config.tmpl", mode = "template" }
+"~/.config/git/allowed-signers" = { source = ".config/git/allowed-signers", mode = "symlink" }
+"~/.config/git/config" = { source = ".config/git/config", mode = "symlink" }
+"~/.config/git/ignore" = { source = ".config/git/ignore", mode = "symlink" }
+"~/.config/helix/config.toml" = { source = ".config/helix/config.toml", mode = "symlink" }
+"~/.config/helix/languages.toml" = { source = ".config/helix/languages.toml", mode = "symlink" }
+"~/.config/helix/themes/catppuccin_macchiato.toml" = { source = ".config/helix/themes/catppuccin_macchiato.toml", mode = "symlink" }
+"~/.config/helix/themes/monokai-pro-custom.toml" = { source = ".config/helix/themes/monokai-pro-custom.toml", mode = "symlink" }
+"~/.config/helix/themes/nord-custom.toml" = { source = ".config/helix/themes/nord-custom.toml", mode = "symlink" }
+"~/.config/helix/themes/srw.toml" = { source = ".config/helix/themes/srw.toml", mode = "symlink" }
+"~/.config/herdr/config.toml" = { source = ".config/herdr/config.toml", mode = "symlink" }
+"~/.config/herdr/plugins" = { source = ".config/herdr/plugins", mode = "symlink" }
+"~/.config/jj/config.toml" = { source = ".config/jj/config.toml", mode = "symlink" }
+"~/.config/jjui/config.toml" = { source = ".config/jjui/config.toml", mode = "symlink" }
+"~/.config/k9s" = { source = ".config/k9s", mode = "symlink" }
+"~/.config/mcp" = { source = ".config/mcp", mode = "symlink" }
+"~/.config/mise" = { source = ".config/mise", mode = "symlink" }
+"~/.config/nvim" = { source = ".config/nvim", mode = "symlink" }
+"~/.config/opencode" = { source = ".config/opencode", mode = "symlink" }
+"~/.config/pandoc" = { source = ".config/pandoc", mode = "symlink" }
+"~/.config/tmux" = { source = ".config/tmux", mode = "symlink" }
+"~/.config/tuicr" = { source = ".config/tuicr", mode = "symlink" }
+"~/.config/worktrunk/config.toml" = { source = ".config/worktrunk/config.toml", mode = "symlink" }
+"~/.config/zed/base.json" = { source = ".config/zed/base.json", mode = "symlink" }
+"~/.config/zed/keymap.json" = { source = ".config/zed/keymap.json", mode = "symlink" }
+"~/.config/zsh" = { source = ".config/zsh", mode = "symlink" }
+"~/.config/zsh-abbr" = { source = ".config/zsh-abbr", mode = "symlink" }
+"~/.emacs.d/personal" = { source = ".emacs.d/personal", mode = "symlink" }
+"~/.gemini/commands" = { source = ".gemini/commands", mode = "symlink" }
+"~/.hushlogin" = { source = ".hushlogin", mode = "symlink" }
+"~/.ideavimrc" = { source = ".ideavimrc", mode = "symlink" }
+"~/.luarc.json" = { source = ".luarc.json", mode = "symlink" }
+"~/.pi/agent/AGENTS.md" = { source = ".pi/agent/AGENTS.md", mode = "symlink" }
+"~/.pi/agent/extensions/csm-session-monitor.ts" = { source = ".pi/agent/extensions/csm-session-monitor.ts", mode = "symlink" }
+"~/.pi/agent/settings.json" = { source = ".pi/agent/settings.json", mode = "symlink" }
+"~/.ssh/config" = { source = ".ssh/config", mode = "symlink" }
+"~/.zprofile" = { source = ".zprofile", mode = "symlink" }
+"~/.zshrc" = { source = ".zshrc", mode = "symlink" }
 
 [tools]
 go = "latest"

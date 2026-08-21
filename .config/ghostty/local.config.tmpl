@@ -1,0 +1,3 @@
+{%- set short_hostname = exec(command="hostname -s") | trim -%}
+{%- set profile_path = cwd ~ "/.config/ghostty/" ~ short_hostname ~ ".config" -%}
+{{- read_file(path=profile_path) -}}
