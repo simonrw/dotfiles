@@ -12,7 +12,7 @@ set paragraph-motion
 " settings
 set incsearch
 set smartcase
-set nohlsearch
+set hlsearch
 set ignorecase
 set scrolloff=5
 set norelativenumber
