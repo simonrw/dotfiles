@@ -4,4 +4,6 @@ This is a resurrection of my old dotfiles repo ([latest commit before this updat
 
 I have [merged in](https://github.com/simonrw/dotfiles/commit/f47829ab436c) my nix-config repo which is now deprecated.
 
+Dotfile installation requires mise 2026.7.16 or newer. See [docs/dotfiles.md](docs/dotfiles.md) for commands, ownership, cutover, and rollback.
+
 YMMV

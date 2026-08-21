@@ -1,0 +1,8 @@
+[dotfiles]
+"~/.config/fontconfig" = { source = ".config/fontconfig", mode = "symlink" }
+"~/.config/hypr" = { source = ".config/hypr", mode = "symlink" }
+"~/.config/sway" = { source = ".config/sway", mode = "symlink" }
+"~/.config/systemd" = { source = ".config/systemd", mode = "symlink" }
+"~/.config/waybar" = { source = ".config/waybar", mode = "symlink" }
+"~/.config/xdg-desktop-portal" = { source = ".config/xdg-desktop-portal", mode = "symlink" }
+"~/.local/share/applications/helium.desktop" = { source = ".local/share/applications/helium.desktop", mode = "symlink" }
