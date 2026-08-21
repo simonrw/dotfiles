@@ -97,7 +97,6 @@ run = "mise bootstrap dotfiles apply"
 "~/.ideavimrc" = { source = ".ideavimrc", mode = "symlink" }
 "~/.luarc.json" = { source = ".luarc.json", mode = "symlink" }
 "~/.pi/agent/AGENTS.md" = { source = ".pi/agent/AGENTS.md", mode = "symlink" }
-"~/.pi/agent/extensions/csm-session-monitor.ts" = { source = ".pi/agent/extensions/csm-session-monitor.ts", mode = "symlink" }
 "~/.pi/agent/settings.json" = { source = ".pi/agent/settings.json", mode = "symlink" }
 "~/.ssh/config" = { source = ".ssh/config", mode = "symlink" }
 "~/.zprofile" = { source = ".zprofile", mode = "symlink" }
