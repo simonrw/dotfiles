@@ -6,5 +6,6 @@ local is_work = function()
 end
 
 M.is_work = is_work
+M.hostname = hs.host.localizedName
 
 return M
