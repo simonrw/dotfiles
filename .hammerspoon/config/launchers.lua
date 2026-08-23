@@ -1,4 +1,5 @@
 local applications = require('config/applications')
+local intr = require('config/introspection')
 
 -- helper function to bind multiple keys to a single application
 local seen_hotkeys = {}
@@ -22,8 +23,11 @@ end
 
 bindKey(applications.browser, 'c')
 bindKey(applications.terminal, 't')
-bindKey(applications.chat, 's')
-bindKey(applications.linear, 'l')
 bindKey(applications.todo, 'r')
 bindKey(applications.notes, 'e')
 bindKey(applications.editor, 'y')
+
+if intr.is_work() then
+    bindKey(applications.chat, 's')
+    bindKey(applications.linear, 'l')
+end
