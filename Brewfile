@@ -145,7 +145,6 @@ cask "obs"
 cask "obsidian" if not Helpers.is_work
 cask "pocket-casts" if not Helpers.is_work
 cask "railwaycat/emacsmacport/emacs-mac"
-cask "raycast"
 cask "shotcut"
 cask "slack"
 cask "steam" if not Helpers.is_work
