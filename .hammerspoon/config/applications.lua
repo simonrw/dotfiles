@@ -28,6 +28,9 @@ local applications = {
     editor = {
         name = "Zed",
     },
+    agent = {
+        name = "t3 code (nightly)",
+    },
 }
 
 return applications
