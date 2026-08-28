@@ -21,8 +21,9 @@ packages:
   - cpu-checker           # kvm
   - curl
   - emacs
-  - eza
   - ethtool
+  - exuberant-ctags
+  - eza
   - fd-find
   - ffmpeg
   - fish
