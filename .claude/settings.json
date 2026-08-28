@@ -66,6 +66,5 @@
   "theme": "auto",
   "teammateMode": "tmux",
   "agentPushNotifEnabled": true,
-  "useAutoModeDuringPlan": true,
-  "hooks": {"SessionStart":[{"matcher":"*","hooks":[{"type":"command","command":"bash '/Users/simon/.claude/hooks/herdr-agent-state.sh' session","timeout":10}]}]}
+  "useAutoModeDuringPlan": true
 }
