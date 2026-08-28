@@ -6,3 +6,13 @@
 "~/.config/waybar" = { source = ".config/waybar", mode = "symlink" }
 "~/.config/xdg-desktop-portal" = { source = ".config/xdg-desktop-portal", mode = "symlink" }
 "~/.local/share/applications/helium.desktop" = { source = ".local/share/applications/helium.desktop", mode = "symlink" }
+
+[bootstrap.linux.systemd.units.t3code]
+description = "T3 Code remote connection"
+exec_start = "bash -c 'exec ~/.local/share/mise/shims/npx t3@nightly serve --host \"$(tailscale ip -4)\"'"
+environment = { T3_BOOT_SERVICE_UNIT = "dev.mise.t3code.service" }
+working_directory = "~"
+restart = "always"
+restart_sec = "5s"
+standard_output = "append:%h/.t3/userdata/logs/boot-service.log"
+standard_error = "append:%h/.t3/userdata/logs/boot-service.log"
