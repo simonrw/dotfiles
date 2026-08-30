@@ -151,7 +151,7 @@ depends = ["kill-nvim"]
 
 [bootstrap.macos.dock]
 autohide = false
-orientation = "left"
+orientation = "bottom"
 tilesize = 28
 magnification = true
 largesize = 92
