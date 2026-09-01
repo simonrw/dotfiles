@@ -66,5 +66,9 @@
   "theme": "auto",
   "teammateMode": "tmux",
   "agentPushNotifEnabled": true,
-  "useAutoModeDuringPlan": true
+  "useAutoModeDuringPlan": true,
+  "enableWorkflows": false,
+  "sandbox": {
+    "enabled": true
+  }
 }
