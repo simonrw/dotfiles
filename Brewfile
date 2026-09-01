@@ -158,5 +158,7 @@ cask "zed"
 cask "zoom"
 
 # for LocalStack
+
+cask "claude" if Helpers.is_work
 cask "clockify"
 cask "pycharm" if Helpers.is_work
