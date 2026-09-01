@@ -29,6 +29,7 @@ packages:
   - fish
   - fonts-jetbrains-mono
   - git-delta
+  - git-lfs
   - gnome-tweaks
   - htop
   - libcfitsio-dev
