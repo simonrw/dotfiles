@@ -1,6 +1,6 @@
 [tools]
 go = "latest"
-rust = { version = "beta", components = "rust-src,rust-analyzer" }
+rust = { version = "stable", components = "rust-src,rust-analyzer" }
 "pipx:ipython" = "latest"
 python = "latest"
 "go:github.com/simonrw/cert-info" = "0"
