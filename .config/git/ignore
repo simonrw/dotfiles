@@ -56,3 +56,5 @@ mise.local.toml
 make.ts
 
 .pi-subagents
+
+**/.claude/.cc-writes/
