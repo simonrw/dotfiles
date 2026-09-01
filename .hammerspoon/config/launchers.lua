@@ -25,7 +25,6 @@ bindKey(applications.browser, 'c')
 bindKey(applications.terminal, 't')
 
 if intr.is_work() then
-    bindKey(applications.chat, 's')
     bindKey(applications.linear, 'l')
     bindKey(applications.notes, 'e')
     bindKey(applications.todo, 'r')
