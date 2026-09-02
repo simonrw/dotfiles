@@ -1,18 +1,20 @@
 [tools]
+node = "lts"
 "npm:@jmfederico/pi-web" = "latest"
 
 [bootstrap.macos.launchd.agents.pi-web-sessiond]
-program = "/bin/zsh"
-args = ["-lc", "exec ~/.local/share/mise/installs/npm-jmfederico-pi-web/latest/node_modules/.bin/pi-web-sessiond"]
+program = "~/.local/share/mise/shims/pi-web-sessiond"
+working_directory = "~/dotfiles"
+environment = { MISE_ENABLE_TOOLS = "node,npm:@jmfederico/pi-web" }
 run_at_load = true
 keep_alive = true
 stdout_path = "~/Library/Logs/pi-web-sessiond.log"
 stderr_path = "~/Library/Logs/pi-web-sessiond.log"
 
 [bootstrap.macos.launchd.agents.pi-web-server]
-program = "/bin/zsh"
-args = ["-lc", "exec ~/.local/share/mise/installs/npm-jmfederico-pi-web/latest/node_modules/.bin/pi-web-server"]
-environment = { PI_WEB_HOST = "0.0.0.0" }
+program = "~/.local/share/mise/shims/pi-web-server"
+working_directory = "~/dotfiles"
+environment = { MISE_ENABLE_TOOLS = "node,npm:@jmfederico/pi-web", PI_WEB_HOST = "0.0.0.0" }
 run_at_load = true
 keep_alive = true
 stdout_path = "~/Library/Logs/pi-web-server.log"
