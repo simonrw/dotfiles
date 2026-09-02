@@ -7,6 +7,17 @@
 "~/.config/xdg-desktop-portal" = { source = ".config/xdg-desktop-portal", mode = "symlink" }
 "~/.local/share/applications/helium.desktop" = { source = ".local/share/applications/helium.desktop", mode = "symlink" }
 
+[bootstrap.linux.systemd.units.pi-web-sessiond]
+description = "Pi Web session daemon"
+exec_start = "bash -lc 'exec ~/.local/share/mise/installs/npm-jmfederico-pi-web/latest/node_modules/.bin/pi-web-sessiond'"
+restart = "always"
+
+[bootstrap.linux.systemd.units.pi-web-server]
+description = "Pi Web server"
+exec_start = "bash -lc 'exec ~/.local/share/mise/installs/npm-jmfederico-pi-web/latest/node_modules/.bin/pi-web-server'"
+environment = { PI_WEB_HOST = "0.0.0.0" }
+restart = "always"
+
 [bootstrap.linux.systemd.units.t3code]
 description = "T3 Code remote connection"
 exec_start = "bash -c 'exec ~/.local/share/mise/shims/npx t3@nightly serve --host \"$(tailscale ip -4)\"'"
