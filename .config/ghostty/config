@@ -1,5 +1,5 @@
 macos-non-native-fullscreen = true
-macos-titlebar-style = tabs
+macos-titlebar-style = hidden
 window-save-state = never
 macos-option-as-alt = true
 # add some window padding
