@@ -37,6 +37,7 @@ atuin = { version = "latest", os = ["linux"] }
 "github:agavra/tuicr" = "latest"
 "github:tjarvstrand/dojjo" = "latest"
 "npm:@earendil-works/pi-coding-agent" = { version = "latest", os = ["linux"] }
+"npm:@jmfederico/pi-web" = { version = "latest", allow_builds = ["node-pty"] }
 
 [tools."github:simonrw/listprojects"]
 version = "latest"
