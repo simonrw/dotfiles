@@ -36,6 +36,7 @@ atuin = { version = "latest", os = ["linux"] }
 "github:simonrw/shell-agent" = "latest"
 "github:agavra/tuicr" = "latest"
 "github:tjarvstrand/dojjo" = "latest"
+"npm:@earendil-works/pi-coding-agent" = { version = "latest", os = ["linux"] }
 
 [tools."github:simonrw/listprojects"]
 version = "latest"
