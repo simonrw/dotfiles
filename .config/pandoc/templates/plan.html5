@@ -75,7 +75,7 @@ $endif$
       background: var(--bg);
       color: var(--text);
       font-family: ui-sans-serif, -apple-system, "Inter", "Helvetica Neue", sans-serif;
-      font-size: 15px;
+      font-size: 1rem;
       line-height: 1.58;
       -webkit-font-smoothing: antialiased;
     }
@@ -349,7 +349,7 @@ $endif$
       margin: 0;
       padding: 0.8rem 0.95rem;
       overflow-x: auto;
-      font-size: 0.775rem;
+      font-size: 1rem;
       line-height: 1.62;
       background: transparent;
       color: var(--text);
@@ -375,7 +375,7 @@ $endif$
       border-collapse: collapse;
       width: 100%;
       margin: 1.2rem 0;
-      font-size: 0.8rem;
+      font-size: 1rem;
       border: 1px solid var(--border);
       border-radius: 6px;
       overflow: hidden;
