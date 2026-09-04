@@ -13,14 +13,14 @@
   var mermaid = window.mermaid;
   if (!mermaid) return;
 
-  // Catppuccin Latte / Mocha, mirroring the palette in plan.html5.
+  // Catppuccin Latte / Macchiato, mirroring the palette in plan.html5.
   var LIGHT = {
     bg: '#eff1f5', surface: '#e6e9ef', border: '#bcc0cc', text: '#4c4f69',
     blue: '#1e66f5', mauve: '#8839ef', teal: '#179299', peach: '#fe640b',
   };
   var DARK = {
-    bg: '#181825', surface: '#313244', border: '#585b70', text: '#cdd6f4',
-    blue: '#89b4fa', mauve: '#cba6f7', teal: '#94e2d5', peach: '#fab387',
+    bg: '#1e2030', surface: '#363a4f', border: '#5b6078', text: '#cad3f5',
+    blue: '#8aadf4', mauve: '#c6a0f6', teal: '#8bd5ca', peach: '#f5a97f',
   };
 
   function config(p) {

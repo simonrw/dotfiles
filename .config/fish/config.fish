@@ -15,9 +15,9 @@ end
 
 # Theme
 if test "$__IS_DARK_THEME" = 1
-    fish_config theme choose --color-theme=dark catppuccin-mocha
+    fish_config theme choose --color-theme=dark catppuccin-macchiato
 else
-    fish_config theme choose --color-theme=light catppuccin-mocha
+    fish_config theme choose --color-theme=light catppuccin-latte
 end
 
 # shell agent

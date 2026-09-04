@@ -33,7 +33,7 @@
   "theme": {
     "mode": "system",
     "light": "Catppuccin Latte",
-    "dark": "Catppuccin Mocha"
+    "dark": "Catppuccin Macchiato"
   },
   "buffer_font_family": "JetBrainsMono NFM SemiBold",
   "buffer_font_weight": 600,

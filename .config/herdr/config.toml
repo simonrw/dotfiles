@@ -86,7 +86,7 @@ pane_gaps = false
 show_agent_labels_on_pane_borders = false
 hide_tab_bar_when_single_tab = false
 tab_bar_position = "top"
-accent = "#89b4fa"
+accent = "#8aadf4"
 
 agent_panel_sort = "priority"
 [ui.sidebar.agents]

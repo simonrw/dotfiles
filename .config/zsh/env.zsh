@@ -48,7 +48,7 @@ export OPENSPEC_TELEMETRY=0
 if [[ "$__IS_DARK_THEME" == "1" ]]; then
     export BAT_CONFIG_PATH="$HOME/.config/bat/dark/config"
     export GLAMOUR_STYLE=dark
-    export K9S_SKIN=catppuccin-mocha
+    export K9S_SKIN=catppuccin-macchiato
 else
     export BAT_CONFIG_PATH="$HOME/.config/bat/light/config"
     export GLAMOUR_STYLE=light

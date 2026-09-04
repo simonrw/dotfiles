@@ -6,7 +6,7 @@
 (use-package auto-dark
   :ensure t
   :custom
-  (auto-dark-themes '((batppuccin-mocha) (batppuccin-latte)))
+  (auto-dark-themes '((batppuccin-macchiato) (batppuccin-latte)))
   :config
   ;; emacs-mac reacts to appearance changes natively via
   ;; `mac-effective-appearance-change-hook'. auto-dark's built-in readers all
