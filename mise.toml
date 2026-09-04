@@ -42,6 +42,7 @@ run = "mise bootstrap dotfiles apply"
 [dotfiles]
 "~/.bin" = { source = ".bin", mode = "symlink" }
 "~/.claude/CLAUDE.md" = { source = ".claude/CLAUDE.md", mode = "symlink" }
+"~/.config/caddy/Caddyfile" = { source = ".config/caddy/Caddyfile", mode = "symlink" }
 "~/.claude/commands" = { source = ".claude/commands", mode = "symlink" }
 "~/.claude/keybindings.json" = { source = ".claude/keybindings.json", mode = "symlink" }
 "~/.claude/scripts" = { source = ".claude/scripts", mode = "symlink" }

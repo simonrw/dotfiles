@@ -9,3 +9,13 @@
 "~/Library/Application Support/Cursor/User/settings.json" = { source = "Library/Application Support/Cursor/User/settings.json", mode = "symlink" }
 "~/Library/Application Support/Firefox" = { source = "Library/Application Support/Firefox", mode = "symlink" }
 "~/Library/Preferences/sapling" = { source = "Library/Preferences/sapling", mode = "symlink" }
+
+[bootstrap.macos.launchd.agents.caddy]
+program = "~/.local/share/mise/shims/caddy"
+args = ["run", "--config", ".config/caddy/Caddyfile", "--adapter", "caddyfile"]
+working_directory = "~/dotfiles"
+environment = { MISE_ENABLE_TOOLS = "caddy" }
+run_at_load = true
+keep_alive = true
+stdout_path = "~/Library/Logs/caddy.log"
+stderr_path = "~/Library/Logs/caddy.log"

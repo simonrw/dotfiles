@@ -1,0 +1,9 @@
+:8505 {
+	bind 127.0.0.1
+
+	redir /pi /pi/{?query} 308
+
+	handle_path /pi/* {
+		reverse_proxy localhost:8504
+	}
+}

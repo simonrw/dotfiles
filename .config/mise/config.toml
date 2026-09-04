@@ -39,6 +39,8 @@ atuin = { version = "latest", os = ["linux"] }
 "npm:@earendil-works/pi-coding-agent" = { version = "latest", os = ["linux"] }
 "npm:@jmfederico/pi-web" = { version = "latest", allow_builds = ["node-pty"] }
 herdr = { version = "latest", os = ["linux"] }
+caddy = "latest"
+
 
 [tools."github:simonrw/listprojects"]
 version = "latest"
