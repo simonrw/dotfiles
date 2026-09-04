@@ -19,12 +19,3 @@ run_at_load = true
 keep_alive = true
 stdout_path = "~/Library/Logs/caddy.log"
 stderr_path = "~/Library/Logs/caddy.log"
-
-[bootstrap.macos.launchd.agents.tailscale]
-program = "/usr/local/bin/tailscale"
-args = ["serve", "8505"]
-working_directory = "~/"
-run_at_load = true
-keep_alive = true
-stdout_path = "~/Library/Logs/tailscale.log"
-stderr_path = "~/Library/Logs/tailscale.log"

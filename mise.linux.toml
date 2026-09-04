@@ -14,12 +14,6 @@ environment = { MISE_ENABLE_TOOLS = "caddy" }
 working_directory = "~/dotfiles"
 restart = "always"
 
-[bootstrap.linux.systemd.units.tailscale]
-description = "Serve this host over tailscale"
-exec_start = "tailscale serve 8505"
-working_directory = "~/"
-restart = "always"
-
 [bootstrap.linux.systemd.units.pi-web-sessiond]
 description = "Pi Web session daemon"
 exec_start = "~/.local/share/mise/shims/pi-web-sessiond"
