@@ -1,6 +1,3 @@
-[tools]
-node = "lts"
-
 [dotfiles]
 "~/.config/karabiner/karabiner.json" = { source = ".config/karabiner/karabiner.json", mode = "symlink" }
 "~/.hammerspoon" = { source = ".hammerspoon", mode = "symlink" }

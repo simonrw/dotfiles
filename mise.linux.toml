@@ -1,7 +1,3 @@
-[tools]
-node = "lts"
-"npm:@jmfederico/pi-web" = "latest"
-
 [dotfiles]
 "~/.config/fontconfig" = { source = ".config/fontconfig", mode = "symlink" }
 "~/.config/hypr" = { source = ".config/hypr", mode = "symlink" }
