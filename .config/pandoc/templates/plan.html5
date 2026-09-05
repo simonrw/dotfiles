@@ -591,6 +591,9 @@ $endfor$
 <div class="shell">
 
   <aside class="rail">
+$if(server-mode)$
+    <p><a href="/">All documents</a></p>
+$endif$
     <p class="doc-kind">$if(kicker)$$kicker$$else$Plan review$endif$</p>
 $if(title)$
     <p class="rail-title">$title$</p>
@@ -729,6 +732,8 @@ $body$
 })();
 </script>
 
+$if(server-mode)$
+$else$
 <script>
 (function () {
   /* ---- review comments ---------------------------------------------------
@@ -1184,6 +1189,8 @@ $body$
   };
 })();
 </script>
+
+$endif$
 
 $for(include-after)$
 $include-after$

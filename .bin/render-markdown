@@ -1,16 +1,17 @@
 #!/usr/bin/env bash
-# Render a markdown plan / design doc to a self-contained HTML file for review.
+# Render Markdown to HTML (default mode) or browse a directory of documents.
 #
-#   render-plan PLAN.md               # -> PLAN.html, opened in the browser
-#   render-plan PLAN.md -o out.html   # explicit output path
-#   render-plan PLAN.md --no-open     # just write the file
-#   render-plan PLAN.md --no-mermaid  # leave ```mermaid blocks as source
-#   render-plan PLAN.md -             # write HTML to stdout
+#   render-markdown DOC.md                         # write DOC.html and open it
+#   render-markdown convert DOC.md -o out.html      # explicit output path
+#   render-markdown convert DOC.md -o -            # write HTML to stdout
+#   render-markdown convert -                      # read stdin, write stdout
+#   render-markdown convert DOC.md --no-open       # just write the file
+#   render-markdown convert DOC.md --no-mermaid    # leave diagrams as source
+#   render-markdown convert DOC.md -M key=value    # set Pandoc metadata
+#   render-markdown server                         # browse Markdown under cwd
+#   render-markdown server --host 127.0.0.1 --port 8080 --no-open
 #
-# ```mermaid fences are rendered as diagrams. The mermaid bundle is cached
-# under $XDG_CACHE_HOME/render-plan and inlined only into documents that use
-# it, so the output stays a single file with all CSS/JS embedded - mailable,
-# attachable to a ticket, and readable offline.
+# Mermaid is cached under $XDG_CACHE_HOME/render-plan and embedded in HTML.
 set -euo pipefail
 
 PANDOC_CONFIG="${XDG_CONFIG_HOME:-$HOME/.config}/pandoc"
@@ -21,8 +22,19 @@ MERMAID_VERSION="${RENDER_PLAN_MERMAID_VERSION:-11}"
 CACHE_DIR="${XDG_CACHE_HOME:-$HOME/.cache}/render-plan"
 MERMAID_JS="${RENDER_PLAN_MERMAID_JS:-$CACHE_DIR/mermaid-$MERMAID_VERSION.min.js}"
 
-die() { printf 'render-plan: %s\n' "$1" >&2; exit 1; }
-warn() { printf 'render-plan: %s\n' "$1" >&2; }
+die() { printf 'render-markdown: %s\n' "$1" >&2; exit 1; }
+warn() { printf 'render-markdown: %s\n' "$1" >&2; }
+
+case "${1:-}" in
+  convert) shift ;;
+  server)
+    shift
+    command -v python3 >/dev/null || die "python3 not installed"
+    exec python3 "$PANDOC_CONFIG/server.py" --renderer "$0" "$@"
+    ;;
+  -h|--help) sed -n '2,14p' "$0" | cut -c3-; exit 0 ;;
+  *) ;; # No subcommand: preserve the original conversion arguments.
+esac
 
 input=""
 output=""
@@ -43,7 +55,7 @@ while [ $# -gt 0 ]; do
     -M|--metadata)
       [ $# -ge 2 ] || die "$1 needs an argument"
       meta+=(--metadata "$2"); shift 2 ;;
-    -h|--help)   sed -n '2,13p' "$0" | cut -c3-; exit 0 ;;
+    -h|--help)   sed -n '2,14p' "$0" | cut -c3-; exit 0 ;;
     -)           input="/dev/stdin"; output="-"; shift ;;
     -*)          die "unknown option: $1" ;;
     *)           [ -z "$input" ] || die "only one input file"; input="$1"; shift ;;
@@ -79,17 +91,20 @@ fetch_mermaid() {
   command -v curl >/dev/null || { warn "curl not installed, skipping mermaid"; return 1; }
   mkdir -p "$(dirname "$MERMAID_JS")"
   warn "fetching mermaid@$MERMAID_VERSION (cached at $MERMAID_JS)"
-  if ! curl -fsSL --retry 2 -o "$MERMAID_JS.part" \
+  local download
+  download="$(mktemp "$MERMAID_JS.part.XXXXXX")"
+  scratch+=("$download")
+  if ! curl -fsSL --retry 2 -o "$download" \
       "https://cdn.jsdelivr.net/npm/mermaid@$MERMAID_VERSION/dist/mermaid.min.js"; then
-    rm -f "$MERMAID_JS.part"
+    rm -f "$download"
     warn "could not download mermaid, rendering diagrams as source"
     return 1
   fi
-  mv "$MERMAID_JS.part" "$MERMAID_JS"
+  mv "$download" "$MERMAID_JS"
 }
 
 have_mermaid=0
-if [ "$mermaid" = 1 ] && grep -Eq '^[[:space:]]*(```|~~~)+[[:space:]]*\{?[.]?mermaid\b' "$input"; then
+if [ "$mermaid" = 1 ] && rg -q '^[[:space:]]*(```|~~~)+[[:space:]]*\{?[.]?mermaid\b' "$input"; then
   if [ ! -f "$MERMAID_INIT" ]; then
     warn "missing $MERMAID_INIT, rendering diagrams as source"
   elif fetch_mermaid; then
@@ -129,6 +144,7 @@ pandoc "$input" \
   --wrap=none \
   --standalone \
   --embed-resources \
+  --resource-path="$(dirname "$input")" \
   --toc --toc-depth=3 \
   --syntax-highlighting=breezedark \
   --lua-filter="$FILTER" \
