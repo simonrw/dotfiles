@@ -31,8 +31,52 @@ local LIFTABLE = {
   repo = true, ticket = true, issue = true, ["last-updated"] = true,
 }
 
+local INTERNAL = {
+  ["fallback-title"] = true, ["source-path"] = true,
+  ["no-mermaid"] = true, ["server-mode"] = true,
+}
+
+-- Render metadata as text, including Markdown and raw HTML, so attributes
+-- cannot introduce executable markup into the page.
+local function attribute_value(value)
+  local kind = pandoc.utils.type(value)
+  if kind == "table" or kind == "MetaMap" then
+    local keys, rows = {}, {}
+    for key in pairs(value) do keys[#keys + 1] = key end
+    table.sort(keys)
+    for _, key in ipairs(keys) do
+      rows[#rows + 1] = '<div class="attribute-row"><dt>' .. html_escape(key)
+        .. '</dt><dd>' .. attribute_value(value[key]) .. '</dd></div>'
+    end
+    return '<dl>' .. table.concat(rows) .. '</dl>'
+  elseif kind == "List" or kind == "MetaList" then
+    local items = {}
+    for _, item in ipairs(value) do
+      items[#items + 1] = '<li>' .. attribute_value(item) .. '</li>'
+    end
+    return '<ul>' .. table.concat(items) .. '</ul>'
+  elseif type(value) == "boolean" then
+    return tostring(value)
+  end
+  if kind == "Inlines" or kind == "Blocks" then
+    value = value:walk({
+      RawInline = function(raw) return pandoc.Str(raw.text) end,
+      RawBlock = function(raw) return pandoc.Plain({ pandoc.Str(raw.text) }) end,
+    })
+  end
+  return html_escape(pandoc.utils.stringify(value))
+end
+
 function Pandoc(doc)
   local blocks = doc.blocks
+  local attributes = {}
+  for key, value in pairs(doc.meta) do
+    if not INTERNAL[key] then attributes[key] = value end
+  end
+  doc.meta["document-attributes"] = pandoc.MetaBlocks({
+    pandoc.RawBlock("html", next(attributes) and attribute_value(attributes)
+      or '<p class="attributes-empty">No frontmatter attributes.</p>'),
+  })
 
   -- Done here rather than in a CodeBlock filter because the decision depends
   -- on metadata, which is only available once the whole document is in hand.

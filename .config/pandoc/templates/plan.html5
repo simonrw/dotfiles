@@ -86,6 +86,61 @@ $endif$
       font-feature-settings: "liga" 0, "calt" 0;
     }
 
+    /* ---- document attributes ---- */
+    .attributes-toggle {
+      position: fixed;
+      top: 1rem;
+      right: 1rem;
+      z-index: 50;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.65rem 0.85rem;
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      background: var(--surface2);
+      color: var(--text);
+      font: inherit;
+      font-size: 0.85rem;
+      cursor: pointer;
+    }
+    .attributes-toggle:hover { background: var(--overlay); }
+    .attributes-toggle:focus-visible, .attributes-close:focus-visible {
+      outline: 2px solid var(--blue);
+      outline-offset: 3px;
+    }
+    .attributes-panel {
+      position: fixed;
+      inset: 4.5rem 1rem auto auto;
+      margin: 0;
+      width: min(28rem, calc(100vw - 2rem));
+      max-height: calc(100dvh - 5.5rem);
+      overflow: auto;
+      padding: 1.25rem;
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      background: var(--surface);
+      color: var(--text);
+      box-shadow: 0 16px 48px #0004;
+      font-size: 0.9rem;
+    }
+    .attributes-heading { display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
+    .attributes-heading h2 { margin: 0; font-size: 0.9rem; font-weight: 500; color: var(--subtext); }
+    .attributes-close { border: 0; background: transparent; color: var(--subtext); font: inherit; font-size: 1.4rem; cursor: pointer; }
+    .attributes-panel dl { margin: 0.75rem 0 0; }
+    .attribute-row { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.5fr); gap: 1rem; padding: 0.75rem 0; border-top: 1px solid var(--border); }
+    .attribute-row dt { color: var(--subtext); }
+    .attribute-row dd { margin: 0; white-space: pre-wrap; }
+    .attribute-row dt, .attribute-row dd { overflow-wrap: anywhere; min-width: 0; }
+    .attribute-row dd dl { margin: 0; }
+    .attribute-row dd .attribute-row { display: block; padding: 0.4rem 0; }
+    .attribute-row dd .attribute-row:first-child { border-top: 0; padding-top: 0; }
+    .attribute-row ul { margin: 0; padding-left: 1rem; }
+    .attributes-empty { color: var(--muted); }
+    @media (prefers-color-scheme: dark) {
+      .attributes-panel { background: #22252b; border-color: #30343b; color: #d5d9e0; }
+    }
+
     /* ---- shell ---- */
 
     .shell {
@@ -567,7 +622,7 @@ $endif$
         --blue: #1e50c0; --sky: #0a7f9c; --green: #2f7d22; --peach: #b8500a;
         --mauve: #6b2fc0; --red: #b00c30; --yellow: #9a6410; --teal: #12727a;
       }
-      .rail, .codeblock-bar, .diagram-bar { display: none !important; }
+      .rail, .codeblock-bar, .diagram-bar, .attributes-toggle, .attributes-panel { display: none !important; }
       .diagram-svg.is-dark { display: none !important; }
       .diagram-svg.is-light { display: block !important; }
       figure.diagram { break-inside: avoid; }
@@ -588,6 +643,19 @@ $for(header-includes)$
 $endfor$
 </head>
 <body>
+$if(document-attributes)$
+<button type="button" class="attributes-toggle" popovertarget="document-attributes" aria-label="Show document attributes">
+  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="5" cy="6" r="2"/><circle cx="5" cy="18" r="2"/><path d="M11 6h10M11 18h10"/></svg>
+  Attributes
+</button>
+<section id="document-attributes" class="attributes-panel" popover aria-labelledby="attributes-title">
+  <div class="attributes-heading">
+    <h2 id="attributes-title">Attributes</h2>
+    <button type="button" class="attributes-close" popovertarget="document-attributes" popovertargetaction="hide" aria-label="Close attributes">&#215;</button>
+  </div>
+  $document-attributes$
+</section>
+$endif$
 <div class="shell">
 
   <aside class="rail">
