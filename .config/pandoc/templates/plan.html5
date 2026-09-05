@@ -732,8 +732,6 @@ $body$
 })();
 </script>
 
-$if(server-mode)$
-$else$
 <script>
 (function () {
   /* ---- review comments ---------------------------------------------------
@@ -753,10 +751,42 @@ $else$
   var storeKey = 'plan-comments:' + (sourcePath || document.title);
   var CTX = 30;
 
+  var directoryMeta = document.querySelector('meta[name="plan-directory"]');
+  var documents = directoryMeta ? JSON.parse(directoryMeta.content) : null;
   var comments = [];
-  try { comments = JSON.parse(localStorage.getItem(storeKey) || '[]') || []; } catch (e) { comments = []; }
+  function readComments(key) {
+    try {
+      var value = JSON.parse(localStorage.getItem(key) || '[]');
+      return Array.isArray(value) ? value : [];
+    } catch (e) { return []; }
+  }
+  function loadComments() {
+    comments = [];
+    if (documents) {
+      documents.forEach(function (doc) {
+        readComments('plan-comments:' + doc.source).forEach(function (c) {
+          c.document = doc;
+          comments.push(c);
+        });
+      });
+    } else {
+      comments = readComments(storeKey);
+    }
+  }
+  loadComments();
   function persist() {
-    try { localStorage.setItem(storeKey, JSON.stringify(comments)); } catch (e) {}
+    try {
+      if (documents) {
+        documents.forEach(function (doc) {
+          var own = comments.filter(function (c) { return c.document.source === doc.source; });
+          localStorage.setItem('plan-comments:' + doc.source, JSON.stringify(own, function (key, value) {
+            return key === 'document' ? undefined : value;
+          }));
+        });
+      } else {
+        localStorage.setItem(storeKey, JSON.stringify(comments));
+      }
+    } catch (e) { window.alert('Could not save comments in this browser.'); }
   }
   function newId() {
     return 'c' + Date.now().toString(36) + Math.floor(Math.random() * 1679616).toString(36);
@@ -990,6 +1020,7 @@ $else$
   }
 
   function currentSelectionRange() {
+    if (documents) return null;
     var sel = window.getSelection();
     if (!sel || sel.rangeCount === 0 || sel.isCollapsed) return null;
     var r = sel.getRangeAt(0);
@@ -1036,6 +1067,7 @@ $else$
   // ---- comments panel ----------------------------------------------------
   var panel = document.createElement('aside');
   panel.className = 'comments-panel';
+  if (documents) panel.classList.add('open');
   var drawer = document.createElement('div');
   drawer.className = 'panel-drawer';
   var listEl = document.createElement('ol');
@@ -1066,8 +1098,9 @@ $else$
   }
 
   function renderPanel() {
-    panel.style.display = comments.length ? '' : 'none';
-    if (!comments.length) panel.classList.remove('open');
+    panel.style.display = documents || comments.length ? '' : 'none';
+    btnCopy.disabled = btnClear.disabled = !comments.length;
+    if (!documents && !comments.length) panel.classList.remove('open');
     pill.textContent = '💬 ' + comments.length + ' comment' + (comments.length === 1 ? '' : 's');
     listEl.textContent = '';
     comments.forEach(function (c) {
@@ -1077,6 +1110,12 @@ $else$
       var chip = document.createElement('span');
       chip.className = 'chip';
       chip.textContent = c.sectionTitle || 'Top';
+      if (c.document) {
+        var link = document.createElement('a');
+        link.href = c.document.url;
+        link.textContent = c.document.name;
+        head.appendChild(link);
+      }
       head.appendChild(chip);
       if (c.anchored === false) {
         var warn = document.createElement('span');
@@ -1092,7 +1131,7 @@ $else$
       t.textContent = c.text;
       var actions = document.createElement('div');
       actions.className = 'card-actions';
-      if (c.anchored !== false) {
+      if (!documents && c.anchored !== false) {
         var bJump = document.createElement('button');
         bJump.type = 'button';
         bJump.textContent = 'jump';
@@ -1123,11 +1162,12 @@ $else$
 
   // ---- copy for agent ----------------------------------------------------
   function buildMarkdown() {
-    var head = sourcePath
+    var head = documents ? 'Apply the following review feedback to these documents:' : sourcePath
       ? 'Apply the following review feedback to the plan at ' + sourcePath + ':'
       : 'Apply the following review feedback to the plan titled "' + document.title + '":';
     var lines = [head, ''];
     comments.forEach(function (c, i) {
+      if (c.document) lines.push('File: ' + c.document.source);
       var tag = '[Section: ' + (c.sectionTitle || 'Top')
         + (c.anchored === false ? ' - anchor may have moved' : '') + ']';
       lines.push((i + 1) + '. ' + tag + ' Re: "' + excerpt(c.quote, 200) + '"');
@@ -1178,9 +1218,18 @@ $else$
     renderPanel();
   });
 
-  comments.forEach(anchorComment);
-  persist();
+  if (!documents) comments.forEach(anchorComment);
   renderPanel();
+  window.addEventListener('storage', function (event) {
+    if (event.key !== null && (documents
+        ? !documents.some(function (doc) { return event.key === 'plan-comments:' + doc.source; })
+        : event.key !== storeKey)) return;
+    comments.forEach(function (c) { unwrap(c.id); });
+    closePopover();
+    loadComments();
+    if (!documents) comments.forEach(anchorComment);
+    renderPanel();
+  });
 
   // handle for scripting / debugging (not part of the UI)
   window.__planReview = {
@@ -1189,8 +1238,6 @@ $else$
   };
 })();
 </script>
-
-$endif$
 
 $for(include-after)$
 $include-after$

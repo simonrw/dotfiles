@@ -2,6 +2,7 @@
 
 import argparse
 import html
+import json
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
 import subprocess
@@ -37,17 +38,34 @@ def handler_for(root, renderer, no_mermaid=False):
                     )
                     for path in documents
                 )
-                body = (
-                    '<!doctype html><html lang="en"><meta charset="utf-8">'
-                    '<meta name="viewport" content="width=device-width, initial-scale=1">'
-                    '<title>Markdown documents</title><style>'
-                    'body{{font:18px system-ui;max-width:60rem;margin:3rem auto;padding:0 1rem;'
-                    'color-scheme:light dark}}li{{margin:.6rem 0}}</style>'
-                    '<h1>Markdown documents</h1><p>{}</p>{}</html>'.format(
-                        html.escape(str(root)),
-                        "<ul>" + links + "</ul>" if links else "<p>No Markdown documents found.</p>",
-                    )
+                index = (
+                    '# Markdown documents\n\n<p>{}</p>\n\n{}\n\n'
+                    '<p>Comments are saved in this browser. Open a document and select text to comment. '
+                    'Use Copy for agent to copy feedback across documents.</p>\n'
+                ).format(
+                    html.escape(str(root)),
+                    "<ul>" + links + "</ul>" if links else "<p>No Markdown documents found.</p>",
+                )
+                command = [str(renderer), "convert", "-", "--no-open", "--no-mermaid",
+                           "-M", "server-mode=true"]
+                try:
+                    result = subprocess.run(command, input=index.encode(), capture_output=True)
+                except OSError:
+                    self.send_error(500, "Could not render document index")
+                    return
+                if result.returncode:
+                    self.send_error(500, "Could not render document index")
+                    return
+                reviews = {
+                    str(path.resolve()): {"source": str(path.resolve()),
+                     "name": path.relative_to(root).as_posix(),
+                     "url": "/" + quote(path.relative_to(root).as_posix())}
+                    for path in documents
+                }
+                metadata = '<meta name="plan-directory" content="{}">'.format(
+                    html.escape(json.dumps(list(reviews.values())), quote=True)
                 ).encode()
+                body = result.stdout.replace(b"</head>", metadata + b"</head>", 1)
             else:
                 try:
                     path = (root / url_path.lstrip("/")).resolve()

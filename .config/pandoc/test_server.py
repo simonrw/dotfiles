@@ -1,6 +1,9 @@
 """Integration checks using the installed Pandoc configuration."""
 
+import html
+import json
 from pathlib import Path
+import re
 import subprocess
 import tempfile
 import unittest
@@ -14,7 +17,7 @@ RENDERER = Path(__file__).resolve().parents[2] / ".bin" / "render-markdown"
 class ServerTest(unittest.TestCase):
     def test_browsing_and_conversion(self):
         with tempfile.TemporaryDirectory() as directory:
-            root = Path(directory)
+            root = Path(directory).resolve()
             (root / "nested").mkdir()
             doc = root / "nested" / "A & B.md"
             doc.write_text("# First title\n\nOriginal content\n\n[Other](../other.markdown)\n\n![Dot](dot.svg)\n")
@@ -44,11 +47,19 @@ class ServerTest(unittest.TestCase):
                 self.assertIn("nested/A%20%26%20B.md", index)
                 self.assertIn("A &amp; B.md", index)
                 self.assertIn("other.markdown", index)
+                metadata = re.search(r'<meta name="plan-directory" content="([^"]*)">', index)
+                reviews = json.loads(html.unescape(metadata.group(1)))
+                self.assertEqual({review["source"] for review in reviews},
+                                 {str(doc), str(root / "other.markdown")})
+                self.assertEqual(reviews[0]["url"], "/nested/A%20%26%20B.md")
+                self.assertIn("window.__planReview", index)
+                self.assertIn("Copy for agent", index)
+                self.assertIn("Clear all", index)
                 self.assertNotIn("escape.md", index)
                 page = get("/nested/A%20%26%20B.md")
                 self.assertIn("Original content", page)
                 self.assertIn("All documents", page)
-                self.assertNotIn("window.__planReview", page)
+                self.assertIn("window.__planReview", page)
                 self.assertIn("../other.markdown", page)
                 self.assertIn("data:image/svg+xml", page)
                 doc.write_text("# Changed title\n\nUpdated content\n")
