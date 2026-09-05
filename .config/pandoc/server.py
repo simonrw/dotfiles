@@ -32,22 +32,31 @@ def handler_for(root, renderer, no_mermaid=False):
                     key=lambda path: str(path.relative_to(root)).casefold(),
                 )
                 links = "".join(
-                    '<li><a href="/{}">{}</a></li>'.format(
+                    '<li data-document-path="{0}"><a href="/{1}">{0}</a></li>'.format(
+                        html.escape(path.relative_to(root).as_posix(), quote=True),
                         quote(path.relative_to(root).as_posix()),
-                        html.escape(path.relative_to(root).as_posix()),
                     )
                     for path in documents
                 )
+                finder = (
+                    '<div class="document-finder" data-document-index>'
+                    '<label for="document-search">Find a file</label>'
+                    '<input id="document-search" type="search" placeholder="Search files..." '
+                    'autocomplete="off" spellcheck="false" aria-controls="document-list">'
+                    '<p class="document-finder-status" aria-live="polite"></p>'
+                    '<ul id="document-list">{}</ul>'
+                    '</div>'
+                ).format(links) if links else '<p>No Markdown documents found.</p>'
                 index = (
                     '# Markdown documents\n\n<p>{}</p>\n\n{}\n\n'
                     '<p>Comments are saved in this browser. Open a document and select text to comment. '
                     'Use Copy for agent to copy feedback across documents.</p>\n'
                 ).format(
                     html.escape(str(root)),
-                    "<ul>" + links + "</ul>" if links else "<p>No Markdown documents found.</p>",
+                    finder,
                 )
                 command = [str(renderer), "convert", "-", "--no-open", "--no-mermaid",
-                           "-M", "server-mode=true"]
+                           "-M", "server-mode=true", "-M", "directory-index=true"]
                 try:
                     result = subprocess.run(command, input=index.encode(), capture_output=True)
                 except OSError:

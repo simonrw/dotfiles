@@ -614,6 +614,41 @@ $endif$
       background: var(--surface2);
     }
 
+$if(directory-index)$
+    /* ---- directory finder ---- */
+    .document-finder { margin-top: 1.5rem; }
+    .document-finder label {
+      display: block;
+      margin-bottom: 0.4rem;
+      color: var(--subtext);
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+    .document-finder input {
+      width: 100%;
+      padding: 0.75rem 0.9rem;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      background: var(--surface);
+      color: var(--text);
+      font: inherit;
+    }
+    .document-finder input:focus {
+      border-color: var(--blue);
+      outline: 2px solid color-mix(in oklab, var(--blue) 35%, transparent);
+      outline-offset: 1px;
+    }
+    .document-finder-status { min-height: 1.25rem; margin: 0.45rem 0; color: var(--muted); font-size: 0.8rem; }
+    .document-finder ul { margin-top: 0; }
+    .document-finder li.is-selected a {
+      border-radius: 4px;
+      outline: 2px solid var(--blue);
+      outline-offset: 2px;
+    }
+$endif$
+
     @media print {
       /* always print light, whatever the screen theme was */
       :root {
@@ -799,6 +834,110 @@ $body$
   update();
 })();
 </script>
+
+$if(directory-index)$
+<script>
+(function () {
+  var finder = document.querySelector('[data-document-index]');
+  if (!finder) return;
+
+  var input = finder.querySelector('input[type="search"]');
+  var status = finder.querySelector('.document-finder-status');
+  var list = finder.querySelector('#document-list');
+  var items = Array.prototype.slice.call(list.querySelectorAll('[data-document-path]'));
+  var selected = -1;
+
+  items.forEach(function (item, index) {
+    item.dataset.documentOrder = index;
+    item.querySelector('a').id = 'document-result-' + index;
+  });
+
+  function fuzzyScore(value, query) {
+    value = value.toLowerCase();
+    query = query.toLowerCase();
+    if (!query) return 0;
+    var score = 0;
+    var previous = -1;
+    for (var i = 0; i < query.length; i++) {
+      var position = value.indexOf(query.charAt(i), previous + 1);
+      if (position < 0) return null;
+      var boundary = position === 0 || /[\/._-]/.test(value.charAt(position - 1));
+      if (previous >= 0) score += (position - previous - 1) * 4;
+      else score += position * 2;
+      if (boundary) score -= 2;
+      if (position === previous + 1) score -= 1;
+      previous = position;
+    }
+    return score + (value.length - query.length) / 100;
+  }
+
+  function visibleItems() {
+    return items.filter(function (item) { return !item.hidden; });
+  }
+
+  function select(index) {
+    var visible = visibleItems();
+    items.forEach(function (item) { item.classList.remove('is-selected'); });
+    if (!visible.length) {
+      selected = -1;
+      input.removeAttribute('aria-activedescendant');
+      return;
+    }
+    selected = (index + visible.length) % visible.length;
+    var link = visible[selected].querySelector('a');
+    visible[selected].classList.add('is-selected');
+    input.setAttribute('aria-activedescendant', link.id);
+  }
+
+  function update() {
+    var query = input.value.trim();
+    var matches = [];
+    items.forEach(function (item) {
+      var score = fuzzyScore(item.dataset.documentPath, query);
+      item.hidden = score === null;
+      if (score !== null) matches.push({ item: item, score: score });
+    });
+    matches.sort(function (a, b) {
+      return a.score - b.score
+        || Number(a.item.dataset.documentOrder) - Number(b.item.dataset.documentOrder);
+    });
+    matches.forEach(function (match) { list.appendChild(match.item); });
+    status.textContent = matches.length + ' file' + (matches.length === 1 ? '' : 's');
+    select(matches.length ? 0 : -1);
+  }
+
+  input.addEventListener('input', update);
+  input.addEventListener('keydown', function (event) {
+    if (event.key === 'ArrowDown') {
+      event.preventDefault();
+      select(selected + 1);
+    } else if (event.key === 'ArrowUp') {
+      event.preventDefault();
+      select(selected - 1);
+    } else if (event.key === 'Enter') {
+      var visible = visibleItems();
+      if (visible.length) {
+        event.preventDefault();
+        visible[selected < 0 ? 0 : selected].querySelector('a').click();
+      }
+    } else if (event.key === 'Escape' && input.value) {
+      input.value = '';
+      update();
+    }
+  });
+  document.addEventListener('keydown', function (event) {
+    var target = event.target;
+    var typing = target && (target.tagName === 'INPUT' || target.tagName === 'TEXTAREA' || target.isContentEditable);
+    if ((!typing && event.key === '/') || ((event.metaKey || event.ctrlKey) && event.key.toLowerCase() === 'k')) {
+      event.preventDefault();
+      input.focus();
+      input.select();
+    }
+  });
+  update();
+})();
+</script>
+$endif$
 
 <script>
 (function () {

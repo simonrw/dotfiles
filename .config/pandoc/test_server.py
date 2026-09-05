@@ -47,6 +47,10 @@ class ServerTest(unittest.TestCase):
                 self.assertIn("nested/A%20%26%20B.md", index)
                 self.assertIn("A &amp; B.md", index)
                 self.assertIn("other.markdown", index)
+                self.assertIn('data-document-index', index)
+                self.assertIn('id="document-search"', index)
+                self.assertIn('data-document-path="nested/A &amp; B.md"', index)
+                self.assertIn("function fuzzyScore", index)
                 metadata = re.search(r'<meta name="plan-directory" content="([^"]*)">', index)
                 reviews = json.loads(html.unescape(metadata.group(1)))
                 self.assertEqual({review["source"] for review in reviews},
@@ -64,6 +68,7 @@ class ServerTest(unittest.TestCase):
                 self.assertIn("data:image/svg+xml", page)
                 doc.write_text("# Changed title\n\nUpdated content\n")
                 self.assertIn("Updated content", get("/nested/A%20%26%20B.md"))
+                self.assertNotIn('<div class="document-finder"', page)
                 (root / "new.MD").write_text("# New\n")
                 self.assertIn("new.MD", get("/"))
                 for path in ["/escape.md", "/secret.txt", "/../etc/hosts", "/missing.md"]:
