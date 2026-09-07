@@ -6,8 +6,7 @@
   "packages": [
     "npm:pi-web-access",
     "npm:pi-mcp-adapter",
-    "npm:pi-subagents",
-    "git:github.com/simonrw/pi-iroh-plugin"
+    "npm:pi-subagents"
   ],
   "enabledModels": [
     "openai-codex/gpt-5.6-sol",
