@@ -14,10 +14,11 @@ if type -q fzf
 end
 
 # Theme
+# note: fish does not ship with a catppuccin-latte theme so we use the light variant of the dark theme instead
 if test "$__IS_DARK_THEME" = 1
     fish_config theme choose --color-theme=dark catppuccin-macchiato
 else
-    fish_config theme choose --color-theme=light catppuccin-latte
+    fish_config theme choose --color-theme=light catppuccin-macchiato
 end
 
 # shell agent
