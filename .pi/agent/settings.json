@@ -6,12 +6,12 @@
   "packages": [
     "npm:pi-web-access",
     "npm:pi-mcp-adapter",
-    "npm:pi-subagents",
-    "../../.local/share/mise/installs/npm-jmfederico-pi-web/latest/node_modules/@jmfederico/pi-web/dist/pi-packages/relays"
+    "npm:pi-subagents"
   ],
   "enabledModels": [
     "openai-codex/gpt-5.6-sol",
-    "openai-codex/gpt-5.6-luna"
+    "openai-codex/gpt-5.6-luna",
+    "openai-codex/gpt-6-astra"
   ],
   "tuiMode": "fullscreen",
   "theme": "light"
