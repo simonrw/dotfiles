@@ -6,7 +6,8 @@
   "packages": [
     "npm:pi-web-access",
     "npm:pi-mcp-adapter",
-    "npm:pi-subagents"
+    "npm:pi-subagents",
+    "../../.local/share/mise/installs/npm-jmfederico-pi-web/1.202608.2/node_modules/.mise/@jmfederico+pi-web@1.202608.2_@earendil-works+pi-agent-core@0.84.4_@earendil-works+pi-a_1795224ee13b7959888b6282d473882f/node_modules/@jmfederico/pi-web/dist/pi-packages/relays"
   ],
   "enabledModels": [
     "openai-codex/gpt-5.6-sol",
