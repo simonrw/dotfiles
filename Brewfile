@@ -32,6 +32,7 @@ brew "docker-credential-helper" if Helpers.docker_emulator == 'colima'
 brew "docker" if Helpers.docker_emulator == 'colima'
 brew "dos2unix"
 brew "duckdb"
+brew "dumbpipe"
 brew "dust"
 brew "e2fsprogs"
 brew "eza"
