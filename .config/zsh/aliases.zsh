@@ -1,10 +1,6 @@
 # Silent replacements and shell functions live here.
 # Fish-style inline expansions live in ~/.config/zsh/abbreviations via zsh-abbr.
 
-if command -v csm-codex >/dev/null 2>&1; then
-    alias codex=csm-codex
-fi
-
 alias eza='eza --group-directories-first --header'
 alias la='eza --group-directories-first --header -a'
 alias ll='eza --group-directories-first --header -l'

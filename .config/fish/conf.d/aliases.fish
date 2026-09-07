@@ -29,10 +29,6 @@ abbr --add switch --command wt -- "switch --no-cd"
 abbr --add laws 'AWS_PROFILE=ls-sandbox'
 abbr --add cy 'codex --yolo'
 
-if type -q csm-codex
-    alias codex csm-codex
-end
-
 # eza wrappers (alias so they replace silently)
 alias ls 'eza --group-directories-first --header'
 alias la 'eza --group-directories-first --header -a'
