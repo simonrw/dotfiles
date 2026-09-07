@@ -9,7 +9,7 @@
       "src": "https://github.com/simonrw/ask-agent"
     },
     "blink.cmp": {
-      "rev": "101d71861f6a012f2be80e4100720874330d86aa",
+      "rev": "49d39fda6350d7f789d1da1053e86c9e256f8108",
       "src": "https://github.com/saghen/blink.cmp"
     },
     "catppuccin": {
@@ -65,7 +65,7 @@
       "src": "https://github.com/catppuccin/nvim"
     },
     "nvim-dap": {
-      "rev": "9e848e09a697ee95302a3ef2dd43fd6eb709e570",
+      "rev": "c9a0738e45f1bd41d792a126941348dce661cf9b",
       "src": "https://github.com/mfussenegger/nvim-dap"
     },
     "nvim-dap-python": {
@@ -81,11 +81,11 @@
       "src": "https://github.com/kevinhwang91/nvim-hlslens"
     },
     "nvim-lspconfig": {
-      "rev": "16286347bdba1333c7d124d9de9fe6630731b2b2",
+      "rev": "615d7b2712efb2f530a83a9d0466acafba6b1d6f",
       "src": "https://github.com/neovim/nvim-lspconfig"
     },
     "nvim-treesitter": {
-      "rev": "19071296d3d643b48615ee574a20e8a03ac40872",
+      "rev": "32dbd2e8fd6079ae4d69e7ed621320369b75b563",
       "src": "https://github.com/nvim-treesitter/nvim-treesitter",
       "version": "'main'"
     },
@@ -94,7 +94,7 @@
       "src": "https://github.com/nvim-treesitter/nvim-treesitter-context"
     },
     "nvim-treesitter-textobjects": {
-      "rev": "898ee307df58f854d11cd7edd06472574d48014e",
+      "rev": "5c7b0263797dfd1bd6202f2b219f3b53a80b2187",
       "src": "https://github.com/nvim-treesitter/nvim-treesitter-textobjects"
     },
     "obsidian.nvim": {
