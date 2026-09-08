@@ -100,6 +100,11 @@ if vim.fn.has('nvim-0.12') == 1 then
     })
 end
 
+-- options added in 0.13
+if vim.fn.has('nvim-0.13') == 1 then
+    vim.opt.completeopt = { "fuzzy", "menuone", "popup", "noselect", "preselect" }
+end
+
 vim.keymap.set('n', 'cp', ':0,$y+<cr>')
 vim.keymap.set('n', '<leader>w', ':update<Cr>')
 vim.keymap.set('n', '<leader>q', ':quit<Cr>')
