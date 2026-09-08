@@ -121,6 +121,7 @@ cask "1password"
 cask "betterdisplay"
 cask "blender" if not Helpers.is_work
 cask "chatgpt"
+cask "cmux"
 cask "docker-desktop" if Helpers.docker_emulator == "docker-desktop"
 cask "docker/tap/sbx"
 cask "fluidvoice"
