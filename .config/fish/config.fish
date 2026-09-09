@@ -4,11 +4,6 @@ stty stop undef 2>/dev/null
 # Disable greeting
 set -g fish_greeting
 
-# Tool integrations
-if type -q mise
-    mise activate fish | source
-end
-
 if type -q fzf
     fzf --fish | source
 end
