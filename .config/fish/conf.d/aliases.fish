@@ -39,7 +39,7 @@ alias lr 'eza --group-directories-first --header -s modified -l'
 alias thor 'eza --group-directories-first --header -s modified -l'
 alias tree 'eza --group-directories-first --header -T'
 alias notes 'open -a Emacs ~/notes.org'
-alias claude-personal 'CLAUDE_CONFIG_DIR=~/.claude claude'
+alias pi-work "PI_CODING_AGENT_DIR=$HOME/work/localstack/.pi-localstack pi"
 
 # Functions for aliases with command substitution
 function add-keys
