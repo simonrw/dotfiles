@@ -5,6 +5,7 @@ local function is_dark_mode()
     return is_dark_theme == nil or is_dark_theme == "1"
 end
 
+vim.g.loaded_python3_provider = 0
 vim.g.get_is_dark_mode = is_dark_mode
 vim.g.is_dark_mode = is_dark_mode()
 vim.g.mapleader = " "
