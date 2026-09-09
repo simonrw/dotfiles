@@ -1,0 +1,32 @@
+#!/usr/bin/env python3
+
+import re
+import subprocess
+import sys
+
+
+def split_direction(layout, pane_id):
+    """Split perpendicular to the pane's parent; start side by side."""
+    parents = []
+    for match in re.finditer(r"[{}\[\]]|\d+x\d+,\d+,\d+(?:,\d+)?", layout):
+        token = match.group()
+        if token in ("{", "["):
+            parents.append(token)
+        elif token in ("}", "]"):
+            parents.pop()
+        elif len(fields := token.split(",")) == 4 and fields[-1] == pane_id.lstrip("%"):
+            return "-v" if parents and parents[-1] == "{" else "-h"
+    raise ValueError(f"Pane {pane_id} is missing from the layout")
+
+
+if __name__ == "__main__":
+    pane_id = sys.argv[1]
+    layout = subprocess.check_output(
+        ["tmux", "display-message", "-p", "-t", pane_id, "#{window_layout}"],
+        text=True,
+    )
+    subprocess.run(
+        ["tmux", "split-window", "-t", pane_id, split_direction(layout, pane_id),
+         "-l", "50%", "-c", "#{pane_current_path}"],
+        check=True,
+    )
