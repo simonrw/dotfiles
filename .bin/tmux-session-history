@@ -2,12 +2,14 @@
 
 set -euo pipefail
 
-if [[ "${HERDR_ENV:-}" == "1" ]]; then
-  SESSION_BACKEND="herdr"
-elif [[ -n "${TMUX:-}" ]]; then
-  SESSION_BACKEND="tmux"
-else
-  SESSION_BACKEND="${SESSION_BACKEND:-herdr}"
+if [[ -z "${SESSION_BACKEND:-}" ]]; then
+  if [[ "${HERDR_ENV:-}" == "1" ]]; then
+    SESSION_BACKEND="herdr"
+  elif [[ -n "${TMUX:-}" ]]; then
+    SESSION_BACKEND="tmux"
+  else
+    SESSION_BACKEND="herdr"
+  fi
 fi
 
 case "${SESSION_BACKEND}" in

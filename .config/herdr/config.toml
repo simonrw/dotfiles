@@ -31,13 +31,21 @@ focus_pane_right = "prefix+l"
 split_vertical = ""
 split_horizontal = "prefix+minus"
 zoom = "prefix+z"
-goto = "prefix+f"
+goto = ""
 
 [[keys.command]]
 key = "prefix+i"
 type = "shell"
 command = '~/.bin/mux-bsp-split --backend herdr "$HERDR_ACTIVE_PANE_ID"'
 description = "BSP split into equal panes"
+
+[[keys.command]]
+key = "prefix+f"
+type = "popup"
+command = "SESSION_BACKEND=herdr ~/.bin/tmux-session-history"
+description = "switch workspace"
+width = "100%"
+height = "40%"
 
 [[keys.command]]
 key = "prefix+ctrl+j"
