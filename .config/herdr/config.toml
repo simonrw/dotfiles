@@ -44,8 +44,8 @@ key = "prefix+f"
 type = "popup"
 command = "SESSION_BACKEND=herdr ~/.bin/tmux-session-history"
 description = "switch workspace"
-width = "100%"
-height = "40%"
+width = "80%"
+height = "80%"
 
 [[keys.command]]
 key = "prefix+ctrl+j"
