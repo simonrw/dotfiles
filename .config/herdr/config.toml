@@ -101,6 +101,11 @@ pane_gaps = false
 show_agent_labels_on_pane_borders = false
 hide_tab_bar_when_single_tab = false
 tab_bar_position = "top"
+tab_bar_right = [
+  { type = "command", command = '''"$HERDR_BIN_PATH" workspace get "$HERDR_ACTIVE_WORKSPACE_ID" | jq -er '.result.workspace.label // empty' ''', interval_seconds = 1, timeout_seconds = 2 },
+  { type = "hostname" },
+]
+tab_bar_right_separator = ":"
 accent = "#8aadf4"
 
 agent_panel_sort = "priority"
