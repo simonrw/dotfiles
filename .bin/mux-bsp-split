@@ -1,0 +1,75 @@
+#!/usr/bin/env python3
+
+import argparse
+import json
+import os
+import re
+import subprocess
+
+
+def tmux_direction(layout, pane_id):
+    """Split perpendicular to the pane's parent; start side by side."""
+    parents = []
+    for match in re.finditer(r"[{}\[\]]|\d+x\d+,\d+,\d+(?:,\d+)?", layout):
+        token = match.group()
+        if token in ("{", "["):
+            parents.append(token)
+        elif token in ("}", "]"):
+            parents.pop()
+        elif len(fields := token.split(",")) == 4 and fields[-1] == pane_id.lstrip("%"):
+            return "-v" if parents and parents[-1] == "{" else "-h"
+    raise ValueError(f"Pane {pane_id} is missing from the layout")
+
+
+def herdr_direction(layout, pane_id):
+    """The smallest split containing the pane is its parent."""
+    pane = next((p["rect"] for p in layout["panes"] if p["pane_id"] == pane_id), None)
+    if pane is None:
+        raise ValueError(f"Pane {pane_id} is missing from the layout")
+    parents = []
+    for split in layout["splits"]:
+        rect = split["rect"]
+        if (rect["x"] <= pane["x"] and rect["y"] <= pane["y"]
+                and rect["x"] + rect["width"] >= pane["x"] + pane["width"]
+                and rect["y"] + rect["height"] >= pane["y"] + pane["height"]):
+            parents.append(split)
+    parent = min(parents, key=lambda s: s["rect"]["width"] * s["rect"]["height"], default=None)
+    return "down" if parent and parent["direction"] == "right" else "right"
+
+
+def main():
+    parser = argparse.ArgumentParser(description="Split a tmux or Herdr pane 50/50, perpendicular to its parent.")
+    parser.add_argument("--backend", choices=("tmux", "herdr"),
+                        default="tmux" if os.getenv("TMUX") else "herdr" if os.getenv("HERDR_ENV") == "1" else None)
+    parser.add_argument("pane_id", nargs="?")
+    args = parser.parse_args()
+    if args.backend == "tmux":
+        pane_id = args.pane_id or os.getenv("TMUX_PANE")
+        if not pane_id:
+            parser.error("a tmux pane ID is required")
+        layout = subprocess.check_output(
+            ["tmux", "display-message", "-p", "-t", pane_id, "#{window_layout}"], text=True,
+        )
+        command = ["tmux", "split-window", "-t", pane_id, tmux_direction(layout, pane_id),
+                   "-l", "50%", "-c", "#{pane_current_path}"]
+    elif args.backend == "herdr":
+        herdr = os.getenv("HERDR_BIN_PATH") or "herdr"
+        target = ["--pane", args.pane_id] if args.pane_id else ["--current"]
+        pane = json.loads(subprocess.check_output(
+            [herdr, "pane", "current", *target], text=True,
+        ))["result"]["pane"]
+        pane_id = pane["pane_id"]
+        layout = json.loads(subprocess.check_output(
+            [herdr, "pane", "layout", "--pane", pane_id], text=True,
+        ))["result"]["layout"]
+        command = [herdr, "pane", "split", "--pane", pane_id,
+                   "--direction", herdr_direction(layout, pane_id), "--ratio", "0.5", "--focus"]
+        if cwd := pane.get("foreground_cwd") or pane.get("cwd"):
+            command += ["--cwd", cwd]
+    else:
+        parser.error("run inside tmux or Herdr, or specify --backend and a pane ID")
+    subprocess.run(command, check=True)
+
+
+if __name__ == "__main__":
+    main()
