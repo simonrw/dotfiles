@@ -1,25 +1,29 @@
-# Disable Ctrl-s freezing the terminal
-stty stop undef 2>/dev/null
+if status is-interactive
+    # Disable Ctrl-s freezing the terminal
+    stty stop undef 2>/dev/null
 
-# Disable greeting
-set -g fish_greeting
+    # Disable greeting
+    set -g fish_greeting
 
-if type -q fzf
-    fzf --fish | source
-end
+    if type -q fzf
+        fzf --fish | source
+    end
 
-# Theme
-# note: fish does not ship with a catppuccin-latte theme so we use the light variant of the dark theme instead
-if test "$__IS_DARK_THEME" = 1
-    fish_config theme choose --color-theme=dark catppuccin-macchiato
-else
-    fish_config theme choose --color-theme=light catppuccin-macchiato
-end
+    # Theme
+    # note: fish does not ship with a catppuccin-latte theme so we use the light variant of the dark theme instead
+    if test "$__IS_DARK_THEME" = 1
+        fish_config theme choose --color-theme=dark catppuccin-macchiato
+    else
+        fish_config theme choose --color-theme=light catppuccin-macchiato
+    end
 
-# shell agent
-if test -f {$HOME}/.config/fish/plugins/shell-agent/fish/shell-agent.fish; and type -q codex
-    source {$HOME}/.config/fish/plugins/shell-agent/fish/shell-agent.fish
-    shell_agent_enable
+    # shell agent
+    if test -f {$HOME}/.config/fish/plugins/shell-agent/fish/shell-agent.fish; and type -q codex
+        source {$HOME}/.config/fish/plugins/shell-agent/fish/shell-agent.fish
+        shell_agent_enable
+    end
+
+    atuin init fish | source
 end
 
 # Per-host config
@@ -28,12 +32,7 @@ if test -f ~/.config/fish/conf.d/per-host/$this_hostname.fish
     source ~/.config/fish/conf.d/per-host/$this_hostname.fish
 end
 
-if status is-interactive
-    atuin init fish | source
-end
-
 # Local overrides
 if test -f ~/.config/fish/local.fish
     source ~/.config/fish/local.fish
 end
-

@@ -1,3 +1,5 @@
+status is-interactive; or return
+
 # Simple abbreviations (expand inline)
 abbr --add c cargo
 abbr --add es 'exec fish'

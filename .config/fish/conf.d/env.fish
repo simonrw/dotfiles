@@ -3,7 +3,7 @@ set -gx LC_ALL en_GB.UTF-8
 set -gx LC_CTYPE en_GB.UTF-8
 
 # Dark/light theme detection
-if $HOME/.bin/is-dark-theme 2>/dev/null
+if is-dark-theme
     set -gx __IS_DARK_THEME 1
 else
     set -gx __IS_DARK_THEME 0
