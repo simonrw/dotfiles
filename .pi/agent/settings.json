@@ -15,5 +15,5 @@
     "openai-codex/gpt-6-astra"
   ],
   "tuiMode": "fullscreen",
-  "theme": "light"
+  "theme": "light/dark"
 }
