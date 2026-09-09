@@ -158,7 +158,6 @@ vim.pack.add({
     { src = gh('mfussenegger/nvim-dap-python') },
     { src = gh('igorlfs/nvim-dap-view') },
     { src = gh('barrettruth/diffs.nvim') },
-    { src = gh('kevinhwang91/nvim-hlslens') },
 }, { confirm = false, load = true })
 
 vim.api.nvim_create_user_command('VimUpdate', function(opts)
@@ -809,8 +808,6 @@ vim.api.nvim_create_autocmd('User', {
         })
 
         require('touchup').setup()
-
-        require('hlslens').setup()
 
         vim.o.statusline = vim.o.statusline .. " %{v:lua.ask_agent_statusline()}"
 
