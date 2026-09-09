@@ -1,1 +1,0 @@
-/Users/simon/dev/claude-session-monitor.pi-support/contrib/pi/csm-session-monitor.ts
