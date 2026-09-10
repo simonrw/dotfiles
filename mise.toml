@@ -99,7 +99,6 @@ run = "mise bootstrap dotfiles apply"
 "~/.luarc.json" = { source = ".luarc.json", mode = "symlink" }
 "~/.pi/agent/AGENTS.md" = { source = ".pi/agent/AGENTS.md", mode = "symlink" }
 "~/.pi/agent/settings.json" = { source = ".pi/agent/settings.json", mode = "symlink" }
-"~/.pi/agent/extensions/herdr-agent-state.ts" = { source = ".pi/agent/extensions/herdr-agent-state.ts", mode = "symlink" }
 "~/.ssh/config" = { source = ".ssh/config", mode = "symlink" }
 "~/.zprofile" = { source = ".zprofile", mode = "symlink" }
 "~/.zshrc" = { source = ".zshrc", mode = "symlink" }
@@ -186,4 +185,5 @@ defaults write -g NSUserKeyEquivalents -dict-add 'Emoji & Symbols' '\0'
 final = '''
 command -v claude >/dev/null || curl -fsSL https://claude.ai/install.sh | bash
 command -v codex >/dev/null || curl -fsSL https://chatgpt.com/codex/install.sh | sh
+command -v herdr >/dev/null && herdr integration install pi
 '''
