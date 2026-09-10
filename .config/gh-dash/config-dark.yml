@@ -6,17 +6,17 @@ theme:
       compact: false
   colors:
     text:
-      primary: "#cdd6f4"
-      secondary: "#89b4fa"
-      inverted: "#11111b"
-      faint: "#bac2de"
-      warning: "#f9e2af"
-      success: "#a6e3a1"
-      error: "#f38ba8"
+      primary: "#cad3f5"
+      secondary: "#8aadf4"
+      inverted: "#181926"
+      faint: "#b8c0e0"
+      warning: "#eed49f"
+      success: "#a6da95"
+      error: "#ed8796"
     background:
-      selected: "#313244"
+      selected: "#363a4f"
     border:
-      primary: "#89b4fa"
-      secondary: "#45475a"
-      faint: "#313244"
+      primary: "#8aadf4"
+      secondary: "#494d64"
+      faint: "#363a4f"
 

@@ -7,7 +7,7 @@
 
 window#waybar {
     background: rgba(21, 22, 30, 0.9);
-    color: #cdd6f4;
+    color: #cad3f5;
 }
 
 /* Remove default padding/margins from all modules */
@@ -39,7 +39,7 @@ window#waybar {
 
 #workspaces button:hover {
     background: rgba(51, 204, 255, 0.3);
-    color: #cdd6f4;
+    color: #cad3f5;
 }
 
 #workspaces button.empty {
@@ -48,7 +48,7 @@ window#waybar {
 
 /* Clock */
 #clock {
-    color: #cdd6f4;
+    color: #cad3f5;
     font-weight: 600;
 }
 
@@ -62,15 +62,15 @@ window#waybar {
 }
 
 #battery {
-    color: #a6e3a1;
+    color: #a6da95;
 }
 
 #battery.warning {
-    color: #fab387;
+    color: #f5a97f;
 }
 
 #battery.critical {
-    color: #f38ba8;
+    color: #ed8796;
 }
 
 /* Tray */

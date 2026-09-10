@@ -123,7 +123,7 @@ def signal_editor_to_reload(*process_names: str):
 
 def reload_helix(theme: Theme):
     theme_file = Path.home() / ".config" / "helix" / "themes" / "adaptive.toml"
-    chosen_theme = "catppuccin_mocha"
+    chosen_theme = "catppuccin_macchiato"
     if theme == Theme.light:
         chosen_theme = "catppuccin_latte"
 
@@ -145,7 +145,7 @@ def reload_git(theme: Theme):
         dark = "false"
         light = "true"
     else:
-        syntax_theme = "Catppuccin Mocha"
+        syntax_theme = "Catppuccin Macchiato"
         dark = "true"
         light = "false"
 

@@ -23,13 +23,6 @@ if status is-interactive
         shell_agent_enable
     end
 
-    # Theme
-    if test "$__IS_DARK_THEME" = 1
-        fish_config theme choose --color-theme=dark catppuccin-mocha
-    else
-        fish_config theme choose --color-theme=light catppuccin-mocha
-    end
-
     atuin init fish | source
 end
 

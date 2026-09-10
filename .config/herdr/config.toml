@@ -108,7 +108,7 @@ tab_bar_right = [
   { type = "hostname" },
 ]
 tab_bar_right_separator = ":"
-accent = "#89b4fa"
+accent = "#8aadf4"
 
 agent_panel_sort = "priority"
 [ui.sidebar.agents]

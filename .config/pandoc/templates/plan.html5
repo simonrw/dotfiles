@@ -12,7 +12,7 @@ $endif$
        For reading AI agent plans / design docs. The evidence is the hero:
        code blocks and file:line references get chrome and prominence, prose
        is dense and secondary, and a sticky rail with scroll-spy keeps your
-       place in a long document. Catppuccin Latte / Mocha, following the
+       place in a long document. Catppuccin Latte / Macchiato, following the
        system theme. Prints light regardless of screen theme.
 
        Rendered by ~/.bin/render-plan. Metadata (title, status, ...) is
@@ -48,23 +48,23 @@ $endif$
     }
     @media (prefers-color-scheme: dark) {
       :root {
-        /* Catppuccin Mocha */
-        --bg:       #1e1e2e;
-        --surface:  #181825;
-        --surface2: #313244;
-        --overlay:  #45475a;
-        --border:   #45475a;
-        --text:     #cdd6f4;
-        --subtext:  #a6adc8;
-        --muted:    #7f849c;
-        --blue:     #89b4fa;
-        --sky:      #89dceb;
-        --green:    #a6e3a1;
-        --peach:    #fab387;
-        --mauve:    #cba6f7;
-        --red:      #f38ba8;
-        --yellow:   #f9e2af;
-        --teal:     #94e2d5;
+        /* Catppuccin Macchiato */
+        --bg:       #24273a;
+        --surface:  #1e2030;
+        --surface2: #363a4f;
+        --overlay:  #494d64;
+        --border:   #494d64;
+        --text:     #cad3f5;
+        --subtext:  #a5adcb;
+        --muted:    #8087a2;
+        --blue:     #8aadf4;
+        --sky:      #91d7e3;
+        --green:    #a6da95;
+        --peach:    #f5a97f;
+        --mauve:    #c6a0f6;
+        --red:      #ed8796;
+        --yellow:   #eed49f;
+        --teal:     #8bd5ca;
       }
     }
 

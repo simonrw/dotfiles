@@ -1,5 +1,5 @@
 appearance = "system"
-theme_dark = "catppuccin-mocha"
+theme_dark = "catppuccin-macchiato"
 theme_light = "catppuccin-latte"
 leader = " "
 ignore_whitespace = false
