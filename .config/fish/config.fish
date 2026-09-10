@@ -26,6 +26,15 @@ if status is-interactive
     atuin init fish | source
 end
 
+# os specific things
+switch (uname)
+    case Linux
+        if type -q mise
+            mise activate fish | source
+        end
+    case Darwin
+end
+
 # Per-host config
 set -l this_hostname (hostname -s)
 if test -f ~/.config/fish/conf.d/per-host/$this_hostname.fish
