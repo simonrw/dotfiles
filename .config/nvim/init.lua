@@ -153,7 +153,6 @@ vim.pack.add({
     { src = gh('hedyhli/outline.nvim') },
     { src = gh('ibhagwan/fzf-lua') },
     { src = gh('nvim-lua/plenary.nvim') },
-    { src = gh('pwntester/octo.nvim') },
     { src = gh('mfussenegger/nvim-dap') },
     { src = gh('mfussenegger/nvim-dap-python') },
     { src = gh('igorlfs/nvim-dap-view') },
@@ -322,15 +321,6 @@ require("fzf-lua").setup({
     },
 })
 require("fzf-lua").register_ui_select()
-
-require("octo").setup({
-    picker = "fzf-lua",
-    -- bare Octo command opens picker of commands
-    enable_builtin = true,
-    file_panel = {
-        icons = false,
-    },
-})
 
 require("dap-python").setup("uv")
 require("dap-python").test_runner = "pytest"
