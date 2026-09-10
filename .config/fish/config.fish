@@ -1,3 +1,12 @@
+# os specific things
+switch (uname)
+    case Linux
+        if type -q mise
+            mise activate fish | source
+        end
+    case Darwin
+end
+
 if status is-interactive
     # Disable Ctrl-s freezing the terminal
     stty stop undef 2>/dev/null
@@ -24,15 +33,6 @@ if status is-interactive
     end
 
     atuin init fish | source
-end
-
-# os specific things
-switch (uname)
-    case Linux
-        if type -q mise
-            mise activate fish | source
-        end
-    case Darwin
 end
 
 # Per-host config
