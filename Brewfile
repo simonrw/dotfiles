@@ -162,3 +162,4 @@ cask "zoom"
 cask "claude" if Helpers.is_work
 cask "clockify"
 cask "pycharm" if Helpers.is_work
+cask "session-manager-plugin" if Helpers.is_work
