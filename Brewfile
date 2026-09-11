@@ -130,7 +130,6 @@ cask "ghostty"
 cask "gimp"
 cask "gitbutler"
 cask "godot" if not Helpers.is_work
-cask "google-chrome" if not Helpers.is_work
 cask "google-drive" if Helpers.is_work
 cask "hammerspoon"
 cask "helium-browser"
