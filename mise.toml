@@ -111,7 +111,7 @@ ruff = "latest"
 ty = "latest"
 
 [tasks."brew:upgrade"]
-run = "brew update && brew upgrade"
+run = "brew update && brew upgrade --yes"
 description = "Update brews"
 
 [tasks."brew:mas"]
