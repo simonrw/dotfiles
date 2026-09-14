@@ -3,6 +3,7 @@
 
 from pathlib import Path
 import subprocess as sp
+import sys
 
 type Repo = str
 type Name = str
@@ -13,20 +14,36 @@ SKILLS: dict[Repo, list[Name]] = {
     "DietrichGebert/ponytail": [],
 }
 
+# Install private skills which may fail if we don't have access
+PRIVATE_SKILLS: dict[Repo, list[Name]] = {
+    "simonrw/skills-private": [],
+}
+
 AGENTS: list[str] = ["codex", "claude-code", "pi"]
 
 UNINSTALL_LIST: list[str] = ["caveman"]
 
-# first clear the directory
-sp.check_call(["npx", "skills@latest", "remove", "--global", "--all", "--yes"])
 
-for repo, names in SKILLS.items():
-    # add skills
+def install_skill(repo: Repo, names: list[Name]):
     command = ["npx", "skills@latest", "add", "--global", repo] + ["--agent"] + AGENTS
     if names:
         command = command + ["--skill"] + names
 
     sp.check_call(command)
+
+
+# first clear the directory
+sp.check_call(["npx", "skills@latest", "remove", "--global", "--all", "--yes"])
+
+for repo, names in SKILLS.items():
+    install_skill(repo, names)
+
+for repo, names in PRIVATE_SKILLS.items():
+    try:
+        install_skill(repo, names)
+    except Exception as e:
+        print(f"Error installing private skills from {repo}: {e}", file=sys.stderr)
+        continue
 
 # then install openspec globally
 sp.check_call(
