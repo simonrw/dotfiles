@@ -134,8 +134,8 @@ vim.api.nvim_create_autocmd('PackChanged', {
 
 vim.pack.add({
     { src = gh('stevearc/oil.nvim') },
-    { src = gh('catppuccin/nvim'),                          name = 'catppuccin' },
-    { src = gh('nvim-treesitter/nvim-treesitter'),          version = 'main' },
+    { src = gh('catppuccin/nvim'),                        name = 'catppuccin' },
+    { src = gh('nvim-treesitter/nvim-treesitter'),        version = 'main' },
     { src = gh('neovim/nvim-lspconfig') },
     { src = gh('tpope/vim-fugitive') },
     { src = gh('tpope/vim-surround') },
@@ -784,6 +784,7 @@ vim.api.nvim_create_autocmd('User', {
             underline = true,
         })
         vim.lsp.inlay_hint.enable(false)
+        vim.lsp.codelens.enable(false)
 
         -- TODO: make this on file open/read
         -- require('modules/runtests').setup()
