@@ -17,6 +17,8 @@ cursor-style = block
 cursor-style-blink = false
 shell-integration-features = title,path,no-cursor,ssh-terminfo,ssh-env
 mouse-hide-while-typing = false
+# only while the tab rendering bug exists, switch back to stable on 1.4.x
+auto-update-channel = tip
 
 window-colorspace = display-p3
 
