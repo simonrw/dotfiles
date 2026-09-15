@@ -11,7 +11,6 @@ type Name = str
 SKILLS: dict[Repo, list[Name]] = {
     "mattpocock/skills": [],
     "simonrw/skills": [],
-    "DietrichGebert/ponytail": [],
 }
 
 # Install private skills which may fail if we don't have access
