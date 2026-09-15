@@ -136,19 +136,13 @@ description = "Update neovim packages"
 run = "bat cache --build"
 description = "Refresh the bat syntax theme cache"
 
-[tasks.kill-nvim]
-run = "pkill nvim || true"
-description = "Close all running instances of neovim"
-
 [tasks.nvim-nightly-update]
 run = "bob update nightly"
 description = "Update to the latest neovim nightly"
-depends = ["kill-nvim"]
 
 [tasks.nvim-stable-update]
 run = "bob update stable"
 description = "Update to the latest neovim stable build"
-depends = ["kill-nvim"]
 
 [bootstrap.macos.dock]
 autohide = false
