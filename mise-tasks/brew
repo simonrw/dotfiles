@@ -6,5 +6,5 @@ set -eou pipefail
 export HOMEBREW_NO_AUTO_UPDATE=1
 export HOMEBREW_BUNDLE_CLEANUP_NO_MAS=1
 
-brew bundle --jobs auto --no-upgrade --force
+brew bundle --no-upgrade --force
 brew bundle cleanup --all --force
