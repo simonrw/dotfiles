@@ -13,12 +13,18 @@ I love to focus on simplification, building complex things as simply as possible
 * I use ripgrep (rg) not grep
 * I use 1Password and the `op` CLI for credential management, but NEVER try to access my credentials using this tool. You can look up account information but don't try to fetch credentials
 * You may find errors with commit signing. Read ~/.ssh/agent.fish and extract the ssh agent environment variables and try again.
+* I use `mise` (https://mise.jdx.dev/) for managing my project tools, so if a tool does not exist in your shell environment, consider using `mise exec -- <command>`
 
 # Rust
 
 * Do not assume the `target` dir for built outputs. I have a custom path set with `$CARGO_TARGET_DIR` so debug builds are under `$CARGO_TARGET_DIR/debug`, documentation is under `$CARGO_TARGET_DIR/docs` etc.
 * Do not assume `~/.cargo` for the cargo registry files. I have a custom path set with `$CARGO_HOME`.
-* I use `mise` (https://mise.jdx.dev/) for managing my project tools, so if a tool does not exist in your shell environment, consider using `mise exec -- <command>`
+
+# Python
+
+* Do not introduce cyclic dependencies unless as a last resort
+* Prefer global imports over local imports unless resolving a cyclic dependency as a last resort
+* Prefer lists over tuples. Only use tuples for fewer than 5 elements where the tuple is literally constructed, e.g. `(a, b, c)` rather than `tuple(a, b, c)` or `tuple(item for item in ...)`. In general prefer native syntax types like lists and dicts (or literally constructed tuples) over built in types that require a function call like tuples.
 
 # Notes
 
