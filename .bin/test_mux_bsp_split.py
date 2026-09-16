@@ -47,6 +47,25 @@ class BspSplitTest(unittest.TestCase):
         with self.assertRaises(ValueError):
             direction(layout, "w1:p99")
 
+    def test_dimensions_override_parent_direction(self):
+        for width, height, tmux, herdr in [
+            (160, 50, "-h", "right"),
+            (80, 50, "-v", "down"),
+            (40, 80, "-v", "down"),
+            (100, 50, "-v", "down"),
+            (101, 50, "-h", "right"),
+        ]:
+            with self.subTest(width=width, height=height):
+                leaf = f"{width}x{height},0,0,1"
+                for layout in [f"abcd,{leaf}", f"abcd,200x100,0,0{{{leaf}}}", f"abcd,200x100,0,0[{leaf}]"]:
+                    self.assertEqual(MODULE["tmux_direction"](layout, "%1"), tmux)
+                for parent in ["right", "down"]:
+                    layout = {
+                        "panes": [{"pane_id": "w1:p1", "rect": rect(0, 0, width, height)}],
+                        "splits": [{"direction": parent, "rect": rect(0, 0, 200, 100)}],
+                    }
+                    self.assertEqual(MODULE["herdr_direction"](layout, "w1:p1"), herdr)
+
     def invoke(self, args, env, responses):
         with patch.dict(os.environ, env, clear=True), patch("sys.argv", [str(SCRIPT), *args]), \
                 patch("subprocess.check_output", side_effect=responses) as read, \
