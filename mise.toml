@@ -48,6 +48,7 @@ run = "mise bootstrap dotfiles apply"
 "~/.claude/scripts" = { source = ".claude/scripts", mode = "symlink" }
 "~/.claude/settings.json" = { source = ".claude/settings.json", mode = "symlink" }
 "~/.codex/AGENTS.md" = { source = ".codex/AGENTS.md", mode = "symlink" }
+"~/.codex/SYSTEM.md" = { source = ".codex/SYSTEM.md", mode = "symlink" }
 "~/.codex/base.toml" = { source = ".codex/base.toml", mode = "symlink" }
 "~/.config/atuin/config.toml" = { source = ".config/atuin/config.toml", mode = "symlink" }
 "~/.config/bat/dark" = { source = ".config/bat/dark", mode = "symlink" }
