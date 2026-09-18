@@ -23,8 +23,9 @@ next_workspace = "prefix+0"
 previous_agent = "prefix+shift+p"
 next_agent = "prefix+shift+n"
 new_tab = "prefix+c"
-previous_tab = ["prefix+p", "prefix+ctrl+p"]
-next_tab = ["prefix+n", "prefix+ctrl+n"]
+# Use last-focus actions below to record every next/previous switch.
+previous_tab = ""
+next_tab = ""
 switch_tab = "prefix+1..9"
 focus_pane_left = "prefix+h"
 focus_pane_down = "prefix+j"
@@ -48,6 +49,30 @@ command = "SESSION_BACKEND=herdr ~/.bin/tmux-session-history"
 description = "switch workspace"
 width = "80%"
 height = "80%"
+
+[[keys.command]]
+key = "prefix+n"
+type = "plugin_action"
+command = "dotfiles.last-focus.next-tab"
+description = "switch to next tab"
+
+[[keys.command]]
+key = "prefix+ctrl+n"
+type = "plugin_action"
+command = "dotfiles.last-focus.next-tab"
+description = "switch to next tab"
+
+[[keys.command]]
+key = "prefix+p"
+type = "plugin_action"
+command = "dotfiles.last-focus.previous-tab"
+description = "switch to previous tab"
+
+[[keys.command]]
+key = "prefix+ctrl+p"
+type = "plugin_action"
+command = "dotfiles.last-focus.previous-tab"
+description = "switch to previous tab"
 
 [[keys.command]]
 key = "prefix+ctrl+j"

@@ -21,7 +21,10 @@ class LastFocusTest(unittest.TestCase):
         events=None,
         session=None,
         plugin_environment=True,
+        tabs=None,
     ):
+        if tabs is None:
+            tabs = ["w2:t1", "w2:t2"]
         with tempfile.TemporaryDirectory() as directory:
             root = Path(directory)
             calls = root / "calls"
@@ -41,9 +44,7 @@ elif sys.argv[1:3] == ["workspace", "list"]:
         {{"workspace_id": "w4", "label": "unvisited", "focused": False}}
     ]}}}}))
 elif sys.argv[1:3] == ["tab", "list"]:
-    print(json.dumps({{"result": {{"tabs": [
-        {{"tab_id": "w2:t1"}}, {{"tab_id": "w2:t2"}}
-    ]}}}}))
+    print(json.dumps({{"result": {{"tabs": [{{"tab_id": tab}} for tab in {tabs!r}]}}}}))
 elif sys.argv[1:3] in (["workspace", "focus"], ["tab", "focus"]):
     print(json.dumps({{"result": {{}}}}))
 else:
@@ -114,6 +115,40 @@ else:
         )
         self.assertIn("tab focus w2:t1", calls)
         self.assertEqual(state["tabs"]["w2"], {"current": "w2:t1", "previous": "w2:t2"})
+
+    def test_relative_navigation_remembers_each_tab_without_focus_events(self):
+        tabs = ["w2:t4", "w2:t2", "w2:t9"]
+        for action, route in [
+            ("next-tab", ["w2:t4", "w2:t2", "w2:t9", "w2:t4"]),
+            ("previous-tab", ["w2:t4", "w2:t9", "w2:t2", "w2:t4"]),
+        ]:
+            with self.subTest(action=action):
+                state = {"workspace": {"current": "w2"}, "tabs": {}}
+                for current, target in zip(route, route[1:]):
+                    state, calls = self.run_action(
+                        action, state, focused_tab=current, tabs=tabs
+                    )
+                    self.assertIn(f"tab focus {target}", calls)
+                    self.assertEqual(
+                        state["tabs"]["w2"], {"current": target, "previous": current}
+                    )
+                state, calls = self.run_action(
+                    "last-tab", state, focused_tab=route[-1], tabs=tabs
+                )
+                self.assertIn(f"tab focus {route[-2]}", calls)
+
+    def test_relative_navigation_with_no_destination_keeps_history(self):
+        for action in ["next-tab", "previous-tab"]:
+            for tabs in [[], ["w2:t2"]]:
+                with self.subTest(action=action, tabs=tabs):
+                    history = {"current": "w2:t2", "previous": "w2:t1"}
+                    state, calls = self.run_action(
+                        action,
+                        {"workspace": {"current": "w2"}, "tabs": {"w2": history}},
+                        tabs=tabs,
+                    )
+                    self.assertFalse(any(call.startswith("tab focus") for call in calls))
+                    self.assertEqual(state["tabs"]["w2"], history)
 
     def listed_ids(self):
         return [

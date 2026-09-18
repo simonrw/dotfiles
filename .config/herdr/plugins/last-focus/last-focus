@@ -128,6 +128,31 @@ def switch_last_tab(state, path):
     herdr("tab", "focus", target)
 
 
+def switch_relative_tab(state, path, offset):
+    workspaces = herdr("workspace", "list")["workspaces"]
+    focused = next(
+        (workspace for workspace in workspaces if workspace["focused"]), None
+    )
+    if not focused:
+        return
+
+    workspace_id = focused["workspace_id"]
+    current = focused.get("active_tab_id")
+    tabs = [
+        tab["tab_id"]
+        for tab in herdr("tab", "list", "--workspace", workspace_id)["tabs"]
+    ]
+    if current not in tabs or len(tabs) < 2:
+        return
+
+    target = tabs[(tabs.index(current) + offset) % len(tabs)]
+    history = state["tabs"].setdefault(workspace_id, {})
+    remember(history, current)
+    remember(history, target)
+    save_state(state, path)
+    herdr("tab", "focus", target)
+
+
 def switch_last_workspace(state, path):
     workspaces = herdr("workspace", "list")["workspaces"]
     focused = next(
@@ -164,6 +189,10 @@ def main():
             handle_event(state)
         elif command == "last-tab":
             switch_last_tab(state, path)
+        elif command == "next-tab":
+            switch_relative_tab(state, path, 1)
+        elif command == "previous-tab":
+            switch_relative_tab(state, path, -1)
         elif command == "last-workspace":
             switch_last_workspace(state, path)
         elif command == "list-workspaces":

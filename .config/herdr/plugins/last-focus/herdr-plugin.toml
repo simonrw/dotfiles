@@ -14,6 +14,18 @@ contexts = ["workspace"]
 command = ["./last-focus", "last-tab"]
 
 [[actions]]
+id = "next-tab"
+title = "Switch to next tab"
+contexts = ["workspace"]
+command = ["./last-focus", "next-tab"]
+
+[[actions]]
+id = "previous-tab"
+title = "Switch to previous tab"
+contexts = ["workspace"]
+command = ["./last-focus", "previous-tab"]
+
+[[actions]]
 id = "last-workspace"
 title = "Switch to last workspace"
 contexts = ["workspace"]
