@@ -1,5 +1,6 @@
 [bootstrap.macos.launchd.agents.pi-web-sessiond]
-program = "~/.local/share/mise/shims/pi-web-sessiond"
+program = "/opt/homebrew/bin/mise"
+args = ["exec", "--", "pi-web-sessiond"]
 working_directory = "~/dotfiles"
 environment = { MISE_ENABLE_TOOLS = "node,npm:@jmfederico/pi-web" }
 run_at_load = true
@@ -8,7 +9,8 @@ stdout_path = "~/Library/Logs/pi-web-sessiond.log"
 stderr_path = "~/Library/Logs/pi-web-sessiond.log"
 
 [bootstrap.macos.launchd.agents.pi-web-server]
-program = "~/.local/share/mise/shims/pi-web-server"
+program = "/opt/homebrew/bin/mise"
+args = ["exec", "--", "pi-web-server"]
 working_directory = "~/dotfiles"
 environment = { MISE_ENABLE_TOOLS = "node,npm:@jmfederico/pi-web", PI_WEB_HOST = "0.0.0.0" }
 run_at_load = true
@@ -29,8 +31,8 @@ stderr_path = "~/Library/Logs/pi-web-server.log"
 "~/Library/Preferences/sapling" = { source = "Library/Preferences/sapling", mode = "symlink" }
 
 [bootstrap.macos.launchd.agents.caddy]
-program = "~/.local/share/mise/shims/caddy"
-args = ["run", "--config", ".config/caddy/Caddyfile", "--adapter", "caddyfile"]
+program = "/opt/homebrew/bin/mise"
+args = ["exec", "--", "caddy", "run", "--config", ".config/caddy/Caddyfile", "--adapter", "caddyfile"]
 working_directory = "~/dotfiles"
 environment = { MISE_ENABLE_TOOLS = "caddy" }
 run_at_load = true

@@ -61,6 +61,7 @@ macos-arm64 = { asset_pattern = "bob-macos-arm.zip" }
 
 [settings]
 experimental = true
+activate_shims = false
 # support .python-version files in Python
 # required for LocalStack
 idiomatic_version_file_enable_tools = ["python", "rust"]

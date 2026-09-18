@@ -1,10 +1,5 @@
-# os specific things
-switch (uname)
-    case Linux
-        if type -q mise
-            mise activate fish | source
-        end
-    case Darwin
+if type -q mise
+    mise activate fish | source
 end
 
 if status is-interactive
