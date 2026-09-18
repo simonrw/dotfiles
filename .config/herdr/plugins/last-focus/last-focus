@@ -8,29 +8,51 @@ import sys
 from pathlib import Path
 
 HERDR = os.environ.get("HERDR_BIN_PATH", "herdr")
-STATE_DIR = Path(os.environ["HERDR_PLUGIN_STATE_DIR"])
-STATE_PATH = STATE_DIR / "focus-history.json"
-LOCK_PATH = STATE_DIR / "focus-history.lock"
 
 
 def herdr(*args):
     result = subprocess.run(
         [HERDR, *args], check=True, stdout=subprocess.PIPE, text=True
     )
-    return json.loads(result.stdout)["result"]
+    response = json.loads(result.stdout)
+    return response.get("result", response)
 
 
-def load_state():
+def state_directory():
+    # Match Herdr's Unix plugin state path when invoked from an ordinary shell.
+    state_home = Path(os.environ.get("XDG_STATE_HOME", Path.home() / ".local/state"))
+    directory = Path(
+        os.environ.get(
+            "HERDR_PLUGIN_STATE_DIR", state_home / "herdr/plugins/dotfiles.last-focus"
+        )
+    )
+    session = herdr("status", "server", "--json").get("session")
+    if session and session != "default":
+        directory = directory / "sessions" / session
+    return directory
+
+
+def load_state(path):
     try:
-        return json.loads(STATE_PATH.read_text())
+        state = json.loads(path.read_text())
     except (FileNotFoundError, json.JSONDecodeError):
-        return {"workspace": {}, "tabs": {}}
+        state = {"workspace": {}, "tabs": {}}
+    if "recent_workspaces" not in state:
+        state["recent_workspaces"] = [
+            workspace_id
+            for workspace_id in [
+                state["workspace"].get("current"),
+                state["workspace"].get("previous"),
+            ]
+            if workspace_id
+        ]
+    return state
 
 
-def save_state(state):
-    temporary = STATE_PATH.with_suffix(".tmp")
+def save_state(state, path):
+    temporary = path.with_suffix(".tmp")
     temporary.write_text(json.dumps(state, sort_keys=True) + "\n")
-    temporary.replace(STATE_PATH)
+    temporary.replace(path)
 
 
 def remember(history, focused_id):
@@ -39,28 +61,48 @@ def remember(history, focused_id):
         history["current"] = focused_id
 
 
-def bootstrap(state):
+def remember_workspace(state, workspace_id):
+    remember(state["workspace"], workspace_id)
+    state["recent_workspaces"] = [workspace_id] + [
+        previous for previous in state["recent_workspaces"] if previous != workspace_id
+    ]
+
+
+def ordered_workspaces(state):
     workspaces = herdr("workspace", "list")["workspaces"]
+    by_id = {workspace["workspace_id"]: workspace for workspace in workspaces}
+    for workspace in workspaces:
+        if workspace.get("focused"):
+            remember_workspace(state, workspace["workspace_id"])
+    state["recent_workspaces"] = [
+        workspace_id
+        for workspace_id in state["recent_workspaces"]
+        if workspace_id in by_id
+    ]
+    ordered = [by_id.pop(workspace_id) for workspace_id in state["recent_workspaces"]]
+    return ordered + list(by_id.values())
+
+
+def bootstrap(state):
+    workspaces = ordered_workspaces(state)
     for workspace in workspaces:
         workspace_id = workspace["workspace_id"]
         tab_id = workspace.get("active_tab_id")
         if tab_id:
             state["tabs"].setdefault(workspace_id, {}).setdefault("current", tab_id)
-        if workspace.get("focused"):
-            state["workspace"].setdefault("current", workspace_id)
 
 
 def handle_event(state):
     event = json.loads(os.environ["HERDR_PLUGIN_EVENT_JSON"])
     data = event["data"]
     if event["event"] == "workspace.focused":
-        remember(state["workspace"], data["workspace_id"])
+        remember_workspace(state, data["workspace_id"])
     elif event["event"] == "tab.focused":
         history = state["tabs"].setdefault(data["workspace_id"], {})
         remember(history, data["tab_id"])
 
 
-def switch_last_tab(state):
+def switch_last_tab(state, path):
     workspaces = herdr("workspace", "list")["workspaces"]
     focused = next(
         (workspace for workspace in workspaces if workspace["focused"]), None
@@ -82,11 +124,11 @@ def switch_last_tab(state):
         return
 
     history["current"], history["previous"] = target, current
-    save_state(state)
+    save_state(state, path)
     herdr("tab", "focus", target)
 
 
-def switch_last_workspace(state):
+def switch_last_workspace(state, path):
     workspaces = herdr("workspace", "list")["workspaces"]
     focused = next(
         (workspace for workspace in workspaces if workspace["focused"]), None
@@ -96,35 +138,39 @@ def switch_last_workspace(state):
 
     current = focused["workspace_id"]
     history = state["workspace"]
-    remember(history, current)
+    remember_workspace(state, current)
     target = history.get("previous")
     valid_workspaces = {workspace["workspace_id"] for workspace in workspaces}
     if not target or target not in valid_workspaces or target == current:
         history.pop("previous", None)
         return
 
-    history["current"], history["previous"] = target, current
-    save_state(state)
+    remember_workspace(state, target)
+    save_state(state, path)
     herdr("workspace", "focus", target)
 
 
 def main():
-    STATE_DIR.mkdir(parents=True, exist_ok=True)
-    with LOCK_PATH.open("w") as lock:
+    directory = state_directory()
+    directory.mkdir(parents=True, exist_ok=True)
+    path = directory / "focus-history.json"
+    with (directory / "focus-history.lock").open("w") as lock:
         fcntl.flock(lock, fcntl.LOCK_EX)
-        state = load_state()
+        state = load_state(path)
         command = sys.argv[1]
         if command == "startup":
             bootstrap(state)
         elif command == "event":
             handle_event(state)
         elif command == "last-tab":
-            switch_last_tab(state)
+            switch_last_tab(state, path)
         elif command == "last-workspace":
-            switch_last_workspace(state)
+            switch_last_workspace(state, path)
+        elif command == "list-workspaces":
+            print(json.dumps({"result": {"workspaces": ordered_workspaces(state)}}))
         else:
             raise SystemExit(f"unknown command: {command}")
-        save_state(state)
+        save_state(state, path)
 
 
 if __name__ == "__main__":

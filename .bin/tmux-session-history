@@ -19,21 +19,23 @@ fi
 
 case "${SESSION_BACKEND}" in
   herdr)
+    HERDR="${HERDR_BIN_PATH:-herdr}"
+    HISTORY="$(cd "$(dirname "$(readlink -f "$0")")/../.config/herdr/plugins/last-focus" && pwd)/last-focus"
     WORKSPACE_ID="$(
-      herdr workspace list \
+      "$HISTORY" list-workspaces \
         | jq -r '.result.workspaces[] | [.label, .workspace_id] | @tsv' \
-        | fzf --color="${FZF_THEME}" --no-sort --delimiter=$'\t' --with-nth=1 \
+        | fzf --color="${FZF_THEME}" --layout=default --no-sort --delimiter=$'\t' --with-nth=1 \
         | cut -f2
     )" || exit 0
     [[ -n "${WORKSPACE_ID}" ]] || exit 0
 
-    herdr workspace focus "${WORKSPACE_ID}" >/dev/null
+    "$HERDR" workspace focus "${WORKSPACE_ID}" >/dev/null
     if [[ "${HERDR_ENV:-}" != "1" ]]; then
-      exec herdr
+      exec "$HERDR"
     fi
     ;;
   tmux)
-    SESSION_NAME="$(tmux ls -F "#{session_activity} #S" | sort -n -r | awk '{print $2}' | fzf --color="${FZF_THEME}" --no-sort)" || exit 0
+    SESSION_NAME="$(tmux ls -F "#{session_activity} #S" | sort -n -r | awk '{print $2}' | fzf --color="${FZF_THEME}" --layout=default --no-sort)" || exit 0
     [[ -n "${SESSION_NAME}" ]] || exit 0
     tat "${SESSION_NAME}"
     ;;
