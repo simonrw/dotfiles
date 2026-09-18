@@ -109,7 +109,7 @@ height = "98%"
 [[keys.command]]
 key = "prefix+a"
 type = "popup"
-command = "listprojects"
+command = "SESSION_BACKEND=herdr listprojects"
 width = "90%"
 height = "70%"
 
