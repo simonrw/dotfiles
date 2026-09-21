@@ -111,6 +111,9 @@ vim.keymap.set('n', '<leader>w', ':update<Cr>')
 vim.keymap.set('n', '<leader>q', ':quit<Cr>')
 vim.keymap.set('n', '<leader>l', ':nohl<cr>')
 
+-- quicker way to quit
+vim.keymap.set('i', "jk", "<esc>")
+
 if vim.fn.has('nvim-0.12') ~= 1 or not vim.pack then
     error("This config requires Neovim 0.12 or newer for vim.pack package management.")
 end
