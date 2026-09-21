@@ -68,7 +68,6 @@ run = "mise bootstrap dotfiles apply"
 "~/.config/ghostty/config" = { source = ".config/ghostty/config", mode = "symlink" }
 "~/.config/ghostty/local.config" = { source = ".config/ghostty/local.config.tmpl", mode = "template" }
 "~/.config/git/allowed-signers" = { source = ".config/git/allowed-signers", mode = "symlink" }
-"~/.config/git/attributes" = { source = ".config/git/attributes", mode = "symlink" }
 "~/.config/git/config" = { source = ".config/git/config", mode = "symlink" }
 "~/.config/git/ignore" = { source = ".config/git/ignore", mode = "symlink" }
 "~/.config/helix/config.toml" = { source = ".config/helix/config.toml", mode = "symlink" }
