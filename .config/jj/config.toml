@@ -3,7 +3,7 @@ default-command = "status"
 pager = "delta"
 diff-editor = ":builtin"
 diff-formatter = ":git"
-merge-editor = ":builtin"
+merge-editor = "weave"
 
 
 
@@ -25,6 +25,13 @@ name = "Simon Walker"
 
 [mergetools.difft]
 diff-args = ["--color=always", "$left", "right"]
+
+[merge-tools.weave]
+program = "weave-driver"
+merge-args = ["$base", "$left", "$right", "-o", "$output", "-l", "$marker_length", "-p", "$path"]
+merge-conflict-exit-codes = [1]
+merge-tool-edits-conflict-markers = true
+conflict-marker-style = "git"
 
 [revset-aliases]
 'closest_bookmark(to)' = 'heads(::to & bookmarks())'
