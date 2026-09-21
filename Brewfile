@@ -95,6 +95,7 @@ brew "uv"
 brew "viddy"
 brew "wakeonlan"
 brew "watchexec"
+brew "weave"
 brew "worktrunk"
 brew "xcodegen" if not Helpers.is_work
 brew "xh"
