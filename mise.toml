@@ -147,10 +147,10 @@ run = "bob update stable"
 description = "Update to the latest neovim stable build"
 
 [bootstrap.macos.dock]
-autohide = true
-orientation = "bottom"
+autohide = false
+orientation = "left"
 tilesize = 28
-magnification = true
+magnification = false
 largesize = 92
 mru_spaces = false
 
