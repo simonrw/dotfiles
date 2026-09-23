@@ -45,7 +45,7 @@ function messages(value: unknown, source: string): string {
   }).join('');
 }
 
-/** Receives only already-redacted events from the proxy. */
+/** Redaction, when enabled, is handled by the proxy before formatting. */
 export function formatEvent(event: LogEvent, format = 'pretty'): string {
   if (format === 'jsonl' || format === 'json') {
     return JSON.stringify(event, null, format === 'json' ? 2 : undefined) + '\n';

@@ -10,6 +10,7 @@ function main(): void {
     port: { type: 'string', default: '8765' },
     format: { type: 'string', default: 'pretty' },
     'max-body': { type: 'string', default: String(DEFAULT_MAX_BODY) },
+    'no-redact': { type: 'boolean', default: false },
     help: { type: 'boolean', short: 'h' },
   } });
   if (values.help) {
@@ -20,10 +21,11 @@ function main(): void {
   --port NUMBER     Listening port (default 8765)
   --format FORMAT   pretty transcript, json, or jsonl (default pretty)
   --max-body BYTES  Inspection limit, not a forwarding limit (default ${DEFAULT_MAX_BODY})
+  --no-redact       Disable log redaction, including credentials
 
 Requires Node 24+. Logs go to stdout. Requests use HTTP/SSE, not WebSockets.
 Pretty output shows system instructions, developer/harness prompts and all sent messages.
-Credentials are redacted, but prompts and tool content remain sensitive.`);
+Credentials are redacted unless --no-redact is set; prompts and tool content remain sensitive.`);
     return;
   }
   if (!isLoopback(values.host)) throw new Error('Host must be a loopback address');
@@ -33,6 +35,7 @@ Credentials are redacted, but prompts and tool content remain sensitive.`);
   const server = createLoggingProxy({
     upstream: parseUpstream(values.upstream),
     maxBody: Number(values['max-body']),
+    redact: !values['no-redact'],
     log: event => {
       process.stdout.write(formatEvent(event, values.format));
     },
@@ -53,6 +56,7 @@ Credentials are redacted, but prompts and tool content remain sensitive.`);
     process.exitCode = 1;
   });
   server.listen(port, values.host, () => {
+    if (values['no-redact']) console.error('WARNING: redaction disabled; logs may contain credentials.');
     console.error(`Listening on port ${port}. Logs go to stdout; prompts and tool content remain sensitive.`);
   });
 }

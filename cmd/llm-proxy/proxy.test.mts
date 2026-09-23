@@ -24,7 +24,7 @@ async function readBody(request: http.IncomingMessage): Promise<Buffer> {
   return Buffer.concat(chunks);
 }
 
-async function fixture(t: TestContext, options: { maxBody?: number; prefix?: string } = {}) {
+async function fixture(t: TestContext, options: { maxBody?: number; prefix?: string; redact?: boolean } = {}) {
   const received: { body: Buffer; headers: http.IncomingHttpHeaders; path: string }[] = [];
   const upstream = await listen(t, http.createServer(async (req, res) => {
     received.push({ body: await readBody(req), headers: req.headers, path: req.url! });
@@ -35,6 +35,7 @@ async function fixture(t: TestContext, options: { maxBody?: number; prefix?: str
   const url = await listen(t, createLoggingProxy({
     upstream: new URL(upstream + (options.prefix ?? '')),
     maxBody: options.maxBody,
+    redact: options.redact,
     log: event => events.push(event),
   }));
   return { url, upstream, events, received };
@@ -77,6 +78,42 @@ test('forwards original JSON, credentials and signed query; logs redacted reques
   assert.ok(logs.includes('[REDACTED]'));
   assert.equal(f.events[1].status, 201);
   assert.equal(f.events[1].complete, true);
+});
+
+test('disabling redaction preserves credentials in all log formats without changing forwarding', async t => {
+  const f = await fixture(t, { redact: false });
+  const original = {
+    input: 'Use auth-value, cookie-value, query-value and sk-proj-patternValue.\u001b[31m',
+    settings: { api_key: 'nested-value' },
+    arguments: ' { "password": "argument-value" } ',
+    url: 'https://user:pass@example.com/path?token=url-value',
+  };
+  const body = gzipSync(Buffer.from(JSON.stringify(original)));
+  const path = '/sk-proj-pathValue/responses?token=query-value&signed=a%2Fb+%20';
+  const response = await fetch(f.url + path, {
+    method: 'POST', body,
+    headers: { authorization: 'Bearer auth-value', cookie: 'session=cookie-value',
+      'content-type': 'application/json', 'content-encoding': 'gzip' },
+  });
+  assert.equal(response.status, 201);
+  assert.equal(await response.text(), 'data: {"message":"ok"}\n\n');
+  assert.deepEqual(f.received[0].body, body);
+  assert.equal(f.received[0].path, path);
+  assert.equal(f.received[0].headers.authorization, 'Bearer auth-value');
+  assert.deepEqual(f.events[0].body, original);
+  assert.equal(f.events[0].path, path);
+  const headers = f.events[0].headers as http.IncomingHttpHeaders;
+  assert.equal(headers.authorization, 'Bearer auth-value');
+  assert.equal(headers.cookie, 'session=cookie-value');
+  for (const format of ['pretty', 'json', 'jsonl']) {
+    const output = formatEvent(f.events[0], format);
+    for (const value of ['Bearer auth-value', 'session=cookie-value', path, 'nested-value',
+      'argument-value', 'sk-proj-patternValue', original.url]) {
+      assert.ok(output.includes(value), `${format} omitted ${value}`);
+    }
+    assert.ok(!output.includes('[REDACTED]'));
+    assert.ok(!output.includes('\u001b'), 'terminal escapes must remain sanitized');
+  }
 });
 
 test('shows full compressed system and harness prompts beyond the old 1 MiB inspection limit', async t => {

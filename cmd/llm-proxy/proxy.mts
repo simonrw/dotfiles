@@ -11,6 +11,7 @@ type ProxyOptions = {
   upstream: URL;
   log: (event: LogEvent) => void;
   maxBody?: number;
+  redact?: boolean;
 };
 
 const hopHeaders = new Set([
@@ -56,7 +57,7 @@ function inspectBody(data: Buffer, encoding: string, limit: number): unknown {
 }
 
 /** A fixed-upstream, loopback-only HTTP/SSE inspector. No credential storage. */
-export function createLoggingProxy({ upstream, log, maxBody = DEFAULT_MAX_BODY }: ProxyOptions): http.Server {
+export function createLoggingProxy({ upstream, log, maxBody = DEFAULT_MAX_BODY, redact = true }: ProxyOptions): http.Server {
   upstream = parseUpstream(upstream.href);
   if (!Number.isSafeInteger(maxBody) || maxBody < 1 || maxBody > 64 * 1024 * 1024) {
     throw new Error('max-body must be an integer between 1 and 67108864');
@@ -80,7 +81,7 @@ export function createLoggingProxy({ upstream, log, maxBody = DEFAULT_MAX_BODY }
     }
     const id = ++nextID;
     const started = performance.now();
-    const redactor = new Redactor(request);
+    const redactor = redact ? new Redactor(request) : undefined;
     const emit = (event: LogEvent) => log({ time: new Date().toISOString(), id, ...event });
     let chunks: Buffer[] = [];
     let requestBytes = 0;
@@ -92,23 +93,23 @@ export function createLoggingProxy({ upstream, log, maxBody = DEFAULT_MAX_BODY }
     const logRequest = (interrupted = false) => {
       if (requestLogged) return;
       requestLogged = true;
-      const event: LogEvent = { event: 'request', method: redactor.text(request.method ?? ''), bytes: requestBytes };
+      const event: LogEvent = { event: 'request', method: redactor ? redactor.text(request.method ?? '') : request.method ?? '', bytes: requestBytes };
       if (interrupted) event.body_note = 'Request interrupted; body omitted';
       else if (requestBytes === 0) event.body_note = 'Empty body';
       else if (requestBytes > maxBody) event.body_note = 'Body exceeds inspection limit; increase --max-body to see messages. Forwarded without logging';
       else {
         try {
           const body = inspectBody(Buffer.concat(chunks), String(request.headers['content-encoding'] ?? ''), maxBody);
-          redactor.collect(body);
-          event.body = redactor.value(body);
+          redactor?.collect(body);
+          event.body = redactor ? redactor.value(body) : body;
         } catch {
           // Never fall back to raw bytes or error text: either can expose secrets.
           event.body_note = 'Body omitted: invalid/non-JSON, unsupported encoding, or inspection limit. Increase --max-body for larger prompts';
         }
       }
       chunks = [];
-      event.path = redactor.path(request.url!);
-      event.headers = redactor.headers(request);
+      event.path = redactor ? redactor.path(request.url!) : request.url;
+      event.headers = redactor ? redactor.headers(request) : request.headers;
       emit(event);
     };
     const logResponse = (complete: boolean) => {
