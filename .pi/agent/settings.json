@@ -2,7 +2,7 @@
   "lastChangelogVersion": "10.0.0",
   "defaultProvider": "openai-codex",
   "defaultModel": "gpt-6-astra",
-  "defaultThinkingLevel": "medium",
+  "defaultThinkingLevel": "high",
   "packages": [
     "npm:pi-web-access",
     "npm:pi-mcp-adapter",
