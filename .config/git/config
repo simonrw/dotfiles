@@ -209,7 +209,7 @@
 	pushInsteadOf = "https://github.com"
 
 [user]
-	email = "s.r.walker101@googlemail.com"
+	email = "59756+simonrw@users.noreply.github.com"
 	name = "Simon Walker"
 	signingKey = "~/.ssh/id_signing.pub"
 
