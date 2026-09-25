@@ -6,6 +6,7 @@
   "packages": [
     "npm:pi-web-access",
     "npm:pi-mcp-adapter",
+    "npm:pi-subagents",
     "git:github.com/simonrw/pi-extensions",
     "npm:csm-pi-session-monitor"
   ],
