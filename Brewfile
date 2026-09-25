@@ -121,7 +121,6 @@ cask "focusrite-control-2" if not Helpers.is_work
 
 cask "1password-cli"
 cask "1password"
-cask "betterdisplay"
 cask "blender" if not Helpers.is_work
 cask "chatgpt"
 cask "daisydisk"
