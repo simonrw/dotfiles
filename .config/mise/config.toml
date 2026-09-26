@@ -1,5 +1,3 @@
-wrappers = { cargo = { command = "mbx", env = { MBX_CARGO_SHIM_MODE = "1" } } }
-
 [tools]
 go = "latest"
 rust = { version = "stable", components = "rust-src,rust-analyzer" }
@@ -42,7 +40,6 @@ atuin = { version = "latest", os = ["linux"] }
 "npm:@jmfederico/pi-web" = { version = "latest", allow_builds = ["node-pty"] }
 herdr = { version = "latest", os = ["linux"] }
 caddy = "latest"
-mr-boxington = { version = "latest", mr_boxington = true, postinstall = "mbx setup --yes" }
 
 
 [tools."github:simonrw/listprojects"]
