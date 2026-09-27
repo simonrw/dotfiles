@@ -1,14 +1,46 @@
 [[actions]]
-name = "tug"
-lua = '''
+lua = """
 jj("tug")
 revisions.refresh()
-'''
+"""
+name = "tug"
+
+[[actions]]
+lua = """
+  jj_async("util", "exec", "--", "jj-hp", "push", "-r", context.commit_id())
+  revisions.refresh()
+"""
+name = "jj-hp-push-selected"
+
+[[actions]]
+lua = """
+  jj_async("util", "exec", "--", "jj-hp", "push", "--all")
+  revisions.refresh()
+"""
+name = "jj-hp-push"
 
 [[bindings]]
 action = "tug"
 key = "t"
 scope = "revisions"
+
+[[bindings]]
+action = "jj-hp-push-selected"
+desc = "jj-hp push selected bookmark"
+scope = "revisions"
+seq = [
+    "x",
+    "p",
+]
+
+[[bindings]]
+action = "jj-hp-push"
+desc = "jj-hp push every bookmark"
+scope = "revisions"
+seq = [
+    "x",
+    "P",
+]
 
 [preview]
 show_at_start = true

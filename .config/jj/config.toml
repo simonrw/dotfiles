@@ -99,6 +99,7 @@ za = ["bookmark", "list", "-a"]
 fuzzy_bookmark = ["util", "exec", "--", "sh", "-c", """
   jj bookmark list --sort committer-date -a -T 'separate("@", name, remote) ++ "\n"' 2>/dev/null | fzf --no-sort --ansi --select-1 --exit-0 | xargs jj new
 """, ""]
+push = ["util", "exec", "--", "jj-hp", "push"]
 
 [templates]
 log = "builtin_log_oneline"
@@ -129,3 +130,6 @@ email = "simon.walker@localstack.cloud"
 [remotes.origin]
 push-new-bookmarks = "glob:*"
 auto-track-bookmarks = "glob:*"
+
+[jj-hooks]
+advance-bookmarks = true
