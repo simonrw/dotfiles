@@ -3,6 +3,7 @@ require_relative("brew_helpers")
 # Taps
 
 tap "docker/tap", trusted: { casks: ["docker/tap/sbx"] }
+tap "nikitabobko/tap", trusted: { casks: ["nikitabobko/tap/aerospace"] }
 tap "railwaycat/emacsmacport", trusted: { casks: ["railwaycat/emacsmacport/emacs-mac"] }
 tap "simonrw/tap", trusted: true
 
@@ -143,6 +144,7 @@ cask "keyboard-cleaner" if Helpers.hostname != "mm"
 cask "linear"
 cask "mitmproxy"
 cask "ngrok"
+cask "nikitabobko/tap/aerospace"
 cask "notion"
 cask "obs"
 cask "obsidian"
