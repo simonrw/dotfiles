@@ -410,7 +410,7 @@
   "chat.viewSessions.orientation": "stacked",
   "http.systemCertificatesNode": true,
   "geminicodeassist.project": "gen-lang-client-0954412299",
-  "workbench.preferredDarkColorTheme": "Catppuccin Mocha",
+  "workbench.preferredDarkColorTheme": "Catppuccin Macchiato",
   "window.commandCenter": false,
   "ruff.format.preview": true,
   "chat.titleBar.signIn.enabled": false,
