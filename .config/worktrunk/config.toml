@@ -1,5 +1,5 @@
-post-remove = "worktrunk-session-hook post-remove '{{ repo_path }}' '{{ repo }}' '{{ branch | sanitize }}'"
-pre-start = "worktrunk-session-hook pre-start '{{ repo_path }}' '{{ repo }}' '{{ branch | sanitize }}' '{{ worktree_path }}'"
+post-remove = "worktrunk-session-hook post-remove '{{ worktree_path }}'"
+pre-start = "worktrunk-session-hook pre-start '{{ worktree_path }}'"
 worktree-path = "{{ repo_path }}/../{{ repo }}-{{ branch | sanitize }}"
 
 [commit.generation]

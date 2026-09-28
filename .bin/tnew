@@ -68,7 +68,7 @@ def session_backend():
 
 
 def create_herdr_workspace(path):
-    label = path.name
+    label = sp.check_output(["mux-session-name", "--backend", "herdr", str(path)], text=True).rstrip("\n")
     cmd = ["herdr", "workspace", "create", "--cwd", str(path), "--focus", "--label", label]
     logger.debug(f"running command: {cmd}")
     sp.run(cmd, check=True)
@@ -94,7 +94,7 @@ backend = session_backend()
 if backend == "herdr":
     create_herdr_workspace(args.path.resolve())
 elif backend == "tmux":
-    tmux_name = f"{args.path.parent.name}/{args.path.name}".replace(".", "-").replace(":", "-")
+    tmux_name = sp.check_output(["mux-session-name", "--backend", "tmux", str(args.path)], text=True).rstrip("\n")
 
     if os.getenv("TMUX"):
         logger.debug("in tmux session")

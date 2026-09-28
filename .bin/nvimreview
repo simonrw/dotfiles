@@ -4,7 +4,6 @@ import argparse
 import os
 import sys
 import subprocess as sp
-from pathlib import Path
 from typing import NoReturn
 from urllib.parse import urlparse
 
@@ -96,9 +95,7 @@ def handle_url(url: str) -> NoReturn:
     if not local_path:
         die(f"error: no local checkout found for {owner_repo}")
 
-    # Derive tmux session name (same format as tnew)
-    p = Path(local_path)
-    tmux_name = f"{p.parent.name}/{p.name}".replace(".", "-").replace(":", "-")
+    tmux_name = sp.check_output(["mux-session-name", "--backend", "tmux", local_path], text=True).rstrip("\n")
 
     # Create session if needed
     if not session_exists(tmux_name):

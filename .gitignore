@@ -28,3 +28,8 @@ Library/Application\ Support/Cursor/*
 !/.codex/base.toml
 !/.codex/SYSTEM.md
 .config/worktrunk/approvals.toml*
+
+# Compiled Go binaries
+/.bin/codex-config
+/.bin/mux-session-name
+/.bin/zed-config

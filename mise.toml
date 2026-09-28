@@ -4,6 +4,7 @@ min_version = "2026.9.2"
 description = "Install/link packages"
 depends = [
     "dotfiles",
+    "go:build",
     "gh-extensions",
     "vim-update",
     "mise:packages",
@@ -14,6 +15,10 @@ depends = [
     "herdr-plugins",
 ]
 depends_post = ["brew"]
+
+[tasks."go:build"]
+description = "Compile project Go binaries into .bin"
+run = "go build -o .bin/ ./cmd/..."
 
 [tasks.submodules]
 description = "Initialize git submodules"
