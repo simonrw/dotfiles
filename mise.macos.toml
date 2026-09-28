@@ -18,18 +18,6 @@ keep_alive = true
 stdout_path = "~/Library/Logs/pi-web-server.log"
 stderr_path = "~/Library/Logs/pi-web-server.log"
 
-[bootstrap.macos.launchd.agents.bb]
-program = "/opt/homebrew/bin/npx"
-# for node 12
-# args = ["--allow-scripts=better-sqlite3,node-pty,@parcel/watcher", "bb-app@latest"]
-args = ["--yes", "bb-app@latest", "--server-bind-host", "0.0.0.0"]
-working_directory = "~"
-run_at_load = true
-environment = { PATH = "/opt/homebrew/bin:/usr/bin:/bin:/usr/sbin:/sbin" }
-keep_alive = true
-stdout_path = "~/Library/Logs/bb.log"
-stderr_path = "~/Library/Logs/bb.log"
-
 [dotfiles]
 "~/.config/karabiner/karabiner.json" = { source = ".config/karabiner/karabiner.json", mode = "symlink" }
 "~/.hammerspoon" = { source = ".hammerspoon", mode = "symlink" }
