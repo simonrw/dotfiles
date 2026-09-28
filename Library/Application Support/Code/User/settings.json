@@ -128,7 +128,7 @@
       "silent": true
     }
   ],
-  "editor.fontFamily": "'JetBrains Mono Semibold'",
+  "editor.fontFamily": "JetBrainsMono NFM SemiBold",
   "editor.minimap.enabled": false,
   "telemetry.telemetryLevel": "off",
   "editor.autoClosingBrackets": "never",
