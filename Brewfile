@@ -146,7 +146,7 @@ cask "ngrok"
 cask "notion"
 cask "obs"
 cask "obsidian"
-cask "pocket-casts" if not Helpers.is_work
+cask "pocket-casts"
 cask "railwaycat/emacsmacport/emacs-mac"
 cask "shotcut"
 cask "slack"
