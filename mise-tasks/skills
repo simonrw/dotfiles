@@ -18,7 +18,7 @@ PRIVATE_SKILLS: dict[Repo, list[Name]] = {
     "simonrw/skills-private": [],
 }
 
-AGENTS: list[str] = ["codex", "claude-code", "pi"]
+AGENTS: list[str] = ["codex", "pi"]
 
 UNINSTALL_LIST: list[str] = ["caveman"]
 
