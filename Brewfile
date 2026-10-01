@@ -4,6 +4,7 @@ require_relative("brew_helpers")
 
 tap "docker/tap", trusted: { casks: ["docker/tap/sbx"] }
 tap "railwaycat/emacsmacport", trusted: { casks: ["railwaycat/emacsmacport/emacs-mac"] }
+tap "rjyo/moshi", trusted: { formulae: ["rjyo/moshi/moshi-hook"] }
 tap "simonrw/tap", trusted: true
 
 # Brews
@@ -71,6 +72,7 @@ brew "make"
 brew "mas"
 brew "mise"
 brew "mkcert"
+brew "moshi-hook", start_service: true
 brew "ncdu"
 brew "node"
 brew "nono"
