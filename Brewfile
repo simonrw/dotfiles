@@ -72,7 +72,7 @@ brew "make"
 brew "mas"
 brew "mise"
 brew "mkcert"
-brew "moshi-hook", start_service: true
+brew "moshi-hook", start_service: true if not Helpers.is_work
 brew "ncdu"
 brew "node"
 brew "nono"
