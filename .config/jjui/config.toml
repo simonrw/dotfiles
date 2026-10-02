@@ -43,4 +43,4 @@ seq = [
 ]
 
 [preview]
-show_at_start = true
+show_at_start = false
