@@ -26,7 +26,6 @@ bindKey(applications.terminal, 't')
 bindKey(applications.agent, 'y')
 
 if intr.is_work() then
-    bindKey(applications.chat, 's')
     bindKey(applications.linear, 'l')
     bindKey(applications.notes, 'e')
 else
