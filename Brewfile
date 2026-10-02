@@ -3,6 +3,7 @@ require_relative("brew_helpers")
 # Taps
 
 tap "docker/tap", trusted: { casks: ["docker/tap/sbx"] }
+tap "gammons/tap", trusted: { casks: ["gammons/tap/slk"] }
 tap "railwaycat/emacsmacport", trusted: { casks: ["railwaycat/emacsmacport/emacs-mac"] }
 tap "rjyo/moshi", trusted: { formulae: ["rjyo/moshi/moshi-hook"] }
 tap "simonrw/tap", trusted: true
@@ -131,6 +132,7 @@ cask "docker/tap/sbx"
 cask "fluidvoice"
 cask "font-jetbrains-mono-nerd-font"
 cask "font-lilex"
+cask "gammons/tap/slk"
 cask "ghostty"
 cask "gimp"
 cask "gitbutler"
