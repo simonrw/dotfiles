@@ -1,7 +1,6 @@
 #!/usr/bin/env python
 # MISE description="Install agents skills"
 
-from pathlib import Path
 import subprocess as sp
 import sys
 
@@ -9,8 +8,17 @@ type Repo = str
 type Name = str
 
 SKILLS: dict[Repo, list[Name]] = {
-    "mattpocock/skills": [],
+    "mattpocock/skills": [
+        "diagnosing-bugs",
+        "grill-me",
+        "grilling",
+        "wait-what",
+        "wait-what",
+        "writing-for-agents",
+        "improve-writing",
+    ],
     "simonrw/skills": [],
+    "painhardcore/pstack": [],
 }
 
 # Install private skills which may fail if we don't have access
@@ -44,14 +52,9 @@ for repo, names in PRIVATE_SKILLS.items():
         print(f"Error installing private skills from {repo}: {e}", file=sys.stderr)
         continue
 
-# then install openspec globally
-sp.check_call(
-    ["mise", "exec", "--", "openspec", "init", "--tools", "codex"], cwd=Path.home()
-)
-
 # potentially remove skills
 if not UNINSTALL_LIST:
-    exit()
+    sys.exit()
 
 command = ["npx", "skills@latest", "rm", "--global", "--yes"] + UNINSTALL_LIST
 sp.check_call(command)
