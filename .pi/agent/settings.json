@@ -14,5 +14,6 @@
     "npm:context-mode"
   ],
   "tuiMode": "fullscreen",
-  "theme": "light/dark"
+  "theme": "light/dark",
+  "hideThinkingBlock": true
 }
