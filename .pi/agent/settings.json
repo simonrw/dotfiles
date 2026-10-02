@@ -3,12 +3,15 @@
   "defaultProvider": "openai-codex",
   "defaultModel": "gpt-6-astra",
   "defaultThinkingLevel": "high",
-  "defaultTools": ["+codemode"],
+  "defaultTools": [
+    "+codemode"
+  ],
   "packages": [
     "npm:pi-web-access",
     "npm:pi-subagents",
     "git:github.com/simonrw/pi-extensions",
-    "npm:csm-pi-session-monitor"
+    "npm:csm-pi-session-monitor",
+    "npm:context-mode"
   ],
   "tuiMode": "fullscreen",
   "theme": "light/dark"
