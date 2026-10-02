@@ -1,33 +1,27 @@
-# Disable Ctrl-s freezing the terminal
-[[ -t 0 ]] && stty stop undef
+# Disable Ctrl-s freezing the terminal.
+[[ -t 0 ]] && stty stop undef 2>/dev/null
 
-autoload add-zsh-hook
+setopt interactivecomments rmstarsilent auto_cd
+unsetopt bang_hist
+setopt inc_append_history share_history hist_ignore_all_dups hist_ignore_dups
+unsetopt auto_pushd beep
 
-setopt interactivecomments
-setopt rmstarsilent
-setopt prompt_subst
-setopt inc_append_history
-setopt share_history
-unsetopt auto_pushd
-# Only unique history entries in the reverse history search HIST_FIND_NO_DUPS=1
-setopt hist_ignore_all_dups
-setopt hist_ignore_dups
-
-# By default, zsh considers many characters part of a word (e.g., _ and -).
-# Narrow that down to allow easier skipping through words via M-f and M-b.
-export WORDCHARS='*?[]~&;!$%^<>'
-
+WORDCHARS='*?[]~&;!$%^<>'
 HISTFILE=~/.zsh_history
 HISTSIZE=10000
 SAVEHIST=$HISTSIZE
 
-
-# Emacs keybindings
-bindkey "^R" history-incremental-search-backward
-bindkey -v '^?' backward-delete-char
 bindkey -e
+bindkey '^?' backward-delete-char
+bindkey '^R' history-incremental-search-backward
+bindkey '^[[A' up-line-or-search
+bindkey '^[[B' down-line-or-search
+bindkey '^[[H' beginning-of-line
+bindkey '^[[F' end-of-line
+bindkey '^[[3~' delete-char
+bindkey '^[[1;3C' forward-word
+bindkey '^[[1;3D' backward-word
 
-# Set up editor in command line
-autoload edit-command-line
+autoload -Uz edit-command-line
 zle -N edit-command-line
 bindkey '^Xe' edit-command-line

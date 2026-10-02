@@ -1,0 +1,7 @@
+#compdef bob
+
+# Load the completion matching the installed binary, only on first Tab.
+local completion
+completion=$(command bob complete zsh) || return
+eval "$completion" || return
+_bob "$@"

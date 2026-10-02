@@ -1,0 +1,7 @@
+#compdef codex
+
+# Load the completion matching the installed binary, only on first Tab.
+local completion
+completion=$(command codex completion zsh 2>/dev/null) || return
+eval "$completion" || return
+_codex "$@"

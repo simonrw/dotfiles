@@ -1,7 +1,7 @@
 # Fish-style inline abbreviations managed in git.
 
 abbr "c"="cargo"
-abbr "es"='exec $SHELL'
+abbr "es"='exec zsh'
 abbr "fs"="tmux-session-history"
 abbr "g"="git"
 abbr "gcpr"="gh pr create -a @me --label 'semver: patch'"
@@ -21,10 +21,11 @@ abbr "vup"='nvim --headless "+packupdate!" +qa'
 abbr "watch"="viddy"
 abbr "ec"="emacsclient -n"
 abbr "grep"="rg"
+abbr "awslocal"="aws"
 abbr "cat"="bat"
 abbr "less"="bat"
 abbr "more"="bat"
 abbr "cc"="claude --dangerously-skip-permissions"
-abbr "wt switch"="wt switch --no-cd"
+abbr --command wt "switch"="switch --no-cd"
 abbr "laws"="AWS_PROFILE=ls-sandbox"
 abbr "cy"="codex --yolo"

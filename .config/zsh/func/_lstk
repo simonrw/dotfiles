@@ -1,0 +1,7 @@
+#compdef lstk
+
+# Load the completion matching the installed binary, only on first Tab.
+local completion
+completion=$(command lstk completion zsh) || return
+eval "$completion" || return
+_lstk "$@"

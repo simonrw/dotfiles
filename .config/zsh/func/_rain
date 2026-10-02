@@ -1,0 +1,7 @@
+#compdef rain
+
+# Load the completion matching the installed binary, only on first Tab.
+local completion
+completion=$(command rain completion zsh) || return
+eval "$completion" || return
+_rain "$@"

@@ -1,83 +1,69 @@
-# Lightweight fish-style command-position abbreviations.
-#
-# This intentionally supports the existing ~/.config/zsh/abbreviations format:
-#   abbr "g"="git"
-#   abbr "wt switch"="wt switch --no-cd"
-#
-# It avoids zsh-abbr's persistence and job-queue setup on shell startup.
-
-typeset -gA ZSH_ABBREVIATIONS
+# Inline expansions stay separate from aliases, as in Fish.
+typeset -gA ZSH_ABBREVIATIONS ZSH_COMMAND_ABBREVIATIONS
 
 abbr() {
     emulate -L zsh
+    local command_name=
+    if [[ "$1" == --command ]]; then
+        command_name=$2
+        shift 2
+    fi
 
     local definition key expansion
     for definition in "$@"; do
         key=${definition%%=*}
         expansion=${definition#*=}
-        [[ "$key" == "$definition" || -z "$key" ]] && continue
-        ZSH_ABBREVIATIONS[$key]=$expansion
+        if [[ -n "$command_name" ]]; then
+            ZSH_COMMAND_ABBREVIATIONS[$command_name:$key]=$expansion
+        else
+            ZSH_ABBREVIATIONS[$key]=$expansion
+        fi
     done
-}
-
-_zsh_abbr_is_command_position() {
-    emulate -L zsh
-    setopt extendedglob
-
-    local prefix="${1##*[;&|]}"
-    prefix="${prefix##[[:space:]]##}"
-    prefix="${prefix%%[[:space:]]##}"
-
-    [[ -z "$prefix" || "$prefix" == sudo || "$prefix" == command || "$prefix" == builtin || "$prefix" == env ]]
 }
 
 _zsh_abbr_expand_lbuffer() {
     emulate -L zsh
+    local -a tokens
+    tokens=(${(z)LBUFFER})
+    (( ${#tokens} )) || return 0
 
-    local key before best_key=
-    for key in ${(k)ZSH_ABBREVIATIONS}; do
-        [[ "$LBUFFER" == *"$key" ]] || continue
-
-        before="${LBUFFER[1,$(( ${#LBUFFER} - ${#key} ))]}"
-        _zsh_abbr_is_command_position "$before" || continue
-
-        if (( ${#key} > ${#best_key} )); then
-            best_key=$key
-        fi
+    # Quoted words and partially typed tokens must not expand.
+    local key=$tokens[-1] command_name= token expansion=
+    [[ "$LBUFFER" == *"$key" ]] || return 0
+    for token in "${(@)tokens[1,-2]}"; do
+        case "$token" in
+            ';'|'|'|'||'|'&'|'&&'|$'\n'|'(') command_name= ;;
+            *)
+                if [[ -z "$command_name" && "$token" != [A-Za-z_]*=* ]]; then
+                    command_name=$token
+                fi ;;
+        esac
     done
 
-    [[ -n "$best_key" ]] || return 0
-    LBUFFER="${LBUFFER[1,$(( ${#LBUFFER} - ${#best_key} ))]}${ZSH_ABBREVIATIONS[$best_key]}"
+    if [[ -z "$command_name" ]]; then
+        expansion=${ZSH_ABBREVIATIONS[$key]}
+    else
+        expansion=${ZSH_COMMAND_ABBREVIATIONS[$command_name:$key]}
+    fi
+    [[ -n "$expansion" ]] || return 0
+    LBUFFER="${LBUFFER[1,$(( ${#LBUFFER} - ${#key} ))]}$expansion"
 }
 
 _zsh_abbr_expand_space() {
     _zsh_abbr_expand_lbuffer
-    LBUFFER+=" "
+    zle .self-insert
 }
 
 _zsh_abbr_expand_accept_line() {
     _zsh_abbr_expand_lbuffer
     unset POSTDISPLAY
-    if (( $+functions[_zsh_autosuggest_highlight_reset] )); then
-        _zsh_autosuggest_highlight_reset
-    fi
-    if (( $+functions[_zsh_highlight] )); then
-        _zsh_highlight
-        zle -R
-    fi
     zle .accept-line
 }
 
-if [[ -r "$HOME/.config/zsh/abbreviations" ]]; then
-    source "$HOME/.config/zsh/abbreviations"
-fi
+source "$HOME/.config/zsh/abbreviations"
 
-if [[ -o interactive ]]; then
-    zle -N zsh-abbr-expand-space _zsh_abbr_expand_space
-    zle -N zsh-abbr-expand-accept-line _zsh_abbr_expand_accept_line
-
-    bindkey -M emacs ' ' zsh-abbr-expand-space
-    bindkey -M viins ' ' zsh-abbr-expand-space
-    bindkey -M emacs '^M' zsh-abbr-expand-accept-line
-    bindkey -M viins '^M' zsh-abbr-expand-accept-line
-fi
+zle -N zsh-abbr-expand-space _zsh_abbr_expand_space
+zle -N zsh-abbr-expand-accept-line _zsh_abbr_expand_accept_line
+bindkey -M emacs ' ' zsh-abbr-expand-space
+bindkey -M emacs '^M' zsh-abbr-expand-accept-line
+bindkey -M emacs '^J' zsh-abbr-expand-accept-line

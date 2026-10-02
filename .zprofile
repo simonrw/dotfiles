@@ -1,6 +1,3 @@
-if [ -f /opt/homebrew/bin/mise ]; then
-    export PATH=$PATH:/opt/homebrew/bin
-fi
-
-# ensure bob is on the path
-export PATH=${PATH}:${HOME}/.local/share/bob/nvim-bin
+# Make mise available before interactive startup, including a clean login shell.
+typeset -U path
+[[ -d /opt/homebrew/bin ]] && path+=(/opt/homebrew/bin)
