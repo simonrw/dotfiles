@@ -1,0 +1,96 @@
+version = 1
+manifest_sha256 = "dae0eda7bae2ef0a463538d22fa9a3a686415ba9cb43aee3ddcc225a3c79ec39"
+
+[sources.mattpocock]
+kind = "git"
+upstream = "https://github.com/mattpocock/skills.git"
+revision = "4588b32ecab9ecc9fc8cc6b6c5e7d675b6004b0d"
+patches = []
+tree_sha256 = "11c516fba82facad16b2d54fb4b2f75e96cc73f6027638d99fb5bceb047dcc18"
+
+[sources.mattpocock.skills]
+"skills/engineering/diagnosing-bugs" = "diagnosing-bugs"
+"skills/productivity/grill-me" = "grill-me"
+"skills/productivity/grilling" = "grilling"
+"skills/productivity/wait-what" = "wait-what"
+"skills/productivity/writing-for-agents" = "writing-for-agents"
+
+[sources.personal]
+kind = "git"
+upstream = "https://github.com/simonrw/skills.git"
+revision = "142ac3f95615ac9f16bf56433456a94455b7382d"
+patches = []
+tree_sha256 = "acc149fe46ddc1780a5a1fd9b54e27b043d7c835328cf18f9abb64b2acf074ab"
+
+[sources.personal.skills]
+"skills/handoff-claude-session" = "handoff-claude-session"
+"skills/help-code" = "help-code"
+"skills/improve-writing" = "improve-writing"
+"skills/make-note" = "make-note"
+"skills/notify-me" = "notify-me"
+"skills/pair-with-me" = "pair-with-me"
+"skills/ping-pong" = "ping-pong"
+"skills/readable-code" = "readable-code"
+"skills/spike" = "spike"
+"skills/summarise-youtube" = "summarise-youtube"
+"skills/test-audit" = "test-audit"
+
+[sources.private]
+kind = "git"
+upstream = "git@github.com:simonrw/skills-private.git"
+revision = "98a4549558e20e90acf90eacbd65eeeb6f85d3a3"
+patches = []
+tree_sha256 = "03eb1d79dcef55b1ab8554eb88ac16a132dad142dcbfe9760357ee1c50717fc8"
+
+[sources.private.skills]
+"skills/fleet" = "fleet"
+
+[sources.pstack]
+kind = "git"
+upstream = "https://github.com/painhardcore/pstack.git"
+revision = "04830a98367e41c79d1565e0c4903cc6ddedce1b"
+patches = []
+tree_sha256 = "f5fecf0ac4ab30ea6103a40c3fc1c0b6fb0e22d92f94e1e1e92dba92bfdd7602"
+
+[sources.pstack.skills]
+"skills/architect" = "architect"
+"skills/arena" = "arena"
+"skills/blast-radius" = "blast-radius"
+"skills/bro" = "bro"
+"skills/create-verification-skill" = "create-verification-skill"
+"skills/figure-it-out" = "figure-it-out"
+"skills/how" = "how"
+"skills/interrogate" = "interrogate"
+"skills/maintain-verification-skill" = "maintain-verification-skill"
+"skills/no-comments" = "no-comments"
+"skills/poteto-mode" = "poteto-mode"
+"skills/principle-boundary-discipline" = "principle-boundary-discipline"
+"skills/principle-build-the-lever" = "principle-build-the-lever"
+"skills/principle-encode-lessons-in-structure" = "principle-encode-lessons-in-structure"
+"skills/principle-exhaust-the-design-space" = "principle-exhaust-the-design-space"
+"skills/principle-experience-first" = "principle-experience-first"
+"skills/principle-fix-root-causes" = "principle-fix-root-causes"
+"skills/principle-foundational-thinking" = "principle-foundational-thinking"
+"skills/principle-guard-the-context-window" = "principle-guard-the-context-window"
+"skills/principle-laziness-protocol" = "principle-laziness-protocol"
+"skills/principle-make-operations-idempotent" = "principle-make-operations-idempotent"
+"skills/principle-migrate-callers-then-delete-legacy-apis" = "principle-migrate-callers-then-delete-legacy-apis"
+"skills/principle-minimize-reader-load" = "principle-minimize-reader-load"
+"skills/principle-model-the-domain" = "principle-model-the-domain"
+"skills/principle-never-block-on-the-human" = "principle-never-block-on-the-human"
+"skills/principle-outcome-oriented-execution" = "principle-outcome-oriented-execution"
+"skills/principle-prove-it-works" = "principle-prove-it-works"
+"skills/principle-redesign-from-first-principles" = "principle-redesign-from-first-principles"
+"skills/principle-separate-before-serializing-shared-state" = "principle-separate-before-serializing-shared-state"
+"skills/principle-sequence-verifiable-units" = "principle-sequence-verifiable-units"
+"skills/principle-subtract-before-you-add" = "principle-subtract-before-you-add"
+"skills/principle-type-system-discipline" = "principle-type-system-discipline"
+"skills/recall" = "recall"
+"skills/show-me-your-work" = "show-me-your-work"
+"skills/swarm" = "swarm"
+"skills/tdd" = "tdd"
+"skills/teach" = "teach"
+"skills/technical-writing" = "technical-writing"
+"skills/typescript-best-practices" = "typescript-best-practices"
+"skills/unslop" = "unslop"
+"skills/why" = "why"

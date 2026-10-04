@@ -1,0 +1,27 @@
+version = 1
+targets = ["~/.agents/skills", "~/.pi/agent/skills"]
+
+[sources.mattpocock]
+repo = "https://github.com/mattpocock/skills.git"
+skills = [
+    "skills/engineering/diagnosing-bugs",
+    "skills/productivity/grill-me",
+    "skills/productivity/grilling",
+    "skills/productivity/wait-what",
+    "skills/productivity/writing-for-agents",
+]
+
+# Includes improve-writing, which is no longer in mattpocock/skills.
+[sources.personal]
+repo = "https://github.com/simonrw/skills.git"
+skills = ["skills/*"]
+
+# Select the canonical tree, excluding unslop in favor of the personal version.
+# None of the current sources contain caveman.
+[sources.pstack]
+repo = "https://github.com/painhardcore/pstack.git"
+skills = ["skills/*"]
+
+[sources.private]
+repo = "git@github.com:simonrw/skills-private.git"
+skills = ["skills/*"]

@@ -41,6 +41,7 @@ atuin = { version = "latest", os = ["linux"] }
 herdr = { version = "latest", os = ["linux"] }
 caddy = "latest"
 "github:mattwilkinsonn/jj-hooks" = "latest"
+"cargo:https://github.com/simonrw/skills-sync" = "branch:main"
 
 
 [tools."github:simonrw/listprojects"]
