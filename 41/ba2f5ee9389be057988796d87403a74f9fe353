@@ -1,0 +1,16 @@
+.config/zsh/plugins/zsh-autosuggestions
+  h_65471a27093df2 1
+.config/zsh/plugins/zsh-syntax-highlighting
+  h_65471a27093df2 1
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "41ba2f5ee9389be057988796d87403a74f9fe353",
+  "prompts": {},
+  "humans": {
+    "h_65471a27093df2": {
+      "author": "Simon Walker <59756+simonrw@users.noreply.github.com>"
+    }
+  }
+}
