@@ -1,0 +1,14 @@
+Brewfile
+  h_65471a27093df2 148
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "d69e9b655c69aaad231f6ada654d14ebf91c51ba",
+  "prompts": {},
+  "humans": {
+    "h_65471a27093df2": {
+      "author": "Simon Walker <59756+simonrw@users.noreply.github.com>"
+    }
+  }
+}
