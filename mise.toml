@@ -60,7 +60,6 @@ run = "mise bootstrap dotfiles apply"
 "~/.config/fish/conf.d" = { source = ".config/fish/conf.d", mode = "symlink" }
 "~/.config/fish/config.fish" = { source = ".config/fish/config.fish", mode = "symlink" }
 "~/.config/fish/functions" = { source = ".config/fish/functions", mode = "symlink" }
-"~/.config/fish/plugins" = { source = ".config/fish/plugins", mode = "symlink" }
 "~/.config/gh/config.yml" = { source = ".config/gh/config.yml", mode = "symlink" }
 "~/.config/gh-dash/config-base.yml" = { source = ".config/gh-dash/config-base.yml", mode = "symlink" }
 "~/.config/gh-dash/config-dark.yml" = { source = ".config/gh-dash/config-dark.yml", mode = "symlink" }
