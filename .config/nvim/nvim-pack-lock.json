@@ -25,7 +25,7 @@
       "src": "https://github.com/barrettruth/diffs.nvim"
     },
     "fzf-lua": {
-      "rev": "ec1b98d3f5f44a1cff1f2c3832af2f09c3d806ca",
+      "rev": "c5e1465b6fc37a98a4b88d883f26050d663048b9",
       "src": "https://github.com/ibhagwan/fzf-lua"
     },
     "github-nvim-theme": {
@@ -33,7 +33,7 @@
       "src": "https://github.com/projekt0n/github-nvim-theme"
     },
     "gitsigns.nvim": {
-      "rev": "070a5d7b985546cc57e1fc61e5bc507fecac6045",
+      "rev": "851a051e2bd2caba97e23314c68d69f1b1cf5d19",
       "src": "https://github.com/lewis6991/gitsigns.nvim"
     },
     "guh.nvim": {
@@ -45,15 +45,15 @@
       "src": "https://github.com/mason-org/mason.nvim"
     },
     "mini.extra": {
-      "rev": "9c6affac2b176142f48b185bd7abc5db7ec20ac8",
+      "rev": "2d30f3830510c1cb1618b4e8efbb07356ecfda4d",
       "src": "https://github.com/echasnovski/mini.extra"
     },
     "mini.pick": {
-      "rev": "360c1bb33610e030698d07ed15969ab4762dbcd6",
+      "rev": "bd372e3a2b146aca92fb89ed2be78d4ff141fee1",
       "src": "https://github.com/echasnovski/mini.pick"
     },
     "mini.surround": {
-      "rev": "33a2ebe5df8eb4751828fcba133e18ed0fbbdfab",
+      "rev": "72feeaa0f984646efde875cc775a97b6f8a8be9b",
       "src": "https://github.com/nvim-mini/mini.surround"
     },
     "nord.nvim": {
@@ -81,11 +81,11 @@
       "src": "https://github.com/kevinhwang91/nvim-hlslens"
     },
     "nvim-lspconfig": {
-      "rev": "a9bb4d5f4276aa5cddc015faa3ecc5a7b5a26b14",
+      "rev": "910f0c4d46aa186641518395bc7e6fffb4d23baf",
       "src": "https://github.com/neovim/nvim-lspconfig"
     },
     "nvim-treesitter": {
-      "rev": "728e031f6b11d03d1f0708b7dc4fb0f1d9c8a137",
+      "rev": "e289100ff98969e118c702199d88b764ce9e7fdf",
       "src": "https://github.com/nvim-treesitter/nvim-treesitter",
       "version": "'main'"
     },
@@ -134,7 +134,7 @@
       "src": "https://github.com/nvim-telescope/telescope.nvim"
     },
     "touchup.nvim": {
-      "rev": "efc7df43515aeb29c84ef088f0197bde83e9ce12",
+      "rev": "9464d6ca5775e8603b37b36500e5d9a4ab6d57cb",
       "src": "https://github.com/noisesfromspace/touchup.nvim"
     },
     "vim-conflicted": {
@@ -162,7 +162,7 @@
       "src": "https://github.com/tpope/vim-surround"
     },
     "vim-test": {
-      "rev": "0ea8ee90e056118343d843a4406644de5e6b37ea",
+      "rev": "79e9550c2337001a470bd8c87378dc8d4e8b9f4c",
       "src": "https://github.com/vim-test/vim-test"
     },
     "vim-tpipeline": {
