@@ -8,7 +8,6 @@
   ],
   "packages": [
     "npm:pi-web-access",
-    "npm:pi-subagents",
     "git:github.com/simonrw/pi-extensions",
     "npm:csm-pi-session-monitor",
     "npm:context-mode"
