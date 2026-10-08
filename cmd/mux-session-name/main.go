@@ -36,16 +36,16 @@ func main() {
 
 	name := filepath.Base(path)
 	switch backend {
-	case "tmux":
+	case "tmux", "rex":
 		parent := filepath.Base(filepath.Dir(path))
 		if parent != string(filepath.Separator) {
 			name = parent + "/" + name
 		}
-		name = strings.NewReplacer(".", "-", ":", "-").Replace(name)
-	case "herdr", "rex":
+	case "herdr":
 	default:
 		fmt.Fprintf(os.Stderr, "unknown session backend: %s\n", backend)
 		os.Exit(2)
 	}
+	name = strings.NewReplacer(".", "-", ":", "-", " ", "").Replace(name)
 	fmt.Println(name)
 }
