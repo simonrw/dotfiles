@@ -41,11 +41,7 @@ export MANPATH="/opt/homebrew/share/man${MANPATH:+:$MANPATH}"
 export BUILD_PREFIX="$HOME/.local"
 export GOPATH="$HOME/dev/gocode"
 export REVIEW_BASE=main
-SESSION_BACKEND=tmux
-if [[ $(hostname -s) == 'walker-s' ]]; then
-    SESSION_BACKEND=rex
-fi
-export SESSION_BACKEND
+export SESSION_BACKEND=tmux
 export NIXPKGS_ALLOW_UNFREE=1
 export NTFY_TOPIC=simonrw-notify
 export NTFY_DEFAULT_TOPIC="$NTFY_TOPIC"
