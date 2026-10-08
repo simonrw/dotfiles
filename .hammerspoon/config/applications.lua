@@ -1,4 +1,4 @@
--- local intr = require('config/introspection')
+local intr = require('config/introspection')
 
 local browser_name = 'Helium'
 -- if intr.hostname() == 'mba' or intr.hostname() == 'Simon’s MacBook Air' then
@@ -6,9 +6,14 @@ local browser_name = 'Helium'
 --     -- browser_name = 'Safari'
 -- end
 
+local terminal = 'Ghostty'
+if intr.is_work() then
+    terminal = 'Rex Beta'
+end
+
 local applications = {
     terminal = {
-        name = "Ghostty",
+        name = terminal,
     },
     browser = {
         name = browser_name,
