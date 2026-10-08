@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-set -eu
+set -euo pipefail
 
 usage() {
     printf 'Usage: %s <pre-start|post-remove> <worktree-path>\n' "${0##*/}" >&2
@@ -25,6 +25,31 @@ case "${SESSION_BACKEND:-}" in
                     | jq -r --arg label "$LABEL" '.result.workspaces[] | select(.label == $label) | .workspace_id' \
                     | while IFS= read -r workspace_id; do
                         herdr workspace close "$workspace_id"
+                    done
+                ;;
+            *)
+                usage
+                ;;
+        esac
+        ;;
+    rex)
+        case "$ACTION" in
+            pre-start)
+                SESSION_ID="$(rex ls --json | jq -r --arg label "$LABEL" 'first(.sessions[] | select(.label == $label) | .session_id) // empty')"
+                if [[ -z "$SESSION_ID" ]]; then
+                    SESSION_ID="$(rex new "$LABEL" --cwd "$WORKTREE_PATH" --json | jq -r '.session_id')"
+                fi
+                if [[ -n "${REX_SESSION:-}" ]]; then
+                    rex do session.select "session_id=$SESSION_ID"
+                else
+                    rex attach "$SESSION_ID"
+                fi
+                ;;
+            post-remove)
+                rex ls --json \
+                    | jq -r --arg label "$LABEL" '.sessions[] | select(.label == $label) | .session_id' \
+                    | while IFS= read -r session_id; do
+                        rex kill "$session_id"
                     done
                 ;;
             *)

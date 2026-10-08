@@ -12,6 +12,8 @@ if [[ -z "${SESSION_BACKEND:-}" ]]; then
     SESSION_BACKEND="herdr"
   elif [[ -n "${TMUX:-}" ]]; then
     SESSION_BACKEND="tmux"
+  elif [[ -n "${REX_SESSION:-}" ]]; then
+    SESSION_BACKEND="rex"
   else
     SESSION_BACKEND="herdr"
   fi
@@ -32,6 +34,22 @@ case "${SESSION_BACKEND}" in
     "$HERDR" workspace focus "${WORKSPACE_ID}" >/dev/null
     if [[ "${HERDR_ENV:-}" != "1" ]]; then
       exec "$HERDR"
+    fi
+    ;;
+  rex)
+    # Rex probes the terminal on startup; finish before fzf reads its replies.
+    SESSIONS="$(rex ls --json)"
+    SESSION_ID="$(
+      jq -r '.sessions[] | [.label, .session_id] | @tsv' <<< "$SESSIONS" \
+        | fzf --color="${FZF_THEME}" --layout=default --no-sort --delimiter=$'\t' --with-nth=1 \
+        | cut -f2
+    )" || exit 0
+    [[ -n "${SESSION_ID}" ]] || exit 0
+
+    if [[ -n "${REX_SESSION:-}" ]]; then
+      exec rex do session.select "session_id=$SESSION_ID"
+    else
+      exec rex attach "$SESSION_ID"
     fi
     ;;
   tmux)

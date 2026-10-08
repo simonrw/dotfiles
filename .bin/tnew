@@ -4,6 +4,7 @@
 import subprocess as sp
 from pathlib import Path
 import argparse
+import json
 import os
 import logging
 
@@ -64,6 +65,8 @@ def session_backend():
         return "herdr"
     if os.getenv("TMUX"):
         return "tmux"
+    if os.getenv("REX_SESSION"):
+        return "rex"
     return os.getenv("SESSION_BACKEND", "herdr")
 
 
@@ -75,6 +78,25 @@ def create_herdr_workspace(path):
 
     if os.getenv("HERDR_ENV") != "1":
         os.execvp("herdr", ["herdr"])
+
+
+def create_rex_session(path):
+    label = sp.check_output(["mux-session-name", "--backend", "rex", str(path)], text=True).rstrip("\n")
+    sessions = json.loads(sp.check_output(["rex", "ls", "--json"], text=True))["sessions"]
+    session_id = next(
+        (session["session_id"] for session in sessions if session["label"] == label),
+        None,
+    )
+    if session_id is None:
+        session = json.loads(
+            sp.check_output(["rex", "new", label, "--cwd", str(path), "--json"], text=True)
+        )
+        session_id = session["session_id"]
+    if os.getenv("REX_SESSION"):
+        cmd = ["rex", "do", "session.select", f"session_id={session_id}"]
+    else:
+        cmd = ["rex", "attach", session_id]
+    os.execvp("rex", cmd)
 
 
 parser = argparse.ArgumentParser()
@@ -93,6 +115,8 @@ backend = session_backend()
 
 if backend == "herdr":
     create_herdr_workspace(args.path.resolve())
+elif backend == "rex":
+    create_rex_session(args.path.resolve())
 elif backend == "tmux":
     tmux_name = sp.check_output(["mux-session-name", "--backend", "tmux", str(args.path)], text=True).rstrip("\n")
 

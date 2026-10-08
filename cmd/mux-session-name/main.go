@@ -13,9 +13,9 @@ func main() {
 	if backend == "" {
 		backend = "tmux"
 	}
-	flag.StringVar(&backend, "backend", backend, "session backend: tmux or herdr")
+	flag.StringVar(&backend, "backend", backend, "session backend: tmux, herdr, or rex")
 	flag.Usage = func() {
-		fmt.Fprintln(os.Stderr, "Usage: mux-session-name [--backend tmux|herdr] [path]")
+		fmt.Fprintln(os.Stderr, "Usage: mux-session-name [--backend tmux|herdr|rex] [path]")
 		flag.PrintDefaults()
 	}
 	flag.Parse()
@@ -42,7 +42,7 @@ func main() {
 			name = parent + "/" + name
 		}
 		name = strings.NewReplacer(".", "-", ":", "-").Replace(name)
-	case "herdr":
+	case "herdr", "rex":
 	default:
 		fmt.Fprintf(os.Stderr, "unknown session backend: %s\n", backend)
 		os.Exit(2)
