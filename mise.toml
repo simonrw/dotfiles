@@ -86,6 +86,7 @@ run = "mise bootstrap dotfiles apply"
 "~/.config/nvim" = { source = ".config/nvim", mode = "symlink" }
 "~/.config/opencode" = { source = ".config/opencode", mode = "symlink" }
 "~/.config/pandoc" = { source = ".config/pandoc", mode = "symlink" }
+"~/.config/rex" = { source = ".config/rex", mode = "symlink" }
 "~/.config/tmux" = { source = ".config/tmux", mode = "symlink" }
 "~/.config/tuicr" = { source = ".config/tuicr", mode = "symlink" }
 "~/.config/worktrunk/config.toml" = { source = ".config/worktrunk/config.toml", mode = "symlink" }
