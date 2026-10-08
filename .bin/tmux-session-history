@@ -37,20 +37,8 @@ case "${SESSION_BACKEND}" in
     fi
     ;;
   rex)
-    # Rex probes the terminal on startup; finish before fzf reads its replies.
-    SESSIONS="$(rex ls --json)"
-    SESSION_ID="$(
-      jq -r '.sessions[] | [.label, .session_id] | @tsv' <<< "$SESSIONS" \
-        | fzf --color="${FZF_THEME}" --layout=default --no-sort --delimiter=$'\t' --with-nth=1 \
-        | cut -f2
-    )" || exit 0
-    [[ -n "${SESSION_ID}" ]] || exit 0
-
-    if [[ -n "${REX_SESSION:-}" ]]; then
-      exec rex do session.select "session_id=$SESSION_ID"
-    else
-      exec rex attach "$SESSION_ID"
-    fi
+    # use the built in session switcher
+    rex do session.switch
     ;;
   tmux)
     SESSION_NAME="$(tmux ls -F "#{session_activity} #S" | sort -n -r | awk '{print $2}' | fzf --color="${FZF_THEME}" --layout=default --no-sort)" || exit 0
