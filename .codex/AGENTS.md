@@ -22,6 +22,7 @@ I love to focus on simplification, building complex things as simply as possible
 
 # Python
 
+* Prefer high level abstractions from the Python standard library, for example prefer operating on python files rather than file descriptors
 * Do not introduce cyclic dependencies unless as a last resort
 * Prefer global imports over local imports unless resolving a cyclic dependency as a last resort
 * Prefer lists over tuples. Only use tuples for fewer than 5 elements where the tuple is literally constructed, e.g. `(a, b, c)` rather than `tuple(a, b, c)` or `tuple(item for item in ...)`. In general prefer native syntax types like lists and dicts (or literally constructed tuples) over built in types that require a function call like tuples.
