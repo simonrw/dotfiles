@@ -1,3 +1,15 @@
 #!/bin/sh
 
-exec "/Applications/Rex Beta.app/Contents/Helpers/rex" "$@"
+set -euo pipefail
+
+declare -a candidates=(
+    '/Applications/Rex Beta.app/Contents/Helpers/rex'
+    '/Applications/Rex Beta.app/Contents/Helpers/Rex Server.app/Contents/MacOS/rex')
+
+for candidate in "${candidates[@]}"; do
+    if test -f "$candidate" ; then
+        exec "$candidate" "$@"
+    fi
+done
+
+exit 1
