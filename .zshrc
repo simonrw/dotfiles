@@ -8,6 +8,7 @@ source ~/.config/zsh/mise.zsh
 
 if [[ -o interactive ]]; then
     source ~/.config/zsh/options.zsh
+    source ~/.config/zsh/mappings.zsh
     source ~/.config/zsh/aliases.zsh
     source ~/.config/zsh/completion.zsh
     source ~/.config/zsh/fzf.zsh
