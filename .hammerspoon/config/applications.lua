@@ -8,7 +8,7 @@ local browser_name = 'Helium'
 
 local applications = {
     terminal = {
-        name = "Rex Beta",
+        name = "Ghostty",
     },
     browser = {
         name = browser_name,
