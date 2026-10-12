@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+BRANCH_NAME="temp-$(uuidgen)"
+
+but commit -b $BRANCH_NAME "$@"
+but land $BRANCH_NAME --yes
