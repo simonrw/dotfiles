@@ -1,0 +1,18 @@
+.pi/agent/extensions/nested-agents.ts
+  h_65471a27093df2 1-116
+docs/pi-nested-agents.md
+  h_65471a27093df2 1-39
+tests/pi-nested-agents.mjs
+  h_65471a27093df2 1-172
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "bd0ae59fbe242a2331ce420a7f25c11d3e6c4d2f",
+  "prompts": {},
+  "humans": {
+    "h_65471a27093df2": {
+      "author": "Simon Walker <59756+simonrw@users.noreply.github.com>"
+    }
+  }
+}
