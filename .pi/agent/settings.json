@@ -10,8 +10,7 @@
     "npm:pi-web-access",
     "git:github.com/simonrw/pi-extensions",
     "npm:csm-pi-session-monitor",
-    "npm:context-mode",
-    "git:github.com/code-yeongyu/pi-nested-agents-md"
+    "npm:context-mode"
   ],
   "tuiMode": "fullscreen",
   "theme": "light/dark",
