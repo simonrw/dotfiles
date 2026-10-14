@@ -18,6 +18,77 @@ keep_alive = true
 stdout_path = "~/Library/Logs/pi-web-server.log"
 stderr_path = "~/Library/Logs/pi-web-server.log"
 
+# Monitoring binaries/state are prepared by monitoring/install.
+# Before applying these, retire the legacy net.simonrw.fleet.* agents (see monitoring/README.md).
+[bootstrap.macos.launchd.agents.fleet-node-exporter]
+program = "/bin/bash"
+args = ["-c", '''
+set -e
+case "$(hostname -s)" in mm|mba) ;; *) exit 0 ;; esac
+address="$(/opt/homebrew/bin/tailscale ip -4)"
+[[ "$address" == 100.* ]] || exit 1
+exec /opt/homebrew/opt/node_exporter/bin/node_exporter \
+  --web.listen-address="$address:9100" --collector.disable-defaults \
+  --collector.cpu --collector.diskstats --collector.filesystem --collector.loadavg \
+  --collector.meminfo --collector.netdev --collector.time --collector.uname
+''']
+working_directory = "~"
+run_at_load = true
+keep_alive_on_failure = true
+throttle_interval = 10
+stdout_path = "~/.local/share/fleet-monitoring/logs/node-exporter.log"
+stderr_path = "~/.local/share/fleet-monitoring/logs/node-exporter.log"
+
+[bootstrap.macos.launchd.agents.fleet-prometheus]
+program = "/bin/bash"
+args = ["-c", '''
+set -e
+[ "$(hostname -s)" = mm ] || exit 0
+exec /opt/homebrew/opt/prometheus/bin/prometheus \
+  --config.file="$HOME/.local/share/fleet-monitoring/config/prometheus.yaml" \
+  --storage.tsdb.path="$HOME/.local/share/fleet-monitoring/prometheus" \
+  --storage.tsdb.retention.time=7d --storage.tsdb.retention.size=5GB \
+  --web.listen-address=127.0.0.1:9090
+''']
+working_directory = "~"
+run_at_load = true
+keep_alive_on_failure = true
+throttle_interval = 10
+stdout_path = "~/.local/share/fleet-monitoring/logs/prometheus.log"
+stderr_path = "~/.local/share/fleet-monitoring/logs/prometheus.log"
+
+[bootstrap.macos.launchd.agents.fleet-grafana]
+program = "/bin/bash"
+args = ["-c", '''
+set -e
+[ "$(hostname -s)" = mm ] || exit 0
+exec /opt/homebrew/opt/grafana/bin/grafana server \
+  --homepath /opt/homebrew/opt/grafana/share/grafana
+''']
+working_directory = "~"
+run_at_load = true
+keep_alive_on_failure = true
+throttle_interval = 10
+stdout_path = "~/.local/share/fleet-monitoring/logs/grafana.log"
+stderr_path = "~/.local/share/fleet-monitoring/logs/grafana.log"
+
+[bootstrap.macos.launchd.agents.fleet-grafana.environment]
+GF_SERVER_HTTP_ADDR = "100.68.222.71"
+GF_SERVER_ROOT_URL = "http://mm.tortoise-bearded.ts.net:3000"
+GF_PATHS_DATA = "{{ env.HOME }}/.local/share/fleet-monitoring/grafana"
+GF_PATHS_LOGS = "{{ env.HOME }}/.local/share/fleet-monitoring/logs"
+GF_PATHS_PLUGINS = "{{ env.HOME }}/.local/share/fleet-monitoring/grafana/plugins"
+GF_PATHS_PROVISIONING = "{{ env.HOME }}/.local/share/fleet-monitoring/config/grafana/provisioning"
+GF_SECURITY_ADMIN_PASSWORD__FILE = "{{ env.HOME }}/.local/share/fleet-monitoring/grafana-admin-password"
+GF_AUTH_ANONYMOUS_ENABLED = "true"
+GF_AUTH_ANONYMOUS_ORG_ROLE = "Viewer"
+GF_USERS_ALLOW_SIGN_UP = "false"
+GF_ANALYTICS_REPORTING_ENABLED = "false"
+GF_ANALYTICS_CHECK_FOR_UPDATES = "false"
+GF_DASHBOARDS_MIN_REFRESH_INTERVAL = "2s"
+GF_DASHBOARDS_DEFAULT_HOME_DASHBOARD_PATH = "{{ env.HOME }}/.local/share/fleet-monitoring/config/grafana/dashboards/gaming.json"
+FLEET_DASHBOARDS_PATH = "{{ env.HOME }}/.local/share/fleet-monitoring/config/grafana/dashboards"
+
 [dotfiles]
 "~/.config/karabiner/karabiner.json" = { source = ".config/karabiner/karabiner.json", mode = "symlink" }
 "~/.hammerspoon" = { source = ".hammerspoon", mode = "symlink" }

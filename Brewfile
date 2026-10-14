@@ -75,6 +75,7 @@ brew "mise"
 brew "mkcert"
 brew "moshi-hook", start_service: true if not Helpers.is_work
 brew "ncdu"
+brew "node_exporter"
 brew "node"
 brew "nono"
 brew "pandoc"
