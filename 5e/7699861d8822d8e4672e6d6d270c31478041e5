@@ -1,0 +1,14 @@
+.hammerspoon/config/applications.lua
+  h_65471a27093df2 3
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "5e7699861d8822d8e4672e6d6d270c31478041e5",
+  "prompts": {},
+  "humans": {
+    "h_65471a27093df2": {
+      "author": "Simon Walker <59756+simonrw@users.noreply.github.com>"
+    }
+  }
+}
