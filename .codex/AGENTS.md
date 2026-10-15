@@ -27,6 +27,23 @@ I love to focus on simplification, building complex things as simply as possible
 * Prefer global imports over local imports unless resolving a cyclic dependency as a last resort
 * Prefer lists over tuples. Only use tuples for fewer than 5 elements where the tuple is literally constructed, e.g. `(a, b, c)` rather than `tuple(a, b, c)` or `tuple(item for item in ...)`. In general prefer native syntax types like lists and dicts (or literally constructed tuples) over built in types that require a function call like tuples.
 
+# Subagent routing
+
+When running inside T3 Code, use T3-owned subagents exclusively.
+Recognize T3 from its injected orchestration instructions or T3 runtime
+environment, not merely whether its tools are currently visible.
+
+Discover providers and models with `orchestrator_capabilities`, then
+use `delegate_task`, including for same-provider tasks. If T3 delegation
+is unavailable, report the blocker rather than falling back to native
+subagents. Create top-level T3 threads only when explicitly requested.
+
+Outside T3 Code, use the harness's native subagent tools.
+
+Include this routing requirement in delegated task prompts so nested
+delegation follows the same rule. This determines how to delegate,
+not whether delegation is necessary or authorized.
+
 # Notes
 
 When asked to construct a report or write a large document, add a sub-page in Notion to my personal notebook: https://app.notion.com/p/localstack/3b9fc2a234318041a596e6cfff84192a?v=3b9fc2a23431806ba747000cfb6f590d&source=copy_link. Add the content of the note in the body of the page, not in a property. Add appropriate tags that classify the content type.
