@@ -3,6 +3,32 @@
   "defaultProvider": "openai-codex",
   "defaultModel": "gpt-6-astra",
   "defaultThinkingLevel": "medium",
+  "subagents": {
+    "defaultModel": "openai-codex/gpt-6-luna",
+    "agentOverrides": {
+      "scout": {
+        "model": "openai-codex/gpt-6-luna"
+      },
+      "researcher": {
+        "model": "openai-codex/gpt-6-luna"
+      },
+      "worker": {
+        "model": "openai-codex/gpt-6-luna"
+      },
+      "delegate": {
+        "model": "openai-codex/gpt-6-luna"
+      },
+      "reviewer": {
+        "model": "openai-codex/gpt-6.1-sol"
+      },
+      "evidence-auditor": {
+        "model": "openai-codex/gpt-6.1-sol"
+      },
+      "oracle": {
+        "model": "openai-codex/gpt-6.1-sol"
+      }
+    }
+  },
   "defaultTools": [
     "+codemode"
   ],
