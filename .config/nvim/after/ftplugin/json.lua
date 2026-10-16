@@ -10,9 +10,14 @@ vim.opt_local.foldtext = [[getline(v:foldstart) . ' ... ' . trim(getline(v:folde
 
 vim.keymap.set('n', '<Tab>', 'za', { buffer = true, silent = true, desc = 'Toggle JSON fold' })
 
+vim.keymap.set('n', '<leader>jp', function()
+    require('modules/json').copy_path()
+end, { buffer = true, desc = 'Copy jq path to clipboard' })
+
 vim.b.undo_ftplugin = (vim.b.undo_ftplugin or '')
     .. '|setlocal foldmethod< foldexpr< foldlevel< foldenable< foldminlines< foldcolumn< fillchars< foldtext<'
     .. '|silent! nunmap <buffer> <Tab>'
+    .. '|silent! nunmap <buffer> <leader>jp>'
 
 -- override the format command to pipe through jq
 vim.keymap.set('n', '<leader>y', function()
