@@ -2,6 +2,7 @@ require_relative("brew_helpers")
 
 # Taps
 
+tap "cormacrelf/tap", trusted: { formulae: ["cormacrelf/tap/dark-notify"] }
 tap "docker/tap", trusted: { casks: ["docker/tap/sbx"] }
 tap "gammons/tap", trusted: { casks: ["gammons/tap/slk"] }
 tap "railwaycat/emacsmacport", trusted: { casks: ["railwaycat/emacsmacport/emacs-mac"] }
@@ -23,6 +24,7 @@ brew "cmake"
 brew "colima" if Helpers.docker_emulator == 'colima'
 brew "container"
 brew "coreutils"
+brew "cormacrelf/tap/dark-notify"
 brew "curl"
 brew "delta"
 brew "dive"

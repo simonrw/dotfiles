@@ -1,12 +1,18 @@
 #!/usr/bin/env python3
 
+import argparse
+import errno
+import fcntl
+import os
+import signal
+import stat
 import subprocess as sp
-from typing import Protocol
-from pathlib import Path
-from enum import Enum, auto
-from configparser import ConfigParser
+import sys
 from concurrent.futures import ThreadPoolExecutor, as_completed
-from platform import platform
+from configparser import ConfigParser
+from enum import Enum, auto
+from pathlib import Path
+from typing import Protocol
 
 
 class Theme(Enum):
@@ -19,13 +25,12 @@ class ThemeSwitcher(Protocol):
 
 
 def current_theme() -> Theme:
-    import sys
-
     # MacOS: use 'defaults'
     if sys.platform == "darwin":
         try:
             output = sp.check_output(
-                ["defaults", "read", "NSGlobalDomain", "AppleInterfaceStyle"]
+                ["defaults", "read", "NSGlobalDomain", "AppleInterfaceStyle"],
+                stderr=sp.DEVNULL,
             )
             if output.decode().strip().lower() == "dark":
                 return Theme.dark
@@ -103,22 +108,68 @@ def restart_agent_sidebars() -> None:
 
 
 def reload_tmux(theme: Theme):
+    # A LaunchAgent also runs when no tmux server is running.
+    try:
+        if sp.call(["tmux", "has-session"], stderr=sp.DEVNULL) != 0:
+            return
+    except FileNotFoundError:
+        return
     sp.check_call(
         ["tmux", "source-file", str(Path.home() / ".config" / "tmux" / "tmux.conf")]
     )
     restart_agent_sidebars()
 
 
+def reload_shells(theme: Theme):
+    """Notify opted-in shells in every session on this tmux server.
+
+    A FIFO belongs to the shell that opened it, not whichever program happens
+    to occupy the pane now. Stale registrations cannot send signals or input to
+    another process. Busy shells consume their request at the next prompt.
+    """
+    try:
+        pipes = sp.check_output(
+            ["tmux", "list-panes", "-a", "-F", "#{@theme_reload_fifo}"],
+            text=True,
+            stderr=sp.DEVNULL,
+        )
+    except (sp.CalledProcessError, FileNotFoundError):
+        return
+
+    for path in set(pipes.splitlines()) - {""}:
+        try:
+            info = os.lstat(path)
+            if not stat.S_ISFIFO(info.st_mode) or info.st_uid != os.getuid():
+                continue
+            fd = os.open(path, os.O_WRONLY | os.O_NONBLOCK | os.O_NOFOLLOW)
+            try:
+                os.write(fd, b"reload\n")
+            finally:
+                os.close(fd)
+        except OSError as error:
+            # Closed shell, stale registration, or an already-full queue.
+            if error.errno not in (
+                errno.ENOENT,
+                errno.ENXIO,
+                errno.EPIPE,
+                errno.EAGAIN,
+            ):
+                raise
+
+
 def signal_editor_to_reload(*process_names: str):
     for process_name in process_names:
         try:
-            raw_output = sp.check_output(["pgrep", process_name])
+            raw_output = sp.check_output(
+                ["pgrep", "-u", str(os.getuid()), "-x", process_name]
+            )
         except sp.CalledProcessError:
-            return
-
-    pids = [line.strip() for line in raw_output.decode().splitlines()]
-    cmd = ["kill", "-USR1"] + pids
-    sp.check_call(cmd)
+            continue
+        for pid in raw_output.splitlines():
+            try:
+                os.kill(int(pid), signal.SIGUSR1)
+            except ProcessLookupError:
+                pass
 
 
 def reload_helix(theme: Theme):
@@ -177,20 +228,37 @@ def reload_gh_dash(theme: Theme):
             outfile.write(infile.read())
 
 
-theme = current_theme()
+def main() -> int:
+    parser = argparse.ArgumentParser(description="Refresh application and shell themes")
+    # dark-notify appends the appearance to its configured command.
+    parser.add_argument("theme", nargs="?", choices=["dark", "light"])
+    args = parser.parse_args()
 
-switchers: list[ThemeSwitcher] = [
-    reload_tmux,
-    reload_helix,
-    reload_neovim,
-    reload_git,
-    reload_gh_dash,
-]
+    cache = Path.home() / ".cache"
+    cache.mkdir(parents=True, exist_ok=True)
+    with (cache / "reload-theme.lock").open("w") as lock:
+        # Serialize manual and automatic refreshes of the same generated files.
+        fcntl.flock(lock, fcntl.LOCK_EX)
+        theme = Theme[args.theme] if args.theme else current_theme()
+        switchers: list[ThemeSwitcher] = [
+            reload_tmux,
+            reload_shells,
+            reload_helix,
+            reload_neovim,
+            reload_git,
+            reload_gh_dash,
+        ]
+        failed = False
+        with ThreadPoolExecutor() as pool:
+            futures = {pool.submit(fn, theme): fn for fn in switchers}
+            for future in as_completed(futures):
+                try:
+                    future.result()
+                except (OSError, sp.SubprocessError) as error:
+                    print(f"{futures[future].__name__}: {error}", file=sys.stderr)
+                    failed = True
+        return int(failed)
 
-with ThreadPoolExecutor() as pool:
-    futs = []
-    for fn in switchers:
-        futs.append(pool.submit(fn, theme))
 
-    for fut in as_completed(futs):
-        fut.result()
+if __name__ == "__main__":
+    sys.exit(main())

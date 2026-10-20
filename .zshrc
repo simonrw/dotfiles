@@ -14,6 +14,7 @@ if [[ -o interactive ]]; then
     source ~/.config/zsh/fzf.zsh
     source ~/.config/zsh/prompt.zsh
     source ~/.config/zsh/theme.zsh
+    source ~/.config/zsh/theme-reload.zsh
     source ~/.config/zsh/lightweight-abbr.zsh
     source ~/.config/zsh/worktrunk.zsh
     (( ${+commands[atuin]} )) && eval "$(atuin init zsh)"

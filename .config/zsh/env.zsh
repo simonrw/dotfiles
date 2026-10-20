@@ -2,19 +2,10 @@ export LANG=en_GB.UTF-8
 export LC_ALL=en_GB.UTF-8
 export LC_CTYPE=en_GB.UTF-8
 
-if is-dark-theme; then
-    export __IS_DARK_THEME=1
-else
-    export __IS_DARK_THEME=0
-fi
+source "$HOME/.config/zsh/theme-env.zsh"
 
 export FZF_CTRL_T_COMMAND='fd --no-ignore --hidden --type f'
 export FZF_DEFAULT_COMMAND="rg --files --no-ignore --hidden --follow -g '!{.git,venv,node_modules}/*' 2>/dev/null"
-if [[ "$__IS_DARK_THEME" == 1 ]]; then
-    export FZF_DEFAULT_OPTS='--tiebreak begin --ansi --no-mouse --tabstop 4 --inline-info --color dark'
-else
-    export FZF_DEFAULT_OPTS='--tiebreak begin --ansi --no-mouse --tabstop 4 --inline-info --color light'
-fi
 
 export GNUPGHOME="$HOME/.gnupg"
 export JQ_COLORS='1;30:0;37:0;37:0;37:0;32:1;37:1;37'
@@ -23,16 +14,6 @@ export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_DATA_HOME="$HOME/.local/share"
 export XDG_STATE_HOME="$HOME/.local/state"
 export OPENSPEC_TELEMETRY=0
-
-if [[ "$__IS_DARK_THEME" == 1 ]]; then
-    export BAT_CONFIG_PATH="$HOME/.config/bat/dark/config"
-    export GLAMOUR_STYLE=dark
-    export K9S_SKIN=catppuccin-macchiato
-else
-    export BAT_CONFIG_PATH="$HOME/.config/bat/light/config"
-    export GLAMOUR_STYLE=light
-    export K9S_SKIN=catppuccin-latte
-fi
 
 export PAGER=bat
 export PYTHONUNBUFFERED=1

@@ -1,3 +1,15 @@
+# dark-notify emits the initial appearance, then waits for macOS notifications.
+[bootstrap.macos.launchd.agents.reload-theme]
+program = "/opt/homebrew/bin/mise"
+args = ["exec", "--", "dark-notify", "-c", "\"$HOME/.bin/reload-theme\""]
+working_directory = "~"
+environment = { MISE_ENABLE_TOOLS = "python", PATH = "/opt/homebrew/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin" }
+run_at_load = true
+keep_alive = true
+throttle_interval = 10
+stdout_path = "~/Library/Logs/reload-theme.log"
+stderr_path = "~/Library/Logs/reload-theme.log"
+
 [bootstrap.macos.launchd.agents.pi-web-sessiond]
 program = "/opt/homebrew/bin/mise"
 args = ["exec", "--", "pi-web-sessiond"]
