@@ -588,7 +588,7 @@ vim.lsp.enable({
     "ruff",
     "gopls",
     "ty",
-    "ts_ls",
+    "tsc",
     "cfn-lsp",
     "terraformls",
     "sourcekit-lsp",
