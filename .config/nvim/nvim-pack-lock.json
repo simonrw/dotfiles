@@ -21,8 +21,8 @@
       "src": "https://github.com/coder/claudecode.nvim"
     },
     "diffs.nvim": {
-      "rev": "009849a5ca22846effb2d161c3aac34167e872f5",
-      "src": "https://github.com/barrettruth/diffs.nvim"
+      "rev": "8ec45f4e1dd36567cf27d90e8fa6bc53128c54e6",
+      "src": "https://forge.barrettruth.com/barrettruth/diffs.nvim"
     },
     "fzf-lua": {
       "rev": "5dca84ef44f37b960a128a43d044ee348ff86fb4",
