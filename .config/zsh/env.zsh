@@ -33,6 +33,7 @@ export EDITOR=nvim
 export MISE_PIPX_UVX=true
 export HOMEBREW_NO_ANALYTICS=1
 export HOMEBREW_NO_AUTO_UPDATE=1
+export HOMEBREW_FORCE_BREWED_CURL=1
 export CLAUDE_CODE_NO_FLICKER=1
 export CLAUDE_MONITOR_URL=https://csm.tortoise-bearded.ts.net
 
