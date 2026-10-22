@@ -16,14 +16,8 @@ local applications = {
     chat = {
         name = "Slack",
     },
-    linear = {
-        name = "Linear",
-    },
     todo = {
         name = "Reminders",
-    },
-    notes = {
-        name = "Emacs",
     },
     editor = {
         name = "Zed",
