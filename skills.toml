@@ -13,3 +13,7 @@ skills = ["skills/*"]
 [sources.private]
 repo = "git@github.com:simonrw/skills-private.git"
 skills = ["skills/*"]
+
+[sources.diagrams]
+repo = "https://github.com/cathrynlavery/diagram-design"
+skills = ["skills/*"]
