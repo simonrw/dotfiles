@@ -24,6 +24,10 @@ run = "go build -o .bin/ ./cmd/..."
 description = "Install my skills"
 run = "skills-sync sync"
 
+[tasks."skills:update"]
+description = "Update skills to the latest version"
+run = "skills-sync update"
+
 [tasks.submodules]
 description = "Initialize git submodules"
 run = "git submodule update --init --recursive"
