@@ -25,8 +25,6 @@ bindKey(applications.browser, 'c')
 bindKey(applications.terminal, 't')
 bindKey(applications.agent, 'y')
 
-if intr.is_work() then
-    bindKey(applications.chat, 's')
-else
+if not intr.is_work() then
     bindKey(applications.todo, 'r')
 end
