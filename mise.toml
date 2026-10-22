@@ -20,6 +20,10 @@ depends_post = ["brew"]
 description = "Compile project Go binaries into .bin"
 run = "go build -o .bin/ ./cmd/..."
 
+[tasks.skills]
+description = "Install my skills"
+run = "skills-sync sync"
+
 [tasks.submodules]
 description = "Initialize git submodules"
 run = "git submodule update --init --recursive"
