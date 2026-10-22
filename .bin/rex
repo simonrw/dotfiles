@@ -1,8 +1,9 @@
-#!/bin/sh
+#!/usr/bin/env bash
 
 set -euo pipefail
 
 declare -a candidates=(
+    '/Applications/Rex Beta.app/Contents/Helpers/Rex Server.rex/Contents/MacOS/rex'
     '/Applications/Rex Beta.app/Contents/Helpers/rex'
     '/Applications/Rex Beta.app/Contents/Helpers/Rex Server.app/Contents/MacOS/rex')
 
@@ -12,4 +13,5 @@ for candidate in "${candidates[@]}"; do
     fi
 done
 
+printf 'Rex executable not found in /Applications/Rex Beta.app\n' >&2
 exit 1
