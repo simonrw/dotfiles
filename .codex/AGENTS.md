@@ -7,6 +7,20 @@ I love to focus on simplification, building complex things as simply as possible
 * When writing markdown, do not hard wrap text.
 * Never use em-dashes: "—", always use ascii dashes: "-"
 * Be concise when responding. Use punctuation like bullet lists to convey information when relevant.
+* When writing comments or docstrings in source code, don't explain why the solution is a good one.
+    * if writing a comment, explain _why_ the code is needed, not what it does
+    * if writing a docstring, explain what the documented object does, not why it is a good design
+
+For example, this is a bad commment:
+
+```go
+// Resolve reads the telemetry settings using the supplied lookup, which matches
+// the signature of os.LookupEnv. The lookup is a parameter rather than a direct
+// os call so the package never touches the process environment itself and tests
+// need not mutate it.
+```
+
+The second sentence is not needed - it explains why the design decision was a good one. Instead only the first sentence should be written.
 
 # Tooling
 
