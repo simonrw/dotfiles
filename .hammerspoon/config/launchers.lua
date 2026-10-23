@@ -25,6 +25,8 @@ bindKey(applications.browser, 'c')
 bindKey(applications.terminal, 't')
 bindKey(applications.agent, 'y')
 
-if not intr.is_work() then
-    bindKey(applications.todo, 'r')
+if intr.is_work() then
+    bindKey(applications.linear, 'l')
+else
+    bindKey(applications.notes, 'e')
 end
