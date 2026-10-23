@@ -15,7 +15,7 @@ new_cwd = "follow"
 
 [keys]
 prefix = "ctrl+s"
-reload_config = "prefix+r"
+reload_config = ""
 detach = "prefix+d"
 open_notification_target = ""
 workspace_picker = "prefix+w"
@@ -35,6 +35,12 @@ split_vertical = ""
 split_horizontal = "prefix+minus"
 zoom = "prefix+z"
 goto = ""
+
+[[keys.command]]
+key = "prefix+r"
+type = "shell"
+command = '"$HERDR_BIN_PATH" server reload-config; ~/.bin/reload-theme'
+description = "reload config and application themes"
 
 [[keys.command]]
 key = "prefix+i"

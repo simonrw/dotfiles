@@ -97,7 +97,7 @@ print -s -- 'echo unfinished suggestion'
         panes = self.tmux("capture-pane", "-p", check=False).stdout
         self.fail(f"Timed out waiting for shell: {panes}")
 
-    def new_shell(self, name):
+    def new_shell(self, name, standalone=False):
         pane = self.tmux(
             "-f",
             "/dev/null",
@@ -112,13 +112,14 @@ print -s -- 'echo unfinished suggestion'
             "-P",
             "-F",
             "#{pane_id}",
-            f"exec {shlex.quote(ZSH)} -d",
+            f"exec {'env -u TMUX ' if standalone else ''}{shlex.quote(ZSH)} -d",
         ).stdout.strip()
-        self.wait_for(
-            lambda: self.tmux(
-                "show-option", "-pqv", "-t", pane, "@theme_reload_fifo"
-            ).stdout.strip()
-        )
+        if not standalone:
+            self.wait_for(
+                lambda: self.tmux(
+                    "show-option", "-pqv", "-t", pane, "@theme_reload_fifo"
+                ).stdout.strip()
+            )
         self.wait_for(lambda: "$" in self.tmux("capture-pane", "-p", "-t", pane).stdout)
         return pane
 
@@ -219,6 +220,27 @@ print -s -- 'echo unfinished suggestion'
             )
         )
         self.wait_for(lambda: self.snapshot(pane)[3] == "1")
+
+    def test_shell_outside_tmux_updates_without_a_tmux_server(self):
+        pane = self.new_shell("standalone", standalone=True)
+        self.tmux("send-keys", "-t", pane, "-l", "echo unfinished")
+        self.tmux("send-keys", "-t", pane, "Left", "Left")
+        before = self.wait_for(lambda: s if (s := self.snapshot(pane))[2] else None)
+        stale = self.home / ".cache/zsh-theme/reader.stale"
+        stale.mkdir()
+        os.mkfifo(stale / "notify")
+        for mode, expected, colour in [
+            ["dark", "1", "fg=#8aadf4"],
+            ["light", "0", "fg=#1e66f5"],
+        ]:
+            self.reload(mode, server=False)
+            after = self.wait_for(
+                lambda: s if (s := self.snapshot(pane))[3] == expected else None
+            )
+            self.assertEqual(after[:3], before[:3])
+            self.assertIn(colour, after[8])
+            self.assertIn(f"--color {mode}", after[4])
+            self.assertTrue(after[5].endswith(f"/bat/{mode}/config"))
 
     def test_no_tmux_still_updates_other_apps(self):
         self.reload("dark", server=False)

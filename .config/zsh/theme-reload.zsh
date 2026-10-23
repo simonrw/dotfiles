@@ -1,6 +1,6 @@
 # A FIFO wakes ZLE without injecting keystrokes or signalling an unrelated process.
 # While a command runs, the request waits until the shell returns to its prompt.
-[[ -o interactive && -n "$TMUX" && -n "$TMUX_PANE" ]] || return
+[[ -o interactive ]] || return
 (( ${+__zsh_theme_fd} )) && return
 
 __zsh_reload_theme() {
@@ -26,6 +26,10 @@ __zsh_reload_theme() {
 
 __zsh_theme_prompt() {
     # A nested shell may have received changes while this shell was waiting.
+    if [[ -z "$TMUX" || -z "$TMUX_PANE" ]]; then
+        __zsh_reload_theme
+        return
+    fi
     local previous_reader
     previous_reader=$(command tmux show-option -pqv -t "$TMUX_PANE" @theme_reload_fifo \
         ';' set-option -pq -t "$TMUX_PANE" @theme_reload_fifo "$__zsh_theme_dir/notify" 2>/dev/null)
@@ -45,7 +49,12 @@ __zsh_theme_cleanup() {
 
 zmodload zsh/system
 typeset -g __zsh_theme_dir
-__zsh_theme_dir=$(mktemp -d "${TMPDIR:-/tmp}/zsh-theme.XXXXXXXX") || return
+if [[ -n "$TMUX" && -n "$TMUX_PANE" ]]; then
+    __zsh_theme_dir=$(mktemp -d "${TMPDIR:-/tmp}/zsh-theme.XXXXXXXX") || return
+else
+    command mkdir -p -m 700 "$HOME/.cache/zsh-theme" || return
+    __zsh_theme_dir=$(mktemp -d "$HOME/.cache/zsh-theme/reader.XXXXXXXX") || return
+fi
 command mkfifo -m 600 "$__zsh_theme_dir/notify" || {
     command rmdir -- "$__zsh_theme_dir"
     return 1

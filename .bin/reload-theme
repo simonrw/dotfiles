@@ -121,7 +121,7 @@ def reload_tmux(theme: Theme):
 
 
 def reload_shells(theme: Theme):
-    """Notify opted-in shells in every session on this tmux server.
+    """Notify opted-in shells outside tmux and on the selected tmux server.
 
     A FIFO belongs to the shell that opened it, not whichever program happens
     to occupy the pane now. Stale registrations cannot send signals or input to
@@ -134,9 +134,14 @@ def reload_shells(theme: Theme):
             stderr=sp.DEVNULL,
         )
     except (sp.CalledProcessError, FileNotFoundError):
-        return
+        pipes = ""
 
-    for path in set(pipes.splitlines()) - {""}:
+    readers = set(pipes.splitlines()) - {""}
+    readers.update(
+        str(path)
+        for path in (Path.home() / ".cache/zsh-theme").glob("reader.*/notify")
+    )
+    for path in readers:
         try:
             info = os.lstat(path)
             if not stat.S_ISFIFO(info.st_mode) or info.st_uid != os.getuid():
