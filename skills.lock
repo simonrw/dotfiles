@@ -1,5 +1,5 @@
 version = 1
-manifest_sha256 = "e284eeeb981ca7459447de3948c6bc996da6d786e2dc9bdc36374e8b8b991405"
+manifest_sha256 = "c04b5227e1d98eae32a7d4e1fca5382ef1a84a712eea1713f69c74e500ab4a51"
 
 [sources.diagrams]
 kind = "git"
@@ -10,46 +10,6 @@ tree_sha256 = "7af9f59baa71a946d91bcb8c015b9b48c1f210401fee9b37280bb5ea831e2439"
 
 [sources.diagrams.skills]
 "skills/diagram-design" = "diagram-design"
-
-[sources.mattpocock]
-kind = "git"
-upstream = "https://github.com/mattpocock/skills.git"
-revision = "5beb35b040e3de97e54fa9e386d7e42d15c295c2"
-patches = []
-tree_sha256 = "36d7cf837326a5d57a8edfd07fbf53ab977a8c45148c0a7b409490fc0a247e86"
-
-[sources.mattpocock.skills]
-"skills/engineering/ask-matt" = "ask-matt"
-"skills/engineering/code-review" = "code-review"
-"skills/engineering/codebase-design" = "codebase-design"
-"skills/engineering/diagnosing-bugs" = "diagnosing-bugs"
-"skills/engineering/domain-modeling" = "domain-modeling"
-"skills/engineering/grill-with-docs" = "grill-with-docs"
-"skills/engineering/implement" = "implement"
-"skills/engineering/implement-spec" = "implement-spec"
-"skills/engineering/improve-codebase-architecture" = "improve-codebase-architecture"
-"skills/engineering/pr" = "pr"
-"skills/engineering/prototype" = "prototype"
-"skills/engineering/research" = "research"
-"skills/engineering/retro" = "retro"
-"skills/engineering/setup-matt-pocock-skills" = "setup-matt-pocock-skills"
-"skills/engineering/tdd" = "tdd"
-"skills/engineering/to-spec" = "to-spec"
-"skills/engineering/to-tickets" = "to-tickets"
-"skills/engineering/triage" = "triage"
-"skills/engineering/wayfinder" = "wayfinder"
-"skills/engineering/wizard" = "wizard"
-"skills/misc/git-guardrails-claude-code" = "git-guardrails-claude-code"
-"skills/misc/migrate-to-shoehorn" = "migrate-to-shoehorn"
-"skills/misc/scaffold-exercises" = "scaffold-exercises"
-"skills/misc/setup-pre-commit" = "setup-pre-commit"
-"skills/productivity/grill-me" = "grill-me"
-"skills/productivity/grilling" = "grilling"
-"skills/productivity/handoff" = "handoff"
-"skills/productivity/teach" = "teach"
-"skills/productivity/to-questionnaire" = "to-questionnaire"
-"skills/productivity/wait-what" = "wait-what"
-"skills/productivity/writing-for-agents" = "writing-for-agents"
 
 [sources.personal]
 kind = "git"

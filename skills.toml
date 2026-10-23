@@ -1,10 +1,6 @@
 version = 1
 targets = ["~/.agents/skills", "~/.pi/agent/skills"]
 
-[sources.mattpocock]
-repo = "https://github.com/mattpocock/skills.git"
-skills = ["skills/engineering/*", "skills/productivity/*", "skills/misc/*"]
-
 # Includes improve-writing, which is no longer in mattpocock/skills.
 [sources.personal]
 repo = "https://github.com/simonrw/skills.git"
