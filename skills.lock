@@ -54,9 +54,9 @@ tree_sha256 = "36d7cf837326a5d57a8edfd07fbf53ab977a8c45148c0a7b409490fc0a247e86"
 [sources.personal]
 kind = "git"
 upstream = "https://github.com/simonrw/skills.git"
-revision = "2967cf3edbafeefea9b0fb1c7f14bc2cbe978097"
+revision = "2d677198f9941c93fe7e0936df5832460cbea09d"
 patches = []
-tree_sha256 = "acc149fe46ddc1780a5a1fd9b54e27b043d7c835328cf18f9abb64b2acf074ab"
+tree_sha256 = "13c975cf37ccb73b9fb3663a8e5fd894469a2e78f8083df1111399573ca2d854"
 
 [sources.personal.skills]
 "skills/handoff-claude-session" = "handoff-claude-session"
@@ -67,6 +67,7 @@ tree_sha256 = "acc149fe46ddc1780a5a1fd9b54e27b043d7c835328cf18f9abb64b2acf074ab"
 "skills/pair-with-me" = "pair-with-me"
 "skills/ping-pong" = "ping-pong"
 "skills/readable-code" = "readable-code"
+"skills/review-fix-loop" = "review-fix-loop"
 "skills/spike" = "spike"
 "skills/summarise-youtube" = "summarise-youtube"
 "skills/test-audit" = "test-audit"
