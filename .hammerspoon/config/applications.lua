@@ -22,6 +22,9 @@ local applications = {
     todo = {
         name = "Reminders",
     },
+    notes = {
+        name = "Notion",
+    },
     editor = {
         name = "Zed",
     },
