@@ -1,5 +1,5 @@
 version = 1
-manifest_sha256 = "c04b5227e1d98eae32a7d4e1fca5382ef1a84a712eea1713f69c74e500ab4a51"
+manifest_sha256 = "5249dfdd86ee6a2da7a5a3d3cebaa65604dcefb7cf0d601440d25336aa510aec"
 
 [sources.diagrams]
 kind = "git"
@@ -10,6 +10,17 @@ tree_sha256 = "7af9f59baa71a946d91bcb8c015b9b48c1f210401fee9b37280bb5ea831e2439"
 
 [sources.diagrams.skills]
 "skills/diagram-design" = "diagram-design"
+
+[sources.mattpocock]
+kind = "git"
+upstream = "https://github.com/mattpocock/skills.git"
+revision = "5beb35b040e3de97e54fa9e386d7e42d15c295c2"
+patches = []
+tree_sha256 = "36d7cf837326a5d57a8edfd07fbf53ab977a8c45148c0a7b409490fc0a247e86"
+
+[sources.mattpocock.skills]
+"skills/productivity/grill-me" = "grill-me"
+"skills/productivity/grilling" = "grilling"
 
 [sources.personal]
 kind = "git"
