@@ -151,6 +151,7 @@ cask "slack"
 cask "steam" if not Helpers.is_work
 cask "t3-code@nightly"
 cask "tailscale-app"
+cask "todoist-app" if Helpers.is_work
 cask "utm"
 cask "visual-studio-code"
 cask "vorssaint"
