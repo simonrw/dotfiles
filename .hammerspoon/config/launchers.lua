@@ -24,11 +24,10 @@ end
 bindKey(applications.browser, 'c')
 bindKey(applications.terminal, 't')
 bindKey(applications.agent, 'y')
+bindKey(applications.todo, 'r')
 
 if intr.is_work() then
     bindKey(applications.linear, 'l')
     bindKey(applications.notes, 'e')
     bindKey(applications.chat, 's')
-else
-    bindKey(applications.notes, 'e')
 end

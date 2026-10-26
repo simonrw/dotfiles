@@ -1,10 +1,15 @@
--- local intr = require('config/introspection')
+local intr = require('config/introspection')
 
 local browser_name = 'Helium'
 -- if intr.hostname() == 'mba' or intr.hostname() == 'Simon’s MacBook Air' then
 --     -- Helium has some performance problems with Amazon on macOS 27
 --     -- browser_name = 'Safari'
 -- end
+
+local reminders_name = "Reminders"
+if intr.is_work() then
+    reminders_name = "Todoist"
+end
 
 local applications = {
     terminal = {
@@ -20,7 +25,7 @@ local applications = {
         name = "Linear",
     },
     todo = {
-        name = "Reminders",
+        name = reminders_name,
     },
     notes = {
         name = "Notion",
