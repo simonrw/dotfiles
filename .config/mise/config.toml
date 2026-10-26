@@ -74,3 +74,6 @@ minimum_release_age = "0s"
 
 [settings.github]
 credential_command = "gh auth token"
+
+[settings.python]
+compile = false
