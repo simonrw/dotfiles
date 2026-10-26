@@ -63,7 +63,6 @@ run = "mise bootstrap dotfiles apply"
 "~/.config/bat/light" = { source = ".config/bat/light", mode = "symlink" }
 "~/.config/bat/themes" = { source = ".config/bat/themes", mode = "symlink" }
 "~/.config/claude-session-monitor" = { source = ".config/claude-session-monitor", mode = "symlink" }
-"~/.config/dojjo" = { source = ".config/dojjo", mode = "symlink" }
 "~/.config/fish/completions" = { source = ".config/fish/completions", mode = "symlink" }
 "~/.config/fish/conf.d" = { source = ".config/fish/conf.d", mode = "symlink" }
 "~/.config/fish/config.fish" = { source = ".config/fish/config.fish", mode = "symlink" }

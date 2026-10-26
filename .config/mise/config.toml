@@ -39,7 +39,6 @@ xh = { version = "latest", os = ["linux"] }
 atuin = { version = "latest", os = ["linux"] }
 "github:simonrw/shell-agent" = "latest"
 "github:agavra/tuicr" = "latest"
-"github:tjarvstrand/dojjo" = "latest"
 "npm:@earendil-works/pi-coding-agent" = { version = "latest" }
 "npm:@jmfederico/pi-web" = { version = "latest", allow_builds = ["node-pty"] }
 herdr = { version = "latest", os = ["linux"] }
