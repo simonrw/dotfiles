@@ -21,7 +21,8 @@ node = { version = "lts" }
 bun = { version = "latest", os = ["linux"] }
 usage = { version = "latest", os = ["linux"] }
 "github:lima-vm/lima" = { version = "latest", os = ["linux"] }
-jless = { version = "latest", os = ["linux"] }
+jless = { version = "latest", os = ["linux/x86_64"] }
+"cargo:jless" = { version = "latest", os = ["linux/arm64"] }
 gh = { version = "latest", os = ["linux"] }
 uv = { version = "latest", os = ["linux"] }
 jjui = { version = "latest", os = ["linux"] }
