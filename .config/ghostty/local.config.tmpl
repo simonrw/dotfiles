@@ -1,3 +1,7 @@
 {%- set short_hostname = exec(command="hostname -s") | trim -%}
 {%- set profile_path = cwd ~ "/.config/ghostty/" ~ short_hostname ~ ".config" -%}
+{%- if profile_path is exists -%}
 {{- read_file(path=profile_path) -}}
+{%- else -%}
+{{- exec(command="printf 'Warning: Ghostty host profile not found: %s. Using shared settings.\\n' " ~ (profile_path | quote) ~ " >&2") -}}
+{%- endif -%}

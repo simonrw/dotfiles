@@ -29,7 +29,7 @@ macOS adds Karabiner, Hammerspoon, the Pi macOS theme extension, VS Code and Cur
 
 Linux adds fontconfig, Hyprland, Sway, systemd, Waybar, desktop portal configuration, and the Helium desktop entry below `.local`.
 
-Ghostty's stable `config` is a symlink. The named `*.config` host profiles remain repository sources and are not installed individually. mise renders `local.config` as a regular file from the profile matching `hostname -s`.
+Ghostty's stable `config` is a symlink. The named `*.config` host profiles remain repository sources and are not installed individually. mise renders `local.config` as a regular file from the profile matching `hostname -s`. If the profile is missing, rendering prints a warning and writes an empty `local.config`, leaving Ghostty's shared settings in effect.
 
 The declarations exclude generated, secret, and machine-local files such as `.config/gh/hosts.yml`, `.codex/config.toml`, `.codex/environments`, `.config/fish/fish_variables`, `.config/helix/themes/adaptive.toml`, Herdr runtime state, jj repository state, Zed settings and prompts, `.claude/worktrees`, `.junie`, `.jj`, `.ruff_cache`, `mise.local.toml`, and `scratch`.
 
@@ -66,4 +66,4 @@ Review rendered or copied targets for local edits before removing them. Run `mis
 
 ## Verification
 
-`scripts/verify-dotfiles` uses a temporary home directory. It checks platform selection, target counts, ignored paths, dry-run behavior, unmanaged neighbors, apply, rendered Ghostty content, idempotent reapply, missing-target status, and the missing-host-profile error. It never applies mappings to the live home directory.
+Verify Ghostty rendering against a temporary destination using `mise bootstrap dotfiles apply`. A matching hostname profile should render unchanged; a missing profile should print a warning and produce an empty file. Use `--dry-run` to preview mappings without writing them.
