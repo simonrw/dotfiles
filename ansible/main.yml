@@ -66,6 +66,12 @@
         state: present
         update_cache: yes
 
+    - name: Generate shell locale
+      become: true
+      community.general.locale_gen:
+        name: en_GB.UTF-8
+        state: present
+
     - name: Setup target user
       ansible.builtin.include_tasks: user.yml
 

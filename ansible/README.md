@@ -12,6 +12,16 @@ mise run ansible -- -e dotfiles_profile=astoria
 
 `headless` installs CLI and development tools, including `emacs-nox`, Claude Code, and unattended upgrades. It skips all 1Password setup, GUI apps, fonts, snaps, remote desktop, virtualization tools, Wake-on-LAN, and account changes.
 
+## Locales
+
+Every profile generates `en_GB.UTF-8`, which the shell configs use. On a fresh system where this locale is missing, run provisioning with a temporary locale:
+
+```sh
+LC_ALL=C.UTF-8 mise run ansible -- -e dotfiles_profile=headless
+```
+
+Replace `headless` with your chosen profile. The override applies only to this command.
+
 ## Feature overrides
 
 Each flag can be overridden independently of its profile:

@@ -20,6 +20,7 @@ common_packages:
   - liblua5.4-dev
   - libnss3-tools         # mkcert
   - libssl-dev
+  - locales
   - lua5.4
   - mosh
   - ncdu
