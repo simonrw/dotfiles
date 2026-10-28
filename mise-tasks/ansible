@@ -1,16 +1,18 @@
 #!/usr/bin/env bash
 #MISE description="Provision system with ansible"
- 
+
 set -euo pipefail
 
-if echo $OSTYPE | grep -q darwin; then
+if [[ "$OSTYPE" == darwin* ]]; then
     echo "Only works for ubuntu" >&2
     exit 0
 fi
 
-if ! command -v ansible >/dev/null; then
-    bash "$(dirname $(readlink -f $0))/prepare"
+task_dir="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd)"
+
+if ! command -v ansible-playbook >/dev/null; then
+    bash "$task_dir/prepare"
 fi
 
-ansible-playbook --ask-become-pass ansible/main.yml
+exec ansible-playbook --ask-become-pass "$task_dir/../ansible/main.yml" "$@"
 

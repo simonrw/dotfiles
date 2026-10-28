@@ -1,0 +1,22 @@
+---
+desktop_enabled: true
+sunshine_enabled: true
+x11vnc_enabled: true
+virtualization_enabled: true
+user_management_enabled: true
+wakeonlan_enabled: true
+
+wakeonlan_interfaces:
+  - eno1
+
+dotfiles_user_groups:
+  - adm
+  - cdrom
+  - sudo
+  - dip
+  - plugdev
+  - users
+  - lpadmin
+  - docker
+  - kvm
+  - libvirt

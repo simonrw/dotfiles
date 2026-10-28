@@ -2,17 +2,18 @@
 - name: Install dependencies
   hosts: localhost
   vars_files:
-    - packages.yml
     - vars.yml
+    - packages.yml
+  pre_tasks:
+    - name: Load provisioning profile
+      ansible.builtin.include_vars: "profiles/{{ dotfiles_profile }}.yml"
+
   tasks:
 
     - name: Verify become password
       become: true
       ansible.builtin.command: /bin/true
       changed_when: false
-
-    - name: Setup target user
-      ansible.builtin.include_tasks: user.yml
 
     - name: Ensure /etc/apt/keyrings directory exists
       become: true
@@ -46,14 +47,17 @@
         state: present
       loop: "{{ apt_repositories | default([]) }}"
 
-    - name: Setup 1Password CLI
+    - name: Setup 1Password repository
       ansible.builtin.include_tasks: 1password.yml
+      when: onepassword_cli_enabled | bool or onepassword_gui_enabled | bool
 
     - name: Setup Hyprland
       ansible.builtin.include_tasks: hyprland.yml
+      when: hyprland_enabled | bool
 
     - name: Setup Sway
       ansible.builtin.include_tasks: sway.yml
+      when: sway_enabled | bool
 
     - name: Install packages
       become: true
@@ -62,8 +66,12 @@
         state: present
         update_cache: yes
 
+    - name: Setup target user
+      ansible.builtin.include_tasks: user.yml
+
     - name: Configure networking
       ansible.builtin.include_tasks: network.yml
+      when: wakeonlan_enabled | bool
 
     - name: Configure unattended-upgrades
       become: true
@@ -72,11 +80,15 @@
         content: |
           APT::Periodic::Update-Package-Lists "1";
           APT::Periodic::Unattended-Upgrade "1";
+      when: unattended_upgrades_enabled | bool
 
     - name: Install snaps
       become: true
       community.general.snap:
         name: "{{ snaps }}"
+      when:
+        - snaps_enabled | bool
+        - snaps | length > 0
 
     - name: Install classic snaps
       become: true
@@ -84,25 +96,30 @@
         name: "{{ item }}"
         classic: true
       loop: "{{ classic_snaps | default([]) }}"
+      when: snaps_enabled | bool
 
     - name: Setup Ghostty
       ansible.builtin.include_tasks: ghostty.yml
+      when: ghostty_enabled | bool
 
     - name: Setup Sunshine
       ansible.builtin.include_tasks: sunshine.yml
+      when: sunshine_enabled | bool
 
     - name: Setup Helium
       ansible.builtin.include_tasks: helium.yml
+      when: helium_enabled | bool
 
     - name: Install Lilex font
       ansible.builtin.include_tasks: font.yml
       vars:
         font_name: Lilex
         font_url: "https://github.com/mishamyrt/Lilex/releases/download/{{ lilex_version }}/Lilex.zip"
+      when: fonts_enabled | bool
 
     - name: Setup Ollama
       ansible.builtin.include_tasks: ollama.yml
-      when: ansible_hostname == 'astoria'
+      when: ollama_enabled | bool
 
     - name: Apply dconf settings
       community.general.dconf:
@@ -110,9 +127,11 @@
         value: "{{ item.value }}"
         state: present
       loop: "{{ dconf_settings | default([]) }}"
+      when: dconf_enabled | bool
 
     - name: Setup Zed
       ansible.builtin.include_tasks: zed.yml
+      when: zed_enabled | bool
 
     - name: Enable x11vnc systemd user service
       ansible.builtin.systemd:
@@ -120,9 +139,11 @@
         enabled: true
         scope: user
         daemon_reload: true
+      when: x11vnc_enabled | bool
 
     - name: Install Claude Code
       ansible.builtin.include_tasks: claude-code.yml
+      when: claude_code_enabled | bool
 
   handlers:
     - name: Load Helium AppArmor profile

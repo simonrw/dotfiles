@@ -12,7 +12,6 @@
       - xdg-desktop-portal-wlr
     state: present
     update_cache: yes
-  when: sway_enabled
 
 - name: Allow Sway on NVIDIA GPU
   become: yes
@@ -20,18 +19,3 @@
     path: /usr/share/wayland-sessions/sway.desktop
     regexp: '^Exec=sway'
     line: 'Exec=sway --unsupported-gpu'
-  when: sway_enabled
-
-- name: Remove Sway packages
-  become: true
-  ansible.builtin.apt:
-    name:
-      - sway
-      - waybar
-      - fuzzel
-      - swaylock
-      - swayidle
-      - swaybg
-      - xdg-desktop-portal-wlr
-    state: absent
-  when: not sway_enabled

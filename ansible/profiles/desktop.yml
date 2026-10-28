@@ -1,0 +1,5 @@
+---
+desktop_enabled: true
+sunshine_enabled: true
+x11vnc_enabled: true
+virtualization_enabled: true

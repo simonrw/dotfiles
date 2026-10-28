@@ -1,20 +1,28 @@
+dotfiles_profile: desktop
+
+desktop_enabled: false
+fonts_enabled: "{{ desktop_enabled | bool }}"
+ghostty_enabled: "{{ desktop_enabled | bool }}"
+helium_enabled: "{{ desktop_enabled | bool }}"
+zed_enabled: "{{ desktop_enabled | bool }}"
+snaps_enabled: "{{ desktop_enabled | bool }}"
+dconf_enabled: "{{ desktop_enabled | bool }}"
+onepassword_gui_enabled: "{{ desktop_enabled | bool }}"
+onepassword_cli_enabled: true
+claude_code_enabled: true
+unattended_upgrades_enabled: true
+sunshine_enabled: false
+x11vnc_enabled: false
+virtualization_enabled: false
+wakeonlan_enabled: false
+user_management_enabled: false
 hyprland_enabled: false
 sway_enabled: false
 ollama_enabled: false
 
 dotfiles_user_name: "{{ ansible_user_id }}"
-dotfiles_user_shell: /usr/bin/fish
-dotfiles_user_groups:
-  - adm
-  - cdrom
-  - sudo
-  - dip
-  - plugdev
-  - users
-  - lpadmin
-  - docker
-  - kvm
-  - libvirt
+dotfiles_user_shell: /usr/bin/zsh
+dotfiles_user_groups: []
 
 ghostty_version: 1.2.3-0
 sunshine_version: 0.23.1
@@ -22,8 +30,7 @@ helium_version: "0.12.5.1"
 lilex_version: "2.621"
 ollama_version: "0.17.0"
 
-wakeonlan_interfaces:
-  - eno1
+wakeonlan_interfaces: []
 
 dconf_settings:
   - key: "/org/gnome/desktop/input-sources/xkb-options"

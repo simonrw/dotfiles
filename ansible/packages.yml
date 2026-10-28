@@ -1,66 +1,71 @@
 ---
-apt_keys:
-  - url: https://mise.en.dev/gpg-key.pub
-    keyring: /etc/apt/keyrings/mise-archive-keyring.asc
+apt_keys: []
 
-apt_repositories:
-  - repo: "deb [signed-by=/etc/apt/keyrings/mise-archive-keyring.asc arch=amd64] https://mise.en.dev/deb stable main"
-    filename: mise
-    managed_source_file: true
-  - repo: "ppa:fish-shell/release-4"
-    filename: fish-shell-release-4
+apt_repositories: []
 
-packages:
-
-  - 1password
-  - 1password-cli
-  - bridge-utils          # kvm
+common_packages:
   - build-essential
   - clang-18
   - cmake
-  - cpu-checker           # kvm
   - curl
-  - emacs
-  - ethtool
   - exuberant-ctags
   - eza
   - fd-find
   - ffmpeg
-  - fish
-  - fonts-jetbrains-mono
   - git-delta
   - git-lfs
-  - gnome-tweaks
   - htop
   - libcfitsio-dev
   - libclang-18-dev
   - liblua5.4-dev
   - libnss3-tools         # mkcert
   - libssl-dev
-  - libvirt-clients       # kvm
-  - libvirt-daemon        # kvm
   - lua5.4
-  - mise
   - mosh
   - ncdu
   - podman
-  - python3-psutil           # dconf module
-  - qemu-system
   - ripgrep
   - socat                 # for claude sandboxing
   - sqlite3
   - tmux
-  - unattended-upgrades
-  - virt-manager
-  - wmctrl
-  - x11vnc
   - zsh
 
-snaps:
+desktop_packages:
+  - emacs
+  - gnome-tweaks
+  - wmctrl
 
+headless_packages:
+  - emacs-nox
+
+font_packages:
+  - fonts-jetbrains-mono
+
+virtualization_packages:
+  - bridge-utils
+  - cpu-checker
+  - libvirt-clients
+  - libvirt-daemon
+  - qemu-system
+
+packages: >-
+  {{
+    common_packages
+    + (desktop_packages if desktop_enabled | bool else headless_packages)
+    + (font_packages if fonts_enabled | bool else [])
+    + (virtualization_packages if virtualization_enabled | bool else [])
+    + (['virt-manager'] if virtualization_enabled | bool and desktop_enabled | bool else [])
+    + (['1password-cli'] if onepassword_cli_enabled | bool else [])
+    + (['1password'] if onepassword_gui_enabled | bool else [])
+    + (['python3-psutil'] if dconf_enabled | bool else [])
+    + (['ethtool'] if wakeonlan_enabled | bool else [])
+    + (['x11vnc'] if x11vnc_enabled | bool else [])
+    + (['unattended-upgrades'] if unattended_upgrades_enabled | bool else [])
+  }}
+
+snaps:
   - slack
   - steam
 
 classic_snaps:
-
   - pycharm

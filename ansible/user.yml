@@ -9,7 +9,7 @@
     name: "{{ item }}"
     state: present
   loop: "{{ dotfiles_user_groups }}"
-  when: ansible_hostname == 'astoria'
+  when: user_management_enabled | bool
 
 - name: Configure managed user account
   become: true
@@ -17,7 +17,7 @@
     name: "{{ ansible_target_user }}"
     groups: "{{ dotfiles_user_groups }}"
     shell: "{{ dotfiles_user_shell }}"
-  when: ansible_hostname == 'astoria'
+  when: user_management_enabled | bool
 
 - name: Read target user account
   ansible.builtin.getent:

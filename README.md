@@ -6,4 +6,6 @@ I have [merged in](https://github.com/simonrw/dotfiles/commit/f47829ab436c) my n
 
 Dotfile installation requires mise 2026.7.16 or newer. See [docs/dotfiles.md](docs/dotfiles.md) for commands, ownership, cutover, and rollback.
 
+Ubuntu provisioning supports desktop, headless VM, and personal desktop profiles. See [ansible/README.md](ansible/README.md) for feature flags and commands.
+
 YMMV
