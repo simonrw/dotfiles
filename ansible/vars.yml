@@ -23,7 +23,7 @@ ollama_enabled: false
 
 dotfiles_user_name: "{{ ansible_user_id }}"
 dotfiles_user_shell: /usr/bin/zsh
-dotfiles_user_groups: []
+dotfiles_user_groups: ["docker"]
 
 ghostty_version: 1.2.3-0
 sunshine_version: 0.23.1
