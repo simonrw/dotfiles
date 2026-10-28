@@ -14,5 +14,7 @@ if ! command -v ansible-playbook >/dev/null; then
     bash "$task_dir/prepare"
 fi
 
+ansible-galaxy role install -r "$task_dir/../ansible/requirements.yml"
+
 exec ansible-playbook --ask-become-pass "$task_dir/../ansible/main.yml" "$@"
 

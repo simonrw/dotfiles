@@ -38,9 +38,15 @@ Other flags default to false:
 - `user_management_enabled`: configure `dotfiles_user_shell` and `dotfiles_user_groups`.
 - `hyprland_enabled`, `sway_enabled`, `ollama_enabled`: optional window managers and local model service.
 
-`claude_code_enabled` and `unattended_upgrades_enabled` default to true in every profile. `onepassword_cli_enabled` defaults to true; the headless profile disables both 1Password flags. The desktop and astoria profiles also enable Sunshine, x11vnc, and virtualization.
+`claude_code_enabled`, `docker_enabled`, and `unattended_upgrades_enabled` default to true in every profile. `onepassword_cli_enabled` defaults to true; the headless profile disables both 1Password flags. The desktop and astoria profiles also enable Sunshine, x11vnc, and virtualization.
 
 A false flag skips provisioning. It leaves installed packages, repositories, settings, and running services in place. This also applies to Hyprland, Sway, and Ollama, which previously had removal tasks. Uninstall or stop existing software separately when changing an already provisioned system.
+
+## Docker
+
+Every profile installs Docker CE, Buildx, and the Docker Compose plugin using `geerlingguy.docker`, and starts and enables the Docker service. `mise run ansible` installs the pinned role from [requirements.yml](requirements.yml) before running the playbook. Use `-e docker_enabled=false` to skip Docker provisioning.
+
+Docker access requires `sudo` unless the user belongs to the `docker` group. The astoria profile already manages this membership. For other profiles, opt in with `-e '{"docker_users": ["your-username"]}'`. Membership grants root-equivalent access; log out and back in after adding it.
 
 ## Custom profiles
 
@@ -57,6 +63,7 @@ Profiles control Ansible provisioning. Dotfile linking remains managed by `mise 
 ## Preview
 
 ```sh
+ansible-galaxy role install -r ansible/requirements.yml
 ansible-playbook ansible/main.yml -e dotfiles_profile=headless --syntax-check
 ansible-playbook ansible/main.yml -e dotfiles_profile=headless --list-tasks
 mise run ansible -- -e dotfiles_profile=headless --check --diff

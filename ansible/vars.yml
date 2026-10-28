@@ -10,6 +10,7 @@ dconf_enabled: "{{ desktop_enabled | bool }}"
 onepassword_gui_enabled: "{{ desktop_enabled | bool }}"
 onepassword_cli_enabled: true
 claude_code_enabled: true
+docker_enabled: true
 unattended_upgrades_enabled: true
 sunshine_enabled: false
 x11vnc_enabled: false

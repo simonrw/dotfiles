@@ -69,6 +69,13 @@
     - name: Setup target user
       ansible.builtin.include_tasks: user.yml
 
+    - name: Setup Docker
+      ansible.builtin.include_role:
+        name: geerlingguy.docker
+        apply:
+          become: true
+      when: docker_enabled | bool
+
     - name: Configure networking
       ansible.builtin.include_tasks: network.yml
       when: wakeonlan_enabled | bool
