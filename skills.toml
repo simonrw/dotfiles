@@ -1,5 +1,8 @@
 version = 1
 targets = ["~/.agents/skills", "~/.pi/agent/skills"]
+commands = [
+    "~/.bin/rex skill setup --agent pi --agent codex --force",
+]
 
 [sources.mattpocock]
 repo = "https://github.com/mattpocock/skills.git"
