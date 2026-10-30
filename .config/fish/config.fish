@@ -21,12 +21,6 @@ if status is-interactive
         fish_config theme choose --color-theme=light catppuccin-macchiato
     end
 
-    # shell agent
-    if test -f {$HOME}/.config/fish/plugins/shell-agent/fish/shell-agent.fish; and type -q codex
-        source {$HOME}/.config/fish/plugins/shell-agent/fish/shell-agent.fish
-        shell_agent_enable
-    end
-
     atuin init fish | source
 end
 

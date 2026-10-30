@@ -18,10 +18,6 @@ if [[ -o interactive ]]; then
     source ~/.config/zsh/lightweight-abbr.zsh
     source ~/.config/zsh/worktrunk.zsh
     (( ${+commands[atuin]} )) && eval "$(atuin init zsh)"
-    if (( ${+commands[codex]} )); then
-        source ~/.config/zsh/shell-agent.zsh
-        shell_agent_enable
-    fi
 fi
 
 this_hostname=$(hostname -s)

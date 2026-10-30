@@ -281,26 +281,6 @@ fi""")
                     terminal += os.read(fd, 65536)
                 self.assertEqual(actual, expected, terminal[-3000:])
 
-        self.env["SHELL_AGENT_BIN"] = str(self.stub(
-            "shell-agent",
-            'printf \'%s\\n\' "$@" > "$HOME/agent-args"; '
-            'while [ "$#" -gt 0 ] && [ "$1" != --prompt-file ]; do shift; done; shift; '
-            'cp "$1" "$HOME/agent-prompt"; rm "$1"',
-        ))
-        send(f'export SHELL_AGENT_BIN="{self.env["SHELL_AGENT_BIN"]}"; printf \'__%s__\\n\' AGENT\n')
-        wait_for("__AGENT__")
-        send(": explain 'a b' safely\n")
-        deadline = time.monotonic() + 5
-        terminal = b""
-        while not (self.home / "agent-prompt").exists() and time.monotonic() < deadline:
-            if select.select([fd], [], [], 0.05)[0]:
-                terminal += os.read(fd, 65536)
-        if not (self.home / "agent-prompt").exists():
-            args_file = self.home / "agent-args"
-            args = args_file.read_text() if args_file.exists() else "runner not invoked"
-            self.fail(f"Shell Agent did not run, {args!r}: {terminal[-4000:]!r}")
-        self.assertEqual((self.home / "agent-prompt").read_text(), "explain 'a b' safely")
-        self.assertEqual((self.home / "agent-args").read_text().splitlines()[:2], ["--pwd", str(self.home)])
         send("bindkey '^R'; bindkey '^T'; bindkey '\\ec'; printf '__%s__\\n' KEYS\n")
         keys = wait_for("__KEYS__")
         for widget in [b"atuin-search", b"fzf-file-widget", b"fzf-cd-widget"]:
