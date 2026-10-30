@@ -29,6 +29,34 @@ The second sentence is not needed - it explains why the design decision was a go
 * You may find errors with commit signing. Read ~/.ssh/agent.fish and extract the ssh agent environment variables and try again.
 * I use `mise` (https://mise.jdx.dev/) for managing my project tools, so if a tool does not exist in your shell environment, consider using `mise exec -- <command>`
 
+# Writing code
+
+* When writing code, break logical sections up with newlines to add visual separation and grouping, for example
+
+```python
+class Foo:
+    """
+    Class Foo wraps two separate concepts, `bar` and `baz`.
+    """
+    def bar(self) -> int:
+        return 10
+
+    def baz(self, value: int): ...
+
+# bad
+foo = Foo(something)
+value =foo.bar()
+foo.baz(value * 2)
+
+# good
+foo = Foo(something)
+value = foo.bar()
+
+foo.baz(value * 2)
+```
+
+This is particularly important in tests, separating assertions of different concepts.
+
 # Rust
 
 * Do not assume the `target` dir for built outputs. I have a custom path set with `$CARGO_TARGET_DIR` so debug builds are under `$CARGO_TARGET_DIR/debug`, documentation is under `$CARGO_TARGET_DIR/docs` etc.
