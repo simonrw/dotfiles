@@ -3,6 +3,7 @@
 
 import json
 import os
+import shutil
 import subprocess
 import sys
 import tempfile
@@ -119,7 +120,10 @@ class CopyMode(unittest.TestCase):
     def open_viewer(self):
         viewer = json.loads(self.rex("do", "copy_mode", "--session", self.session, "--block", self.source))
         block = viewer["block_ids"][0]
-        self.wait_for("copy viewer", lambda: "Copy mode | Space:" in self.rex("capture", "--block", block))
+        self.wait_for("copy viewer", lambda: (
+            self.api("com.superlogical.terminal.modes", session_id=self.session, block_id=block, args={})["screen"] == "alternate"
+            and "READY" in self.rex("capture", "--block", block)
+        ))
         return block
 
     def keys(self, block, *keys):
@@ -133,6 +137,76 @@ class CopyMode(unittest.TestCase):
 
     def clipboard(self):
         return subprocess.check_output(["/usr/bin/pbpaste"])
+
+    def screen(self, block):
+        size = self.api("com.superlogical.terminal.size", session_id=self.session, block_id=block, args={})
+        content = self.api("com.superlogical.terminal.format", session_id=self.session, block_id=block,
+                           args={"format": "text", "trim": False, "unwrap": False})["content"]
+        lines = content.split("\n")[-size["rows"]:]
+        return [line.ljust(size["columns"]) for line in lines] + [" " * size["columns"]] * (size["rows"] - len(lines))
+
+    def test_viewer_preserves_screen_rows(self):
+        before = self.screen(self.source)
+        viewer = self.open_viewer()
+        self.assertEqual(self.screen(viewer), before)
+
+    def test_viewer_preserves_short_screen_and_blank_rows(self):
+        # A fresh terminal renders a short fixture at the top, with empty rows below.
+        created = json.loads(self.rex(
+            "run", "--session", self.session, "--json", "--shell", "none", "--",
+            sys.executable, "-c", "import time; print('short café 界\\r\\nREADY', end='', flush=True); time.sleep(60)",
+        ))
+        self.source = created["block_ids"][0]
+        self.wait_for("short fixture", lambda: "READY" in self.rex("capture", "--block", self.source))
+        before = self.screen(self.source)
+        viewer = self.open_viewer()
+        self.assertEqual(self.screen(viewer), before)
+
+    def test_viewer_covers_only_source_pane(self):
+        self.rex("split", "--session", self.session, "--block", self.source,
+                 "--split", "right", "--ratio", "35", "--focus=false", "--shell", "none", "--", "/bin/cat")
+        window = self.api("session.view", session_id=self.session)["windows"][0]
+        expected = window["layers"][0]["layout"]["split"]["before"]["rect"]
+        for zoomed in [False, True]:
+            with self.subTest(zoomed=zoomed):
+                if zoomed:
+                    self.rex("zoom", "--session", self.session, self.source, "--on")
+                viewer = self.open_viewer()
+                window = self.api("session.view", session_id=self.session)["windows"][0]
+                self.assertEqual(window["layers"][-1]["bounds"], [0, 0, 1, 1] if zoomed else expected)
+                self.keys(viewer, "q")
+                self.wait_closed()
+
+    def test_viewer_matches_editor_theme_and_reloads_appearance(self):
+        theme = "{name=vim.g.colors_name, background=vim.o.background, normal=vim.api.nvim_get_hl(0, {name='Normal', link=false})}"
+        expected_path = self.directory / "editor-theme.json"
+        actual_path = self.directory / "viewer-theme.json"
+        expected_path.unlink(missing_ok=True)
+        actual_path.unlink(missing_ok=True)
+        nvim = shutil.which("nvim") or str(Path.home() / ".local/share/bob/nvim-bin/nvim")
+        subprocess.run(
+            [nvim, "--headless", "-n", "-i", "NONE", "-c",
+             f"lua vim.fn.writefile({{vim.json.encode({theme})}}, {json.dumps(str(expected_path))})", "-c", "qa!"],
+            env={**os.environ, "XDG_CONFIG_HOME": str(ROOT / ".config"), "TMPDIR": str(self.directory)},
+            check=True, capture_output=True, timeout=30,
+        )
+        expected = json.loads(expected_path.read_text())
+        viewer = self.open_viewer()
+
+        def read_theme():
+            actual_path.unlink(missing_ok=True)
+            self.rex("send", "--session", self.session, "--block", viewer,
+                     f":lua vim.fn.writefile({{vim.json.encode({theme})}}, {json.dumps(str(actual_path))})\r")
+            self.wait_for("viewer theme", actual_path.exists)
+            return json.loads(actual_path.read_text())
+
+        initial = read_theme()
+        # A theme notification must read current appearance, not a stale inherited variable.
+        self.rex("send", "--session", self.session, "--block", viewer,
+                 ":lua vim.env.__IS_DARK_THEME = '" + ("1" if expected["background"] == "light" else "0")
+                 + "'; vim.api.nvim_exec_autocmds('Signal', {pattern='SIGUSR1'})\r")
+        reloaded = read_theme()
+        self.assertEqual([initial, reloaded], [expected, expected])
 
     def test_entry_binding_and_cancel_do_not_leak_input(self):
         keymap = json.loads(self.rex("keymap", "--json"))

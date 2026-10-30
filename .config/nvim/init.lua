@@ -1,13 +1,8 @@
 vim.loader.enable(true)
 
-local function is_dark_mode()
-    local is_dark_theme = vim.env.__IS_DARK_THEME
-    return is_dark_theme == nil or is_dark_theme == "1"
-end
+local theme = require("theme")
 
 vim.g.loaded_python3_provider = 0
-vim.g.get_is_dark_mode = is_dark_mode
-vim.g.is_dark_mode = is_dark_mode()
 vim.g.mapleader = " "
 vim.g.maplocalleader = "\\"
 
@@ -137,7 +132,7 @@ vim.api.nvim_create_autocmd('PackChanged', {
 
 vim.pack.add({
     { src = gh('stevearc/oil.nvim') },
-    { src = gh('catppuccin/nvim'),                        name = 'catppuccin' },
+    theme.package,
     { src = gh('nvim-treesitter/nvim-treesitter'),        version = 'main' },
     { src = gh('neovim/nvim-lspconfig') },
     { src = gh('tpope/vim-fugitive') },
@@ -594,52 +589,6 @@ vim.lsp.enable({
     "sourcekit-lsp",
 })
 
-local function load_theme()
-    if vim.g.is_dark_mode then
-        vim.cmd.colorscheme "catppuccin-macchiato"
-
-        vim.cmd.highlight({ "TreesitterContextBottom", "gui=none" })
-        vim.cmd.highlight({ "CursorLine", "guibg=#363a4f" })
-        vim.cmd.highlight({ "CursorColumn", "guibg=#363a4f" })
-        vim.cmd.highlight({ "LineNr", "guifg=#6e738d" })
-    else
-        vim.cmd.colorscheme "catppuccin-latte"
-
-        vim.cmd.highlight({ "DiagnosticError", "guifg=Red" })
-        vim.cmd.highlight({ "DiagnosticHint", "guifg=Orange" })
-        vim.cmd.highlight({ "DiagnosticWarn", "guifg=Orange" })
-        vim.cmd.highlight({ "DiagnosticInfo", "guifg=LightBlue" })
-        vim.cmd.highlight({ "DiagnosticFloatingError", "guifg=Red" })
-        vim.cmd.highlight({ "DiagnosticFloatingHint", "guifg=Orange" })
-        vim.cmd.highlight({ "DiagnosticFloatingInfo", "guifg=LightBlue" })
-        vim.cmd.highlight({ "DiagnosticFloatingWarn", "guifg=Orange" })
-        vim.cmd.highlight({ "DiagnosticVirtualTextError", "guifg=Red" })
-        vim.cmd.highlight({ "DiagnosticVirtualTextHint", "guifg=Orange" })
-        vim.cmd.highlight({ "DiagnosticVirtualTextInfo", "guifg=LightBlue" })
-        vim.cmd.highlight({ "DiagnosticVirtualTextWarn", "guifg=Orange" })
-        vim.cmd.highlight({ "Comment", "guifg=#e69340" })
-        vim.cmd.highlight({ "TreesitterContext", "guibg=#f0f0f0" })
-    end
-
-    -- touchup.nvim defines heading underlines with `default = true`, so
-    -- catppuccin's own heading groups override them. Re-apply the underline
-    -- while preserving catppuccin's heading colors.
-    for group, extra in pairs({
-        ["@markup.heading.1.markdown"] = { bold = true, underline = true },
-        ["@markup.heading.2.markdown"] = { underline = true },
-    }) do
-        local hl = vim.api.nvim_get_hl(0, { name = group, link = false })
-        vim.api.nvim_set_hl(0, group, vim.tbl_extend("force", hl, extra))
-    end
-end
-
-vim.api.nvim_create_autocmd("Signal", {
-    pattern = "SIGUSR1",
-    callback = function()
-        vim.g.is_dark_mode = vim.g.get_is_dark_mode()
-        load_theme()
-    end,
-})
 -- configure vim-test
 vim.g["test#python#runner"] = "pytest"
 vim.g["test#python#pytest#executable"] = "pytest"
@@ -818,7 +767,7 @@ ask_agent_statusline = function()
 end
 
 
-load_theme()
+theme.setup()
 
 vim.o.cmdheight = 1
 

@@ -33,7 +33,7 @@ rex.bind(prefix .. "r", "client.config.reload")
 rex.bind(prefix .. "f", "session.switch")
 
 local config_dir = (os.getenv("XDG_CONFIG_HOME") or os.getenv("HOME") .. "/.config") .. "/rex"
--- GUI-launched Rex doesn't inherit the PATH set by fish's startup files.
+-- GUI-launched Rex does not inherit the interactive shell's PATH.
 local copy_mode_path = os.getenv("HOME") .. "/.bin:" .. os.getenv("HOME") .. "/.local/share/bob/nvim-bin:" .. os.getenv("PATH")
 
 local function copy_mode_executable(name)
@@ -68,13 +68,38 @@ rex.action {
 			end
 		end
 
+		local view
+		view, err = rex.session.view {}
+		if not view then error(err, 0) end
+		local function source_rect(node)
+			if not node then return end
+			if node.block_id == ctx.block_id then return node.rect end
+			if node.split then
+				return source_rect(node.split.before) or source_rect(node.split.after)
+			end
+		end
+		local bounds
+		for _, window in ipairs(view.windows) do
+			if window.window_id == source.block.window_id then
+				if window.zoomed_block_id == ctx.block_id then
+					bounds = { 0, 0, 1, 1 }
+				else
+					for _, layer in ipairs(window.layers) do
+						bounds = source_rect(layer.layout)
+						if bounds then break end
+					end
+				end
+			end
+		end
+		if not bounds then error("Copy mode could not locate the source pane", 0) end
+
 		local nvim = copy_mode_executable("nvim")
 		local cli = copy_mode_executable("rex")
 
 		local viewer
 		viewer, err = rex.session.new_layer {
 			window_id = source.block.window_id,
-			bounds = { x = 0, y = 0, w = 1, h = 1 },
+			bounds = bounds,
 			focus = true,
 			layout = {
 				block = {
@@ -87,9 +112,9 @@ rex.action {
 							"REX_COPY_SOURCE_SESSION=" .. ctx.session_id,
 							"REX_COPY_SOURCE_BLOCK=" .. ctx.block_id,
 							"REX_COPY_REX=" .. cli,
-							-- Rex clients normally close completed terminals. Also close explicitly when headless.
+							-- Closing a floating layer can otherwise focus a sibling instead of the source.
 							"/bin/sh", "-c",
-							[["$@"; exec "$REX_COPY_REX" --autostart=false block close -s "$REX_SESSION" "$REX_BLOCK"]],
+							[["$@"; "$REX_COPY_REX" --autostart=false focus -s "$REX_COPY_SOURCE_SESSION" "$REX_COPY_SOURCE_BLOCK"; exec "$REX_COPY_REX" --autostart=false block close -s "$REX_SESSION" "$REX_BLOCK"]],
 							"rex-copy-mode",
 							nvim, "--noplugin", "-n", "-i", "NONE", "-u", config_dir .. "/copy-mode.lua",
 						},
