@@ -37,9 +37,9 @@ def attach_to_session(session_name, exec):
     run_tmux("attach", "-t", session_name, exec=exec)
 
 
-def create_session(session_name):
+def create_session(session_name: str, path: str):
     logger.debug(f"creating new session {session_name}")
-    run_tmux("new-session", "-d", "-s", session_name)
+    run_tmux("new-session", "-d", "-s", session_name, "-c", path)
 
 
 def switch_client(session_name, exec):
@@ -125,14 +125,14 @@ elif backend == "tmux":
         if session_exists(tmux_name):
             switch_client(tmux_name, exec=True)
         else:
-            create_session(tmux_name)
+            create_session(tmux_name, str(args.path))
             switch_client(tmux_name, exec=True)
     else:
         logger.debug("not in tmux session")
         if session_exists(tmux_name):
             attach_to_session(tmux_name, exec=True)
         else:
-            create_session(tmux_name)
+            create_session(tmux_name, str(args.path))
             attach_to_session(tmux_name, exec=True)
 else:
     parser.error(f"unknown session backend: {backend}")
