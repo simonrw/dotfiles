@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+#MISE description="Apply the Rex preferences manifest (quit Rex first)"
+#MISE dir="{{config_root}}"
+set -euo pipefail
+exec python3 .config/rex/preferences.py apply "$@"

@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+#MISE description="Export tracked Rex preferences to the manifest (quit Rex first)"
+#MISE dir="{{config_root}}"
+set -euo pipefail
+exec python3 .config/rex/preferences.py export "$@"
