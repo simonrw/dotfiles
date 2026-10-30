@@ -23,8 +23,7 @@ export BUILD_PREFIX="$HOME/.local"
 export GOPATH="$HOME/dev/gocode"
 export REVIEW_BASE=main
 if uname -s | rg -q Darwin; then
-    # export SESSION_BACKEND=rex
-    export SESSION_BACKEND=tmux
+    export SESSION_BACKEND=rex
 else
     # until I have access to the rex linux beta
     export SESSION_BACKEND=tmux
