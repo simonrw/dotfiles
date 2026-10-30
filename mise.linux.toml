@@ -39,6 +39,6 @@ standard_output = "append:%h/.t3/userdata/logs/boot-service.log"
 standard_error = "append:%h/.t3/userdata/logs/boot-service.log"
 
 [bootstrap.hooks]
-install-rex = '''
+final = '''
 curl -fsSL https://pkgs.superlogical.com/rex/install.sh | sh
 '''
