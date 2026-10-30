@@ -12,12 +12,14 @@ def is_wide(width, height):
     return width > height * 2
 
 
-def tmux_direction(layout, pane_id):
-    """Choose a split from the pane's dimensions in terminal cells."""
-    for match in re.finditer(r"(\d+)x(\d+),\d+,\d+,(\d+)", layout):
+def tmux_dimensions(geometry, pane_id):
+    """Read unzoomed pane dimensions or find a pane in a legacy layout."""
+    if "," not in geometry:
+        return [int(value) for value in geometry.split()]
+    for match in re.finditer(r"(\d+)x(\d+),\d+,\d+,(\d+)", geometry):
         width, height, target_id = match.groups()
         if target_id == pane_id.lstrip("%"):
-            return "-h" if is_wide(int(width), int(height)) else "-v"
+            return [int(width), int(height)]
     raise ValueError(f"Pane {pane_id} is missing from the layout")
 
 
@@ -49,11 +51,16 @@ def main():
         pane_id = args.pane_id or os.getenv("TMUX_PANE")
         if not pane_id:
             parser.error("a tmux pane ID is required")
-        layout = subprocess.check_output(
-            ["tmux", "display-message", "-p", "-t", pane_id, "#{window_layout}"],
+        # Older tmux versions expose unzoomed dimensions only in the layout.
+        geometry = subprocess.check_output(
+            [
+                "tmux", "display-message", "-p", "-t", pane_id,
+                "#{?pane_unzoomed_width,#{pane_unzoomed_width} #{pane_unzoomed_height},#{window_layout}}",
+            ],
             text=True,
         )
-        direction = tmux_direction(layout, pane_id)
+        width, height = tmux_dimensions(geometry, pane_id)
+        direction = "-h" if is_wide(width, height) else "-v"
         if args.print_only:
             print(direction)
             exit()
