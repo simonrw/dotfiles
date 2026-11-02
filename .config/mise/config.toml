@@ -46,6 +46,7 @@ caddy = "latest"
 "github:mattwilkinsonn/jj-hooks" = "latest"
 "cargo:https://github.com/simonrw/skills-sync" = "branch:main"
 "go:github.com/simonrw/meat/cmd/meat" = "latest"
+"github:ivankovic/omnidiff" = "latest"
 
 
 [tools."github:simonrw/listprojects"]
