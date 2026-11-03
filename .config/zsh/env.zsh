@@ -89,7 +89,11 @@ __zsh_start_ssh_agent() {
         "$SSH_AUTH_SOCK" "$SSH_AGENT_PID" > "$HOME/.ssh/agent.fish"
 }
 
-if ! __zsh_load_ssh_agent_env; then
-    __zsh_start_ssh_agent
-    unset SSH_AUTH_SOCK SSH_AGENT_PID
+if [[ "$OSTYPE" == darwin* ]]; then
+    # darwin manages the ssh socket itself
+else
+    if ! __zsh_load_ssh_agent_env; then
+        __zsh_start_ssh_agent
+        unset SSH_AUTH_SOCK SSH_AGENT_PID
+    fi
 fi
