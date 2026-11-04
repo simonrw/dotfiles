@@ -27,6 +27,8 @@ Library/Application\ Support/Cursor/*
 /.codex/*
 !/.codex/base.toml
 !/.codex/SYSTEM.md
+/.claude/*
+!/.claude/base.json
 .config/worktrunk/approvals.toml*
 
 # Compiled Go binaries

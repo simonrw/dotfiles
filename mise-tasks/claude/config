@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+#MISE description="Merge tracked Claude settings into user config"
+#MISE depends=["go:build"]
+#MISE dir="{{config_root}}"
+
+# zed-config is a generic JSON deep merge, so it handles Claude's settings too.
+exec zed-config \
+    -source .claude/base.json \
+    -target "${CLAUDE_CONFIG_DIR:-$HOME/.claude}/settings.json"

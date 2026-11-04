@@ -26,7 +26,6 @@ The second sentence is not needed - it explains why the design decision was a go
 
 * I use ripgrep (rg) not grep
 * I use 1Password and the `op` CLI for credential management, but NEVER try to access my credentials using this tool. You can look up account information but don't try to fetch credentials
-* You may find errors with commit signing. Read ~/.ssh/agent.fish and extract the ssh agent environment variables and try again.
 * I use `mise` (https://mise.jdx.dev/) for managing my project tools, so if a tool does not exist in your shell environment, consider using `mise exec -- <command>`
 
 # Writing code
