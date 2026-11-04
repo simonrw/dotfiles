@@ -44,7 +44,7 @@ atuin = { version = "latest", os = ["linux"] }
 herdr = { version = "latest", os = ["linux"] }
 caddy = "latest"
 "github:mattwilkinsonn/jj-hooks" = "latest"
-"go:github.com/simonrw/skills-sync" = "latest"
+"github:simonrw/skills-sync" = { version = "latest", prerelease = true }
 "go:github.com/simonrw/meat/cmd/meat" = "latest"
 
 
