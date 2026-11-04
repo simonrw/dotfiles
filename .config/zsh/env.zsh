@@ -89,9 +89,8 @@ __zsh_start_ssh_agent() {
         "$SSH_AUTH_SOCK" "$SSH_AGENT_PID" > "$HOME/.ssh/agent.fish"
 }
 
-if [[ "$OSTYPE" == darwin* ]]; then
-    # darwin manages the ssh socket itself
-else
+# macOS uses the GUI agent selected in ~/.zshenv, even over SSH.
+if [[ "$OSTYPE" != darwin* ]]; then
     if ! __zsh_load_ssh_agent_env; then
         __zsh_start_ssh_agent
         unset SSH_AUTH_SOCK SSH_AGENT_PID

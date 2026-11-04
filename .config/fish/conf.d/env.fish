@@ -105,7 +105,13 @@ function __fish_start_ssh_agent
     printf "set -gx SSH_AUTH_SOCK %s\nset -gx SSH_AGENT_PID %s\n" $SSH_AUTH_SOCK $SSH_AGENT_PID >~/.ssh/agent.fish
 end
 
-if not __fish_load_ssh_agent_env
+if test (uname -s) = Darwin
+    # Share the GUI agent rather than starting another one when switching shells.
+    if test -S "$HOME/.ssh/macos-agent.sock"
+        set -gx SSH_AUTH_SOCK "$HOME/.ssh/macos-agent.sock"
+        set -e SSH_AGENT_PID
+    end
+else if not __fish_load_ssh_agent_env
     __fish_start_ssh_agent
     set -e SSH_AUTH_SOCK SSH_AGENT_PID
 end

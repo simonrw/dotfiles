@@ -8,4 +8,6 @@ Dotfile installation requires mise 2026.7.16 or newer. See [docs/dotfiles.md](do
 
 Ubuntu provisioning supports desktop, headless VM, and personal desktop profiles. See [ansible/README.md](ansible/README.md) for feature flags and commands.
 
+macOS GUI apps, SSH sessions, and tmux share the host's Apple SSH agent. See [docs/ssh-agent.md](docs/ssh-agent.md) for setup and verification.
+
 YMMV

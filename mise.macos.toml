@@ -1,3 +1,13 @@
+# Publish Apple's GUI agent socket for SSH sessions and tmux.
+# Retry only on failure, for example if the socket is not ready at login.
+[bootstrap.macos.launchd.agents.ssh-agent-socket]
+program = "/bin/sh"
+args = ["-c", 'exec /bin/sh "$HOME/.bin/publish-macos-ssh-agent"']
+run_at_load = true
+keep_alive_on_failure = true
+throttle_interval = 10
+stderr_path = "~/Library/Logs/ssh-agent-socket.log"
+
 # dark-notify emits the initial appearance, then waits for macOS notifications.
 [bootstrap.macos.launchd.agents.reload-theme]
 program = "/opt/homebrew/bin/mise"

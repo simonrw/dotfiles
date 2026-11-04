@@ -1,0 +1,25 @@
+#!/bin/sh
+# Run by a GUI LaunchAgent, never from an SSH session or shell startup.
+set -eu
+umask 077
+
+socket="$HOME/.ssh/macos-agent.sock"
+if [ -z "${SSH_AUTH_SOCK:-}" ] || [ ! -S "$SSH_AUTH_SOCK" ]; then
+    echo "The GUI session has no SSH agent socket yet." >&2
+    exit 1
+fi
+if [ "$SSH_AUTH_SOCK" = "$socket" ]; then
+    echo "Refusing to point the SSH agent socket at itself." >&2
+    exit 1
+fi
+
+if [ -e "$socket" ] && [ ! -L "$socket" ]; then
+    echo "Refusing to replace $socket: not a symlink." >&2
+    exit 1
+fi
+
+# Replace the link atomically, including a stale link from a previous login.
+temporary=$(mktemp -d "$HOME/.ssh/.macos-agent.XXXXXX")
+trap 'rm -rf "$temporary"' EXIT HUP INT TERM
+ln -s "$SSH_AUTH_SOCK" "$temporary/socket"
+mv -f "$temporary/socket" "$socket"

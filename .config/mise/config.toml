@@ -1,6 +1,6 @@
 [env]
 # Resolve unreleased meat commits directly, including during version discovery.
-GONOPROXY = "github.com/simonrw/meat"
+GONOPROXY = "github.com/simonrw/meat,github.com/simonrw/skills-sync"
 
 [tools]
 go = "latest"
@@ -44,7 +44,7 @@ atuin = { version = "latest", os = ["linux"] }
 herdr = { version = "latest", os = ["linux"] }
 caddy = "latest"
 "github:mattwilkinsonn/jj-hooks" = "latest"
-"cargo:https://github.com/simonrw/skills-sync" = "branch:main"
+"go:github.com/simonrw/skills-sync" = "latest"
 "go:github.com/simonrw/meat/cmd/meat" = "latest"
 
 
