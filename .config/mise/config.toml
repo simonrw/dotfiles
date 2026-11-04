@@ -32,7 +32,7 @@ mkcert = { version = "latest", os = ["linux"] }
 tree-sitter = { version = "latest", os = ["linux"] }
 tokei = { version = "latest", os = ["linux"] }
 "npm:@fission-ai/openspec" = "latest"
-duckdb = { version = "latest", os = ["linux"] }
+"github:duckdb/duckdb" = { version = "latest", os = ["linux"] }
 helix = { version = "latest", os = ["linux"] }
 watchexec = { version = "latest", os = ["linux"] }
 xh = { version = "latest", os = ["linux"] }
