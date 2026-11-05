@@ -1,12 +1,12 @@
 version = 1
-manifest_sha256 = "9cec3cfe64caff899758702d32829ae0d83f8d82a4b89d068e0141a3b8fe7cf0"
+manifest_sha256 = "7cce567a3b5dc6b196e16b5176bafdcd0a06fb05a08f92d1f0d2bd1ad1d5176b"
 
 [sources.diagrams]
 kind = "git"
 upstream = "https://github.com/cathrynlavery/diagram-design"
-revision = "0cf73c3fcc56667ad91a9a04c439ac6ccfabc9d1"
+revision = "f24d98b05e2d7a5e68c2dedfe46e5b7173f50118"
 patches = []
-tree_sha256 = "c4abd72d35ca302656f2041088784025d9c763237243c745d958cef24824a459"
+tree_sha256 = "37033e87a1a3ea16532b4d5689588f1b4cef5130aa530939493997abbfdc661a"
 
 [sources.diagrams.skills]
 "skills/diagram-design" = "diagram-design"
@@ -14,9 +14,9 @@ tree_sha256 = "c4abd72d35ca302656f2041088784025d9c763237243c745d958cef24824a459"
 [sources.mattpocock]
 kind = "git"
 upstream = "https://github.com/mattpocock/skills.git"
-revision = "a496f5513d4a4cf889bc48e189e579f4b0bdf6aa"
+revision = "4ae2317ddb22b046e26455e4f9c9b3aaaf62212d"
 patches = []
-tree_sha256 = "655d0bf1570e4b6c8102c4b4139bcf9a0b0b174c7be7d4df736cb4e34800f999"
+tree_sha256 = "61e6472d6e20cb0161fa9149b1a1089cde35634f0b4e21af88f9960c565cba69"
 
 [sources.mattpocock.skills]
 "skills/productivity/grill-me" = "grill-me"
