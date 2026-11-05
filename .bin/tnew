@@ -80,6 +80,21 @@ def create_herdr_workspace(path):
         os.execvp("herdr", ["herdr"])
 
 
+def rex_block_owner():
+    """
+    Return the ID of the client that owns the current rex terminal block, or None.
+    """
+    if not os.getenv("REX_BLOCK"):
+        return None
+
+    try:
+        size = json.loads(sp.check_output(["rex", "block", "call", "size"], text=True))
+    except (sp.CalledProcessError, json.JSONDecodeError):
+        return None
+
+    return size.get("owner")
+
+
 def create_rex_session(path):
     label = sp.check_output(["mux-session-name", "--backend", "rex", str(path)], text=True).rstrip("\n")
     sessions = json.loads(sp.check_output(["rex", "ls", "--json"], text=True))["sessions"]
@@ -94,6 +109,11 @@ def create_rex_session(path):
         session_id = session["session_id"]
     if os.getenv("REX_SESSION"):
         cmd = ["rex", "do", "session.select", f"session_id={session_id}"]
+
+        # With several app clients connected, rex cannot pick one, so target the client driving this terminal
+        owner = rex_block_owner()
+        if owner and not os.getenv("REX_CLIENT"):
+            cmd[1:1] = ["-C", owner]
     else:
         cmd = ["rex", "attach", session_id]
     os.execvp("rex", cmd)

@@ -165,5 +165,6 @@ cask "zoom"
 
 # for LocalStack
 
-cask "clockify"
+cask "clockify" if Helpers.is_work
 cask "session-manager-plugin" if Helpers.is_work
+cask "windows-app" if Helpers.is_work
