@@ -160,7 +160,7 @@ description = "Update to the latest neovim stable build"
 autohide = true
 orientation = "bottom"
 tilesize = 28
-magnification = false
+magnification = true
 largesize = 92
 mru_spaces = false
 
