@@ -20,26 +20,6 @@ throttle_interval = 10
 stdout_path = "~/Library/Logs/reload-theme.log"
 stderr_path = "~/Library/Logs/reload-theme.log"
 
-[bootstrap.macos.launchd.agents.pi-web-sessiond]
-program = "/opt/homebrew/bin/mise"
-args = ["exec", "--", "pi-web-sessiond"]
-working_directory = "~/dotfiles"
-environment = { MISE_ENABLE_TOOLS = "node,npm:@jmfederico/pi-web" }
-run_at_load = true
-keep_alive = true
-stdout_path = "~/Library/Logs/pi-web-sessiond.log"
-stderr_path = "~/Library/Logs/pi-web-sessiond.log"
-
-[bootstrap.macos.launchd.agents.pi-web-server]
-program = "/opt/homebrew/bin/mise"
-args = ["exec", "--", "pi-web-server"]
-working_directory = "~/dotfiles"
-environment = { MISE_ENABLE_TOOLS = "node,npm:@jmfederico/pi-web", PI_WEB_HOST = "0.0.0.0" }
-run_at_load = true
-keep_alive = true
-stdout_path = "~/Library/Logs/pi-web-server.log"
-stderr_path = "~/Library/Logs/pi-web-server.log"
-
 # Monitoring binaries/state are prepared by monitoring/install.
 # Before applying these, retire the legacy net.simonrw.fleet.* agents (see monitoring/README.md).
 [bootstrap.macos.launchd.agents.fleet-node-exporter]
