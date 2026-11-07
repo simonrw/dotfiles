@@ -56,6 +56,10 @@ foo.baz(value * 2)
 
 This is particularly important in tests, separating assertions of different concepts.
 
+## Software architecture design
+
+Make each module deep: a simple interface hiding a lot of behavior. If deleting a module would only push its complexity back onto its callers, it's earning its place; if nothing would be lost, merge it away. Put each concept in the one module that owns it, and pull special cases, ordering rules, validation and derived values inside, so callers never have to know them. Shrink the interface until there's one obvious way to call it: drop any parameter, flag or option the module can work out itself, that every caller passes the same way, or that nobody reads, then move every caller to the new shape and delete the old path completely.
+
 # Rust
 
 * Do not assume the `target` dir for built outputs. I have a custom path set with `$CARGO_TARGET_DIR` so debug builds are under `$CARGO_TARGET_DIR/debug`, documentation is under `$CARGO_TARGET_DIR/docs` etc.
