@@ -120,8 +120,6 @@ cask "focusrite-control-2" if not Helpers.is_work
 cask "1password-cli"
 cask "1password"
 cask "blender" if not Helpers.is_work
-cask "chatgpt" if Helpers.is_work
-cask "claude"
 cask "daisydisk"
 cask "docker-desktop" if Helpers.docker_emulator == "docker-desktop"
 cask "docker/tap/sbx"
