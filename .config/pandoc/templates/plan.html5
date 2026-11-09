@@ -81,7 +81,7 @@ $endif$
     }
 
     code, pre, .mono {
-      font-family: "SF Mono", "JetBrains Mono", Menlo, Consolas, monospace;
+      font-family: "Monaspace Krypton", "SF Mono", Menlo, Consolas, monospace;
       font-variant-ligatures: none;
       font-feature-settings: "liga" 0, "calt" 0;
     }

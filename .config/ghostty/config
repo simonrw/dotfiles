@@ -20,9 +20,8 @@ mouse-hide-while-typing = false
 
 window-colorspace = display-p3
 
-# disable ligatures
+# disable ligatures, keeping calt for Monaspace texture healing
 font-feature = -liga
-font-feature = -calt
 font-feature = -dlig
 
 config-file = ?local.config

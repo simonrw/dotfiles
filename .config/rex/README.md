@@ -17,7 +17,7 @@ Commit the manifest and pull it on another Mac. With Rex quit there, apply it:
 mise run rex:apply
 ```
 
-Reopen Rex afterwards. Neither command runs automatically during dotfiles installation. Install the JetBrainsMonoNL Nerd Font Mono font separately.
+Reopen Rex afterwards. Neither command runs automatically during dotfiles installation. Install the Monaspace Krypton NF font separately.
 
 ## Manifest
 

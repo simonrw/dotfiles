@@ -34,7 +34,7 @@ mise run ansible -- -e dotfiles_profile=headless -e virtualization_enabled=true
 
 Defaults live in [vars.yml](vars.yml). `desktop_enabled` controls GUI Emacs, GNOME Tweaks, and wmctrl. These flags default to the value of `desktop_enabled`:
 
-- `fonts_enabled`: JetBrains Mono and Lilex installation.
+- `fonts_enabled`: Monaspace installation.
 - `ghostty_enabled`, `helium_enabled`, `zed_enabled`: graphical terminal, browser, and editor.
 - `snaps_enabled`: packages in `snaps` and `classic_snaps`.
 - `dconf_enabled`: GNOME settings and their Python dependency.

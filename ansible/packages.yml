@@ -39,9 +39,6 @@ desktop_packages:
 headless_packages:
   - emacs-nox
 
-font_packages:
-  - fonts-jetbrains-mono
-
 virtualization_packages:
   - bridge-utils
   - cpu-checker
@@ -53,7 +50,6 @@ packages: >-
   {{
     common_packages
     + (desktop_packages if desktop_enabled | bool else headless_packages)
-    + (font_packages if fonts_enabled | bool else [])
     + (virtualization_packages if virtualization_enabled | bool else [])
     + (['virt-manager'] if virtualization_enabled | bool and desktop_enabled | bool else [])
     + (['1password-cli'] if onepassword_cli_enabled | bool else [])

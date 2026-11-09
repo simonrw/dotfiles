@@ -35,12 +35,12 @@
     "light": "Catppuccin Latte",
     "dark": "Catppuccin Macchiato"
   },
-  "buffer_font_family": "JetBrainsMono NFM SemiBold",
+  "buffer_font_family": "Monaspace Krypton NF",
   "buffer_font_weight": 600,
   "buffer_font_size": 14,
   "buffer_font_features": {
-    // disable ligatures
-    "calt": false
+    // disable ligatures, keeping calt for Monaspace texture healing
+    "liga": false
   },
   "vim_mode": true,
   "vim": {
