@@ -16,8 +16,8 @@ restart = "always"
 
 [bootstrap.linux.systemd.units.t3code]
 description = "T3 Code remote connection"
-exec_start = "bash -c 'exec mise exec -- npx t3@nightly serve --host \"$(tailscale ip -4)\"'"
-environment = { T3_BOOT_SERVICE_UNIT = "dev.mise.t3code.service" }
+exec_start = "bash -c 'exec %h/.local/bin/mise exec -- npx t3@nightly serve --host \"$(tailscale ip -4)\"'"
+environment = { T3_BOOT_SERVICE_UNIT = "dev.mise.t3code.service", PATH = "%h/.local/bin:/usr/bin:$PATH" }
 working_directory = "~"
 restart = "always"
 restart_sec = "5s"
