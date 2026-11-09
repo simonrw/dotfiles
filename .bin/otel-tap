@@ -1,0 +1,13 @@
+#!/bin/sh
+# Proxy that records Claude Code's OTLP exports to ~/.local/share/otel-tap while forwarding them upstream unchanged.
+# Only the OTLP endpoints are decrypted, all other traffic is tunnelled untouched.
+set -eu
+
+# Service managers do not provide the login shell's PATH.
+PATH="$HOME/.local/bin:/opt/homebrew/bin:/usr/local/bin:$PATH"
+
+exec mise exec uv -- uvx --from mitmproxy --with opentelemetry-proto --with duckdb mitmdump \
+    --listen-host 127.0.0.1 \
+    --listen-port 18080 \
+    --allow-hosts '^(logs|monitoring)\.[a-z0-9-]+\.amazonaws\.com(:443)?$' \
+    --scripts "$HOME/.config/otel-tap/otel_tap.py"

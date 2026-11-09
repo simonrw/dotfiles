@@ -35,3 +35,4 @@ Library/Application\ Support/Cursor/*
 /.bin/codex-config
 /.bin/mux-session-name
 /.bin/zed-config
+*.pyc
