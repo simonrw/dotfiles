@@ -1,44 +1,47 @@
 {
-  "lastChangelogVersion": "10.0.0",
   "defaultProvider": "openai-codex",
   "defaultModel": "gpt-6-astra",
   "defaultThinkingLevel": "medium",
+  "defaultTools": [
+    "+codemode"
+  ],
+  "hideThinkingBlock": true,
+  "lastChangelogVersion": "10.0.0",
+  "packages": [
+    "git:github.com/simonrw/pi-extensions",
+    "npm:csm-pi-session-monitor",
+    "npm:pi-subagents",
+    "npm:@ollama/pi-web-search"
+  ],
   "subagents": {
-    "defaultModel": "openai-codex/gpt-6-luna",
     "agentOverrides": {
-      "scout": {
-        "model": "openai-codex/gpt-6-luna"
-      },
-      "researcher": {
-        "model": "openai-codex/gpt-6-luna"
-      },
-      "worker": {
-        "model": "openai-codex/gpt-6-luna"
-      },
       "delegate": {
         "model": "openai-codex/gpt-6-luna"
-      },
-      "reviewer": {
-        "model": "openai-codex/gpt-6.1-sol"
       },
       "evidence-auditor": {
         "model": "openai-codex/gpt-6.1-sol"
       },
       "oracle": {
         "model": "openai-codex/gpt-6.1-sol"
+      },
+      "researcher": {
+        "model": "openai-codex/gpt-6-luna"
+      },
+      "reviewer": {
+        "model": "openai-codex/gpt-6.1-sol"
+      },
+      "scout": {
+        "model": "openai-codex/gpt-6-luna"
+      },
+      "worker": {
+        "model": "openai-codex/gpt-6-luna"
       }
-    }
+    },
+    "defaultModel": "openai-codex/gpt-6-luna"
   },
-  "defaultTools": [
-    "+codemode"
-  ],
-  "packages": [
-    "npm:pi-web-access",
-    "git:github.com/simonrw/pi-extensions",
-    "npm:csm-pi-session-monitor",
-    "npm:pi-subagents"
-  ],
-  "tuiMode": "fullscreen",
   "theme": "light/dark",
-  "hideThinkingBlock": true
+  "tuiMode": "fullscreen",
+  "extensionChangelogVersions": {
+    "{\"source\":\"npm:pi-subagents\",\"scope\":\"user\"}": "0.84.0"
+  }
 }

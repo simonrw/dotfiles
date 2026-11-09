@@ -110,6 +110,7 @@ run = "mise bootstrap dotfiles apply"
 "~/.luarc.json" = { source = ".luarc.json", mode = "symlink" }
 "~/.pi/agent/AGENTS.md" = { source = ".pi/agent/AGENTS.md", mode = "symlink" }
 "~/.pi/agent/settings.json" = { source = ".pi/agent/settings.json", mode = "symlink" }
+"~/.pi/agent/models.json" = { source = ".pi/agent/models.json", mode = "symlink" }
 "~/.ssh/config" = { source = ".ssh/config", mode = "symlink" }
 "~/.zshenv" = { source = ".zshenv", mode = "symlink" }
 "~/.zprofile" = { source = ".zprofile", mode = "symlink" }
