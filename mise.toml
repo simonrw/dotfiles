@@ -205,4 +205,5 @@ if command -v herdr >/dev/null; then
   for agent in pi codex claude; do herdr integration install "$agent"; done
 fi
 command -v herdr >/dev/null || curl -fsSL https://herdr.dev/install.sh | sh
+command -v hc >/dev/null || curl -fsSL https://releases.herdr.dev/core/install.sh | sh
 '''
