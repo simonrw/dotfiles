@@ -12,6 +12,10 @@
       "rev": "b72ed05dd452690181837d484984144a64709f17",
       "src": "https://github.com/saghen/blink.cmp"
     },
+    "brygga.nvim": {
+      "rev": "445a879cf2359fa6639cb737f14113bf338fa12d",
+      "src": "https://github.com/ThorstenRhau/brygga.nvim"
+    },
     "catppuccin": {
       "rev": "edefef779ab08ce1a4a404713e3012b0d202bd35",
       "src": "https://github.com/catppuccin/nvim"

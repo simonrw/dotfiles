@@ -155,6 +155,7 @@ vim.pack.add({
     { src = gh('mfussenegger/nvim-dap-python') },
     { src = gh('igorlfs/nvim-dap-view') },
     { src = "https://forge.barrettruth.com/barrettruth/diffs.nvim" },
+    { src = gh('ThorstenRhau/brygga.nvim') },
 }, { confirm = false, load = true })
 
 vim.api.nvim_create_user_command('VimUpdate', function(opts)
@@ -751,6 +752,10 @@ vim.api.nvim_create_autocmd('User', {
         })
 
         require('touchup').setup()
+
+        require('brygga').setup({
+            auto_start = false,
+        })
 
         vim.o.statusline = vim.o.statusline .. " %{v:lua.ask_agent_statusline()}"
 
