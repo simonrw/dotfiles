@@ -4,9 +4,9 @@ manifest_sha256 = "7cce567a3b5dc6b196e16b5176bafdcd0a06fb05a08f92d1f0d2bd1ad1d51
 [sources.diagrams]
 kind = "git"
 upstream = "https://github.com/cathrynlavery/diagram-design"
-revision = "f24d98b05e2d7a5e68c2dedfe46e5b7173f50118"
+revision = "f2496acbde9f45ccb55c24d4f75210c8a1355df8"
 patches = []
-tree_sha256 = "37033e87a1a3ea16532b4d5689588f1b4cef5130aa530939493997abbfdc661a"
+tree_sha256 = "c0dde349b9970b0b3ff4028fa2d00d347bfdedcd52e14d294241074dac5c5e03"
 
 [sources.diagrams.skills]
 "skills/diagram-design" = "diagram-design"
@@ -47,9 +47,10 @@ tree_sha256 = "c0b7759aaf41f1e1ba6dbb88199a1bd435dda9ff0533160896e562cbea7a1803"
 [sources.private]
 kind = "git"
 upstream = "git@github.com:simonrw/skills-private.git"
-revision = "98a4549558e20e90acf90eacbd65eeeb6f85d3a3"
+revision = "c1eb087200597adb4ea40e5cd404063995e6938d"
 patches = []
-tree_sha256 = "03eb1d79dcef55b1ab8554eb88ac16a132dad142dcbfe9760357ee1c50717fc8"
+tree_sha256 = "f22bf011558fbbf6a58e2bced89e9d3356ed82a11fcc24fd12ca5513d3b6a6dd"
 
 [sources.private.skills]
 "skills/fleet" = "fleet"
+"skills/plan-project" = "plan-project"
