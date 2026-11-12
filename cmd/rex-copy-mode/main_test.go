@@ -229,3 +229,22 @@ func TestClipboardFailureKeepsSelection(t *testing.T) {
 		t.Error("error is not shown")
 	}
 }
+
+func TestResizeKeepsBottomAnchoredUntilMoved(t *testing.T) {
+	var lines []string
+	for range 50 {
+		lines = append(lines, "x")
+	}
+	s := newSession(t, strings.Join(lines, "\r\n"), 20, 11)
+
+	s.m.Update(tea.WindowSizeMsg{Width: 20, Height: 21})
+	if s.m.top != 30 {
+		t.Errorf("top = %d, want the last line at the bottom after resize", s.m.top)
+	}
+
+	s.keys("k")
+	s.m.Update(tea.WindowSizeMsg{Width: 20, Height: 31})
+	if s.m.top != 30 {
+		t.Errorf("top = %d, want the view kept once the cursor moved", s.m.top)
+	}
+}

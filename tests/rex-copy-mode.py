@@ -120,9 +120,29 @@ class CopyMode(unittest.TestCase):
         self.addCleanup(self.rex, "kill", self.session)
         self.wait_for("source output", lambda: "READY" in self.rex("capture", "--block", self.source))
 
+    def window(self):
+        return self.api("session.view", session_id=self.session)["windows"][0]
+
+    def slots(self):
+        """Each tiled block's rectangle, with the copy viewer standing in for its source."""
+        found = []
+
+        def walk(node):
+            if "split" in node:
+                walk(node["split"]["before"])
+                walk(node["split"]["after"])
+            else:
+                block = node["block_id"]
+                found.append([node["rect"], "SOURCE" if block in [self.source, self.viewer] else block])
+
+        walk(self.window()["layers"][0]["layout"])
+        return found
+
     def open_viewer(self):
+        self.viewer = None
+        self.slots_before = self.slots()
         viewer = json.loads(self.rex("do", "copy_mode", "--session", self.session, "--block", self.source))
-        block = viewer["block_ids"][0]
+        block = self.viewer = viewer["block_ids"][0]
         self.wait_for("copy viewer", lambda: (
             self.api("com.superlogical.terminal.modes", session_id=self.session, block_id=block, args={})["screen"] == "alternate"
             and "READY" in self.rex("capture", "--block", block)
@@ -134,9 +154,12 @@ class CopyMode(unittest.TestCase):
 
     def wait_closed(self):
         def closed():
-            window = self.api("session.view", session_id=self.session)["windows"][0]
-            return len(window["layers"]) == 1 and window["focused_block_id"] == self.source
+            blocks = self.api("session.list_blocks", session_id=self.session)["blocks"]
+            window = self.window()
+            return (not any(block["label"].startswith("Copy mode: ") for block in blocks)
+                    and window["focused_block_id"] == self.source)
         self.wait_for("viewer close and source focus", closed)
+        self.assertEqual(self.slots(), self.slots_before)
 
     def clipboard(self):
         return subprocess.check_output(["/usr/bin/pbpaste"])
@@ -151,7 +174,7 @@ class CopyMode(unittest.TestCase):
         self.keys(viewer, "g", "g")
         self.wait_for("styled history", lambda: "\x1b[38;5;1mhistory" in self.vt(viewer))
 
-    def test_viewer_covers_whole_window(self):
+    def test_viewer_replaces_source_pane(self):
         self.rex("split", "--session", self.session, "--block", self.source,
                  "--split", "right", "--ratio", "35", "--focus=false", "--shell", "none", "--", "/bin/cat")
         for zoomed in [False, True]:
@@ -159,10 +182,12 @@ class CopyMode(unittest.TestCase):
                 if zoomed:
                     self.rex("zoom", "--session", self.session, self.source, "--on")
                 viewer = self.open_viewer()
-                window = self.api("session.view", session_id=self.session)["windows"][0]
-                self.assertEqual(window["layers"][-1]["bounds"], [0, 0, 1, 1])
+                self.assertEqual(self.slots(), self.slots_before)
+                self.assertEqual(self.window().get("zoomed_block_id"), viewer if zoomed else None)
+
                 self.keys(viewer, "q")
                 self.wait_closed()
+                self.assertEqual(self.window().get("zoomed_block_id"), self.source if zoomed else None)
 
     def test_entry_binding_and_cancel_do_not_leak_input(self):
         keymap = json.loads(self.rex("keymap", "--json"))
@@ -193,10 +218,11 @@ class CopyMode(unittest.TestCase):
         self.wait_closed()
         self.assertEqual(self.clipboard(), "\n".join(FIXTURE[102:]).encode())
 
-    def test_reentry_reuses_viewer_and_snapshot_stays_frozen(self):
+    def test_reentry_is_ignored_and_snapshot_stays_frozen(self):
         viewer = self.open_viewer()
-        repeated = json.loads(self.rex("do", "copy_mode", "--session", self.session, "--block", self.source))
-        self.assertEqual(repeated["block_ids"], [viewer])
+        self.rex("do", "copy_mode", "--session", self.session, "--block", viewer)
+        blocks = self.api("session.list_blocks", session_id=self.session)["blocks"]
+        self.assertEqual([block["block_id"] for block in blocks if block["label"].startswith("Copy mode: ")], [viewer])
         self.api("com.superlogical.terminal.reset", session_id=self.session, block_id=self.source, args={})
         self.api("com.superlogical.terminal.resize", session_id=self.session, block_id=viewer,
                  args={"columns": 40, "rows": 12})

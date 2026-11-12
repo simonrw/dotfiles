@@ -43,6 +43,8 @@ type model struct {
 	lastForward   bool
 
 	message string
+	// moved records a key press, after which resizes no longer re-anchor the view.
+	moved bool
 }
 
 func newModel(buf *buffer, copy func(string) error) *model {
@@ -57,16 +59,16 @@ func (m *model) Init() tea.Cmd {
 func (m *model) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 	switch msg := msg.(type) {
 	case tea.WindowSizeMsg:
-		first := m.width == 0
 		m.width, m.height = msg.Width, msg.Height
 		m.layout()
 		// Line the snapshot's last row up with the bottom, as the terminal showed it.
-		if first {
+		if !m.moved {
 			m.top = max(len(m.rows)-m.viewHeight(), 0)
 		}
 		m.scrollToCursor()
 
 	case tea.KeyPressMsg:
+		m.moved = true
 		if m.searching {
 			m.searchKey(msg)
 			return m, nil

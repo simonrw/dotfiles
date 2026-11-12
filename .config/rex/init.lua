@@ -42,63 +42,71 @@ local function copy_mode_executable(name)
 	return result.stdout:gsub("%s+$", "")
 end
 
+local function must(result, err)
+	if not result then error(err, 0) end
+	return result
+end
+
+local function zoomed(block_id)
+	for _, window in ipairs(must(rex.session.view {}).windows) do
+		if window.zoomed_block_id == block_id then return true end
+	end
+	return false
+end
+
+-- Moves `block_id` into the layout slot of `slot_id`, leaving `slot_id` detached but running.
+local function take_slot(block_id, slot_id)
+	local zoom = zoomed(slot_id)
+	must(rex.session.move_block { block_id = block_id, anchor_block_id = slot_id })
+	must(rex.session.detach_block { block_id = slot_id })
+	if zoom then must(rex.session.zoom_block { block_id = block_id, zoom = true }) end
+	must(rex.session.focus_block { block_id = block_id })
+end
+
+local copy_mode_label = "Copy mode: "
+
 rex.action {
 	name = "copy_mode",
 	title = "Copy mode",
 	description = "Select terminal scrollback with Vim keys and copy it",
 	run = function(ctx)
-		local source, err = rex.session.describe_block { block_id = ctx.block_id }
-		if not source then error(err, 0) end
-		if source.block.label:match("^Copy mode: ") then return end
-		if source.block.creator_name ~= "com.superlogical.terminal" then
+		local source = must(rex.session.describe_block { block_id = ctx.block_id }).block
+		if source.label:sub(1, #copy_mode_label) == copy_mode_label then return end
+		if source.creator_name ~= "com.superlogical.terminal" then
 			error("Copy mode requires a terminal pane", 0)
 		end
 
-		local label = "Copy mode: " .. ctx.block_id
-		local blocks
-		blocks, err = rex.session.list_blocks {}
-		if not blocks then error(err, 0) end
-		for _, block in ipairs(blocks.blocks) do
-			if block.label == label and block.placement == "placed" then
-				local focused
-				focused, err = rex.session.focus_block { block_id = block.block_id }
-				if not focused then error(err, 0) end
-				return { block_ids = { block.block_id } }
-			end
-		end
-
-		local viewer_bin = copy_mode_executable("rex-copy-mode")
 		local cli = copy_mode_executable("rex")
-
-		local viewer
-		viewer, err = rex.session.new_layer {
-			window_id = source.block.window_id,
-			bounds = { 0, 0, 1, 1 },
-			focus = true,
-			layout = {
-				block = {
-					flavor = "com.superlogical.terminal.shell",
-					label = label,
-					options = {
-						shell = "none",
-						command = {
-							"/usr/bin/env",
-							"REX_COPY_SOURCE_SESSION=" .. ctx.session_id,
-							"REX_COPY_SOURCE_BLOCK=" .. ctx.block_id,
-							"REX_COPY_REX=" .. cli,
-							-- Closing a floating layer can otherwise focus a sibling instead of the source.
-							"/bin/sh", "-c",
-							[["$@"; "$REX_COPY_REX" --autostart=false focus -s "$REX_COPY_SOURCE_SESSION" "$REX_COPY_SOURCE_BLOCK"; exec "$REX_COPY_REX" --autostart=false block close -s "$REX_SESSION" "$REX_BLOCK"]],
-							"rex-copy-mode",
-							viewer_bin, "-rex", cli, "-session", ctx.session_id, "-block", ctx.block_id,
-						},
-						exit = { on_completion = true },
-					},
+		local viewer = must(rex.session.new_block {
+			flavor = "com.superlogical.terminal.shell",
+			label = copy_mode_label .. ctx.block_id,
+			options = {
+				shell = "none",
+				command = {
+					"/bin/sh", "-c",
+					[["$@"; exec "$0" --autostart=false do copy_mode_restore --session "$REX_SESSION" --block "$REX_BLOCK"]],
+					cli, copy_mode_executable("rex-copy-mode"),
+					"-rex", cli, "-session", ctx.session_id, "-block", ctx.block_id,
 				},
+				exit = { on_completion = true },
 			},
-		}
-		if not viewer then error(err, 0) end
-		return viewer
+		}).block_id
+
+		take_slot(viewer, ctx.block_id)
+		return { block_ids = { viewer } }
+	end,
+}
+
+rex.action {
+	name = "copy_mode_restore",
+	title = "Copy mode: restore pane",
+	description = "Put a copy mode viewer's source terminal back in its place",
+	run = function(ctx)
+		local viewer = must(rex.session.describe_block { block_id = ctx.block_id }).block
+		if viewer.label:sub(1, #copy_mode_label) ~= copy_mode_label then return end
+
+		take_slot(viewer.label:sub(#copy_mode_label + 1), ctx.block_id)
+		must(rex.call("block.close", { session_id = ctx.session_id, block_id = ctx.block_id }))
 	end,
 }
 
