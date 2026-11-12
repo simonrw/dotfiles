@@ -15,7 +15,6 @@ end
 
 function M.load()
     vim.o.background = M.is_dark_mode() and "dark" or "light"
-    -- Copy mode loads only the installed theme, not the rest of the editor's plugins.
     vim.cmd.packadd { M.package.name, bang = true }
     if vim.o.background == "dark" then
         vim.cmd.colorscheme "catppuccin-macchiato"

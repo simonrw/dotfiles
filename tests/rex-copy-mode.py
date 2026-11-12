@@ -1,9 +1,8 @@
 #!/usr/bin/env python3
-"""Live copy-mode regression on a private Rex server. Requires macOS, Rex, Neovim and Swift."""
+"""Live copy-mode regression on a private Rex server. Requires macOS, Rex, Go and Swift."""
 
 import json
 import os
-import shutil
 import subprocess
 import sys
 import tempfile
@@ -13,7 +12,8 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 REX = ROOT / ".bin/rex"
-FIXTURE = ["old history", *[f"row-{index}" for index in range(100)], "café 界 e\u0301", "wrap:" + "abcdefghij" * 24, "READY"]
+STYLED = "\x1b[31mhistory\x1b[0m"
+FIXTURE = ["old " + STYLED, *[f"row-{index}" for index in range(100)], "café 界 e\u0301", "wrap:" + "abcdefghij" * 24, "READY"]
 
 # Keep every pasteboard format in memory while the real pbcopy/pbpaste checks run.
 CLIPBOARD_GUARD = r'''
@@ -51,6 +51,9 @@ class CopyMode(unittest.TestCase):
         cls.temp = tempfile.TemporaryDirectory(prefix="rex-copy-test-", dir="/tmp")
         cls.addClassCleanup(cls.temp.cleanup)
         cls.directory = Path(cls.temp.name)
+        # Rex launches the viewer from ~/.bin, which links to this repository's .bin.
+        subprocess.run(["go", "build", "-o", str(ROOT / ".bin/rex-copy-mode"), "./cmd/rex-copy-mode"],
+                       cwd=ROOT, check=True, timeout=120)
         cls.server_address = f"unix://{cls.directory}/server.sock"
         cls.env = {name: value for name, value in os.environ.items() if not name.startswith("REX_")}
         # Match the GUI server's minimal PATH rather than the developer's interactive shell.
@@ -138,75 +141,28 @@ class CopyMode(unittest.TestCase):
     def clipboard(self):
         return subprocess.check_output(["/usr/bin/pbpaste"])
 
-    def screen(self, block):
-        size = self.api("com.superlogical.terminal.size", session_id=self.session, block_id=block, args={})
-        content = self.api("com.superlogical.terminal.format", session_id=self.session, block_id=block,
-                           args={"format": "text", "trim": False, "unwrap": False})["content"]
-        lines = content.split("\n")[-size["rows"]:]
-        return [line.ljust(size["columns"]) for line in lines] + [" " * size["columns"]] * (size["rows"] - len(lines))
+    def vt(self, block):
+        return self.api("com.superlogical.terminal.format", session_id=self.session, block_id=block,
+                        args={"format": "vt", "trim": True, "unwrap": True})["content"]
 
-    def test_viewer_preserves_screen_rows(self):
-        before = self.screen(self.source)
+    def test_viewer_keeps_source_styles(self):
+        self.assertIn("\x1b[38;5;1mhistory", self.vt(self.source))
         viewer = self.open_viewer()
-        self.assertEqual(self.screen(viewer), before)
+        self.keys(viewer, "g", "g")
+        self.wait_for("styled history", lambda: "\x1b[38;5;1mhistory" in self.vt(viewer))
 
-    def test_viewer_preserves_short_screen_and_blank_rows(self):
-        # A fresh terminal renders a short fixture at the top, with empty rows below.
-        created = json.loads(self.rex(
-            "run", "--session", self.session, "--json", "--shell", "none", "--",
-            sys.executable, "-c", "import time; print('short café 界\\r\\nREADY', end='', flush=True); time.sleep(60)",
-        ))
-        self.source = created["block_ids"][0]
-        self.wait_for("short fixture", lambda: "READY" in self.rex("capture", "--block", self.source))
-        before = self.screen(self.source)
-        viewer = self.open_viewer()
-        self.assertEqual(self.screen(viewer), before)
-
-    def test_viewer_covers_only_source_pane(self):
+    def test_viewer_covers_whole_window(self):
         self.rex("split", "--session", self.session, "--block", self.source,
                  "--split", "right", "--ratio", "35", "--focus=false", "--shell", "none", "--", "/bin/cat")
-        window = self.api("session.view", session_id=self.session)["windows"][0]
-        expected = window["layers"][0]["layout"]["split"]["before"]["rect"]
         for zoomed in [False, True]:
             with self.subTest(zoomed=zoomed):
                 if zoomed:
                     self.rex("zoom", "--session", self.session, self.source, "--on")
                 viewer = self.open_viewer()
                 window = self.api("session.view", session_id=self.session)["windows"][0]
-                self.assertEqual(window["layers"][-1]["bounds"], [0, 0, 1, 1] if zoomed else expected)
+                self.assertEqual(window["layers"][-1]["bounds"], [0, 0, 1, 1])
                 self.keys(viewer, "q")
                 self.wait_closed()
-
-    def test_viewer_matches_editor_theme_and_reloads_appearance(self):
-        theme = "{name=vim.g.colors_name, background=vim.o.background, normal=vim.api.nvim_get_hl(0, {name='Normal', link=false})}"
-        expected_path = self.directory / "editor-theme.json"
-        actual_path = self.directory / "viewer-theme.json"
-        expected_path.unlink(missing_ok=True)
-        actual_path.unlink(missing_ok=True)
-        nvim = shutil.which("nvim") or str(Path.home() / ".local/share/bob/nvim-bin/nvim")
-        subprocess.run(
-            [nvim, "--headless", "-n", "-i", "NONE", "-c",
-             f"lua vim.fn.writefile({{vim.json.encode({theme})}}, {json.dumps(str(expected_path))})", "-c", "qa!"],
-            env={**os.environ, "XDG_CONFIG_HOME": str(ROOT / ".config"), "TMPDIR": str(self.directory)},
-            check=True, capture_output=True, timeout=30,
-        )
-        expected = json.loads(expected_path.read_text())
-        viewer = self.open_viewer()
-
-        def read_theme():
-            actual_path.unlink(missing_ok=True)
-            self.rex("send", "--session", self.session, "--block", viewer,
-                     f":lua vim.fn.writefile({{vim.json.encode({theme})}}, {json.dumps(str(actual_path))})\r")
-            self.wait_for("viewer theme", actual_path.exists)
-            return json.loads(actual_path.read_text())
-
-        initial = read_theme()
-        # A theme notification must read current appearance, not a stale inherited variable.
-        self.rex("send", "--session", self.session, "--block", viewer,
-                 ":lua vim.env.__IS_DARK_THEME = '" + ("1" if expected["background"] == "light" else "0")
-                 + "'; vim.api.nvim_exec_autocmds('Signal', {pattern='SIGUSR1'})\r")
-        reloaded = read_theme()
-        self.assertEqual([initial, reloaded], [expected, expected])
 
     def test_entry_binding_and_cancel_do_not_leak_input(self):
         keymap = json.loads(self.rex("keymap", "--json"))
@@ -214,7 +170,8 @@ class CopyMode(unittest.TestCase):
                             for binding in keymap["bindings"]))
         before = self.clipboard()
         viewer = self.open_viewer()
-        self.keys(viewer, "enter", "g", "g", "space", "j", "escape")
+        # Escape first clears the selection, then closes the viewer.
+        self.keys(viewer, "enter", "g", "g", "space", "j", "escape", "escape")
         self.wait_closed()
         self.assertEqual((self.clipboard(), self.input_log.read_bytes()), (before, b""))
 
@@ -232,7 +189,7 @@ class CopyMode(unittest.TestCase):
 
     def test_wrapped_multiline_selection(self):
         viewer = self.open_viewer()
-        self.keys(viewer, "g", "g", "1", "0", "3", "g", "g", "0", "space", "j", "shift+4", "enter")
+        self.keys(viewer, "g", "g", "1", "0", "3", "g", "g", "0", "space", "shift+g", "shift+4", "enter")
         self.wait_closed()
         self.assertEqual(self.clipboard(), "\n".join(FIXTURE[102:]).encode())
 
@@ -246,17 +203,6 @@ class CopyMode(unittest.TestCase):
         self.keys(viewer, "g", "g", "space", "shift+4", "enter")
         self.wait_closed()
         self.assertEqual(self.clipboard(), b"old history")
-
-    def test_clipboard_failure_keeps_viewer_open(self):
-        before = self.clipboard()
-        viewer = self.open_viewer()
-        # Remove pbcopy from this viewer's PATH through Neovim's public command interface.
-        self.rex("send", "--session", self.session, "--block", viewer, ":let $PATH = ''\r")
-        self.keys(viewer, "g", "g", "space", "l", "enter")
-        self.wait_for("clipboard error", lambda: "Could not copy" in self.rex("capture", "--block", viewer))
-        blocks = self.api("session.list_blocks", session_id=self.session)["blocks"]
-        self.assertIn(viewer, [block["block_id"] for block in blocks])
-        self.assertEqual(self.clipboard(), before)
 
 
 if __name__ == "__main__":

@@ -32,9 +32,8 @@ rex.bind(prefix .. "r", "client.config.reload")
 
 rex.bind(prefix .. "f", "session.switch")
 
-local config_dir = (os.getenv("XDG_CONFIG_HOME") or os.getenv("HOME") .. "/.config") .. "/rex"
 -- GUI-launched Rex does not inherit the interactive shell's PATH.
-local copy_mode_path = os.getenv("HOME") .. "/.bin:" .. os.getenv("HOME") .. "/.local/share/bob/nvim-bin:" .. os.getenv("PATH")
+local copy_mode_path = os.getenv("HOME") .. "/.bin:" .. os.getenv("PATH")
 
 local function copy_mode_executable(name)
 	local result, err = rex.exec({ "which", name }, { timeout = 5, env = { PATH = copy_mode_path } })
@@ -46,7 +45,7 @@ end
 rex.action {
 	name = "copy_mode",
 	title = "Copy mode",
-	description = "Select terminal text with Vim keys, Space, and Enter",
+	description = "Select terminal scrollback with Vim keys and copy it",
 	run = function(ctx)
 		local source, err = rex.session.describe_block { block_id = ctx.block_id }
 		if not source then error(err, 0) end
@@ -68,38 +67,13 @@ rex.action {
 			end
 		end
 
-		local view
-		view, err = rex.session.view {}
-		if not view then error(err, 0) end
-		local function source_rect(node)
-			if not node then return end
-			if node.block_id == ctx.block_id then return node.rect end
-			if node.split then
-				return source_rect(node.split.before) or source_rect(node.split.after)
-			end
-		end
-		local bounds
-		for _, window in ipairs(view.windows) do
-			if window.window_id == source.block.window_id then
-				if window.zoomed_block_id == ctx.block_id then
-					bounds = { 0, 0, 1, 1 }
-				else
-					for _, layer in ipairs(window.layers) do
-						bounds = source_rect(layer.layout)
-						if bounds then break end
-					end
-				end
-			end
-		end
-		if not bounds then error("Copy mode could not locate the source pane", 0) end
-
-		local nvim = copy_mode_executable("nvim")
+		local viewer_bin = copy_mode_executable("rex-copy-mode")
 		local cli = copy_mode_executable("rex")
 
 		local viewer
 		viewer, err = rex.session.new_layer {
 			window_id = source.block.window_id,
-			bounds = bounds,
+			bounds = { 0, 0, 1, 1 },
 			focus = true,
 			layout = {
 				block = {
@@ -116,7 +90,7 @@ rex.action {
 							"/bin/sh", "-c",
 							[["$@"; "$REX_COPY_REX" --autostart=false focus -s "$REX_COPY_SOURCE_SESSION" "$REX_COPY_SOURCE_BLOCK"; exec "$REX_COPY_REX" --autostart=false block close -s "$REX_SESSION" "$REX_BLOCK"]],
 							"rex-copy-mode",
-							nvim, "--noplugin", "-n", "-i", "NONE", "-u", config_dir .. "/copy-mode.lua",
+							viewer_bin, "-rex", cli, "-session", ctx.session_id, "-block", ctx.block_id,
 						},
 						exit = { on_completion = true },
 					},
