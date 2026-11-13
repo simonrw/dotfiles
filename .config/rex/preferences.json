@@ -371,7 +371,7 @@
     "Workspace.terminalCopyOnSelect": false,
     "Workspace.terminalCursorBlinkIntervalMilliseconds": 0,
     "Workspace.terminalCursorBlinkUsesCustomInterval": false,
-    "Workspace.terminalFontName": "Monaspace Krypton NF",
+    "Workspace.terminalFontName": "JetBrainsMonoNL Nerd Font Mono",
     "Workspace.terminalFontSmoothing": true,
     "Workspace.terminalFontStyle": "Bold",
     "Workspace.terminalOptionKeyBehavior": "leftActsAsAlt",

@@ -23,7 +23,7 @@
               (lambda () (if (srw--mac-dark-mode-p) 'dark 'light)))
   (auto-dark-mode 1))
 
-(defvar srw-default-font-family "Monaspace Krypton NF"
+(defvar srw-default-font-family "JetBrainsMono NF"
   "Default global font family.")
 
 (defvar srw-default-font-weight 'bold
