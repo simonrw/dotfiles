@@ -11,6 +11,7 @@ alias notes='open -a Emacs ~/notes.org'
 alias thor='eza --group-directories-first --header -s modified -l'
 alias tree='eza --group-directories-first --header -T'
 alias pi-work="PI_CODING_AGENT_DIR=$HOME/work/localstack/.pi-localstack pi"
+alias claude-work="CLAUDE_CONFIG_DIR=$HOME/work/localstack/.claude-localstack claude"
 
 add-keys() {
     ssh-add "${(@f)$(find ~/.ssh -maxdepth 1 -type f -name "id_rsa*" | command rg -v 'pub|bak')}"
