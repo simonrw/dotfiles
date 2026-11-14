@@ -27,6 +27,7 @@ The second sentence is not needed - it explains why the design decision was a go
 * I use ripgrep (rg) not grep
 * I use 1Password and the `op` CLI for credential management, but NEVER try to access my credentials using this tool. You can look up account information but don't try to fetch credentials
 * I use `mise` (https://mise.jdx.dev/) for managing my project tools, so if a tool does not exist in your shell environment, consider using `mise exec -- <command>`
+* Even on macOS, I have as many GNU utilities as possible in my PATH (e.g. GNU `sed`, `find`, `date`), so use GNU syntax and flags rather than BSD ones
 
 # Writing code
 
