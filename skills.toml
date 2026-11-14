@@ -6,10 +6,7 @@ commands = [
 
 [sources.mattpocock]
 repo = "https://github.com/mattpocock/skills.git"
-skills = [
-    "skills/productivity/grill-me",
-    "skills/productivity/grilling",
-]
+skills = ["skills/engineering/*", "skills/productivity/*", "skills/misc/*"]
 
 # Includes improve-writing, which is no longer in mattpocock/skills.
 [sources.personal]

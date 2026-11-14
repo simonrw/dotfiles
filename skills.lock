@@ -1,5 +1,5 @@
 version = 1
-manifest_sha256 = "7cce567a3b5dc6b196e16b5176bafdcd0a06fb05a08f92d1f0d2bd1ad1d5176b"
+manifest_sha256 = "1c54fd799242ba858acc83dbb07a0c4b0c7762e1f0eddb1bc1e71b63171cb0df"
 
 [sources.diagrams]
 kind = "git"
@@ -19,8 +19,37 @@ patches = []
 tree_sha256 = "61e6472d6e20cb0161fa9149b1a1089cde35634f0b4e21af88f9960c565cba69"
 
 [sources.mattpocock.skills]
+"skills/engineering/ask-matt" = "ask-matt"
+"skills/engineering/code-review" = "code-review"
+"skills/engineering/codebase-design" = "codebase-design"
+"skills/engineering/diagnosing-bugs" = "diagnosing-bugs"
+"skills/engineering/domain-modeling" = "domain-modeling"
+"skills/engineering/grill-with-docs" = "grill-with-docs"
+"skills/engineering/implement" = "implement"
+"skills/engineering/implement-spec" = "implement-spec"
+"skills/engineering/improve-codebase-architecture" = "improve-codebase-architecture"
+"skills/engineering/pr" = "pr"
+"skills/engineering/prototype" = "prototype"
+"skills/engineering/research" = "research"
+"skills/engineering/retro" = "retro"
+"skills/engineering/setup-matt-pocock-skills" = "setup-matt-pocock-skills"
+"skills/engineering/tdd" = "tdd"
+"skills/engineering/to-spec" = "to-spec"
+"skills/engineering/to-tickets" = "to-tickets"
+"skills/engineering/triage" = "triage"
+"skills/engineering/wayfinder" = "wayfinder"
+"skills/engineering/wizard" = "wizard"
+"skills/misc/git-guardrails-claude-code" = "git-guardrails-claude-code"
+"skills/misc/migrate-to-shoehorn" = "migrate-to-shoehorn"
+"skills/misc/scaffold-exercises" = "scaffold-exercises"
+"skills/misc/setup-pre-commit" = "setup-pre-commit"
 "skills/productivity/grill-me" = "grill-me"
 "skills/productivity/grilling" = "grilling"
+"skills/productivity/handoff" = "handoff"
+"skills/productivity/teach" = "teach"
+"skills/productivity/to-questionnaire" = "to-questionnaire"
+"skills/productivity/wait-what" = "wait-what"
+"skills/productivity/writing-for-agents" = "writing-for-agents"
 
 [sources.personal]
 kind = "git"
