@@ -124,6 +124,7 @@ cask "blender" if not Helpers.is_work
 cask "daisydisk"
 cask "docker-desktop" if Helpers.docker_emulator == "docker-desktop"
 cask "docker/tap/sbx"
+cask "dotnet-sdk"  if not Helpers.is_work # for godot-mono
 cask "firefox"
 cask "fluidvoice"
 cask "font-jetbrains-mono-nerd-font"
@@ -131,7 +132,7 @@ cask "gammons/tap/slk"
 cask "ghostty"
 cask "gimp"
 cask "gitbutler"
-cask "godot" if not Helpers.is_work
+cask "godot-mono" if not Helpers.is_work
 cask "google-drive" if Helpers.is_work
 cask "hammerspoon"
 cask "helium-browser"
