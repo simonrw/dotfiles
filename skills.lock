@@ -4,9 +4,9 @@ manifest_sha256 = "1c54fd799242ba858acc83dbb07a0c4b0c7762e1f0eddb1bc1e71b63171cb
 [sources.diagrams]
 kind = "git"
 upstream = "https://github.com/cathrynlavery/diagram-design"
-revision = "f2496acbde9f45ccb55c24d4f75210c8a1355df8"
+revision = "f6db0decea96de66b901331a0f79a8d4b147ebae"
 patches = []
-tree_sha256 = "c0dde349b9970b0b3ff4028fa2d00d347bfdedcd52e14d294241074dac5c5e03"
+tree_sha256 = "570ff9ec13e9689790543916580adca23c8bf65e486e04ecf8bf188c05fcee1b"
 
 [sources.diagrams.skills]
 "skills/diagram-design" = "diagram-design"
@@ -14,9 +14,9 @@ tree_sha256 = "c0dde349b9970b0b3ff4028fa2d00d347bfdedcd52e14d294241074dac5c5e03"
 [sources.mattpocock]
 kind = "git"
 upstream = "https://github.com/mattpocock/skills.git"
-revision = "4ae2317ddb22b046e26455e4f9c9b3aaaf62212d"
+revision = "5863806dd4e15c63174bee4e7515a4256792ecfa"
 patches = []
-tree_sha256 = "61e6472d6e20cb0161fa9149b1a1089cde35634f0b4e21af88f9960c565cba69"
+tree_sha256 = "0c045e1ddbf6693851ef4edb3ea78621c0f0842046d622b07d800cb3ba141eb5"
 
 [sources.mattpocock.skills]
 "skills/engineering/ask-matt" = "ask-matt"
@@ -54,9 +54,9 @@ tree_sha256 = "61e6472d6e20cb0161fa9149b1a1089cde35634f0b4e21af88f9960c565cba69"
 [sources.personal]
 kind = "git"
 upstream = "https://github.com/simonrw/skills.git"
-revision = "7a6a4850accef7fbec42f2012a0625d6b2de2634"
+revision = "2baaa6056f28e1351f21f3c6028910e73e33dd7f"
 patches = []
-tree_sha256 = "c0b7759aaf41f1e1ba6dbb88199a1bd435dda9ff0533160896e562cbea7a1803"
+tree_sha256 = "9b45ceb4e07e350463f9dff2c878d63d50b150481358b7650ec8d8d0b3f8ca9e"
 
 [sources.personal.skills]
 "skills/handoff-claude-session" = "handoff-claude-session"
@@ -66,6 +66,7 @@ tree_sha256 = "c0b7759aaf41f1e1ba6dbb88199a1bd435dda9ff0533160896e562cbea7a1803"
 "skills/notify-me" = "notify-me"
 "skills/pair-with-me" = "pair-with-me"
 "skills/ping-pong" = "ping-pong"
+"skills/qa-this-change" = "qa-this-change"
 "skills/readable-code" = "readable-code"
 "skills/review-fix-loop" = "review-fix-loop"
 "skills/spike" = "spike"
