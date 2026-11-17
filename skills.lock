@@ -54,15 +54,16 @@ tree_sha256 = "0c045e1ddbf6693851ef4edb3ea78621c0f0842046d622b07d800cb3ba141eb5"
 [sources.personal]
 kind = "git"
 upstream = "https://github.com/simonrw/skills.git"
-revision = "2baaa6056f28e1351f21f3c6028910e73e33dd7f"
+revision = "7476771e0b7b6c0769929ee440baf22c5bc55f7a"
 patches = []
-tree_sha256 = "9b45ceb4e07e350463f9dff2c878d63d50b150481358b7650ec8d8d0b3f8ca9e"
+tree_sha256 = "d58811ec835b67410d2ee1a8dce270f7690293fa82c1f88aed0c77abcff340a1"
 
 [sources.personal.skills]
 "skills/handoff-claude-session" = "handoff-claude-session"
 "skills/help-code" = "help-code"
 "skills/improve-writing" = "improve-writing"
 "skills/make-note" = "make-note"
+"skills/my-code-review" = "my-code-review"
 "skills/notify-me" = "notify-me"
 "skills/pair-with-me" = "pair-with-me"
 "skills/ping-pong" = "ping-pong"
