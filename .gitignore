@@ -28,6 +28,7 @@ Library/Application\ Support/Cursor/*
 !/.codex/base.toml
 !/.codex/SYSTEM.md
 /.claude/*
+!/.claude/hooks
 !/.claude/base.json
 .config/worktrunk/approvals.toml*
 
