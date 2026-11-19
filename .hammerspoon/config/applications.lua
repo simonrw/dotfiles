@@ -1,6 +1,6 @@
 local intr = require('config/introspection')
 
-local browser_name = 'Firefox'
+local browser_name = 'Helium'
 -- if intr.hostname() == 'mba' or intr.hostname() == 'Simon’s MacBook Air' then
 --     -- Helium has some performance problems with Amazon on macOS 27
 --     -- browser_name = 'Safari'
