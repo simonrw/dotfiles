@@ -206,4 +206,8 @@ if command -v herdr >/dev/null; then
   for agent in pi codex claude; do herdr integration install "$agent"; done
 fi
 command -v hc >/dev/null || curl -fsSL https://releases.herdr.dev/core/install.sh | sh
+# work only
+if [[ "$(hostname -s)" = "walker-s" ]]; then
+    command -v blacksmith >/dev/null || curl -fsSL https://get.blacksmith.sh | sh
+fi
 '''
