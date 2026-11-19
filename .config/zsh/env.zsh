@@ -53,7 +53,8 @@ for directory in \
     /opt/homebrew/opt/grep/libexec/gnubin /opt/homebrew/opt/curl/bin \
     /opt/homebrew/opt/make/libexec/gnubin /opt/homebrew/opt/coreutils/libexec/gnubin \
     /opt/homebrew/opt/sqlite/bin "$HOME/.rd/bin" "$HOME/.config/emacs/bin" \
-    "$HOME/.antigravity/antigravity/bin"; do
+    "$HOME/.antigravity/antigravity/bin" \
+    "$HOME/Library/Application Support/bob/nvim-bin"; do
     [[ -d "$directory" ]] && __zsh_user_paths+=("$directory")
 done
 path=("${__zsh_user_paths[@]}" "$path[@]")
