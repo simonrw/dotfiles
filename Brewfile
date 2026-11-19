@@ -122,6 +122,7 @@ cask "1password-cli"
 cask "1password"
 cask "blender" if not Helpers.is_work
 cask "daisydisk"
+cask "discord" if not Helpers.is_work
 cask "docker-desktop" if Helpers.docker_emulator == "docker-desktop"
 cask "docker/tap/sbx"
 cask "dotnet-sdk"  if not Helpers.is_work # for godot-mono
