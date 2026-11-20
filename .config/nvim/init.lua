@@ -144,7 +144,6 @@ vim.pack.add({
     { src = gh('lewis6991/gitsigns.nvim') },
     { src = gh('nvim-treesitter/nvim-treesitter-context') },
     { src = gh('vim-test/vim-test') },
-    { src = gh('coder/claudecode.nvim') },
     { src = gh('noisesfromspace/touchup.nvim') },
     { src = gh('simonrw/ask-agent') },
     { src = gh('folke/zen-mode.nvim') },
@@ -272,18 +271,6 @@ vim.api.nvim_create_autocmd('FileType', {
 require("treesitter-context").setup({
     max_lines = 3,
 })
-
-require("claudecode").setup({
-    auto_start = false,
-    terminal = {
-        provider = "auto",
-    },
-})
-vim.keymap.set('n', '<localleader>ac', '<cmd>ClaudeCode<cr>', { desc = "Toggle Claude" })
-vim.keymap.set('n', '<localleader>ab', '<cmd>ClaudeCodeAdd %<cr>', { desc = "Add current buffer" })
-vim.keymap.set('v', '<localleader>as', '<cmd>ClaudeCodeSend<cr>', { desc = "Send to Claude" })
-vim.keymap.set('n', '<localleader>aa', '<cmd>ClaudeCodeDiffAccept<cr>', { desc = "Accept diff" })
-vim.keymap.set('n', '<localleader>ad', '<cmd>ClaudeCodeDiffDeny<cr>', { desc = "Deny diff" })
 
 require('zen-mode').setup({
     window = {
