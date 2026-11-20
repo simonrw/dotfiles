@@ -210,4 +210,5 @@ command -v hc >/dev/null || curl -fsSL https://releases.herdr.dev/core/install.s
 if [[ "$(hostname -s)" = "walker-s" ]]; then
     command -v blacksmith >/dev/null || curl -fsSL https://get.blacksmith.sh | sh
 fi
+command -v t3 >/dev/null || npx --yes t3@nightly install
 '''
