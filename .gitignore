@@ -38,3 +38,4 @@ Library/Application\ Support/Cursor/*
 /.bin/rex-copy-mode
 /.bin/zed-config
 *.pyc
+skills.local.toml
