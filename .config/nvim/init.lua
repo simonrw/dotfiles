@@ -154,7 +154,6 @@ vim.pack.add({
     { src = gh('mfussenegger/nvim-dap') },
     { src = gh('mfussenegger/nvim-dap-python') },
     { src = gh('igorlfs/nvim-dap-view') },
-    { src = "https://forge.barrettruth.com/barrettruth/diffs.nvim" },
     { src = gh('ThorstenRhau/brygga.nvim') },
 }, { confirm = false, load = true })
 
