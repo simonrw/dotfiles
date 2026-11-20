@@ -150,9 +150,6 @@ vim.pack.add({
     { src = gh('hedyhli/outline.nvim') },
     { src = gh('ibhagwan/fzf-lua') },
     { src = gh('nvim-lua/plenary.nvim') },
-    { src = gh('mfussenegger/nvim-dap') },
-    { src = gh('mfussenegger/nvim-dap-python') },
-    { src = gh('igorlfs/nvim-dap-view') },
     { src = gh('ThorstenRhau/brygga.nvim') },
 }, { confirm = false, load = true })
 
@@ -306,10 +303,6 @@ require("fzf-lua").setup({
     },
 })
 require("fzf-lua").register_ui_select()
-
-require("dap-python").setup("uv")
-require("dap-python").test_runner = "pytest"
-require("dap-view").setup({})
 
 function parse_grep_nul(s)
     if type(s) ~= "string" then
@@ -624,23 +617,6 @@ setkey('gi', function() require("fzf-lua").lsp_implementations() end)
 setkey('<leader>S', function() require("fzf-lua").lsp_document_symbols() end)
 setkey('<leader>s', function() require("fzf-lua").lsp_workspace_symbols() end)
 setkey('<leader>a', function() require("fzf-lua").lsp_code_actions() end)
-
--- dap keymaps (td prefix matches .ideavimrc)
-setkey('tdb', function() require('dap').toggle_breakpoint() end)
-setkey('tdv', function() require('dap').set_breakpoint(vim.fn.input('Breakpoint condition: ')) end)
-setkey('tdj', function() require('dap').run_to_cursor() end)
-setkey('tdt', function() require('dap').terminate() end)
-setkey('tdn', function() require('dap-python').test_method() end)
-setkey('tdc', function() require('dap-python').test_class() end)
-setkey('tdl', function() require('dap').run_last() end)
--- setkey('<leader>e', function() require("dap.ui.widgets").hover() end)
-
-setkey('tdw', ':DapViewToggle<cr>')
--- stepping (F-keys, standard debugger convention)
-setkey('<F9>', function() require('dap').continue() end)
-setkey('<F8>', function() require('dap').step_over() end)
-setkey('<F7>', function() require('dap').step_into() end)
-setkey('<S-F7>', function() require('dap').step_out() end)
 
 -- native LSP completion (nvim 0.12+)
 if vim.fn.has('nvim-0.12') == 1 then
