@@ -13,7 +13,7 @@ end
 
 local applications = {
     terminal = {
-        name = "Rex Beta",
+        name = "Rex",
     },
     browser = {
         name = browser_name,
