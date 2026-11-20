@@ -1,6 +1,8 @@
 #!/usr/bin/env bash
 
-main() {
+set -euo pipefail
+
+function tmux-kill-sessions() {
     SESSION="$(tmux list-sessions -F '#S' | fzf-tmux -m)"
     if [ -z "$SESSION" ]; then
         echo "No session selected" >&2
@@ -10,6 +12,30 @@ main() {
     for name in ${SESSION[@]}; do
         tmux kill-session -t "$name"
     done
+}
+
+function rex-kill-sessions() {
+    SESSION_IDS=$(rex session list --json \
+        | jq -r '.sessions[] | "\(.session_id)\t\(.label)"' \
+        | fzf -m --delimiter='\t' --with-nth=2 \
+        | cut -f1)
+    if [ -z "$SESSION_IDS" ]; then
+        echo "No session selected" >&2
+        return
+    fi
+
+    # shellcheck disable=SC2086
+    rex session kill $SESSION_IDS
+}
+
+main() {
+    case "$SESSION_BACKEND" in
+        tmux) tmux-kill-sessions ;;
+        rex) rex-kill-sessions ;;
+        *)
+            echo "Unknown session: '${SESSION_BACKEND}'" >&2
+            exit 1
+    esac
 }
 
 main
