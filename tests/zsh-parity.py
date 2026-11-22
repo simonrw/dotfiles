@@ -189,6 +189,19 @@ fi""")
         self.env["CARGO_EXIT"] = "7"
         self.assertEqual(self.zsh("cargo build; print $?").splitlines()[-1], "7")
         del self.env["CARGO_EXIT"]
+
+        drive = self.home / "drive"
+        drive.mkdir()
+        self.env["CARGO_TARGET_PREFIX"] = str(drive / "cargo-target")
+        external_dir = drive / "cargo-target" / target_dir.name
+        self.assertIn(f"target={external_dir}", self.zsh("cargo build"))
+        self.assertEqual((workspace / "target").resolve(), external_dir)
+
+        self.env["CARGO_TARGET_PREFIX"] = str(self.home / "unmounted" / "cargo-target")
+        self.assertIn(f"target={target_dir}", self.zsh("cargo build"))
+        self.assertEqual((workspace / "target").resolve(), target_dir)
+        del self.env["CARGO_TARGET_PREFIX"]
+
         (workspace / "target").unlink()
         (workspace / "target").mkdir()
         self.assertEqual(self.zsh("cargo build; print $?").strip(), "1")

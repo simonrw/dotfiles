@@ -72,7 +72,12 @@ cargo() {
 
     local hash=$(printf '%s' "$manifest" | shasum -a 256)
     hash=${hash%% *}
-    local -x CARGO_TARGET_DIR="$HOME/.cargo-target/$hash"
+
+    # Checked per invocation because the prefix's drive can be unmounted while the shell is open.
+    local prefix="$HOME/.cargo-target"
+    [[ -n "$CARGO_TARGET_PREFIX" && -w "${CARGO_TARGET_PREFIX:h}" ]] && prefix=$CARGO_TARGET_PREFIX
+
+    local -x CARGO_TARGET_DIR="$prefix/$hash"
     local target="${manifest:h}/target"
 
     if [[ -e "$target" && ! -L "$target" ]]; then
