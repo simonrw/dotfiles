@@ -342,7 +342,7 @@
     ]
   },
   "preferences": {
-    "RexAppUpdateChannel": "snapshot",
+    "RexAppUpdateChannel": "preview",
     "Workspace.activePaneBorderOpacity": 0.42167967557907104,
     "Workspace.activePaneBorderTransition": "off",
     "Workspace.animationStyle": "off",
