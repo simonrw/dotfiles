@@ -14,6 +14,15 @@ environment = { MISE_ENABLE_TOOLS = "caddy" }
 working_directory = "~/dotfiles"
 restart = "always"
 
+[bootstrap.linux.systemd.units.paseo]
+description = "Paseo daemon"
+exec_start = "mise exec -- paseo daemon run"
+environment = { MISE_ENABLE_TOOLS = "npm:@getpaseo/cli,node" }
+working_directory = "~"
+restart = "always"
+standard_output = "append:%h/.paseo/logs/boot-service.log"
+standard_error = "append:%h/.paseo/logs/boot-service.log"
+
 [bootstrap.linux.systemd.units.t3code]
 description = "T3 Code remote connection"
 exec_start = "bash -c 'exec %h/.local/bin/mise exec -- t3 serve --host \"$(tailscale ip -4)\"'"
