@@ -459,18 +459,23 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 })
 
 vim.api.nvim_create_autocmd('BufReadPost', {
-    pattern = { '*' },
     desc = 'When editing a file, always jump to the last known cursor position',
-    callback = function()
-        local line = vim.fn.line '\'"'
-        if
-            line >= 1
-            and line <= vim.fn.line '$'
-            and (vim.bo.filetype ~= 'commit') and (vim.bo.filetype ~= "gitcommit")
-            and vim.fn.index({ 'xxd', 'gitrebase' }, vim.bo.filetype) == -1
-        then
-            vim.cmd 'normal! g`"'
-        end
+    callback = function(args)
+        -- filetype detection runs after this autocmd, so wait until the buffer is displayed
+        vim.api.nvim_create_autocmd('BufWinEnter', {
+            once = true,
+            buffer = args.buf,
+            callback = function()
+                local line = vim.fn.line '\'"'
+                if
+                    line >= 1
+                    and line <= vim.fn.line '$'
+                    and not vim.tbl_contains({ 'commit', 'gitcommit', 'gitrebase', 'xxd' }, vim.bo[args.buf].filetype)
+                then
+                    vim.cmd 'normal! g`"'
+                end
+            end,
+        })
     end,
 })
 
