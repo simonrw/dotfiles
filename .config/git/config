@@ -103,13 +103,17 @@
 	colorMovedWS = "allow-indentation-change"
 	mnemonicPrefix = true
 	renames = true
-	tool = "meld"
+	tool = "omnidiff"
+	external = "omnidiff"
 
 [difftool]
 	prompt = false
 
 [difftool "meld"]
 	cmd = "meld $LOCAL $REMOTE"
+
+[difftool "omnidiff"]
+	cmd = "omnidiff $LOCAL $REMOTE"
 
 [difftool "vscode"]
 	cmd = "code --wait --diff $LOCAL $REMOTE"
