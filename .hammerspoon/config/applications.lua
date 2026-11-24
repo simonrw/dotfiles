@@ -34,7 +34,7 @@ local applications = {
         name = "Zed",
     },
     agent = {
-        name = "t3 code (nightly)",
+        name = "Paseo",
     },
 }
 
