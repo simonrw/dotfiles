@@ -27,7 +27,7 @@ The second sentence is not needed - it explains why the design decision was a go
 * I use ripgrep (rg) not grep
 * I use 1Password and the `op` CLI for credential management, but NEVER try to access my credentials using this tool. You can look up account information but don't try to fetch credentials
 * I use `mise` (https://mise.jdx.dev/) for managing my project tools, so if a tool does not exist in your shell environment, consider using `mise exec -- <command>`
-* In T3 Code, `watch_pull_request` stays silent when a PR that already has a failed check finishes its remaining checks. When waiting on such a PR, run `gh pr checks <number> --watch` as a background command, pass its task ID to `t3_background_wait`, then end the turn. This overrides T3's rule against `gh --watch` for PR waits.
+* If running within T3 Code, `watch_pull_request` stays silent when a PR that already has a failed check finishes its remaining checks. When waiting on such a PR, run `gh pr checks <number> --watch` as a background command, pass its task ID to `t3_background_wait`, then end the turn. This overrides T3's rule against `gh --watch` for PR waits.
 
 # Writing code
 
