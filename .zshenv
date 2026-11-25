@@ -4,3 +4,5 @@ if [[ "$OSTYPE" == darwin* && -S "$HOME/.ssh/macos-agent.sock" ]]; then
     export SSH_AUTH_SOCK="$HOME/.ssh/macos-agent.sock"
     unset SSH_AGENT_PID
 fi
+
+export T3CODE_TELEMETRY_ENABLED=false
