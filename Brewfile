@@ -163,6 +163,7 @@ cask "visual-studio-code"
 cask "vorssaint"
 cask "wacom-tablet" if not Helpers.hostname == "mba"
 cask "whatsapp"
+cask "zed-delta" if not Helpers.is_work
 cask "zed"
 cask "zoom"
 
