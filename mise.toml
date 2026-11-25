@@ -178,7 +178,7 @@ press_and_hold = false
 
 [bootstrap.macos.defaults]
 NSGlobalDomain = { AppleICUForce24HourTime = true, NSWindowShouldDragOnGesture = true, "com.apple.mouse.scaling" = -1.0, NSToolbarTitleViewRolloverDelay = 0, NSMenuEnableActionImages = false }
-"com.apple.dock" = { "show-process-indicators" = false, showhidden = false }
+"com.apple.dock" = { "show-process-indicators" = true, showhidden = true }
 "com.apple.finder" = { AppleShowAllExtensions = false, FXDefaultSearchScope = "SCcf", _FXShowPosixPathInTitle = true }
 "com.apple.screencapture" = { location = "~/Pictures/screenshots" }
 
