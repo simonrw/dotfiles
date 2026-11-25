@@ -4,9 +4,9 @@ manifest_sha256 = "9b3c22349907422aa2059eac24d05466c3f17ffffd18b46b95d341402187f
 [sources.diagrams]
 kind = "git"
 upstream = "https://github.com/cathrynlavery/diagram-design"
-revision = "d74d8c2d0c78a9e1efd43137f6a9a51182a8b5f0"
+revision = "b228c5d77794a84150fca41b22940bb316b1398d"
 patches = []
-tree_sha256 = "1ce869f865a2a9aecc4e4797a2447a147725ea7fba096b00787986616cbc9614"
+tree_sha256 = "3879e86247aad74c84b6a28d5e17489ff3d55e302968a65b08ab4cf039df7dc8"
 
 [sources.diagrams.skills]
 "skills/diagram-design" = "diagram-design"
@@ -14,9 +14,9 @@ tree_sha256 = "1ce869f865a2a9aecc4e4797a2447a147725ea7fba096b00787986616cbc9614"
 [sources.mattpocock]
 kind = "git"
 upstream = "https://github.com/mattpocock/skills.git"
-revision = "abeeaf95660ba9e8b7c753eb38f441ca707a8823"
+revision = "d65391149dbb5fe76478e76fa8d5122b2aa5a70e"
 patches = []
-tree_sha256 = "374c7ed09bc10498da3612b45af3fcb79fe3eace9ef16f8284a3bdead58d9b21"
+tree_sha256 = "29cdde3723eba59767852bf955638917b6b6383d523971b3c6b2a5e9110bff96"
 
 [sources.mattpocock.skills]
 "skills/engineering/ask-matt" = "ask-matt"
