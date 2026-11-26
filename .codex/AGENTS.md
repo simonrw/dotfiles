@@ -28,6 +28,7 @@ The second sentence is not needed - it explains why the design decision was a go
 * I use 1Password and the `op` CLI for credential management, but NEVER try to access my credentials using this tool. You can look up account information but don't try to fetch credentials
 * I use `mise` (https://mise.jdx.dev/) for managing my project tools, so if a tool does not exist in your shell environment, consider using `mise exec -- <command>`
 * If running within T3 Code, `watch_pull_request` stays silent when a PR that already has a failed check finishes its remaining checks. When waiting on such a PR, run `gh pr checks <number> --watch` as a background command, pass its task ID to `t3_background_wait`, then end the turn. This overrides T3's rule against `gh --watch` for PR waits.
+* Some repos use `jj` for version control. If this is the case then read my `jj` skill and use `jj` for version control. You can check if the command `jj root >/dev/null 2>&1 && ! git symbolic-ref -q HEAD >/dev/null` succeeds.
 
 # Writing code
 
