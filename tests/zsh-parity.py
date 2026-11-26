@@ -1,7 +1,6 @@
 #!/usr/bin/env python3
 """Check the Fish port in a temporary home, without changing the login shell."""
 
-import hashlib
 import os
 from pathlib import Path
 import pty
@@ -159,53 +158,6 @@ class ShellParity(unittest.TestCase):
                 '"$ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE"'
             ).splitlines()
             self.assertEqual(styles, ["fg=#" + color.split()[0] for color in colors])
-
-    def test_cargo_wrapper(self):
-        workspace = self.home / "workspace with spaces"
-        workspace.mkdir()
-        manifest = workspace / "Cargo.toml"
-        manifest.write_text("[workspace]\n")
-        self.env["MANIFEST"] = str(manifest)
-        self.stub("cargo", """
-if [ "$1" = "+nightly" ]; then shift; fi
-if [ "$1" = "locate-project" ]; then
-    [ "${OUTSIDE:-0}" = 1 ] && exit 1
-    printf '%s\\n' "$MANIFEST"
-else
-    printf 'target=%s\\n' "${CARGO_TARGET_DIR:-}"
-    printf 'arg=%s\\n' "$@"
-    exit "${CARGO_EXIT:-0}"
-fi""")
-        target_dir = self.home / ".cargo-target" / hashlib.sha256(str(manifest).encode()).hexdigest()
-        for args in ["build", "+nightly check", f'check --manifest-path "{manifest}"', f'check --manifest-path="{manifest}"']:
-            output = self.zsh("cargo " + args)
-            self.assertIn(f"target={target_dir}", output)
-            self.assertEqual((workspace / "target").resolve(), target_dir)
-        output = self.zsh("cargo build --target-dir explicit")
-        self.assertIn("target=\n", output)
-        self.env["OUTSIDE"] = "1"
-        self.assertIn("target=\n", self.zsh("cargo new example"))
-        del self.env["OUTSIDE"]
-        self.env["CARGO_EXIT"] = "7"
-        self.assertEqual(self.zsh("cargo build; print $?").splitlines()[-1], "7")
-        del self.env["CARGO_EXIT"]
-
-        drive = self.home / "drive"
-        drive.mkdir()
-        self.env["CARGO_TARGET_PREFIX"] = str(drive / "cargo-target")
-        external_dir = drive / "cargo-target" / target_dir.name
-        self.assertIn(f"target={external_dir}", self.zsh("cargo build"))
-        self.assertEqual((workspace / "target").resolve(), external_dir)
-
-        self.env["CARGO_TARGET_PREFIX"] = str(self.home / "unmounted" / "cargo-target")
-        self.assertIn(f"target={target_dir}", self.zsh("cargo build"))
-        self.assertEqual((workspace / "target").resolve(), target_dir)
-        del self.env["CARGO_TARGET_PREFIX"]
-
-        (workspace / "target").unlink()
-        (workspace / "target").mkdir()
-        self.assertEqual(self.zsh("cargo build; print $?").strip(), "1")
-        self.assertTrue((workspace / "target").is_dir())
 
     def test_helpers(self):
         self.stub("testsearch", "printf 'one test.py::test_a\\ntwo.py::test_b\\n'")

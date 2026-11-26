@@ -1,10 +1,12 @@
+wrappers = { cargo = { command = "mbx", env = { MBX_CARGO_SHIM_MODE = "1" } } }
 [env]
 # Resolve unreleased meat commits directly, including during version discovery.
 GONOPROXY = "github.com/simonrw/meat,github.com/simonrw/skills-sync,github.com/simonrw/dap-debugger"
 
 [tools]
 go = "latest"
-rust = { version = "stable", components = "rust-src,rust-analyzer" }
+rust = { version = "stable", components = "rust-src,rust-analyzer", mr_boxington = true }
+"mr-boxington" = "latest"
 "pipx:ipython" = "latest"
 python = "latest"
 "go:github.com/simonrw/cert-info" = "0"
