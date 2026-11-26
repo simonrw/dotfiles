@@ -152,6 +152,7 @@ cask "ollama-app"
 cask "paseo"
 cask "pocket-casts"
 cask "railwaycat/emacsmacport/emacs-mac"
+cask "reaper" if not Helpers.is_work
 cask "shotcut"
 cask "slack"
 cask "steam" if not Helpers.is_work
