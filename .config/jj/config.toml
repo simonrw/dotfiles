@@ -11,8 +11,6 @@ merge-editor = "weave"
 # Add git compatible change id header
 # source: https://oppi.li/posts/configuring_jujutsu/
 write-change-id-header = true
-# sign commits on push
-sign-on-push = true
 
 [signing]
 behaviour = "own"
@@ -40,6 +38,8 @@ conflict-marker-style = "git"
 [revsets]
 # https://github.com/willhbr/dotfiles/blob/ca9cabda249d0f77e09263af30760e8c5603d1a7/jj/jjconfig.toml#L25
 log = '@ | ancestors(trunk()..(visible_heads() & mine()), 2) | trunk()'
+# sign commits on push
+git-sign-on-push = '~signed() & mine()'
 
 [aliases]
 tug = ["bookmark", "advance", "--to", "@-"]
