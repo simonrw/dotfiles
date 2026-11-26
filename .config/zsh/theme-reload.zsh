@@ -41,6 +41,8 @@ __zsh_theme_prompt() {
 }
 
 __zsh_theme_cleanup() {
+    # Subshells that call exit also run zshexit hooks, but the reader belongs to the main shell.
+    (( sysparams[pid] == $$ )) || return 0
     zle -F "$__zsh_theme_fd"
     exec {__zsh_theme_fd}>&-
     command rm -f -- "$__zsh_theme_dir/notify"

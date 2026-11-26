@@ -242,6 +242,14 @@ print -s -- 'echo unfinished suggestion'
             self.assertIn(f"--color {mode}", after[4])
             self.assertTrue(after[5].endswith(f"/bat/{mode}/config"))
 
+    def test_subshell_exit_keeps_parent_reader(self):
+        pane = self.new_shell("subshell", standalone=True)
+        self.tmux("send-keys", "-t", pane, "( exit )", "Enter")
+        time.sleep(0.2)
+
+        self.reload("dark", server=False)
+        self.wait_for(lambda: self.snapshot(pane)[3] == "1")
+
     def test_no_tmux_still_updates_other_apps(self):
         self.reload("dark", server=False)
         self.assertIn(
