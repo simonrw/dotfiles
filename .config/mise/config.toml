@@ -49,7 +49,7 @@ caddy = "latest"
 "github:simonrw/skills-sync" = { version = "latest", prerelease = true }
 "go:github.com/simonrw/meat/cmd/meat" = "latest"
 "go:github.com/simonrw/dap-debugger" = "latest"
-"github:ivankovic/omnidiff" = "latest"
+difftastic = "latest"
 
 
 [tools."github:simonrw/listprojects"]

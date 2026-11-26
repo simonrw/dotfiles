@@ -2,7 +2,7 @@
 default-command = "status"
 pager = "delta"
 diff-editor = ":builtin"
-diff-formatter = ":git"
+diff-formatter = "difft"
 merge-editor = "weave"
 
 
@@ -21,8 +21,8 @@ key = "~/.ssh/id_signing.pub"
 email = "s.r.walker101@googlemail.com"
 name = "Simon Walker"
 
-[mergetools.difft]
-diff-args = ["--color=always", "$left", "right"]
+[merge-tools.difft]
+diff-args = ["--color=always", "$left", "$right"]
 
 [merge-tools.weave]
 program = "weave-driver"
