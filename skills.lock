@@ -14,9 +14,9 @@ tree_sha256 = "3879e86247aad74c84b6a28d5e17489ff3d55e302968a65b08ab4cf039df7dc8"
 [sources.mattpocock]
 kind = "git"
 upstream = "https://github.com/mattpocock/skills.git"
-revision = "d65391149dbb5fe76478e76fa8d5122b2aa5a70e"
+revision = "6f7f7831a625f040a8e06a0e7954826b87ce775a"
 patches = []
-tree_sha256 = "29cdde3723eba59767852bf955638917b6b6383d523971b3c6b2a5e9110bff96"
+tree_sha256 = "9d6fdd6b71ba961bee428bfbe530ab9bcbdce18c989db80c8dbf30ec17ed6417"
 
 [sources.mattpocock.skills]
 "skills/engineering/ask-matt" = "ask-matt"
@@ -54,14 +54,15 @@ tree_sha256 = "29cdde3723eba59767852bf955638917b6b6383d523971b3c6b2a5e9110bff96"
 [sources.personal]
 kind = "git"
 upstream = "https://github.com/simonrw/skills.git"
-revision = "a68a0bf4c0cb46c04ae85ab101ab62e5f4e0901a"
+revision = "51632d126483730cfcdc19055651fa8df2593164"
 patches = []
-tree_sha256 = "22f08a11bd740263fcdc20fde6b5093281c2a9a717d68355f8a948652e515553"
+tree_sha256 = "9e6dba4ff501696766a84d979c9fcf6cbfeb3c829227a0bc1fe3fb30f1811797"
 
 [sources.personal.skills]
 "skills/handoff-claude-session" = "handoff-claude-session"
 "skills/help-code" = "help-code"
 "skills/improve-writing" = "improve-writing"
+"skills/jj" = "jj"
 "skills/make-note" = "make-note"
 "skills/my-code-review" = "my-code-review"
 "skills/notify-me" = "notify-me"
@@ -73,7 +74,6 @@ tree_sha256 = "22f08a11bd740263fcdc20fde6b5093281c2a9a717d68355f8a948652e515553"
 "skills/spike" = "spike"
 "skills/summarise-youtube" = "summarise-youtube"
 "skills/test-audit" = "test-audit"
-"skills/unslop" = "unslop"
 
 [sources.private]
 kind = "git"
