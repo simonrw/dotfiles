@@ -1,15 +1,5 @@
 version = 1
-manifest_sha256 = "1c54fd799242ba858acc83dbb07a0c4b0c7762e1f0eddb1bc1e71b63171cb0df"
-
-[sources.diagrams]
-kind = "git"
-upstream = "https://github.com/cathrynlavery/diagram-design"
-revision = "795eec47fd376e5dda0b9e056a49520060cd2f13"
-patches = []
-tree_sha256 = "47a50cbc188ea86ae0a76a9e2e8921f66815830faef7017c99df4be87212ce5a"
-
-[sources.diagrams.skills]
-"skills/diagram-design" = "diagram-design"
+manifest_sha256 = "d3900f8864bde283a4f6591096274121346476118f90ab01390db26a5103674a"
 
 [sources.mattpocock]
 kind = "git"
