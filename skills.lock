@@ -1,5 +1,5 @@
 version = 1
-manifest_sha256 = "d3900f8864bde283a4f6591096274121346476118f90ab01390db26a5103674a"
+manifest_sha256 = "edc38bef390908df94182a41f717ad55c876331e8b465e59841a4ebf4267609e"
 
 [sources.mattpocock]
 kind = "git"
