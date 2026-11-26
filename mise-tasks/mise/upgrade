@@ -4,6 +4,9 @@
 
 set -euo pipefail
 
+# The mise-versions.jdx.dev mirror lags GitHub, hiding fresh releases
+export MISE_USE_VERSIONS_HOST=0
+
 (cd "$HOME" && mise upgrade)
 
 (cd "$HOME" && mise ls --json | jq -r '
