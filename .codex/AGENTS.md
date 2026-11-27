@@ -64,7 +64,7 @@ Make each module deep: a simple interface hiding a lot of behavior. If deleting 
 
 # Rust
 
-* Do not assume the `target` dir for built outputs. I have a custom path set with `$CARGO_TARGET_DIR` so debug builds are under `$CARGO_TARGET_DIR/debug`, documentation is under `$CARGO_TARGET_DIR/docs` etc.
+* I use mr-boxington (`mbx`) to cache Rust builds. Keep using plain `cargo` commands, which run through `mbx`. Each checkout's `target` is a link to an mbx-managed directory, so build outputs are still reachable under `target/debug`, `target/doc` etc. Use `mbx doctor` or `mbx explain` to diagnose build cache problems.
 * Do not assume `~/.cargo` for the cargo registry files. I have a custom path set with `$CARGO_HOME`.
 
 # Python
